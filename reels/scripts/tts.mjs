@@ -1,10 +1,14 @@
-// Uzbek TTS via Voicelab (Aisha) API. UNTESTED: verify with a short phrase first.
-// Usage: AISHA_API_KEY=... node scripts/tts.mjs "<text>" public/voice.wav [mood] [speed]
-import {writeFileSync} from 'node:fs';
+// Uzbek TTS via Voicelab (Aisha). Key comes ONLY from env AISHA_API_KEY (never written to files).
+// Usage: node scripts/tts.mjs "<text>" public/voice.wav [mood] [speed]
+import {writeFileSync, mkdtempSync, rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {execFileSync} from 'node:child_process';
 
 const [text, out, mood = 'Neutral', speed = '1.0'] = process.argv.slice(2);
-const key = process.env.AISHA_API_KEY;
 if (!text || !out) throw new Error('usage: tts.mjs "<text>" <out.wav> [mood] [speed]');
+// Clean common paste mistakes: whitespace/newlines, quotes, "Bearer " prefix.
+const key = (process.env.AISHA_API_KEY || '').trim().replace(/^["']|["']$/g, '').replace(/^Bearer\s+/i, '').trim();
 if (!key) throw new Error('AISHA_API_KEY is not set');
 
 const BASE = 'https://back.aisha.group';
@@ -18,7 +22,8 @@ while (rest.length > 1000) {
 }
 if (rest) chunks.push(rest);
 
-const parts = [];
+const tmp = mkdtempSync(join(tmpdir(), 'tts-'));
+const files = [];
 for (const [i, c] of chunks.entries()) {
   const form = new FormData();
   form.set('transcript', c);
@@ -26,15 +31,23 @@ for (const [i, c] of chunks.entries()) {
   form.set('model', 'Gulnoza');
   form.set('mood', mood);
   form.set('speed', speed);
-  const res = await fetch(`${BASE}/api/v1/tts/post/`, {method: 'POST', headers: {'X-Api-Key': key, 'Accept-Language': 'uz'}, body: form});
+  const res = await fetch(`${BASE}/api/v1/tts/post/`, {method: 'POST', headers: {'X-Api-Key': key}, body: form});
   if (!res.ok) throw new Error(`chunk ${i}: HTTP ${res.status} ${await res.text()}`);
   const {audio_path} = await res.json();
   const url = audio_path.startsWith('http') ? audio_path : BASE + audio_path;
   const audio = await fetch(url);
   if (!audio.ok) throw new Error(`download ${url}: HTTP ${audio.status}`);
-  parts.push(Buffer.from(await audio.arrayBuffer()));
+  const f = join(tmp, `p${i}.wav`);
+  writeFileSync(f, Buffer.from(await audio.arrayBuffer()));
+  files.push(f);
   console.log(`chunk ${i + 1}/${chunks.length} ok (${c.length} chars)`);
 }
-if (parts.length > 1) console.warn('Multiple chunks: save each part separately/concatenate with ffmpeg; writing first only.');
-writeFileSync(out, parts[0]);
-console.log('saved', out, '(' + chunks.length + ' chunk(s); extra chunks need ffmpeg concat)');
+if (files.length === 1) {
+  execFileSync('cp', [files[0], out]);
+} else {
+  const list = join(tmp, 'list.txt');
+  writeFileSync(list, files.map((f) => `file '${f}'`).join('\n'));
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', out]);
+}
+rmSync(tmp, {recursive: true, force: true});
+console.log('saved', out);
