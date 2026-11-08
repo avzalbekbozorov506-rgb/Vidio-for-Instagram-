@@ -18,7 +18,14 @@
 - Стиль: узбекский, простые объяснения (экономика, история). Крючок в первой фразе. Простой пример (хлеб в селе, весы). В конце призыв из трёх частей: комментарий («Sizningcha…»), отправить близкому, подписка. Хэштеги `#oddiymohiyat #o'zbekcha #pul #iqtisod #tarix`. Дисклеймер «это простой пример, не финансовый совет».
 - Сами видеофайлы ещё НЕ скачивались и не разбирались (можно `fetch_asset` из ShapelessAI по mediaKeys в `posts_list`).
 
-## Озвучка (решение: Voicelab.uz = Aisha)
+## ОБНОВЛЕНИЕ (сессия 2): рабочий API озвучки
+Ключ `vlk_...` в `AISHA_API_KEY` относится к НОВОМУ VoiceLab API, а не к старому Aisha ниже (тот даёт 403 invalid_api_key_format).
+- `POST https://api.voicelab.uz/v1/tts`, заголовок `Authorization: Bearer <ключ>`, JSON: `text` (до 5000 симв.), `language=uz`, `voice_id`, `speed` (0.5–2.0). Ответ 200 = WAV 24 кГц, 1 символ = 1 кредит. Документация: https://docs.voicelab.uz/llms.txt
+- Узбекские голоса: `GET /v1/voices?language=uz` (около 19). Amir (рассказчик, м) `voice_8bae02c6-d078-4757-9d62-0fce6da23cf7`, Javohir (ведущий, м) `voice_fa56cecf-9b0b-45ba-9ec3-494efb5b301f`, Safiya (разговорный, ж) `voice_2785aabd-21b5-4cc7-9845-2230186ef7d9`, Shohruxmirzo (образование, м) `voice_jABVrmH-0x6pbYefNCuYfH6H`, Gulnoza `voice_01J9NEUTRAL0000000000000001`.
+- `reels/scripts/tts.mjs` переписан и ПРОВЕРЕН (тест 59 символов, Amir). Запуск: `node scripts/tts.mjs "<текст>" public/voice.wav [voice_id] [speed]`.
+- Также есть MCP `https://mcp.voicelab.uz/mcp` (OAuth), здесь не подключён.
+
+## Озвучка (СТАРОЕ, не использовать: Voicelab.uz = Aisha)
 Пользователь купил тариф Starter на voicelab.uz (60 000 UZS/мес, 60 000 кредитов, около 1 часа текста в речь). Ключ API создан, его пользователь кладёт в переменную среды `AISHA_API_KEY` (email не нужен). Старые `ZVUKOGRAM_*` не использовать.
 - Base URL: `https://back.aisha.group`. Документация: https://aisha.group/en/api-documentation/text-to-speech
 - `POST /api/v1/tts/post/`, заголовок `X-Api-Key: <ключ>`, поля формы (multipart): `transcript` (макс. 1000 символов), `language=uz`, `model=Gulnoza`, `mood` (Neutral, Cheerful, Happy, Sad), `speed` (0 или 0.5–2.0).
@@ -66,3 +73,7 @@
 - Выбрано: озвучка через Voicelab (Aisha), голос Gulnoza; ElevenLabs и FreeTTS как запасные. Ключ лежит в переменной среды `AISHA_API_KEY` (пользователь добавляет сам).
 - Не сделано: ключ не проверен реальным запросом, три рилса пользователя не скачаны и не разобраны, пробный рилс не собран, тест ElevenLabs не прошёл (сервер был занят).
 - Следующий шаг: проверить `AISHA_API_KEY`, тест озвучки Gulnoza на 50–100 символов, затем разбор стиля рилсов и пробный рилс «инфляция и хлеб».
+
+### Сессия 2 (2026-11-08)
+- Выяснено: ключ `vlk_` работает только с `api.voicelab.uz`. `tts.mjs` переписан и проверен, тест озвучки Amir прошёл (`reels/public/voice-test.wav`).
+- Дальше: пользователь выбирает голос на слух, затем озвучка полного текста «инфляция и хлеб», шаблон рилса с субтитрами.
