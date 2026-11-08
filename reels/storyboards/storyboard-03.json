@@ -1,0 +1,188 @@
+{
+  "id": "storyboard-03",
+  "script": "script-03",
+  "variant": "remotion",
+  "concept": "Сундук и колба «QADRI»: деньги в сундуке (10 пачек, 10 000 000 so'm) весь ролик не меняются ни по числу, ни по размеру, а стоящая рядом колба с золотой жидкостью «QADRI» медленно вытекает (100 % → 93 % → 70 %). Деньги на месте, ценность утекает.",
+  "duration_note": "оценка: озвучки ещё нет, duration_s = 1,2 с + символы/18 по каждой карточке; после tts-cards.mjs заменить на public/vo-03/durations.json и пропорционально сдвинуть at_s",
+  "total_s": 44.3,
+  "palette": {
+    "bg": "#0d231c",
+    "accent": "#d4a935",
+    "text": "#f4f0e4",
+    "paper": "#efe6d0",
+    "wood": "#8a5a2b",
+    "wood_dark": "#5b3a1c",
+    "loss": "#c8432f",
+    "ok": "#4caf6a",
+    "ink": "#26231c"
+  },
+  "layout": {
+    "headings": "y 240–520 (Title/Header всегда с top ≥ 240, не 140/150 как в Turkic)",
+    "main_scene": "y 560–1150, x 80–960; сандик по центру x≈580, ширина ≈560 (x 300–860)",
+    "qadri_gauge": "слева x 100–190, y 600–1100, на всех карточках в одном месте",
+    "notes": "мелкие пометки y 1170–1235",
+    "subtitles": "Subtitles y=1300 (полоса 1250–1500)",
+    "source_disclaimer": "мелко 24–26 px, y≈1510–1535, x 80–960"
+  },
+  "music": "bed.wav тихо (−24 dB под голос). Карточки 1–3 ровно и тихо; 4–6 чуть громче (+3 dB) с нарастанием на лесенке; в начале карточки 7 на 0,4 с почти тишина перед «Sandiq pulni…»; карточка 8 мягкое затухание до тишины к моменту закрытия крышки (для loop).",
+  "new_blocks": [
+    "Chest (Sandiq): деревянный сундук SVG (доски, железные уголки, золотой навесной замок), props: open 0..1 (крышка), shake, glow; внутри пачки денег",
+    "MoneyBundle: пачка купюр SVG без реального дизайна банкноты (кремово-зелёный прямоугольник с бандеролью «1 mln»), props: label, hop",
+    "QadriGauge: вертикальная колба-шкала с золотой жидкостью, подпись «QADRI», props: from, to (0..1), marks, drip (капли), redGlow",
+    "Counter: счётчик числа с пробелами по разрядам и запятой («10 000 000», «7,3», «9,3»), props: from, to, decimals, suffix, color",
+    "PriceTag: бумажный ценник на нитке без цифр (слово «NARX» + нарисованная стрелка вверх), props: item (non | go'sht | yog'), rise",
+    "Basket + items: корзина SVG с 14 иконками продуктов (non, go'sht, yog', sut, guruch...), props: remove (сколько исчезает)",
+    "Staircase: 6 ступеней вниз слева направо с подписями значений и лет, персонаж-пачка прыгает по ступеням",
+    "StickFigure: человечек в стиле @bayon.life (вор в маске), отскакивает от замка",
+    "Arrow / CheckMark / Cross: стрелки, галочка и крестик рисуются SVG-штрихом (stroke-dash), НЕ символами шрифта",
+    "SmallNote: мелкая строка (источник, «taxminiy», дисклеймер), 24–26 px, Montserrat 600"
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "duration_s": 4.7,
+      "duration_source": "оценка",
+      "vo": "Sandiqdagi pulingizni hech kim olmadi. Lekin u baribir kamaydi.",
+      "subtitles": ["Sandiqdagi pulingizni", "hech kim olmadi.", "Lekin u", "baribir kamaydi."],
+      "subtitle_highlight": ["olmadi", "kamaydi"],
+      "beats": [
+        {"at_s": 0.0, "block": "Chest + Title", "props": {"chest": {"open": 0, "x": 580, "y": 860, "w": 560}, "lines": [{"t": "HECH KIM OLMADI.", "color": "#f4f0e4"}, {"t": "LEKIN KAMAYDI", "color": "#d4a935"}], "top": 260, "size": 112, "first_frame_visible": true}, "desc": "ПЕРВЫЙ КАДР ГОТОВ С КАДРА 0 (без fade-in из пустоты): закрытый сундук, целый золотой замок, сверху заголовок. Слева полная золотая колба QADRI.", "camera": "push-in 1.00→1.06 за всю карточку", "sfx": "низкий гул, тихий щелчок замка", "production": "remotion"},
+        {"at_s": 0.0, "block": "QadriGauge (новый блок)", "props": {"x": 145, "top": 600, "h": 500, "from": 1.0, "to": 1.0, "label": "QADRI"}, "desc": "Колба полная, видна с первого кадра", "camera": "static", "sfx": null, "production": "remotion"},
+        {"at_s": 1.3, "block": "Chest (новый блок)", "props": {"lockGlint": true}, "desc": "По замку пробегает блик: замок цел, никто не открывал", "camera": "static", "sfx": "металлический «дзинь»", "production": "remotion"},
+        {"at_s": 2.4, "block": "QadriGauge (новый блок)", "props": {"from": 1.0, "to": 0.7, "over_s": 2.0, "drip": true}, "desc": "Тизер: жидкость в колбе быстро оседает, из щели под сундуком падают золотые капли (сундук закрыт, деньги на месте)", "camera": "static", "sfx": "капли, тянущийся низкий тон", "production": "remotion"},
+        {"at_s": 3.6, "block": "Title (вариант: одиночный знак)", "props": {"lines": [{"t": "?", "color": "#d4a935"}], "x": 580, "top": 560, "size": 150}, "desc": "Над сундуком выпрыгивает большой «?» (между заголовком и сундуком)", "camera": "static", "sfx": "мягкий удар", "production": "remotion"}
+      ],
+      "transition_out": "крышка сундука резко открывается (match cut на карточку 2)",
+      "ai_prompt": null
+    },
+    {
+      "n": 2,
+      "role": "gap",
+      "duration_s": 4.81,
+      "duration_source": "оценка",
+      "vo": "Sanab ko'rsangiz, bitta so'm ham kam emas. Kamaygan narsa boshqa.",
+      "subtitles": ["Sanab ko'rsangiz,", "bitta so'm", "ham kam emas.", "Kamaygan narsa boshqa."],
+      "subtitle_highlight": ["kam", "boshqa"],
+      "beats": [
+        {"at_s": 0.0, "block": "Chest (новый блок)", "props": {"open": {"from": 0, "to": 1, "over_s": 0.4}, "glow": true}, "desc": "Крышка открывается, из сундука тёплый свет, видны пачки", "camera": "лёгкий подскок масштаба 1.04→1.0", "sfx": "скрип крышки", "production": "remotion"},
+        {"at_s": 0.7, "block": "MoneyBundle ×10 + Counter (новые блоки)", "props": {"bundles": 10, "label": "1 mln", "row": {"x0": 300, "x1": 860, "y": 1080}, "counter": {"from": 0, "to": 10000000, "suffix": " so'm", "top": 300, "size": 120, "color": "#f4f0e4"}}, "desc": "Пачки по одной выпрыгивают из сундука в ряд, счётчик сверху бежит до 10 000 000 so'm", "camera": "static", "sfx": "шелест пересчёта купюр", "production": "remotion"},
+        {"at_s": 2.4, "block": "CheckMark (новый блок)", "props": {"x": 540, "y": 460, "size": 90, "color": "#4caf6a", "draw_s": 0.4}, "desc": "Счётчик застыл на «10 000 000 so'm», под ним рисуется зелёная галочка (SVG-штрих, не символ ✓)", "camera": "static", "sfx": "чистый «динь»", "production": "remotion"},
+        {"at_s": 3.4, "block": "Tag + QadriGauge", "props": {"tag": {"x": 330, "y": 620, "text": "Kamaygan narsa: QADRI", "lineTo": [190, 700]}, "gauge": {"from": 1.0, "to": 1.0, "redGlow": true}}, "desc": "Колба QADRI (снова полная, это начало примера) вспыхивает красным контуром, бумажный ярлык указывает на неё", "camera": "сдвиг кадра влево на 40 px к колбе", "sfx": "короткий woosh", "production": "remotion"}
+      ],
+      "transition_out": "сверху вниз «нырок» в открытый сундук (zoom-in через крышку)",
+      "ai_prompt": null
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "duration_s": 4.92,
+      "duration_source": "оценка",
+      "vo": "Tasavvur qiling: sandiqda o'n million so'm yotibdi. Bu oddiy misol.",
+      "subtitles": ["Tasavvur qiling:", "sandiqda o'n million", "so'm yotibdi.", "Bu oddiy misol."],
+      "subtitle_highlight": ["million", "misol"],
+      "beats": [
+        {"at_s": 0.0, "block": "Chest top-down + MoneyBundle ×10", "props": {"view": "сверху", "grid": "2×5", "label": "1 mln"}, "desc": "Вид в сундук сверху: 10 пачек ровной сеткой 2×5, каждая с бандеролью «1 mln»", "camera": "zoom-in 1.1→1.0 (приземление после нырка)", "sfx": "мягкое «пух» ткани", "production": "remotion"},
+        {"at_s": 1.4, "block": "Header", "props": {"label": "MISOL", "value": "10 mln so'm", "top": 260}, "desc": "Сверху: мелко «MISOL», крупно золотом «10 mln so'm» (on_screen сценария)", "camera": "static", "sfx": "низкий удар", "production": "remotion"},
+        {"at_s": 3.0, "block": "Tag", "props": {"x": 700, "y": 1180, "text": "Bu oddiy misol", "rot": -4, "size": 40}, "desc": "Бумажный ярлык-штамп «Bu oddiy misol» ложится на угол сундука", "camera": "static", "sfx": "штамп", "production": "remotion"},
+        {"at_s": 3.0, "block": "QadriGauge", "props": {"from": 1.0, "to": 1.0, "marks": [{"v": 1.0, "t": "10"}]}, "desc": "Колба QADRI полная, у верха метка «10» (стартовая точка)", "camera": "static", "sfx": null, "production": "remotion"}
+      ],
+      "transition_out": "пачка из сундука уезжает вправо, за ней въезжает полка с ценниками (push)",
+      "ai_prompt": null
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "duration_s": 5.76,
+      "duration_source": "оценка",
+      "vo": "Markaziy bank ma'lumotiga ko'ra, o'tgan yili narxlar yetti foizdan ko'proq oshgan.",
+      "subtitles": ["Markaziy bank", "ma'lumotiga ko'ra,", "o'tgan yili narxlar", "yetti foizdan", "ko'proq oshgan."],
+      "subtitle_highlight": ["narxlar", "yetti", "foizdan"],
+      "beats": [
+        {"at_s": 0.0, "block": "PriceTag ×3 (новый блок)", "props": {"items": ["non", "go'sht", "yog'"], "y": 980, "xs": [300, 560, 820], "text": "NARX"}, "desc": "Три иконки (лепёшка-non, кусок мяса, бутылка масла) на полке, на каждой бумажный ценник на нитке со словом «NARX» (без выдуманных цен)", "camera": "static", "sfx": "лёгкий клик", "production": "remotion"},
+        {"at_s": 1.3, "block": "PriceTag rise + Arrow", "props": {"rise_px": 220, "stagger_s": 0.2, "arrow": {"dir": "up", "color": "#c8432f"}}, "desc": "Ценники как воздушные шарики поднимаются вверх, на каждом рисуется красная стрелка вверх (SVG)", "camera": "tilt-up на 60 px вслед за ценниками", "sfx": "восходящий woosh", "production": "remotion"},
+        {"at_s": 2.6, "block": "Header + Counter", "props": {"label": "2025: inflyatsiya", "counter": {"from": 0, "to": 7.3, "decimals": 1, "suffix": " %"}, "top": 260, "color": "#d4a935"}, "desc": "Крупно счётчик 0 → «7,3 %», над ним «2025: inflyatsiya» (точно on_screen сценария)", "camera": "punch-in 1.0→1.04", "sfx": "удар на «yetti foizdan»", "production": "remotion"},
+        {"at_s": 4.0, "block": "SmallNote (новый блок)", "props": {"text": "Manba: O'zbekiston Respublikasi Markaziy banki, 2025-yil yillik hisoboti", "y": 1515, "size": 24}, "desc": "Источник мелко внизу, в безопасной зоне", "camera": "static", "sfx": null, "production": "remotion"},
+        {"at_s": 4.0, "block": "QadriGauge", "props": {"from": 1.0, "to": 1.0, "pulse": true}, "desc": "Колба пока полная, но дрожит/мигает (угроза)", "camera": "static", "sfx": null, "production": "remotion"}
+      ],
+      "transition_out": "ценники улетают вверх за кадр, снизу въезжают две корзины (wipe up)",
+      "ai_prompt": null
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "duration_s": 6.03,
+      "duration_source": "оценка",
+      "vo": "Demak, bir yildan keyin bu pulga taxminan to'qqiz million uch yuz minglik narsa olasiz.",
+      "subtitles": ["Demak,", "bir yildan keyin", "bu pulga taxminan", "to'qqiz million", "uch yuz minglik", "narsa olasiz."],
+      "subtitle_highlight": ["to'qqiz", "million"],
+      "beats": [
+        {"at_s": 0.0, "block": "Basket ×2 (новый блок) + Tag", "props": {"left": {"x": 340, "label": "HOZIR", "items": 14}, "right": {"x": 760, "label": "1 YILDAN KEYIN", "items": 14}, "y": 900, "bundle_label_over_each": "10 mln"}, "desc": "Две одинаковые полные корзины по 14 товаров; над каждой одинаковая пачка «10 mln» (денег столько же)", "camera": "static", "sfx": "мягкий «тук» корзин", "production": "remotion"},
+        {"at_s": 1.6, "block": "Basket remove", "props": {"side": "right", "remove": 1, "effect": "товар бледнеет и улетает вверх вслед за ценниками"}, "desc": "Из правой корзины исчезает 1 товар из 14 (≈7 %, честная пропорция: 13/14 ≈ 93 %)", "camera": "push-in на правую корзину 1.0→1.08", "sfx": "«пуф»", "production": "remotion"},
+        {"at_s": 3.0, "block": "Counter + Arrow (новые блоки)", "props": {"left": "10 mln", "arrow": {"dir": "right", "color": "#c8432f"}, "small_label": "taxminan", "right": {"from": 10.0, "to": 9.3, "decimals": 1, "suffix": " mln", "color": "#c8432f"}, "top": 280, "size": 110}, "desc": "Сверху: «10 mln», нарисованная стрелка, затем счётчик 10,0 → «9,3 mln» красным, над ним мелко «taxminan» (вместо значка ≈)", "camera": "static", "sfx": "тик-тик счётчика, низкий thud на остановке", "production": "remotion"},
+        {"at_s": 4.6, "block": "QadriGauge", "props": {"from": 1.0, "to": 0.932, "marks": [{"v": 1.0, "t": "10"}, {"v": 0.932, "t": "9,3"}]}, "desc": "Колба QADRI опускается до метки «9,3»", "camera": "static", "sfx": "одна капля", "production": "remotion"}
+      ],
+      "transition_out": "правая корзина «падает» на первую ступень лесенки (match cut по движению вниз)",
+      "ai_prompt": null
+    },
+    {
+      "n": 6,
+      "role": "twist",
+      "duration_s": 6.64,
+      "duration_source": "оценка",
+      "vo": "Agar narxlar besh yil shunday o'sib borsa, o'n millionning qadri taxminan yetti millionga tushadi.",
+      "subtitles": ["Agar narxlar", "besh yil shunday", "o'sib borsa,", "o'n millionning qadri", "taxminan", "yetti millionga tushadi."],
+      "subtitle_highlight": ["besh", "qadri", "yetti", "millionga"],
+      "beats": [
+        {"at_s": 0.0, "block": "Staircase (новый блок)", "props": {"steps": [{"year": "Hozir", "v": "10"}, {"year": "1-yil", "v": "9,3"}, {"year": "2-yil", "v": "8,7"}, {"year": "3-yil", "v": "8,1"}, {"year": "4-yil", "v": "7,5"}, {"year": "5-yil", "v": "7,0"}], "x0": 260, "x1": 900, "y0": 600, "y1": 1100, "unit_label": "mln so'm qadri"}, "desc": "Лесенка из 6 ступеней вниз слева направо (числа ровно как в сценарии), подписи лет под ступенями. Колба QADRI слева на месте", "camera": "static, затем медленный pan вправо-вниз 0→40 px", "sfx": "низкая нота", "production": "remotion"},
+        {"at_s": 1.0, "block": "MoneyBundle hop", "props": {"hop_every_s": 0.75, "from_step": 0, "to_step": 5, "shrink_glow": true}, "desc": "Пачка «10 mln» (размер не меняется!) прыгает по ступенькам вниз, каждая достигнутая ступень подсвечивается золотом, а свечение пачки тускнеет", "camera": "следует за пачкой (pan)", "sfx": "нисходящие ноты пианино на каждый прыжок", "production": "remotion"},
+        {"at_s": 1.0, "block": "QadriGauge", "props": {"from": 0.932, "to": 0.703, "steps": true, "marks": [{"v": 1.0, "t": "10"}, {"v": 0.703, "t": "7"}]}, "desc": "Колба опускается ступенчато синхронно с прыжками, до метки «7»", "camera": "static", "sfx": null, "production": "remotion"},
+        {"at_s": 4.9, "block": "Title + Arrow", "props": {"left": "5 YIL", "arrow": {"dir": "right", "color": "#c8432f"}, "small_label": "taxminan", "right": "7 mln", "top": 260, "size": 110}, "desc": "Сверху: «5 YIL» → нарисованная стрелка → «taxminan 7 mln» (крупно красно-золотым)", "camera": "punch-in 1.0→1.05", "sfx": "глухой удар на «yetti millionga»", "production": "remotion"},
+        {"at_s": 4.9, "block": "SmallNote", "props": {"text": "Taxminiy: har yili 7,3 % saqlansa", "y": 1190, "size": 26}, "desc": "Мелкая пометка-допущение под лесенкой", "camera": "static", "sfx": null, "production": "remotion"}
+      ],
+      "transition_out": "резкий cut на сундук крупно (кадр как в карточке 1, но колба уже на 70 %)",
+      "ai_prompt": null
+    },
+    {
+      "n": 7,
+      "role": "payoff",
+      "duration_s": 5.09,
+      "duration_source": "оценка",
+      "vo": "Sandiq pulni o'g'ridan saqlaydi. Lekin narx oshishidan saqlay olmaydi.",
+      "subtitles": ["Sandiq pulni", "o'g'ridan saqlaydi.", "Lekin narx", "oshishidan", "saqlay olmaydi."],
+      "subtitle_highlight": ["o'g'ridan", "narx", "olmaydi"],
+      "beats": [
+        {"at_s": 0.0, "block": "Chest + StickFigure (новый блок)", "props": {"chest": {"open": 0, "x": 600, "y": 820}, "thief": {"from_x": 960, "to_x": 760, "mask": true}}, "desc": "Закрытый сундук. Справа подкрадывается человечек-вор в маске, дёргает замок и отлетает назад", "camera": "static", "sfx": "лязг замка, комичный «бонк»", "production": "remotion"},
+        {"at_s": 1.3, "block": "CheckMark + Title", "props": {"check": {"color": "#4caf6a", "x": 200, "y": 330}, "line": {"t": "O'G'RIDAN — HA.", "color": "#f4f0e4"}, "top": 280, "size": 96}, "desc": "Верхняя строка: зелёная нарисованная галочка + «O'G'RIDAN — HA.»", "camera": "static", "sfx": "«динь»", "production": "remotion"},
+        {"at_s": 2.6, "block": "Arrow (красная) + QadriGauge drip", "props": {"arrow": {"dir": "up", "color": "#c8432f", "through": "щель крышки"}, "gauge": {"from": 0.703, "to": 0.66, "drip": true}}, "desc": "Красная стрелка цены растёт вверх прямо сквозь щель закрытого сундука (замок ей не мешает), из-под сундука снова капает золото", "camera": "медленный push-in 1.0→1.05", "sfx": "восходящий тон", "production": "remotion"},
+        {"at_s": 3.6, "block": "Cross + Title", "props": {"cross": {"color": "#c8432f", "x": 200, "y": 450}, "line": {"t": "NARXDAN — YO'Q", "color": "#c8432f"}, "top": 400, "size": 96}, "desc": "Вторая строка: красный нарисованный крестик + «NARXDAN — YO'Q»", "camera": "static", "sfx": "мягкий низкий «бзз»", "production": "remotion"}
+      ],
+      "transition_out": "стоп-кадр, всё замирает кроме колбы (переход в карточку 8 без склейки, меняется только заголовок)",
+      "ai_prompt": null
+    },
+    {
+      "n": 8,
+      "role": "share",
+      "duration_s": 6.37,
+      "duration_source": "оценка",
+      "vo": "Pul jim yotadi, qadri esa jim turmaydi. Buni pulini sandiqda saqlaydigan yaqiningizga ayting.",
+      "subtitles": ["Pul jim yotadi,", "qadri esa", "jim turmaydi.", "Buni pulini", "sandiqda saqlaydigan", "yaqiningizga ayting."],
+      "subtitle_highlight": ["qadri", "turmaydi", "yaqiningizga"],
+      "beats": [
+        {"at_s": 0.0, "block": "Title + Chest (open 0.3)", "props": {"lines": [{"t": "PUL YOTADI.", "color": "#f4f0e4"}, {"t": "QADRI TURMAYDI", "color": "#d4a935"}], "top": 260, "size": 112, "chest": {"open": 0.3, "bundles_visible": true}}, "desc": "Крупный финальный заголовок. Сундук приоткрыт, пачки неподвижны. В кадре двигается ТОЛЬКО колба: жидкость продолжает медленно оседать (контраст «pul jim — qadri yo'q»)", "camera": "очень медленный pull-out 1.05→1.0", "sfx": "тишина + одна капля в такт «jim turmaydi»", "production": "remotion"},
+        {"at_s": 0.0, "block": "SmallNote", "props": {"text": "Bu oddiy misol, moliyaviy maslahat emas", "y": 1515, "size": 26}, "desc": "Дисклеймер мелко внизу, держится до конца карточки", "camera": "static", "sfx": null, "production": "remotion"},
+        {"at_s": 0.0, "block": "QadriGauge", "props": {"from": 0.66, "to": 0.6, "drip": true}, "desc": "Колба медленно оседает всю карточку", "camera": "static", "sfx": null, "production": "remotion"},
+        {"at_s": 2.8, "block": "Tag (пилюля-CTA)", "props": {"x": 560, "y": 1180, "text": "Yaqiningizga yuboring", "size": 44, "rot": -1}, "desc": "Бумажная пилюля-призыв над субтитрами; рядом нарисованная SVG-стрелка «отправить» (бумажный самолётик-контур), без эмодзи", "camera": "static", "sfx": "лёгкий «шурх» бумаги", "production": "remotion"},
+        {"at_s": 5.2, "block": "Chest close", "props": {"open": {"from": 0.3, "to": 0, "over_s": 0.5}, "gauge_reset_hint": false}, "desc": "Крышка закрывается, замок щёлкает: последний кадр совпадает с первым кадром карточки 1 (сундук закрыт) для loop. Заголовок в последние 0,3 с меняется на «HECH KIM OLMADI. / LEKIN KAMAYDI» для бесшовного повтора", "camera": "static", "sfx": "щелчок замка, музыка затухает", "production": "remotion"}
+      ],
+      "transition_out": "loop: финальный кадр = первый кадр ролика",
+      "ai_prompt": null
+    }
+  ],
+  "cover": {
+    "text": "SANDIQDAGI PUL NEGA KAMAYADI?",
+    "concept": "Фон #0d231c. По центру приоткрытый сундук с пачками и золотым замком, слева большая колба QADRI, заполненная наполовину, с каплями под сундуком. Текст обложки в 3 строки Anton: «SANDIQDAGI PUL» (белый) / «NEGA» (белый) / «KAMAYADI?» (золотой), top 260–620, x 80–960. Внизу у сундука маленький ярлык «10 000 000 so'm». Ничего важного ниже y 1500. Делается в src/Cover.tsx (remotion).",
+    "ai_prompt": null
+  },
+  "checks": {"first_frame": 8, "retention": 8, "variety": 8, "sync": 7}
+}
