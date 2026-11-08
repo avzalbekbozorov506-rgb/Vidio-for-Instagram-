@@ -20,7 +20,7 @@ export const Room: React.FC<{open?: number}> = () => {
   return (
     <group>
       {/* back wall with tiles */}
-      <mesh position={[0, 3.2, -1.2]}><boxGeometry args={[9, 7.4, 0.3]} /><meshStandardMaterial map={tex} roughness={0.8} /></mesh>
+      <mesh position={[0, 3.2, -1.2]}><boxGeometry args={[9, 7.4, 0.3]} /><meshStandardMaterial map={tex} emissive="#ffffff" emissiveMap={tex} emissiveIntensity={0.5} roughness={0.8} /></mesh>
       {/* floor / slab */}
       <mesh position={[0, -0.1, 0.2]}><boxGeometry args={[9, 0.35, 3.2]} /><meshStandardMaterial color={PAL.floor} roughness={0.9} /></mesh>
       {/* soil cut under the floor */}
@@ -43,7 +43,7 @@ const curveFrom = (pts: [number, number, number][]) => new THREE.CatmullRomCurve
 export const TRAP_PTS: [number, number, number][] = [
   [0, 3.5, 0], [0, 3.0, 0], [0, 2.5, 0], [0.05, 2.05, 0], [0.35, 1.7, 0], [0.8, 1.6, 0], [1.2, 1.75, 0], [1.4, 2.15, 0], [1.6, 2.35, 0], [2.0, 2.35, 0], [2.6, 2.35, 0],
 ];
-export const STRAIGHT_PTS: [number, number, number][] = [[0, 3.5, 0], [0, 3.0, 0], [0, 2.5, 0], [0, 2.1, 0], [0.4, 1.9, 0], [1.0, 1.9, 0], [1.6, 1.9, 0], [2.0, 1.9, 0], [2.6, 1.9, 0]];
+export const STRAIGHT_PTS: [number, number, number][] = [[0, 3.5, 0], [0, 3.2, 0], [0, 2.9, 0], [0, 2.6, 0], [0, 2.42, 0], [0.3, 2.35, 0], [0.8, 2.35, 0], [1.2, 2.35, 0], [1.6, 2.35, 0], [2.0, 2.35, 0], [2.6, 2.35, 0]];
 
 export const Pipe: React.FC<{pts: [number, number, number][]; r?: number; opacity?: number; color?: string}> = ({pts, r = 0.17, opacity = 0.55, color = PAL.pipe}) => {
   const geo = useMemo(() => new THREE.TubeGeometry(curveFrom(pts), 90, r, 12, false), [pts, r]);
@@ -65,17 +65,18 @@ export const PipeWater: React.FC<{pts: [number, number, number][]; t0: number; t
 };
 
 // drops / bubbles travelling along a path
-export const Flow: React.FC<{pts: [number, number, number][]; t0?: number; t1?: number; color?: string; speed?: number; count?: number; size?: number; start?: number}> = ({pts, t0 = 0, t1 = 1, color = PAL.water, speed = 0.015, count = 8, size = 0.1, start = 0}) => {
+export const Flow: React.FC<{pts: [number, number, number][]; t0?: number; t1?: number; color?: string; speed?: number; count?: number; size?: number; start?: number; reverse?: boolean; fade?: number}> = ({pts, t0 = 0, t1 = 1, color = PAL.water, speed = 0.015, count = 8, size = 0.1, start = 0, reverse = false, fade = 1}) => {
   const f = useCurrentFrame();
   const c = useMemo(() => curveFrom(pts), [pts]);
   if (f < start) return null;
   return (
     <group>
       {Array.from({length: count}, (_, i) => {
-        const u = ((i / count + (f - start) * speed) % 1);
+        const u0 = ((i / count + (f - start) * speed) % 1);
+        const u = reverse ? 1 - u0 : u0;
         const t = t0 + (t1 - t0) * u;
         const p = c.getPoint(t);
-        const edge = Math.min(1, u * 6, (1 - u) * 6);
+        const edge = Math.min(1, u0 * 6, (1 - u0) * 6) * fade;
         return <mesh key={i} position={[p.x, p.y, p.z + 0.02]} scale={edge}><sphereGeometry args={[size, 8, 8]} /><meshBasicMaterial color={color} transparent opacity={0.9} /></mesh>;
       })}
     </group>
@@ -142,18 +143,18 @@ export const Heroine: React.FC<{position?: [number, number, number]; scale?: num
 };
 
 // ---------- pill label (3D plane with canvas texture + leader line) ----------
-export const Pill: React.FC<{text: string; position: [number, number, number]; target?: [number, number, number]; orange?: boolean; at?: number; w?: number}> = ({text, position, target, orange, at = 0, w = 2.6}) => {
+export const Pill: React.FC<{text: string; position: [number, number, number]; target?: [number, number, number]; orange?: boolean; red?: boolean; at?: number; until?: number; sc?: number; w?: number}> = ({text, position, target, orange, red, at = 0, until = 1e9, sc = 1, w = 2.6}) => {
   const f = useCurrentFrame();
   const fk = useFontKey();
   const tex = useCanvasTex(512, 128, (g) => {
-    g.fillStyle = orange ? PAL.orange : '#ffffff';
+    g.fillStyle = red ? PAL.alarm : orange ? PAL.orange : '#ffffff';
     const r = 56; g.beginPath(); g.moveTo(r, 8); g.lineTo(512 - r, 8); g.arc(512 - r, 64, 56, -Math.PI / 2, Math.PI / 2); g.lineTo(r, 120); g.arc(r, 64, 56, Math.PI / 2, -Math.PI / 2); g.closePath(); g.fill();
     g.strokeStyle = 'rgba(36,48,74,.5)'; g.lineWidth = 4; g.stroke();
-    g.fillStyle = orange ? '#fff' : PAL.ink; g.font = '800 52px Montserrat'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, 256, 68);
-  }, `${fk}${text}${orange}`);
-  const p = Math.min(1, Math.max(0, (f - at) / 10));
+    g.fillStyle = orange || red ? '#fff' : PAL.ink; g.font = '800 52px Montserrat'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, 256, 68);
+  }, `${fk}${text}${orange}${red}`);
+  const p = Math.min(1, Math.max(0, (f - at) / 10)) * Math.min(1, Math.max(0, (until - f) / 8));
   if (p <= 0) return null;
-  const s = 0.6 + 0.4 * p;
+  const s = (0.6 + 0.4 * p) * sc;
   const tg = target ?? [position[0], position[1] - 0.6, position[2]];
   const dx = tg[0] - position[0], dy = tg[1] - position[1];
   const len = Math.hypot(dx, dy);
@@ -163,7 +164,7 @@ export const Pill: React.FC<{text: string; position: [number, number, number]; t
         <mesh><planeGeometry args={[w, w * 0.25]} /><meshBasicMaterial map={tex} transparent opacity={p} /></mesh>
       </group>
       <mesh position={[position[0] + (dx * p) / 2, position[1] + (dy * p) / 2, position[2] - 0.02]} rotation={[0, 0, Math.atan2(dy, dx) - Math.PI / 2]}>
-        <boxGeometry args={[0.035, Math.max(0.01, len * p), 0.02]} /><meshBasicMaterial color={PAL.ink} transparent opacity={0.75} />
+        <boxGeometry args={[0.035 * sc, Math.max(0.01, len * p), 0.02]} /><meshBasicMaterial color={PAL.ink} transparent opacity={0.75} />
       </mesh>
       <mesh position={tg}><sphereGeometry args={[0.07, 8, 8]} /><meshBasicMaterial color={PAL.orange} transparent opacity={p} /></mesh>
     </group>
