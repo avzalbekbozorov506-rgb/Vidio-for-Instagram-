@@ -246,6 +246,28 @@ const C8 = () => {
   );
 };
 
+// sound effects: [card-relative frame, file, volume]
+const tickFrames = Array.from({length: 18}, (_, k) => Math.round((1 - Math.pow(1 - ((k + 1) * 60) / 1118, 1 / 3)) * 110));
+const SFX: Record<number, [number, string, number][]> = {
+  1: [[2, 'whoosh', 0.35], [10, 'pop', 0.6]],
+  2: [[4, 'pop', 0.6], [6, 'ding', 0.4], [50, 'pop', 0.6], [52, 'ding', 0.4], [100, 'pop', 0.6], [102, 'ding', 0.4]],
+  3: [[4, 'whoosh', 0.45], [62, 'ding', 0.5]],
+  4: [...tickFrames.map((f): [number, string, number] => [f, 'tick', 0.5]), [112, 'thud', 0.6], [62, 'pop', 0.4]],
+  5: [[6, 'rise', 0.4], [40, 'rise', 0.45], [48, 'ding', 0.4]],
+  6: [[2, 'pop', 0.6], [10, 'chain', 0.5], [28, 'thud', 0.7]],
+  7: [[6, 'whoosh', 0.4], [60, 'whoosh', 0.4], [150, 'snap', 0.7]],
+  8: [[10, 'pop', 0.6], [14, 'chime', 0.5]],
+};
+const SfxLayer: React.FC<{n: number}> = ({n}) => (
+  <>
+    {(SFX[n] ?? []).map(([f, name, v], i) => (
+      <Sequence key={i} from={f} durationInFrames={60}>
+        <Audio src={staticFile(`sfx/${name}.wav`)} volume={v} />
+      </Sequence>
+    ))}
+  </>
+);
+
 const CARDS = [C1, C2, C3, C4, C5, C6, C7, C8];
 const HIGHLIGHT = ['qimmat', 'qimmatga', 'nega', 'langar', 'sotuvchining', 'birinchi', 'xursandchilik', 'tasodifiy'];
 
@@ -260,7 +282,7 @@ export const Anchor: React.FC = () => {
   let from = 0;
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 40%, #1b2d4d 0%, ${BG} 75%, #09111f 100%)`}}>
-      <Audio src={staticFile('music/bed.wav')} volume={0.1} loop />
+      <Audio src={staticFile('music/beat.wav')} volume={0.2} />
       {script.cards.map((c, i) => {
         const Comp = CARDS[i];
         const len = cardFrames(c.n);
@@ -272,6 +294,7 @@ export const Anchor: React.FC = () => {
             <Comp />
             <Subtitles chunks={chunk(c.vo)} durationInFrames={len} highlight={HIGHLIGHT} y={1560} accent={AMBER} />
             <Audio src={staticFile(`vo-05/card-${nn}.wav`)} />
+            <SfxLayer n={c.n} />
           </Sequence>
         );
       })}
