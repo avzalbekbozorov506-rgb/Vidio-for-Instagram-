@@ -153,6 +153,21 @@
 | `Siz bilishingiz kerak ki narx...` | Калька `нужно знать что` | `Bilib qo'ying: narx...` |
 | `Bu juda ham katta qimmat.` | Бессмыслица | `Bu juda qimmat.` / `Bu ming baravar qimmatga tushadi.` |
 
+### Разбор реального ролика «Oyiga atigi» (экзамен, примеры для обучения; спорное проверять на слух)
+
+| Было | Проблема | Лучше |
+|---|---|---|
+| `... besh yuz ming.` / `o'n ikki million edi` | сумма без `so'm` | `besh yuz ming so'm`, `o'n ikki million so'm edi` |
+| `Nega do'konda bu arzon tuyuladi, keyin esa og'ir bo'ladi?` | `bu` без предмета; `og'ir bo'ladi` калька | образ: `... keyin esa og'ir yukka aylanadi?` |
+| `Narxi ... sotuvchi esa faqat oylik to'lovni aytdi.` | `oylik` = ещё и «зарплата» | `faqat oyiga qancha to'lashini aytdi` |
+| `Olim Jon Gurvil o'rgangan: ...` | `o'rgangan` = «выучил»; двоеточие в `vo` | `Buning sababini olim Jon Gurvil tadqiq qilgan.` |
+| `Nasiyadan oldin so'rang: ... Shuncha pulni ... berarmidim?` | смена лица `siz` -> `men` | единое `siz`: `... bersangiz, baribir olarmidingiz?` |
+| `Eng qimmat so'z: atigi.` | двоеточие и обрубок: голос читает без интонации | развёрнуто, без двоеточия: `Do'konda eng qimmatga tushadigan so'z, atigi.` |
+| `Va shartnomaga imzo chekdi.` | `Va` в начале (калька «И») | `Shunday deb shartnomaga imzo chekdi.` |
+| К4: внезапное `men` | нет маркера, чья мысль | `..., dedi u o'zicha.` |
+
+Общие уроки: (1) двоеточия, скобки, тире-обрубки в `vo` запрещены, ставь запятую или две фразы; (2) ключевую сумму и деньги всегда с `so'm`; (3) связка между карточками (`shunday deb`, `buning sababini`, `ekan`) обязательна; (4) вместо абстракции образ (`og'ir yuk`, `choy puli`, `taksi puli`).
+
 ## 9. Тон
 
 Тёплый, уверенный, чуть с юмором, без насмешки над зрителем. Зритель не глупый: он «не знал приёма». Ошибку совершает ситуация, а не человек: `Siz yomon savdolashmadingiz. Xato savdodan oldin bo'lgan.`
