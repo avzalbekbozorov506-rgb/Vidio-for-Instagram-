@@ -1,0 +1,56 @@
+{
+  "id": "script-12",
+  "title": "Sovigan choy (stix)",
+  "lang": "uz",
+  "voice": "Amir",
+  "model": "lison-v2",
+  "speed": 0.9,
+  "genre": "poem",
+  "answer_line": "Sovimay ichib qol kunni, xuddi choy.",
+  "final_line": "Sovimay ichib qol kunni, xuddi choy.",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Choy quydim, yoniga qo'ydim qand, Lekin hisoblar bilan edim band.",
+      "on_screen": "",
+      "visual_hint": "Hisobga band kishi, yonida choy"
+    },
+    {
+      "n": 2,
+      "role": "turn",
+      "vo": "Choy sovub bordi, jimgina, sekin, Kunimiz ham shunday ketar, tekin.",
+      "on_screen": "",
+      "visual_hint": "Bug chiqayotgan choy sekin soviydi"
+    },
+    {
+      "n": 3,
+      "role": "contrast",
+      "vo": "Tiyinga ham yuritamiz hisob, Kunga esa yuritmaymiz kitob.",
+      "on_screen": "",
+      "visual_hint": "Hisob daftari va bo'sh kun daftari"
+    },
+    {
+      "n": 4,
+      "role": "scene",
+      "vo": "Do'stdan kelgan edi bir qo'ng'iroq, Hisobga cho'mdim, do'st qoldi yiroq.",
+      "on_screen": "",
+      "visual_hint": "Jiringlagan telefon, javobsiz"
+    },
+    {
+      "n": 5,
+      "role": "answer",
+      "vo": "Do'st bilan sovimagan choy, bir suhbat, Pulga sotib olib bo'lmas bu davlat.",
+      "on_screen": "",
+      "visual_hint": "Ikki piyola choy, suhbat"
+    },
+    {
+      "n": 6,
+      "role": "final",
+      "vo": "Kuni issiq o'tgan odam asl boy, Sovimay ichib qol kunni, xuddi choy.",
+      "on_screen": "",
+      "visual_hint": "Issiq choy, yorug' deraza"
+    }
+  ],
+  "status": "draft, ok on voice pending"
+}
