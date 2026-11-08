@@ -2,6 +2,7 @@ import {Composition} from 'remotion';
 import {Reel, ReelProps} from './Reel';
 import {Turkic, TOTAL_FRAMES} from './Turkic';
 import {Cover} from './Cover';
+import {Story, StoryCover, STORY_FRAMES} from './Story';
 import {Anchor, AnchorCover, ANCHOR_FRAMES} from './Anchor';
 import {SubtitleTest} from './blocks/SubtitleTest';
 
@@ -10,6 +11,8 @@ export const Root: React.FC = () => {
   return (
     <>
     <Composition id="SubtitleTest" component={SubtitleTest} durationInFrames={140} fps={30} width={1080} height={1920} />
+    <Composition id="Story" component={Story} durationInFrames={STORY_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="StoryCover" component={StoryCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Anchor" component={Anchor} durationInFrames={ANCHOR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="AnchorCover" component={AnchorCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Cover" component={Cover} durationInFrames={1} fps={30} width={1080} height={1920} />

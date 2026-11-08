@@ -7,28 +7,28 @@ import durations from '../public/vo-05/durations.json';
 import script from '../scripts/script-05.json';
 
 loadLocalFonts();
-const anton = 'Anton, Impact, sans-serif';
-const mont = 'Montserrat, Arial, sans-serif';
-const W = 1080;
+export const anton = 'Anton, Impact, sans-serif';
+export const mont = 'Montserrat, Arial, sans-serif';
+export const W = 1080;
 const FPS = 30;
 const PAD = 0.12;
 const cardFrames = (n: number) => Math.round(((durations as Record<string, number>)[String(n)] + PAD) * FPS);
 export const ANCHOR_FRAMES = script.cards.reduce((a, c) => a + cardFrames(c.n), 0);
 
-const BG = '#101c30';
-const AMBER = '#ffb703';
-const CORAL = '#ff6159';
-const CREAM = '#f6ecd6';
-const INK = '#1d2433';
-const TEAL = '#2ec4b6';
+export const BG = '#101c30';
+export const AMBER = '#ffb703';
+export const CORAL = '#ff6159';
+export const CREAM = '#f6ecd6';
+export const INK = '#1d2433';
+export const TEAL = '#2ec4b6';
 
-const usePop = (delay = 0, damping = 14) => {
+export const usePop = (delay = 0, damping = 14) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   return spring({frame: f - delay, fps, config: {damping}});
 };
 
-const Title: React.FC<{text: string; color?: string; size?: number; top?: number}> = ({text, color = CREAM, size = 104, top = 170}) => {
+export const Title: React.FC<{text: string; color?: string; size?: number; top?: number}> = ({text, color = CREAM, size = 104, top = 170}) => {
   const p = usePop(2, 200);
   return (
     <div style={{position: 'absolute', top, left: 70, width: W - 140, textAlign: 'center', fontFamily: anton, fontSize: size, lineHeight: 1.1, color, opacity: Math.min(1, p * 2), transform: `scale(${0.92 + 0.08 * p})`, textShadow: '0 6px 24px rgba(0,0,0,.5)'}}>
@@ -37,7 +37,7 @@ const Title: React.FC<{text: string; color?: string; size?: number; top?: number
   );
 };
 
-const PriceTag: React.FC<{x: number; y: number; text: string; color?: string; delay?: number; rot?: number; size?: number; small?: string}> = ({x, y, text, color = CREAM, delay = 0, rot = -4, size = 84, small}) => {
+export const PriceTag: React.FC<{x: number; y: number; text: string; color?: string; delay?: number; rot?: number; size?: number; small?: string}> = ({x, y, text, color = CREAM, delay = 0, rot = -4, size = 84, small}) => {
   const p = usePop(delay, 11);
   return (
     <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) rotate(${rot}deg) scale(${p})`, opacity: Math.min(1, p * 2)}}>
@@ -50,7 +50,7 @@ const PriceTag: React.FC<{x: number; y: number; text: string; color?: string; de
   );
 };
 
-const Person: React.FC<{x: number; y: number; scale?: number; mood?: 'happy' | 'sad'; color?: string; bag?: boolean}> = ({x, y, scale = 1, mood = 'happy', color = TEAL, bag = true}) => (
+export const Person: React.FC<{x: number; y: number; scale?: number; mood?: 'happy' | 'sad'; color?: string; bag?: boolean}> = ({x, y, scale = 1, mood = 'happy', color = TEAL, bag = true}) => (
   <svg width={300} height={460} viewBox="-150 -230 300 460" style={{position: 'absolute', left: x - 150 * scale, top: y - 230 * scale, transform: `scale(${scale})`, transformOrigin: '150px 230px', overflow: 'visible'}}>
     <rect x={-70} y={-20} width={140} height={190} rx={60} fill={color} />
     <rect x={-60} y={150} width={50} height={70} rx={14} fill="#2b3550" />
@@ -202,7 +202,7 @@ const C6 = () => {
   );
 };
 
-const Step: React.FC<{n: string; text: string; delay: number; y: number}> = ({n, text, delay, y}) => {
+export const Step: React.FC<{n: string; text: string; delay: number; y: number}> = ({n, text, delay, y}) => {
   const p = usePop(delay, 14);
   return (
     <div style={{position: 'absolute', left: 90, width: W - 180, top: y + (1 - p) * 80, opacity: p, background: CREAM, color: INK, borderRadius: 28, padding: '44px 50px', display: 'flex', alignItems: 'center', gap: 36, boxShadow: '0 16px 40px rgba(0,0,0,.45)'}}>

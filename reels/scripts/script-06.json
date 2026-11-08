@@ -4,16 +4,16 @@
   "lang": "uz-Latn",
   "voice": "Amir",
   "target_seconds": 47,
-  "hook": "Oyiga atigi besh yuz ming. Nega bu atigi do'konda arzon tuyuladi, keyin esa og'ir bo'ladi?",
+  "hook": "Oyiga atigi besh yuz ming. Nega do'konda bu arzon tuyuladi, keyin esa og'ir bo'ladi?",
   "answer_line": "Bo'lingan narx mayda ko'rinadi, lekin mayda bo'lib qolmaydi.",
   "final_line": "Eng qimmat so'z: atigi.",
-  "cover_text": "NEGA «ATIGI» ARZON TUYULADI?",
+  "cover_text": "NEGA ATIGI ARZON TUYULADI?",
   "caption": "Oyiga atigi besh yuz ming deganda nasiya arzon tuyuladi. Nega? Chunki bo'lingan narxni miya mayda kundalik xarajatlar bilan solishtiradi. Buni iste'molchi xulq-atvori olimi Jon Gurvil o'rgangan (Gourville, 1998, \"pennies-a-day\" effekti).\n\nBugun bajariladigan qadam: nasiyadan oldin so'rang, jami necha so'm bo'ladi va shuncha pulni bir yo'la berarmidingiz.\n\nSizningcha, nasiyaning eng katta xavfi nimada? Izohda yozing. Nasiyaga telefon olayotgan yaqiningizga yuboring va obuna bo'ling.\n\nBu oddiy misol, moliyaviy maslahat emas. Sardor va narxlar xayoliy misol.\nManba: Gourville J. T., Journal of Consumer Research 24(4), 1998.\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #nasiya #psixologiya #telefon",
   "cards": [
     {
       "n": 1,
       "role": "pain",
-      "vo": "Oyiga atigi besh yuz ming. Nega bu atigi do'konda arzon tuyuladi, keyin esa og'ir bo'ladi?",
+      "vo": "Oyiga atigi besh yuz ming. Nega do'konda bu arzon tuyuladi, keyin esa og'ir bo'ladi?",
       "on_screen": "OYIGA ATIGI 500 000",
       "visual_hint": "Do'kon peshtaxtasi, sotuvchi telefonni uzatmoqda, 'atigi' so'zi katta harfda porlaydi"
     },
@@ -82,9 +82,9 @@
     }
   ],
   "totals": {
-    "chars": 674,
+    "chars": 663,
     "est_seconds": 47.0,
-    "credits": 674
+    "credits": 663
   },
   "self_score": {
     "hook": 8,
