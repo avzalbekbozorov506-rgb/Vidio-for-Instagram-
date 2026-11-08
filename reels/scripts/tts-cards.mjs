@@ -1,6 +1,6 @@
 // Per-card TTS: node scripts/tts-cards.mjs scripts/script-NN.json public/vo-NN [voice_id]
 // Reads cards[] (new schema) or a plain array (old script-02 format); uses only n and vo.
-// Optional 4th arg: speed 0.5-2.0 (default 1). Skips cards whose raw wav already exists (no double charge).
+// env VOICELAB_MODEL=lison-v2 selects the Expressive model (default lison v1). Optional 4th arg: speed 0.5-2.0 (default 1). Skips cards whose raw wav already exists (no double charge).
 // Keeps the API file as card-NN.raw.wav and writes card-NN.wav with edge silence trimmed
 // (VoiceLab adds ~0.16 s before and ~0.22 s after speech). Writes durations.json (trimmed).
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
@@ -22,9 +22,9 @@ for (const c of cards) {
   const raw = `${base}.raw.wav`;
   const f = `${base}.wav`;
   if (!existsSync(raw)) {
-    const idem = 'card-' + createHash('sha1').update(c.vo + voice + speed).digest('hex').slice(0, 24);
+    const idem = 'card-' + createHash('sha1').update(c.vo + voice + speed + (process.env.VOICELAB_MODEL || '')).digest('hex').slice(0, 24);
     const res = await fetch('https://api.voicelab.uz/v1/tts', {method: 'POST', headers: {...H, 'Idempotency-Key': idem},
-      body: JSON.stringify({text: c.vo, language: 'uz', voice_id: voice, speed})});
+      body: JSON.stringify({text: c.vo, language: 'uz', voice_id: voice, speed, ...(process.env.VOICELAB_MODEL ? {model_id: process.env.VOICELAB_MODEL} : {})})});
     if (res.status !== 200) { console.error('card', c.n, 'HTTP', res.status, (await res.text()).slice(0, 300)); process.exit(1); }
     writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
     credits += c.vo.length;

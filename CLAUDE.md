@@ -178,3 +178,9 @@
 ### Голоса VoiceLab (тест 2026-11-08)
 - Пользователь листал голоса на voicelab.uz и выбрал послушать «Jasur — Noir» (`voice_ba303813-3023-48aa-a454-4b5705669d35`, баритон, 35). Сделан тест одной фразы (первая карточка script-09) на 0.85: Jasur Noir 8,9 с, Amir 8,0 с, Firdavs Urinov (`voice_OBuMpAaB5iYCUZS0eCc9Fj3k`, «Kitob ohangidagi ovoz») 8,2 с. Потрачено около 290 кредитов. Файлы в чате; решение за пользователем (на слух).
 - Другие узбекские голоса: Javohir Bright presenter `voice_fa56cecf-...`, Safiya `voice_2785aabd-...`, Madina Honey `voice_4ef06e6b-2229-4023-ad66-c2a7a2b736ff`, Kamola Silk `voice_47260d60-5635-4fb0-904d-0f3c19c04ce6`, Dilnoza Velvet `voice_f7179d1c-07ab-4b3d-b5be-84dcf2935388`, Xurshid `voice_2QZX3LFMkNO0lNyrOZ-WwJxK` (уличная манера), Sardor `voice_xdQMoRJkjHbPIB-jounXzKq8`. Полный список: `GET https://api.voicelab.uz/v1/voices?language=uz` (бесплатно).
+
+### Озвучка: модели VoiceLab (2026-11-08)
+- Пользователь забраковал Jasur Noir на модели по умолчанию (`lison` v1): «робот, неправильные ударения, темп не тот, тембр не нравится». Нашли: у аккаунта есть ВТОРАЯ модель `lison-v2` («Expressive»), для узбекского 13 голосов (`GET /v1/voices?language=uz&model_id=lison-v2`). Раньше всегда использовалась v1 по умолчанию.
+- Выбор модели: переменная `VOICELAB_MODEL=lison-v2` для `scripts/tts.mjs` и `tts-cards.mjs` (поддержано, в ключ идемпотентности включена). Тест на первой фразе script-09: v2 Amir 7,2 с, Jasur 8,4 с, Javohir 5,4 с, Safiya 6,6 с при скорости 1.0 (около 384 кредитов). Ждём выбор пользователя на слух.
+- Озвучка script-09 голосом Jasur v1 (`public/vo-09`, 849 кредитов) забракована, не использовать.
+- Другие возможности VoiceLab (документация https://docs.voicelab.uz/llms.txt): STT на узбекском с таймингами (можно расшифровывать чужие рилсы!) и клонирование ГОЛОСА (свой голос пользователя по записи, нужно согласие на права). Если синтез не устроит, предложить клон голоса пользователя.
