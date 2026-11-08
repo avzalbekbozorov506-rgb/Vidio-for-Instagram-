@@ -1,0 +1,89 @@
+{
+  "id": "script-18",
+  "title": "Kanalizatsiya hidi nega kirmaydi (3D-diorama)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-diorama",
+  "hook": "Kanalizatsiya quvuri to'g'ridan-to'g'ri uyga ulangan. Nega uning hidi xonaga kirmaydi?",
+  "answer_line": "Hidni quvur emas, suv probkasi to'sadi.",
+  "final_line": "Lavabo ostidagi egik quvurga bir qarab qo'ying. Buni hammomdan hid kelayotgan yaqiningizga yuboring.",
+  "cover_text": "HID NEGA KIRMAYDI?",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Kanalizatsiya quvuri to'g'ridan-to'g'ri uyga ulangan. Nega uning hidi xonaga kirmaydi?",
+      "on_screen": "HID NEGA KIRMAYDI?",
+      "visual_hint": "Uy kesimi: hammom, yer ostida quvur, hovlida qiz-yo'lboshchi. Pastda savol."
+    },
+    {
+      "n": 2,
+      "role": "slope",
+      "vo": "Birinchi sir nishab. Quvur yer ostida biroz qiya yotadi, shuning uchun suv o'z og'irligi bilan oqib ketadi. Nasos kerak emas.",
+      "on_screen": "NISHAB | OG'IRLIK KUCHI",
+      "visual_hint": "Chuqur, daraja asbobi quvurda, suv qiya bo'ylab oqadi."
+    },
+    {
+      "n": 3,
+      "role": "bend",
+      "vo": "Lekin quvurda hid bor va u yuqoriga ko'tarilishi mumkin. Uni bitta oddiy narsa to'sadi, egilgan quvur.",
+      "on_screen": "EGILGAN QUVUR",
+      "visual_hint": "Lavabo ostida S-shaklli quvur, hid yuqoriga bulut bo'lib ko'tariladi."
+    },
+    {
+      "n": 4,
+      "role": "seal",
+      "vo": "Har safar suv oqqanda egilishda ozgina suv qoladi. Bu suv probkasi.",
+      "on_screen": "SUV PROBKASI",
+      "visual_hint": "Egilishda suv to'planadi, yorliq chiziq bilan."
+    },
+    {
+      "n": 5,
+      "role": "block",
+      "vo": "Suv probkasi quvurni yopib qo'yadi. Suv yuqoridan o'tib ketadi, hid esa suvdan o'ta olmaydi.",
+      "on_screen": "HID O'TA OLMAYDI",
+      "visual_hint": "Suv oqadi, hid bulutlari probkada to'xtaydi."
+    },
+    {
+      "n": 6,
+      "role": "problem",
+      "vo": "Lekin muammo bor. Ko'p suv birdan oqib ketsa, u probkadagi suvni ham o'zi bilan tortib ketishi mumkin.",
+      "on_screen": "SUV TORTILDI!",
+      "visual_hint": "Katta oqim, probka bo'shaydi, qizil belgi."
+    },
+    {
+      "n": 7,
+      "role": "vent",
+      "vo": "Buni tomdagi ventilyatsiya quvuri hal qiladi. U quvurga havo kiritadi va probkadagi suvni tortib ketishga qo'ymaydi.",
+      "on_screen": "VENTILYATSIYA QUVURI",
+      "visual_hint": "Tom kesimi, tik quvur, havo kiradi va hid tepaga chiqib ketadi."
+    },
+    {
+      "n": 8,
+      "role": "dry",
+      "vo": "Uzoq ishlatilmagan lavaboda probkadagi suv qurib ketadi. Hid shuning uchun kiradi. Suv oqizing, probka tiklanadi.",
+      "on_screen": "SUV OQIZING",
+      "visual_hint": "Qurigan egilish, suv quyiladi, probka tiklanadi, hid yo'qoladi."
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Hidni quvur emas, suv probkasi to'sadi.",
+      "on_screen": "SUV PROBKASI TO'SADI",
+      "visual_hint": "Egilgan quvurda suv, yorliq va belgi."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Lavabo ostidagi egik quvurga bir qarab qo'ying. Buni hammomdan hid kelayotgan yaqiningizga yuboring.",
+      "on_screen": "YUBORING!",
+      "visual_hint": "Qiz lavabo ostiga ishora qiladi, kamera sekin uzoqlashadi."
+    }
+  ],
+  "facts": [
+    "Gidrozatvor (sifon): egilishdagi suv probkasi kanalizatsiya gazini to'sadi; ventilyatsiya tik quvuri (fan pipe) hidni tom ustiga chiqaradi va gidrozatvorni sifonlanishdan saqlaydi; ishlatilmagan sifonda suv bug'lanib quriydi. Manba tekshiriladi (Wikipedia: Trap (plumbing), Plumbing drainage venting)."
+  ],
+  "status": "draft, ok on voice pending"
+}
