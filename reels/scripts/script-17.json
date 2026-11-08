@@ -1,0 +1,89 @@
+{
+  "id": "script-17",
+  "title": "Lift arqoni uzilsa (3D-diorama)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-diorama",
+  "hook": "Lift arqoni uzilsa, kabina nega pastga yiqilmaydi?",
+  "answer_line": "Arqon uzilsa, relslar ushlab qoladi.",
+  "final_line": "Keyingi safar liftga kirsangiz, relslarni eslang. Buni liftdan qo'rqadigan yaqiningizga yuboring.",
+  "cover_text": "LIFT ARQONI UZILSA?",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Lift arqoni uzilsa, kabina nega pastga yiqilmaydi?",
+      "on_screen": "LIFT ARQONI UZILSA?",
+      "visual_hint": "Bino kesimi: shaxta, kabina, qiz-yo'lboshchi pastda turadi. Pastda savol."
+    },
+    {
+      "n": 2,
+      "role": "ropes",
+      "vo": "Kabina bitta arqonda emas, bir nechta po'lat arqonda osilgan. Arqonlarning narigi uchida qarshi og'irlik turadi.",
+      "on_screen": "PO'LAT ARQONLAR | QARSHI OG'IRLIK",
+      "visual_hint": "Kabina va yuqorida g'ildirak, arqonlar, qarshi og'irlik. Yorliqlar chiziq bilan."
+    },
+    {
+      "n": 3,
+      "role": "counter",
+      "vo": "Qarshi og'irlik kabinaning og'irligiga yaqin. Shuning uchun motor butun kabinani emas, faqat farqni ko'taradi.",
+      "on_screen": "FAQAT FARQNI KO'TARADI",
+      "visual_hint": "Tarozi: kabina va qarshi og'irlik teng pallada, motor kichik kuch beradi."
+    },
+    {
+      "n": 4,
+      "role": "rails",
+      "vo": "Lekin asosiy himoya arqonda emas. Kabinaning ikki yonida po'lat relslar bor, kabina ular bo'ylab yuradi.",
+      "on_screen": "PO'LAT RELSLAR",
+      "visual_hint": "Shaxta kesimi: ikki yonda relslar, kabina ular bo'ylab yuradi."
+    },
+    {
+      "n": 5,
+      "role": "sensor",
+      "vo": "Tepada tezlik sezgichi aylanib turadi. Kabina odatdagidan tez pastga tusha boshlasa, u buni darhol sezadi.",
+      "on_screen": "TEZLIK SEZGICHI",
+      "visual_hint": "Sezgich g'ildiragi, tezlik shkalasi qizil zonaga o'tadi."
+    },
+    {
+      "n": 6,
+      "role": "grip",
+      "vo": "Sezgich ushlagichni ishga tushiradi. Ushlagich relslarni po'lat jag'lar bilan qisib oladi.",
+      "on_screen": "USHLAGICH",
+      "visual_hint": "Kabina ostida jag'lar relslarni qisadi, uchqun va chiziq."
+    },
+    {
+      "n": 7,
+      "role": "stop",
+      "vo": "Kabina relsga qisilib to'xtaydi. Arqon uzilgan bo'lsa ham, u pastga yiqilmaydi.",
+      "on_screen": "ARQON UZILDI, KABINA TURIBDI",
+      "visual_hint": "Uzilgan arqon, kabina turibdi, chiroq yonib turadi."
+    },
+    {
+      "n": 8,
+      "role": "meaning",
+      "vo": "Demak, lift faqat arqonga ishonmaydi. Unga ikkinchi, mustaqil himoya qo'yilgan.",
+      "on_screen": "IKKINCHI HIMOYA",
+      "visual_hint": "Ikki himoya: arqon va ushlagich, yonma-yon belgilar."
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Arqon uzilsa, relslar ushlab qoladi.",
+      "on_screen": "RELSLAR USHLAB QOLADI",
+      "visual_hint": "Kabina relslarda qisilib turibdi, qiz bosh barmog'ini ko'taradi."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Keyingi safar liftga kirsangiz, relslarni eslang. Buni liftdan qo'rqadigan yaqiningizga yuboring.",
+      "on_screen": "YUBORING!",
+      "visual_hint": "Qiz liftga kiradi, eshik yopiladi, tugmalar yonadi."
+    }
+  ],
+  "facts": [
+    "Tortishuvchi lift: po'lat arqonlar, qarshi og'irlik, relslar, tezlik cheklagichi va ushlagich (safety gear). Manba tekshiriladi (Wikipedia Elevator, Otis texnik tavsiflari)."
+  ],
+  "status": "draft, ok on voice pending"
+}
