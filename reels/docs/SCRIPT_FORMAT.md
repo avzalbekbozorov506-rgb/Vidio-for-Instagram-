@@ -26,14 +26,15 @@
     {"claim": "что утверждаем", "source": "название источника", "url": "https://...", "status": "проверено | не проверено"}
   ],
   "totals": {"chars": 640, "est_seconds": 45.2, "credits": 640},
-  "self_score": {"hook": 8, "retention": 8, "emotion": 7, "share": 7, "language": 9}
+  "self_score": {"hook": 8, "retention": 8, "emotion": 7, "share": 7, "language": 9, "recognition": 8, "pain": 8, "solution": 8},
+  "skip_test": [{"card": 3, "risk": "почему может уйти", "fix": "что сделано"}]
 }
 ```
 
 ## Правила полей
 
 - `cards[].n` подряд с 1. Именно поле `vo` уходит в озвучку, файл `card-NN.wav` соответствует `n`.
-- `role`: `hook`, `gap`, `story`, `twist`, `payoff`, `share`.
+- `role`: `pain`, `recognition`, `question`, `story`, `answer`, `solution`, `share` (старые `hook`, `gap`, `twist`, `payoff` тоже допустимы).
 - `vo`: только то, что говорит диктор. Без ремарок, без цифр и знаков (смотри `UZBEK_TTS_STYLE.md`).
 - `on_screen`: 1–6 слов или одна цифра. Именно здесь точные числа.
 - `visual_hint`: подсказка режиссёру, не обязательна к исполнению.
