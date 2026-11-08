@@ -1,0 +1,141 @@
+{
+  "id": "script-10",
+  "title": "O'n ikki soat ishlayman",
+  "lang": "uz-Latn",
+  "voice": "Jasur",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "target_seconds": 63,
+  "genre": "monolog birinchi shaxsdan (o'ylab topilgan hikoya)",
+  "hook": "O'n ikki soat ishlayman, lekin oylik oy oxirigacha yetmaydi. Pul qayerga ketadi?",
+  "answer_line": "Pulni katta xarajat emas, charchagan kechalar olib ketadi.",
+  "final_line": "O'n ikki soat ishlayman, lekin endi pulim qayerga ketishini bilaman.",
+  "cover_text": "PUL QAYERGA KETADI?",
+  "caption": "O'n ikki soat ishlayman, lekin oylik oy oxirigacha yetmaydi. Pul qayerga ketadi?\n\nBu bir kechalik monolog. Kechqurun ofisdan chiqib, yomg'irda do'kon oldida to'xtaydigan odam o'z xarajatlarini sanab chiqdi. Katta narsa olmagan edi, lekin mayda to'lovlar oyligining deyarli uchdan biriga teng bo'ldi.\n\nSizning pulingiz ko'proq nimaga ketadi: katta xarajatgami yoki mayda to'lovlargami? Izohda yozing. Ishdan charchab qaytadigan yaqiningizga yuboring va obuna bo'ling.\n\nBu o'ylab topilgan hikoya. Qahramon, oylik to'rt million so'm va kuniga qirq ming so'm xayoliy misol, hammaga to'g'ri kelmaydi. Bu oddiy misol, moliyaviy maslahat emas.\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #hikoya #ish #oylik #hayotdarsi",
+  "cards": [
+    {
+      "n": 1,
+      "role": "pain",
+      "vo": "O'n ikki soat ishlayman, lekin oylik oy oxirigacha yetmaydi. Pul qayerga ketadi?",
+      "on_screen": "PUL QAYERGA KETADI?",
+      "visual_hint": "Tungi shahar, yomg'ir. Baland bino derazalaridan faqat bittasi yoniq: yolg'iz siluet kompyuter oldida. Kamera sekin yaqinlashadi. Pastda xira savol belgisi."
+    },
+    {
+      "n": 2,
+      "role": "recognition",
+      "vo": "Kechki to'qqizda ofisda yolg'iz qolaman. Hamma ketgan, tashqarida yomg'ir yog'adi.",
+      "on_screen": "KECHKI 9",
+      "visual_hint": "Bo'sh ofis, qator stol va o'chgan lampalar, bitta monitor nuri. Qahramon stulda orqaga suyangan. Deraza ortida yomg'ir chiziqlari va shahar chiroqlari."
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "vo": "Uyga qaytayotib do'kon oldida to'xtayman. Charchadim, deb ichimlik olaman, somsa olaman, yomg'irda taksi chaqiraman.",
+      "on_screen": "DO'KON",
+      "visual_hint": "Yomg'irli ko'cha, do'kon oynasidan iliq nur, qahramon soyabon ostida. Ketma-ket: ichimlik shishasi, somsa, taksi chiroqlari. Loyqa ko'lmaklarda aks."
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Oylik tushganda quvonaman, oy oxirida esa hisobimga qaramayman. Har biri mayda, esimda qolmaydi.",
+      "on_screen": "OYLIK TUSHDI",
+      "visual_hint": "Telefon ekrani yorishadi (oylik keldi), qahramon yengil jilmayadi. Kadr almashadi: xuddi shu telefon oy oxirida, ekran qorong'i, qahramon uni stolga teskari qo'yadi."
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "vo": "Bir kechasi yomg'ir yog'ayotganda o'tgan oyning to'lovlarini bittalab sanadim.",
+      "on_screen": "BIR KECHA",
+      "visual_hint": "Uy oshxonasi, kichik lampa. Qahramon deraza yonida, tashqarida yomg'ir. Stolda telefon va daftar, barmog'i ro'yxat bo'ylab yuradi."
+    },
+    {
+      "n": 6,
+      "role": "story",
+      "vo": "Ichimlik, somsa, taksi. Aytaylik, hammasi kuniga qirq ming so'm, oyligim esa to'rt million so'm.",
+      "on_screen": "MISOL: 40 000 / KUN",
+      "visual_hint": "Daftar sahifasida uch ikonka (shisha, somsa, taksi), yonida mayda raqam. Pastda yupqa yozuv: misol. Keyin tanga ketma-ket tushib bir joyda uyuma bo'la boshlaydi."
+    },
+    {
+      "n": 7,
+      "role": "twist",
+      "vo": "Lekin o'ttiz kunda bu bir million ikki yuz ming so'm bo'ldi. Oyligimning deyarli uchdan biri.",
+      "on_screen": "30 KUN = 1 200 000",
+      "visual_hint": "Tanga uyumi kadrni to'ldiradi, yonida oylik konvertining uchdan biri bo'yaladi. Qahramon yuzida jimlik. Yomg'ir tovushi bir lahza kuchayadi."
+    },
+    {
+      "n": 8,
+      "role": "answer",
+      "vo": "Tushundim. Pulni katta xarajat emas, charchagan kechalar olib ketadi.",
+      "on_screen": "CHARCHAGAN KECHALAR",
+      "visual_hint": "Keng plan: tungi shahar, yomg'ir, bitta yoniq deraza. Kadr markazida o'sha deraza ichidan qahramon siluet, yonida boshdagi savol belgisi o'chib, o'rniga oy shakli paydo bo'ladi."
+    },
+    {
+      "n": 9,
+      "role": "solution",
+      "vo": "Ertaga bir kun ishdan chiqib, to'xtamay uyga boraman. Choy damlayman. O'n ikki soat ishlayman, lekin endi pulim qayerga ketishini bilaman.",
+      "on_screen": "ERTAGA: BIR KUN",
+      "visual_hint": "Qahramon do'kon yonidan to'xtamay o'tadi, yomg'ir sekin tinadi. Uyda choynak bug'lanadi, derazada iliq nur. So'nggi kadr: birinchi kadrdagi baland bino, shu safar yomg'ir tinib, qahramon derazasida choy bug'i."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Qahramon, uning oyligi (to'rt million so'm), kunlik mayda xarajat (qirq ming so'm), o'ttiz kun va barcha sahnalar o'ylab topilgan hikoya, haqiqiy odam yoki statistika emas",
+      "source": "Xayoliy misol (tashqi fakt, tadqiqot, foiz yoki stavka ishlatilmagan)",
+      "url": "",
+      "status": "вымысел, помечен в vo (Aytaylik), on_screen (MISOL) и caption"
+    },
+    {
+      "claim": "Arifmetika: 40 000 so'm x 30 kun = 1 200 000 so'm; 1 200 000 / 4 000 000 = 0,3, ya'ni oylikning deyarli uchdan biri",
+      "source": "Oddiy arifmetika, tashqi manba kerak emas",
+      "url": "",
+      "status": "проверено вручную"
+    }
+  ],
+  "totals": {
+    "chars": 848,
+    "est_seconds": 65,
+    "credits": 848
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 8,
+    "share": 8,
+    "language": 8,
+    "recognition": 9,
+    "pain": 8,
+    "solution": 7
+  },
+  "skip_test": [
+    {
+      "card": 2,
+      "risk": "Sahna sekin, faqat holat tasviri, zritel kutishi mumkin",
+      "fix": "Karta 1 savoli ochiq, karta 3 darhol harakat (do'kon) beradi; karta 2 qisqa"
+    },
+    {
+      "card": 4,
+      "risk": "Ikki fikr (quvonch va qochish) bir kartada",
+      "fix": "Bir tasvir: telefon ekrani oy boshida yorug', oy oxirida qorong'i; sabab hali yo'q, savol ochiq"
+    },
+    {
+      "card": 6,
+      "risk": "Raqam kartasi quruq hisobga o'xshashi mumkin",
+      "fix": "Raqam daftar va tanga uyumi tasviri bilan, bitta raqam; natija keyingi kartada burilish"
+    },
+    {
+      "card": 9,
+      "risk": "Yechim nasihatga o'xshashi mumkin",
+      "fix": "Faqat bir kun, 'o'zim' tilida (men), ayblov va qoida yo'q, oxirida iliq choy va boshdagi gapga qaytish"
+    }
+  ],
+  "hook_map": [
+    {"card": 1, "sec": "0-6", "type": "shaxsiy og'riq + bitta savol", "text": "O'n ikki soat ishlayman, lekin oylik oy oxirigacha yetmaydi. Pul qayerga ketadi?"},
+    {"card": 2, "sec": "6-12", "type": "bilib olish (kechki ofis)", "text": "Kechki to'qqizda ofisda yolg'iz qolaman."},
+    {"card": 3, "sec": "12-21", "type": "sahna, sababni ko'rsatish", "text": "Charchadim, deb ichimlik olaman, somsa olaman, yomg'irda taksi chaqiraman."},
+    {"card": 4, "sec": "21-28", "type": "ichki qarama-qarshilik", "text": "Oylik tushganda quvonaman, oy oxirida esa hisobimga qaramayman."},
+    {"card": 5, "sec": "28-34", "type": "re-hook, ochiq halqa", "text": "Bir kechasi yomg'ir yog'ayotganda o'tgan oyning to'lovlarini bittalab sanadim."},
+    {"card": 7, "sec": "42-49", "type": "burilish (kutilmagan raqam)", "text": "Lekin o'ttiz kunda bu bir million ikki yuz ming so'm bo'ldi. Oyligimning deyarli uchdan biri."},
+    {"card": 8, "sec": "49-54", "type": "javob (10 so'zgacha)", "text": "Pulni katta xarajat emas, charchagan kechalar olib ketadi."},
+    {"card": 9, "sec": "54-65", "type": "kichik qadam va yakuniy halqa", "text": "O'n ikki soat ishlayman, lekin endi pulim qayerga ketishini bilaman."}
+  ]
+}
