@@ -217,7 +217,7 @@ export const Story: React.FC = () => {
   let from = 0;
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 40%, #1b2d4d 0%, ${BG} 75%, #09111f 100%)`}}>
-      <Audio src={staticFile('music/beat.wav')} volume={0.2} />
+      <Audio src={staticFile('music/beat.wav')} volume={0.06} />
       {script.cards.map((c, i) => {
         const Comp = SCENES[i];
         const len = cardFrames(c.n);
@@ -230,7 +230,7 @@ export const Story: React.FC = () => {
             <KaraokeSubtitles words={(words as any)[String(c.n)]} y={1490} accent={AMBER} />
             <Audio src={staticFile(`vo-06/card-${nn}.wav`)} />
             {(SFX[c.n] ?? []).map(([fr, name, v], k) => (
-              <Sequence key={k} from={fr} durationInFrames={60}><Audio src={staticFile(`sfx/${name}.wav`)} volume={v} /></Sequence>
+              <Sequence key={k} from={fr} durationInFrames={60}><Audio src={staticFile(`sfx/${name}.wav`)} volume={v * 0.7} /></Sequence>
             ))}
           </Sequence>
         );

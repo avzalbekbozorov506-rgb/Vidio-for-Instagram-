@@ -262,7 +262,7 @@ const SfxLayer: React.FC<{n: number}> = ({n}) => (
   <>
     {(SFX[n] ?? []).map(([f, name, v], i) => (
       <Sequence key={i} from={f} durationInFrames={60}>
-        <Audio src={staticFile(`sfx/${name}.wav`)} volume={v} />
+        <Audio src={staticFile(`sfx/${name}.wav`)} volume={v * 0.7} />
       </Sequence>
     ))}
   </>
@@ -282,7 +282,7 @@ export const Anchor: React.FC = () => {
   let from = 0;
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 40%, #1b2d4d 0%, ${BG} 75%, #09111f 100%)`}}>
-      <Audio src={staticFile('music/beat.wav')} volume={0.2} />
+      <Audio src={staticFile('music/beat.wav')} volume={0.06} />
       {script.cards.map((c, i) => {
         const Comp = CARDS[i];
         const len = cardFrames(c.n);
