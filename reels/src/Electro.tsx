@@ -119,17 +119,12 @@ const camAt = (t: number) => {
   const k = ease(sm(t, a.t, b.t));
   return {p: a.p.map((v, j) => lerp(v, b.p[j], k)), l: a.l.map((v, j) => lerp(v, b.l[j], k))};
 };
-const punchAt = (t: number) => [T.fuseMelt, T.brkTrip, T.trip5, T.touch, T.touch2, T.cut, T.uzoTrip, T.live].reduce((a, te) => (t >= te ? a + Math.exp(-(t - te) / 0.3) : a), 0);
 const CamRig: React.FC<{t: number}> = ({t}) => {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const {p, l} = camAt(t);
-  const pu = punchAt(t);
-  const st = stateAt(t);
-  camera.position.set(p[0] + Math.sin(t * 0.25) * 0.18 + Math.sin(t * 1.3) * 0.006, p[1] + Math.cos(t * 0.21) * 0.08 + Math.cos(t * 1.1) * 0.006, p[2] - Math.min(1.2, pu * 0.9));
+  camera.position.set(p[0], p[1], p[2]);
   camera.lookAt(l[0], l[1], l[2]);
-  const roll = Math.sin(t * 0.3) * 0.012 + (st.shock ? Math.sin(t * 38) * 0.012 : 0) + Math.min(0.05, pu * 0.04) * (Math.floor(t * 2) % 2 ? 1 : -1);
-  camera.rotateZ(roll);
-  camera.fov = 40 - Math.min(5, pu * 4); camera.updateProjectionMatrix();
+  camera.fov = 40; camera.updateProjectionMatrix();
   return null;
 };
 
@@ -306,6 +301,8 @@ const Scene: React.FC = () => {
   const clampY = (y: number) => Math.max(cam.l[1] - 0.42 * halfH, Math.min(cam.l[1] + 0.48 * halfH, y));
   const Pl: React.FC<any> = (props) => <Pill {...props} position={[clampX(props.position[0], props.w ?? 2.6), clampY(props.position[1]), props.position[2]]} />;
   const showHero = halfW > 2.6;
+  const win = (a: number, b: number) => ease(sm(t, a, a + 0.35)) * (1 - ease(sm(t, b, b + 0.4)));
+  const macroK = Math.max(win(WS(2, 8), S[2] - 0.1), win(WS(4, 8), WE(4, 16) + 0.3), win(WS(8, 2), WE(8, 17) + 0.2));
   const at = (n: number, i: number) => WS(n, i) * FPS;
   const heatNow = st.heat;
   const melt = t >= T.fuseIn && t < T.fuseMelt ? ease(sm(t, T.fuseIn + 0.4, T.fuseMelt)) : 0;
@@ -313,8 +310,7 @@ const Scene: React.FC = () => {
   const pointTo = st.shock ? 1 : (st.c === 1 ? 0.5 : 0);
   const shake = st.shock ? Math.sin(f * 1.7) * 0.05 : 0;
   const sky = new THREE.Color('#10152a');
-  const flick = heatNow > 0.25 ? 0.55 + 0.45 * rnd(Math.floor(f / 2), 5) : 1;
-  const lamp = (st.current === 1 ? 1 : 0.1) * flick;
+  const lamp = st.current === 1 ? 1 : 0.15;
   return (
     <>
       <color attach="background" args={[sky.getStyle()]} />
@@ -371,20 +367,20 @@ const Scene: React.FC = () => {
       <Pop a={WS(2, 8)} b={S[2] - 0.1} pos={[cam.l[0], cam.l[1] + halfH * 0.3, 2.4]} scale={(halfW * 1.0) / 2.4}><CableMacro heat={heatNow} /></Pop>
       <Pop a={WS(4, 8)} b={WE(4, 16) + 0.3} pos={[cam.l[0], cam.l[1] + halfH * 0.18, 2.4]} scale={(halfW * 1.05) / 1.9}><BreakerMacro bend={st.bend} lever={st.lever} /></Pop>
       <Pop a={WS(8, 2)} b={WE(8, 17) + 0.2} pos={[cam.l[0], cam.l[1] + halfH * 0.1, 2.4]} scale={(halfW * 0.95) / 2.4}><UzoMacro diff={t >= T.diff ? 1 : 0} tripped={st.uzoTripped} /></Pop>
+      <mesh position={[cam.l[0], cam.l[1], 2.0]}><planeGeometry args={[40, 40]} /><meshBasicMaterial color="#05070f" transparent opacity={0.66 * macroK} depthWrite={false} /></mesh>
       {/* pills */}
-      <Pl text="Avtomat" position={[-1.0, 5.6, 0.8]} target={[-2.85, 4.85, -0.5]} at={at(1, 0)} until={at(1, 0) + 110} sc={sc} w={2.4} />
-      <Pl text="Simni uyga" position={[-1.4, 2.6, 0.8]} target={[-1.6, 1.0, -0.5]} at={at(2, 3)} until={at(2, 3) + 100} sc={sc} w={2.4} />
-      <Pl text="Sim qizdi" red position={[-0.6, 2.8, 0.8]} target={[-0.6, 1.0, -0.5]} at={T.heatA * FPS} until={T.heatB * FPS + 60} sc={sc} w={2.2} />
-      <Pl text="Saqlagich" orange position={[-0.2, 4.6, 0.8]} target={[-0.9, 3.4, -0.5]} at={at(3, 14)} until={at(3, 14) + 130} sc={sc} w={2.4} />
-      <Pl text="Avtomat" orange position={[-0.8, 5.8, 0.8]} target={[-2.7, 4.8, -0.4]} at={at(4, 15)} until={at(4, 15) + 130} sc={sc} w={2.4} />
-      <Pl text="Sim himoyada" position={[-0.6, 2.9, 0.8]} target={[-1.2, 1.0, -0.5]} at={at(5, 4)} until={at(5, 4) + 90} sc={sc} w={2.8} />
-      <Pl text="Odam himoyasiz" red position={[0.6, 3.6, 0.8]} target={[0.9, 2.3, 0.8]} at={T.warnA * FPS} until={T.warnA * FPS + 110} sc={sc} w={3.0} />
-      <Pl text="Korpusga tok" red position={[2.4, 3.9, 0.8]} target={[2.3, 2.0, -0.3]} at={at(6, 1)} until={at(6, 1) + 100} sc={sc} w={2.6} />
-      <Pl text="Yerlashtirish" orange position={[1.0, 3.2, 0.8]} target={[3.1, 0.3, -0.3]} at={at(6, 16)} until={at(6, 16) + 140} sc={sc} w={2.8} />
-      <Pl text="Sim uzildi" red position={[2.2, 3.4, 0.8]} target={[3.1, 0.5, -0.2]} at={T.cut * FPS} until={T.cut * FPS + 120} sc={sc} w={2.4} />
-      <Pl text="Kichik tok" position={[0.2, 3.3, 0.8]} target={[1.3, 1.5, 0.8]} at={T.small * FPS} until={T.small * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Avtomat" position={[-1.0, 5.6, 0.8]} target={[-2.85, 4.85, -0.5]} at={at(1, 0)} until={at(1, 0) + 66} sc={sc} w={2.4} />
+      <Pl text="Simni uyga" position={[-1.4, 2.6, 0.8]} target={[-1.6, 1.0, -0.5]} at={at(2, 3)} until={at(2, 3) + 66} sc={sc} w={2.4} />
+      <Pl text="Sim qizdi" red position={[-0.6, 2.8, 0.8]} target={[-0.6, 1.0, -0.5]} at={T.heatA * FPS} until={T.heatB * FPS + 66} sc={sc} w={2.2} />
+      <Pl text="Saqlagich" orange position={[-0.2, 4.6, 0.8]} target={[-0.9, 3.4, -0.5]} at={at(3, 14)} until={at(3, 14) + 66} sc={sc} w={2.4} />
+      <Pl text="Avtomat" orange position={[-0.8, 5.8, 0.8]} target={[-2.7, 4.8, -0.4]} at={at(4, 15)} until={at(4, 15) + 66} sc={sc} w={2.4} />
+      <Pl text="Sim himoyada" position={[-0.6, 2.9, 0.8]} target={[-1.2, 1.0, -0.5]} at={at(5, 4)} until={at(5, 4) + 45} sc={sc} w={2.8} />
+      <Pl text="Odam himoyasiz" red position={[0.6, 3.6, 0.8]} target={[0.9, 2.3, 0.8]} at={T.warnA * FPS} until={T.warnA * FPS + 66} sc={sc} w={3.0} />
+      <Pl text="Korpusga tok" red position={[2.4, 3.9, 0.8]} target={[2.3, 2.0, -0.3]} at={at(6, 1)} until={at(6, 1) + 66} sc={sc} w={2.6} />
+      <Pl text="Yerlashtirish" orange position={[1.8, 3.9, 0.8]} target={[3.1, 0.3, -0.3]} at={at(6, 16)} until={at(6, 16) + 130} sc={sc} w={2.8} />
+      <Pl text="Sim uzildi" red position={[2.2, 3.4, 0.8]} target={[3.1, 0.5, -0.2]} at={T.cut * FPS} until={T.cut * FPS + 66} sc={sc} w={2.4} />
+      <Pl text="Kichik tok" position={[-0.8, 3.6, 0.8]} target={[1.3, 1.5, 0.8]} at={T.small * FPS} until={T.small * FPS + 66} sc={sc} w={2.4} />
       <Pl text="UZO" orange position={[-0.6, 6.0, 0.8]} target={[-2.2, 4.9, -0.5]} at={T.uzoLabel * FPS} until={T.uzoLabel * FPS + 150} sc={sc} w={1.6} />
-      <Pl text="Kirgan = chiqqan?" position={[-0.4, 3.2, 0.8]} target={[-1.0, 1.0, -0.5]} at={T.meters * FPS} until={T.meters * FPS + 130} sc={sc} w={3.4} />
       <CamRig t={t} />
     </>
   );
@@ -442,11 +438,11 @@ const Meters: React.FC<{a: number; diff: number}> = ({a, diff}) => {
   const p = usePop(a, 14);
   const d = f >= diff;
   return (
-    <div style={{position: 'absolute', left: 100, top: 520, width: 880, display: 'flex', justifyContent: 'space-between', opacity: p, transform: `scale(${p})`}}>
+    <div style={{position: 'absolute', left: 130, top: 430, width: 820, display: 'flex', justifyContent: 'space-between', opacity: p, transform: `scale(${p})`}}>
       {[['KIRGAN', '5.0 A', '#24304a'], ['CHIQQAN', d ? '4.9 A' : '5.0 A', d ? PAL.alarm : '#24304a']].map(([lab, val, col]) => (
-        <div key={lab} style={{width: 380, textAlign: 'center', background: '#fff', border: `6px solid ${col}`, borderRadius: 34, padding: '10px 0', boxShadow: '0 10px 30px rgba(0,0,0,.2)'}}>
+        <div key={lab} style={{width: 340, textAlign: 'center', background: '#fff', border: `5px solid ${col}`, borderRadius: 60, padding: '6px 0', boxShadow: '0 8px 24px rgba(0,0,0,.25)'}}>
           <div style={{fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 36, color: col}}>{lab}</div>
-          <div style={{fontFamily: anton, fontSize: 96, color: col, lineHeight: 1.1}}>{val}</div>
+          <div style={{fontFamily: anton, fontSize: 76, color: col, lineHeight: 1.1}}>{val}</div>
         </div>
       ))}
     </div>
@@ -454,16 +450,9 @@ const Meters: React.FC<{a: number; diff: number}> = ({a, diff}) => {
 };
 
 const HUDS: Record<number, React.FC> = {
-  1: () => <><Mark kind="q" x={880} y={660} at={Math.round((WS(1, 8) - S[0]) * FPS)} /></>,
-  2: () => <Mark kind="warn" x={880} y={660} at={Math.round((WS(2, 12) - S[1]) * FPS)} />,
-  3: () => <><Mark kind="warn" x={880} y={660} at={Math.round((WS(3, 7) - S[2]) * FPS)} /><Mark kind="check" x={200} y={660} at={Math.round((WS(3, 13) - S[2]) * FPS)} /></>,
-  4: () => <Mark kind="check" x={880} y={660} at={Math.round((WS(4, 12) - S[3]) * FPS)} />,
-  5: () => <><Mark kind="check" x={200} y={660} at={Math.round((WS(5, 5) - S[4]) * FPS)} /><Mark kind="cross" x={880} y={660} at={Math.round((WS(5, 7) - S[4]) * FPS)} /><Gauge a={Math.round((WS(5, 10) - S[4]) * FPS)} b={Math.round((WS(5, 13) - S[4]) * FPS)} label="KATTA TOK" /></>,
-  6: () => <><Mark kind="warn" x={880} y={660} at={Math.round((WS(6, 2) - S[5]) * FPS)} /><Mark kind="check" x={200} y={660} at={Math.round((WS(6, 16) - S[5]) * FPS)} /></>,
-  7: () => <><Mark kind="q" x={880} y={660} at={Math.round((WS(7, 5) - S[6]) * FPS)} /><Mark kind="cross" x={200} y={660} at={Math.round((WS(7, 11) - S[6]) * FPS)} /></>,
-  8: () => <><Meters a={Math.round((WS(8, 2) - S[7]) * FPS)} diff={Math.round((WS(8, 9) - S[7]) * FPS)} /><Mark kind="check" x={880} y={1100} at={Math.round((WS(8, 15) - S[7]) * FPS)} /></>,
-  9: () => <><Mark kind="cross" x={200} y={660} at={Math.round((WS(9, 2) - S[8]) * FPS)} /><Mark kind="check" x={880} y={660} at={Math.round((WS(9, 4) - S[8]) * FPS)} /></>,
-  10: () => <><Mark kind="q" x={880} y={660} at={Math.round((WS(10, 5) - S[9]) * FPS)} /></>,
+  1: () => null, 2: () => null, 3: () => null, 4: () => null, 5: () => null, 6: () => null, 7: () => null,
+  8: () => <Meters a={Math.round((WS(8, 2) - S[7]) * FPS)} diff={Math.round((WS(8, 9) - S[7]) * FPS)} />,
+  9: () => null, 10: () => null,
 };
 
 const sfx = (n: number, i: number, name: string, v: number): [number, string, number] => [WS(n, i) - S[n - 1], name, v];
@@ -483,7 +472,7 @@ const SFX: Record<number, [number, string, number][]> = {
 const Grain: React.FC = () => {
   const f = useCurrentFrame();
   const svg = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>\")";
-  return <div style={{position: 'absolute', inset: 0, backgroundImage: svg, backgroundPosition: `${(f * 37) % 240}px ${(f * 59) % 240}px`, opacity: 0.09, mixBlendMode: 'overlay'}} />;
+  return <div style={{position: 'absolute', inset: 0, backgroundImage: svg, backgroundPosition: `${(f * 37) % 240}px ${(f * 59) % 240}px`, opacity: 0.04, mixBlendMode: 'overlay'}} />;
 };
 
 export const Electro: React.FC = () => {
@@ -495,7 +484,7 @@ export const Electro: React.FC = () => {
         <Scene />
       </ThreeCanvas>
       <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 480, background: 'linear-gradient(0deg,rgba(10,14,30,.7),rgba(10,14,30,0))'}} />
-      <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 45%, rgba(4,6,18,.45) 100%)'}} />
+      <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 45%, rgba(4,6,18,.35) 100%)'}} />
       <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(255,170,90,.10), rgba(60,110,200,.14))', mixBlendMode: 'soft-light'}} />
       <Grain />
       {script.cards.map((c, i) => {
