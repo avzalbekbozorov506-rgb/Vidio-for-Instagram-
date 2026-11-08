@@ -21,7 +21,7 @@
     {
       "n": 2,
       "role": "recognition",
-      "vo": "Aytaylik, chegirmalar mavsumida Kamola chiroyli tuflini yarim narxda ko'rdi.",
+      "vo": "Aytaylik, chegirmalar mavsumida Kamola tuflini yarim narxda ko'rdi.",
       "on_screen": "MISOL: KAMOLA, TUFLI YARIM NARXDA",
       "visual_hint": "Kamola siluet vitrina oldida, ko'zlari tuflida; ustida chegirma yozuvlari yonib turadi"
     },
@@ -30,7 +30,7 @@
       "role": "story",
       "vo": "Hozir olmasam, qolmaydi, dedi u o'zicha. Aslida kerak emas edi, faqat narxi yoqdi.",
       "on_screen": "KERAK EMAS EDI, NARXI YOQDI",
-      "visual_hint": "Kamolaning o'ylari pufakchada: 'qolmaydi'; pastda kichik yozuv: kerakmi? o'chib ketadi, narx esa yorqin qoladi"
+      "visual_hint": "Kamolaning o'ylari pufakchada: qolmaydi; pastda kichik yozuv: kerakmi? o'chib ketadi, narx esa yorqin qoladi"
     },
     {
       "n": 4,
@@ -58,7 +58,7 @@
       "role": "twist",
       "vo": "Demak, tuflini bir marta kiyish, kurtkani yigirma besh kun kiyishga teng. Kurtka arzon ekan.",
       "on_screen": "200 000 / 8 000 = 25 KUN",
-      "visual_hint": "Tarozi: bir pallada bitta tufli, ikkinchisida yigirma beshta kurtka kuni; tarozi tenglashadi; 'ARZON' tamg'asi kurtkaga"
+      "visual_hint": "Tarozi: bir pallada bitta tufli, ikkinchisida yigirma beshta kurtka kuni; tarozi tenglashadi; ARZON tamg'asi kurtkaga"
     },
     {
       "n": 8,
@@ -72,14 +72,14 @@
       "role": "solution",
       "vo": "Oddiy qoida, avval kerakmi deb o'ylang. Keyin narxni ishlatadigan kunlarga bo'lib ko'ring.",
       "on_screen": "ODDIY QOIDA: NARX / ISHLATISH KUNLARI",
-      "visual_hint": "Ramkada qoida: chapda narx, o'rtada bo'lish belgisi, o'ngda kunlar soni; ostida kichik savol 'kerakmi?'"
+      "visual_hint": "Ramkada qoida: chapda narx, o'rtada bo'lish belgisi, o'ngda kunlar soni; ostida kichik savol kerakmi?"
     },
     {
       "n": 10,
       "role": "share",
       "vo": "Endi yarim narx yozuvi sizga boshqacha ko'rinadi. Buni chegirmada o'ylamay oladigan do'stingizga yuboring.",
       "on_screen": "MISOL, MOLIYAVIY MASLAHAT EMAS",
-      "visual_hint": "Boshlang'ich kadr takrorlanadi: yarim narx yozuvi, lekin endi uning ostida kichik hisob '÷ necha marta?' ko'rinadi; pastda mayda yozuv: misol, maslahat emas"
+      "visual_hint": "Boshlang'ich kadr takrorlanadi: yarim narx yozuvi, lekin endi uning ostida kichik hisob narx bo'linsin necha marta ko'rinadi; pastda mayda yozuv: misol, maslahat emas"
     }
   ],
   "facts": [
@@ -103,9 +103,9 @@
     }
   ],
   "totals": {
-    "chars": 841,
+    "chars": 839,
     "est_seconds": 65,
-    "credits": 841
+    "credits": 839
   },
   "self_score": {
     "hook": 8,
@@ -125,7 +125,7 @@
     },
     {
       "card": 6,
-      "risk": "Sakkiz yuz ming bo'lingan yuz bevosita aytilmagan, tinglovchi 'kuniga sakkiz ming' ni tezda tekshira olmasligi mumkin",
+      "risk": "Sakkiz yuz mingni yuzga bo'lish ovozda aytilmagan, tinglovchi kuniga sakkiz ming ni tezda tekshira olmasligi mumkin",
       "fix": "Ekranda 800 000 / 100 = 8 000 ko'rinadi, keyingi kartochka ikkala sonni bitta narsaga (yigirma besh kun) aylantiradi"
     },
     {
@@ -135,15 +135,15 @@
     }
   ],
   "hook_map": [
-    {"card": 1, "sec": "0-4", "type": "boshqa +- bitta savol (og'riq + savol)", "text": "Yarim narxga oldingiz. Nega hamyoningiz baribir bo'shab qoldi?"},
-    {"card": 2, "sec": "5-10", "type": "bilib olish (sahna, qahramon)", "text": "Aytaylik, chegirmalar mavsumida Kamola chiroyli tuflini yarim narxda ko'rdi."},
-    {"card": 3, "sec": "11-17", "type": "ichki ovoz + yashirin xato", "text": "Aslida kerak emas edi, faqat narxi yoqdi."},
-    {"card": 4, "sec": "18-24", "type": "re-hook 1, burilish va qiziqish", "text": "Bir kuni Kamola hisoblab ko'rdi."},
-    {"card": 5, "sec": "25-31", "type": "re-hook 2, bob va son-narsa", "text": "Birinchi hisob. ... bir marta kiyishi ikki yuz ming so'm turadi."},
-    {"card": 6, "sec": "32-41", "type": "re-hook 3, bob va kontrast", "text": "Ikkinchi hisob. ... Kuniga sakkiz ming so'm."},
-    {"card": 7, "sec": "42-49", "type": "burilish (son-narsa: yigirma besh kun)", "text": "Tuflini bir marta kiyish, kurtkani yigirma besh kun kiyishga teng."},
-    {"card": 8, "sec": "50-53", "type": "javob (6 so'z)", "text": "Ishlatmagan narsa yarim narxda ham qimmat."},
-    {"card": 9, "sec": "54-61", "type": "oddiy qoida", "text": "Oddiy qoida, avval kerakmi deb o'ylang. Keyin narxni ishlatadigan kunlarga bo'lib ko'ring."},
-    {"card": 10, "sec": "62-69", "type": "yakuniy halqa va ulashish sababi", "text": "Endi yarim narx yozuvi sizga boshqacha ko'rinadi. Buni chegirmada o'ylamay oladigan do'stingizga yuboring."}
+    {"card": 1, "sec": "0-4", "type": "og'riq + bitta savol", "text": "Yarim narxga oldingiz. Nega hamyoningiz baribir bo'shab qoldi?"},
+    {"card": 2, "sec": "5-10", "type": "bilib olish (sahna, qahramon)", "text": "Aytaylik, chegirmalar mavsumida Kamola tuflini yarim narxda ko'rdi."},
+    {"card": 3, "sec": "10-16", "type": "ichki ovoz + yashirin xato", "text": "Aslida kerak emas edi, faqat narxi yoqdi."},
+    {"card": 4, "sec": "16-23", "type": "re-hook 1, burilish va qiziqish", "text": "Bir kuni Kamola hisoblab ko'rdi."},
+    {"card": 5, "sec": "23-30", "type": "re-hook 2, bob va son-narsa", "text": "Birinchi hisob. ... bir marta kiyishi ikki yuz ming so'm turadi."},
+    {"card": 6, "sec": "30-39", "type": "re-hook 3, bob va kontrast", "text": "Ikkinchi hisob. ... Kuniga sakkiz ming so'm."},
+    {"card": 7, "sec": "39-46", "type": "burilish (son-narsa: yigirma besh kun)", "text": "Tuflini bir marta kiyish, kurtkani yigirma besh kun kiyishga teng."},
+    {"card": 8, "sec": "46-50", "type": "javob (6 so'z)", "text": "Ishlatmagan narsa yarim narxda ham qimmat."},
+    {"card": 9, "sec": "50-57", "type": "oddiy qoida", "text": "Oddiy qoida, avval kerakmi deb o'ylang. Keyin narxni ishlatadigan kunlarga bo'lib ko'ring."},
+    {"card": 10, "sec": "57-65", "type": "yakuniy halqa va ulashish sababi", "text": "Endi yarim narx yozuvi sizga boshqacha ko'rinadi. Buni chegirmada o'ylamay oladigan do'stingizga yuboring."}
   ]
 }
