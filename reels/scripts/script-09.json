@@ -1,0 +1,148 @@
+{
+  "id": "script-09",
+  "title": "Kuniga yigirma ming so'mlik taksi",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 65,
+  "genre": "Hisob (misol bilan hisob-kitob)",
+  "hook": "Kuniga yigirma ming so'mlik taksi hech kimga og'ir emas. Lekin o'n yilda bu nimaga teng bo'ladi?",
+  "answer_line": "Kuniga yigirma ming so'm, o'n yilda o'n besh oylik.",
+  "final_line": "Kuniga yigirma ming so'm endi kichik tuyulmaydi.",
+  "cover_text": "O'N YILDA NECHA OYLIK?",
+  "caption": "Kuniga yigirma ming so'mlik taksi hech kimga og'ir emas. Lekin o'n yilda bu nimaga teng bo'ladi?\n\nAytaylik, Dilnoza ishga ham, uyga ham taksida yuradi. Kuniga yigirma ming so'm, oyiga yigirma besh kun. Bir yilda olti million, o'n yilda oltmish million so'm, ya'ni to'rt million so'mlik maoshning o'n besh oyi. Dilnoza taksini tashlamadi, faqat unga oylik chegara qo'ydi.\n\nSizning kunlik odatingiz o'n yilda qancha bo'lar edi? Izohda yozing. Har kuni taksida yuradigan yaqiningizga yuboring va obuna bo'ling.\n\nBu misol: Dilnoza, to'rt million so'm maosh, yigirma ming so'm va yigirma besh kun xayoliy, hammaga to'g'ri kelmaydi. Bu oddiy misol, moliyaviy maslahat emas.\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #hisob #taksi #moliyaviysavodxonlik",
+  "cards": [
+    {
+      "n": 1,
+      "role": "pain",
+      "vo": "Kuniga yigirma ming so'mlik taksi hech kimga og'ir emas. Lekin o'n yilda bu nimaga teng bo'ladi?",
+      "on_screen": "20 000 SO'M KUNIGA. 10 YILDA?",
+      "visual_hint": "Taksi ichidan ko'rinish: telefon ekranida yigirma ming so'm, yonida katta savol belgisi va yil kalendarlari varaqlanadi"
+    },
+    {
+      "n": 2,
+      "role": "recognition",
+      "vo": "Aytaylik, Dilnoza ishga ham, uyga ham taksida yuradi. Ko'p emasku, deydi.",
+      "on_screen": "MISOL: DILNOZA",
+      "visual_hint": "Dilnoza siluet taksi orqa o'rindig'ida, ko'zlari telefonda; ikki yo'nalish: uy-ish va ish-uy, har biri 10 000"
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "vo": "Bir kuni hisoblab ko'rdi. Birinchi hisob, bir yil. Oyiga yigirma besh kun deylik, yiliga olti million so'm.",
+      "on_screen": "1-HISOB: BIR YIL. 20 000 x 25 x 12 = 6 000 000",
+      "visual_hint": "Telefon kalkulyatori yaqin planda, raqamlar ketma-ket yoziladi; yuqorida progress 1/3"
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Ikkinchi hisob, o'n yil. Olti millionni o'nga ko'paytirsak, oltmish million so'm.",
+      "on_screen": "2-HISOB: 10 YIL. 6 000 000 x 10 = 60 000 000",
+      "visual_hint": "Olti million pachka o'nta bo'lib ustma-ust tizilib baland minora bo'ladi; progress 2/3"
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "vo": "Uchinchi hisob. Dilnoza oyiga to'rt million so'm topadi. Oltmish million so'm, o'n besh oylik.",
+      "on_screen": "3-HISOB: 60 mln / 4 mln = 15 OYLIK",
+      "visual_hint": "O'n besh bir xil oylik konvert qator bo'lib terilib turadi, har biri 4 mln; progress 3/3"
+    },
+    {
+      "n": 6,
+      "role": "twist",
+      "vo": "Demak, bir yil uch oy faqat taksi uchun ishlaydi. U taksini tashlamadi. Lekin bitta narsani o'zgartirdi.",
+      "on_screen": "15 OY = 1 YIL 3 OY",
+      "visual_hint": "Kalendar: bir yil uch oy ajratib bo'yaladi va 'TAKSI' tamg'asi bosiladi; Dilnoza jim turibdi; keyin kadr qorayadi, savol belgisi qoladi"
+    },
+    {
+      "n": 7,
+      "role": "solution",
+      "vo": "Taksiga oyiga uch yuz ming so'm limit qo'ydi. Limit tugasa, avtobusda boradi.",
+      "on_screen": "TAKSI LIMITI: 300 000 SO'M/OY",
+      "visual_hint": "Hamyon yonida to'lib boruvchi chiziq (limit); chiziq to'lganda taksi o'chadi, avtobus belgisi yonadi"
+    },
+    {
+      "n": 8,
+      "role": "answer",
+      "vo": "Kuniga yigirma ming so'm, o'n yilda o'n besh oylik.",
+      "on_screen": "20 000 KUNIGA = 15 OYLIK",
+      "visual_hint": "Tenglama katta harflarda markazda: kichik tanga = o'n besh konvert; birinchi kartochkadagi savol belgisi javob bilan almashadi"
+    },
+    {
+      "n": 9,
+      "role": "solution",
+      "vo": "Oddiy qoida, kichik xarajatni kunga emas, o'n yilga ko'paytirib ko'ring.",
+      "on_screen": "ODDIY QOIDA: KUNGA EMAS, O'N YILGA",
+      "visual_hint": "Qoida ramkada: chapda kichik kunlik raqam, o'ngda katta o'n yillik raqam, o'rtada ko'paytirish belgisi"
+    },
+    {
+      "n": 10,
+      "role": "share",
+      "vo": "Kuniga yigirma ming so'm endi kichik tuyulmaydi. Buni taksida yuradigan yaqiningizga yuboring.",
+      "on_screen": "MISOL, MOLIYAVIY MASLAHAT EMAS",
+      "visual_hint": "Boshlang'ich kadr takrorlanadi: taksi ichi, telefonda yigirma ming so'm, lekin endi uning ortida o'n besh konvert soyasi; pastda mayda yozuv: misol, maslahat emas"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Dilnoza, uning maoshi (4 000 000 so'm), taksi narxi (20 000 so'm kuniga) va oyiga 25 kun xayoliy misol, haqiqiy odam yoki statistika emas",
+      "source": "Xayoliy misol (tashqi fakt, tadqiqot, foiz yoki stavka ishlatilmagan)",
+      "url": "",
+      "status": "вымысел, помечен в vo (Aytaylik), on_screen и caption"
+    },
+    {
+      "claim": "Arifmetika: 20 000 x 25 = 500 000 so'm oyiga; 500 000 x 12 = 6 000 000 so'm yiliga; 6 000 000 x 10 = 60 000 000 so'm; 60 000 000 / 4 000 000 = 15 oy = 1 yil 3 oy",
+      "source": "Oddiy arifmetika, tashqi manba kerak emas",
+      "url": "",
+      "status": "проверено вручную"
+    },
+    {
+      "claim": "Hisob taksi narxining o'sishi, ish kunlari va avtobus puli hisobga olinmagan, ya'ni soddalashtirilgan",
+      "source": "Misol sharti",
+      "url": "",
+      "status": "допущение, помечено в caption"
+    }
+  ],
+  "totals": {
+    "chars": 849,
+    "est_seconds": 65.3,
+    "credits": 849
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 7,
+    "share": 8,
+    "language": 8,
+    "recognition": 8,
+    "pain": 7,
+    "solution": 8
+  },
+  "skip_test": [
+    {
+      "card": 3,
+      "risk": "Raqamlar ketma-ketligi quruq hisob-kitobga o'xshab, zritel zerikishi mumkin",
+      "fix": "Qahramon va 'bir kuni hisoblab ko'rdi' sahnasi, ekranda progress 1/3 va savol hali ochiq"
+    },
+    {
+      "card": 5,
+      "risk": "To'rt million va o'n besh oylik tushunish uchun biroz hisob talab qiladi",
+      "fix": "Raqam darrov narsaga aylanadi (o'n besh oylik), keyingi kartochka buni 'bir yil uch oy' deb soddalashtiradi"
+    },
+    {
+      "card": 7,
+      "risk": "Yechim 'taksini tashlang' deb nasihatga o'xshashi mumkin",
+      "fix": "Dilnoza taksini tashlamaydi, faqat chegara qo'yadi; ayblov yo'q"
+    }
+  ],
+  "hook_map": [
+    {"card": 1, "sec": "0-3", "type": "shok-tenglama + bitta savol", "text": "Kuniga yigirma ming so'mlik taksi hech kimga og'ir emas. Lekin o'n yilda bu nimaga teng bo'ladi?"},
+    {"card": 2, "sec": "9-13", "type": "bilib olish", "text": "Ko'p emasku, deydi."},
+    {"card": 3, "sec": "13-15", "type": "re-hook 1, qiziqish", "text": "Bir kuni hisoblab ko'rdi."},
+    {"card": 4, "sec": "21-24", "type": "re-hook 2, bob va raqam o'sishi", "text": "Ikkinchi hisob, o'n yil."},
+    {"card": 5, "sec": "27-30", "type": "re-hook 3, bob va raqam-narsa", "text": "Uchinchi hisob."},
+    {"card": 6, "sec": "35-39", "type": "burilish", "text": "Demak, bir yil uch oy faqat taksi uchun ishlaydi."},
+    {"card": 6, "sec": "39-42", "type": "ochiq halqa", "text": "U taksini tashlamadi. Lekin bitta narsani o'zgartirdi."},
+    {"card": 8, "sec": "49-52", "type": "javob (10 so'zgacha)", "text": "Kuniga yigirma ming so'm, o'n yilda o'n besh oylik."},
+    {"card": 10, "sec": "58-65", "type": "yakuniy halqa va ulashish sababi", "text": "Kuniga yigirma ming so'm endi kichik tuyulmaydi. Buni taksida yuradigan yaqiningizga yuboring."}
+  ]
+}
