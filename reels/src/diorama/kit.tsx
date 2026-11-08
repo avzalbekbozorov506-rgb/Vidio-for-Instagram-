@@ -106,7 +106,7 @@ export const WallStack: React.FC<{water?: number}> = ({water = 0}) => (
 );
 
 // ---------- smell / gas ----------
-export const Smell: React.FC<{x: number; y0: number; y1: number; count?: number; start?: number; opacity?: number; spread?: number}> = ({x, y0, y1, count = 10, start = 0, opacity = 0.6, spread = 0.5}) => {
+export const Smell: React.FC<{x: number; y0: number; y1: number; count?: number; start?: number; opacity?: number; spread?: number; color?: string}> = ({x, y0, y1, count = 10, start = 0, opacity = 0.6, spread = 0.5, color = PAL.gas}) => {
   const f = useCurrentFrame();
   if (f < start) return null;
   return (
@@ -114,7 +114,7 @@ export const Smell: React.FC<{x: number; y0: number; y1: number; count?: number;
       {Array.from({length: count}, (_, i) => {
         const u = ((i / count + (f - start) * 0.01) % 1);
         const sc = 0.15 + u * 0.4;
-        return <mesh key={i} position={[x + Math.sin(u * 9 + i) * spread * u, y0 + (y1 - y0) * u, 0.3 + rnd(i, 2) * 0.3]} scale={sc}><icosahedronGeometry args={[0.6, 1]} /><meshBasicMaterial color={PAL.gas} transparent opacity={opacity * (1 - u)} depthWrite={false} /></mesh>;
+        return <mesh key={i} position={[x + Math.sin(u * 9 + i) * spread * u, y0 + (y1 - y0) * u, 0.3 + rnd(i, 2) * 0.3]} scale={sc}><icosahedronGeometry args={[0.6, 1]} /><meshBasicMaterial color={color} transparent opacity={opacity * (1 - u)} depthWrite={false} /></mesh>;
       })}
     </group>
   );
