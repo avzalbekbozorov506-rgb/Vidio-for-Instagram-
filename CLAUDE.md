@@ -174,3 +174,7 @@
 
 ### Разбор присланного ролика-эталона (2026-11-08)
 - Пользователь прислал mp4 «Hisoblar ko'rdik #16» и попросил изучить сценарий и озвучку: итоги в конце `reels/docs/COMPETITOR_NOTES.md`. Главное: хук-равенство, главы «sinov», число -> вещь, «Oddiy qoida:», источник на экране; озвучка сплошная (95% речи), около 11-12 символов/с, -17 LUFS. Добавлен `scripts/master.sh` (нормализация -16 LUFS). Поиск ссылок на публичные рилсы через ShapelessAI web_search ненадёжен (выдумал цифры), для анализа нужны ссылки от пользователя.
+
+### Голоса VoiceLab (тест 2026-11-08)
+- Пользователь листал голоса на voicelab.uz и выбрал послушать «Jasur — Noir» (`voice_ba303813-3023-48aa-a454-4b5705669d35`, баритон, 35). Сделан тест одной фразы (первая карточка script-09) на 0.85: Jasur Noir 8,9 с, Amir 8,0 с, Firdavs Urinov (`voice_OBuMpAaB5iYCUZS0eCc9Fj3k`, «Kitob ohangidagi ovoz») 8,2 с. Потрачено около 290 кредитов. Файлы в чате; решение за пользователем (на слух).
+- Другие узбекские голоса: Javohir Bright presenter `voice_fa56cecf-...`, Safiya `voice_2785aabd-...`, Madina Honey `voice_4ef06e6b-2229-4023-ad66-c2a7a2b736ff`, Kamola Silk `voice_47260d60-5635-4fb0-904d-0f3c19c04ce6`, Dilnoza Velvet `voice_f7179d1c-07ab-4b3d-b5be-84dcf2935388`, Xurshid `voice_2QZX3LFMkNO0lNyrOZ-WwJxK` (уличная манера), Sardor `voice_xdQMoRJkjHbPIB-jounXzKq8`. Полный список: `GET https://api.voicelab.uz/v1/voices?language=uz` (бесплатно).
