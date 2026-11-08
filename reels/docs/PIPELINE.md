@@ -14,7 +14,7 @@
 
 1. `avzalbot2` пишет сценарий: `reels/scripts/script-NN.json` + текст в чат (формат в `SCRIPT_FORMAT.md`).
 2. Пользователь читает и пишет «ок» или правки. **До «ок» озвучку не запускаем: она платная.**
-3. Оркестратор озвучивает по карточкам: `node scripts/tts-cards.mjs scripts/script-NN.json public/vo-NN` → `card-NN.wav` + `durations.json`.
+3. Оркестратор озвучивает по карточкам: `node scripts/tts-cards.mjs scripts/script-NN.json public/vo-NN` → `card-NN.raw.wav` (как пришло), `card-NN.wav` (тишина по краям обрезана) и `durations.json` (длительности обрезанных файлов).
 4. `avzalbot3` делает раскадровку по сценарию и реальным длительностям: `reels/storyboards/storyboard-NN.json` + таблица в чат (формат в `STORYBOARD_FORMAT.md`).
 5. Оркестратор собирает ролик в Remotion, проверяет кадры, добавляет музыку и обложку.
 6. Пользователь смотрит и одобряет. Публикация через ShapelessAI (`posts_create` без `scheduledAt` публикует СРАЗУ).

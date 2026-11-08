@@ -1,0 +1,29 @@
+{
+  "id": "script-03",
+  "title": "Pul sandiqda yotsa, qadri tushadimi?",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 45,
+  "hook": "Sandiqdagi pulingizni hech kim olmadi. Lekin u baribir kamaydi.",
+  "final_line": "Pul jim yotadi, qadri esa jim turmaydi.",
+  "cover_text": "SANDIQDAGI PUL NEGA KAMAYADI?",
+  "caption": "Sandiqdagi pul joyida turadi, lekin narxlar bir joyda turmaydi. O'tgan yili O'zbekistonda narxlar 7,3 foizga oshgan (Markaziy bank ma'lumoti). Bu esa uyda yotgan har bir so'm biroz kamroq narsa sotib oladi degani.\n\nSizningcha, uyda naqd pul saqlash xavfsizroqmi yoki qimmatroqmi? Izohda yozing. Pulini sandiqda saqlaydigan yaqiningizga yuboring va obuna bo'ling.\n\nBu oddiy misol, moliyaviy maslahat emas. Hisob taxminiy: kelgusi yillarda narxlar boshqacha o'sishi mumkin.\nManba: O'zbekiston Respublikasi Markaziy banki, 2025-yil yillik hisoboti.\n\n#oddiymohiyat #o'zbekcha #pul #iqtisod #inflyatsiya #moliyaviysavodxonlik",
+  "cards": [
+    {"n": 1, "role": "hook", "vo": "Sandiqdagi pulingizni hech kim olmadi. Lekin u baribir kamaydi.", "on_screen": "HECH KIM OLMADI. LEKIN KAMAYDI", "visual_hint": "Yopiq yog'och sandiq, qulf joyida; ustida savol belgisi"},
+    {"n": 2, "role": "gap", "vo": "Sanab ko'rsangiz, bitta so'm ham kam emas. Kamaygan narsa boshqa.", "on_screen": "10 000 000 so'm ✓", "visual_hint": "Sandiq ochiladi, pul dastalari sanaladi, hisoblagich 10 000 000 da to'xtaydi"},
+    {"n": 3, "role": "story", "vo": "Tasavvur qiling: sandiqda o'n million so'm yotibdi. Bu oddiy misol.", "on_screen": "MISOL: 10 mln so'm", "visual_hint": "Sandiq ichida pul dastalari, burchakda 'misol' yorlig'i"},
+    {"n": 4, "role": "story", "vo": "Markaziy bank ma'lumotiga ko'ra, o'tgan yili narxlar yetti foizdan ko'proq oshgan.", "on_screen": "2025: inflyatsiya 7,3 %", "visual_hint": "Narx yorliqlari (non, go'sht, yog') yuqoriga ko'tariladi; pastda mayda: Manba: O'zbekiston Markaziy banki"},
+    {"n": 5, "role": "story", "vo": "Demak, bir yildan keyin bu pulga taxminan to'qqiz million uch yuz minglik narsa olasiz.", "on_screen": "10 mln → ≈9,3 mln", "visual_hint": "Savat: bir yil oldin to'la, endi bir qismi bo'sh; raqam 10 dan 9,3 ga tushadi"},
+    {"n": 6, "role": "twist", "vo": "Agar narxlar besh yil shunday o'sib borsa, o'n millionning qadri taxminan yetti millionga tushadi.", "on_screen": "5 yil → ≈7 mln", "visual_hint": "Besh qadamli zinapoya pastga: 10 → 9,3 → 8,7 → 8,1 → 7,5 → 7,0; mayda: taxminiy, 7,3 % saqlansa"},
+    {"n": 7, "role": "payoff", "vo": "Sandiq pulni o'g'ridan saqlaydi. Lekin narx oshishidan saqlay olmaydi.", "on_screen": "O'G'RIDAN — HA. NARXDAN — YO'Q", "visual_hint": "Qulf yonida yashil belgi, narx strelkasi yonida qizil belgi"},
+    {"n": 8, "role": "share", "vo": "Pul jim yotadi, qadri esa jim turmaydi. Buni pulini sandiqda saqlaydigan yaqiningizga ayting.", "on_screen": "PUL YOTADI. QADRI TURMAYDI", "visual_hint": "Sandiq yopiladi (1-kadrga qaytish uchun loop); pastda mayda: Bu oddiy misol, moliyaviy maslahat emas"}
+  ],
+  "facts": [
+    {"claim": "2025-yil oxirida O'zbekistonda yillik inflyatsiya 7,3 % bo'lgan (2024-yilga nisbatan 2,5 foiz punkt past, ya'ni 2024-yilda 9,8 %)", "source": "O'zbekiston Respublikasi Markaziy banki, Annual report 2025 (Price stability and monetary policy bo'limi)", "url": "https://cbu.uz/upload/medialibrary/b0d/4h8ufsm1pbs5e7dl336ygil61lalyws1/Annual-report-2025.pdf", "status": "проверено"},
+    {"claim": "2024-yil inflyatsiyasi 9,8 % (vo da ishlatilmaydi, faqat kontekst)", "source": "Caspian Post: Inflation in Uzbekistan Slows Sharply in 2025", "url": "https://caspianpost.com/uzbekistan/inflation-in-uzbekistan-slows-sharply-in-2025", "status": "проверено (MB hisobotidagi -2,5 p.p. bilan mos keladi)"},
+    {"claim": "10 mln so'm 7,3 % inflyatsiyada bir yildan keyin ≈9,32 mln so'm xarid quvvatiga teng (10 / 1,073)", "source": "Hisob-kitob, oddiy misol", "url": "https://cbu.uz/upload/medialibrary/b0d/4h8ufsm1pbs5e7dl336ygil61lalyws1/Annual-report-2025.pdf", "status": "проверено (арифметика)"},
+    {"claim": "5 yil davomida har yili 7,3 % bo'lsa, 10 mln so'mning qadri ≈7,03 mln so'm (10 / 1,073^5). Kelajak inflyatsiyasi noma'lum, bu faraz", "source": "Hisob-kitob, faraz (shartli misol)", "url": "https://cbu.uz/upload/medialibrary/b0d/4h8ufsm1pbs5e7dl336ygil61lalyws1/Annual-report-2025.pdf", "status": "проверено (арифметика); будущая инфляция — допущение"}
+  ],
+  "totals": {"chars": 625, "est_seconds": 44.3, "credits": 625},
+  "self_score": {"hook": 8, "retention": 7, "emotion": 7, "share": 8, "language": 8}
+}
