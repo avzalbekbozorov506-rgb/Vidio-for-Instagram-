@@ -45,7 +45,8 @@ const stateAt = (t: number) => {
   const extra = t >= T.extraOn[0] && t < T.fuseCut + 0.2;
   const heat = t < T.heatA ? 0 : t < T.heatB ? ease(sm(t, T.heatA, T.heatB)) : t < T.fuseIn ? 1 : t < T.fuseIn + 0.5 ? 1 - sm(t, T.fuseIn, T.fuseIn + 0.5) : 0;
   const fuse = t >= T.fuseIn && t < T.brkIn + 0.5 ? (t < T.brkIn ? 1 : 1 - sm(t, T.brkIn, T.brkIn + 0.5)) : 0;
-  const fuseBlown = t >= T.fuseMelt;
+  const bend = t >= WS(4, 8) ? ease(sm(t, WS(4, 8), WS(4, 9) + 0.8)) : 0;
+  const fuseBlown = t >= T.fuseMelt && t < WS(4, 4);
   const breaker = t >= T.brkIn ? 1 : 0;
   const ground = t >= T.gndA ? ease(sm(t, T.gndA, T.gndB)) : 0;
   const groundCut = t >= T.cut && t < S[7];
@@ -54,7 +55,7 @@ const stateAt = (t: number) => {
   let current = 1;
   if (t < T.heatA) current = 1;
   if (t >= T.fuseMelt && t < T.fuseIn) current = 1;
-  if (t >= T.fuseMelt && t < T.brkIn) current = 0; // fuse blown, line open until the breaker is shown
+  if (t >= T.fuseMelt && t < WS(4, 4)) current = 0; // fuse blown, line open until it is replaced
   if (t >= T.brkIn) current = 1;
   if (t >= T.brkTrip && t < T.brkReset) current = 0;
   if (t >= T.trip5 && t < S[5] + 0.0 + dur(5) + 0.1) current = 0;
@@ -70,7 +71,7 @@ const stateAt = (t: number) => {
   const live = (t >= T.live && t < T.gndA + 0.5) || (t >= T.cut && t < S[7] + dur(7) + 0.3);
   const shock = (t >= T.touch && t < T.shockEnd) || (t >= T.touch2 && t < S[7] + dur(7) + 0.3);
   const uzoTripped = t >= T.uzoTrip && t < S[8] + dur(8) + 0.3;
-  return {c, extra, heat, fuse, fuseBlown, breaker, ground, groundCut, uzo, current, lever, live, shock, uzoTripped};
+  return {c, bend, extra, heat, fuse, fuseBlown, breaker, ground, groundCut, uzo, current, lever, live, shock, uzoTripped};
 };
 
 // ---------- camera keys ----------
@@ -118,12 +119,17 @@ const camAt = (t: number) => {
   const k = ease(sm(t, a.t, b.t));
   return {p: a.p.map((v, j) => lerp(v, b.p[j], k)), l: a.l.map((v, j) => lerp(v, b.l[j], k))};
 };
+const punchAt = (t: number) => [T.fuseMelt, T.brkTrip, T.trip5, T.touch, T.touch2, T.cut, T.uzoTrip, T.live].reduce((a, te) => (t >= te ? a + Math.exp(-(t - te) / 0.3) : a), 0);
 const CamRig: React.FC<{t: number}> = ({t}) => {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const {p, l} = camAt(t);
-  camera.position.set(p[0] + Math.sin(t * 1.3) * 0.004, p[1] + Math.cos(t * 1.1) * 0.004, p[2]);
+  const pu = punchAt(t);
+  const st = stateAt(t);
+  camera.position.set(p[0] + Math.sin(t * 0.25) * 0.18 + Math.sin(t * 1.3) * 0.006, p[1] + Math.cos(t * 0.21) * 0.08 + Math.cos(t * 1.1) * 0.006, p[2] - Math.min(1.2, pu * 0.9));
   camera.lookAt(l[0], l[1], l[2]);
-  camera.fov = 40; camera.updateProjectionMatrix();
+  const roll = Math.sin(t * 0.3) * 0.012 + (st.shock ? Math.sin(t * 38) * 0.012 : 0) + Math.min(0.05, pu * 0.04) * (Math.floor(t * 2) % 2 ? 1 : -1);
+  camera.rotateZ(roll);
+  camera.fov = 40 - Math.min(5, pu * 4); camera.updateProjectionMatrix();
   return null;
 };
 
@@ -227,6 +233,66 @@ const Sparks: React.FC<{at: number; pos: [number, number, number]; size?: number
   );
 };
 
+
+// ---------- x-ray macro insets (explain the mechanism in detail) ----------
+const Pop: React.FC<{a: number; b: number; children: React.ReactNode; pos: [number, number, number]; scale?: number}> = ({a, b, children, pos, scale = 1}) => {
+  const f = useCurrentFrame();
+  const t = f / FPS;
+  if (t < a || t > b + 0.4) return null;
+  const k = ease(sm(t, a, a + 0.35)) * (1 - ease(sm(t, b, b + 0.4)));
+  return <group position={pos} scale={Math.max(0.001, k) * scale}>{children}</group>;
+};
+const CableMacro: React.FC<{heat: number}> = ({heat}) => {
+  const f = useCurrentFrame();
+  const copper = new THREE.Color('#c9803a').lerp(new THREE.Color('#ff3b1f'), heat);
+  return (
+    <group rotation={[0.25, -0.5, 0]}>
+      <mesh rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.62, 0.62, 2.4, 28, 1, true]} /><meshStandardMaterial color="#2e3550" transparent opacity={0.55} side={THREE.DoubleSide} /></mesh>
+      <mesh position={[1.2, 0, 0]} rotation={[0, Math.PI / 2, 0]}><circleGeometry args={[0.62, 28]} /><meshStandardMaterial color="#2e3550" /></mesh>
+      {Array.from({length: 7}, (_, i) => {
+        const a = (i / 6) * Math.PI * 2, r = i === 6 ? 0 : 0.28;
+        return <mesh key={i} position={[0, Math.cos(a) * r, Math.sin(a) * r]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.11, 0.11, 2.42, 10]} /><meshStandardMaterial color={copper} emissive="#ff3b1f" emissiveIntensity={heat * 1.8} metalness={0.7} roughness={0.35} /></mesh>;
+      })}
+      {Array.from({length: 12}, (_, i) => <mesh key={`e${i}`} position={[-1.2 + (((i / 12) + f * (0.01 + heat * 0.02)) % 1) * 2.4, Math.sin(i * 2.1) * 0.34, Math.cos(i * 2.1) * 0.34]}><sphereGeometry args={[0.055, 6, 6]} /><meshBasicMaterial color={GOLD} /></mesh>)}
+      {heat > 0.1 && <Glow position={[0, 0, 0.6]} size={2.4 + heat * 2} color="#ff5a2a" opacity={0.35 + heat * 0.4} />}
+    </group>
+  );
+};
+const BreakerMacro: React.FC<{bend: number; lever: number}> = ({bend, lever}) => (
+  <group>
+    <mesh><boxGeometry args={[1.9, 1.5, 0.7]} /><meshStandardMaterial color="#dfe6ee" transparent opacity={0.55} /></mesh>
+    {/* bimetal strip that bends when hot */}
+    <group position={[-0.8, -0.3, 0.05]} rotation={[0, 0, -bend * 0.28]}>
+      <mesh position={[0.6, 0, 0]}><boxGeometry args={[1.2, 0.12, 0.3]} /><meshStandardMaterial color={new THREE.Color('#b9a06a').lerp(new THREE.Color('#ff5a2a'), bend)} emissive="#ff5a2a" emissiveIntensity={bend * 1.2} metalness={0.6} /></mesh>
+    </group>
+    <mesh position={[0.15, -0.05, 0.05]}><boxGeometry args={[0.1, 0.4, 0.2]} /><meshStandardMaterial color="#6f7b88" /></mesh>
+    {/* lever */}
+    <group position={[0.6, 0.15, 0.1]} rotation={[0, 0, lever ? -0.4 : 0.5]}>
+      <mesh position={[0, 0.3, 0]}><boxGeometry args={[0.2, 0.6, 0.2]} /><meshStandardMaterial color={lever ? '#2fbf71' : PAL.alarm} emissive={lever ? '#2fbf71' : PAL.alarm} emissiveIntensity={0.5} /></mesh>
+    </group>
+    {bend > 0.2 && <Glow position={[-0.1, -0.2, 0.4]} size={1.8} color="#ff5a2a" opacity={bend * 0.6} />}
+  </group>
+);
+const UzoMacro: React.FC<{diff: number; tripped: boolean}> = ({diff, tripped}) => {
+  const f = useCurrentFrame();
+  return (
+    <group>
+      <mesh><boxGeometry args={[2.4, 1.6, 0.7]} /><meshStandardMaterial color="#e9eef3" transparent opacity={0.3} /></mesh>
+      <mesh position={[-0.2, 0, 0.1]}><torusGeometry args={[0.55, 0.2, 14, 32]} /><meshStandardMaterial color="#6f7b88" metalness={0.6} roughness={0.4} /></mesh>
+      {/* two wires through the ring: in and out */}
+      <mesh position={[-0.2, 0.08, 0.1]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.05, 0.05, 2.2, 8]} /><meshStandardMaterial color="#c9803a" /></mesh>
+      <mesh position={[-0.2, -0.08, 0.1]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.05, 0.05, 2.2, 8]} /><meshStandardMaterial color="#4b86c9" /></mesh>
+      {Array.from({length: 8}, (_, i) => <mesh key={i} position={[-1.3 + (((i / 8) + f * 0.012) % 1) * 2.2, 0.08, 0.14]}><sphereGeometry args={[0.05, 6, 6]} /><meshBasicMaterial color={GOLD} /></mesh>)}
+      {Array.from({length: 8}, (_, i) => <mesh key={`b${i}`} position={[1.0 - (((i / 8) + f * 0.012) % 1) * 2.2, -0.08, 0.14]}><sphereGeometry args={[0.05, 6, 6]} /><meshBasicMaterial color={diff > 0 ? '#ff7a7a' : '#7fb2ff'} transparent opacity={diff > 0 && i % 3 === 0 ? 0.2 : 1} /></mesh>)}
+      {diff > 0 && <mesh position={[0.25 + Math.sin(f / 3) * 0.05, -0.62, 0.2]}><sphereGeometry args={[0.08, 8, 8]} /><meshBasicMaterial color="#ff5d5d" /></mesh>}
+      {/* coil + relay */}
+      <mesh position={[0.95, 0.1, 0.1]}><cylinderGeometry args={[0.18, 0.18, 0.5, 14]} /><meshStandardMaterial color="#b9a06a" emissive={AMP} emissiveIntensity={diff * (tripped ? 2 : 0.9)} /></mesh>
+      <mesh position={[0.95, 0.55, 0.1]} rotation={[0, 0, tripped ? -0.9 : 0]}><boxGeometry args={[0.45, 0.07, 0.15]} /><meshStandardMaterial color={tripped ? PAL.alarm : '#2c3550'} /></mesh>
+      {tripped && <Glow position={[0.95, 0.3, 0.5]} size={1.8} color={PAL.alarm} opacity={0.7} />}
+    </group>
+  );
+};
+
 // ---------- scene ----------
 const Scene: React.FC = () => {
   const f = useCurrentFrame();
@@ -246,17 +312,27 @@ const Scene: React.FC = () => {
   const glowUzo = t >= T.glowUzo && t < S[9] + dur(9) ? 0.6 + 0.4 * Math.sin(f / 4) : 0;
   const pointTo = st.shock ? 1 : (st.c === 1 ? 0.5 : 0);
   const shake = st.shock ? Math.sin(f * 1.7) * 0.05 : 0;
-  const sky = new THREE.Color('#f4ecde');
+  const sky = new THREE.Color('#10152a');
+  const flick = heatNow > 0.25 ? 0.55 + 0.45 * rnd(Math.floor(f / 2), 5) : 1;
+  const lamp = (st.current === 1 ? 1 : 0.1) * flick;
   return (
     <>
       <color attach="background" args={[sky.getStyle()]} />
       <fog attach="fog" args={[sky.getStyle(), 40, 90]} />
-      <SoftLights warm={1} />
-      <ambientLight intensity={0.35} color={st.live || st.shock ? '#ffe7b0' : '#fff4e6'} />
+      <ambientLight intensity={0.22 + 0.2 * lamp} color={st.live || st.shock ? '#ffe7b0' : '#c9d4ff'} />
+      <directionalLight position={[-6, 6, 8]} intensity={0.35} color="#8fa8ff" />
+      <pointLight position={[-0.2, 5.6, 2.5]} intensity={46 * lamp} distance={22} color="#ffd9a0" />
+      <pointLight position={[2.2, 2.2, 3]} intensity={(st.live || st.shock ? 18 : 0) + heatNow * 14} distance={9} color={st.live || st.shock ? '#ffd24a' : '#ff6a3a'} />
       {/* wall, floor, soil, skirting */}
-      <mesh position={[0, 3.2, -1.2]}><boxGeometry args={[10, 7.2, 0.3]} /><meshStandardMaterial color="#f6efe3" roughness={0.9} /></mesh>
+      <mesh position={[0, 3.2, -1.2]}><boxGeometry args={[10, 7.2, 0.3]} /><meshStandardMaterial color="#e9dcc4" roughness={0.95} /></mesh>
+      {/* ceiling lamp */}
+      <mesh position={[-0.2, 6.5, 0.2]}><cylinderGeometry args={[0.02, 0.02, 0.8, 6]} /><meshStandardMaterial color="#222" /></mesh>
+      <mesh position={[-0.2, 5.95, 0.2]}><sphereGeometry args={[0.22, 14, 14]} /><meshBasicMaterial color={new THREE.Color('#fff2c4').multiplyScalar(0.25 + 0.75 * lamp)} /></mesh>
+      <Glow position={[-0.2, 5.95, 0.4]} size={4.5 * (0.3 + 0.7 * lamp)} color="#ffd9a0" opacity={0.75 * lamp} />
+      {/* floating dust in the lamp light */}
+      {Array.from({length: 26}, (_, i) => <mesh key={`d${i}`} position={[-3 + rnd(i, 1) * 6 + Math.sin(f / 40 + i) * 0.15, 1 + ((rnd(i, 2) * 6 + f * (0.004 + rnd(i, 3) * 0.006)) % 5), 0.4 + rnd(i, 4) * 1.5]}><sphereGeometry args={[0.025, 5, 5]} /><meshBasicMaterial color="#fff2d0" transparent opacity={0.35 * lamp} /></mesh>)}
       <mesh position={[0, 0.15, -1.0]}><boxGeometry args={[10, 0.3, 0.1]} /><meshStandardMaterial color="#e3d9c8" /></mesh>
-      <mesh position={[0, -0.12, 0.2]}><boxGeometry args={[10, 0.3, 3.6]} /><meshStandardMaterial color="#d9c7a6" roughness={0.9} /></mesh>
+      <mesh position={[0, -0.12, 0.2]}><boxGeometry args={[10, 0.3, 3.6]} /><meshStandardMaterial color="#cdb78f" roughness={0.9} /></mesh>
       <mesh position={[0, -2.0, 0.2]}><boxGeometry args={[10, 3.4, 3.6]} /><meshStandardMaterial color="#b7864f" roughness={1} flatShading /></mesh>
       {/* ground rod */}
       <mesh position={[3.1, -1.0, -0.4]}><cylinderGeometry args={[0.06, 0.06, 2.4, 8]} /><meshStandardMaterial color="#b98b4b" metalness={0.7} roughness={0.35} /></mesh>
@@ -292,6 +368,9 @@ const Scene: React.FC = () => {
       {showHero && <group position={[shake, 0, 0]}><Heroine position={[0.9, 0.1, 0.8]} scale={1.45} point={pointTo} look={st.c === 1 ? 0.7 : -0.4} bob={st.shock ? 3 : 1} /></group>}
       {/* shield bubble around the cable (card 5) */}
       {t >= T.shieldA && t < T.warnA + 1.5 && <mesh position={[-1.2, 1.0, -0.6]} scale={[1.6, 0.35, 0.5]}><sphereGeometry args={[1, 18, 12]} /><meshBasicMaterial color="#2fbf71" transparent opacity={0.18 + 0.1 * Math.sin(f / 4)} /></mesh>}
+      <Pop a={WS(2, 8)} b={S[2] - 0.1} pos={[cam.l[0], cam.l[1] + halfH * 0.3, 2.4]} scale={(halfW * 1.0) / 2.4}><CableMacro heat={heatNow} /></Pop>
+      <Pop a={WS(4, 8)} b={WE(4, 16) + 0.3} pos={[cam.l[0], cam.l[1] + halfH * 0.18, 2.4]} scale={(halfW * 1.05) / 1.9}><BreakerMacro bend={st.bend} lever={st.lever} /></Pop>
+      <Pop a={WS(8, 2)} b={WE(8, 17) + 0.2} pos={[cam.l[0], cam.l[1] + halfH * 0.1, 2.4]} scale={(halfW * 0.95) / 2.4}><UzoMacro diff={t >= T.diff ? 1 : 0} tripped={st.uzoTripped} /></Pop>
       {/* pills */}
       <Pl text="Avtomat" position={[-1.0, 5.6, 0.8]} target={[-2.85, 4.85, -0.5]} at={at(1, 0)} until={at(1, 0) + 110} sc={sc} w={2.4} />
       <Pl text="Simni uyga" position={[-1.4, 2.6, 0.8]} target={[-1.6, 1.0, -0.5]} at={at(2, 3)} until={at(2, 3) + 100} sc={sc} w={2.4} />
@@ -321,7 +400,7 @@ const Title: React.FC<{text: string; at: number}> = ({text, at}) => {
   return (
     <div style={{position: 'absolute', top: 230, width: SW, textAlign: 'center', opacity: p, transform: `translateY(${(1 - p) * 20}px)`}}>
       <div style={{width: 90, height: 8, background: AMP, margin: '0 auto 16px'}} />
-      <div style={{fontFamily: anton, fontSize: 92, letterSpacing: 2, color: '#24304a', textShadow: '0 4px 0 #fff, 0 8px 24px rgba(0,0,0,.25)'}}>{text}</div>
+      <div style={{fontFamily: anton, fontSize: 92, letterSpacing: 2, color: '#ffffff', WebkitTextStroke: '6px #24304a', paintOrder: 'stroke fill', textShadow: '0 8px 24px rgba(0,0,0,.45)'}}>{text}</div>
     </div>
   );
 };
@@ -401,6 +480,12 @@ const SFX: Record<number, [number, string, number][]> = {
   10: [sfx(10, 4, 'pop', 0.5), sfx(10, 5, 'pop', 0.4), sfx(10, 10, 'whoosh', 0.4)],
 };
 
+const Grain: React.FC = () => {
+  const f = useCurrentFrame();
+  const svg = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>\")";
+  return <div style={{position: 'absolute', inset: 0, backgroundImage: svg, backgroundPosition: `${(f * 37) % 240}px ${(f * 59) % 240}px`, opacity: 0.09, mixBlendMode: 'overlay'}} />;
+};
+
 export const Electro: React.FC = () => {
   const {width, height} = useVideoConfig();
   return (
@@ -409,7 +494,10 @@ export const Electro: React.FC = () => {
       <ThreeCanvas width={width} height={height} camera={{position: [0, 3.3, 20], fov: 40, near: 0.1, far: 200}}>
         <Scene />
       </ThreeCanvas>
-      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 480, background: 'linear-gradient(0deg,rgba(30,40,60,.55),rgba(30,40,60,0))'}} />
+      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 480, background: 'linear-gradient(0deg,rgba(10,14,30,.7),rgba(10,14,30,0))'}} />
+      <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 45%, rgba(4,6,18,.45) 100%)'}} />
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(255,170,90,.10), rgba(60,110,200,.14))', mixBlendMode: 'soft-light'}} />
+      <Grain />
       {script.cards.map((c, i) => {
         const len = cardFrames(c.n);
         const Hud = HUDS[c.n];
