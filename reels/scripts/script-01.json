@@ -1,0 +1,37 @@
+[
+ {
+  "t": "0-6",
+  "screen": "Karta: Markaziy Osiyo, Samarqand nuqtasi yonadi. Sarlavha: DENGIZ YO'Q, LEKIN BOY?",
+  "vo": "Samarqand dengizdan juda uzoqda. Lekin nega u dunyoning eng gavjum savdo shaharlaridan biri bo'lgan?"
+ },
+ {
+  "t": "6-13",
+  "screen": "Xitoydan Yevropagacha chiziq chiziladi, o'rtasida Samarqand. Yozuv: YO'LNING O'RTASI",
+  "vo": "Javob oddiy: u Xitoydan Yevropagacha cho'zilgan karvon yo'lining aynan o'rtasida turgan."
+ },
+ {
+  "t": "13-21",
+  "screen": "Chap: Xitoy, ipak o'ramlari. O'ng: Yevropa, narx belgisi 'juda qimmat'. O'rtada Samarqand, ikki tomonga strelka",
+  "vo": "Xitoyda ipak ishlab chiqarilgan, Yevropada u juda qimmat turgan. O'rtadagi shahar ikki tomondan foyda ko'rgan."
+ },
+ {
+  "t": "21-31",
+  "screen": "Karvon shaharga kiradi. Ketma-ket yorliqlar: YO'L HAQI, SAVDO, OT VA TUYA, MEHMONXONA. Oxirida tanga hisoblagichi",
+  "vo": "Karvon kirsa, savdogar yo'l haqi to'lagan, tovar sotgan, ot olgan, mehmonxonada qolgan. Shahar yo'ldan pul topgan."
+ },
+ {
+  "t": "31-41",
+  "screen": "Bo'rtma yozuv: 'IPAK YO'LI'. Ostida: 1877, Richthofen. Soat yozuvi: nom keyin berilgan",
+  "vo": "'Ipak yo'li' nomini 1877-yilda nemis olimi Richthofen bergan. Savdogarlarning o'zi bu atamani bilmagan."
+ },
+ {
+  "t": "41-51",
+  "screen": "Karta: Afrika atrofida kema chizig'i Hindistonga. 1498. Ikki ustun: KEMA arzon, KARVON qimmat. Karvon yo'li xiralashadi",
+  "vo": "1498-yilda Yevropa kemalari Hindistonga dengiz orqali yo'l topdi. Yuk kemada arzonroq edi, karvon yo'llari asta bo'shay boshladi."
+ },
+ {
+  "t": "51-60",
+  "screen": "Karta qaytadi, Samarqand yonadi. Sarlavha: BOYLIK YO'LNI KIM BOSHQARISHIDA. Pastda: izoh, yuborish, obuna belgilari. Mayda: Bu oddiy misol, moliyaviy maslahat emas",
+  "vo": "Xulosa: boylik ko'pincha yo'lni kim boshqarishiga bog'liq. Sizningcha, bugun O'zbekiston uchun yangi 'Ipak yo'li' nima? Izohda yozing, do'stingizga yuboring, obuna bo'ling."
+ }
+]
