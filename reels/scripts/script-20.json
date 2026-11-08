@@ -7,8 +7,8 @@
   "speed": 1.0,
   "genre": "explainer-diorama",
   "hook": "Uyning elektr himoyasini noldan o'zingiz qursangiz, nimalar kerak bo'ladi? Keling, birga quramiz.",
-  "answer_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shchitiga hech qaramagan yaqiningizga yuboring.",
-  "final_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shchitiga hech qaramagan yaqiningizga yuboring.",
+  "answer_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
+  "final_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
   "cover_text": "ELEKTR HIMOYASINI QUR",
   "caption": "Uyning elektr himoyasini noldan qursak: saqlagich, avtomat, yerlashtirish va UZO. Bu oddiy tushuntirish, elektr ishlarini faqat malakali mutaxassis bajaradi.\n\nSizning uyda qaysi himoya bor? Izohda yozing. Yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #elektr #xavfsizlik #bilasizmi #o'zbekcha",
   "cards": [
@@ -78,7 +78,7 @@
     {
       "n": 10,
       "role": "final",
-      "vo": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shchitiga hech qaramagan yaqiningizga yuboring.",
+      "vo": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
       "on_screen": "SIZ QURDINGIZ!",
       "visual_hint": "Qiz shchit oldida, to'rt himoya yonma-yon."
     }
