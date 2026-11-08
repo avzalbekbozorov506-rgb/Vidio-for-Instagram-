@@ -5,6 +5,7 @@ import {AMBER, BG, CORAL, CREAM, INK, Person, TEAL, Title, W, anton, mont, usePo
 import durations from '../public/vo-09v2/durations.json';
 import words from '../public/vo-09v2/words.json';
 import script from '../scripts/script-09.json';
+import {Shocked} from './Story';
 
 const FPS = 30;
 const PAD = 0.25;
@@ -300,3 +301,28 @@ export const HisobCover: React.FC = () => (
     </div>
   </AbsoluteFill>
 );
+
+export const HisobCover2: React.FC = () => {
+  const spikes = Array.from({length: 24}, (_, i) => {
+    const a = (i / 24) * Math.PI * 2, r = i % 2 ? 330 : 470;
+    return `${540 + r * Math.cos(a)},${1010 + r * Math.sin(a) * 0.62}`;
+  }).join(' ');
+  return (
+    <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 50%, #243e6d 0%, ${BG} 70%, #070d18 100%)`}}>
+      <div style={{position: 'absolute', top: 265, width: W, textAlign: 'center', fontFamily: anton, lineHeight: 1}}>
+        <div style={{fontSize: 112, color: CREAM, textShadow: '0 8px 24px rgba(0,0,0,.7)'}}>20 000 SO'MLIK TAKSI</div>
+        <div style={{fontSize: 195, color: AMBER, textShadow: '0 10px 30px rgba(0,0,0,.7)', marginTop: 10}}>= 15 OYLIK?</div>
+      </div>
+      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+        <polygon points={spikes} fill={CORAL} stroke={CREAM} strokeWidth={10} strokeLinejoin="round" />
+      </svg>
+      <div style={{position: 'absolute', top: 905, width: W, textAlign: 'center', fontFamily: anton, fontSize: 142, color: '#fff', transform: 'rotate(-4deg)', textShadow: '0 8px 0 #7a1f1a, 0 14px 30px rgba(0,0,0,.6)'}}>60 000 000</div>
+      <div style={{position: 'absolute', top: 1115, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 56, color: '#fff', transform: 'rotate(-4deg)'}}>10 yilda!</div>
+      <Shocked x={250} y={1420} s={1.05} color={CORAL} />
+      <Taxi x={800} y={1420} s={1.25} delay={-40} />
+      <div style={{position: 'absolute', bottom: 245, width: W, textAlign: 'center'}}>
+        <span style={{display: 'inline-block', background: AMBER, color: INK, fontFamily: anton, fontSize: 70, padding: '8px 40px 14px', transform: 'rotate(2deg)', boxShadow: '0 12px 30px rgba(0,0,0,.6)'}}>KO'P EMAS, DEYSIZMI?</span>
+      </div>
+    </AbsoluteFill>
+  );
+};

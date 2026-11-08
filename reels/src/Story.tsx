@@ -248,9 +248,9 @@ export const StoryCover: React.FC = () => (
   </AbsoluteFill>
 );
 
-const Shocked: React.FC<{x: number; y: number; s: number}> = ({x, y, s}) => (
+export const Shocked: React.FC<{x: number; y: number; s: number; color?: string}> = ({x, y, s, color = TEAL}) => (
   <svg width={300} height={460} viewBox="-150 -230 300 460" style={{position: 'absolute', left: x - 150, top: y - 230, transform: `scale(${s})`, overflow: 'visible'}}>
-    <rect x={-70} y={-20} width={140} height={190} rx={60} fill={TEAL} />
+    <rect x={-70} y={-20} width={140} height={190} rx={60} fill={color} />
     <rect x={-60} y={150} width={50} height={70} rx={14} fill="#2b3550" /><rect x={10} y={150} width={50} height={70} rx={14} fill="#2b3550" />
     <circle cx={0} cy={-100} r={70} fill="#f2c9a0" />
     <path d="M-72 -110 Q-60 -185 0 -178 Q62 -185 72 -110 Q40 -150 0 -146 Q-40 -150 -72 -110Z" fill="#2a2018" />
