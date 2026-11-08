@@ -1,0 +1,166 @@
+{
+  "id": "script-13",
+  "title": "Atigi ikki foiz, nega to'rt million?",
+  "lang": "uz-Latn",
+  "voice": "Jasur (lison-v2, tezlik 1.0)",
+  "target_seconds": 65,
+  "genre": "Sxema (bitta kichik misol, qadamma-qadam hisob; formula glyzin.ai ZIP roligi: savol-paradoks, bitta misol, sxema, yashirin qoida)",
+  "hook": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshib ketadi?",
+  "answer_line": "Pul foiz keltiradi, foiz esa yana foiz keltiradi.",
+  "final_line": "Kichik foizni vaqt katta qiladi.",
+  "cover_text": "ATIGI 2%. NEGA 4 MILLION?",
+  "caption": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshib ketadi?\n\nOddiy foiz bilan har oy bir xil yigirma ming so'm qo'shiladi va olti yilda ikki million to'rt yuz qirq ming chiqadi. Aslida esa to'rt million yuz oltmish mingdan oshadi. Sabab shuki, ikkinchi oydan boshlab foiz foizning o'ziga ham hisoblanadi. Tez hisob uchun yetmish ikkini foizga bo'ling: shuncha oyda summa taxminan ikki baravar bo'ladi. Foiz qarzga qo'shilib ketsa, qarz ham shunday o'sadi, shuning uchun qarz olganda jami qancha qaytarishingizni so'rang.\n\nSizga oyiga necha foiz kam tuyulgan edi? Izohda yozing. Foizni kam deb o'ylaydigan yaqiningizga yuboring va obuna bo'ling.\n\nBu misol: summa va foiz xayoliy, haqiqiy stavkalar boshqacha bo'ladi, hech narsa kafolatlanmaydi. Hech bir bank yoki mahsulot nazarda tutilmagan. Bu oddiy misol, moliyaviy maslahat emas.\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #foiz #murakkabfoiz #moliyaviysavodxonlik",
+  "cards": [
+    {
+      "n": 1,
+      "role": "pain",
+      "vo": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshib ketadi?",
+      "on_screen": "MISOL: 1 000 000 SO'M, OYIGA +2%. 6 YILDA = ?",
+      "visual_hint": "Qora fon, nozik to'r. O'rtada katta 1 000 000, yonida kichik +2% pulsatsiya qiladi, o'ng tomonda 6 YIL shkalasi va yorqin savol belgisi. Tepada kichik MISOL belgisi."
+    },
+    {
+      "n": 2,
+      "role": "recognition",
+      "vo": "Har oy bir xil yigirma ming qo'shilsa, olti yilda ikki million to'rt yuz qirq ming bo'lardi.",
+      "on_screen": "ODDIY FOIZ: 1 000 000 + 72 x 20 000 = 2 440 000",
+      "visual_hint": "Bir xil balandlikdagi 72 ta ustun-zina (har oy +20 000 bir xil), tekis o'sgan to'g'ri chiziq; hisoblagich 2 440 000 ga yetadi, faol son sariq bilan yoritiladi."
+    },
+    {
+      "n": 3,
+      "role": "question",
+      "vo": "Aslida esa to'rt million yuz oltmish mingdan oshadi. Sirr ikkinchi oyda.",
+      "on_screen": "ASLIDA: 4 161 140. FARQ: 1 721 140",
+      "visual_hint": "Yonma-yon ikkinchi ustun 2 440 000 dan ancha baland o'sadi va 4 161 140 da to'xtaydi; orasidagi farq qizil/sariq to'rtburchak va savol belgisi; keyin kamera 2-oy katakchasiga yaqinlashadi."
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Foiz endi bir million yigirma mingdan hisoblanadi, ya'ni yigirma ming to'rt yuz so'm.",
+      "on_screen": "1-OY: 1 020 000. 2-OY: 1 020 000 x 2% = 20 400",
+      "visual_hint": "Ikki blok: 1-oy 1 000 000 -> +20 000 -> 1 020 000; 2-oy bloki 1 020 000 x 2% ostida 20 400, bunda 20 000 kulrang, 400 sariq ajralib turadi. Strelkalar tartib bilan chiziladi."
+    },
+    {
+      "n": 5,
+      "role": "twist",
+      "vo": "Farq atigi to'rt yuz so'm. Lekin keyingi oydan shu farq ham foiz keltira boshlaydi.",
+      "on_screen": "+400. 3-OY: 1 040 400 x 2% = 20 808",
+      "visual_hint": "Sariq 400 bo'lakchasi alohida to'pchaga aylanib 3-oy blokiga dumalab o'tadi va yangi 20 808 ichida yana sariq qismga o'sadi; strelka 3-oyga."
+    },
+    {
+      "n": 6,
+      "role": "story",
+      "vo": "Shunda birinchi yilda ikki yuz oltmish sakkiz ming, oltinchi yilda esa sakkiz yuz sakson ming qo'shiladi.",
+      "on_screen": "1-YIL: +268 242. 6-YIL: +880 109",
+      "visual_hint": "Yillik o'sish ustunlari 1 dan 6 gacha ketma-ket o'sadi (taxminan 268k, 340k, 431k, 547k, 694k, 880k), faqat birinchi va oxirgisiga son yoziladi; oxirgi ustun birinchisidan taxminan uch baravar baland."
+    },
+    {
+      "n": 7,
+      "role": "answer",
+      "vo": "Pul foiz keltiradi, foiz esa yana foiz keltiradi.",
+      "on_screen": "PUL -> FOIZ -> YANA FOIZ",
+      "visual_hint": "Qor to'pi sxemasi: tanga dumalaydi, har aylanishda qatlam qo'shiladi (har qatlamda foiz yozuvi). Bosh savol belgisi javob yozuviga almashadi, sariq ta'kid."
+    },
+    {
+      "n": 8,
+      "role": "solution",
+      "vo": "Yetmish ikkini foizga bo'ling. Ikki foizda o'ttiz olti oy chiqadi, summa taxminan shunda ikki baravar bo'ladi.",
+      "on_screen": "72-QOIDA: 72 / 2 = 36 OY. 36-OY: 2 039 887",
+      "visual_hint": "Qoida kartochkasi: 72 ni foizga bo'lish, son 36 ga aylanadi; grafikda 1 000 000 dan 36-oyda deyarli 2 000 000 ga chiziq yetadi, belgi ikki baravar. Kichik izoh: aniq 35 oy."
+    },
+    {
+      "n": 9,
+      "role": "solution",
+      "vo": "Qarzda ham shunday bo'lishi mumkin. Oyiga necha foiz emas, jami qancha qaytarishingizni so'rang.",
+      "on_screen": "QARZ: FOIZ QO'SHILSA O'SADI. SO'RANG: JAMI QANCHA?",
+      "visual_hint": "Xuddi shu zina, lekin qizil rangda yuqoriga o'sadigan qarz; yonida ramkada ikki savol: OYIGA NECHA FOIZ (chizilgan) va JAMI QANCHA QAYTARAMAN (yoritilgan)."
+    },
+    {
+      "n": 10,
+      "role": "share",
+      "vo": "Kichik foizni vaqt katta qiladi. Buni foizni kam deb o'ylaydigan yaqiningizga yuboring.",
+      "on_screen": "1 000 000 -> 4 161 140. MISOL, MOLIYAVIY MASLAHAT EMAS",
+      "visual_hint": "Birinchi kadrga qaytish: 1 000 000 va +2%, lekin endi yonida 4 161 140; atigi so'zi sariq ta'kidlanadi. Pastda mayda yozuv: misol, maslahat emas."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Bir million so'm, oyiga ikki foiz, olti yil, yigirma ming so'm qo'shilishi: xayoliy misol; haqiqiy bank, mahsulot yoki stavka emas",
+      "source": "Xayoliy misol (MISOL belgisi on_screen va caption da)",
+      "url": "",
+      "status": "вымысел, помечен"
+    },
+    {
+      "claim": "Arifmetika (qo'lda tekshirilgan): 1 000 000 x 0.02 = 20 000; oddiy foiz 72 oy: 1 000 000 + 72 x 20 000 = 2 440 000. Murakkab: 1.02^72 = 4.16114, ya'ni 4 161 140; farq 4 161 140 - 2 440 000 = 1 721 140. 1-oy: 1 020 000; 2-oy foizi 1 020 000 x 0.02 = 20 400, summa 1 040 400, farq 400; 3-oy foizi 1 040 400 x 0.02 = 20 808. 1-yil 1.02^12 = 1.268242, +268 242. 5-yil oxiri 1.02^60 = 3.281031, 6-yil oxiri 4.161140, 6-yil o'sishi +880 109 (268 242 dan 3.28 baravar ko'p). 1.02^36 = 2.039887, ya'ni 2 039 887",
+      "source": "Oddiy arifmetika; foizli o'sish formulasi A = P(1+r)^t",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "status": "проверено вручную; рекомендуется перепроверить калькулятором перед сборкой (нет доступа к скрипту в этой сессии)"
+    },
+    {
+      "claim": "72 qoidasi: yetmish ikkini foizga bo'lsak, ikki baravar bo'lish davri chiqadi; ikki foizda aniq davr 35.003, qoida 36 beradi (taxminan)",
+      "source": "Wikipedia, Rule of 72",
+      "url": "https://en.wikipedia.org/wiki/Rule_of_72",
+      "status": "проверено (WebFetch). Qoida 6-10 foizda aniqroq, 2 foizda bir davr ortiq beradi, shuning uchun vo da 'taxminan'"
+    },
+    {
+      "claim": "Murakkab foiz: foiz asl summaga ham, avval yig'ilgan foizga ham hisoblanadi; oddiy foiz faqat asl summaga",
+      "source": "Wikipedia, Compound interest",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "status": "проверено (WebFetch)"
+    },
+    {
+      "claim": "Foiz qarzga qo'shilib ketsa (kapitalizatsiya), qarz ham shunday o'sadi. Har bir kredit shunday ishlaydi, deb aytilmagan: vo da 'bo'lishi mumkin'",
+      "source": "Umumiy qoida (Compound interest)",
+      "url": "https://en.wikipedia.org/wiki/Compound_interest",
+      "status": "проверено, формулировка осторожная"
+    }
+  ],
+  "totals": {
+    "chars": 873,
+    "est_seconds": 66,
+    "credits": 873
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 6,
+    "share": 7,
+    "language": 8,
+    "recognition": 7,
+    "pain": 7,
+    "solution": 8
+  },
+  "skip_test": [
+    {
+      "card": 2,
+      "risk": "Raqamlar ketma-ketligi quruq arifmetikaga o'xshab ketishi mumkin",
+      "fix": "Raqam darrov o'sib boruvchi zinaga aylanadi, faol son sariq; qisqa (bitta jumla); keyingi kartochka paradoksni ochadi"
+    },
+    {
+      "card": 4,
+      "risk": "Ikkinchi oy hisobini ovozda kuzatish qiyin",
+      "fix": "Faqat bitta yangi son ovozda (yigirma ming to'rt yuz), qolgani ekranda; 400 sariq bilan ajratiladi"
+    },
+    {
+      "card": 6,
+      "risk": "Ikki son ketma-ket aytiladi, tinglovchi yo'qotishi mumkin",
+      "fix": "Ekranda faqat 1-yil va 6-yil, ustunlar ko'z bilan solishtiriladi; kontrast: ikki yuz oltmish sakkiz va sakkiz yuz sakson"
+    },
+    {
+      "card": 8,
+      "risk": "72 qoidasi 'darsga' o'xshab, nasihat ohangi bo'lishi mumkin",
+      "fix": "Bitta qisqa qoida va bitta misol (ikki foiz, o'ttiz olti oy), keyingi kartochka tezda qarzga o'tadi"
+    }
+  ],
+  "hook_map": [
+    {"card": 1, "sec": "0-6", "type": "paradoks + bitta savol (glyzin ZIP formulasi)", "text": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshib ketadi?"},
+    {"card": 2, "sec": "6-13", "type": "kutilgan natija (oddiy hisob)", "text": "Har oy bir xil yigirma ming qo'shilsa, olti yilda ikki million to'rt yuz qirq ming bo'lardi."},
+    {"card": 3, "sec": "13-19", "type": "qaerga ketdi bo'shlig'i (farq 1 721 140)", "text": "Aslida esa to'rt million yuz oltmish mingdan oshadi. Sirr ikkinchi oyda."},
+    {"card": 4, "sec": "19-26", "type": "bitta kichik misol, qadam 1", "text": "Foiz endi bir million yigirma mingdan hisoblanadi, ya'ni yigirma ming to'rt yuz so'm."},
+    {"card": 5, "sec": "26-33", "type": "burilish (re-hook): kichik farq o'zi o'sa boshlaydi", "text": "Farq atigi to'rt yuz so'm. Lekin keyingi oydan shu farq ham foiz keltira boshlaydi."},
+    {"card": 6, "sec": "33-41", "type": "yashirin tafsilot: vaqt (268 ming va 880 ming)", "text": "Shunda birinchi yilda ... oltinchi yilda esa sakkiz yuz sakson ming qo'shiladi."},
+    {"card": 7, "sec": "41-45", "type": "javob (9 so'z, takror va kontrast)", "text": "Pul foiz keltiradi, foiz esa yana foiz keltiradi."},
+    {"card": 8, "sec": "45-53", "type": "72 qoidasi (tez hisob)", "text": "Yetmish ikkini foizga bo'ling. Ikki foizda o'ttiz olti oy chiqadi, ..."},
+    {"card": 9, "sec": "53-60", "type": "teskari tomon + amaliy qadam", "text": "Qarzda ham shunday bo'lishi mumkin. Oyiga necha foiz emas, jami qancha qaytarishingizni so'rang."},
+    {"card": 10, "sec": "60-66", "type": "yakuniy halqa (atigi -> katta) va ulashish sababi", "text": "Kichik foizni vaqt katta qiladi. Buni foizni kam deb o'ylaydigan yaqiningizga yuboring."}
+  ]
+}
