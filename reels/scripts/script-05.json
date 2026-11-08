@@ -1,0 +1,159 @@
+{
+  "id": "script-05",
+  "title": "Narxni tushirdingiz, nega baribir qimmat?",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 44,
+  "hook": "Bozorda narxni tushirdingiz, xursand bo'ldingiz. Keyin bildingiz: baribir qimmatga olgansiz. Nega?",
+  "answer_line": "Siz o'z narxingizdan emas, sotuvchining narxidan savdolashgansiz.",
+  "final_line": "Shunda xursandchilik uyda ham qoladi.",
+  "cover_text": "NARXNI TUSHIRDINGIZ. NEGA BARIBIR QIMMAT?",
+  "caption": "Savdolashib narxni tushirdingiz, lekin baribir qimmatga oldingizmi? Sabab: sotuvchi aytgan birinchi raqam bizning o'lchovimizga aylanadi. Psixologlar buni langar effekti deyishadi (Tversky va Kahneman, 1974). Muzokaralar bo'yicha tadqiqotlarda esa birinchi taklif ko'pincha yakuniy narxga kuchli ta'sir qilgan (Galinsky va Mussweiler, 2001).\n\nIkki oddiy qadam: bozordan oldin narxni ikki joydan bilib oling va o'z narxingizni birinchi bo'lib ayting.\n\nSizningcha, bozorda birinchi bo'lib narx aytish foydalimi yoki xavflimi? Izohda yozing. Doim savdolashadigan yaqiningizga yuboring va obuna bo'ling.\n\nBu oddiy misol, moliyaviy maslahat emas. Videodagi narxlar misol uchun.\nManba: Tversky, Kahneman, Science, 1974; Galinsky, Mussweiler, JPSP, 2001.\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #bozor #psixologiya #savdolashish",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Bozorda narxni tushirdingiz, xursand bo'ldingiz. Keyin bildingiz: baribir qimmatga olgansiz. Nega?",
+      "on_screen": "NARXNI TUSHIRDINGIZ. NEGA BARIBIR QIMMAT?",
+      "visual_hint": "Bozor rastasi, xaridor xursand sumka bilan ketmoqda; ustida katta so'roq belgisi"
+    },
+    {
+      "n": 2,
+      "role": "gap",
+      "vo": "Sotuvchi yuz ming dedi, siz yetmish mingga oldingiz. Qo'shningiz esa ellik mingga olgan.",
+      "on_screen": "100 000. 70 000. 50 000",
+      "visual_hint": "Uchta narx yorlig'i ketma-ket; 50 000 qo'shni qo'lida. Mayda: misol"
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "vo": "Siz yomon savdolashmadingiz. Xato savdodan oldin bo'lgan.",
+      "on_screen": "XATO SAVDODAN OLDIN",
+      "visual_hint": "Vaqt chizig'i orqaga qaytadi: sotuvchi birinchi raqamni aytgan lahza yonadi"
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Olimlar odamlarga tasodifiy raqam ko'rsatib, keyin unga aloqasi yo'q savol berishdi.",
+      "on_screen": "TVERSKY VA KAHNEMAN, 1974",
+      "visual_hint": "Omad g'ildiragi aylanib 10 yoki 65 da to'xtaydi, yonida savol varaqasi"
+    },
+    {
+      "n": 5,
+      "role": "twist",
+      "vo": "Katta raqam ko'rganlar kattaroq javob berdi. Raqam tasodifiy bo'lsa ham.",
+      "on_screen": "10 KO'RGANLAR: 25 %. 65 KO'RGANLAR: 45 %",
+      "visual_hint": "Ikki ustun: past va baland; g'ildirak raqami ustunni tortib ko'taradi (langar metaforasi)"
+    },
+    {
+      "n": 6,
+      "role": "payoff",
+      "vo": "Siz o'z narxingizdan emas, sotuvchining narxidan savdolashgansiz.",
+      "on_screen": "SIZ UNING NARXIDAN SAVDOLASHGANSIZ",
+      "visual_hint": "Sotuvchining '100 000' yorlig'i langar bo'lib, xaridor narxini zanjir bilan ushlab turadi"
+    },
+    {
+      "n": 7,
+      "role": "payoff",
+      "vo": "Bozordan oldin narxni ikki joydan bilib oling. O'z narxingizni birinchi bo'lib ayting.",
+      "on_screen": "1. NARXNI BILING. 2. BIRINCHI AYTING",
+      "visual_hint": "Telefon yoki qo'shnidan narx so'rash, keyin xaridor birinchi bo'lib o'z raqamini aytadi; zanjir uziladi"
+    },
+    {
+      "n": 8,
+      "role": "share",
+      "vo": "Shunda xursandchilik uyda ham qoladi. Buni doim savdolashadigan yaqiningizga yuboring.",
+      "on_screen": "XURSANDCHILIK UYDA HAM QOLSIN",
+      "visual_hint": "Xaridor uyda xursand, sumka stolda; 1-kadrga loop. Mayda: Bu oddiy misol, moliyaviy maslahat emas"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Langar effekti: tasodifiy raqam (omad g'ildiragi 10 yoki 65 da to'xtagan) keyingi baholashga ta'sir qilgan; savol BMTdagi Afrika davlatlari ulushi haqida. 10 ko'rganlar o'rtacha (mediana) 25 %, 65 ko'rganlar 45 % deb javob bergan",
+      "source": "Tversky A., Kahneman D. (1974). Judgment under Uncertainty: Heuristics and Biases. Science 185(4157), 1124-1131",
+      "url": "https://en.wikipedia.org/wiki/Anchoring_effect",
+      "status": "проверено (по вторичным источникам; mediana yoki o'rtacha — manbalar turlicha yozadi, ekranda 'javob berdi' deb umumiy beriladi)"
+    },
+    {
+      "claim": "Langar effekti katta ko'p laboratoriyali takrorlashda (Many Labs 1) muvaffaqiyatli takrorlangan, ya'ni bu 'mif' emas",
+      "source": "Klein R. A. va boshq. (2014). Investigating variation in replicability: A 'Many Labs' replication project. Social Psychology 45(3)",
+      "url": "https://www.psychologytoday.com/gb/blog/cultural-animal/202204/is-anchoring-and-adjustment-the-best-replicated-finding",
+      "status": "проверено (по вторичным источникам)"
+    },
+    {
+      "claim": "Muzokarada birinchi taklif qilgan tomon (xaridor yoki sotuvchi) odatda yaxshiroq natijaga erishgan; birinchi taklif yakuniy narxni kuchli bashorat qilgan. O'z maqsad narxingiz yoki muqobil variantlarga e'tibor qaratish birinchi taklif ta'sirini yo'qqa chiqargan",
+      "source": "Galinsky A. D., Mussweiler T. (2001). First offers as anchors: The role of perspective-taking and negotiator focus. Journal of Personality and Social Psychology 81(4), 657-669",
+      "url": "https://scilit.com/publications/20ebd03520c849bea09595b552c051df",
+      "status": "проверено (по аннотации в каталогах; полный текст не открывался)"
+    },
+    {
+      "claim": "Tajribali mutaxassislar ham langarga tushadi: ko'chmas mulk agentlari bir xil uyni e'lon qilingan narxga qarab har xil baholagan va ta'sirni inkor qilgan (vo da ishlatilmaydi, faqat qo'shimcha)",
+      "source": "Northcraft G. B., Neale M. A. (1987). Organizational Behavior and Human Decision Processes 39(1), 84-97",
+      "url": "https://ideas.repec.org/a/eee/jobhdp/v39y1987i1p84-97.html",
+      "status": "проверено (библиография); цифры только по вторичным источникам, в ролике не используются"
+    },
+    {
+      "claim": "Bozordagi narxlar (100 000, 70 000, 50 000 so'm) — shartli misol, haqiqiy narx emas",
+      "source": "Misol",
+      "url": "",
+      "status": "пример, не факт"
+    }
+  ],
+  "totals": {
+    "chars": 636,
+    "est_seconds": 44.9,
+    "credits": 636
+  },
+  "self_score": {
+    "hook": 9,
+    "retention": 8,
+    "emotion": 8,
+    "share": 8,
+    "language": 8,
+    "recognition": 9,
+    "pain": 8,
+    "solution": 8
+  },
+  "skip_test": [
+    {
+      "card": 1,
+      "risk": "Zritel o'zini tanimasa ketadi",
+      "fix": "Har bir o'zbek boshdan kechirgan sahna (bozor, savdo, uyda pushaymon) + markaziy savol 'Nega?' birinchi uch soniyada"
+    },
+    {
+      "card": 2,
+      "risk": "Raqamlar zerikarli tuyulishi mumkin",
+      "fix": "Qo'shni ellik mingga olgani — og'riqli taqqoslash, savolni kuchaytiradi"
+    },
+    {
+      "card": 3,
+      "risk": "Javob kutish charchatadi",
+      "fix": "Ayblovni olib tashlaydi ('yomon savdolashmadingiz') va yangi sir ochadi: xato savdodan oldin"
+    },
+    {
+      "card": 4,
+      "risk": "Ilmiy qism 'dars'ga o'xshab qolishi mumkin",
+      "fix": "Bitta qisqa jumla, nomlar faqat ekranda, g'ildirak vizuali"
+    },
+    {
+      "card": 5,
+      "risk": "Bozorga aloqasi ko'rinmasa ketadi",
+      "fix": "'Raqam tasodifiy bo'lsa ham' — kutilmagan burilish, keyingi kartochkada darhol bozorga qaytiladi"
+    },
+    {
+      "card": 6,
+      "risk": "Javob aniq bo'lmasa — yo'q",
+      "fix": "1-kartochkadagi savolga to'g'ridan-to'g'ri javob, yetti so'z"
+    },
+    {
+      "card": 7,
+      "risk": "Maslahat umumiy bo'lsa saqlashmaydi",
+      "fix": "Ikki aniq qadam, bugun bajarsa bo'ladi, tadqiqotga asoslangan"
+    },
+    {
+      "card": 8,
+      "risk": "Final kuchsiz bo'lsa qayta ko'rishmaydi",
+      "fix": "'Xursand' so'zi 1-kartochkaga qaytadi (loop), tabiiy adresat"
+    }
+  ]
+}

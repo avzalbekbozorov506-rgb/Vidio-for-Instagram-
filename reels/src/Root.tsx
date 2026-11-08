@@ -1,9 +1,16 @@
 import {Composition} from 'remotion';
 import {Reel, ReelProps} from './Reel';
+import {Turkic, TOTAL_FRAMES} from './Turkic';
+import {Cover} from './Cover';
+import {SubtitleTest} from './blocks/SubtitleTest';
 
 // Instagram Reels: 1080x1920, 30fps
 export const Root: React.FC = () => {
   return (
+    <>
+    <Composition id="SubtitleTest" component={SubtitleTest} durationInFrames={140} fps={30} width={1080} height={1920} />
+    <Composition id="Cover" component={Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Turkic" component={Turkic} durationInFrames={TOTAL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition
       id="Reel"
       component={Reel}
@@ -19,5 +26,6 @@ export const Root: React.FC = () => {
         } satisfies ReelProps
       }
     />
+    </>
   );
 };
