@@ -1,0 +1,139 @@
+{
+  "id": "script-07",
+  "title": "Usta ikki hafta dedi",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 65,
+  "hook": "Usta ikki hafta dedi, remont ikki oy ketdi, xarajat ham oshdi. Nega remont har doim shunday bo'ladi?",
+  "answer_line": "Reja yaxshi kunni ko'radi, remont esa har xil kunni.",
+  "final_line": "Usta ikki hafta desa, qo'shningizdagi ikki hafta necha hafta bo'lganini eslang.",
+  "cover_text": "NEGA REMONT DOIM REJADAN OSHADI?",
+  "caption": "Usta ikki hafta dedi, remont ikki oy ketdi, xarajat ham oshdi. Nega remont har doim shunday bo'ladi?\n\nJavob sizning ehtiyotkorligingizda emas. Olimlar talabalardan bitiruv ishini qachon tugatishni so'ragan: ular o'rtacha o'ttiz to'rt kun, eng yomon holatda ham qirq to'qqiz kun degan, ish esa o'rtacha ellik olti kun ketgan (Buehler, Griffin, Ross, 1994). Odam rejani o'zi tasavvur qilgan yo'l bo'yicha tuzadi, kutilmagan kunlarni esa hisobga olmaydi.\n\nBugun bajariladigan qadam: yaqinda remont qilgan qo'shningizdan so'rang, boshida qancha deb o'ylagan edi va oxirida qancha bo'ldi. Shu farqni o'z hisobingizga qo'shing.\n\nSizningcha, remontda eng kutilmagan xarajat nima bo'lgan? Izohda yozing. Remont boshlayotgan yaqiningizga yuboring va obuna bo'ling.\n\nBu oddiy misol, moliyaviy maslahat emas. Dilnoza va summalar xayoliy misol.\nManba: Buehler R., Griffin D., Ross M. (1994). Exploring the planning fallacy. Journal of Personality and Social Psychology 67(3).\n\n#oddiymohiyat #ozbekcha #pul #iqtisod #remont #psixologiya #rejalashtirish",
+  "cards": [
+    {
+      "n": 1,
+      "role": "pain",
+      "vo": "Usta ikki hafta dedi, remont ikki oy ketdi, xarajat ham oshdi. Nega remont har doim shunday bo'ladi?",
+      "on_screen": "USTA: 2 HAFTA. REMONT: 2 OY",
+      "visual_hint": "Usta qo'lini ko'rsatib ikki barmoq ko'tarilgan; kalendar varaqlari uchib ketadi, ustida katta savol belgisi"
+    },
+    {
+      "n": 2,
+      "role": "story",
+      "vo": "Dilnoza oshxona remontini hisobladi. Jami o'n besh million so'm, muddati eng yomon holatda ham uch hafta.",
+      "on_screen": "15 000 000 SO'M, 3 HAFTA (misol)",
+      "visual_hint": "Dilnoza daftarga yozmoqda: plitka, bo'yoq, usta haqi; pastda jami 15 mln va kalendarda 3 hafta belgilangan"
+    },
+    {
+      "n": 3,
+      "role": "twist",
+      "vo": "Lekin devorni ochishganda quvur chirigan ekan. Remont ikki oy ketdi, hisob yigirma besh million so'mga chiqdi.",
+      "on_screen": "2 OY, 25 000 000 SO'M",
+      "visual_hint": "Ochilgan devor, ichida chirigan quvur; 3 hafta yozuvi kalendarda 8 haftaga cho'ziladi, 15 mln yozuvi 25 mlnga o'zgaradi"
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Dilnoza o'zini ayblardi. Lekin xato unda emas. Olimlar talabalardan bitiruv ishi qachon tugashini so'ragan.",
+      "on_screen": "XATO UNDA EMAS",
+      "visual_hint": "Dilnoza boshini egib o'tiribdi; keyin kadr almashadi: auditoriya, talabalar qo'l ko'tarib, olimlar daftarga yozmoqda"
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "vo": "Ular o'rtacha o'ttiz to'rt kun dedi. Eng yomon holatda ham qirq to'qqiz kun. Ishni esa ellik olti kunda tugatishdi.",
+      "on_screen": "34 KUN. ENG YOMONI 49. AMALDA 56",
+      "visual_hint": "Uch ustunli diagramma: 34, 49 va eng baland 56 (qizil); 56 ustuni 49 chizig'idan o'tib ketadi. Pastda mayda: Buehler, Griffin, Ross, 1994"
+    },
+    {
+      "n": 6,
+      "role": "answer",
+      "vo": "Reja yaxshi kunni ko'radi, remont esa har xil kunni.",
+      "on_screen": "REJA: YAXSHI KUN. REMONT: HAR XIL KUN",
+      "visual_hint": "Chap tomonda faqat quyoshli kunlar qatori, o'ng tomonda quyosh, yomg'ir, buzilgan quvur aralash kunlar qatori"
+    },
+    {
+      "n": 7,
+      "role": "solution",
+      "vo": "Shuning uchun remont qilgan qo'shningizdan so'rang. Boshida qancha deb o'ylagan edingiz, oxirida qancha bo'ldi?",
+      "on_screen": "BOSHIDA QANCHA? OXIRIDA QANCHA?",
+      "visual_hint": "Siz qo'shni eshigida; fikr pufagida ikki yozuv: boshida va oxirida; ular orasida farq o'qi"
+    },
+    {
+      "n": 8,
+      "role": "solution",
+      "vo": "Shu farqni hisobga qo'shing. Usta ikki hafta desa, qo'shningizdagi ikki hafta necha hafta bo'lganini eslang.",
+      "on_screen": "FARQNI HISOBGA QO'SHING",
+      "visual_hint": "Usta ikki barmoq ko'rsatadi, uning yonida qo'shnining 2 haftasi 8 haftaga cho'ziladi (birinchi kadrning aksi); mayda: bu oddiy misol, moliyaviy maslahat emas"
+    },
+    {
+      "n": 9,
+      "role": "share",
+      "vo": "Buni remont qilayotgan yaqiningizga yuboring.",
+      "on_screen": "USTA IKKI HAFTA DEDI...",
+      "visual_hint": "Birinchi kadrdagi ikki barmoq va 'ikki hafta' yozuvi endi savol belgisi bilan qaytadi (loop)"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Reja xatosi (planning fallacy): 37 ta psixologiya talabasi bitiruv ishini o'rtacha 33,9 kunda tugatishini aytgan, eng yomon holat uchun 48,6 kun, amalda 55,5 kun ketgan; taxminan 30 foizi aytgan muddatida tugatgan",
+      "source": "Buehler R., Griffin D., Ross M. (1994). Exploring the planning fallacy: Why people underestimate their task completion times. Journal of Personality and Social Psychology 67(3). DOI 10.1037/0022-3514.67.3.366",
+      "url": "https://en.wikipedia.org/wiki/Planning_fallacy",
+      "status": "проверено по Wikipedia и вторичным источникам (siliconcanals, Donders blog); страница PsycNet не отдала аннотацию, сам оригинал не читал; ссылку на страницы журнала не указывать, пока не проверены. В vo числа округлены: 34, 49, 56 (55,5 округлено вверх)"
+    },
+    {
+      "claim": "Reference class forecasting: natijani o'xshash o'tgan ishlarning haqiqiy natijalariga qarab bashorat qilish (shuning uchun 'qo'shningizdan so'rang' qadami)",
+      "source": "Wikipedia, Planning fallacy (Lovallo & Kahneman 2003 aniqlamani kengaytirgan: vaqt, xarajat va xavf past baholanadi)",
+      "url": "https://en.wikipedia.org/wiki/Planning_fallacy",
+      "status": "проверено по Wikipedia (термин 'outside view' на странице не найден, в vo не используется)"
+    },
+    {
+      "claim": "Dilnoza, usta, summalar (15 mln so'm, 25 mln so'm, 3 hafta, 2 oy) va quvur holati",
+      "source": "Xayoliy misol",
+      "url": "",
+      "status": "пример, не факт"
+    }
+  ],
+  "totals": {
+    "chars": 850,
+    "est_seconds": 76.2,
+    "credits": 850
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 8,
+    "share": 8,
+    "language": 8,
+    "recognition": 9,
+    "pain": 8,
+    "solution": 8
+  },
+  "skip_test": [
+    {
+      "card": 1,
+      "risk": "Remont qilmagan zritel ketadi",
+      "fix": "Remont deyarli har oilada bo'ladi; usta va muddat oldindan tanish; savol shu kartochkada"
+    },
+    {
+      "card": 2,
+      "risk": "Raqamlar ko'p, zerikarli bo'lishi",
+      "fix": "Hikoya Dilnoza ismi bilan, atigi ikki raqam; 'eng yomon holatda ham' keyingi burilishga zamin"
+    },
+    {
+      "card": 4,
+      "risk": "Hikoyadan olimlarga sakrash darsga o'xshashi",
+      "fix": "'Xato unda emas' va olimlar talabalardan so'ragani bir kartochkada: sakrash intriga sifatida, ayblash hissi yechilmoqda"
+    },
+    {
+      "card": 5,
+      "risk": "Uchta raqam eshitilganda aralashib ketishi",
+      "fix": "Uch raqam o'sish tartibida, ustunli diagramma bilan; asosiy mazmun: eng yomon taxmindan ham ko'p ketgan"
+    },
+    {
+      "card": 7,
+      "risk": "Javobdan keyin e'tibor pasayishi",
+      "fix": "Yechim aniq va ikki daqiqada bajariladi; yana bir kichik savol qo'shni tilida"
+    }
+  ]
+}

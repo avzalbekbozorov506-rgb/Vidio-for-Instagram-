@@ -1,6 +1,6 @@
 // Uzbek TTS via VoiceLab API (api.voicelab.uz, key `vlk_...` in env AISHA_API_KEY or VOICELAB_API_KEY).
 // Docs: https://docs.voicelab.uz/markdown/api/tts.md
-// Usage: node scripts/tts.mjs "<text>" public/voice.wav [voice_id] [speed]
+// Usage: node scripts/tts.mjs "<text>" public/voice.wav [voice_id] [speed]  (env VOICELAB_MODEL=lison-v2 to pick the model)
 // Text up to 5000 chars per request; longer text is split on sentence boundaries and joined with ffmpeg.
 import {writeFileSync, mkdtempSync, rmSync} from 'node:fs';
 import {randomUUID} from 'node:crypto';
@@ -44,7 +44,7 @@ for (const [i, c] of chunks.entries()) {
   const res = await fetch(`${BASE}/v1/tts`, {
     method: 'POST',
     headers: {...headers, 'Idempotency-Key': randomUUID()},
-    body: JSON.stringify({text: c, language: 'uz', voice_id: voice, speed: Number(speed)}),
+    body: JSON.stringify({text: c, language: 'uz', voice_id: voice, speed: Number(speed), ...(process.env.VOICELAB_MODEL ? {model_id: process.env.VOICELAB_MODEL} : {})}),
   });
   if (!res.ok) throw new Error(`chunk ${i}: HTTP ${res.status} ${await res.text()}`);
   if (res.status === 202) parts.push(await pollAudio((await res.json()).status_url));

@@ -1,0 +1,123 @@
+{
+  "id": "script-08",
+  "title": "Kechasi stul yig'gan chol",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 65,
+  "genre": "hikoya-masal (o'ylab topilgan hikoya)",
+  "hook": "Mahalla gapirmasin deb to'yga qarz olganlar ko'p. Odamlar o'sha dasturxonni necha kun eslaydi?",
+  "answer_line": "Dasturxonni bir hafta eslashadi, yordamni umr bo'yi.",
+  "final_line": "Dasturxonni bir hafta eslashadi, yordamni umr bo'yi.",
+  "cover_text": "TO'YINGIZNI NECHA KUN ESLASHADI?",
+  "caption": "Mahalla gapirmasin deb to'yga qarz olganlar ko'p. Odamlar o'sha dasturxonni necha kun eslaydi?\n\nJasur opasining to'yini katta qildi, sakson million so'm qarz oldi va uch yuz mehmondan qoyil degan so'zni eshitdi. Bir haftadan keyin hamma boshqa to'yni gapirardi. Qarz kuni esa eshigiga faqat bitta kishi keldi.\n\nSizningcha, to'ydan keyin odamlar nimani uzoq eslashadi? Izohda yozing. To'y qilayotgan yaqiningizga yuboring va obuna bo'ling.\n\nBu o'ylab topilgan hikoya. Jasur, Karim chol va summalar xayoliy. Bu oddiy hikoya, moliyaviy maslahat emas.\n\n#oddiymohiyat #ozbekcha #pul #hikoya #toy #mahalla #hayotdarsi",
+  "cards": [
+    {
+      "n": 1,
+      "role": "pain",
+      "vo": "Mahalla gapirmasin deb to'yga qarz olganlar ko'p. Odamlar o'sha dasturxonni necha kun eslaydi?",
+      "on_screen": "ODAMLAR TO'YNI NECHA KUN ESLAYDI?",
+      "visual_hint": "Katta to'y hovlisi kechqurun: uzun dasturxon, osilgan chiroqlar, mehmonlar siluet. Ustida katta savol belgisi va kalendar varag'i"
+    },
+    {
+      "n": 2,
+      "role": "story",
+      "vo": "Jasur opasining to'yini katta qilmoqchi edi. Onasi oddiy qilaylik, dedi. Jasur esa yo'q, mahalla gapirmasin, dedi.",
+      "on_screen": "ONASI: ODDIY QILAYLIK",
+      "visual_hint": "Uyda oshxona: ona qo'lini ko'ksiga qo'yib turibdi, Jasur boshini chayqamoqda; orqada derazadan mahalla uylari ko'rinadi"
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "vo": "U sakson million so'm qarz oldi. Hovlini plov hidi tutdi, uch yuz mehmon uning qo'lini siqib, qoyil, dedi.",
+      "on_screen": "80 000 000 SO'M QARZ. 300 MEHMON",
+      "visual_hint": "Katta qozon va bug', hovli to'la mehmonlar; Jasurning qo'lini ketma-ket siqayotgan qo'llar; yuqorida qarz summasi daftarga yoziladi"
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "Tun yarmida mehmonlar tarqaldi. Faqat qo'shni Karim chol stullarni yig'ardi. Charchadingku, bolam, dedi.",
+      "on_screen": "TUN YARMI",
+      "visual_hint": "Bo'sh hovli, xira chiroq, tarqalgan stullar; keksa Karim chol egilib stulni ustma-ust qo'ymoqda, Jasur yonida charchagan turibdi"
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "vo": "Bir haftadan keyin choyxonada hamma boshqa to'y haqida gaplashardi. Jasur, bizning to'y yaxshi o'tdi, a, dedi.",
+      "on_screen": "BIR HAFTADAN KEYIN",
+      "visual_hint": "Choyxona, so'ri, choynak va piyolalar; odamlar bir-biriga gapirib qo'l silkitmoqda, Jasur chetda ikkilanib so'z boshlamoqda"
+    },
+    {
+      "n": 6,
+      "role": "story",
+      "vo": "Qaysi to'y, dedi kimdir. Qarz esa har oy eshik qoqardi.",
+      "on_screen": "QAYSI TO'Y?",
+      "visual_hint": "Jasurning yuzi jimib qoladi; kadr almashadi: eshikda qarz daftari va kalendar, har oy bir varaq yirtiladi"
+    },
+    {
+      "n": 7,
+      "role": "story",
+      "vo": "Bir kech Karim chol keldi. Pensiyamdan yig'gan uch million so'm, ko'p emas, lekin senga, dedi.",
+      "on_screen": "3 000 000 SO'M. PENSIYADAN YIG'GAN",
+      "visual_hint": "Kechqurun eshik oldida Karim chol, qo'lida eski ro'molcha bilan o'ralgan pul; Jasur eshikda turibdi, ikkalasining orasida iliq chiroq nuri"
+    },
+    {
+      "n": 8,
+      "role": "twist",
+      "vo": "Jasur uyalib ketdi. Uch yuz kishi qoyil, degan edi. Qarz kuni esa bitta kishi keldi.",
+      "on_screen": "300 KISHI QOYIL DEDI. BITTASI KELDI",
+      "visual_hint": "Uch yuz kichik siluet to'y kechasida (xira), ularning orasidan faqat bittasi, Karim chol, yorqin ajraladi va eshikka yaqinlashadi"
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Jasur o'sha kuni tushundi. Dasturxonni bir hafta eslashadi, yordamni umr bo'yi.",
+      "on_screen": "DASTURXON: BIR HAFTA. YORDAM: UMR BO'YI",
+      "visual_hint": "Chapda dasturxon siluet va kalendarda 7 kun, so'ng so'nadi; o'ngda Karim chol bilan stullar yig'ayotgan Jasurning qo'li, chiroq yonib turadi. Kadr birinchi kartochkadagi savol belgisi bilan tutashadi"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Jasur, Karim chol, summalar (80 mln so'm qarz, 3 mln so'm) va barcha voqealar o'ylab topilgan hikoya, haqiqiy odam yoki voqea emas",
+      "source": "Xayoliy hikoya (maxsus tarixiy yoki ilmiy fakt ishlatilmagan)",
+      "url": "",
+      "status": "вымысел, помечен в caption"
+    }
+  ],
+  "totals": {
+    "chars": 838,
+    "est_seconds": 75.3,
+    "credits": 838
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 9,
+    "share": 8,
+    "language": 8,
+    "recognition": 9,
+    "pain": 8,
+    "solution": 7
+  },
+  "skip_test": [
+    {
+      "card": 2,
+      "risk": "Zritel oddiy kichik dialogni sezib, hikoya boshlanganini kutmasligi",
+      "fix": "Ikki qarama-qarshi gap (ona va Jasur) darrov to'qnashuv beradi, savol hali ochiq"
+    },
+    {
+      "card": 5,
+      "risk": "Choyxona sahnasi kartochka 4 dan keyin ritmni sekinlatishi",
+      "fix": "Kartochka 5 oxiri Jasurning savoli, kartochka 6 boshida kutilmagan javob (Qaysi to'y)"
+    },
+    {
+      "card": 7,
+      "risk": "Karim cholning uch million so'mi sakson million qarz oldida kichik ko'rinadi",
+      "fix": "Bu ataylab: gap summada emas, kim kelganida; kartochka 8 buni aytib beradi"
+    },
+    {
+      "card": 9,
+      "risk": "Mahalla va to'y mavzusi ayrim zritelga nasihatdek tuyulishi",
+      "fix": "Ibora Jasurning tushunishidan chiqadi, oldin hech kim 'shunday qiling' demaydi"
+    }
+  ]
+}
