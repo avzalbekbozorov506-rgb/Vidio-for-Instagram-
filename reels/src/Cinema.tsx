@@ -271,15 +271,15 @@ const C8 = () => {
       <Glow position={[3.2, 6.2, -8.6]} size={9} color="#fff1c8" opacity={0.6} />
       <CityBack z={-12} seed={6} lit={0.3} />
       {[[-3.2, 3.2, 0.5, 6.4], [3.2, 3.2, 0.5, 6.4], [0, 6.4, 7, 0.5], [0, 0.4, 7, 0.9]].map(([x, y, w, h], i) => <mesh key={i} position={[x, y, -5.5]}><boxGeometry args={[w, h, 0.4]} /><meshStandardMaterial color="#232957" flatShading /></mesh>)}
-      <Hero3D position={[-1.0, 0, -2.2]} rotY={Math.PI} scale={1.1} />
+      <Hero3D position={[0.3, 0, -2.0]} rotY={Math.PI} scale={1.15} />
       {Array.from({length: 7}, (_, i) => {
         const p = Math.min(1, Math.max(0, (f - (t0 + i * 6)) / 70));
         if (p <= 0) return null;
         const q = ease(p);
-        return <Coin key={i} position={[-0.4 + (2.6 - -0.4) * q + i * 0.1, 2.0 + 3.8 * q + Math.sin(p * 6 + i) * 0.2, -2.2 - 6 * q]} scale={1 - p * 0.5} rot={[p * 8, p * 6, 0]} />;
+        return <Coin key={i} position={[0.9 + (2.8 - 0.9) * q + i * 0.1, 2.0 + 3.8 * q + Math.sin(p * 6 + i) * 0.2, -2.0 - 6 * q]} scale={1 - p * 0.5} rot={[p * 8, p * 6, 0]} />;
       })}
       <Rain3D cx={0} opacity={0.5} />
-      <Rig from={[0, 2.3, 3.2]} to={[0.4, 2.5, 1.6]} lookFrom={[0, 2.6, -5]} lookTo={[0.8, 3.2, -6]} dur={190} />
+      <Rig from={[0.2, 2.4, 8.0]} to={[0.4, 2.4, 6.2]} lookFrom={[0.3, 2.6, -4]} lookTo={[0.8, 3.2, -6]} dur={190} fov={46} />
     </Stage>
   );
 };
