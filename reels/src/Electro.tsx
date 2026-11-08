@@ -431,7 +431,7 @@ export const Electro: React.FC = () => {
 
 export const ElectroCover: React.FC = () => (
   <AbsoluteFill style={{background: '#f4ecde'}}>
-    <ThreeCanvas width={1080} height={1920} camera={{position: [0, 3.6, 12], fov: 40, near: 0.1, far: 200}}>
+    <ThreeCanvas width={1080} height={1920} camera={{position: [0, 5.2, 14], fov: 40, near: 0.1, far: 200}}>
       <color attach="background" args={['#f4ecde']} />
       <SoftLights />
       <ambientLight intensity={0.4} />
@@ -440,13 +440,13 @@ export const ElectroCover: React.FC = () => (
       <mesh position={[0.6, 1.0, -1.0]}><boxGeometry args={[0.5, 0.5, 0.08]} /><meshStandardMaterial color="#fff" /></mesh>
       <Appliance live shock={0} />
       <Heroine position={[0.9, 0.1, 0.8]} scale={1.45} point={0.5} look={0.6} />
-      <Rig from={[-0.9, 3.4, 11]} to={[-0.9, 3.4, 11]} lookFrom={[-0.9, 3.2, 0]} lookTo={[-0.9, 3.2, 0]} dur={5} shake={0} fov={40} />
+      <Rig from={[-0.4, 5.2, 14]} to={[-0.4, 5.2, 14]} lookFrom={[-0.4, 5.0, 0]} lookTo={[-0.4, 5.0, 0]} dur={5} shake={0} fov={40} />
     </ThreeCanvas>
     <div style={{position: 'absolute', left: 0, right: 0, top: 170, textAlign: 'center', fontFamily: anton, color: '#fff', textShadow: '0 8px 30px rgba(20,30,50,.9)', WebkitTextStroke: '6px #24304a', paintOrder: 'stroke fill'}}>
       <div style={{fontSize: 210, lineHeight: 1.0}}>AVTOMAT</div>
       <div style={{fontSize: 170, lineHeight: 1.05, color: '#ff5d5d'}}>SIZNI SAQLAMAYDI</div>
     </div>
-    <div style={{position: 'absolute', left: 0, width: SW, top: 1340, textAlign: 'center'}}>
+    <div style={{position: 'absolute', left: 0, width: SW, top: 1400, textAlign: 'center'}}>
       <span style={{display: 'inline-block', fontFamily: anton, fontSize: 90, color: '#24304a', background: GOLD, border: '8px solid #fff', borderRadius: 44, padding: '4px 50px', transform: 'rotate(-2deg)'}}>UNDA KIM SAQLAYDI?</span>
     </div>
   </AbsoluteFill>
