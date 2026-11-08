@@ -10,12 +10,14 @@ import {Story, StoryCover, StoryCover2, STORY_FRAMES} from './Story';
 import {Anchor, AnchorCover, ANCHOR_FRAMES} from './Anchor';
 import {SubtitleTest} from './blocks/SubtitleTest';
 import {Thunder, ThunderCover, THUNDER_FRAMES} from './Thunder';
+import {DioramaTest} from './DioramaTest';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
 
 // Instagram Reels: 1080x1920, 30fps
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="DioramaTest" component={DioramaTest} durationInFrames={60} fps={30} width={1080} height={1920} />
     <Composition id="ThunderProCover2" component={ThunderProCover2} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ThunderPro" component={ThunderPro} durationInFrames={THUNDERPRO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="ThunderProCover" component={ThunderProCover} durationInFrames={1} fps={30} width={1080} height={1920} />
