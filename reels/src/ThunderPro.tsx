@@ -644,3 +644,24 @@ export const ThunderProCover: React.FC = () => (
     <div style={{position: 'absolute', left: 0, width: W, top: 1180, textAlign: 'center', fontFamily: anton, fontSize: 70, color: '#fff', letterSpacing: 2}}>ODDIY MOHIYAT</div>
   </AbsoluteFill>
 );
+
+export const ThunderProCover2: React.FC = () => (
+  <AbsoluteFill style={{background: '#060a1d'}}>
+    <ThreeCanvas width={1080} height={1920} camera={{position: [0, 2.5, 23], fov: 42, near: 0.1, far: 200}}>
+      <Scene cfg={{flashes: [{t: -2, d: 6}], cam: {from: [0, 4.2, 23], to: [0, 4.2, 23], look: [0, 4.2, 0]}}} />
+    </ThreeCanvas>
+    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 25%, rgba(0,0,0,.6) 100%)'}} />
+    <div style={{position: 'absolute', left: 0, right: 0, top: 250, textAlign: 'center', fontFamily: anton, color: '#fff', textShadow: '0 8px 30px rgba(0,0,0,.95)'}}>
+      <div style={{fontSize: 250, lineHeight: 0.95, color: GOLD}}>CHAQMOQ</div>
+      <div style={{fontSize: 150, lineHeight: 1.1}}>QANCHA UZOQDA?</div>
+    </div>
+    <Dial cx={540} cy={1000} r={230} value={3} running at={-30} />
+    <div style={{position: 'absolute', left: 0, width: W, top: 1310, textAlign: 'center'}}>
+      <span style={{display: 'inline-block', fontFamily: anton, fontSize: 170, color: '#fff', background: '#e23131', border: '8px solid #fff', borderRadius: 40, padding: '0 50px', lineHeight: 1.15, boxShadow: '0 10px 40px rgba(0,0,0,.7)', transform: 'rotate(-3deg)'}}>= 1 KM</span>
+    </div>
+    <div style={{position: 'absolute', right: 40, top: 760, width: 230, height: 230, borderRadius: 130, background: GOLD, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotate(12deg)', border: '8px solid #fff', boxShadow: '0 10px 30px rgba(0,0,0,.6)'}}>
+      <div style={{fontFamily: anton, fontSize: 54, color: '#0a1030', textAlign: 'center', lineHeight: 1}}>SANANG!</div>
+    </div>
+    <div style={{position: 'absolute', left: 50, top: 760, transform: 'rotate(-10deg)'}}><BoltIcon s={200} /></div>
+  </AbsoluteFill>
+);
