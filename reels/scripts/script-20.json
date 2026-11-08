@@ -1,86 +1,86 @@
 {
   "id": "script-20",
-  "title": "Elektr himoyasini o'zing qur (3D-diorama)",
+  "title": "Avtomat sizni saqlamaydi (3D-diorama)",
   "lang": "uz",
   "voice": "Jasur Noir",
   "model": "lison-v2",
   "speed": 1.0,
   "genre": "explainer-diorama",
-  "hook": "Uyning elektr himoyasini noldan o'zingiz qursangiz, nimalar kerak bo'ladi? Keling, birga quramiz.",
-  "answer_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
-  "final_line": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
-  "cover_text": "ELEKTR HIMOYASINI QUR",
-  "caption": "Uyning elektr himoyasini noldan qursak: saqlagich, avtomat, yerlashtirish va UZO. Bu oddiy tushuntirish, elektr ishlarini faqat malakali mutaxassis bajaradi.\n\nSizning uyda qaysi himoya bor? Izohda yozing. Yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #elektr #xavfsizlik #bilasizmi #o'zbekcha",
+  "hook": "Avtomat sizni tok urishidan saqlamaydi. Unda sizni nima saqlaydi? Keling, himoyani noldan quramiz.",
+  "answer_line": "Demak, sizni avtomat emas, UZO saqlaydi.",
+  "final_line": "Elektr shitiga bir qarang, UZO bormi? Buni avtomatga ishonib yurgan yaqiningizga yuboring.",
+  "cover_text": "AVTOMAT SIZNI SAQLAMAYDI?",
+  "caption": "Avtomat sizni tok urishidan saqlamaydi, u simni himoya qiladi. Odamni UZO saqlaydi. Bu oddiy tushuntirish, elektr ishlarini faqat malakali mutaxassis bajaradi.\n\nSizning shitda UZO bormi? Izohda yozing. Yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #elektr #xavfsizlik #bilasizmi #o'zbekcha",
   "cards": [
     {
       "n": 1,
       "role": "hook",
-      "vo": "Uyning elektr himoyasini noldan o'zingiz qursangiz, nimalar kerak bo'ladi? Keling, birga quramiz.",
-      "on_screen": "ELEKTR HIMOYASINI QUR",
-      "visual_hint": "Uy kesimi: kirish simi, shchit, rozetka, qiz-yo'lboshchi."
+      "vo": "Avtomat sizni tok urishidan saqlamaydi. Unda sizni nima saqlaydi? Keling, himoyani noldan quramiz.",
+      "on_screen": "AVTOMAT SIZNI SAQLAMAYDI?",
+      "visual_hint": "Uy kesimi: elektr shiti, rozetka, qiz-yo'lboshchi, savol belgisi."
     },
     {
       "n": 2,
       "role": "wire",
       "vo": "Birinchi qadam oddiy. Simni uyga olib kiramiz. Lekin asboblar ko'payib ketsa, sim qizib, yonib ketishi mumkin.",
       "on_screen": "SIM QIZDI",
-      "visual_hint": "Sim qizaradi, ko'tarilgan harorat shkalasi, tutun."
+      "visual_hint": "Sim qizaradi, harorat shkalasi, tutun."
     },
     {
       "n": 3,
       "role": "fuse",
-      "vo": "Shuning uchun simga ingichka eruvchan sim qo'yamiz. Tok oshsa, u birinchi bo'lib eriydi va zanjirni uzadi. Bu saqlagich.",
+      "vo": "Shuning uchun simga ingichka eruvchan sim qo'yamiz. Tok oshsa, u eriydi va zanjirni uzadi. Bu saqlagich.",
       "on_screen": "SAQLAGICH",
-      "visual_hint": "Ingichka sim eriydi, zanjir uziladi, yorliq."
+      "visual_hint": "Ingichka sim eriydi, zanjir uziladi."
     },
     {
       "n": 4,
       "role": "breaker",
       "vo": "Lekin har safar uni almashtirish kerak. Shuning uchun o'zi o'chadigan va qayta yoqiladigan qurilma qo'yamiz. Bu avtomat.",
       "on_screen": "AVTOMAT",
-      "visual_hint": "Tutqich pastga tushadi, qiz uni qayta yoqadi."
+      "visual_hint": "Tutqich pastga tushadi, qiz qayta yoqadi."
     },
     {
       "n": 5,
-      "role": "shock",
-      "vo": "Lekin odam hali himoyasiz. Asbob korpusiga tok tushsa, unga tekkan kishini uradi.",
-      "on_screen": "KORPUSGA TOK",
-      "visual_hint": "Cho'tka korpusga chaqmoq, qizil belgi."
+      "role": "warn",
+      "vo": "Lekin diqqat qiling. Avtomat simni himoya qiladi, sizni emas. U faqat juda katta tokda o'chadi.",
+      "on_screen": "SIMNI SAQLAYDI, SIZNI EMAS",
+      "visual_hint": "Sim yonmaydi, odam esa xavf ostida, qizil belgi."
     },
     {
       "n": 6,
       "role": "earth",
-      "vo": "Shuning uchun korpusni qo'shimcha sim bilan yerga ulaymiz. Bu yerlashtirish. Endi tok shu sim orqali yerga oqadi.",
+      "vo": "Asbob korpusiga tok tushsa, unga tekkan kishini uradi. Shuning uchun korpusni sim bilan yerga ulaymiz. Bu yerlashtirish.",
       "on_screen": "YERLASHTIRISH",
-      "visual_hint": "Yashil sim yerga tushadi, tok yo'li ko'rsatiladi."
+      "visual_hint": "Korpusga chaqmoq, yashil sim yerga tushadi."
     },
     {
       "n": 7,
-      "role": "trip",
-      "vo": "Katta tok oqqani uchun avtomat darhol o'chadi, odam esa zarbadan qutuladi.",
-      "on_screen": "AVTOMAT O'CHDI",
-      "visual_hint": "Avtomat o'chadi, korpus xavfsiz, yashil belgi."
+      "role": "break",
+      "vo": "Lekin sim uzilib, yerlashtirish ishlamay qolsachi? Odam orqali oqayotgan kichik tokni avtomat sezmaydi.",
+      "on_screen": "SIM UZILSACHI?",
+      "visual_hint": "Yashil sim uzilgan, tok odam orqali, avtomat jim."
     },
     {
       "n": 8,
-      "role": "break",
-      "vo": "Lekin sim uzilib, yerlashtirish ishlamay qolsachi? Tok odam orqali oqadi, avtomat esa buni sezmasligi mumkin.",
-      "on_screen": "SIM UZILSACHI?",
-      "visual_hint": "Yashil sim uzilgan, tok odam orqali, savol belgisi."
-    },
-    {
-      "n": 9,
       "role": "rcd",
       "vo": "Shuning uchun kirgan va chiqqan tokni solishtiradigan qurilma qo'yamiz. Farq paydo bo'lsa, u juda tez o'chadi. Bu UZO.",
       "on_screen": "UZO",
       "visual_hint": "Ikki o'lchagich, farq chiqadi, UZO o'chadi."
     },
     {
+      "n": 9,
+      "role": "answer",
+      "vo": "Demak, sizni avtomat emas, UZO saqlaydi.",
+      "on_screen": "UZO SAQLAYDI",
+      "visual_hint": "Shchitda UZO yonadi, avtomat va UZO yonma-yon."
+    },
+    {
       "n": 10,
       "role": "final",
-      "vo": "Hammasi shu. Siz hozirgina uyning elektr himoyasini qurdingiz. Buni elektr shitiga hech qaramagan yaqiningizga yuboring.",
-      "on_screen": "SIZ QURDINGIZ!",
-      "visual_hint": "Qiz shchit oldida, to'rt himoya yonma-yon."
+      "vo": "Elektr shitiga bir qarang, UZO bormi? Buni avtomatga ishonib yurgan yaqiningizga yuboring.",
+      "on_screen": "UZO BORMI?",
+      "visual_hint": "Qiz shit oldida, savol belgisi UZO ustida."
     }
   ],
   "facts": [
