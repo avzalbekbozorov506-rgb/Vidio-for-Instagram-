@@ -9,11 +9,14 @@ import {Hisob, HisobCover, HisobCover2, HISOB_FRAMES} from './Hisob';
 import {Story, StoryCover, StoryCover2, STORY_FRAMES} from './Story';
 import {Anchor, AnchorCover, ANCHOR_FRAMES} from './Anchor';
 import {SubtitleTest} from './blocks/SubtitleTest';
+import {Thunder, ThunderCover, THUNDER_FRAMES} from './Thunder';
 
 // Instagram Reels: 1080x1920, 30fps
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="Thunder" component={Thunder} durationInFrames={THUNDER_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ThunderCover" component={ThunderCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="SubtitleTest" component={SubtitleTest} durationInFrames={140} fps={30} width={1080} height={1920} />
     <Composition id="Cinema" component={Cinema} durationInFrames={CINEMA_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="ThreeTest" component={ThreeTest} durationInFrames={60} fps={30} width={1080} height={1920} />
