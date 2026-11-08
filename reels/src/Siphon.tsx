@@ -133,7 +133,17 @@ const Scene: React.FC = () => {
   // hero pose by card
   const point = [0, 1, 0.3, 0, 0.2, 1, 0.1, 0.4, 0.8, 1, 0.5][c] ?? 0;
   const heroX = c === 3 ? 3.6 : 3.3;
-  const sc = 0.85 * Math.pow(camAt(t).p[2] / 10, 0.75);
+  const cam = camAt(t);
+  const sc = 0.7 * Math.pow(cam.p[2] / 10, 0.7);
+  const halfW = 0.2047 * (cam.p[2] - 0.8);
+  const clampX = (x: number, w: number) => {
+    const ph = (w * sc) / 2 + 0.12;
+    return Math.max(cam.p[0] - halfW + ph, Math.min(cam.p[0] + halfW - ph, x));
+  };
+  const halfH = 0.3639 * (cam.p[2] - 0.8);
+  const clampY = (y: number) => Math.max(cam.l[1] - 0.42 * halfH, Math.min(cam.l[1] + 0.48 * halfH, y));
+  const Pl: React.FC<any> = (props) => <Pill {...props} position={[clampX(props.position[0], props.w ?? 2.6), clampY(props.position[1]), props.position[2]]} />;
+  const showHero = halfW > 3.2;
   return (
     <>
       <color attach="background" args={[sky.getStyle()]} />
@@ -160,23 +170,23 @@ const Scene: React.FC = () => {
       {gas === 2 && <Flow pts={pts} t0={0.6} t1={1} color={PAL.gas} reverse speed={0.012} count={8} size={0.16} />}
       {gas === 1 && <Smell x={0} y0={3.6} y1={6.4} count={10} opacity={0.6} spread={0.7} />}
       <Smell x={2.6} y0={-0.5} y1={2.2} count={7} opacity={gas ? 0.45 : 0.18} />
-      <Heroine position={[heroX, 0.1, 1.2]} scale={1.45} point={point} look={-0.7} />
+      {showHero && <Heroine position={[Math.min(heroX, cam.p[0] + halfW - 0.9), 0.1, 1.2]} scale={1.45} point={point} look={-0.7} />}
       {c === 9 && <mesh position={[-0.9, 4.2, 0.4]}><cylinderGeometry args={[0.12, 0.1, 0.35, 10]} /><meshStandardMaterial color="#dfeaf2" /></mesh>}
       {c === 9 && <mesh position={[-0.9, 4.55, 0.4]}><icosahedronGeometry args={[0.2, 0]} /><meshStandardMaterial color="#ff7aa8" flatShading /></mesh>}
       {/* pills */}
-      <Pill text="Quvur" position={[-1.7, 3.5, 0.8]} target={[0, 3.0, 0.1]} at={T(1, 1.12) * FPS} until={T(1, 1.12) * FPS + 100} sc={sc} w={2.2} />
-      <Pill text="Egilgan joy" position={[2.5, 0.9, 0.8]} target={[0.8, 1.62, 0.1]} at={T(1, 1.8) * FPS} until={T(1, 1.8) * FPS + 100} sc={sc} w={2.6} />
-      <Pill text="Suv ketdi" position={[-1.9, 1.4, 0.8]} target={[0, 2.2, 0.1]} at={T(2, 3.0) * FPS} until={T(2, 3.0) * FPS + 100} sc={sc} w={2.4} />
-      <Pill text="Gaz yo'li" red position={[-1.8, 1.0, 0.8]} target={[1.5, 2.35, 0.1]} at={T(3, 4.1) * FPS} until={T(3, 4.1) * FPS + 100} sc={sc} w={2.4} />
-      <Pill text="Suv qoldi" position={[-1.8, 1.0, 0.8]} target={[0.75, 1.6, 0.1]} at={T(4, 6.8) * FPS} until={T(4, 6.8) * FPS + 100} sc={sc} w={2.4} />
-      <Pill text="Gidrozatvor" orange position={[-2.2, 1.0, 0.8]} target={[0.7, 1.62, 0.1]} at={T(5, 6.9) * FPS} until={T(5, 6.9) * FPS + 260} sc={sc} w={2.8} />
-      <Pill text="Suv probkasi" orange position={[2.6, 0.9, 0.8]} target={[1.0, 1.66, 0.1]} at={T(5, 8.6) * FPS} until={T(5, 8.6) * FPS + 130} sc={sc} w={2.8} />
-      <Pill text="Yangi suv" position={[-1.7, 3.3, 0.8]} target={[0, 3.0, 0.1]} at={T(6, 1.8) * FPS} until={T(6, 1.8) * FPS + 100} sc={sc} w={2.4} />
-      <Pill text="Eski suv" position={[2.4, 1.0, 0.8]} target={[0.9, 1.66, 0.1]} at={T(6, 3.6) * FPS} until={T(6, 3.6) * FPS + 100} sc={sc} w={2.4} />
-      <Pill text="Hid!" red position={[-1.8, 5.8, 0.8]} target={[0, 4.4, 0.1]} at={T(7, 5.6) * FPS} until={T(7, 5.6) * FPS + 100} sc={sc} w={1.8} />
-      <Pill text="Suv bug'landi" position={[-2.3, 1.0, 0.8]} target={[0.7, 1.62, 0.1]} at={T(8, 1.0) * FPS} until={T(8, 1.0) * FPS + 100} sc={sc} w={2.8} />
-      <Pill text="Suv oqizing" position={[-2.1, 5.5, 0.8]} target={[0, 5.0, 0.1]} at={T(8, 6.3) * FPS} until={T(8, 6.3) * FPS + 100} sc={sc} w={2.6} />
-      <Pill text="Suv probkasi" orange position={[2.6, 0.9, 0.8]} target={[1.0, 1.66, 0.1]} at={T(9, 0.5) * FPS} until={T(9, 0.5) * FPS + 100} sc={sc} w={2.8} />
+      <Pl text="Quvur" position={[-1.7, 3.5, 0.8]} target={[0, 3.0, 0.1]} at={T(1, 1.12) * FPS} until={T(1, 1.12) * FPS + 100} sc={sc} w={2.2} />
+      <Pl text="Egilgan joy" position={[-1.8, 1.9, 0.8]} target={[0.8, 1.62, 0.1]} at={T(1, 1.8) * FPS} until={T(1, 1.8) * FPS + 100} sc={sc} w={2.6} />
+      <Pl text="Suv ketdi" position={[-1.9, 1.4, 0.8]} target={[0, 2.2, 0.1]} at={T(2, 3.0) * FPS} until={T(2, 3.0) * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Gaz yo'li" red position={[-1.8, 1.0, 0.8]} target={[1.5, 2.35, 0.1]} at={T(3, 4.1) * FPS} until={T(3, 4.1) * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Suv qoldi" position={[-1.8, 1.0, 0.8]} target={[0.75, 1.6, 0.1]} at={T(4, 6.8) * FPS} until={T(4, 6.8) * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Gidrozatvor" orange position={[-2.2, 1.0, 0.8]} target={[0.7, 1.62, 0.1]} at={T(5, 6.9) * FPS} until={T(5, 6.9) * FPS + 260} sc={sc} w={2.8} />
+      <Pl text="Suv probkasi" orange position={[-1.8, 2.7, 0.8]} target={[1.0, 1.66, 0.1]} at={T(5, 8.6) * FPS} until={T(5, 8.6) * FPS + 130} sc={sc} w={2.8} />
+      <Pl text="Yangi suv" position={[-1.7, 3.3, 0.8]} target={[0, 3.0, 0.1]} at={T(6, 1.8) * FPS} until={T(6, 1.8) * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Eski suv" position={[-1.8, 2.4, 0.8]} target={[0.9, 1.66, 0.1]} at={T(6, 3.6) * FPS} until={T(6, 3.6) * FPS + 100} sc={sc} w={2.4} />
+      <Pl text="Hid!" red position={[-1.8, 5.8, 0.8]} target={[0, 4.4, 0.1]} at={T(7, 5.6) * FPS} until={T(7, 5.6) * FPS + 100} sc={sc} w={1.8} />
+      <Pl text="Suv bug'landi" position={[-2.3, 1.0, 0.8]} target={[0.7, 1.62, 0.1]} at={T(8, 1.0) * FPS} until={T(8, 1.0) * FPS + 100} sc={sc} w={2.8} />
+      <Pl text="Suv oqizing" position={[-2.1, 5.5, 0.8]} target={[0, 5.0, 0.1]} at={T(8, 6.3) * FPS} until={T(8, 6.3) * FPS + 100} sc={sc} w={2.6} />
+      <Pl text="Suv probkasi" orange position={[-1.8, 2.5, 0.8]} target={[1.0, 1.66, 0.1]} at={T(9, 0.5) * FPS} until={T(9, 0.5) * FPS + 100} sc={sc} w={2.8} />
       <CamRig t={t} />
     </>
   );
