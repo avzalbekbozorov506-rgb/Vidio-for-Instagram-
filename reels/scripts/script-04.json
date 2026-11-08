@@ -1,0 +1,119 @@
+{
+  "id": "script-04",
+  "title": "Algoritm so'zi qayerdan chiqqan?",
+  "lang": "uz-Latn",
+  "voice": "Amir",
+  "target_seconds": 42,
+  "hook": "Siz har kuni bir olimning ismini aytasiz. Faqat buni sezmaysiz.",
+  "final_line": "Bu videoni sizga ham Xorazmiyning ismi olib keldi.",
+  "cover_text": "ALGORITM KIMNING ISMI?",
+  "caption": "Algoritm so'zi aslida bir olimning ismi. Muhammad ibn Muso al-Xorazmiy taxminan 780-850-yillarda yashagan va Bag'doddagi Hikmat uyida ishlagan. Uning kitobi nomidagi al-jabr so'zidan algebra kelib chiqqan, lotincha tarjimadagi Algoritmi ismidan esa algoritm.\n\nSizningcha, yana qaysi kundalik so'z aslida birovning ismi? Izohda yozing. Matematikani yomon ko'radigan do'stingizga yuboring va obuna bo'ling.\n\nManba: MacTutor (St Andrews universiteti), Instagram rasmiy blogi.\n\n#oddiymohiyat #ozbekcha #tarix #ilm #xorazmiy #algoritm #matematika",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Siz har kuni bir olimning ismini aytasiz. Faqat buni sezmaysiz.",
+      "on_screen": "SIZ HAR KUNI UNING ISMINI AYTASIZ",
+      "visual_hint": "Telefon ekrani, ustida yashirin ism siluetidagi so'roq belgisi"
+    },
+    {
+      "n": 2,
+      "role": "gap",
+      "vo": "U qariyb ming ikki yuz yil oldin yashagan. Lekin ismi bugun ham har kuni ishlatiladi.",
+      "on_screen": "≈1200 YIL OLDIN",
+      "visual_hint": "Vaqt chizig'i: qadimiy qo'lyozmadan bugungi smartfongacha"
+    },
+    {
+      "n": 3,
+      "role": "story",
+      "vo": "Uning ismi Muhammad ibn Muso al-Xorazmiy. Xorazmiy degani, Xorazmlik degani.",
+      "on_screen": "AL-XORAZMIY ≈780-850",
+      "visual_hint": "Olim siluetli 2D portret, xaritada Xorazm belgilanadi"
+    },
+    {
+      "n": 4,
+      "role": "story",
+      "vo": "U Bag'doddagi Hikmat uyida matematikadan kitoblar yozgan.",
+      "on_screen": "BAG'DOD. HIKMAT UYI",
+      "visual_hint": "Gumbazli bino ichida kitob javonlari, olim yozmoqda"
+    },
+    {
+      "n": 5,
+      "role": "story",
+      "vo": "Bir kitobi nomidagi al-jabr so'zidan algebra degan fan nomi kelib chiqqan.",
+      "on_screen": "AL-JABR = ALGEBRA",
+      "visual_hint": "Kitob muqovasida 'al-jabr' yozuvi harflari 'ALGEBRA' ga aylanadi"
+    },
+    {
+      "n": 6,
+      "role": "twist",
+      "vo": "Kitobi lotin tiliga tarjima qilinganda, uning ismi Algoritmi deb yozildi.",
+      "on_screen": "AL-XORAZMIY = ALGORITMI",
+      "visual_hint": "Ism harflari bir-bir o'zgarib, lotincha shaklga o'tadi"
+    },
+    {
+      "n": 7,
+      "role": "payoff",
+      "vo": "Shu ismdan algoritm so'zi chiqdi. Instagramda nimani ko'rishingizni ham algoritmlar hal qiladi.",
+      "on_screen": "ALGORITMI = ALGORITM",
+      "visual_hint": "'ALGORITM' so'zi Instagram lentasiga o'xshash kartochkalarni saralaydi (brendsiz)"
+    },
+    {
+      "n": 8,
+      "role": "share",
+      "vo": "Demak, bu videoni sizga ham Xorazmiyning ismi olib keldi. Buni matematikani yoqtirmaydigan do'stingizga yuboring.",
+      "on_screen": "BU VIDEONI XORAZMIY OLIB KELDI",
+      "visual_hint": "Telefon ekranida shu video, ustida 'ALGORITM' so'zi; 1-kadrga loop"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Al-Xorazmiy taxminan 780-yilda tug'ilgan, taxminan 850-yilda vafot etgan; xalifa al-Ma'mun davrida Bag'doddagi Hikmat uyida (House of Wisdom) olim bo'lgan",
+      "source": "MacTutor History of Mathematics, St Andrews universiteti: Al-Khwarizmi biografiyasi",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/",
+      "status": "проверено"
+    },
+    {
+      "claim": "Al-Xorazmiy nisbasi 'Xorazmdan' degan ma'noni bildiradi; Xorazm hozirgi O'zbekiston va Turkmaniston hududida. Tug'ilgan joyi bahsli (Ibn an-Nadim: Xorazm; ba'zi tarixchilar: Bag'dod yaqinidagi Qutrubbul). Shuning uchun vo da 'Xorazmda tug'ilgan' deyilmaydi, faqat ism ma'nosi aytiladi",
+      "source": "Wikipedia: Al-Khwarizmi; MacTutor (possibly Baghdad)",
+      "url": "https://en.wikipedia.org/wiki/Al-Khwarizmi",
+      "status": "проверено (tug'ilgan joy — bahsli, vo da ishlatilmaydi)"
+    },
+    {
+      "claim": "Algebra so'zi uning 'Hisob al-jabr val-muqobala' kitobi nomidagi al-jabr (to'ldirish, tiklash) so'zidan kelib chiqqan; kitob taxminan 820-yillarda yozilgan",
+      "source": "MacTutor; Wikipedia: Al-Khwarizmi (c. 820 CE)",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/",
+      "status": "проверено"
+    },
+    {
+      "claim": "Hind raqamlari haqidagi kitobi XII asrda lotin tiliga tarjima qilingan ('Algoritmi de numero Indorum'); 'algoritm' so'zi ismining lotincha shakli Algoritmi/Algorismusdan kelib chiqqan",
+      "source": "MacTutor; Wikipedia: Al-Khwarizmi; Wikipedia: Algorism",
+      "url": "https://en.wikipedia.org/wiki/Algorism",
+      "status": "проверено (tarjima sanasi: aksariyat manbalar XII asr, bittasi XII-XIII asr deydi; vo da sana aytilmaydi)"
+    },
+    {
+      "claim": "Instagram nimani ko'rsatishni bitta emas, bir nechta algoritmlar, klassifikatorlar va jarayonlar orqali hal qiladi (shuning uchun vo da ko'plik: 'algoritmlar')",
+      "source": "Instagram rasmiy blogi, Adam Mosseri: Instagram Ranking Explained (2021, yangilangan 2023)",
+      "url": "https://about.instagram.com/blog/announcements/instagram-ranking-explained",
+      "status": "проверено (через новостные пересказы и поисковую выдачу; сама страница блога не открывалась)"
+    },
+    {
+      "claim": "'Qariyb ming ikki yuz yil oldin' = 2026 - ≈820 ≈ 1200 yil (faol davri)",
+      "source": "Hisob-kitob, MacTutor sanalari asosida",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Al-Khwarizmi/",
+      "status": "проверено (арифметика)"
+    }
+  ],
+  "totals": {
+    "chars": 636,
+    "est_seconds": 44.9,
+    "credits": 636
+  },
+  "self_score": {
+    "hook": 8,
+    "retention": 8,
+    "emotion": 7,
+    "share": 8,
+    "language": 8
+  }
+}

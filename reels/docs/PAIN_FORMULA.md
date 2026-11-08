@@ -50,3 +50,52 @@
 - **Решение:** 1–10. Можно ли выполнить сегодня, и закрывает ли оно именно эту боль?
 - **Тест на пропуск:** перечисли карточки, где зритель может уйти, и что ты сделал, чтобы удержать.
 Если любая из первых трёх оценок ниже 8, перепиши до выдачи.
+
+## 9. ГЛАВНОЕ: ОДИН ВОПРОС В НАЧАЛЕ — ОДИН ОТВЕТ В КОНЦЕ
+
+Весь ролик держится на ОДНОМ центральном вопросе.
+
+- Вопрос звучит (словами или очевидно) в первые 1–3 секунды, внутри боли: «Oylik tushdi. Uch kundan keyin yana pul yo'q. Pul qayerga ketdi?»
+- Обложка = этот же вопрос.
+- Каждая карточка приближает к ответу на ЭТОТ вопрос. Никаких вторых, посторонних вопросов.
+- Ответ звучит в последних 20–30 % ролика, и раньше его не выдаём (можно намекать: «javob siz o'ylagandek emas»).
+- Ответ = одна короткая запоминающаяся фраза до 10 слов, которая прямо закрывает вопрос из начала. Её зритель унесёт с собой и перескажет другу.
+- После ответа: 1–3 шага решения и финал с адресатом.
+- Проверка: прочитай только первую и последнюю карточки. Если по ним понятно «вопрос → ответ», структура верная.
+
+## 10. Шаблоны хука (направления, не копировать дословно)
+
+| Приём | Пример |
+|---|---|
+| Боль + вопрос | «Oylik tushdi. Uch kundan keyin yana pul yo'q. Pul qayerga ketdi?» |
+| «Вы делаете X, но…» | «Har oy pul yig'ishni boshlaysiz. Va har oy to'xtab qolasiz.» |
+| Все думают / на самом деле | «Hamma muammoni kam maoshda deb o'ylaydi. Aslida muammo boshqa joyda.» |
+| Две ошибки | «Qarz berayotganda ko'pchilik ikkita xato qiladi.» |
+| Парадокс | «Sandiqdagi pulingizni hech kim olmadi. Lekin u baribir kamaydi.» |
+| «Если у вас так, значит…» | «Agar dam olish kunlari ham charchasangiz, sababi uyqu emas.» |
+
+Чего хук НЕ делает: не здоровается, не говорит «bugun ... haqida gaplashamiz», не начинает с определения или даты, не обещает то, чего ролик не даст.
+
+## 11. Запоминающаяся фраза (ответ и финал)
+
+Чтобы фраза запомнилась: короткая, с ритмом, с контрастом или повтором.
+Примеры формы: «Pul jim yotadi, qadri esa jim turmaydi.» / «Pul oxirida qolmaydi. Uni boshida ajratish kerak.»
+Финал по возможности повторяет слово или образ из первой фразы: зритель чувствует, что история замкнулась, и пересматривает.
+
+## 12. ОБРАЗЕЦ: плохо и хорошо (одна тема: «почему зарплата быстро заканчивается»)
+
+Это образец СТРУКТУРЫ. Фактов в нём нет, поэтому источники не нужны. В реальном сценарии факты проверяются.
+
+**ПЛОХО (так не писать):**
+«Bugun biz shaxsiy byudjet haqida gaplashamiz. Byudjet — bu daromad va xarajatlarni rejalashtirish. Moliyaviy savodxonlik juda muhim. Har bir inson byudjet tuzishi kerak.»
+Почему плохо: нет боли, нет узнавания, нет вопроса, энциклопедия, зритель уходит на второй секунде.
+
+**ХОРОШО:**
+1. (боль + вопрос) «Oylik tushdi. Uch kundan keyin yana pul yo'q. Pul qayerga ketdi?»
+2. (узнавание) «Katta narsa olmadingiz. Faqat mayda xarajatlar: taksi, kofe, kichik sovg'a.»
+3. (мини-крючок) «Lekin muammo mayda xarajatlarda emas. Muammo boshqa joyda.»
+4. (развитие) «Ko'pchilik pulni oyning oxirida qolganidan yig'moqchi bo'ladi. Oxirida esa hech narsa qolmaydi.»
+5. (ответ — закрывает вопрос из карточки 1) «Pul oxirida qolmaydi. Uni boshida ajratish kerak.»
+6. (решение) «Oylik tushgan kuni birinchi bo'lib bir qismini chetga olib qo'ying. Keyin qolganini sarflang.»
+7. (финал + адресат) «Buni oyligi uch kunda tugaydigan do'stingizga yuboring.»
+Почему хорошо: зритель узнаёт себя в первой фразе, вопрос «pul qayerga ketdi?» держит до карточки 5, ответ одной фразой, решение выполнимо сегодня, адресат вытекает из боли, «uch kun» в начале и в конце замыкает петлю.
