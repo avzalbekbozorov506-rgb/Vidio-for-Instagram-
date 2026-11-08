@@ -256,10 +256,6 @@ const chunk = (text: string, size = 3) => {
   return out;
 };
 
-const Logo = () => (
-  <div style={{position: 'absolute', right: 50, top: 60, width: 96, height: 96, borderRadius: '50%', background: BG, border: `4px solid ${AMBER}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: anton, fontSize: 42, color: AMBER, zIndex: 5}}>OM</div>
-);
-
 export const Anchor: React.FC = () => {
   let from = 0;
   return (
@@ -279,7 +275,6 @@ export const Anchor: React.FC = () => {
           </Sequence>
         );
       })}
-      <Logo />
     </AbsoluteFill>
   );
 };
@@ -291,6 +286,5 @@ export const AnchorCover: React.FC = () => (
     </div>
     <PriceTag x={330} y={1180} text="100 000" delay={-40} rot={-6} size={80} />
     <PriceTag x={730} y={1330} text="70 000" delay={-40} rot={4} size={80} color={AMBER} />
-    <div style={{position: 'absolute', right: 56, bottom: 84, width: 104, height: 104, borderRadius: '50%', background: BG, border: `4px solid ${AMBER}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: anton, fontSize: 44, color: AMBER}}>OM</div>
   </AbsoluteFill>
 );
