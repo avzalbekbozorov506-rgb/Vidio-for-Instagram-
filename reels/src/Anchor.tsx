@@ -1,7 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {loadLocalFonts} from './fonts';
-import {Subtitles} from './blocks/Subtitles';
+import {KaraokeSubtitles} from './blocks/KaraokeSubtitles';
+import words from '../public/vo-05/words.json';
 import durations from '../public/vo-05/durations.json';
 import script from '../scripts/script-05.json';
 
@@ -99,7 +100,7 @@ const C2 = () => (
     <PriceTag x={470} y={640} text="100 000" delay={4} rot={-5} />
     <PriceTag x={560} y={920} text="70 000" delay={50} color={AMBER} rot={3} small="siz" />
     <PriceTag x={470} y={1230} text="50 000" delay={100} color={TEAL} rot={-3} small="qo'shni" />
-    <div style={{position: 'absolute', top: 1520, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 38, color: '#9fb0cc'}}>misol uchun</div>
+    <div style={{position: 'absolute', top: 1380, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 36, color: '#9fb0cc'}}>misol uchun</div>
   </AbsoluteFill>
 );
 
@@ -149,7 +150,7 @@ const C4 = () => {
         <circle r={36} fill={CREAM} />
         <path d="M-26 -352 L26 -352 L0 -296Z" fill={CREAM} />
       </svg>
-      <div style={{position: 'absolute', top: 1400, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 42, color: '#c9d4ea', opacity: p}}>tasodifiy raqam → savol</div>
+      <div style={{position: 'absolute', top: 1370, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 42, color: '#c9d4ea', opacity: p}}>tasodifiy raqam → savol</div>
     </AbsoluteFill>
   );
 };
@@ -189,14 +190,14 @@ const C6 = () => {
   return (
     <AbsoluteFill>
       <Title text="SIZ UNING NARXIDAN SAVDOLASHGANSIZ" size={84} />
-      <PriceTag x={540} y={640} text="100 000" delay={2} rot={-3} />
-      <svg width={W} height={900} viewBox="-540 -150 1080 900" style={{position: 'absolute', top: 700}}>
+      <PriceTag x={540} y={600} text="100 000" delay={2} rot={-3} />
+      <svg width={W} height={900} viewBox="-540 -150 1080 900" style={{position: 'absolute', top: 660}}>
         {Array.from({length: 7}, (_, i) => (
           <ellipse key={i} cx={sway} cy={-100 + i * 62} rx={20} ry={32} fill="none" stroke="#9fb0cc" strokeWidth={10} transform={`rotate(${i % 2 ? 90 : 0} ${sway} ${-100 + i * 62})`} />
         ))}
-        <g transform={`translate(0 ${520 * (1 - p) + 300})`}><g transform="scale(.9)"><AnchorShape /></g></g>
+        <g transform={`translate(0 ${520 * (1 - p) + 260})`}><g transform="scale(.9)"><AnchorShape /></g></g>
       </svg>
-      <PriceTag x={540} y={1430} text="70 000" delay={20} color={AMBER} rot={2} />
+      <PriceTag x={540} y={1330} text="70 000" delay={20} color={AMBER} rot={2} />
     </AbsoluteFill>
   );
 };
@@ -218,7 +219,7 @@ const C7 = () => {
       <Title text="IKKI QADAM" color={AMBER} />
       <Step n="1" text="Narxni ikki joydan biling" delay={6} y={480} />
       <Step n="2" text="O'z narxingizni birinchi ayting" delay={60} y={880} />
-      <svg width={W} height={340} viewBox="-540 -170 1080 340" style={{position: 'absolute', top: 1330}}>
+      <svg width={W} height={340} viewBox="-540 -170 1080 340" style={{position: 'absolute', top: 1120}}>
         <line x1={-420} y1={0} x2={-30 - 40 * snap} y2={0} stroke="#9fb0cc" strokeWidth={14} strokeDasharray="40 14" />
         <line x1={30 + 40 * snap} y1={0} x2={420} y2={0} stroke="#9fb0cc" strokeWidth={14} strokeDasharray="40 14" transform={`translate(0 ${snap * 60})`} />
         <text x={0} y={140} textAnchor="middle" fontFamily={mont} fontWeight={800} fontSize={44} fill={TEAL} opacity={snap}>langar uzildi</text>
@@ -239,8 +240,7 @@ const C8 = () => {
         <rect x={250} y={320} width={130} height={110} fill={BG} opacity={0.85} />
         <rect x={700} y={320} width={130} height={110} fill={BG} opacity={0.85} />
       </svg>
-      <Person x={540} y={1180} scale={0.85} />
-      <div style={{position: 'absolute', top: 1460, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 40, color: '#9fb0cc', opacity: p}}>Buni doim savdolashadigan yaqiningizga yuboring</div>
+      <Person x={540} y={1150} scale={0.85} />
       <div style={{position: 'absolute', bottom: 70, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 600, fontSize: 28, color: '#8b9bb8'}}>Bu oddiy misol, moliyaviy maslahat emas</div>
     </AbsoluteFill>
   );
@@ -292,7 +292,7 @@ export const Anchor: React.FC = () => {
         return (
           <Sequence key={c.n} from={start} durationInFrames={len}>
             <Comp />
-            <Subtitles chunks={chunk(c.vo)} durationInFrames={len} highlight={HIGHLIGHT} y={1560} accent={AMBER} />
+            <KaraokeSubtitles words={(words as any)[String(c.n)]} y={1490} accent={AMBER} />
             <Audio src={staticFile(`vo-05/card-${nn}.wav`)} />
             <SfxLayer n={c.n} />
           </Sequence>
