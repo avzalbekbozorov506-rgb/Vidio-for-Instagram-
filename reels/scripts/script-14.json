@@ -1,0 +1,91 @@
+{
+  "id": "script-14",
+  "title": "Atigi ikki foiz, nega to'rt million? (v2, оркестратор)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer",
+  "hook": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshadi?",
+  "answer_line": "Sir shundaki, foizning ustiga foiz qo'shiladi.",
+  "final_line": "Kichik foizni vaqt katta qiladi.",
+  "cover_text": "ATIGI 2%. NEGA 4 MILLION?",
+  "caption": "Oyiga atigi 2 foiz. Nega olti yilda 1 million 4 milliondan oshadi? Foizning ustiga foiz. Bu xayoliy oddiy misol, bank nazarda tutilmagan. Bu oddiy misol, moliyaviy maslahat emas.\n\nSizningcha, 2 foiz ko'pmi, kammi? Izohda yozing. Yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #pul #foiz #iqtisod #o'zbekcha",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Bir million so'm oyiga atigi ikki foiz o'sadi. Nega olti yilda u to'rt milliondan oshadi?",
+      "on_screen": "1 000 000 so'm | +2% oyiga | 6 YIL → 4 MLN?",
+      "visual_hint": "Tungi to'q fon, nozik to'r. Markazda katta 1 000 000, yonida sariq +2% urib turadi. O'ngda olti yillik shkala va savol belgisi."
+    },
+    {
+      "n": 2,
+      "role": "expect",
+      "vo": "Oddiy hisobda har oy yigirma ming qo'shilardi. Olti yilda ikki million to'rt yuz qirq ming bo'lardi.",
+      "on_screen": "20 000 × 72 oy = 2 440 000",
+      "visual_hint": "72 ta teng pog'onali zina chiziladi, har birida +20 000, hisoblagich 2 440 000 ga yetadi."
+    },
+    {
+      "n": 3,
+      "role": "gap",
+      "vo": "Aslida esa to'rt million yuz oltmish ming chiqadi. Ortiqcha pul qayerdan keldi?",
+      "on_screen": "4 161 140 | farq 1 721 140 ?",
+      "visual_hint": "Yonidagi ustun ancha baland o'sib 4 161 140 da to'xtaydi. Ikki ustun orasida sariq bo'shliq va savol belgisi."
+    },
+    {
+      "n": 4,
+      "role": "step1",
+      "vo": "Birinchi oy foiz yigirma ming bo'ladi. Endi hisobda bir million yigirma ming turibdi.",
+      "on_screen": "1 000 000 + 20 000 = 1 020 000",
+      "visual_hint": "Blok: 1 000 000, strelka, +20 000, natija 1 020 000 sariq yonadi."
+    },
+    {
+      "n": 5,
+      "role": "step2",
+      "vo": "Ikkinchi oy foiz yangi summadan hisoblanadi. Yigirma ming to'rt yuz so'm, atigi to'rt yuz so'm ortiq.",
+      "on_screen": "1 020 000 × 2% = 20 400 (+400)",
+      "visual_hint": "Kulrang 20 000 va sariq 400 ajralib turadi, 400 yaqinlashtiriladi."
+    },
+    {
+      "n": 6,
+      "role": "turn",
+      "vo": "Shu to'rt yuz so'm ham keyingi oy foiz o'stira boshlaydi. Foizning ustiga foiz qo'shiladi.",
+      "on_screen": "400 ham o'sadi",
+      "visual_hint": "Sariq 400 shariga aylanib uchinchi oy blokiga dumalaydi va yana o'sadi, o'z ortidan sariq iz qoldiradi."
+    },
+    {
+      "n": 7,
+      "role": "answer",
+      "vo": "Sir shundaki, foizning ustiga foiz qo'shiladi.",
+      "on_screen": "FOIZ USTIGA FOIZ",
+      "visual_hint": "Qor bo'roni (qor kesagi) dumalaydi, har aylanishda qatlam qo'shiladi. Savol belgisi javob bilan almashadi."
+    },
+    {
+      "n": 8,
+      "role": "rule72",
+      "vo": "Yetmish ikkini foizga bo'ling. Ikki foizda o'ttiz olti oy chiqadi, pul taxminan ikki baravar bo'ladi.",
+      "on_screen": "72 ÷ 2 = 36 oy → ×2",
+      "visual_hint": "Qoida kartasi 72 ÷ 2 = 36, grafik 1 000 000 dan taxminan 2 000 000 ga ko'tariladi. Kichik yozuv: aniq 35 oy."
+    },
+    {
+      "n": 9,
+      "role": "debt",
+      "vo": "Qarzda ham shunday. Oyiga necha foiz deb emas, jami qancha qaytarishni so'rang.",
+      "on_screen": "OYIGA NECHA FOIZ ✗ | JAMI QANCHA ✓",
+      "visual_hint": "Xuddi shu zina, endi qizil. Ikki yozuv: birinchisi chizilgan, ikkinchisi yoritilgan."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Kichik foizni vaqt katta qiladi. Buni foiz kam deb o'ylaydigan yaqiningizga yuboring.",
+      "on_screen": "ATIGI 2% → 4 161 140",
+      "visual_hint": "Birinchi kadrga qaytish: 4 161 140, 'atigi' so'zi sariq. Pastda kichik: misol, moliyaviy maslahat emas."
+    }
+  ],
+  "facts": [
+    "Murakkab foiz: 1,02^72 = 4,161140; oddiy foiz 1 000 000 + 72×20 000 = 2 440 000; farq 1 721 140 (hisoblangan)",
+    "72 qoidasi: aniq 35,0 oy (ln2/ln1,02) (hisoblangan)"
+  ],
+  "status": "draft, ok on voice pending"
+}
