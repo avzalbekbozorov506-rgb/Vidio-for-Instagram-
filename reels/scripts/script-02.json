@@ -1,0 +1,14 @@
+[
+ {"n":1,"screen":"Karta, 5 mamlakat turli rangda. Sarlavha: 5 TURKIY DAVLAT BIRLASHSA?","vo":"Agar 5 turkiy davlat bitta davlatga birlashsa, nima bo'ladi?"},
+ {"n":2,"screen":"Mamlakat nomlari qog'oz yorliqlarda: Turkiya, Qozog'iston, O'zbekiston, Ozarbayjon, Qirg'iziston","vo":"Turkiya, Qozog'iston, O'zbekiston, Ozarbayjon va Qirg'iziston."},
+ {"n":3,"screen":"Hammasi bir rangga bo'yaladi. MAYDONI 4,2 mln km2. Hindiston bilan taqqoslash ustuni","vo":"Maydoni taxminan 4,2 million kvadrat kilometr. Bu Hindistondan katta."},
+ {"n":4,"screen":"AHOLISI 161 mln. Nuqtalar xaritada yonadi. Rossiya bilan ustun","vo":"Aholisi taxminan 161 million. Bu Rossiyadan ko'p."},
+ {"n":5,"screen":"IQTISODIYOT 2 trln $. Doira diagramma: Turkiya qismi yorqin","vo":"Iqtisodiyoti taxminan 2 trillion dollar. Uning taxminan to'rtdan uch qismi faqat Turkiyaga to'g'ri keladi."},
+ {"n":6,"screen":"Belgilar: uran, neft, gaz, oltin. Qozog'istonda uran belgisi","vo":"Yer ostida uran, neft, gaz va oltin bor. Qozog'iston uran qazib olishda dunyoda birinchi."},
+ {"n":7,"screen":"Xitoydan Yevropagacha quruqlik yo'li chiziladi, hudud ichidan o'tadi","vo":"Xitoy bilan Yevropa o'rtasidagi quruqlik yo'li ham shu hududdan o'tadi."},
+ {"n":8,"screen":"Besh tanga: LIRA, TENGE, SO'M, MANAT, SOM. Ustida 'bitta davlat?' belgisi","vo":"Lekin pul beshta: lira, tenge, so'm, manat va som."},
+ {"n":9,"screen":"Besh soat: Anqara 12:00, Boku 13:00, Toshkent 14:00, Ostona 14:00, Bishkek 15:00","vo":"Soat ham har xil: Anqarada 12:00 bo'lsa, Bishkekda 15:00."},
+ {"n":10,"screen":"Sarlavha: POYTAXT QAYERDA? Beshta shahar ketma-ket miltillaydi","vo":"Poytaxt qayerda bo'ladi? Anqara, Toshkent, Ostona, Boku yoki Bishkek?"},
+ {"n":11,"screen":"Kul va bayram chiroqlari belgisi. Sarlavha: NAVRO'Z","vo":"Birlashtiruvchi narsa ham bor: Navro'z bayramini beshala davlat nishonlaydi."},
+ {"n":12,"screen":"Karta qaytadi. Savol yozuvi. Pastda: izoh, yuborish, obuna. Mayda: Taxminiy hisob-kitob, siyosiy fikr emas","vo":"Sizningcha, bunday ittifoq bo'lishi mumkinmi? Izohda yozing, do'stingizga yuboring, obuna bo'ling."}
+]
