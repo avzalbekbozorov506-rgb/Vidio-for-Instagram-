@@ -1,12 +1,13 @@
 // Per-card TTS: node scripts/tts-cards.mjs scripts/script-NN.json public/vo-NN [voice_id]
 // Reads cards[] (new schema) or a plain array (old script-02 format); uses only n and vo.
-// Skips cards whose raw wav already exists (no double charge).
+// Optional 4th arg: speed 0.5-2.0 (default 1). Skips cards whose raw wav already exists (no double charge).
 // Keeps the API file as card-NN.raw.wav and writes card-NN.wav with edge silence trimmed
 // (VoiceLab adds ~0.16 s before and ~0.22 s after speech). Writes durations.json (trimmed).
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-const [file, outDir, voice = 'voice_8bae02c6-d078-4757-9d62-0fce6da23cf7'] = process.argv.slice(2);
+const [file, outDir, voice = 'voice_8bae02c6-d078-4757-9d62-0fce6da23cf7', speedArg = '1'] = process.argv.slice(2);
+const speed = Number(speedArg);
 const key = process.env.VOICELAB_API_KEY || process.env.AISHA_API_KEY;
 const parsed = JSON.parse(readFileSync(file, 'utf8'));
 const cards = Array.isArray(parsed) ? parsed : parsed.cards;
@@ -21,9 +22,9 @@ for (const c of cards) {
   const raw = `${base}.raw.wav`;
   const f = `${base}.wav`;
   if (!existsSync(raw)) {
-    const idem = 'card-' + createHash('sha1').update(c.vo + voice).digest('hex').slice(0, 24);
+    const idem = 'card-' + createHash('sha1').update(c.vo + voice + speed).digest('hex').slice(0, 24);
     const res = await fetch('https://api.voicelab.uz/v1/tts', {method: 'POST', headers: {...H, 'Idempotency-Key': idem},
-      body: JSON.stringify({text: c.vo, language: 'uz', voice_id: voice, speed: 1})});
+      body: JSON.stringify({text: c.vo, language: 'uz', voice_id: voice, speed})});
     if (res.status !== 200) { console.error('card', c.n, 'HTTP', res.status, (await res.text()).slice(0, 300)); process.exit(1); }
     writeFileSync(raw, Buffer.from(await res.arrayBuffer()));
     credits += c.vo.length;
