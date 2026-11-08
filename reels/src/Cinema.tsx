@@ -38,9 +38,9 @@ const C1 = () => {
       <CityBack z={-30} seed={8} spread={56} lit={0.3} />
       <Building x={0} z={-10} w={5} h={17} d={4} seed={21} lit={0.1} color="#101534" />
       <mesh position={[0.2, 9.5, -7.95]}><planeGeometry args={[1.3, 1.7]} /><meshBasicMaterial color={WARM} transparent opacity={0.25 + 0.75 * on} /></mesh>
-      <Glow position={[0.2, 9.5, -7.5]} size={7 * on + 0.1} opacity={0.85} />
+      <Glow position={[0.2, 9.5, -7.5]} size={5 * on + 0.1} opacity={0.8} />
       <Rain3D />
-      <Rig from={[0, 5.5, 12]} to={[0.1, 8.3, 1.5]} lookFrom={[0, 8.5, -10]} lookTo={[0.2, 9.5, -10]} dur={200} />
+      <Rig from={[0, 5.0, 15]} to={[0.1, 7.2, 5.5]} lookFrom={[0, 8.0, -10]} lookTo={[0.2, 9.6, -10]} dur={200} fov={46} />
     </Stage>
   );
 };
@@ -64,6 +64,7 @@ const C2 = () => {
       <ambientLight intensity={0.35} color="#6a78c8" />
       <directionalLight position={[-4, 6, 6]} intensity={0.5} color="#7f95ff" />
       <pointLight position={[2.3, 1.8, -2.6]} intensity={14 * flick} distance={10} color="#6fa0ff" />
+      <pointLight position={[-1.5, 3.2, 1.5]} intensity={22} distance={12} color="#ffd9a8" />
       <mesh position={[0, 0, -2]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[30, 30]} /><meshStandardMaterial color="#1c1f3a" roughness={0.5} /></mesh>
       {[[-5.5, 2.75, 5, 5.5], [5.5, 2.75, 5, 5.5], [0, 5.5, 6, 2.2], [0, 0.75, 6, 1.5]].map(([x, y, w, h], i) => (
         <mesh key={i} position={[x, y, -6]}><boxGeometry args={[w, h, 0.3]} /><meshStandardMaterial color="#232957" roughness={0.9} flatShading /></mesh>
@@ -78,7 +79,7 @@ const C2 = () => {
       <mesh position={[1.4, 0.5, -2.6]}><boxGeometry args={[0.8, 0.12, 0.8]} /><meshStandardMaterial color="#2a2147" /></mesh>
       <Hero3D position={[1.0, 0.0, -2.6]} rotY={Math.PI / 2} sit scale={1.0} />
       <Clock3D position={[-3.6, 3.9, -5.8]} />
-      <Rig from={[-2.2, 2.3, 3.6]} to={[0.4, 2.0, 2.2]} lookFrom={[1.4, 1.6, -3.5]} lookTo={[1.6, 1.5, -3.2]} dur={220} />
+      <Rig from={[-1.5, 2.6, 7.5]} to={[0.6, 2.2, 5.4]} lookFrom={[1.4, 1.7, -3.2]} lookTo={[1.7, 1.6, -3.2]} dur={220} fov={44} />
     </Stage>
   );
 };
@@ -202,7 +203,7 @@ const C5 = () => (
       <Glow position={[0, 1.2, 0.5]} size={8} opacity={0.18} />
       <mesh position={[1.1, 0.12, 0.6]} rotation={[0, 0.5, Math.PI / 2 - 0.15]}><cylinderGeometry args={[0.04, 0.04, 1.2, 8]} /><meshStandardMaterial color="#1c2236" /></mesh>
     </Desk>
-    <Rig from={[0, 5.2, 5.6]} to={[0, 4.0, 3.6]} lookFrom={[0, 0, 0]} lookTo={[0, 0, 0.2]} dur={190} />
+    <Rig from={[0, 8.0, 6.8]} to={[0, 6.6, 5.2]} lookFrom={[0, 0, 0]} lookTo={[0, 0, 0.2]} dur={190} />
   </Stage>
 );
 
@@ -217,7 +218,7 @@ const C6 = () => {
         <group scale={pop(wf(6, 1))}><Icon3D kind="somsa" position={[-0.95, 0.45, -0.1]} scale={0.8} /></group>
         <group scale={pop(wf(6, 2))}><Icon3D kind="taxi" position={[-0.9, 0.35, 1.0]} scale={0.8} /></group>
       </Desk>
-      <Rig from={[0, 3.6, 3.4]} to={[0, 2.9, 2.1]} lookFrom={[0, 0, 0.2]} lookTo={[0, 0, 0.5]} dur={290} />
+      <Rig from={[0, 6.4, 5.2]} to={[0, 5.2, 4.0]} lookFrom={[0, 0, 0.2]} lookTo={[0, 0, 0.4]} dur={290} />
     </Stage>
   );
 };
@@ -244,13 +245,13 @@ const C7 = () => {
         const y = t < 1 ? 7 * (1 - t) * (1 - t) + 0.05 * Math.abs(Math.sin(t * 9)) * (1 - t) : 0.05;
         return t > 0 ? <Coin key={i} position={[-2.6 + (i % 6) * 1.04, y, -1.8 + Math.floor(i / 6) * 1.04]} rot={[0, t * 6, 0]} /> : null;
       })}
-      <Label3D text="1 200 000" position={[0, 2.4, 0.5]} opacity={tot} />
+      <Label3D text="1 200 000" position={[0, 2.6, 0.8]} opacity={tot} size={78} />
       <group position={[0, 0.1, 4.2]}>
         <mesh><boxGeometry args={[7, 0.3, 0.5]} /><meshStandardMaterial color="#3a3f6e" /></mesh>
         <mesh position={[-3.5 + (7 * 0.3 * third) / 2, 0.02, 0.28]}><boxGeometry args={[7 * 0.3 * third + 0.01, 0.3, 0.1]} /><meshStandardMaterial color="#e85a4f" emissive="#6a1d18" emissiveIntensity={0.5} /></mesh>
       </group>
       <Rain3D count={90} opacity={0.2} />
-      <Rig from={[0, 5.4, 7.4]} to={[0, 7.6, 9.2]} lookFrom={[0, 0.5, 0.5]} lookTo={[0, 0.8, 1.2]} dur={230} />
+      <Rig from={[0, 7.0, 10.5]} to={[0, 8.6, 12.5]} lookFrom={[0, 0.8, 0.5]} lookTo={[0, 1.0, 1.0]} dur={230} />
     </Stage>
   );
 };
@@ -263,7 +264,9 @@ const C8 = () => {
       <ambientLight intensity={0.35} color="#6a78c8" />
       <pointLight position={[3, 5, -3]} intensity={30} distance={22} color="#fff1c8" />
       <Ground color="#1a1c3c" />
-      <mesh position={[0, 3.2, -7]}><planeGeometry args={[30, 12]} /><meshBasicMaterial color="#0f1536" /></mesh>
+      <mesh position={[0, 6, -22]}><planeGeometry args={[90, 40]} /><meshBasicMaterial color="#26336e" /></mesh>
+      <directionalLight position={[3, 5, -6]} intensity={2.2} color="#bcd0ff" />
+      <pointLight position={[-1, 2.5, 0.5]} intensity={14} distance={9} color="#7f95ff" />
       <mesh position={[3.2, 6.2, -9]}><sphereGeometry args={[0.9, 20, 20]} /><meshBasicMaterial color="#fff3d1" /></mesh>
       <Glow position={[3.2, 6.2, -8.6]} size={9} color="#fff1c8" opacity={0.6} />
       <CityBack z={-12} seed={6} lit={0.3} />
@@ -322,7 +325,8 @@ const C9 = () => {
       {phase === 'cup' && (
         <group>
           <Ground color="#12163a" />
-          <mesh position={[0, 2.2, -2.6]}><planeGeometry args={[9, 6]} /><meshBasicMaterial color="#ffb86a" /></mesh>
+          <mesh position={[0, 2.2, -2.8]}><planeGeometry args={[9, 6]} /><meshBasicMaterial color="#8a5a46" /></mesh>
+          <pointLight position={[0.6, 1.6, -1]} intensity={14} distance={6} color="#ffc98a" />
           <mesh position={[0, 0.5, -2.4]}><boxGeometry args={[2.4, 0.14, 0.7]} /><meshStandardMaterial color="#5a3a24" flatShading /></mesh>
           <Cup position={[0, 0.58, -2.3]} steam={Math.min(1, (f - b) / 20)} />
           <Glow position={[0, 1.4, -2.2]} size={8} opacity={0.5} />
@@ -341,8 +345,8 @@ const C9 = () => {
         </group>
       )}
       <Rig
-        from={phase === 'street' ? [3.2, 2.2, 7] : phase === 'cup' ? [0, 1.6, 1.4] : [0, 8.2, 3.2]}
-        to={phase === 'street' ? [-1, 2.4, 6] : phase === 'cup' ? [0, 1.55, 0.4] : [0.2, 9.2, 8]}
+        from={phase === 'street' ? [3.5, 2.4, 9.5] : phase === 'cup' ? [0, 1.5, 2.8] : [0, 8.2, 4.5]}
+        to={phase === 'street' ? [-1, 2.5, 8] : phase === 'cup' ? [0, 1.4, 1.4] : [0.2, 9.2, 9]}
         lookFrom={phase === 'street' ? [0, 2.2, -3] : phase === 'cup' ? [0, 1.2, -2.4] : [0.2, 9, -9]}
         lookTo={phase === 'street' ? [-2, 2.4, -3] : phase === 'cup' ? [0, 1.1, -2.4] : [0.2, 9.5, -9]}
         dur={phase === 'street' ? b : phase === 'cup' ? c - b : 160}

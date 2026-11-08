@@ -119,11 +119,11 @@ export const Hero3D: React.FC<{position?: [number, number, number]; rotY?: numbe
           <group position={[0.17, 0.95, 0]} rotation={[-sw, 0, 0]}><mesh position={[0, -0.45, 0]}><boxGeometry args={[0.28, 0.95, 0.3]} /><meshStandardMaterial color="#232a40" flatShading /></mesh></group>
         </>
       )}
-      <mesh position={[0, sit ? 0.95 : 1.45, 0]}><boxGeometry args={[0.78, 1.0, 0.45]} /><meshStandardMaterial color={coat} flatShading roughness={0.7} /></mesh>
+      <mesh position={[0, sit ? 0.95 : 1.45, 0]}><boxGeometry args={[0.78, 1.0, 0.45]} /><meshStandardMaterial color={coat} emissive="#16284a" emissiveIntensity={0.9} flatShading roughness={0.7} /></mesh>
       <group position={[-0.5, sit ? 1.25 : 1.8, 0]} rotation={[-sw * 0.8, 0, sit ? -0.9 : 0]}><mesh position={[0, -0.4, 0]}><boxGeometry args={[0.2, 0.85, 0.22]} /><meshStandardMaterial color={coat} flatShading /></mesh></group>
       <group position={[0.5, sit ? 1.25 : 1.8, 0]} rotation={[sw * 0.8, 0, sit ? 0.9 : 0]}><mesh position={[0, -0.4, 0]}><boxGeometry args={[0.2, 0.85, 0.22]} /><meshStandardMaterial color="#33608f" flatShading /></mesh>{bag && <mesh position={[0.1, -0.95, 0.1]}><boxGeometry args={[0.4, 0.42, 0.18]} /><meshStandardMaterial color="#a8794a" flatShading /></mesh>}</group>
-      <mesh position={[0, sit ? 1.75 : 2.3, 0]}><icosahedronGeometry args={[0.34, 1]} /><meshStandardMaterial color="#e8bc98" flatShading /></mesh>
-      <mesh position={[0, sit ? 1.9 : 2.45, -0.04]}><icosahedronGeometry args={[0.36, 1]} /><meshStandardMaterial color="#1d1a24" flatShading /></mesh>
+      <mesh position={[0, sit ? 1.75 : 2.3, 0]}><icosahedronGeometry args={[0.34, 1]} /><meshStandardMaterial color="#e8bc98" emissive="#3a2418" emissiveIntensity={0.8} flatShading /></mesh>
+      <mesh position={[0, sit ? 1.9 : 2.45, -0.04]}><icosahedronGeometry args={[0.36, 1]} /><meshStandardMaterial color="#2b2638" emissive="#0c0a14" emissiveIntensity={0.8} flatShading /></mesh>
       {umbrella && (
         <group position={[0.55, 1.1, 0]}>
           <mesh position={[0, 0.8, 0]}><cylinderGeometry args={[0.025, 0.025, 2.3, 6]} /><meshStandardMaterial color="#161a2c" /></mesh>
