@@ -247,3 +247,53 @@ export const StoryCover: React.FC = () => (
     <div style={{position: 'absolute', top: 1180, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 58, color: '#c9d4ea'}}>Nega keyin og'ir bo'ladi?</div>
   </AbsoluteFill>
 );
+
+const Shocked: React.FC<{x: number; y: number; s: number}> = ({x, y, s}) => (
+  <svg width={300} height={460} viewBox="-150 -230 300 460" style={{position: 'absolute', left: x - 150, top: y - 230, transform: `scale(${s})`, overflow: 'visible'}}>
+    <rect x={-70} y={-20} width={140} height={190} rx={60} fill={TEAL} />
+    <rect x={-60} y={150} width={50} height={70} rx={14} fill="#2b3550" /><rect x={10} y={150} width={50} height={70} rx={14} fill="#2b3550" />
+    <circle cx={0} cy={-100} r={70} fill="#f2c9a0" />
+    <path d="M-72 -110 Q-60 -185 0 -178 Q62 -185 72 -110 Q40 -150 0 -146 Q-40 -150 -72 -110Z" fill="#2a2018" />
+    <circle cx={-26} cy={-102} r={16} fill="#fff" /><circle cx={26} cy={-102} r={16} fill="#fff" />
+    <circle cx={-26} cy={-100} r={7} fill={INK} /><circle cx={26} cy={-100} r={7} fill={INK} />
+    <path d="M-44 -132 L-12 -124 M44 -132 L12 -124" stroke={INK} strokeWidth={7} strokeLinecap="round" />
+    <ellipse cx={0} cy={-58} rx={16} ry={22} fill="#6b2a2a" />
+    <path d="M-70 10 Q-130 -60 -120 -150" stroke="#f2c9a0" strokeWidth={28} strokeLinecap="round" fill="none" />
+    <path d="M70 10 Q130 -60 120 -150" stroke="#f2c9a0" strokeWidth={28} strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+export const StoryCover2: React.FC = () => {
+  const spikes = Array.from({length: 24}, (_, i) => {
+    const a = (i / 24) * Math.PI * 2, r = i % 2 ? 330 : 470;
+    return `${540 + r * Math.cos(a)},${1010 + r * Math.sin(a) * 0.62}`;
+  }).join(' ');
+  return (
+    <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 50%, #243e6d 0%, ${BG} 70%, #070d18 100%)`}}>
+      <div style={{position: 'absolute', top: 270, width: W, textAlign: 'center', fontFamily: anton, lineHeight: 1}}>
+        <div style={{fontSize: 150, color: CREAM, textShadow: '0 8px 24px rgba(0,0,0,.7)'}}>OYIGA ATIGI</div>
+        <div style={{fontSize: 250, color: AMBER, textShadow: '0 10px 30px rgba(0,0,0,.7)', marginTop: 6}}>500 000?</div>
+      </div>
+      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+        <polygon points={spikes} fill={CORAL} stroke={CREAM} strokeWidth={10} strokeLinejoin="round" />
+      </svg>
+      <div style={{position: 'absolute', top: 915, width: W, textAlign: 'center', fontFamily: anton, fontSize: 142, color: '#fff', transform: 'rotate(-4deg)', textShadow: '0 8px 0 #7a1f1a, 0 14px 30px rgba(0,0,0,.6)'}}>12 000 000</div>
+      <div style={{position: 'absolute', top: 1115, width: W, textAlign: 'center', fontFamily: mont, fontWeight: 800, fontSize: 56, color: '#fff', transform: 'rotate(-4deg)'}}>so'm to'laysiz!</div>
+      <Shocked x={250} y={1420} s={1.05} />
+      <Phone2 x={830} y={1420} />
+      <div style={{position: 'absolute', bottom: 245, width: W, textAlign: 'center'}}>
+        <span style={{display: 'inline-block', background: AMBER, color: INK, fontFamily: anton, fontSize: 70, padding: '8px 40px 14px', transform: 'rotate(2deg)', boxShadow: '0 12px 30px rgba(0,0,0,.6)'}}>SOTUVCHI AYTMAGAN RAQAM</span>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const Phone2: React.FC<{x: number; y: number}> = ({x, y}) => (
+  <svg width={220} height={400} viewBox="-110 -200 220 400" style={{position: 'absolute', left: x - 110, top: y - 200, transform: 'rotate(10deg) scale(.9)'}}>
+    <rect x={-90} y={-190} width={180} height={380} rx={30} fill="#222b40" stroke={CREAM} strokeWidth={8} />
+    <rect x={-72} y={-165} width={144} height={300} rx={12} fill="#3c82f6" />
+    <text x={0} y={-40} textAnchor="middle" fontFamily={anton} fontSize={44} fill="#fff">500 000</text>
+    <text x={0} y={5} textAnchor="middle" fontFamily={mont} fontWeight={800} fontSize={24} fill="#cfe3ff">/ oy</text>
+    <circle cx={0} cy={160} r={14} fill={CREAM} />
+  </svg>
+);
