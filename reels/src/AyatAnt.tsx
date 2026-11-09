@@ -6,21 +6,21 @@ import words from '../public/vo-30/words.json';
 
 // Series "Qur'on va fan" #1: chumoli (Naml 27:18). Same dark-gold style as AyatBee. Narrator reads the Uzbek translation; Arabic is on screen only.
 // Ayat text is ON SCREEN ONLY (narrator never recites it). Safe area x 80..960, y 250..1560.
-const FPS = 30;
-const W = 1080;
-const PAD = 0.25;
-const GOLD = '#e9b73c', GOLD2 = '#ffd978', DIM = '#8d7b57';
-const SERIF = "'Cormorant', 'Times New Roman', serif";
-const AR = "'AmiriAr', 'DejaVu Sans', serif";
-const dur = (n: number) => (durations as Record<string, number>)[String(n)];
-const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
-const ease = (x: number) => x * x * (3 - 2 * x);
-const useT = () => useCurrentFrame() / FPS;
-const EV = (n: number, i: number) => (words as any)[String(n)][i].s as number;
-const ap = (t: number, n: number, i: number, d = 0.35) => ease(sm(t, EV(n, i), EV(n, i) + d));
+export const FPS = 30;
+export const W = 1080;
+export const PAD = 0.25;
+export const GOLD = '#e9b73c', GOLD2 = '#ffd978', DIM = '#8d7b57';
+export const SERIF = "'Cormorant', 'Times New Roman', serif";
+export const AR = "'AmiriAr', 'DejaVu Sans', serif";
+export const dur = (n: number) => (durations as Record<string, number>)[String(n)];
+export const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
+export const ease = (x: number) => x * x * (3 - 2 * x);
+export const useT = () => useCurrentFrame() / FPS;
+export const EV = (n: number, i: number) => (words as any)[String(n)][i].s as number;
+export const ap = (t: number, n: number, i: number, d = 0.35) => ease(sm(t, EV(n, i), EV(n, i) + d));
 
 let fontsStarted = false;
-const loadFonts = () => {
+export const loadFonts = () => {
   if (fontsStarted) return; fontsStarted = true;
   const h = delayRender('ayat-fonts');
   const list: [string, string, string][] = [['AmiriAr', 'amiri-arabic-400.woff2', '400'], ['AmiriAr', 'amiri-arabic-700.woff2', '700'], ['Cormorant', 'cormorant-600.woff2', '600'], ['Cormorant', 'cormorant-500.woff2', '500']];
@@ -28,8 +28,8 @@ const loadFonts = () => {
 };
 
 // ---------- backdrop: dark honeycomb ----------
-const hexP = (cx: number, cy: number, r: number) => `M${Array.from({length: 6}, (_, i) => { const a = (Math.PI / 3) * i + Math.PI / 6; return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`; }).join('L')}Z`;
-const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+export const hexP = (cx: number, cy: number, r: number) => `M${Array.from({length: 6}, (_, i) => { const a = (Math.PI / 3) * i + Math.PI / 6; return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`; }).join('L')}Z`;
+export const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 const SHADES = ['#0b0704', '#140d05', '#1e1307', '#2c1b09', '#3f290d', '#573a12', '#74501a'];
 const Honey: React.FC = () => {
   const cells = useMemo(() => {
@@ -45,7 +45,7 @@ const Honey: React.FC = () => {
 };
 // ---------- line icons ----------
 type Sym = 'mountain' | 'tree' | 'build' | 'flower' | 'path' | 'hive' | 'crown' | 'drop' | 'hex';
-const Symbol: React.FC<{k: Sym}> = ({k}) => {
+export const Symbol: React.FC<{k: Sym}> = ({k}) => {
   const st = {fill: 'none', stroke: GOLD, strokeWidth: 3.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
   switch (k) {
     case 'mountain': return <g {...st}><path d="M-26 18 L-6 -16 L6 2 L16 -8 L28 18z" /></g>;
@@ -74,18 +74,18 @@ const Ring: React.FC<{x: number; y: number; r: number; k: number; male?: boolean
 );
 
 // ---------- text helpers ----------
-const Title: React.FC<{k: number; children: React.ReactNode; color?: string}> = ({k, children, color = '#f2ead8'}) => (
+export const Title: React.FC<{k: number; children: React.ReactNode; color?: string}> = ({k, children, color = '#f2ead8'}) => (
   <div style={{position: 'absolute', left: 80, width: 920, top: 300, textAlign: 'center', fontFamily: SERIF, fontWeight: 600, fontSize: 60, color, opacity: k, transform: `translateY(${(1 - k) * -12}px)`}}>
     {children}<div style={{margin: '10px auto 0', width: 190 * k, height: 2, background: GOLD}} />
   </div>
 );
-const Arabic: React.FC<{size: number; children: React.ReactNode; color?: string; x?: number; y: number; w?: number; k?: number}> = ({size, children, color = '#f6efe0', x = 80, y, w = 920, k = 1}) => (
+export const Arabic: React.FC<{size: number; children: React.ReactNode; color?: string; x?: number; y: number; w?: number; k?: number}> = ({size, children, color = '#f6efe0', x = 80, y, w = 920, k = 1}) => (
   <div dir="rtl" style={{position: 'absolute', left: x, top: y, width: w, textAlign: 'center', fontFamily: AR, fontSize: size, lineHeight: 1.75, color, opacity: k}}>{children}</div>
 );
-const Tr: React.FC<{size: number; children: React.ReactNode; color?: string; x?: number; y: number; w?: number; k?: number; italic?: boolean}> = ({size, children, color = '#d9cdb0', x = 80, y, w = 920, k = 1, italic = false}) => (
+export const Tr: React.FC<{size: number; children: React.ReactNode; color?: string; x?: number; y: number; w?: number; k?: number; italic?: boolean}> = ({size, children, color = '#d9cdb0', x = 80, y, w = 920, k = 1, italic = false}) => (
   <div style={{position: 'absolute', left: x, top: y, width: w, textAlign: 'center', fontFamily: SERIF, fontWeight: 500, fontStyle: italic ? 'italic' : 'normal', fontSize: size, lineHeight: 1.3, color, opacity: k, letterSpacing: 1}}>{children}</div>
 );
-const Panel: React.FC<{x: number; y: number; w: number; h: number; k?: number}> = ({x, y, w, h, k = 1}) => (
+export const Panel: React.FC<{x: number; y: number; w: number; h: number; k?: number}> = ({x, y, w, h, k = 1}) => (
   <div style={{position: 'absolute', left: x, top: y, width: w, height: h, borderRadius: 18, border: '2px solid rgba(233,183,60,.55)', background: 'linear-gradient(180deg, rgba(14,9,3,.92), rgba(6,4,1,.94))', opacity: k, boxShadow: '0 20px 60px rgba(0,0,0,.6)'}} />
 );
 
@@ -96,7 +96,7 @@ const TL: number[] = Array.from({length: NC}, (_, i) => i + 1);
 const segLen = (n: number) => dur(n) + PAD;
 const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); acc += segLen(n); });
 export const ANT_FRAMES = Math.round(acc * FPS);
-const RED = '#ff6a5a';
+export const RED = '#ff6a5a';
 
 // ---------- ant (top view, head up) ----------
 const Ant: React.FC<{x: number; y: number; s?: number; t?: number; rot?: number; glow?: number; alarm?: number; ph?: number}> = ({x, y, s = 1, t = 0, rot = 0, glow = 0, alarm = 0, ph = 0}) => {
@@ -140,7 +140,7 @@ const Backdrop: React.FC = () => {
 };
 
 // extra line symbols
-const Sy: React.FC<{k: string}> = ({k}) => {
+export const Sy: React.FC<{k: string}> = ({k}) => {
   const st = {fill: 'none', stroke: GOLD, strokeWidth: 3.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
   switch (k) {
     case 'ant': return <g {...st}><circle cy={-16} r={6} /><circle cy={-2} r={8} /><circle cy={16} r={11} /><path d="M-8 -4 l-14 -6 M8 -4 l14 -6 M-8 4 l-16 8 M8 4 l16 8" /></g>;
@@ -156,7 +156,7 @@ const Sy: React.FC<{k: string}> = ({k}) => {
     default: return <Symbol k={k as Sym} />;
   }
 };
-const HX: React.FC<{x: number; y: number; k: number; sym: string; label?: string; s?: number; hot?: boolean; red?: boolean}> = ({x, y, k, sym, label, s = 1, hot = false, red = false}) => {
+export const HX: React.FC<{x: number; y: number; k: number; sym: string; label?: string; s?: number; hot?: boolean; red?: boolean}> = ({x, y, k, sym, label, s = 1, hot = false, red = false}) => {
   const c = red ? RED : GOLD;
   return (
     <g transform={`translate(${x} ${y}) scale(${s * (0.6 + 0.4 * k)})`} opacity={k}>
@@ -176,13 +176,13 @@ const Cloud: React.FC<{x: number; y: number; k: number; r?: number}> = ({x, y, k
     </g>
   );
 };
-const Num: React.FC<{v: string; k: number; size: number; y: number; color?: string}> = ({v, k, size, y, color = GOLD2}) => (
+export const Num: React.FC<{v: string; k: number; size: number; y: number; color?: string}> = ({v, k, size, y, color = GOLD2}) => (
   <div style={{position: 'absolute', left: 80, width: 920, top: y, textAlign: 'center', fontFamily: SERIF, fontWeight: 600, fontSize: size, letterSpacing: 6, fontVariantNumeric: 'lining-nums', color, textShadow: `0 0 ${40 * k}px ${GOLD}`}}>{v.slice(0, Math.ceil(k * v.length))}</div>
 );
 
-const AR1 = 'حَتَّىٰٓ إِذَآ أَتَوْا۟ عَلَىٰ وَادِ ٱلنَّمْلِ قَالَتْ نَمْلَةٌۭ يَٰٓأَيُّهَا ٱلنَّمْلُ ٱدْخُلُوا۟ مَسَٰكِنَكُمْ لَا يَحْطِمَنَّكُمْ سُلَيْمَٰنُ وَجُنُودُهُۥ وَهُمْ لَا يَشْعُرُونَ';
-const TRA = "Toki ular chumolilar vodiysiga kelganlarida, bir chumoli: «Ey chumolilar, maskanlaringizga kiringlar,";
-const TRB = "Sulaymon va uning askarlari sizlarni bilmasdan ezib yubormasinlar», dedi.";
+export const AR1 = 'حَتَّىٰٓ إِذَآ أَتَوْا۟ عَلَىٰ وَادِ ٱلنَّمْلِ قَالَتْ نَمْلَةٌۭ يَٰٓأَيُّهَا ٱلنَّمْلُ ٱدْخُلُوا۟ مَسَٰكِنَكُمْ لَا يَحْطِمَنَّكُمْ سُلَيْمَٰنُ وَجُنُودُهُۥ وَهُمْ لَا يَشْعُرُونَ';
+export const TRA = "Toki ular chumolilar vodiysiga kelganlarida, bir chumoli: «Ey chumolilar, maskanlaringizga kiringlar,";
+export const TRB = "Sulaymon va uning askarlari sizlarni bilmasdan ezib yubormasinlar», dedi.";
 
 // ---------- scenes ----------
 const S1: React.FC = () => {
@@ -391,8 +391,8 @@ const S13: React.FC = () => {
 };
 
 const SCENES: Record<number, React.FC> = {1: S1, 2: S2, 3: S3, 4: S4, 5: S5, 6: S6, 7: S7, 8: S8, 9: S9, 10: S10, 11: S11, 12: S12, 13: S13};
-const sfx = (n: number, i: number, name: string, v: number): [number, string, number] => [EV(n, i), name, v];
-const SFX: Record<number, [number, string, number][]> = {
+export const sfx = (n: number, i: number, name: string, v: number): [number, string, number] => [EV(n, i), name, v];
+export const SFX: Record<number, [number, string, number][]> = {
   1: [sfx(1, 1, 'pop', 0.4), sfx(1, 4, 'rise', 0.3), sfx(1, 5, 'ding', 0.4)], 2: [sfx(2, 0, 'ding', 0.4), sfx(2, 1, 'pop', 0.3), sfx(2, 3, 'pop', 0.3)], 3: [[0.3, 'whoosh', 0.3], sfx(3, 2, 'pop', 0.3), sfx(3, 9, 'pop', 0.3)], 4: [sfx(4, 0, 'pop', 0.3), sfx(4, 6, 'thud', 0.4)],
   5: [sfx(5, 6, 'whoosh', 0.4), sfx(5, 10, 'tick', 0.4), sfx(5, 16, 'ding', 0.5)], 6: [sfx(6, 0, 'thud', 0.4), sfx(6, 3, 'rise', 0.4)], 7: [sfx(7, 3, 'pop', 0.4), sfx(7, 5, 'whoosh', 0.4), sfx(7, 7, 'whoosh', 0.4)], 8: [sfx(8, 4, 'tick', 0.4), sfx(8, 8, 'ding', 0.5)],
   9: [sfx(9, 2, 'thud', 0.3), sfx(9, 6, 'rise', 0.3), sfx(9, 10, 'thud', 0.4)], 10: [sfx(10, 4, 'whoosh', 0.3), sfx(10, 9, 'ding', 0.5)], 11: [sfx(11, 2, 'ding', 0.5)], 12: [sfx(12, 1, 'ding', 0.5), sfx(12, 7, 'rise', 0.3)], 13: [sfx(13, 3, 'ding', 0.5)],
@@ -411,7 +411,7 @@ const group = (ws: TW[]): TW[][] => {
   if (cur.length) out.push(cur);
   return out;
 };
-const Subs: React.FC<{ws: TW[]}> = ({ws}) => {
+export const Subs: React.FC<{ws: TW[]}> = ({ws}) => {
   const t = useT();
   const chunks = group(ws);
   let idx = -1;
