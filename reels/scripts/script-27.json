@@ -1,0 +1,119 @@
+{
+ "id": "script-27",
+ "title": "Asalari doim urg'ochi, Qur'on ham shunday murojaat qiladi (аналог присланного ролика)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "fact-quran-gold",
+ "reference": "присланный mp4 VID_20261108_191121 (102 с): пчела всегда самка + Коран 16:68-69 в женском роде, арабская грамматика, 17 век микроскоп, трутни, медовый зобик, золотые соты",
+ "hook": "Bilarmidingiz, asal yig'ib, uya quradigan asalari doim urg'ochi?",
+ "cover_text": "ASALARI DOIM URG'OCHI",
+ "rules": "Аяты ТОЛЬКО текстом на экране (арабский Усмани + узбекский перевод М. Содика М. Юсуфа с alquran.cloud, латиница транслитерирована мной), диктор аяты и арабские слова НЕ произносит. Религиозная проверка пользователем до озвучки.",
+ "ayat": {
+  "16:68": {
+   "ar": "وَأَوْحَىٰ رَبُّكَ إِلَى ٱلنَّحْلِ أَنِ ٱتَّخِذِى مِنَ ٱلْجِبَالِ بُيُوتًۭا وَمِنَ ٱلشَّجَرِ وَمِمَّا يَعْرِشُونَ",
+   "uz": "Robbing asalariga: «Tog'lardan, daraxtlardan va ko'tarilgan so'ritoklardan uy tutgin."
+  },
+  "16:69": {
+   "ar": "ثُمَّ كُلِى مِن كُلِّ ٱلثَّمَرَٰتِ فَٱسْلُكِى سُبُلَ رَبِّكِ ذُلُلًۭا ۚ يَخْرُجُ مِنۢ بُطُونِهَا شَرَابٌۭ مُّخْتَلِفٌ أَلْوَٰنُهُۥ فِيهِ شِفَآءٌۭ لِّلنَّاسِ ۗ إِنَّ فِى ذَٰلِكَ لَءَايَةًۭ لِّقَوْمٍۢ يَتَفَكَّرُونَ",
+   "uz": "So'ngra hamma mevalardan yegin. Bas, Robbing oson qilib qo'ygan yo'llardan yurgin», deb vahiy qildi. Ularning qorinlaridan turli rangdagi sharob chiqar. Unda odamlar uchun shifo bordir. Albatta, bunda tafakkur qiluvchilar uchun oyat-belgi bordir."
+  }
+ },
+ "facts": [
+  "Рабочие пчёлы, матка (царица) и трутни: рабочие только самки; трутни без жала и не делают мёд; в 17 веке (Сваммердам, 1669, микроскоп) установлено, что «король» это самка-матка; медовый зобик (honey crop) хранит нектар, превращение в мёд начинается в нём (Wikipedia: Honey bee, Jan Swammerdam). Арабская грамматика Корана 16:68-69: формы 'ittakhidhi, kuli, fasluki, rabbiki' женского рода (источник: quran.com / alquran.cloud)."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Bilarmidingiz, asal yig'ib, uya quradigan asalari doim urg'ochi?",
+   "on_screen": "ASALARI — DOIM URG'OCHI?"
+  },
+  {
+   "n": 2,
+   "vo": "Va Qur'on unga aynan urg'ochi shaklida murojaat qiladi.",
+   "on_screen": "QUR'ON: URG'OCHI SHAKLIDA"
+  },
+  {
+   "n": 3,
+   "vo": "Nahl surasi, oltmish sakkizinchi va oltmish to'qqizinchi oyatlar. Matn ekranda.",
+   "on_screen": "NAHL SURASI · 68–69"
+  },
+  {
+   "n": 4,
+   "vo": "Oyatda asalariga uchta buyruq berilgan. Uy qur, ovqatlan va yo'lingdan yur.",
+   "on_screen": "3 BUYRUQ"
+  },
+  {
+   "n": 5,
+   "vo": "Agar murojaat erkak jinsida bo'lganda, arabcha fe'llar boshqacha tugagan bo'lardi.",
+   "on_screen": "ERKAK JINSI"
+  },
+  {
+   "n": 6,
+   "vo": "Lekin oyatda uchala fe'lning oxirida cho'ziq i harfi turibdi.",
+   "on_screen": "URG'OCHI JINSI"
+  },
+  {
+   "n": 7,
+   "vo": "Bu urg'ochi jinsga qaratilgan murojaat belgisi.",
+   "on_screen": "I = URG'OCHI"
+  },
+  {
+   "n": 8,
+   "vo": "Hatto Robbingiz so'zi ham bu yerda urg'ochi shaklida keladi.",
+   "on_screen": "ROBBIKI"
+  },
+  {
+   "n": 9,
+   "vo": "Endi asalarilarning o'zi haqida nimalar ma'lum?",
+   "on_screen": "ASALARILAR HAQIDA"
+  },
+  {
+   "n": 10,
+   "vo": "Asrlar davomida odamlar uyani shoh boshqaradi, ishni esa erkaklar qiladi deb o'ylashgan.",
+   "on_screen": "SHOH? ERKAKLAR?"
+  },
+  {
+   "n": 11,
+   "vo": "Faqat o'n yettinchi asrda birinchi mikroskoplar bilan shoh aslida ona asalari, ya'ni malika ekani aniqlandi.",
+   "on_screen": "XVII ASR: MIKROSKOP"
+  },
+  {
+   "n": 12,
+   "vo": "Uyadan uchib chiqadigan, gul izlaydigan, mum quradigan va asal tayyorlaydigan barcha ishchi asalarilar ham urg'ochi.",
+   "on_screen": "ISHCHILAR HAM URG'OCHI"
+  },
+  {
+   "n": 13,
+   "vo": "Erkak asalarilarda, ya'ni trutnlarda na nish bor, na asal tayyorlash qobiliyati.",
+   "on_screen": "TRUTNLAR (♂): NISH YO'Q"
+  },
+  {
+   "n": 14,
+   "vo": "Yana bir tafsilot. Ishchi asalarida oddiy oshqozondan tashqari, maxsus asal jig'ildoni ham bor.",
+   "on_screen": "ASAL JIG'ILDONI"
+  },
+  {
+   "n": 15,
+   "vo": "U nektarni shu yerda olib keladi va asalga aylanish aynan shu yerdan boshlanadi.",
+   "on_screen": "NEKTAR → ASAL"
+  },
+  {
+   "n": 16,
+   "vo": "Oyatning davomi ham asalarining qorni haqida.",
+   "on_screen": "OYATNING DAVOMI"
+  },
+  {
+   "n": 17,
+   "vo": "Kichkina asalari. Va fe'lning oxirida bitta harf.",
+   "on_screen": "BITTA HARF"
+  },
+  {
+   "n": 18,
+   "vo": "Yangi videolarni o'tkazib yubormaslik uchun obuna bo'ling.",
+   "on_screen": "OBUNA BO'LING"
+  }
+ ],
+ "status": "draft, ok on voice pending"
+}
