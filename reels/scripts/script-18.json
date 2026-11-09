@@ -1,0 +1,86 @@
+{
+  "id": "script-18",
+  "title": "Kanalizatsiyani o'zing qur (3D-diorama)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-diorama",
+  "hook": "Kanalizatsiyani noldan o'zingiz qursangiz, nimalar kerak bo'ladi? Keling, birga quramiz.",
+  "answer_line": "Lekin kuchli yomg'irda shahar kanalizatsiyasi to'lib, suvni qaytarib yerto'langizga itarishi mumkin. Shuning uchun quvurga teskari klapan qo'yamiz. U oqovani o'tkazadi, qaytishda yopiladi.",
+  "final_line": "Hammasi shu. Siz hozirgina kanalizatsiya qurdingiz. Buni uyidagi quvurlarni hech o'ylamagan yaqiningizga yuboring.",
+  "cover_text": "KANALIZATSIYANI O'ZING QUR",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Kanalizatsiyani noldan o'zingiz qursangiz, nimalar kerak bo'ladi? Keling, birga quramiz.",
+      "on_screen": "KANALIZATSIYANI O'ZING QUR",
+      "visual_hint": "Diorama: hovli, uy kesimi, qiz-yo'lboshchi belkurak bilan."
+    },
+    {
+      "n": 2,
+      "role": "pit",
+      "vo": "Birinchi qadam oddiy. Hovlida chuqur qazib, hammomdan quvurni shunga olib boramiz. Lekin bir haftada chuqur to'ladi va hid butun mahallaga tarqaladi.",
+      "on_screen": "CHUQUR",
+      "visual_hint": "Chuqur to'ladi, hid bulutlari mahallaga tarqaladi."
+    },
+    {
+      "n": 3,
+      "role": "pipe",
+      "vo": "Shuning uchun quvurni uydan ko'cha ostidagi umumiy kanalizatsiyaga olib boramiz. Har metrga taxminan ikki santimetr nishab bilan, ishni og'irlik kuchi o'zi bajarsin.",
+      "on_screen": "NISHAB | OG'IRLIK KUCHI",
+      "visual_hint": "Quvur kesimi, daraja asbobi, suv qiya bo'ylab oqadi."
+    },
+    {
+      "n": 4,
+      "role": "smell",
+      "vo": "Lekin endi quvurdagi hid orqaga ko'tarilib, to'g'ri hammomga kirib keladi.",
+      "on_screen": "HID QAYTDI",
+      "visual_hint": "Hid bulutlari quvurdan hammomga kiradi."
+    },
+    {
+      "n": 5,
+      "role": "trap",
+      "vo": "Shuning uchun har bir oqava joyiga egilgan quvur qo'yamiz. Unda doim ozgina suv turadi va hid suvdan o'ta olmaydi. Bu gidrozatvor.",
+      "on_screen": "GIDROZATVOR",
+      "visual_hint": "Egilishda suv probkasi, yorliq."
+    },
+    {
+      "n": 6,
+      "role": "suck",
+      "vo": "Lekin hojatxonadan kuchli suv oqsa, u probkadagi suvni ham tortib ketadi va quvur gurillab qoladi.",
+      "on_screen": "SUV TORTILDI",
+      "visual_hint": "Katta oqim, probka bo'shaydi."
+    },
+    {
+      "n": 7,
+      "role": "vent",
+      "vo": "Shuning uchun quvurni tom orqali tashqariga chiqaramiz. U tizimga suv ketidan havo kiritadi. Bu ventilyatsiya tik quvuri.",
+      "on_screen": "VENTILYATSIYA QUVURI",
+      "visual_hint": "Tom kesimi, havo kiradi."
+    },
+    {
+      "n": 8,
+      "role": "clog",
+      "vo": "Lekin kimdir nam salfetkani tushiradi va butun quvur tiqilib qoladi. Shuning uchun quvurga ochiladigan qopqoq qo'yamiz. U orqali po'lat arqon o'tkazib, tiqinni yorib o'tamiz. Bu tozalash lyugi.",
+      "on_screen": "TOZALASH LYUGI",
+      "visual_hint": "Qopqoq ochiladi, po'lat arqon tiqinni yorib o'tadi."
+    },
+    {
+      "n": 9,
+      "role": "rain",
+      "vo": "Lekin kuchli yomg'irda shahar kanalizatsiyasi to'lib, suvni qaytarib yerto'langizga itarishi mumkin. Shuning uchun quvurga teskari klapan qo'yamiz. U oqovani o'tkazadi, qaytishda yopiladi.",
+      "on_screen": "TESKARI KLAPAN",
+      "visual_hint": "Yomg'ir, to'lgan quvur, klapan yopiladi."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Hammasi shu. Siz hozirgina kanalizatsiya qurdingiz. Buni uyidagi quvurlarni hech o'ylamagan yaqiningizga yuboring.",
+      "on_screen": "SIZ QURDINGIZ!",
+      "visual_hint": "Qiz qo'l silkiydi, hovli, kamera uzoqlashadi."
+    }
+  ],
+  "status": "draft, ok on voice pending"
+}

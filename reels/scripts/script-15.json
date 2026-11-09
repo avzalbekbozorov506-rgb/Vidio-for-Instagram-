@@ -1,0 +1,90 @@
+{
+  "id": "script-15",
+  "title": "Bir qop bug'doy (pritcha)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "parable",
+  "hook": "Sizga bir qop bug'doy berishdi. Uni bugun yeysizmi yoki bahorda ekasizmi?",
+  "answer_line": "Yeganing bir kun to'ydiradi, ekkaning butun yilni.",
+  "final_line": "Yeganing bir kun to'ydiradi, ekkaning butun yilni.",
+  "cover_text": "YEYSIZMI YOKI EKASIZMI?",
+  "caption": "Bir qop bug'doy. Bugun yeysizmi yoki ekasizmi? Bu xayoliy pritcha, moliyaviy maslahat emas.\n\nSizningcha, Botir to'g'ri qildimi? Izohda yozing. Oyligini tez tugatadigan yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #pritcha #pul #tejash #o'zbekcha",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Sizga bir qop bug'doy berishdi. Uni bugun yeysizmi yoki bahorda ekasizmi?",
+      "on_screen": "YEYSIZMI YOKI EKASIZMI?",
+      "visual_hint": "Oltin soat, qor aralash qishloq, bir qop bug'doy markazda sekin yaqinlashadi. Pastda savol."
+    },
+    {
+      "n": 2,
+      "role": "setup",
+      "vo": "Qishloqda qahatchilik edi. Chol ikki o'g'li Aziz bilan Botirga bittadan qop bug'doy berdi.",
+      "on_screen": "QAHATCHILIK",
+      "visual_hint": "Bezlavha siluetlar: chol va ikki yigit, har biri qop ko'tarib turibdi. Kul rang osmon."
+    },
+    {
+      "n": 3,
+      "role": "aziz",
+      "vo": "Aziz bir oyda hammasini yedi. Dasturxoni to'kin, qorni to'q edi.",
+      "on_screen": "AZIZ: BIR OYDA HAMMASI",
+      "visual_hint": "Dasturxon, issiq yorug'lik, qop sekin bo'shayotgani ko'rinadi (qop shakli kichrayadi)."
+    },
+    {
+      "n": 4,
+      "role": "botir",
+      "vo": "Botir esa har kuni oz yedi, qolganini xurjunga solib qo'ydi. Aziz kuldi. Nega o'zingni qiynaysan, dedi.",
+      "on_screen": "BOTIR: OZ-OZDAN",
+      "visual_hint": "Botir xurjunni yopadi, Aziz silueti qo'l siltaydi. Ikki xil yorug'lik: iliq va sovuq."
+    },
+    {
+      "n": 5,
+      "role": "empty",
+      "vo": "Ikkinchi oyda Aziz qopni ochdi, ichi bo'sh edi. Qish uzoq edi, u qo'shnisidan bir hovuch bug'doy so'rab yurdi.",
+      "on_screen": "QOP BO'SH",
+      "visual_hint": "Bo'sh qop, qor, yolg'iz siluet eshikdan eshikka yuradi, soya cho'ziladi."
+    },
+    {
+      "n": 6,
+      "role": "sow",
+      "vo": "Bahor kelganda Botir xurjundagi bug'doyni dalaga sepdi. Yozda uning dalasi oltin tusga kirdi.",
+      "on_screen": "BAHOR → YOZ",
+      "visual_hint": "Tuproq, urug' donalari sepiladi, kadr tezlashib yashil maysa va oltin boshoqqa o'tadi."
+    },
+    {
+      "n": 7,
+      "role": "harvest",
+      "vo": "Kuzda bir qop urug'dan o'nlab qop hosil chiqdi. Aziz eshikka keldi, Botir indamay unga bir qop berdi.",
+      "on_screen": "1 QOP → O'NLAB QOP",
+      "visual_hint": "Qoplar uyumi o'sadi (sanagich), eshik oldida Aziz siluet, Botir qop uzatadi."
+    },
+    {
+      "n": 8,
+      "role": "why",
+      "vo": "Aziz so'radi, qanday chidading. Botir, men bug'doyni emas, kelasi yilni ko'rdim, dedi.",
+      "on_screen": "KELASI YIL",
+      "visual_hint": "Ikki siluet bir-biriga qaraydi, ular orasida kelasi yilning oltin dalasi xira ko'rinadi."
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Yeganing bir kun to'ydiradi, ekkaning butun yilni.",
+      "on_screen": "BIR KUN | BUTUN YIL",
+      "visual_hint": "Ikki ustun: qisqa (bir kun) va uzun (butun yil). Savol belgisi javob bilan almashadi."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Pulingizdan kichik bir qismini ertaga saqlang. Buni oyligini tez tugatadigan yaqiningizga yuboring.",
+      "on_screen": "ERTAGA UCHUN BIR QISM",
+      "visual_hint": "Birinchi kadrga qaytish: qop, bu safar yarmi ajratib qo'yilgan. Kichik yozuv: oddiy ibrat, moliyaviy maslahat emas."
+    }
+  ],
+  "facts": [
+    "Pritcha: xayoliy hikoya, tarixiy fakt emas. Manba: o'zim yozdim (original), tayyor matn nusxalanmagan."
+  ],
+  "status": "draft, ok on voice pending"
+}

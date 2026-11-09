@@ -1,0 +1,92 @@
+{
+  "id": "script-16",
+  "title": "Chaqmoq va momaqaldiroq",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-3d",
+  "hook": "Chaqmoqni avval ko'ramiz, momaqaldiroqni keyin eshitamiz. Nega ular birga kelmaydi?",
+  "answer_line": "Yorug'lik uchib keladi, tovush esa yurib keladi.",
+  "final_line": "Endi chaqmoqni ko'rsangiz, soniyalarni sanang. Buni chaqmoqdan qo'rqadigan yaqiningizga yuboring.",
+  "cover_text": "CHAQMOQ BIRINCHI, NEGA?",
+  "caption": "Chaqmoqni avval ko'ramiz, momaqaldiroqni keyin eshitamiz. Nega? Yorug'lik uchib keladi, tovush yurib keladi. Soniyalarni sanab, chaqmoqqacha masofani bilib oling.\n\nSiz necha soniya sanadingiz? Izohda yozing. Chaqmoqdan qo'rqadigan yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #fan #chaqmoq #bilasizmi #o'zbekcha",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Chaqmoqni avval ko'ramiz, momaqaldiroqni keyin eshitamiz. Nega ular birga kelmaydi?",
+      "on_screen": "NEGA BIRGA EMAS?",
+      "visual_hint": "Tungi osmon, qora bulut, katta chaqmoq chaqnaydi, pastda kichik uy. Hisoblagich 0,0 s."
+    },
+    {
+      "n": 2,
+      "role": "same",
+      "vo": "Aslida ikkalasi bir lahzada paydo bo'ladi. Chaqmoq yo'lidagi havo bir zumda qizib, kengayadi va guldiraydi.",
+      "on_screen": "BIR LAHZADA",
+      "visual_hint": "Chaqmoq yo'li bo'ylab havo qizaradi (sariq-oq), halqa shaklida kengayadi."
+    },
+    {
+      "n": 3,
+      "role": "light",
+      "vo": "Yorug'lik bir soniyada uch yuz ming kilometr yuradi. Shuning uchun chaqmoqni deyarli darhol ko'ramiz.",
+      "on_screen": "YORUG'LIK: 300 000 KM/S",
+      "visual_hint": "Nur chizig'i bulutdan uygacha bir kadrda yetib boradi, pastda tezlik yozuvi."
+    },
+    {
+      "n": 4,
+      "role": "sound",
+      "vo": "Tovush esa sekin. U bir soniyada atigi uch yuz qirq metr o'tadi.",
+      "on_screen": "TOVUSH: 340 M/S",
+      "visual_hint": "Ko'k to'lqin halqalari sekin kengayadi, har soniyada belgi qo'yiladi."
+    },
+    {
+      "n": 5,
+      "role": "km",
+      "vo": "Demak, bir kilometr masofaga tovush taxminan uch soniyada yetib keladi.",
+      "on_screen": "1 KM ≈ 3 SONIYA",
+      "visual_hint": "Bulutdan uygacha chiziq, har yuz metrda belgi, to'lqin uch soniyada yetadi."
+    },
+    {
+      "n": 6,
+      "role": "count",
+      "vo": "Chaqmoqni ko'rishingiz bilan sanang. Bir, ikki, uch. Guldirak eshitilganda to'xtang.",
+      "on_screen": "SANANG: 1, 2, 3...",
+      "visual_hint": "Hisoblagich chaqnash paytida ishga tushadi, guldirak to'lqini uyga tegganda to'xtaydi."
+    },
+    {
+      "n": 7,
+      "role": "six",
+      "vo": "Agar olti soniya sanasangiz, chaqmoq taxminan ikki kilometr naridan chaqnagan.",
+      "on_screen": "6 SONIYA ÷ 3 = 2 KM",
+      "visual_hint": "Hisoblagich 6,0 da to'xtaydi, xaritada 2 km masofa belgisi yonadi."
+    },
+    {
+      "n": 8,
+      "role": "danger",
+      "vo": "Har safar sanoq kamaysa, bo'ron yaqinlashyapti. Unda binoga kirib oling.",
+      "on_screen": "SANOQ KAMAYSA: YAQIN",
+      "visual_hint": "Uchta ketma-ket chaqmoq: 9, 6, 3 soniya, bulut uyga yaqinlashadi, uy derazasi yonadi."
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Yorug'lik uchib keladi, tovush esa yurib keladi.",
+      "on_screen": "UCHIB | YURIB",
+      "visual_hint": "Ikki yo'lovchi: nur chizig'i va sekin to'lqin, savol belgisi javob bilan almashadi."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Endi chaqmoqni ko'rsangiz, soniyalarni sanang. Buni chaqmoqdan qo'rqadigan yaqiningizga yuboring.",
+      "on_screen": "SANANG!",
+      "visual_hint": "Birinchi kadrga qaytish: chaqmoq va hisoblagich, bu safar hisoblagich 3,0 ni ko'rsatadi."
+    }
+  ],
+  "facts": [
+    "Yorug'lik tezligi 299 792 km/s (SI ta'rifi). Manba tekshiriladi.",
+    "Tovush tezligi havoda 20 C da taxminan 343 m/s; 1 km uchun taxminan 2,9 s (hisoblangan)",
+    "Momaqaldiroq: chaqmoq yo'lidagi havo bir zumda qizib kengayadi (umumiy ta'rif, manba tekshiriladi)"
+  ],
+  "status": "draft, ok on voice pending"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "script-19",
+  "title": "Sifon: quvur nega egilgan (3D-diorama)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-diorama",
+  "hook": "Lavabo ostidagi quvur nega egilgan? Uni to'g'ri qilib qo'ysak nima bo'ladi?",
+  "answer_line": "Demak, sizni hiddan suv ajratib turadi, hech qayoqqa ketmaydigan suv.",
+  "final_line": "Keyingi safar qaysi oddiy narsaning ichini ko'ramiz? Izohda yozing va yaqiningizga yuboring.",
+  "cover_text": "QUVUR NEGA EGILGAN?",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "Lavabo ostidagi quvur nega egilgan? Uni to'g'ri qilib qo'ysak nima bo'ladi?",
+      "on_screen": "QUVUR NEGA EGILGAN?",
+      "visual_hint": "Lavabo, egilgan quvur, kesim."
+    },
+    {
+      "n": 2,
+      "role": "straight",
+      "vo": "Egilishni olib tashlaymiz, kranni ochamiz. Suv ketadi, hech qayerdan oqmaydi. Murakkablashtirishning nima keragi bor edi?",
+      "on_screen": "TO'G'RI QUVUR",
+      "visual_hint": "Quvur tekislanadi, suv ketadi."
+    },
+    {
+      "n": 3,
+      "role": "path",
+      "vo": "Lekin biz hozirgina kanalizatsiyadan xonaga yana bir yo'l ochdik. Suv pastga ketadi, kanalizatsiya gazi esa hid bilan teskari yuradi.",
+      "on_screen": "YO'L OCHILDI",
+      "visual_hint": "Hid bulutlari quvurdan xonaga."
+    },
+    {
+      "n": 4,
+      "role": "bend",
+      "vo": "Endi egilishni qaytaramiz va suvni ochamiz. Kran yopildi, lekin suvning bir qismi pastda qoldi. Shunday bo'lishi kerak.",
+      "on_screen": "SUV QOLDI",
+      "visual_hint": "Egilishda suv qoladi."
+    },
+    {
+      "n": 5,
+      "role": "seal",
+      "vo": "Endi gaz xonaga o'tishi uchun shu suvdan o'tishi kerak. Ochiq yo'l qolmadi. Bu gidrozatvor, sifondagi suv probkasi.",
+      "on_screen": "GIDROZATVOR",
+      "visual_hint": "Probka, hid to'xtaydi."
+    },
+    {
+      "n": 6,
+      "role": "flow",
+      "vo": "Lekin u suv oqishiga nega xalaqit bermaydi? Yangi suv tepadan keladi va eskisini quvur bo'ylab itaradi. Oqim tugagach, egilish yana to'ladi.",
+      "on_screen": "OQIM VA PROBKA",
+      "visual_hint": "Yangi suv eskisini itaradi."
+    },
+    {
+      "n": 7,
+      "role": "twist",
+      "vo": "Lekin kutilmagan holat. Lavabodan uzoq foydalanilmadi va xonada hid paydo bo'ldi. Quvurga hech kim tegmagan edi. Himoya qayoqqa ketdi?",
+      "on_screen": "HIMOYA QAYOQDA?",
+      "visual_hint": "Qurigan egilish."
+    },
+    {
+      "n": 8,
+      "role": "dry",
+      "vo": "Suv shunchaki bug'lanib ketgan. Egilish joyida, lekin suv probkasi yo'q. Suvni yana oqizsangiz, sifon to'ladi.",
+      "on_screen": "SUV BUG'LANDI",
+      "visual_hint": "Suv quyiladi, probka tiklanadi."
+    },
+    {
+      "n": 9,
+      "role": "answer",
+      "vo": "Demak, sizni hiddan suv ajratib turadi, hech qayoqqa ketmaydigan suv.",
+      "on_screen": "SUV AJRATADI",
+      "visual_hint": "Probka, yorliq."
+    },
+    {
+      "n": 10,
+      "role": "final",
+      "vo": "Keyingi safar qaysi oddiy narsaning ichini ko'ramiz? Izohda yozing va yaqiningizga yuboring.",
+      "on_screen": "KEYINGISI?",
+      "visual_hint": "Qiz yo'lboshchi so'roq belgisi."
+    }
+  ],
+  "status": "draft, ok on voice pending"
+}
