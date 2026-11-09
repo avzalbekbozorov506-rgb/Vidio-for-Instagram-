@@ -8,10 +8,10 @@
   "genre": "fact-quran",
   "series": "Qur'on",
   "status": "draft: нужна проверка носителем и религиозная проверка перед озвучкой",
-  "hook": "Qur'onning eng uzun surasi nega Sigir deb ataladi? Javob oxirida.",
+  "hook": "Nega Qur'onning eng uzun surasi Sigir deb ataladi? Javob oxirida.",
   "cover_text": "NEGA «SIGIR»?",
   "reference": "instagram.com/reel/ (@religion_times, 79 с, ru): вопрос о названии суры, сетка точек 286 аятов, иконки законов, история о корове. Берём ТОЛЬКО формат (структура, минимализм, чёрно-белая смена, сетка точек); текст, озвучка, иконки, название канала, формулировки и цвет акцента СВОИ.",
-  "rules": "Не копировать текст, голос, иконки, лого и порядок фраз оригинала. Трактовку причины названия подавать как ОДНО из толкований («Bir izoh»), не как факт. Пророка не изображать (силуэты людей без лиц, имя Muso только в озвучке). Проверено по alquran.cloud: 286 аятов, самая длинная сура; история 2:67-71 (в традиции 67-73); законы 2:43, 2:178, 2:180, 2:183, 2:226, 2:275, 2:282.",
+  "rules": "Порядок мыслей близок к оригиналу (по просьбе пользователя), но текст СВОЙ: дословный перевод = производное произведение, риск жалобы. Трактовку причины названия подавать как толкование («Olimlarning bir izohi», «Shu izohga ko'ra»), источник толкования по тафсирам НЕ проверен. Пророка не изображать. Верные факты: alquran.cloud (286 аятов, 2:67-71, законы 2:43, 2:178, 2:180, 2:183, 2:226, 2:275, 2:282).",
   "facts": [
     "Сура 2: 286 аятов, самая длинная (alquran.cloud).",
     "История о корове 2:67-71 (Содик); в аяте 2:71: «Сал бўлмаса, қилмасдилар».",
@@ -20,62 +20,72 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Qur'onning eng uzun surasi nega Sigir deb ataladi? Javob oxirida.",
+      "vo": "Nega Qur'onning eng uzun surasi Sigir deb ataladi? Javob oxirida.",
       "on_screen": "NEGA «SIGIR»?"
     },
     {
       "n": 2,
-      "vo": "Baqara surasida ikki yuz sakson oltita oyat bor. Sigir haqida atigi yettitasi.",
+      "vo": "Axir ikki yuz sakson oltita oyatdan sigir haqida atigi yettitasi.",
       "on_screen": "286 OYAT · 7 TASI SIGIR"
     },
     {
       "n": 3,
-      "vo": "Qolganlarida namoz, ro'za, zakot, qarz va sudxo'rlik taqiqi kabi qonunlar. Lekin sura Sigir deb nomlangan.",
-      "on_screen": "QONUNLAR VA SIGIR"
+      "vo": "Qolganlarida esa inson hayotining asosiy qoidalari jamlangan.",
+      "on_screen": "HAYOT QOIDALARI"
     },
     {
       "n": 4,
-      "vo": "Keling, o'sha hikoyani eslaylik. Muso o'z qavmiga, sigir so'ying, dedi.",
-      "on_screen": "SIGIR SO'YING"
+      "vo": "Namoz, ro'za, zakot, nikoh va ajrim, savdo, sudxo'rlik taqiqi, vasiyat, shartnomalar, qotillik taqiqi.",
+      "on_screen": "QONUNLAR RO'YXATI"
     },
     {
       "n": 5,
-      "vo": "Ular bajarmadi, savol bera boshladi. Sigir qanday? Rangi qanday? Qaysi biri?",
-      "on_screen": "SAVOL, SAVOL, SAVOL"
+      "vo": "Lekin sura Qonun, Shariat yoki Nasihat deb emas, Sigir deb nomlangan. Nega?",
+      "on_screen": "QONUN? SHARIAT? NASIHAT? SIGIR!"
     },
     {
       "n": 6,
-      "vo": "Har javobdan keyin shart ko'paydi. Oxirida juda aniq sigir kerak bo'lib qoldi.",
-      "on_screen": "SHART KO'PAYDI"
-    },
-    {
-      "n": 7,
-      "vo": "Oyat voqeani shunday tugatadi: sal bo'lmasa, qilmasdilar.",
-      "on_screen": "SAL BO'LMASA, QILMASDILAR"
-    },
-    {
-      "n": 8,
-      "vo": "Nega sura shu nom bilan atalgan? Olimlar turlicha izohlaydi.",
-      "on_screen": "OLIMLAR TURLICHA"
-    },
-    {
-      "n": 9,
-      "vo": "Bir izoh shunday: qonunni bilishning o'zi kam, buyruq kelganda bahona izlamaslik kerak.",
+      "vo": "Olimlarning bir izohi shunday: qonunlardan oldin insondagi asosiy to'siq ko'rsatiladi.",
       "on_screen": "BIR IZOH"
     },
     {
+      "n": 7,
+      "vo": "Bani Isroilga sigir so'yish buyurildi. Ular darrov bajarmadi, so'ray boshladi.",
+      "on_screen": "SIGIR SO'YING"
+    },
+    {
+      "n": 8,
+      "vo": "Qanday sigir? Qanday rangda? Necha yoshda? Qaysi biri?",
+      "on_screen": "QANDAY? RANGI? YOSHI?"
+    },
+    {
+      "n": 9,
+      "vo": "Har savol bilan buyruqni bajarish qiyinlashdi.",
+      "on_screen": "HAR SAVOL = QIYINROQ"
+    },
+    {
       "n": 10,
-      "vo": "Shu izohga ko'ra, sigir bu suraning asosiy mavzusi emas, balki asosiy saboqning belgisi.",
-      "on_screen": "SIGIR = BELGI"
+      "vo": "Va asosiy ko'rsatmalar ko'pincha shu hikoyadan keyin keladi.",
+      "on_screen": "AVVAL HIKOYA, KEYIN QONUN"
     },
     {
       "n": 11,
-      "vo": "Demak, javob shu. Sigir nomi qonunlardan oldin bitta savol beradi. Siz buyruq kelganda bahona izlaysizmi?",
-      "on_screen": "SIZ-CHI?"
+      "vo": "Chunki qonunni bilish hech narsani o'zgartirmaydi, agar yurak bahona izlashga o'rgangan bo'lsa.",
+      "on_screen": "BILISH ≠ BAJARISH"
     },
     {
       "n": 12,
-      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "vo": "Shu izohga ko'ra, sigir asosiy mavzu emas. U butun surani ochuvchi kalit.",
+      "on_screen": "SIGIR = KALIT"
+    },
+    {
+      "n": 13,
+      "vo": "Avval nima bo'ysunishga to'sqinlik qilishi ko'rsatiladi. Keyin esa bo'ysungan inson qanday yashashi.",
+      "on_screen": "TO'SIQ → HAYOT"
+    },
+    {
+      "n": 14,
+      "vo": "Obuna bo'ling, yana qiziq faktlarni tushuntiramiz.",
       "on_screen": "OBUNA BO'LING"
     }
   ]
