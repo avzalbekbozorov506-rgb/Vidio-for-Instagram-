@@ -516,6 +516,90 @@ const Finish: React.FC = () => (
   </AbsoluteFill>
 );
 
+
+// ---------- per-word cues: one focus highlight + icon at a time ----------
+type Target = 'valve' | 'pipe' | 'water' | 'tank' | 'gauge' | 'graph' | 'wall' | 'clamps' | 'chamber' | 'joints' | 'wave';
+type Icon = 'sound' | 'pause' | 'weight' | 'fast' | 'bolt' | 'warn' | 'compress' | 'check' | 'no' | 'clock' | 'drop' | 'tool';
+const BOX: Record<Target, [number, number, number, number]> = {
+  valve: [752, 515, 930, 730], pipe: [200, 560, 790, 720], water: [215, 595, 770, 685], tank: [82, 450, 200, 830],
+  gauge: [362, 405, 500, 545], graph: [80, 868, 960, 1250], wall: [200, 505, 840, 565], clamps: [270, 535, 675, 745],
+  chamber: [620, 340, 710, 700], joints: [300, 560, 550, 720], wave: [300, 560, 790, 720],
+};
+const ICON_COL: Partial<Record<Icon, string>> = {bolt: RED, warn: RED, no: RED, check: GRN, compress: CY};
+const IconSvg: React.FC<{k: Icon; c: string}> = ({k, c}) => {
+  const st = {fill: 'none', stroke: c, strokeWidth: 5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
+  switch (k) {
+    case 'sound': return <g {...st}><path d="M-16 -8 h8 l12 -10 v36 l-12 -10 h-8z" /><path d="M10 -10 q8 10 0 20" /><path d="M18 -18 q16 18 0 36" /></g>;
+    case 'pause': return <g fill={c}><rect x={-14} y={-16} width={10} height={32} rx={3} /><rect x={4} y={-16} width={10} height={32} rx={3} /></g>;
+    case 'weight': return <g {...st}><path d="M-10 -14 q10 -12 20 0" /><path d="M-18 18 l5 -28 h26 l5 28z" /></g>;
+    case 'fast': return <g {...st}><path d="M-18 -14 l14 14 l-14 14" /><path d="M-2 -14 l14 14 l-14 14" /><path d="M14 -14 l10 14 l-10 14" /></g>;
+    case 'bolt': return <polygon points="4,-20 -12,4 -1,4 -5,20 13,-6 2,-6" fill={c} />;
+    case 'warn': return <g {...st}><path d="M0 -20 L20 14 H-20z" /><line x1={0} y1={-6} x2={0} y2={5} /><circle cx={0} cy={11} r={1.5} fill={c} /></g>;
+    case 'compress': return <g {...st}><path d="M-20 0 h14 m-6 -6 l6 6 l-6 6" /><path d="M20 0 h-14 m6 -6 l-6 6 l6 6" /></g>;
+    case 'check': return <path d="M-16 2 l10 10 l22 -24" fill="none" stroke={c} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />;
+    case 'no': return <g {...st}><circle cx={0} cy={0} r={16} /><line x1={-11} y1={11} x2={11} y2={-11} /></g>;
+    case 'clock': return <g {...st}><circle cx={0} cy={0} r={17} /><path d="M0 -9 V0 l8 5" /></g>;
+    case 'drop': return <path d="M0 -20 q16 20 0 34 q-16 -14 0 -34z" fill={c} />;
+    case 'tool': return <g {...st}><circle cx={-6} cy={-6} r={9} /><line x1={0} y1={0} x2={16} y2={16} /></g>;
+  }
+};
+// [word index, target, icon?]
+const CUES: Record<number, [number, Target, Icon?][]> = {
+  1: [[0, 'valve'], [1, 'valve', 'fast'], [3, 'pipe'], [4, 'pipe', 'sound'], [5, 'water'], [6, 'water', 'pause'], [7, 'pipe', 'sound'], [10, 'pipe'], [12, 'pipe', 'tool']],
+  2: [[0, 'pipe'], [3, 'water'], [4, 'tank'], [5, 'water'], [6, 'water', 'weight'], [8, 'water', 'fast'], [11, 'valve', 'pause']],
+  3: [[1, 'valve'], [2, 'valve', 'fast'], [4, 'water'], [5, 'water', 'pause'], [6, 'water', 'warn']],
+  4: [[2, 'water'], [4, 'valve'], [5, 'valve', 'bolt'], [7, 'gauge'], [8, 'gauge', 'fast'], [9, 'graph', 'bolt'], [11, 'pipe'], [13, 'wave'], [15, 'wave', 'fast'], [18, 'graph', 'warn']],
+  5: [[1, 'pipe', 'bolt'], [2, 'pipe'], [3, 'pipe', 'bolt'], [4, 'pipe', 'warn'], [6, 'wall'], [7, 'wall', 'bolt'], [8, 'pipe', 'sound']],
+  6: [[2, 'pipe'], [3, 'clamps', 'tool'], [5, 'clamps', 'check']],
+  7: [[1, 'pipe', 'bolt'], [5, 'gauge', 'warn'], [6, 'joints', 'warn'], [8, 'valve', 'warn'], [9, 'joints', 'bolt']],
+  8: [[2, 'valve'], [4, 'chamber'], [7, 'chamber', 'tool'], [9, 'chamber', 'compress'], [11, 'water'], [12, 'water', 'no']],
+  9: [[0, 'wave', 'bolt'], [1, 'chamber'], [2, 'chamber', 'compress'], [4, 'graph', 'check'], [7, 'chamber', 'check']],
+  10: [[1, 'chamber'], [2, 'chamber'], [3, 'chamber'], [5, 'water'], [6, 'chamber', 'drop'], [9, 'chamber'], [10, 'chamber', 'warn']],
+  11: [[2, 'chamber', 'tool'], [3, 'chamber', 'no'], [7, 'chamber'], [8, 'water'], [9, 'chamber', 'check']],
+  12: [[2, 'valve'], [5, 'graph', 'bolt'], [8, 'valve', 'fast'], [9, 'valve', 'clock'], [10, 'graph']],
+  13: [[0, 'valve'], [1, 'valve', 'clock'], [3, 'water'], [4, 'water', 'clock'], [7, 'graph'], [8, 'graph', 'check']],
+  14: [[2, 'pipe', 'sound'], [3, 'water'], [6, 'valve', 'fast'], [7, 'valve', 'pause']],
+  15: [[0, 'valve'], [1, 'valve'], [2, 'valve', 'clock'], [5, 'pipe'], [6, 'pipe', 'sound']],
+};
+const Cues: React.FC<{n: number}> = ({n}) => {
+  const t = useT();
+  const list = (CUES[n] ?? []).filter(([i]) => (words as any)[String(n)][i]);
+  let idx = -1;
+  for (let k = 0; k < list.length; k++) if (t >= EV(n, list[k][0])) idx = k;
+  if (idx < 0) return null;
+  const [wi, tg, ic] = list[idx];
+  const t0 = EV(n, wi);
+  const nxt = list[idx + 1] ? EV(n, list[idx + 1][0]) : 1e9;
+  const hold = Math.min(1.0, nxt - t0);
+  const age = t - t0;
+  if (age > hold + 0.2) return null;
+  const k = ease(sm(age, 0, 0.14)) * (1 - ease(sm(age, hold, hold + 0.2)));
+  const [x0, y0, x1, y1] = BOX[tg];
+  const pad = 8 + (1 - ease(sm(age, 0, 0.25))) * 14;
+  const c = ic ? (ICON_COL[ic] ?? CY) : CY;
+  const bx = x0 - pad, by = y0 - pad, bw = x1 - x0 + pad * 2, bh = y1 - y0 + pad * 2;
+  const L = 26;
+  const ix = Math.min(930, bx + bw), iy = Math.max(300, by);
+  return (
+    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0, opacity: k}}>
+      <Defs />
+      <rect x={bx} y={by} width={bw} height={bh} rx={16} fill={c} opacity={0.07} />
+      <g stroke={c} strokeWidth={5} strokeLinecap="round" fill="none" filter="url(#glow)">
+        <path d={`M${bx} ${by + L} V${by + 8} Q${bx} ${by} ${bx + 8} ${by} H${bx + L}`} />
+        <path d={`M${bx + bw - L} ${by} H${bx + bw - 8} Q${bx + bw} ${by} ${bx + bw} ${by + 8} V${by + L}`} />
+        <path d={`M${bx} ${by + bh - L} V${by + bh - 8} Q${bx} ${by + bh} ${bx + 8} ${by + bh} H${bx + L}`} />
+        <path d={`M${bx + bw - L} ${by + bh} H${bx + bw - 8} Q${bx + bw} ${by + bh} ${bx + bw} ${by + bh - 8} V${by + bh - L}`} />
+      </g>
+      {ic && (
+        <g transform={`translate(${ix} ${iy}) scale(${0.7 + 0.3 * k})`}>
+          <circle r={36} fill="rgba(6,14,24,.95)" stroke={c} strokeWidth={3} filter="url(#glow)" />
+          <IconSvg k={ic} c={c} />
+        </g>
+      )}
+    </svg>
+  );
+};
+
 export const Hammer: React.FC<{guide?: boolean}> = ({guide = false}) => (
   <AbsoluteFill>
     <Backdrop guide={guide} />
@@ -525,6 +609,7 @@ export const Hammer: React.FC<{guide?: boolean}> = ({guide = false}) => (
       return (
         <Sequence key={c.n} from={Math.round(S[i] * FPS)} durationInFrames={cardFrames(c.n)}>
           <Sc />
+          <Cues n={c.n} />
           <Capsule ws={(words as any)[String(c.n)]} />
           <Audio src={staticFile(`vo-23/card-${String(c.n).padStart(2, '0')}.wav`)} />
           {(SFX[c.n] ?? []).map(([sec, name, v], k) => <Sequence key={k} from={Math.max(0, Math.round(sec * FPS))} durationInFrames={90}><Audio src={staticFile(`sfx/${name}.wav`)} volume={v * 0.7} /></Sequence>)}
