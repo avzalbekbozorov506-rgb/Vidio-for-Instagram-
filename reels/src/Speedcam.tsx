@@ -371,7 +371,7 @@ export const Speedcam: React.FC = () => (
       return (
         <Sequence key={c.n} from={Math.round(S[i] * FPS)} durationInFrames={len}>
           <Sc />
-          <KaraokeSubtitles words={(words as any)[String(c.n)]} y={1490} accent={CY} outline={false} />
+          <KaraokeSubtitles words={(words as any)[String(c.n)]} y={1490} accent={CY} />
           <Audio src={staticFile(`vo-21/card-${String(c.n).padStart(2, '0')}.wav`)} />
           {(SFX[c.n] ?? []).map(([sec, name, v], k) => <Sequence key={k} from={Math.max(0, Math.round(sec * FPS))} durationInFrames={90}><Audio src={staticFile(`sfx/${name}.wav`)} volume={v * 0.7} /></Sequence>)}
         </Sequence>
