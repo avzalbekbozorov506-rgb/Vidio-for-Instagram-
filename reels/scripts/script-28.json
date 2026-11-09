@@ -1,0 +1,83 @@
+{
+ "id": "script-28",
+ "title": "Siz kapalak bo'lib tug'ildingiz (мультфильм «ты родился…», стиль BeeLife)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "life-cycle-cartoon",
+ "hook": "Siz kapalak bo'lib tug'ildingiz. Tabriklayman, lekin siz hozircha kapalak emassiz.",
+ "cover_text": "SIZ KAPALAK BO'LIB TUG'ILDINGIZ",
+ "facts": [
+  "Бабочки: самка кладёт яйца на кормовое растение и пробует лист лапками (вкусовые рецепторы на лапках); гусеница ест оболочку яйца; кутикула не растёт, гусеница линяет несколько раз; у гусеницы по 6 простых глазков с каждой стороны (12), зрение слабое; куколка: личиночные ткани в основном разрушаются, взрослые структуры строятся из имагинальных дисков; после выхода крылья влажные, бабочка прокачивает гемолимфу и сушит их часами, в это время уязвима; нектар через хоботок, опыление (Wikipedia: Butterfly, Metamorphosis, Caterpillar). ПРОВЕРИТЬ перед публикацией."
+ ],
+ "caption": "",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Siz kapalak bo'lib tug'ildingiz. Tabriklayman, lekin siz hozircha kapalak emassiz.",
+   "on_screen": "SIZ KAPALAK BO'LIB TUG'ILDINGIZ"
+  },
+  {
+   "n": 2,
+   "vo": "Siz kichkina tuxumsiz, bargning orqasida. Onangiz sizni aynan o'zingiz yeydigan o'simlikka qo'ygan.",
+   "on_screen": "TUXUM"
+  },
+  {
+   "n": 3,
+   "vo": "Onangiz bargni oyoqlari bilan tatib ko'rgan. Ha, kapalaklar oyoqlari bilan ta'm sezadi.",
+   "on_screen": "OYOQ BILAN TA'M"
+  },
+  {
+   "n": 4,
+   "vo": "Tuxumdan chiqqach, birinchi taomingiz o'z tuxum po'stingiz. Keyin esa barglar.",
+   "on_screen": "QURT: BIRINCHI TAOM"
+  },
+  {
+   "n": 5,
+   "vo": "Siz kun bo'yi yeysiz va juda tez o'sasiz. Tana o'sadi, lekin po'st o'smaydi.",
+   "on_screen": "TANA O'SADI, PO'ST YO'Q"
+  },
+  {
+   "n": 6,
+   "vo": "Shuning uchun siz po'stingizni bir necha marta tashlaysiz. Ostidan yangisi chiqadi.",
+   "on_screen": "PO'ST TASHLASH"
+  },
+  {
+   "n": 7,
+   "vo": "Aytgancha, qurtning o'n ikkita ko'zi bor. Lekin ular deyarli hech narsani aniq ko'rsatmaydi.",
+   "on_screen": "12 KO'Z"
+  },
+  {
+   "n": 8,
+   "vo": "Keyin siz g'umbakka aylanasiz. Tashqaridan harakatsiz, ichkarida esa katta o'zgarish.",
+   "on_screen": "G'UMBAK"
+  },
+  {
+   "n": 9,
+   "vo": "Tanangizning katta qismi parchalanib, qaytadan quriladi. Qanotlar, oyoqlar, murakkab ko'zlar.",
+   "on_screen": "QAYTA QURILISH"
+  },
+  {
+   "n": 10,
+   "vo": "Bir necha haftadan keyin g'umbak yoriladi. Siz chiqasiz, lekin qanotlaringiz hali ezilgan va nam.",
+   "on_screen": "QANOTLAR NAM"
+  },
+  {
+   "n": 11,
+   "vo": "Siz ularga suyuqlik haydab, soatlab quritasiz. Shu paytda sizni har kim yeb qo'yishi mumkin.",
+   "on_screen": "SOATLAB KUTISH"
+  },
+  {
+   "n": 12,
+   "vo": "Endi siz uchasiz. Nektarni uzun naycha bilan ichasiz va yo'lda gullarni changlatasiz.",
+   "on_screen": "UCHISH"
+  },
+  {
+   "n": 13,
+   "vo": "Siz qurt bo'lib yeb, kapalak bo'lib ichdingiz. Qaysi hayotni xohlardingiz? Izohda yozing, do'stingizga yuboring.",
+   "on_screen": "QAYSI HAYOT?"
+  }
+ ],
+ "status": "draft, ok on voice pending"
+}

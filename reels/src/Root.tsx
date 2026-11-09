@@ -14,12 +14,29 @@ import {DioramaTest} from './DioramaTest';
 import {Siphon, SiphonCover, SIPHON_FRAMES} from './Siphon';
 import {Electro, ElectroCover, ELECTRO_FRAMES} from './Electro';
 import {Speedcam, SpeedcamCover, SPEEDCAM_FRAMES} from './Speedcam';
+import {Bukmeker, BukmekerCover, BUKMEKER_FRAMES} from './Bukmeker';
+import {AyatBee, AyatCover, AYAT_FRAMES} from './AyatBee';
+import {BeeLife, BeeCover, BEELIFE_FRAMES} from './BeeLife';
+import {BeeTest} from './BeeTest';
+import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
+import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
 
 // Instagram Reels: 1080x1920, 30fps
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="AyatBee" component={AyatBee} durationInFrames={AYAT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="AyatCover" component={AyatCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="BeeLife" component={BeeLife} durationInFrames={BEELIFE_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="BeeCover" component={BeeCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="BeeTest" component={BeeTest} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{scene: 0}} />
+    <Composition id="Kredit" component={Kredit} durationInFrames={KREDIT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KreditCover" component={KreditCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Hammer" component={Hammer} durationInFrames={HAMMER_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="HammerCover" component={HammerCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Bukmeker" component={Bukmeker} durationInFrames={BUKMEKER_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="BukmekerCover" component={BukmekerCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Speedcam" component={Speedcam} durationInFrames={SPEEDCAM_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="SpeedcamCover" component={SpeedcamCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Electro" component={Electro} durationInFrames={ELECTRO_FRAMES} fps={30} width={1080} height={1920} />

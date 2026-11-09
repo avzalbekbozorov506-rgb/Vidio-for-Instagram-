@@ -1,0 +1,108 @@
+{
+ "id": "script-23",
+ "title": "Quvur nega taqillaydi (gidravlik zarba, 2D)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "explainer-build-it",
+ "hook": "Kranni tez yopsangiz, quvur taqillaydi. Suv to'xtadi, ovoz qayerdan? Keling, quvurni o'zimiz qurib ko'ramiz.",
+ "cover_text": "QUVUR NEGA TAQILLAYDI?",
+ "caption": "Kranni tez yopsangiz quvur taqillaydi. Sabab gidravlik zarba: harakatdagi suv to'satdan to'xtaydi va bosim sakraydi. Yechim: qisqichlar, zarba so'ndirgich, kranni sekin yopish. Bu oddiy tushuntirish, santexnika ishlarini mutaxassisga topshiring.\n\n#oddiymohiyat #o'zbekcha #santexnika #bilasizmi #fizika",
+ "facts": [
+  "Gidravlik zarba: bosim sakrashi dP = rho*c*dv (Jukovskiy); sekin yopilganda sakrash kamayadi; havo kamerasi/zarba so'ndirgich yutadi; oddiy havo kamerasi vaqt o'tib suvga to'ladi (Wikipedia: Water hammer, Water hammer arrestor)."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Kranni tez yopsangiz, quvur taqillaydi. Suv to'xtadi, ovoz qayerdan? Keling, quvurni o'zimiz qurib ko'ramiz.",
+   "on_screen": "KRAN YOPILDI, QUVUR TAQILLAYDI",
+   "visual_hint": "Quvur kesimi, kran, savol belgisi."
+  },
+  {
+   "n": 2,
+   "vo": "Quvur tortamiz va suv yuboramiz. Suvning og'irligi va tezligi bor, u to'xtashni xohlamaydi.",
+   "on_screen": "SUV TO'XTASHNI XOHLAMAYDI",
+   "visual_hint": "Zarrachalar oqimi."
+  },
+  {
+   "n": 3,
+   "vo": "Lekin kranni birdan yopsak, suv to'xtay olmaydi.",
+   "on_screen": "KRAN BIRDAN YOPILDI",
+   "visual_hint": "Kran tez yopiladi."
+  },
+  {
+   "n": 4,
+   "vo": "Shuning uchun oldingi suv kranga uriladi va bosim keskin sakraydi. Zarba quvur bo'ylab to'lqin bo'lib yuguradi. Bu gidravlik zarba.",
+   "on_screen": "GIDRAVLIK ZARBA",
+   "visual_hint": "Bosim grafigi sakraydi, to'lqin yuguradi."
+  },
+  {
+   "n": 5,
+   "vo": "Lekin zarba quvurni silkitadi, mahkamlanmagan quvur devorga uriladi. Taqillash shundan.",
+   "on_screen": "TAQILLASH SHUNDAN",
+   "visual_hint": "Quvur devorga uriladi."
+  },
+  {
+   "n": 6,
+   "vo": "Shuning uchun quvurni qisqichlar bilan mahkamlaymiz.",
+   "on_screen": "QISQICH",
+   "visual_hint": "Qisqichlar."
+  },
+  {
+   "n": 7,
+   "vo": "Lekin zarba kuchi hali ham katta, birikmalar va jihozlar shikastlanishi mumkin.",
+   "on_screen": "BIRIKMALAR SINADI",
+   "visual_hint": "Birikmada yoriq."
+  },
+  {
+   "n": 8,
+   "vo": "Shuning uchun kran yonida havo to'ldirilgan kichik kamera qo'yamiz. Havo siqiladi, suv siqilmaydi.",
+   "on_screen": "HAVO KAMERASI",
+   "visual_hint": "Kamera, havo siqiladi."
+  },
+  {
+   "n": 9,
+   "vo": "Zarba havoga uriladi va so'nadi. Bu zarba so'ndirgich.",
+   "on_screen": "ZARBA SO'NDIRGICH",
+   "visual_hint": "Bosim grafigi pasayadi."
+  },
+  {
+   "n": 10,
+   "vo": "Lekin oddiy kamerada havo asta suvga erib ketadi va kamera to'lib qoladi.",
+   "on_screen": "KAMERA TO'LDI",
+   "visual_hint": "Kamera suvga to'ladi."
+  },
+  {
+   "n": 11,
+   "vo": "Shuning uchun porshenli yopiq so'ndirgich qo'yamiz. U havoni suvdan ajratib turadi.",
+   "on_screen": "PORSHENLI TURI",
+   "visual_hint": "Porshen havoni ajratadi."
+  },
+  {
+   "n": 12,
+   "vo": "Eng oddiy yechim esa boshqa. Zarba kranni qanchalik tez yopishingizga bog'liq.",
+   "on_screen": "ENG ODDIY YECHIM",
+   "visual_hint": "Savol."
+  },
+  {
+   "n": 13,
+   "vo": "Kranni sekin yopsangiz, suv asta to'xtaydi va zarba deyarli bo'lmaydi.",
+   "on_screen": "KRANNI SEKIN YOPING",
+   "visual_hint": "Ikki grafik: tez va sekin yopilish."
+  },
+  {
+   "n": 14,
+   "vo": "Demak, quvurni taqillatayotgan suv emas, uning to'satdan to'xtashi.",
+   "on_screen": "TAQILLATAYOTGAN: TO'SATDAN TO'XTASH",
+   "visual_hint": "Javob, pauza."
+  },
+  {
+   "n": 15,
+   "vo": "Endi kranni sekin yoping. Buni quvuri taqillaydigan yaqiningizga yuboring.",
+   "on_screen": "SEKIN YOPING, YUBORING",
+   "visual_hint": "Final."
+  }
+ ],
+ "status": "draft, ok on voice pending"
+}
