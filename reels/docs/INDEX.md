@@ -14,11 +14,13 @@
 | Gidroudar | script-23 | vo-23 | Hammer | опубликован 09.11 |
 | Chumoli (27:18) | script-30 | vo-30 | AntCinema | опубликован 09.11 |
 | Sigir (Baqara) | script-36 | vo-36 | Baqara | опубликован 09.11 |
-| Avtomat | script-20 | vo-20 | Electro | запланирован 09.11 20:00 |
+| Avtomat | script-20 | vo-20 | Electro | опубликован 09.11 |
 | Siz asalari bo'lib tug'ildingiz | script-26 | vo-26 | BeeLife | запланирован 10.11 09:00 |
 | Quyosh | script-31 | vo-31 | SunCosmos | запланирован 10.11 13:00 |
 | Jarima nega keldi (камеры) | script-21 | vo-21 | Speedcam | запланирован 10.11 20:00 |
 | Olti kun | script-35 | vo-35 | SixDays | запланирован 11.11 09:00 |
 | Somad (112:2) | script-37 | vo-37 | Somad | запланирован 11.11 13:00 |
+| Uhud jangi (3:152) | script-38 | vo-38 | Uhud | опубликован 09.11 (DfhrZmrgeVz) |
+| She'ro (Sirius, 53:49) | script-39 | vo-39 | Sirius | опубликован 09.11 (DfiB-xwDjb6) |
 
 Без озвучки: script-18 (канализация), 28 (бабочка), 32 (2:23), 33 (6:125), 34 (tahorat, нужна проверка имамом). Отменены/архив: 01-05, 07, 08, 10-15, 17, 24, 29; монолог, стихи, якорь (файлы удалены, исходники в `src/`).
