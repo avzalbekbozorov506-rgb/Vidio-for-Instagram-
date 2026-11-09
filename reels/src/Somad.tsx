@@ -4,21 +4,22 @@ import {clamp} from './cinema/kit';
 import durations from '../public/vo-37/durations.json';
 import words from '../public/vo-37/words.json';
 
-// "Somad" (112:2): minimalist pictogram explainer, alternating light/dark grid frames, particles, glowing Arabic word,
-// levels-of-dependence stack, question mark. Format inspired by a reference; ALL text/voice/drawings are our own. Every event is bound to word times.
+// "Somad" (112:2). Visual language modelled closely on a minimalist explainer reference: light/dark grid frames, blue accent,
+// NO bottom subtitles (on-screen text blurs in word by word), tiny mono caps labels, dotted shapes, glowing Arabic, levels stack.
+// All text/voice/drawings are our own. Every event is bound to word times (words.json).
 const FPS = 30, W = 1080, PAD = 0.25, HOLD1 = 2.0;
-const ACC = '#ff7a1a', GREY = '#8c8c8c', RED = '#e0332b', DARKBG = '#0a0a0a', LIGHTBG = '#f6f6f3';
-const SANS = "'Montserrat', Arial, sans-serif", AR = "'AmiriAr', serif";
+const BLUE = '#1a5aa8', BLUE2 = '#4a9bff', INK = '#101010', GRAY = '#8b8b8b', LIGHT = '#f4f5f3', DARK = '#070808';
+const SANS = "'Montserrat', Arial, sans-serif", AR = "'AmiriAr', serif", MONO = "ui-monospace, 'DejaVu Sans Mono', Menlo, monospace";
 const AR_WORD = 'ٱلصَّمَدُ';
 const dur = (n: number) => (durations as Record<string, number>)[String(n)];
 const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
 const ease = (x: number) => x * x * (3 - 2 * x);
-const bounce = (x: number) => { const k = Math.min(1, Math.max(0, x)); return k < 1 ? 1 - Math.pow(1 - k, 3) * Math.cos(k * 9) : 1; };
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 const useT = () => useCurrentFrame() / FPS;
 const EV = (n: number, i: number) => (words as any)[String(n)][i].s as number;
 const ap = (t: number, n: number, i: number, d = 0.35) => ease(sm(t, EV(n, i), EV(n, i) + d));
+type TW = {w: string; s: number; e: number};
 
 type Seg = {k: 'c'; n: number} | {k: 'h'; len: number};
 const TL: Seg[] = [];
@@ -35,329 +36,383 @@ const loadFonts = () => {
   Promise.all(list.map(([fam, file, w]) => new FontFace(fam, `url(${staticFile('fonts/' + file)})`, {weight: w}).load().then((ff) => document.fonts.add(ff)))).then(() => continueRender(h)).catch((e) => { console.error(e); continueRender(h); });
 };
 
-// ---------- frame ----------
-type TW = {w: string; s: number; e: number};
-const group = (ws: TW[]): TW[][] => {
-  const out: TW[][] = []; let cur: TW[] = [];
-  for (const w of ws) {
-    const len = cur.reduce((a, x) => a + x.w.length + 1, 0) + w.w.length;
-    if (cur.length && (cur.length >= 3 || len > 20)) { out.push(cur); cur = []; }
-    cur.push(w);
-    if (/[.,:;!?]$/.test(w.w)) { out.push(cur); cur = []; }
-  }
-  if (cur.length) out.push(cur);
-  return out;
-};
-const Subs: React.FC<{ws: TW[]; dark: boolean}> = ({ws, dark}) => {
-  const t = useT();
-  const chunks = group(ws);
-  let idx = -1;
-  for (let i = 0; i < chunks.length; i++) if (t >= chunks[i][0].s - 0.04) idx = i;
-  if (idx < 0) return null;
-  const ch = chunks[idx];
-  if (!chunks[idx + 1] && t > ch[ch.length - 1].e + 0.3) return null;
-  const k = sm(t, ch[0].s - 0.04, ch[0].s + 0.08);
-  const chars = ch.reduce((a, w) => a + w.w.length, 0) + ch.length;
-  const fs = Math.min(52, 800 / (chars * 0.7));
-  const fg = dark ? '#f4f4f2' : '#111', stroke = dark ? 'rgba(0,0,0,.92)' : 'rgba(255,255,255,.95)';
+// ---------- stage / text helpers ----------
+const Stage: React.FC<{dark: boolean; children?: React.ReactNode}> = ({dark, children}) => (
+  <AbsoluteFill style={{background: dark ? DARK : LIGHT}}>
+    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+      {Array.from({length: 33}, (_, i) => <line key={'h' + i} x1={0} y1={i * 60} x2={W} y2={i * 60} stroke={dark ? 'rgba(255,255,255,.035)' : 'rgba(0,0,0,.045)'} strokeWidth={1.5} />)}
+      {Array.from({length: 19}, (_, i) => <line key={'v' + i} x1={i * 60} y1={0} x2={i * 60} y2={1920} stroke={dark ? 'rgba(255,255,255,.035)' : 'rgba(0,0,0,.045)'} strokeWidth={1.5} />)}
+    </svg>
+    {children}
+    <div style={{position: 'absolute', right: 120, top: 1400, fontFamily: MONO, fontSize: 24, color: dark ? 'rgba(255,255,255,.4)' : 'rgba(0,0,0,.38)'}}>@mohiyat___</div>
+  </AbsoluteFill>
+);
+const Say: React.FC<{n: number; a: number; b: number; y: number; size?: number; color?: string; hi?: number[]; hiColor?: string; x?: number; w?: number; weight?: number; align?: 'center' | 'left'; lh?: number}> = ({n, a, b, y, size = 46, color = INK, hi = [], hiColor = BLUE, x = 100, w = 880, weight = 500, align = 'center', lh = 1.32}) => {
+  const t = useT(); const ws = (words as any)[String(n)] as TW[];
   return (
-    <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center', opacity: k}}>
-      <div style={{whiteSpace: 'nowrap', fontFamily: SANS, fontWeight: 800, fontSize: fs, letterSpacing: 2, textTransform: 'uppercase', WebkitTextStroke: `8px ${stroke}`, paintOrder: 'stroke fill', maxWidth: 920}}>
-        {ch.map((w, i) => <span key={i} style={{marginRight: i < ch.length - 1 ? 14 : 0, color: t >= w.s - 0.02 && t < w.e ? ACC : fg}}>{w.w.replace(/[.,:;]$/, '')}</span>)}
-      </div>
+    <div style={{position: 'absolute', left: x, width: w, top: y, textAlign: align, fontFamily: SANS, fontWeight: weight, fontSize: size, lineHeight: lh, color}}>
+      {ws.slice(a, b + 1).map((q, i) => { const idx = a + i; const o = ease(sm(t, q.s - 0.05, q.s + 0.28)); const h = hi.includes(idx); return <React.Fragment key={idx}><span style={{display: 'inline-block', opacity: o, filter: `blur(${(1 - o) * 7}px)`, color: h ? hiColor : color, fontWeight: h ? 700 : weight}}>{q.w}</span>{' '}</React.Fragment>; })}
     </div>
   );
 };
-const Frame: React.FC<{n?: number; dark: boolean; top?: React.ReactNode; topK?: number; children?: React.ReactNode; over?: React.ReactNode; subs?: boolean}> = ({n, dark, top, topK = 1, children, over, subs = true}) => {
-  const fg = dark ? '#f4f4f2' : '#111';
-  return (
-    <AbsoluteFill style={{background: dark ? DARKBG : LIGHTBG}}>
-      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
-        {Array.from({length: 20}, (_, i) => <line key={'h' + i} x1={0} y1={i * 100} x2={W} y2={i * 100} stroke={dark ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.05)'} strokeWidth={2} />)}
-        {Array.from({length: 11}, (_, i) => <line key={'v' + i} x1={i * 100} y1={0} x2={i * 100} y2={1920} stroke={dark ? 'rgba(255,255,255,.04)' : 'rgba(0,0,0,.05)'} strokeWidth={2} />)}
-      </svg>
-      {top && <div style={{position: 'absolute', left: 80, width: 920, top: 270, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 42, lineHeight: 1.25, color: fg, opacity: topK, transform: `translateY(${(1 - topK) * 14}px)`}}>{top}</div>}
-      {children}
-      {over}
-      <div style={{position: 'absolute', right: 120, top: 1400, fontFamily: SANS, fontWeight: 600, fontSize: 24, color: dark ? 'rgba(255,255,255,.55)' : 'rgba(0,0,0,.5)'}}>@mohiyat___</div>
-      {subs && n !== undefined && <Subs ws={(words as any)[String(n)]} dark={dark} />}
-    </AbsoluteFill>
-  );
-};
-const Svg: React.FC<{children: React.ReactNode}> = ({children}) => <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>{children}</svg>;
-const A: React.FC<{children: React.ReactNode}> = ({children}) => <b style={{color: ACC, fontWeight: 800}}>{children}</b>;
-const ArWord: React.FC<{y: number; size?: number; k?: number; color?: string; glow?: boolean; x?: number; w?: number}> = ({y, size = 230, k = 1, color = ACC, glow = false, x = 80, w = 920}) => (
-  <div dir="rtl" style={{position: 'absolute', left: x, width: w, top: y, textAlign: 'center', fontFamily: AR, fontWeight: 700, fontSize: size, lineHeight: 1.25, color, opacity: k, textShadow: glow ? `0 0 40px ${ACC}, 0 0 100px rgba(255,122,26,.6)` : 'none'}}>{AR_WORD}</div>
+const Tag: React.FC<{text: string; k?: number; y: number; x?: number; w?: number; color?: string; size?: number; ls?: number; align?: 'center' | 'left'}> = ({text, k = 1, y, x = 80, w = 920, color = GRAY, size = 26, ls = 5, align = 'center'}) => (
+  <div style={{position: 'absolute', left: x, width: w, top: y, textAlign: align, fontFamily: MONO, fontSize: size, letterSpacing: ls, textTransform: 'uppercase', color, opacity: k, filter: `blur(${(1 - k) * 6}px)`}}>{text}</div>
 );
+const ArWord: React.FC<{y: number; size?: number; k?: number; dark?: boolean; x?: number; w?: number}> = ({y, size = 200, k = 1, dark = false, x = 80, w = 920}) => (
+  <div dir="rtl" style={{position: 'absolute', left: x, width: w, top: y, textAlign: 'center', fontFamily: AR, fontWeight: 700, fontSize: size, lineHeight: 1.25, color: dark ? BLUE2 : BLUE, opacity: k, textShadow: dark ? `0 0 30px ${BLUE2}, 0 0 90px rgba(74,155,255,.55)` : 'none'}}>{AR_WORD}</div>
+);
+const Svg: React.FC<{children: React.ReactNode}> = ({children}) => <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>{children}</svg>;
 
-// ---------- own pictograms ----------
-const Person: React.FC<{x: number; y: number; s?: number; fill?: string; k?: number; core?: number}> = ({x, y, s = 1, fill = '#111', k = 1, core = 0}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} opacity={k}>
-    <circle cy={-118} r={44} fill={fill} /><path d="M-64 100 q0 -170 64 -170 q64 0 64 170z" fill={fill} />
-    {core > 0 && <g><circle cy={-20} r={44 * core} fill={ACC} opacity={0.35} /><circle cy={-20} r={20 * core} fill={ACC} /></g>}
+// ---------- drawn objects ----------
+const SphereDots: React.FC<{cx: number; cy: number; r: number; t: number; k?: number; n?: number}> = ({cx, cy, r, t, k = 1, n = 380}) => (
+  <g opacity={k}>{Array.from({length: n}, (_, i) => { const rr = r * Math.sqrt(i / n), a = i * 2.39996 + t * 0.15; return <circle key={i} cx={cx + Math.cos(a) * rr} cy={cy + Math.sin(a) * rr} r={2.2 + 1.6 * rnd(i)} fill="#2a2a2a" opacity={0.45 + 0.4 * rnd(i + 5)} />; })}</g>
+);
+const RingDots: React.FC<{cx: number; cy: number; r: number; k: number; t: number; n?: number}> = ({cx, cy, r, k, t, n = 260}) => (
+  <g>{Array.from({length: n}, (_, i) => { const a = (i / n) * Math.PI * 2 + t * 0.05; const sc = (1 - k) * 90 * (rnd(i + 3) - 0.5); return <circle key={i} cx={cx + Math.cos(a) * (r + sc)} cy={cy + Math.sin(a) * (r + sc)} r={2 + 1.4 * rnd(i)} fill="#333" opacity={0.25 + 0.5 * k} />; })}</g>
+);
+const SegRing: React.FC<{cx: number; cy: number; r: number; k: number; t: number}> = ({cx, cy, r, k, t}) => (
+  <g opacity={k}>
+    <defs><radialGradient id="ringGlow" r="0.5"><stop offset="0" stopColor="rgba(120,170,235,.35)" /><stop offset="1" stopColor="rgba(120,170,235,0)" /></radialGradient></defs>
+    <circle cx={cx} cy={cy} r={r * 0.8} fill="url(#ringGlow)" />
+    <circle cx={cx} cy={cy} r={r * 0.82} fill="none" stroke="rgba(26,90,168,.35)" strokeWidth={2} strokeDasharray="2 6" />
+    {Array.from({length: 28}, (_, i) => { const a0 = (i / 28) * Math.PI * 2 - Math.PI / 2, a1 = a0 + 0.17; const x0 = cx + Math.cos(a0) * r, y0 = cy + Math.sin(a0) * r, x1 = cx + Math.cos(a1) * r, y1 = cy + Math.sin(a1) * r; const op = i === 0 ? 1 : 0.18 + 0.5 * Math.abs(Math.sin(i * 0.7 + t * 0.6)); return <path key={i} d={`M${x0} ${y0} A${r} ${r} 0 0 1 ${x1} ${y1}`} fill="none" stroke={i === 0 ? BLUE : `rgba(110,160,230,${op})`} strokeWidth={i === 0 ? 30 : 22} strokeLinecap="butt" />; })}
   </g>
 );
-const Icn: React.FC<{k: string; c: string}> = ({k, c}) => {
-  const st = {fill: 'none', stroke: c, strokeWidth: 5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
-  switch (k) {
-    case 'air': return <g {...st}><path d="M-34 -12 h40 a10 10 0 1 0 -10 -10 M-34 4 h56 a12 12 0 1 1 -12 12 M-34 20 h30" /></g>;
-    case 'water': return <g {...st}><path d="M0 -34 C24 -2 30 10 30 20 a30 30 0 0 1 -60 0 C-30 10 -24 -2 0 -34z" /></g>;
-    case 'food': return <g {...st}><path d="M0 -22 C-30 -34 -44 4 -26 28 C-16 40 -6 36 0 32 C6 36 16 40 26 28 C44 4 30 -34 0 -22z M0 -22 C0 -34 6 -40 14 -42" /></g>;
-    case 'cells': return <g {...st}><circle cx={-16} cy={-10} r={16} /><circle cx={16} cy={-6} r={12} /><circle cx={0} cy={18} r={14} /><circle cx={-16} cy={-10} r={5} fill={c} /></g>;
-    case 'money': return <g {...st}><circle r={28} /><path d="M-8 -12 q8 -8 16 0 q-8 10 -16 14 q8 10 16 0 M0 -20 v6 M0 14 v6" /></g>;
-    case 'status': return <g {...st}><path d="M-26 14 L-30 -14 L-12 0 L0 -20 L12 0 L30 -14 L26 14z" /></g>;
-    case 'people': return <g {...st}><circle cx={-14} cy={-16} r={10} /><path d="M-30 20 q0 -26 16 -26 q16 0 16 26z" /><circle cx={18} cy={-12} r={9} /><path d="M4 22 q0 -22 14 -22 q14 0 14 22z" /></g>;
-    default: return null;
-  }
-};
+const Rays: React.FC<{cx: number; cy: number; r0: number; k: number; t: number; pull?: number}> = ({cx, cy, r0, k, t, pull = 0}) => (
+  <g opacity={k}>{Array.from({length: 72}, (_, i) => { const a = (i / 72) * Math.PI * 2; return <g key={i}>{Array.from({length: 9}, (_, j) => { const rr = r0 + 40 + j * (24 + j * 6) - pull * (j + 1) * 12; return <circle key={j} cx={cx + Math.cos(a) * rr} cy={cy + Math.sin(a) * rr} r={1.3 + 0.35 * j} fill="#222" opacity={0.7 - j * 0.06} />; })}</g>; })}</g>
+);
+const Sun: React.FC<{x: number; y: number; r: number; t: number; k?: number}> = ({x, y, r, t, k = 1}) => (
+  <g transform={`translate(${x} ${y})`} opacity={k}>
+    <defs>
+      <radialGradient id="sunG" cx="0.45" cy="0.4" r="0.75"><stop offset="0" stopColor="#ffd98a" /><stop offset="0.55" stopColor="#f7a233" /><stop offset="1" stopColor="#dc6d10" /></radialGradient>
+      <radialGradient id="sunGlow" r="0.5"><stop offset="0.45" stopColor="rgba(255,196,100,.95)" /><stop offset="0.72" stopColor="rgba(255,150,40,.35)" /><stop offset="1" stopColor="rgba(255,120,20,0)" /></radialGradient>
+      <filter id="sunTex" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="3" /><feColorMatrix type="matrix" values="0 0 0 0 0.86  0 0 0 0 0.4  0 0 0 0 0.05  0 0 0 1.6 -0.55" /><feComposite in2="SourceGraphic" operator="in" /></filter>
+      <clipPath id="sunClip"><circle r={r} /></clipPath>
+    </defs>
+    <circle r={r * 2.1} fill="url(#sunGlow)" style={{mixBlendMode: 'screen'}} />
+    <g style={{filter: 'blur(3px)'}} transform={`rotate(${t * 4})`}>{Array.from({length: 36}, (_, i) => { const a = (i / 36) * Math.PI * 2; const L = r * (1.28 + 0.1 * Math.sin(t * 1.4 + i * 1.7)); return <path key={i} d={`M${Math.cos(a - 0.05) * r * 0.97} ${Math.sin(a - 0.05) * r * 0.97} Q${Math.cos(a) * L * 1.1} ${Math.sin(a) * L * 1.1} ${Math.cos(a + 0.05) * r * 0.97} ${Math.sin(a + 0.05) * r * 0.97}`} fill="rgba(255,210,130,.5)" />; })}</g>
+    <g fill="none" stroke="rgba(255,225,170,.55)" strokeWidth={2}>{Array.from({length: 12}, (_, i) => { const a = (i / 12) * Math.PI * 2 + t * 0.1; return <path key={i} d={`M${Math.cos(a) * r * 0.98} ${Math.sin(a) * r * 0.98} Q${Math.cos(a + 0.15) * r * 1.3} ${Math.sin(a + 0.15) * r * 1.3} ${Math.cos(a + 0.32) * r * 0.98} ${Math.sin(a + 0.32) * r * 0.98}`} />; })}</g>
+    <circle r={r} fill="url(#sunG)" />
+    <g clipPath="url(#sunClip)"><g transform={`rotate(${t * 3})`}><rect x={-r} y={-r} width={r * 2} height={r * 2} fill="#fff" filter="url(#sunTex)" /></g></g>
+    {[[0.35, -0.2, 7], [-0.1, 0.3, 5], [0.1, -0.45, 6]].map(([sx, sy, sr], i) => <ellipse key={i} cx={sx * r} cy={sy * r} rx={sr * (r / 120)} ry={sr * (r / 150)} fill="rgba(70,25,0,.7)" />)}
+  </g>
+);
+const Earth: React.FC<{x: number; y: number; r: number; t: number; k?: number; moon?: boolean}> = ({x, y, r, t, k = 1, moon = true}) => (
+  <g transform={`translate(${x} ${y})`} opacity={k}>
+    <defs>
+      <radialGradient id="eG" cx="0.38" cy="0.35" r="0.8"><stop offset="0" stopColor="#3f8cf0" /><stop offset="0.6" stopColor="#14509f" /><stop offset="1" stopColor="#06193d" /></radialGradient>
+      <filter id="eLand" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="4" seed="8" /><feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.55  0 0 0 0 0.25  0 0 0 11 -5.2" /><feComposite in2="SourceGraphic" operator="in" /></filter>
+      <filter id="eCloud" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="21" /><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 4.5 -2.3" /><feComposite in2="SourceGraphic" operator="in" /></filter>
+      <clipPath id="eClip"><circle r={r} /></clipPath>
+    </defs>
+    <circle r={r * 1.12} fill="rgba(90,160,255,.22)" style={{filter: 'blur(8px)'}} />
+    <circle r={r} fill="url(#eG)" />
+    <g clipPath="url(#eClip)"><g transform={`translate(${-t * 4} 0)`}><rect x={-r * 2} y={-r} width={r * 4} height={r * 2} fill="#fff" filter="url(#eLand)" /></g><g transform={`translate(${-t * 7} 0)`}><rect x={-r * 2} y={-r} width={r * 4} height={r * 2} fill="#fff" filter="url(#eCloud)" opacity={0.7} /></g></g>
+    <circle r={r} fill="none" stroke="rgba(160,210,255,.5)" strokeWidth={3} />
+    {moon && <g transform={`translate(${r * 1.7} ${r * 0.3})`}><circle r={r * 0.28} fill="#9b9b9b" /><circle cx={-r * 0.08} cy={-r * 0.06} r={r * 0.06} fill="#7c7c7c" /><circle cx={r * 0.1} cy={r * 0.08} r={r * 0.04} fill="#7c7c7c" /></g>}
+  </g>
+);
 const GAL = (() => {
   const pts: {x: number; y: number; s: number; o: number}[] = [];
-  for (let arm = 0; arm < 2; arm++) for (let i = 0; i < 380; i++) {
-    const u = Math.pow(rnd(i * 3 + arm * 977 + 1), 0.8), th = arm * Math.PI + 5.4 * u + (rnd(i + arm * 500 + 7) - 0.5) * (0.6 - 0.35 * u), rr = 0.07 + 0.93 * u;
-    pts.push({x: Math.cos(th) * rr, y: Math.sin(th) * rr, s: 0.9 + rnd(i + arm * 70) * 2, o: 0.4 + rnd(i + 31) * 0.6});
+  for (let arm = 0; arm < 2; arm++) for (let i = 0; i < 700; i++) {
+    const u = Math.pow(rnd(i * 3 + arm * 977 + 1), 0.78), th = arm * Math.PI + 5.2 * u + (rnd(i + arm * 500 + 7) - 0.5) * (0.7 - 0.4 * u), rr = 0.06 + 0.94 * u;
+    pts.push({x: Math.cos(th) * rr, y: Math.sin(th) * rr, s: 0.9 + rnd(i + arm * 70) * 2.1, o: 0.35 + rnd(i + 31) * 0.65});
   }
   return pts;
 })();
-const Cell: React.FC<{x: number; y: number; s: number; t: number}> = ({x, y, s, t}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`}>
-    <ellipse rx={300} ry={250} fill="rgba(255,255,255,.05)" stroke="#f4f4f2" strokeWidth={6} />
-    <ellipse rx={286} ry={236} fill="none" stroke="rgba(255,255,255,.25)" strokeWidth={3} strokeDasharray="8 10" />
-    <circle cx={-40} cy={-30} r={92} fill="rgba(255,122,26,.18)" stroke={ACC} strokeWidth={6} /><circle cx={-50} cy={-40} r={30} fill={ACC} opacity={0.8} />
-    {[[150, -80, 30], [120, 120, -20], [-150, 130, 50], [-170, -110, -40]].map(([mx, my, rot], i) => <g key={i} transform={`translate(${mx} ${my}) rotate(${rot})`}><ellipse rx={52} ry={26} fill={`rgba(255,122,26,${0.55 + 0.35 * Math.sin(t * 4 + i)})`} stroke="#f4f4f2" strokeWidth={3} /><path d="M-30 0 q8 -14 16 0 q8 14 16 0 q8 -14 16 0" stroke="#f4f4f2" strokeWidth={3} fill="none" /></g>)}
-    {Array.from({length: 26}, (_, i) => <circle key={i} cx={-250 + rnd(i) * 500} cy={-200 + rnd(i + 9) * 400} r={3 + 2 * Math.sin(t * 3 + i)} fill="#f4f4f2" opacity={0.7} />)}
-    <path d="M100 -170 q40 -20 60 10 q20 30 -20 40 q-40 10 -30 40" stroke="rgba(255,255,255,.6)" strokeWidth={5} fill="none" />
+const Galaxy: React.FC<{x: number; y: number; R: number; t: number; k?: number}> = ({x, y, R, t, k = 1}) => (
+  <g transform={`translate(${x} ${y})`} opacity={k}>
+    <defs><radialGradient id="gCore" r="0.5"><stop offset="0" stopColor="rgba(255,250,225,1)" /><stop offset="0.25" stopColor="rgba(255,215,140,.7)" /><stop offset="1" stopColor="rgba(255,190,90,0)" /></radialGradient></defs>
+    <g transform={`rotate(-18) scale(1 0.62)`}>
+      <g transform={`rotate(${t * 2})`}>{GAL.map((p, i) => <circle key={i} cx={p.x * R} cy={p.y * R} r={p.s} fill={i % 5 ? '#c9d6ff' : '#ffffff'} opacity={p.o} />)}</g>
+      <circle r={R * 0.32} fill="url(#gCore)" />
+    </g>
   </g>
 );
+const Figure: React.FC<{x: number; y: number; s?: number; k?: number; solid?: number; heart?: number; fill?: string}> = ({x, y, s = 1, k = 1, solid = 1, heart = 0, fill = '#2a2a2a'}) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`} opacity={k}>
+    <defs>
+      <pattern id="dotPat" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx={8} cy={8} r={4.2} fill="#2a2a2a" /></pattern>
+      <clipPath id="figClip"><circle cy={-196} r={38} /><rect x={-62} y={-150} width={124} height={156} rx={14} /><rect x={-98} y={-146} width={28} height={150} rx={13} /><rect x={70} y={-146} width={28} height={150} rx={13} /><rect x={-58} y={4} width={50} height={190} rx={12} /><rect x={8} y={4} width={50} height={190} rx={12} /></clipPath>
+    </defs>
+    <g clipPath="url(#figClip)"><rect x={-120} y={-240} width={240} height={450} fill="url(#dotPat)" opacity={1 - solid} /><rect x={-120} y={-240} width={240} height={450} fill={fill} opacity={solid} /></g>
+    {heart > 0 && <g transform={`translate(0 -86) scale(${heart})`}><path d="M0 22 C-40 -6 -28 -34 -9 -28 C-3 -26 0 -20 0 -16 C0 -20 3 -26 9 -28 C28 -34 40 -6 0 22z" fill={BLUE} /></g>}
+  </g>
+);
+const Cell: React.FC<{x: number; y: number; s: number; t: number; k?: number}> = ({x, y, s, t, k = 1}) => {
+  const pts = Array.from({length: 72}, (_, i) => { const a = (i / 72) * Math.PI * 2; const r = 300 * (1 + 0.05 * Math.sin(3 * a + t * 1.2) + 0.035 * Math.sin(5 * a - t * 0.9)); return `${Math.cos(a) * r},${Math.sin(a) * r * 0.95}`; }).join(' L');
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`} opacity={k}>
+      <defs>
+        <radialGradient id="cellG" r="0.5"><stop offset="0" stopColor="#1c1250" /><stop offset="0.7" stopColor="#2e2290" /><stop offset="1" stopColor="#3b53d8" /></radialGradient>
+        <radialGradient id="nucG" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stopColor="#8a5cf0" /><stop offset="1" stopColor="#4a2aa8" /></radialGradient>
+        <linearGradient id="mitoG" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#ff9a2e" /><stop offset="0.5" stopColor="#ffd08a" /><stop offset="1" stopColor="#e86d1a" /></linearGradient>
+      </defs>
+      <path d={`M${pts}Z`} fill="rgba(80,190,255,.35)" style={{filter: 'blur(14px)'}} transform="scale(1.06)" />
+      <path d={`M${pts}Z`} fill="url(#cellG)" stroke="#7fe3ff" strokeWidth={10} style={{filter: 'drop-shadow(0 0 14px #5fd4ff)'}} />
+      <circle cx={-30} cy={-10} r={96} fill="url(#nucG)" /><g fill="rgba(60,200,150,.7)">{Array.from({length: 12}, (_, i) => <circle key={i} cx={-30 + (rnd(i) - 0.5) * 150} cy={-10 + (rnd(i + 4) - 0.5) * 150} r={6 + 4 * rnd(i + 7)} />)}</g>
+      {[[150, -80, 40], [130, 120, -30], [-170, 100, 60], [-150, -130, -40], [40, 170, 20], [-40, -190, 0]].map(([mx, my, rot], i) => <g key={i} transform={`translate(${mx} ${my}) rotate(${rot})`}><rect x={-46} y={-17} width={92} height={34} rx={17} fill="url(#mitoG)" stroke="#ffb35a" strokeWidth={2} />{[-26, -10, 6, 22].map((sx) => <line key={sx} x1={sx} y1={-14} x2={sx + 3} y2={14} stroke="rgba(140,40,0,.55)" strokeWidth={4} />)}</g>)}
+      {Array.from({length: 38}, (_, i) => { const a = rnd(i) * Math.PI * 2, d = 120 + rnd(i + 3) * 150; return <circle key={i} cx={Math.cos(a) * d * 1.05} cy={Math.sin(a) * d * 0.9} r={5 + 3 * rnd(i + 8)} fill="#2fbf94" opacity={0.85} />; })}
+      <g fill="none" stroke="#c63f9a" strokeWidth={9} strokeLinecap="round" opacity={0.9}><path d="M-190 -20 q40 -30 90 -10" /><path d="M-195 -2 q40 -30 95 -10" /><path d="M-190 16 q40 -30 90 -10" /></g>
+    </g>
+  );
+};
+const Level: React.FC<{y: number; k: number; label: string; kind: 'galaxy' | 'sun' | 'earth' | 'human' | 'cell'; t: number; hot?: number; dark?: boolean}> = ({y, k, label, kind, t, hot = 0, dark = false}) => {
+  const cx0 = 410;
+  return (
+  <g opacity={k}>
+    <ellipse cx={cx0} cy={y} rx={270} ry={46} fill={dark ? 'rgba(255,255,255,.05)' : 'rgba(0,0,0,.055)'} stroke={hot > 0 ? BLUE2 : dark ? 'rgba(255,255,255,.28)' : 'rgba(0,0,0,.3)'} strokeWidth={hot > 0 ? 3 : 2} />
+    {kind === 'galaxy' && <g><ellipse cx={cx0} cy={y} rx={46} ry={14} fill={dark ? 'rgba(200,215,255,.25)' : 'rgba(80,80,80,.18)'} /><g fill="none" stroke={dark ? '#c9d6ff' : '#333'} strokeWidth={3} strokeDasharray="2 6" strokeLinecap="round"><path d={`M${cx0 - 80} ${y + 4} C${cx0 - 50} ${y - 26} ${cx0 - 10} ${y - 18} ${cx0} ${y} C${cx0 + 10} ${y + 18} ${cx0 + 50} ${y + 26} ${cx0 + 80} ${y - 4}`} /><path d={`M${cx0 - 70} ${y - 8} C${cx0 - 40} ${y + 20} ${cx0 - 8} ${y + 14} ${cx0} ${y} C${cx0 + 8} ${y - 14} ${cx0 + 40} ${y - 22} ${cx0 + 70} ${y + 6}`} /></g><circle cx={cx0} cy={y} r={7} fill={dark ? '#fff4d0' : '#c98a2a'} /></g>}
+    {kind === 'sun' && <g><circle cx={cx0} cy={y} r={30} fill="rgba(255,170,60,.3)" /><circle cx={cx0} cy={y} r={20} fill="#f59a2c" /></g>}
+    {kind === 'earth' && <g><circle cx={cx0} cy={y} r={17} fill="#2a73d8" /><circle cx={444} cy={y - 5} r={6} fill="#6fa855" /></g>}
+    {kind === 'human' && <g transform={`translate(${cx0} ${y - 10}) scale(0.1)`}><circle cy={-196} r={38} fill={dark ? '#ddd' : '#222'} /><rect x={-62} y={-150} width={124} height={156} rx={14} fill={dark ? '#ddd' : '#222'} /><rect x={-58} y={4} width={50} height={190} rx={12} fill={dark ? '#ddd' : '#222'} /><rect x={8} y={4} width={50} height={190} rx={12} fill={dark ? '#ddd' : '#222'} /></g>}
+    {kind === 'cell' && <g><circle cx={cx0} cy={y} r={20} fill="rgba(140,100,255,.35)" /><circle cx={cx0} cy={y} r={11} fill="#7a52e8" /></g>}
+    <text x={690} y={y + 8} fontFamily={MONO} fontSize={24} letterSpacing={4} fill={dark ? 'rgba(255,255,255,.4)' : 'rgba(0,0,0,.4)'}>{label}</text>
+  </g>
+  );
+};
 
 // ---------- scenes ----------
 const S1: React.FC = () => {
   const t = useT();
-  const gather = ease(sm(t, 0.2, EV(1, 8) + 0.3)), top = ap(t, 1, 0, 0.3), burst = ap(t, 1, 9, 0.4);
+  const title = ease(sm(t, 0.1, 0.5));
   return (
-    <Frame n={1} dark={false} top={<>Qur'ondagi ism, bitta so'z bilan <A>tarjima qilib bo'lmaydi</A></>} topK={top}>
-      <Svg>
-        {Array.from({length: 140}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 60 + rnd(i + 7) * 420; const cx = 540 + Math.cos(a) * R * (1 - gather) + (rnd(i + 3) - 0.5) * 120 * gather, cy = 860 + Math.sin(a) * R * (1 - gather) + (rnd(i + 5) - 0.5) * 110 * gather; return <circle key={i} cx={cx} cy={cy} r={5 + 3 * rnd(i + 2)} fill="#111" opacity={(1 - burst) * (0.35 + 0.65 * gather)} />; })}
-      </Svg>
-      <ArWord y={680} size={240} k={burst} />
-      <div style={{position: 'absolute', left: 80, width: 920, top: 980, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 70, color: '#111', opacity: burst}}>Somad</div>
-    </Frame>
+    <Stage dark={false}>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 330, textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 100, lineHeight: 1.1, color: INK, opacity: title}}>Allohning <span style={{color: BLUE}}>ismi</span></div>
+      <Say n={1} a={3} b={3} y={470} size={44} color={GRAY} />
+      <Say n={1} a={4} b={8} y={540} size={46} hi={[7, 8]} />
+      <Svg><SphereDots cx={540} cy={1010} r={250} t={t} k={ease(sm(t, 0.2, 1.2))} /></Svg>
+    </Stage>
   );
 };
 const H1: React.FC = () => {
   const t = useT();
-  const k = ease(sm(t, 0, 0.5));
+  const k = ease(sm(t, 0, 0.6));
   return (
-    <Frame dark subs={false}>
-      <Svg>
-        {Array.from({length: 120}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 120 + rnd(i + 3) * 380, f = 1 - 0.5 * k; return <circle key={i} cx={540 + Math.cos(a + t) * R * f} cy={860 + Math.sin(a + t) * R * 0.5 * f} r={3 + 2 * rnd(i + 8)} fill={ACC} opacity={0.5 * k} />; })}
-      </Svg>
-      <ArWord y={680} size={260} glow k={k} />
-      <div style={{position: 'absolute', left: 80, width: 920, top: 1000, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 64, color: '#f4f4f2', opacity: k}}>Somad</div>
-    </Frame>
+    <Stage dark>
+      <Svg>{Array.from({length: 90}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 160 + rnd(i + 3) * 420; return <circle key={i} cx={540 + Math.cos(a + t * 0.3) * R} cy={820 + Math.sin(a + t * 0.3) * R * 0.5} r={2 + 2 * rnd(i + 8)} fill="#bcd8ff" opacity={0.5 * k * rnd(i + 2)} />; })}</Svg>
+      <ArWord y={620} size={330} k={k} dark />
+      <Tag text="somad" k={ease(sm(t, 0.8, 1.4))} y={1040} color="rgba(255,255,255,.5)" />
+    </Stage>
   );
 };
 const S2: React.FC = () => {
   const t = useT();
-  const word = ap(t, 2, 0, 0.4), small = ease(sm(t, EV(2, 8), EV(2, 11) + 0.5));
-  const R = 250, C = 2 * Math.PI * R;
+  const ring = ease(sm(t, 0.1, 1.4)), seg = ap(t, 2, 5, 0.5), q = ap(t, 2, 2, 0.4);
   return (
-    <Frame n={2} dark={false} top={<>«Boshqaga muhtoj bo'lmagan» · <A>kichik qism</A></>} topK={ap(t, 2, 0, 0.3)}>
+    <Stage dark={false}>
+      <ArWord y={290} size={210} k={ease(sm(t, 0, 0.4))} />
+      <div style={{position: 'absolute', left: 80, width: 920, top: 600, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 40, color: INK, opacity: q}}>«Boshqaga muhtoj bo'lmagan»</div>
       <Svg>
-        <circle cx={540} cy={820} r={R} fill="none" stroke="#111" strokeWidth={6} opacity={ap(t, 2, 5, 0.3) * 0.25} />
-        <circle cx={540} cy={820} r={R} fill="none" stroke={ACC} strokeWidth={16} strokeLinecap="round" strokeDasharray={`${C * 0.22 * small} ${C}`} transform="rotate(-90 540 820)" opacity={ap(t, 2, 5, 0.3)} />
-        {Array.from({length: 60}, (_, i) => <line key={i} x1={540 + Math.cos(i * 0.1047) * (R + 14)} y1={820 + Math.sin(i * 0.1047) * (R + 14)} x2={540 + Math.cos(i * 0.1047) * (R + (i % 5 ? 26 : 38))} y2={820 + Math.sin(i * 0.1047) * (R + (i % 5 ? 26 : 38))} stroke="#111" strokeWidth={3} opacity={ap(t, 2, 5, 0.3) * 0.6} />)}
-        <text x={540} y={1130} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={44} fill={ACC} opacity={small}>kichik qism</text>
+        <g opacity={q}><path d="M540 660 V700" stroke={BLUE} strokeWidth={8} /></g>
+        <g opacity={1 - seg}><RingDots cx={540} cy={1000} r={290} k={ring} t={t} /></g>
+        <SegRing cx={540} cy={1000} r={290} k={seg} t={t} />
       </Svg>
-      <ArWord y={690} size={210} k={word} />
-    </Frame>
+      <Tag text="ma'noning faqat" k={ap(t, 2, 8, 0.4)} y={985} size={24} ls={4} color="#4a5a70" />
+      <Tag text="kichik qismi" k={ap(t, 2, 10, 0.4)} y={1025} size={24} ls={4} color="#4a5a70" />
+    </Stage>
   );
 };
 const S3: React.FC = () => {
   const t = useT();
-  const L = ['ص', 'م', 'د'];
+  const L: [string, number][] = [['ص', 0], ['م', 1], ['د', 2]];
+  const base = ap(t, 3, 3, 0.4);
   return (
-    <Frame n={3} dark top={<>Ildiz · <A>3 harf</A></>} topK={ap(t, 3, 3, 0.3)}>
+    <Stage dark>
+      <ArWord y={290} size={170} k={1} dark />
+      <Tag text="ildiz" k={base} y={530} size={22} />
+      <Tag text="bir izohga ko'ra" k={ap(t, 3, 0, 0.4)} y={1250} size={22} />
       <Svg>
-        {L.map((l, i) => { const k = ap(t, 3, 3, 0.4 + i * 0.0) * ease(sm(t, EV(3, 3) + i * 0.25, EV(3, 3) + 0.4 + i * 0.25)); return <text key={i} x={760 - i * 220} y={760} textAnchor="middle" fontFamily={AR} fontWeight={700} fontSize={260} fill={ACC} opacity={k} style={{filter: `drop-shadow(0 0 ${20 * k}px ${ACC})`}}>{l}</text>; })}
-        <g opacity={ap(t, 3, 4, 0.4)}><path d="M540 880 V960" stroke="#f4f4f2" strokeWidth={5} strokeDasharray="8 8" /><path d="M530 946 L540 966 L550 946" stroke="#f4f4f2" strokeWidth={5} fill="none" /></g>
-        <g opacity={ap(t, 3, 4, 0.4)}><text x={540} y={1040} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={54} fill="#f4f4f2">yuzlanish</text></g>
-        <g opacity={ap(t, 3, 6, 0.4)}><path d="M540 1080 V1150" stroke="#f4f4f2" strokeWidth={5} strokeDasharray="8 8" /><path d="M530 1136 L540 1156 L550 1136" stroke="#f4f4f2" strokeWidth={5} fill="none" /><text x={540} y={1230} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={54} fill={ACC}>yordam so'rash</text></g>
-        <text x={540} y={1320} textAnchor="middle" fontFamily={SANS} fontWeight={600} fontSize={30} fill="rgba(255,255,255,.6)" opacity={ap(t, 3, 8, 0.4)}>bir izohga ko'ra</text>
+        <g opacity={base} fontFamily={AR} fontWeight={700} fontSize={220} fill="#ffffff">{L.map(([l, i]) => <text key={i} x={760 - i * 220} y={760} textAnchor="middle" opacity={ease(sm(t, EV(3, 3) + i * 0.2, EV(3, 3) + 0.4 + i * 0.2))}>{l}</text>)}</g>
+        <g opacity={base * 0.5}><line x1={650} y1={600} x2={650} y2={720} stroke="#fff" strokeWidth={2} /><line x1={430} y1={600} x2={430} y2={720} stroke="#fff" strokeWidth={2} /></g>
+        <g opacity={ap(t, 3, 4, 0.4)}><path d="M150 915 H200" stroke={BLUE2} strokeWidth={4} /><path d="M188 905 L202 915 L188 925" fill="none" stroke={BLUE2} strokeWidth={4} /><circle cx={218} cy={915} r={6} fill={BLUE2} /></g>
+        <g opacity={ap(t, 3, 6, 0.4)}><path d="M150 1010 q0 18 18 18 q18 0 18 -18" fill="none" stroke={BLUE2} strokeWidth={4} /></g>
       </Svg>
-    </Frame>
+      <div style={{position: 'absolute', left: 250, top: 888, fontFamily: SANS, fontWeight: 500, fontSize: 44, color: '#f4f4f2', opacity: ap(t, 3, 4, 0.4), filter: `blur(${(1 - ap(t, 3, 4, 0.4)) * 6}px)`}}>yuzlanish</div>
+      <div style={{position: 'absolute', left: 250, top: 983, fontFamily: SANS, fontWeight: 500, fontSize: 44, color: '#f4f4f2', opacity: ap(t, 3, 6, 0.4), filter: `blur(${(1 - ap(t, 3, 6, 0.4)) * 6}px)`}}>yordam so'rash</div>
+    </Stage>
   );
 };
 const S4: React.FC = () => {
   const t = useT();
-  const word = ap(t, 4, 0, 0.4), many = ap(t, 4, 4, 0.5), pull = ease(sm(t, EV(4, 9), EV(4, 11) + 0.8)), icons = ['air', 'water', 'food', 'cells', 'people', 'status', 'money', 'air', 'water', 'cells'];
+  const rays = ap(t, 4, 4, 0.6), pull = ease(sm(t, EV(4, 9), EV(4, 11) + 0.6));
   return (
-    <Frame n={4} dark={false} top={<>Butun mavjudot Unga <A>yuzlanadi</A></>} topK={ap(t, 4, 0, 0.3)}>
+    <Stage dark={false}>
+      <Tag text="Ibn Abbos rivoyati" k={ap(t, 4, 0, 0.4)} y={290} />
       <Svg>
-        {Array.from({length: 10}, (_, i) => { const a = (i / 10) * Math.PI * 2 - 1.2, R0 = 380, R = R0 - 160 * pull; const x = 540 + Math.cos(a) * R, y = 840 + Math.sin(a) * R * 0.95; return <g key={i}><line x1={x} y1={y} x2={540} y2={840} stroke="#111" strokeWidth={3} strokeDasharray="8 10" opacity={many * 0.6} /><g transform={`translate(${x} ${y}) scale(1)`} opacity={many}><circle r={44} fill="#f6f6f3" stroke="#111" strokeWidth={4} /><g transform="scale(0.8)"><Icn k={icons[i]} c="#111" /></g></g></g>; })}
+        <Rays cx={540} cy={820} r0={220} k={rays} t={t} pull={pull} />
+        <circle cx={540} cy={820} r={190} fill="#f4f5f3" stroke={BLUE} strokeWidth={3} opacity={0.95} />
       </Svg>
-      <ArWord y={720} size={170} k={word} />
-    </Frame>
+      <ArWord y={740} size={120} k={1} />
+      <Say n={4} a={4} b={11} y={1230} size={42} hi={[9, 10]} />
+    </Stage>
   );
 };
 const S5: React.FC = () => {
   const t = useT();
-  const earth = ap(t, 5, 0, 0.4), sun = ap(t, 5, 1, 0.4), laws = ap(t, 5, 4, 0.4), gal = ap(t, 5, 5, 0.6), koi = ap(t, 5, 6, 0.4);
-  const ang = t * 1.1;
+  const B = ease(sm(t, EV(5, 2), EV(5, 2) + 0.9)), C = ease(sm(t, EV(5, 5), EV(5, 5) + 0.9));
+  const sunX = lerp(300, 540, B), sunY = lerp(520, 820, B), sunR = lerp(130, 290, B);
   return (
-    <Frame n={5} dark top={<>Hamma narsa <A>bog'liq</A></>} topK={ap(t, 5, 8, 0.3) * 0 + 1}>
+    <Stage dark>
       <Svg>
-        <g opacity={1 - 0.75 * gal}>
-          <circle cx={540} cy={820} r={230} fill="none" stroke="rgba(255,255,255,.3)" strokeWidth={3} strokeDasharray="6 10" opacity={earth} />
-          <g opacity={sun}><circle cx={540} cy={820} r={70} fill={ACC} /><circle cx={540} cy={820} r={110} fill="rgba(255,122,26,.2)" /></g>
-          <g opacity={earth} transform={`translate(${540 + Math.cos(ang) * 230} ${820 + Math.sin(ang) * 230})`}><circle r={26} fill="#2a6fe8" /><circle cx={-6} cy={-6} r={10} fill="#5fcf8a" opacity={0.8} /></g>
-          <g opacity={1 - gal}>
-            <line x1={540} y1={900} x2={540} y2={1080} stroke="rgba(255,255,255,.5)" strokeWidth={3} strokeDasharray="6 8" opacity={ap(t, 5, 3, 0.3)} />
-            <text x={540} y={1130} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={40} fill="#f4f4f2" opacity={ap(t, 5, 3, 0.3)}>tortishish</text>
-            <text x={540} y={1190} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={40} fill="#f4f4f2" opacity={ap(t, 5, 4, 0.3)}>yadro sintezi</text>
-            <text x={540} y={1250} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={40} fill="#f4f4f2" opacity={ap(t, 5, 4, 0.3) * ease(sm(t, EV(5, 4) + 0.5, EV(5, 4) + 0.9))}>elektromagnetizm</text>
-          </g>
+        <g opacity={1 - C}>
+          <Sun x={sunX} y={sunY} r={sunR} t={t} k={ap(t, 5, 0, 0.5)} />
+          <Earth x={lerp(230, 190, B)} y={lerp(1100, 1180, B)} r={lerp(100, 74, B)} t={t} k={ap(t, 5, 0, 0.5)} />
         </g>
-        <g opacity={gal} transform="translate(540 820) rotate(0)"><g transform={`rotate(${t * 6}) scale(1 0.7)`}>{GAL.map((p, i) => <circle key={i} cx={p.x * 380} cy={p.y * 380} r={p.s} fill="#f4f4f2" opacity={p.o} />)}</g><circle r={26} fill={ACC} opacity={0.9} /></g>
-        <text x={540} y={1190} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={46} fill={ACC} opacity={koi}>KOINOT QONUNLARI</text>
+        <Galaxy x={540} y={830} R={430} t={t} k={C} />
       </Svg>
-    </Frame>
+      <Tag text="quyosh" k={ap(t, 5, 1, 0.4) * (1 - B)} y={680} x={80} w={440} color="rgba(255,255,255,.6)" />
+      <Tag text="yer" k={ap(t, 5, 0, 0.4) * (1 - B)} y={1230} x={80} w={300} color="rgba(255,255,255,.6)" />
+      <Tag text="tortishish" k={ap(t, 5, 2, 0.4) * (1 - C)} y={440} color="rgba(255,255,255,.75)" />
+      <Tag text="yadro sintezi" k={ap(t, 5, 4, 0.4) * (1 - C)} y={1190} color="rgba(255,255,255,.75)" />
+      <Tag text="elektromagnetizm" k={ap(t, 5, 4, 0.7) * (1 - C)} y={1240} color="rgba(255,255,255,.75)" />
+      <Tag text="koinot qonunlari" k={ap(t, 5, 6, 0.5)} y={1240} color="rgba(255,255,255,.85)" />
+    </Stage>
   );
 };
 const S6: React.FC = () => {
   const t = useT();
-  const cellPhase = t >= EV(6, 7);
-  const ic: [string, string, number, number, number][] = [['air', 'HAVO', 1, 250, 560], ['water', 'SUV', 2, 830, 560], ['food', 'OVQAT', 3, 250, 1060], ['cells', 'HUJAYRA', 5, 830, 1060]];
-  if (cellPhase) {
-    const k = ap(t, 6, 7, 0.4), pr = ap(t, 6, 9, 0.4);
+  if (t >= EV(6, 7)) {
+    const k = ap(t, 6, 7, 0.5);
     return (
-      <Frame n={6} dark top={<>Hujayra ham <A>tayanadi</A></>} topK={k}>
-        <Svg>
-          <g opacity={k}><Cell x={540} y={860} s={1.15} t={t} /></g>
-          {Array.from({length: 14}, (_, i) => { const a = (i / 14) * Math.PI * 2; const R = 440; return <g key={i} opacity={pr}><line x1={540 + Math.cos(a) * R} y1={860 + Math.sin(a) * R * 0.84} x2={540 + Math.cos(a) * 340} y2={860 + Math.sin(a) * 280} stroke={ACC} strokeWidth={3} strokeDasharray="6 8" /><circle cx={540 + Math.cos(a) * R} cy={860 + Math.sin(a) * R * 0.84} r={9} fill={ACC} /></g>; })}
-        </Svg>
-        <div style={{position: 'absolute', left: 80, width: 920, top: 1290, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 40, color: ACC, opacity: pr}}>MINGLAB JARAYONLAR</div>
-      </Frame>
+      <Stage dark>
+        <Svg><Cell x={540} y={860} s={1.15} t={t} k={k} /></Svg>
+        <Tag text="minglab jarayonlar" k={ap(t, 6, 9, 0.5)} y={1290} color="rgba(255,255,255,.75)" size={26} />
+      </Stage>
     );
   }
+  const solid = ease(sm(t, 0.1, 0.9)), dots = ease(sm(t, 0, 0.4));
+  const ic: [string, string, number, number, number, 'air' | 'water' | 'food' | 'cell'][] = [['HAVO', 'a', 1, 200, 740, 'air'], ['SUV', 'w', 2, 880, 740, 'water'], ['OVQAT', 'f', 3, 200, 1170, 'food'], ['HUJAYRA', 'c', 5, 880, 1170, 'cell']];
   return (
-    <Frame n={6} dark={false} top={<>Inson <A>bog'liq</A></>} topK={ap(t, 6, 0, 0.3)}>
+    <Stage dark={false}>
       <Svg>
-        <Person x={540} y={880} s={1.2} fill="#111" k={ap(t, 6, 0, 0.4)} />
-        {ic.map(([k, lb, wi, x, y]) => { const a = ap(t, 6, wi, 0.4); return <g key={k}><line x1={540} y1={820} x2={x} y2={y} stroke="#111" strokeWidth={3} strokeDasharray="8 10" opacity={a * 0.7} /><g transform={`translate(${x} ${y}) scale(${1.5 * (0.6 + 0.4 * a)})`} opacity={a}><circle r={52} fill="#f6f6f3" stroke="#111" strokeWidth={4} /><g transform="scale(0.9)"><Icn k={k} c="#111" /></g></g><text x={x} y={y + 132} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={34} fill="#111" opacity={a}>{lb}</text></g>; })}
+        <Figure x={540} y={960} s={1.05} k={dots} solid={solid} heart={ease(sm(t, 0.8, 1.3))} />
+        {ic.map(([lb, , wi, x, y, kind]) => { const a = ap(t, 6, wi, 0.4); const sx = x < 540 ? 450 : 630, sy = y < 960 ? 800 : 1080; return (
+          <g key={lb} opacity={a}>
+            <path d={`M${sx} ${sy} L${lerp(sx, x + (x < 540 ? 40 : -40), a)} ${lerp(sy, y + (y < 960 ? 20 : -20), a)}`} stroke="#555" strokeWidth={2.5} strokeDasharray="2 9" strokeLinecap="round" />
+            <g transform={`translate(${x} ${y})`}>
+              {kind === 'air' && <g fill="none" stroke={BLUE} strokeWidth={5} strokeLinecap="round"><path d="M-30 -10 h40 a9 9 0 1 0 -9 -9 M-30 6 h54 a11 11 0 1 1 -11 11 M-30 22 h26" /></g>}
+              {kind === 'water' && <path d="M0 -30 C22 -4 26 8 26 16 a26 26 0 0 1 -52 0 C-26 8 -22 -4 0 -30z" fill={BLUE} />}
+              {kind === 'food' && <path d="M0 -20 C-28 -30 -40 6 -24 26 C-14 38 -6 34 0 30 C6 34 14 38 24 26 C40 6 28 -30 0 -20z M0 -20 C0 -32 6 -38 14 -40" fill={BLUE} />}
+              {kind === 'cell' && <g fill="none" stroke={BLUE} strokeWidth={5}><circle r={24} /><circle r={9} fill={BLUE} /></g>}
+            </g>
+          </g>
+        ); })}
       </Svg>
-    </Frame>
+      {ic.map(([lb, , wi, x, y]) => <Tag key={lb} text={lb.toLowerCase()} k={ap(t, 6, wi, 0.4)} y={y + 46} x={x - 100} w={200} size={22} ls={4} />)}
+      <Tag text="yurak" k={ap(t, 6, 5, 0.4)} y={1340} size={22} />
+    </Stage>
   );
 };
 const S7: React.FC = () => {
   const t = useT();
-  const L = [['GALAKTIKA', 1], ['QUYOSH', 2], ['YER', 3], ['INSON', 4]] as const;
   const dark = t >= EV(7, 5), q = ap(t, 7, 5, 0.5);
-  const lv = [['GALAKTIKA', 0], ['QUYOSH', 1], ['YER', 2], ['INSON', 3], ['HUJAYRA', 4]] as [string, number][];
+  const lv: ['galaxy' | 'sun' | 'earth' | 'human' | 'cell', string, number][] = [['galaxy', 'galaktikalar', 640], ['sun', 'quyosh', 810], ['earth', 'yer', 980], ['human', 'inson', 1150], ['cell', 'hujayra', 1320]];
+  const ord = [4, 3, 2, 1, 0];
   return (
-    <Frame n={7} dark={dark} top={dark ? <>Hammasi nimaga <A>tayanadi?</A></> : <>Har daraja <A>tayanadi</A></>} topK={ap(t, 7, 0, 0.3)}>
+    <Stage dark={dark}>
+      <Tag text={dark ? '' : 'har daraja boshqasiga tayanadi'} k={ap(t, 7, 0, 0.4)} y={290} color={dark ? 'rgba(255,255,255,.5)' : GRAY} />
+      <div style={{position: 'absolute', left: 80, width: 920, top: 260, textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 230, lineHeight: 1, color: dark ? '#fff' : INK, opacity: q, transform: `scale(${0.7 + 0.3 * q})`}}>?</div>
       <Svg>
-        <line x1={540} y1={640} x2={540} y2={1260} stroke={dark ? '#f4f4f2' : '#111'} strokeWidth={4} opacity={ap(t, 7, 1, 0.4)} />
-        {lv.map(([lb, i]) => { const a = sm(t, EV(7, 1) + i * 0.18, EV(7, 1) + 0.3 + i * 0.18); const w = 520 - i * 70; return <g key={lb} opacity={a} transform={`translate(540 ${700 + i * 130})`}><ellipse rx={w / 2} ry={42} fill={dark ? DARKBG : LIGHTBG} stroke={dark ? '#f4f4f2' : '#111'} strokeWidth={5} /><text y={12} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={32} fill={dark ? '#f4f4f2' : '#111'}>{lb}</text></g>; })}
+        <line x1={410} y1={600} x2={410} y2={1360} stroke={dark ? 'rgba(255,255,255,.4)' : 'rgba(0,0,0,.45)'} strokeWidth={3} opacity={ap(t, 7, 0, 0.5)} />
+        {lv.map(([kind, lb, y], i) => <Level key={kind} y={y} k={sm(t, EV(7, 0) + 0.3 + ord[i] * 0.22 - 0.0, EV(7, 0) + 0.7 + ord[i] * 0.22) * (dark ? 0.8 : 1)} label={lb} kind={kind} t={t} dark={dark} />)}
       </Svg>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 330, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 240, lineHeight: 1, color: '#f4f4f2', opacity: q, transform: `scale(${0.6 + 0.4 * bounce(q)})`, textShadow: `0 0 40px ${ACC}`}}>?</div>
-    </Frame>
+    </Stage>
   );
 };
 const S8: React.FC = () => {
   const t = useT();
-  const ar = ap(t, 8, 6, 0.5), lab = ap(t, 8, 7, 0.4), base = 1;
+  const ar = ap(t, 8, 6, 0.5), fill = ease(sm(t, EV(8, 6), EV(8, 8) + 0.7));
+  const lv: ['galaxy' | 'sun' | 'earth' | 'human' | 'cell', string, number][] = [['galaxy', 'galaktikalar', 700], ['sun', 'quyosh', 860], ['earth', 'yer', 1020], ['human', 'inson', 1180], ['cell', 'hujayra', 1340]];
   return (
-    <Frame n={8} dark={false} top={<>Javob: <A>bitta so'z</A></>} topK={ap(t, 8, 0, 0.3)}>
+    <Stage dark={false}>
+      <Tag text="mutlaq tayanch" k={ap(t, 8, 7, 0.4)} y={300} color={BLUE} />
+      <Tag text="javob: bitta so'z" k={ap(t, 8, 0, 0.4) * (1 - ap(t, 8, 6, 0.3))} y={275} />
+      <ArWord y={360} size={190} k={ar} />
+      <div style={{position: 'absolute', left: 80, width: 920, top: 340, textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 200, lineHeight: 1, color: INK, opacity: 1 - ar}}>?</div>
       <Svg>
-        <g opacity={base * 0.6}>{[0, 1, 2, 3, 4].map((i) => <ellipse key={i} cx={540} cy={1000 + i * 70} rx={300 - i * 50} ry={26} fill="none" stroke="#111" strokeWidth={4} />)}</g>
-        <path d="M540 980 V760" stroke={ACC} strokeWidth={8} strokeLinecap="round" strokeDasharray="14 12" opacity={lab} />
+        <line x1={410} y1={660} x2={410} y2={1360} stroke="rgba(0,0,0,.35)" strokeWidth={3} />
+        <line x1={410} y1={660} x2={410} y2={lerp(660, 1360, fill)} stroke={BLUE} strokeWidth={5} />
+        {lv.map(([kind, lb, y]) => <Level key={kind} y={y} k={1} label={lb} kind={kind} t={t} hot={fill > (y - 660) / 700 ? 1 : 0} />)}
       </Svg>
-      <ArWord y={540} size={200} k={ar} />
-      <div style={{position: 'absolute', left: 80, width: 920, top: 480, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 230, color: '#111', opacity: (1 - ar) * 0.9}}>?</div>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 760, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 50, color: ACC, opacity: lab}}>MUTLAQ TAYANCH</div>
-    </Frame>
+    </Stage>
   );
 };
-const S9: React.FC = () => {
+const VerseBlock: React.FC<{n: number; hiMode: number}> = ({n, hiMode}) => {
   const t = useT();
-  const card = ap(t, 9, 0, 0.4), a1 = t >= EV(9, 6) && t < EV(9, 8), a2 = t >= EV(9, 8);
+  const first = n === 9 ? t >= EV(9, 6) : true, second = n === 9 ? t >= EV(9, 8) : true;
   return (
-    <Frame n={9} dark={false} top={<>Ixlos surasi · <A>112:2–3</A></>} topK={ap(t, 9, 0, 0.3)}>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 480, minHeight: 640, borderRadius: 26, border: '3px solid #111', background: 'rgba(255,255,255,.8)', opacity: card}} />
-      <div dir="rtl" style={{position: 'absolute', left: 120, width: 840, top: 540, textAlign: 'center', fontFamily: AR, fontSize: 80, lineHeight: 1.8, color: '#111', opacity: card}}>
-        <span style={{color: a1 ? ACC : '#111'}}>ٱللَّهُ ٱلصَّمَدُ</span>{'  '}<span style={{color: a2 ? ACC : '#111'}}>لَمْ يَلِدْ وَلَمْ يُولَدْ</span>
+    <>
+      <Tag text="Ixlos surasi, 112:2–3" k={1} y={470} size={24} />
+      <div dir="rtl" style={{position: 'absolute', left: 80, width: 920, top: 530, textAlign: 'center', fontFamily: AR, fontSize: 112, lineHeight: 1.5, color: INK}}>
+        <span style={{color: BLUE}}>ٱللَّهُ ٱلصَّمَدُ</span>
       </div>
-      <div style={{position: 'absolute', left: 120, width: 840, top: 840, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 44, lineHeight: 1.4, color: '#111', opacity: card}}>
-        <span style={{color: t >= EV(9, 6) ? ACC : 'rgba(17,17,17,.4)'}}>Alloh somaddir.</span><br /><span style={{color: t >= EV(9, 8) ? ACC : 'rgba(17,17,17,.4)'}}>U tug'magan va tug'ilmagan.</span>
-      </div>
-    </Frame>
+      <div dir="rtl" style={{position: 'absolute', left: 80, width: 920, top: 690, textAlign: 'center', fontFamily: AR, fontSize: 104, lineHeight: 1.5, color: hiMode ? BLUE : INK}}>لَمْ يَلِدْ وَلَمْ يُولَدْ</div>
+      {n === 9 && <Say n={9} a={6} b={7} y={900} size={48} hi={[7]} />}
+      {n === 9 && <Say n={9} a={8} b={11} y={980} size={48} hi={[9, 11]} />}
+      {n === 10 && <><div style={{position: 'absolute', left: 100, width: 880, top: 900, textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 48, color: INK}}>Alloh — <b style={{color: BLUE}}>somad</b>.</div><div style={{position: 'absolute', left: 100, width: 880, top: 980, textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 48, color: INK}}>U <span style={{color: hiMode ? BLUE : INK}}>tug'magan</span> va <span style={{color: hiMode ? BLUE : INK}}>tug'ilmagan</span>.</div></>}
+      {first && second && null}
+    </>
   );
 };
+const S9: React.FC = () => <Stage dark={false}><VerseBlock n={9} hiMode={0} /></Stage>;
 const S10: React.FC = () => {
   const t = useT();
-  const parent = ap(t, 10, 3, 0.4), child = ap(t, 10, 3, 0.7), dep = ap(t, 10, 5, 0.4), link = ap(t, 10, 11, 0.5);
+  const hi = t >= EV(10, 8) ? 1 : 0;
   return (
-    <Frame n={10} dark={false} top={<>Tug'ilish = <A>bog'liqlik</A></>} topK={ap(t, 10, 0, 0.3)}>
-      <Svg>
-                <Person x={330} y={880} s={1.2} fill="#111" k={parent} />
-        <Person x={700} y={930} s={0.7} fill="#111" k={child} />
-        <path d="M410 850 Q540 760 660 860" stroke={ACC} strokeWidth={6} fill="none" strokeDasharray="10 10" opacity={dep} />
-        <path d="M646 842 L664 862 L636 866" stroke={ACC} strokeWidth={6} fill="none" opacity={dep} />
-        <text x={540} y={760} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={40} fill={ACC} opacity={dep}>BOG'LIQLIK</text>
-      </Svg>
-      <div style={{position: 'absolute', left: 80, top: 790, width: 920, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 90, color: ACC, opacity: 1 - parent}}>BIR IZOH</div>
-      <div style={{position: 'absolute', left: 120, top: 1130, width: 400, padding: '16px 10px', textAlign: 'center', border: '3px solid #111', borderRadius: 18, fontFamily: SANS, fontWeight: 800, fontSize: 32, color: '#111', opacity: ap(t, 10, 8, 0.3)}}>ALLOH SOMADDIR</div>
-      <div style={{position: 'absolute', left: 560, top: 1130, width: 400, padding: '16px 10px', textAlign: 'center', border: '3px solid #111', borderRadius: 18, fontFamily: SANS, fontWeight: 800, fontSize: 32, color: '#111', opacity: ap(t, 10, 9, 0.3)}}>TUG'MAGAN VA TUG'ILMAGAN</div>
-      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}><line x1={520} y1={1175} x2={520 + 40 * link} y2={1175} stroke={ACC} strokeWidth={8} strokeLinecap="round" /></svg>
-    </Frame>
+    <Stage dark={false}>
+      <VerseBlock n={10} hiMode={hi} />
+      <div style={{position: 'absolute', left: 100, width: 880, top: 1120, textAlign: 'center', fontFamily: SANS, fontWeight: 500, fontSize: 42, color: GRAY, opacity: ap(t, 10, 3, 0.4), filter: `blur(${(1 - ap(t, 10, 3, 0.4)) * 6}px)`}}>tug'ilish — allaqachon <b style={{color: INK, fontWeight: 700}}>bog'liqlik</b></div>
+    </Stage>
   );
 };
 const S11: React.FC = () => {
   const t = useT();
-  const word = ap(t, 11, 0, 0.4), once = ap(t, 11, 3, 0.4);
+  const k = ease(sm(t, 0, 0.5));
   return (
-    <Frame n={11} dark top={<>112:2 · <A>faqat bir marta</A></>} topK={ap(t, 11, 2, 0.3)}>
-      <ArWord y={620} size={250} glow k={word} />
-      <Svg>
-        <g opacity={once} transform={`translate(540 1130) scale(${0.7 + 0.3 * bounce(once)})`}><text textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={170} fill={ACC}>1×</text></g>
-      </Svg>
-    </Frame>
+    <Stage dark>
+      <Svg>{Array.from({length: 70}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 200 + rnd(i + 3) * 380; return <circle key={i} cx={540 + Math.cos(a) * R} cy={840 + Math.sin(a) * R * 0.45 + 12 * Math.sin(t * 2 + i)} r={2 + 2 * rnd(i + 8)} fill="#bcd8ff" opacity={0.6 * rnd(i + 2) * k} />; })}</Svg>
+      <ArWord y={650} size={330} k={k} dark />
+      <Tag text="Ixlos surasi, 112:2. Qur'onda faqat bir marta" k={ap(t, 11, 3, 0.5)} y={1040} size={24} ls={3} color="rgba(255,255,255,.6)" />
+    </Stage>
   );
 };
 const S12: React.FC = () => {
   const t = useT();
-  const core = ap(t, 12, 4, 0.6), fade = ease(sm(t, EV(12, 6), EV(12, 10) + 0.4));
-  const ext: [string, number, number][] = [['money', 200, 620], ['status', 880, 620], ['people', 200, 1040], ['people', 880, 1040]];
+  const ring = ap(t, 12, 4, 0.6), drop = sm(t, EV(12, 3), EV(12, 5) + 0.6);
   return (
-    <Frame n={12} dark={false} top={<>Mutlaq tayanch · <A>Undan boshqada</A> kamroq</>} topK={ap(t, 12, 0, 0.3)}>
+    <Stage dark={false}>
+      <ArWord y={290} size={190} k={1 - 0.45 * ease(sm(t, EV(12, 6), EV(12, 10) + 0.5))} />
       <Svg>
-        <Person x={540} y={880} s={1.3} fill="#111" core={core} />
-        {ext.map(([k, x, y], i) => <g key={i}><line x1={540} y1={800} x2={x} y2={y} stroke="#111" strokeWidth={3} strokeDasharray="8 10" opacity={0.7 * (1 - fade)} /><g transform={`translate(${x} ${y})`} opacity={1 - 0.85 * fade}><circle r={50} fill="#f6f6f3" stroke="#111" strokeWidth={4} /><g transform="scale(0.9)"><Icn k={k} c="#111" /></g></g></g>)}
-        <g opacity={core}><circle cx={540} cy={820} r={90 + 20 * Math.sin(t * 4)} fill="none" stroke={ACC} strokeWidth={4} opacity={0.5} /></g>
+        {Array.from({length: 40}, (_, i) => { const p = (drop * 1.2 + rnd(i) * 0.4 + (t * 0.35 + i * 0.07)) % 1; const y = lerp(560, 930, p); return <circle key={i} cx={540 + (rnd(i + 2) - 0.5) * 26 * (1 - p)} cy={y} r={2 + 1.6 * rnd(i + 3)} fill="#444" opacity={drop * (1 - Math.abs(p - 0.5)) * 0.7} />; })}
+        <Figure x={540} y={1050} s={0.95} />
+        <g transform="translate(540 950)"><circle r={42 + 4 * Math.sin(t * 3) * ring} fill="rgba(26,90,168,.16)" opacity={ring} /><circle r={30} fill="none" stroke={BLUE} strokeWidth={5} opacity={ring} /><circle r={11} fill={BLUE} opacity={ring} /></g>
       </Svg>
-    </Frame>
+      <Say n={12} a={4} b={10} y={1290} size={40} color={GRAY} hi={[6, 7]} hiColor={INK} />
+    </Stage>
   );
 };
 const S13: React.FC = () => {
   const t = useT();
-  const card = ap(t, 13, 0, 0.4), btn = ap(t, 13, 1, 0.4), done = ap(t, 13, 4, 0.4);
+  const done = ap(t, 13, 7, 0.4), row = ap(t, 13, 2, 0.5);
   return (
-    <Frame n={13} dark>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 700, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 64, color: '#f4f4f2', opacity: card, transform: `scale(${0.9 + 0.1 * bounce(card)})`}}>Oddiy mohiyat</div>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 790, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 34, color: 'rgba(255,255,255,.6)', opacity: card}}>@mohiyat___ · Allohning ismlari</div>
-      <div style={{position: 'absolute', left: 0, width: W, top: 930, display: 'flex', justifyContent: 'center', opacity: btn, transform: `scale(${0.85 + 0.15 * btn})`}}>
-        <div style={{padding: '22px 64px', borderRadius: 50, background: done > 0.5 ? '#1f9d55' : ACC, color: '#0a0a0a', fontFamily: SANS, fontWeight: 800, fontSize: 44}}>{done > 0.5 ? '✓ Obuna bo\'ldingiz' : "Obuna bo'ling"}</div>
+    <Stage dark>
+      <Say n={13} a={0} b={8} y={700} size={50} color="#f4f4f2" hi={[0, 1]} hiColor={BLUE2} weight={500} />
+      <div style={{position: 'absolute', left: 280, top: 930, display: 'flex', alignItems: 'center', gap: 28, opacity: row}}>
+        <svg width={120} height={120}><circle cx={60} cy={60} r={58} fill="#1a5aa8" />{Array.from({length: 40}, (_, i) => <circle key={i} cx={60 + Math.cos(i * 2.4) * (8 + i * 1.1)} cy={60 + Math.sin(i * 2.4) * (8 + i * 1.1)} r={1.6} fill="#e7f0ff" />)}</svg>
+        <div style={{fontFamily: SANS, fontWeight: 600, fontSize: 52, color: '#f4f4f2'}}>oddiy mohiyat</div>
       </div>
-    </Frame>
+      <div style={{position: 'absolute', left: 280, top: 1090, padding: '16px 40px', borderRadius: 40, background: '#2ea65a', color: '#fff', fontFamily: SANS, fontWeight: 600, fontSize: 40, opacity: done}}>✓ Obuna bo'ldingiz</div>
+    </Stage>
   );
 };
 
 const SCENES: Record<number, React.FC> = {1: S1, 2: S2, 3: S3, 4: S4, 5: S5, 6: S6, 7: S7, 8: S8, 9: S9, 10: S10, 11: S11, 12: S12, 13: S13};
 const sx = (n: number, i: number, name: string, v: number): [number, string, number] => [EV(n, i), name, v];
 const SFX: Record<number, [number, string, number][]> = {
-  1: [sx(1, 0, 'tick', 0.3), sx(1, 9, 'chime', 0.5)], 2: [sx(2, 0, 'pop', 0.4), sx(2, 8, 'ding', 0.4)], 3: [sx(3, 3, 'pop', 0.4), sx(3, 4, 'tick', 0.3), sx(3, 6, 'tick', 0.3)], 4: [sx(4, 4, 'whoosh', 0.4), sx(4, 9, 'rise', 0.3)],
-  5: [sx(5, 1, 'pop', 0.4), sx(5, 4, 'tick', 0.3), sx(5, 5, 'whoosh', 0.4)], 6: [sx(6, 1, 'pop', 0.3), sx(6, 2, 'pop', 0.3), sx(6, 3, 'pop', 0.3), sx(6, 5, 'pop', 0.3), sx(6, 7, 'whoosh', 0.4)],
-  7: [sx(7, 1, 'tick', 0.3), sx(7, 5, 'thud', 0.5)], 8: [sx(8, 6, 'chime', 0.5)], 9: [sx(9, 6, 'ding', 0.4), sx(9, 8, 'ding', 0.4)], 10: [sx(10, 3, 'pop', 0.3), sx(10, 11, 'ding', 0.4)], 11: [sx(11, 0, 'chime', 0.5), sx(11, 3, 'ding', 0.5)], 12: [sx(12, 4, 'rise', 0.4)], 13: [sx(13, 1, 'pop', 0.4), sx(13, 4, 'ding', 0.5)],
+  1: [sx(1, 4, 'tick', 0.25)], 2: [sx(2, 5, 'ding', 0.35), sx(2, 8, 'tick', 0.3)], 3: [sx(3, 3, 'pop', 0.3), sx(3, 4, 'tick', 0.3), sx(3, 6, 'tick', 0.3)], 4: [sx(4, 4, 'whoosh', 0.3), sx(4, 9, 'rise', 0.3)],
+  5: [sx(5, 2, 'rise', 0.3), sx(5, 5, 'whoosh', 0.35)], 6: [sx(6, 1, 'pop', 0.3), sx(6, 2, 'pop', 0.3), sx(6, 3, 'pop', 0.3), sx(6, 5, 'pop', 0.3), sx(6, 7, 'whoosh', 0.35)],
+  7: [sx(7, 0, 'tick', 0.3), sx(7, 5, 'thud', 0.5)], 8: [sx(8, 6, 'chime', 0.5)], 9: [sx(9, 6, 'ding', 0.3), sx(9, 8, 'ding', 0.3)], 10: [sx(10, 3, 'pop', 0.3)], 11: [sx(11, 0, 'chime', 0.5)], 12: [sx(12, 4, 'rise', 0.35)], 13: [sx(13, 7, 'ding', 0.5)],
 };
 
 export const Somad: React.FC<{guide?: boolean}> = ({guide = false}) => {
@@ -385,17 +440,13 @@ export const Somad: React.FC<{guide?: boolean}> = ({guide = false}) => {
 export const SomadCover: React.FC = () => {
   loadFonts();
   return (
-    <AbsoluteFill style={{background: '#070707'}}>
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse 65% 40% at 50% 42%, rgba(255,122,26,.6), rgba(255,122,26,0) 70%)'}} />
-      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
-        {Array.from({length: 160}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 140 + rnd(i + 3) * 420; return <circle key={i} cx={540 + Math.cos(a) * R} cy={800 + Math.sin(a) * R * 0.62} r={3 + 3 * rnd(i + 8)} fill={ACC} opacity={0.55 * (1 - R / 650)} />; })}
-      </svg>
-      <div style={{position: 'absolute', left: 0, width: W, top: 262, display: 'flex', justifyContent: 'center'}}>
-        <div style={{padding: '12px 40px', borderRadius: 40, background: ACC, color: '#070707', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 5}}>ALLOHNING ISMI</div>
-      </div>
-      <div dir="rtl" style={{position: 'absolute', left: 80, width: 920, top: 520, textAlign: 'center', fontFamily: AR, fontWeight: 700, fontSize: 330, lineHeight: 1.2, color: '#fff', textShadow: `0 0 50px ${ACC}, 0 0 130px rgba(255,122,26,.8)`}}>{AR_WORD}</div>
+    <Stage dark>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 65% 38% at 50% 40%, rgba(74,155,255,.4), rgba(74,155,255,0) 70%)'}} />
+      <Svg>{Array.from({length: 150}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 140 + rnd(i + 3) * 420; return <circle key={i} cx={540 + Math.cos(a) * R} cy={800 + Math.sin(a) * R * 0.6} r={2 + 3 * rnd(i + 8)} fill="#bcd8ff" opacity={0.6 * (1 - R / 650)} />; })}</Svg>
+      <div style={{position: 'absolute', left: 0, width: W, top: 262, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 40px', borderRadius: 40, background: BLUE2, color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 5}}>ALLOHNING ISMI</div></div>
+      <ArWord y={500} size={340} dark />
       <div style={{position: 'absolute', left: 80, width: 920, top: 1010, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 190, lineHeight: 1, color: '#f6f6f3'}}>SOMAD</div>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 1240, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 56, color: ACC, lineHeight: 1.15}}>BITTA SO'ZGA<br />SIG'MAYDI</div>
-    </AbsoluteFill>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 1240, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 56, color: BLUE2, lineHeight: 1.15}}>BITTA SO'ZGA<br />SIG'MAYDI</div>
+    </Stage>
   );
 };
