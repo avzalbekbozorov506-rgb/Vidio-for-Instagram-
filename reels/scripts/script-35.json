@@ -56,36 +56,31 @@
     },
     {
       "n": 7,
-      "vo": "Biz kunni yigirma to'rt soat deb bilamiz. U Yerning o'z o'qi atrofida aylanishiga bog'liq.",
+      "vo": "Biz kunni yigirma to'rt soat deb bilamiz. Lekin Yer hali yaratilmagan paytda, bunday kun ham bo'lmagan.",
       "on_screen": "24 SOAT = YER AYLANISHI"
     },
     {
       "n": 8,
-      "vo": "Lekin Yer hali yaratilmagan paytda, yigirma to'rt soatlik kun ham bo'lmagan.",
-      "on_screen": "YER HALI YO'Q"
-    },
-    {
-      "n": 9,
       "vo": "Eng qiziq joyi shunda. Qur'onning o'zida boshqa o'lchov ham bor. Robbing huzuridagi bir kun, siz sanaydigan ming yildekdir.",
       "on_screen": "22:47 · BIR KUN = MING YIL"
     },
     {
-      "n": 10,
+      "n": 9,
       "vo": "Yana bir joyda ellik ming yil bo'lgan kun deyiladi. Bu oyatlar boshqa mavzuda, lekin kun yigirma to'rt soat emas.",
       "on_screen": "70:4 · KUN 24 SOAT EMAS"
     },
     {
-      "n": 11,
+      "n": 10,
       "vo": "Olti kunning har biri qancha davom etganini oyat aytmaydi. Olimlar turlicha tushunishgan.",
       "on_screen": "OLIMLAR TURLICHA"
     },
     {
-      "n": 12,
+      "n": 11,
       "vo": "Demak, javob shu. Zid bo'lishi shart emas, chunki oyatdagi kun davr bo'lishi mumkin.",
       "on_screen": "KUN = DAVR"
     },
     {
-      "n": 13,
+      "n": 12,
       "vo": "Yaqiningizga yuboring va obuna bo'ling.",
       "on_screen": "OBUNA BO'LING"
     }
