@@ -25,6 +25,7 @@ import {SixDays, SixDaysCover, SIX_FRAMES} from './SixDays';
 import {Baqara, BaqaraCover, BAQ_FRAMES} from './Baqara';
 import {Somad, SomadCover, SOMAD_FRAMES} from './Somad';
 import {Uhud, UhudCover, UHUD_FRAMES} from './Uhud';
+import {Sirius, SiriusCover, SIRIUS_FRAMES} from './Sirius';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
@@ -44,6 +45,8 @@ export const Root: React.FC = () => {
     <Composition id="SixDaysCover" component={SixDaysCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Baqara" component={Baqara} durationInFrames={BAQ_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="Uhud" component={Uhud} durationInFrames={UHUD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="Sirius" component={Sirius} durationInFrames={SIRIUS_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="SiriusCover" component={SiriusCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UhudCover" component={UhudCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="BaqaraCover" component={BaqaraCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Somad" component={Somad} durationInFrames={SOMAD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
