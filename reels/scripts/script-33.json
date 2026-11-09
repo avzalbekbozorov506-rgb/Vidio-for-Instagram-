@@ -1,0 +1,91 @@
+{
+  "id": "script-33",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran-gold",
+  "series": "Qur'on va fan",
+  "status": "draft, ok on voice pending",
+  "rules": "Диктор читает УЗБЕКСКИЙ перевод аята (Содик, alquran.cloud, латиница моя), арабский на экране без голоса. Без «доказано/чудо». Проверка выполнена оркестратором по решению пользователя 2026-11-09.",
+  "title": "Balandga ko'tarilganda nega nafas qisadi? (6:125)",
+  "cover_text": "BALANDDA NAFAS QISADI",
+  "ayat": {
+    "6:125": {
+      "ar": "فَمَن يُرِدِ ٱللَّهُ أَن يَهْدِيَهُۥ يَشْرَحْ صَدْرَهُۥ لِلْإِسْلَٰمِ ۖ وَمَن يُرِدْ أَن يُضِلَّهُۥ يَجْعَلْ صَدْرَهُۥ ضَيِّقًا حَرَجًۭا كَأَنَّمَا يَصَّعَّدُ فِى ٱلسَّمَآءِ ۚ كَذَٰلِكَ يَجْعَلُ ٱللَّهُ ٱلرِّجْسَ عَلَى ٱلَّذِينَ لَا يُؤْمِنُونَ",
+      "uz": "Kimni Alloh hidoyat qilmoqchi bo'lsa, uning ko'ksini Islomga ochib qo'yadir. Kimni zalolatga ketkazishni iroda qilsa, uning ko'ksini xuddi osmonga ko'tarilayotgandek, tor va tang qilib qo'yadir. Shunday qilib, Alloh iymon keltirmaydiganlarga azobni duchor qilur."
+    }
+  },
+  "facts": [
+    "Высотная гипоксия: на высоте парциальное давление кислорода падает; причину (гипоксию) установил Поль Бер, 1877 (Aeon; MedLink). Хосе де Акоста описал высотную болезнь в 1590 в Андах. «Горы Большой/Малой головной боли» упоминает Бань Гу (Aeon). Вывод: ощущение людям было знакомо, аят НЕ даёт нового научного факта, это сравнение (сжатие сердца у неверующего).",
+    "Контекст аята духовный; комментарий Содика о «научной истине» в ролике не цитируем."
+  ],
+  "hook": "Balandga ko'tarilganda nega nafas qisadi? Javob oxirida.",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Balandga ko'tarilganda nega nafas qisadi? Javob oxirida.",
+      "on_screen": "BALANDDA NAFAS QISADI"
+    },
+    {
+      "n": 2,
+      "vo": "An'om surasi, bir yuz yigirma beshinchi oyat. Ma'nosi shunday.",
+      "on_screen": "AN'OM SURASI · 6:125"
+    },
+    {
+      "n": 3,
+      "vo": "Kimni Alloh hidoyat qilmoqchi bo'lsa, uning ko'ksini Islomga ochib qo'yadir.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 4,
+      "vo": "Kimni zalolatga ketkazishni iroda qilsa, uning ko'ksini xuddi osmonga ko'tarilayotgandek, tor va tang qilib qo'yadir.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 5,
+      "vo": "Oyat dil haqida. Siqilgan dil, ko'tarilayotgan odamning ahvoliga o'xshatiladi.",
+      "on_screen": "DIL SIQILISHI"
+    },
+    {
+      "n": 6,
+      "vo": "Endi fanga qaraylik. Balandda havo siyraklashadi, bosim pasayadi.",
+      "on_screen": "BOSIM PASAYADI"
+    },
+    {
+      "n": 7,
+      "vo": "Kislorod ulushi o'zgarmaydi, lekin har nafasda o'pkaga kislorod kamroq kiradi.",
+      "on_screen": "KISLOROD KAMAYADI"
+    },
+    {
+      "n": 8,
+      "vo": "Shuning uchun balandda nafas qisadi, yurak tez uradi, bosh og'riydi.",
+      "on_screen": "NAFAS QISADI"
+    },
+    {
+      "n": 9,
+      "vo": "Bu sababni ming sakkiz yuz yetmish yettinchi yilda frantsuz fiziologi Pol Ber aniqladi.",
+      "on_screen": "POL BER · 1877"
+    },
+    {
+      "n": 10,
+      "vo": "Lekin balandda nafas qiyinlashishini odamlar ancha oldin bilgan. Xitoyda tog'larni Bosh og'rig'i tog'i, deb atashgan.",
+      "on_screen": "BOSH OG'RIG'I TOG'I"
+    },
+    {
+      "n": 11,
+      "vo": "Shuning uchun halol aytamiz. Oyat yangi ilmiy fakt aytmaydi. U hammaga tanish sezgini misol qilib keltiradi.",
+      "on_screen": "HALOL AYTAMIZ"
+    },
+    {
+      "n": 12,
+      "vo": "Demak, javob shu. Balandda havo siyrak, kislorod kam, shuning uchun nafas qisadi.",
+      "on_screen": "JAVOB"
+    },
+    {
+      "n": 13,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}

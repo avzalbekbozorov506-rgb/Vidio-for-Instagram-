@@ -1,0 +1,91 @@
+{
+  "id": "script-32",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran-gold",
+  "series": "Qur'on va fan",
+  "status": "draft, ok on voice pending",
+  "rules": "Диктор читает УЗБЕКСКИЙ перевод аята (Содик, alquran.cloud, латиница моя), арабский на экране без голоса. Без «доказано/чудо». Проверка выполнена оркестратором по решению пользователя 2026-11-09.",
+  "title": "Qur'onning chaqirig'i (2:23)",
+  "cover_text": "QUR'ON CHAQIRIG'I",
+  "ayat": {
+    "2:23": {
+      "ar": "وَإِن كُنتُمْ فِى رَيْبٍۢ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا۟ بِسُورَةٍۢ مِّن مِّثْلِهِۦ وَٱدْعُوا۟ شُهَدَآءَكُم مِّن دُونِ ٱللَّهِ إِن كُنتُمْ صَٰدِقِينَ",
+      "uz": "Va agar bandamizga tushirilgan narsamizga shakingiz bo'lsa, unga o'xshash bir sura keltiring va rost so'zlovchilardan bo'lsangiz, Allohdan o'zga guvohlaringizni chaqiring."
+    }
+  },
+  "facts": [
+    "Родственные аяты о вызове: 10:38, 11:13, 17:88 (alquran.cloud). Сура Аль-Каусар (108) состоит из 3 аятов. Музайлима (лжепророк, погиб 632) произносил рифмованные «откровения» (историческая справка, источник не открывался в этой сессии, проверить перед озвучкой).",
+    "Религиозная часть (признание неповторимости Корана) подаётся как позиция мусульман; критики оспаривают критерий «подобия». Утверждение «никто не смог ответить 14 веков» НЕ используем."
+  ],
+  "hook": "Qur'on bir ming to'rt yuz yildan beri bitta chaqiriq tashlaydi. U nima? Javob oxirida.",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Qur'on bir ming to'rt yuz yildan beri bitta chaqiriq tashlaydi. U nima? Javob oxirida.",
+      "on_screen": "QUR'ON CHAQIRIG'I"
+    },
+    {
+      "n": 2,
+      "vo": "Baqara surasi, yigirma uchinchi oyat. Ma'nosi shunday.",
+      "on_screen": "BAQARA SURASI · 2:23"
+    },
+    {
+      "n": 3,
+      "vo": "Va agar bandamizga tushirilgan narsamizga shakingiz bo'lsa, unga o'xshash bir sura keltiring.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 4,
+      "vo": "Va rost so'zlovchilardan bo'lsangiz, Allohdan o'zga guvohlaringizni chaqiring.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 5,
+      "vo": "Bu so'zlar kimga aytilgan edi? Arabiston shoirlariga.",
+      "on_screen": "KIMGA?"
+    },
+    {
+      "n": 6,
+      "vo": "Ular she'riyatning ustalari edi. Katta bozorlarda she'r tanlovlari o'tkazilgan.",
+      "on_screen": "SHOIRLAR"
+    },
+    {
+      "n": 7,
+      "vo": "Qur'on ularga shunday murojaat qildi. Hech bo'lmasa bitta sura keltiring.",
+      "on_screen": "BITTA SURA"
+    },
+    {
+      "n": 8,
+      "vo": "Eng qisqa sura, Kavsar, atigi uch oyatdan iborat.",
+      "on_screen": "KAVSAR · 3 OYAT"
+    },
+    {
+      "n": 9,
+      "vo": "Musulmonlar uchun bu Qur'onning betakrorligi belgisi.",
+      "on_screen": "MUSULMONLAR UCHUN"
+    },
+    {
+      "n": 10,
+      "vo": "Tanqidchilar esa, o'xshash degan mezon subyektiv, deydi. Chunki uslub did masalasi.",
+      "on_screen": "TANQIDCHILAR"
+    },
+    {
+      "n": 11,
+      "vo": "Urinishlar ham bo'lgan. O'zini payg'ambar deb e'lon qilgan Musaylima qofiyali so'zlar aytgan. Musulmon olimlar ularni teng deb hisoblamagan.",
+      "on_screen": "URINISHLAR"
+    },
+    {
+      "n": 12,
+      "vo": "Demak, chaqiriq shu. Qur'onga o'xshash bir sura keltiring. Hukm sizniki.",
+      "on_screen": "HUKM SIZNIKI"
+    },
+    {
+      "n": 13,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}
