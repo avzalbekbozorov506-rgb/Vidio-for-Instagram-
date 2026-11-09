@@ -33,192 +33,182 @@ const loadFonts = () => {
   Promise.all(list.map(([fam, file, w]) => new FontFace(fam, `url(${staticFile('fonts/' + file)})`, {weight: w}).load().then((ff) => document.fonts.add(ff)))).then(() => continueRender(h)).catch((e) => { console.error(e); continueRender(h); });
 };
 
-// ---------- geometry (map area x 80..960, y 290..1400) ----------
-const HILL = {x: 440, y: 770, r: 78};
-const ENEMY0 = {x: 700, y: 430};
-const ARMY0 = {x: 700, y: 1060};
-const COLS = 8, ROWS = 4, SP = 36;
-const ARCHERS = [[-44, -26], [-16, -48], [16, -48], [44, -26], [0, -8]];
-const LOOT = [[890, 380], [925, 430], [890, 480], [925, 530]];
-
-const Unit: React.FC<{x: number; y: number; c: string; o?: number; s?: number}> = ({x, y, c, o = 1, s = 24}) => <rect x={x - s / 2} y={y - s / 2} width={s} height={s} rx={6} fill={c} opacity={o} />;
-
-const Block: React.FC<{cx: number; cy: number; c: string; o?: number; ash?: number; glow?: number}> = ({cx, cy, c, o = 1, ash = 0, glow = 0}) => (
-  <g opacity={o} filter={glow > 0.01 ? 'url(#glow)' : undefined}>
-    {Array.from({length: COLS * ROWS}, (_, i) => {
-      const col = i % COLS, row = Math.floor(i / COLS);
-      const gone = ash > 0 && rnd(i + 7) < ash;
-      return <Unit key={i} x={cx + (col - (COLS - 1) / 2) * SP} y={cy + (row - (ROWS - 1) / 2) * SP} c={gone ? ASH : c} o={gone ? 0.55 : 1} />;
-    })}
-  </g>
-);
-
-const Arrow: React.FC<{x1: number; y1: number; x2: number; y2: number; c: string; k: number; w?: number; dash?: string}> = ({x1, y1, x2, y2, c, k, w = 9, dash}) => {
-  if (k <= 0.01) return null;
-  const ex = x1 + (x2 - x1) * k, ey = y1 + (y2 - y1) * k;
-  const a = Math.atan2(y2 - y1, x2 - x1);
-  return (
-    <g stroke={c} fill={c} strokeWidth={w} strokeLinecap="round" filter="url(#glow)">
-      <line x1={x1} y1={y1} x2={ex} y2={ey} strokeDasharray={dash} />
-      <path d={`M${ex} ${ey} l${-Math.cos(a - 0.5) * 30} ${-Math.sin(a - 0.5) * 30} M${ex} ${ey} l${-Math.cos(a + 0.5) * 30} ${-Math.sin(a + 0.5) * 30}`} fill="none" />
-    </g>
-  );
-};
-
+// ---------- one clear scene per card ----------
+const ARCHERS = [[-52, -30], [-18, -56], [18, -56], [52, -30], [0, -6]];
 const Defs: React.FC = () => (
   <defs>
     <radialGradient id="vig" cx="0.5" cy="0.5" r="0.75"><stop offset="0.45" stopColor="rgba(0,0,0,0)" /><stop offset="1" stopColor="rgba(0,0,0,.72)" /></radialGradient>
-    <linearGradient id="mtn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#2a1e16" /><stop offset="1" stopColor="#4a3626" /></linearGradient>
-    <radialGradient id="hillG" r="0.5"><stop offset="0" stopColor="#5a4430" /><stop offset="1" stopColor="#3a2b1f" /></radialGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+    <radialGradient id="hillG" r="0.5"><stop offset="0" stopColor="#6a523a" /><stop offset="1" stopColor="#3a2b1f" /></radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
     <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22" /></filter>
   </defs>
 );
 
-const Label: React.FC<{x: number; y: number; text: string; c?: string; size?: number; k?: number; w?: number; align?: 'middle' | 'start'}> = ({x, y, text, c = PAPER, size = 34, k = 1, align = 'middle'}) => (
-  <text x={x} y={y} textAnchor={align} fontFamily={MONT} fontWeight={800} fontSize={size} fill={c} opacity={k} stroke="rgba(10,6,4,.9)" strokeWidth={8} paintOrder="stroke" letterSpacing={1}>{text}</text>
+const Txt: React.FC<{x: number; y: number; text: string; c?: string; size?: number; k?: number}> = ({x, y, text, c = PAPER, size = 56, k = 1}) => (
+  <text x={x} y={y + (1 - k) * 16} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={size} fill={c} opacity={k} stroke="rgba(10,6,4,.9)" strokeWidth={10} paintOrder="stroke" letterSpacing={1}>{text}</text>
 );
 
-// ---------- the map ----------
-const MapScene: React.FC<{t: number}> = ({t}) => {
-  // timeline (global seconds)
-  const intro = ease(sm(t, 0, 0.9));
-  // army advances during card 1 words 3..5, enemy retreats in card 4
-  const adv = ap(t, 1, 3, 1.4);
-  const clash = ap(t, 4, 0, 0.4);
-  const flee = ap(t, 4, 2, 1.2);
-  const armyY = ARMY0.y - 150 * adv + 60 * ap(t, 5, 3, 1.0);
-  const enemyY = ENEMY0.y + 20 * clash - 120 * flee + 130 * ap(t, 5, 3, 1.0);
-  const unitsAsh = 0.9 * ap(t, 5, 5, 2.4);
-  // hill and orders
-  const hillRing = ap(t, 2, 2, 0.5);
-  const archersIn = ap(t, 2, 4, 0.6);
-  const tagOn = ap(t, 2, 8, 0.4) * (1 - ap(t, 6, 0, 0.6));
-  const stamp = ap(t, 2, 12, 0.3);
-  const lockK = ap(t, 2, 15, 0.4) * (1 - ap(t, 4, 12, 0.5));
-  const leave = ap(t, 4, 13, 0.6); // archers start to leave
-  const gone = ap(t, 5, 1, 1.4);
-  const lootOn = ap(t, 4, 5, 0.45);
-  // arrows
-  const aWin = ap(t, 3, 1, 0.9) * (1 - ap(t, 3, 6, 0.4));
-  const aLose = ap(t, 3, 6, 0.9) * (1 - ap(t, 3, 9, 0.5));
-  const aHelp = ap(t, 3, 9, 0.8) * (1 - ap(t, 4, 0, 0.4));
-  const route = ap(t, 5, 3, 1.6);
-  const q = ap(t, 1, 6, 0.4) * (1 - ap(t, 1, 12, 0.5));
-  const sealed = ap(t, 1, 12, 0.5) * (1 - ap(t, 2, 0, 0.5));
-  // panel (Oli Imron) hides the map in cards 6..8
-  const panelIn = ap(t, 6, 2, 0.7) * (1 - ap(t, 9, 0, 0.7));
-  const mapDim = 1 - 0.78 * panelIn;
-  const afterBlue = ap(t, 8, 11, 0.9);
-  const blueGlow = ap(t, 10, 5, 0.8);
-  const hx = HILL.x, hy = HILL.y;
-  const inGold = ap(t, 10, 10, 0.6);
+const Units: React.FC<{cx: number; cy: number; c: string; ash?: number; cols?: number; rows?: number; sp?: number; s?: number; k?: number}> = ({cx, cy, c, ash = 0, cols = 8, rows = 4, sp = 52, s = 38, k = 1}) => (
+  <g opacity={k}>
+    {Array.from({length: cols * rows}, (_, i) => {
+      const col = i % cols, row = Math.floor(i / cols);
+      const gone = ash > 0 && rnd(i + 7) < ash;
+      return <rect key={i} x={cx + (col - (cols - 1) / 2) * sp - s / 2} y={cy + (row - (rows - 1) / 2) * sp - s / 2} width={s} height={s} rx={8} fill={gone ? ASH : c} opacity={gone ? 0.5 : 1} />;
+    })}
+  </g>
+);
 
+const Hill: React.FC<{cx: number; cy: number; r: number; ring?: number; dashed?: boolean; archers?: number; spread?: number}> = ({cx, cy, r, ring = 1, dashed = false, archers = 1, spread = 0}) => (
+  <g>
+    <circle cx={cx} cy={cy} r={r} fill="url(#hillG)" />
+    {[0, 1, 2].map((i) => <circle key={i} cx={cx} cy={cy} r={r - i * r * 0.28} fill="none" stroke={PAPER} strokeOpacity={0.25} strokeWidth={3} />)}
+    <circle cx={cx} cy={cy} r={r + 20} fill="none" stroke={dashed ? RUST : GOLD} strokeWidth={9} strokeDasharray={dashed ? '16 18' : undefined} opacity={ring} filter="url(#glow)" />
+    {ARCHERS.map(([ax, ay], i) => (
+      <g key={i} transform={`translate(${cx + ax * (r / 140) + spread * (i % 2 ? 240 : 320)} ${cy + ay * (r / 140) - spread * (i % 2 ? 40 : 10)}) scale(${archers * (r / 140)})`} opacity={archers}>
+        <circle r={20} fill={BLUE} />
+        <path d="M-12 -16 Q-30 0 -12 16" fill="none" stroke="#0b1b2c" strokeWidth={5} strokeLinecap="round" /><line x1={-12} y1={-16} x2={-12} y2={16} stroke="#0b1b2c" strokeWidth={2.5} />
+      </g>
+    ))}
+  </g>
+);
+
+const Pill: React.FC<{x: number; y: number; w: number; text: string; c?: string; k?: number; size?: number}> = ({x, y, w, text, c = GOLD, k = 1, size = 44}) => (
+  <g opacity={k} transform={`translate(0 ${(1 - k) * 14})`}>
+    <rect x={x - w / 2} y={y - 48} width={w} height={96} rx={24} fill="rgba(12,8,5,.94)" stroke={c} strokeWidth={5} />
+    <text x={x} y={y + size * 0.36} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={size} fill={c}>{text}</text>
+  </g>
+);
+
+const CX = 540;
+
+// card 1: the question
+const S1: React.FC<{t: number}> = ({t}) => {
+  const adv = ap(t, 1, 3, 1.2);
+  const q = ap(t, 1, 6, 0.4);
+  return (
+    <g>
+      <Txt x={CX} y={420} text="UHUD" size={120} c={PAPER} />
+      <g opacity={1 - 0.75 * q}><Units cx={CX} cy={900 - 40 * adv} c={BLUE} cols={6} rows={4} sp={80} s={60} /></g>
+      {adv > 0.3 && <Txt x={CX} y={1170} text="G'ALABA" size={72} c={GOLD} k={(1 - q) * ap(t, 1, 3, 0.4)} />}
+      {q > 0.01 && <g opacity={q}><circle cx={CX} cy={900} r={190 + 12 * pulse(t, G(1, 6), 1.6)} fill="rgba(10,6,4,.85)" stroke={GOLD} strokeWidth={8} filter="url(#glow)" /><text x={CX} y={985} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={290} fill={GOLD}>?</text></g>}
+      <Pill x={CX} y={1250} w={720} text="JAVOB OXIRIDA" k={ap(t, 1, 12, 0.5)} />
+    </g>
+  );
+};
+
+// card 2: archers on the hill, the order
+const S2: React.FC<{t: number}> = ({t}) => (
+  <g>
+    <Hill cx={CX} cy={800} r={210} ring={ap(t, 2, 2, 0.5)} archers={ap(t, 2, 4, 0.6)} />
+    <Pill x={CX} y={1160} w={760} text="Abdulloh ibn Jubayr" k={ap(t, 2, 8, 0.4) * (1 - ap(t, 2, 12, 0.3))} size={46} />
+    <Pill x={CX} y={1160} w={760} text="BITTA BUYRUQ" k={ap(t, 2, 12, 0.3)} size={56} />
+    {ap(t, 2, 8, 0.4) > 0.01 && <Txt x={CX} y={1050} text="O'QCHILAR BOSHLIG'I" size={32} c={PAPER} k={ap(t, 2, 8, 0.4) * (1 - ap(t, 2, 12, 0.3))} />}
+    {ap(t, 2, 15, 0.4) > 0.01 && <g opacity={ap(t, 2, 15, 0.4)} transform={`translate(${CX} ${800})`} filter="url(#glow)"><rect x={-36} y={-6} width={72} height={56} rx={10} fill={GOLD} /><path d="M-22 -6 V-26 A22 22 0 0 1 22 -26 V-6" fill="none" stroke={GOLD} strokeWidth={11} /></g>}
+  </g>
+);
+
+// card 3: the two rules
+const S3: React.FC<{t: number}> = ({t}) => {
+  const a = ap(t, 3, 0, 0.5) * (1 - ap(t, 3, 6, 0.4));
+  const b = ap(t, 3, 6, 0.5);
+  return (
+    <g>
+      <g opacity={a} transform={`translate(0 ${(1 - a) * 20})`}>
+        <Units cx={CX} cy={640} c={BLUE} cols={6} rows={3} sp={76} s={58} />
+        <Txt x={CX} y={870} text="G'ALABA" size={84} c={BLUE} />
+        <g transform={`translate(${CX} 1010)`} filter="url(#glow)"><circle r={90} fill="none" stroke={GOLD} strokeWidth={10} /><rect x={-26} y={-2} width={52} height={40} rx={8} fill={GOLD} /><path d="M-16 -2 V-18 A16 16 0 0 1 16 -18 V-2" fill="none" stroke={GOLD} strokeWidth={9} /></g>
+        <Txt x={CX} y={1190} text="JILMANG" size={92} c={GOLD} k={ap(t, 3, 3, 0.4)} />
+      </g>
+      <g opacity={b} transform={`translate(0 ${(1 - b) * 20})`}>
+        <Units cx={CX} cy={640} c={BLUE} cols={6} rows={3} sp={76} s={58} ash={0.75 * ap(t, 3, 6, 1.0)} />
+        <Txt x={CX} y={870} text="YENGILISH" size={84} c={RUST} />
+        <g transform={`translate(${CX} 1010)`} filter="url(#glow)" stroke={RUST} strokeWidth={14} strokeLinecap="round"><circle r={90} fill="none" strokeWidth={10} /><line x1={-50} y1={-50} x2={50} y2={50} /></g>
+        <Txt x={CX} y={1190} text="YORDAMGA KELMANG" size={66} c={GOLD} k={ap(t, 3, 9, 0.4)} />
+      </g>
+    </g>
+  );
+};
+
+// card 4: the spoils
+const S4: React.FC<{t: number}> = ({t}) => {
+  const coins = ap(t, 4, 5, 0.5);
+  const leave = ap(t, 4, 13, 1.2);
+  const hint = ap(t, 4, 9, 0.5) * (1 - ap(t, 4, 12, 0.4));
+  return (
+    <g>
+      <Hill cx={360} cy={760} r={150} ring={1} archers={1} spread={leave * 0.55} />
+      <g opacity={coins}>
+        {[[780, 640, 70], [860, 760, 58], [740, 800, 64], [820, 900, 52]].map(([x, y, r], i) => <g key={i} transform={`translate(${x} ${y}) scale(${0.6 + 0.4 * coins})`}><circle r={r} fill={GOLD} stroke="#a8741c" strokeWidth={8} filter="url(#glow)" /><circle r={r * 0.55} fill="none" stroke="#a8741c" strokeWidth={6} /></g>)}
+      </g>
+      <Txt x={780} y={1060} text="O'LJA!" size={88} c={GOLD} k={coins} />
+      <Pill x={CX} y={1250} w={800} text="Abdulloh: AHDNI ESLATDI" k={hint} size={38} />
+      {leave > 0.05 && <g opacity={leave} stroke={RUST} strokeWidth={14} strokeLinecap="round" transform="translate(360 1010)" filter="url(#glow)"><line x1={-40} y1={-40} x2={40} y2={40} /><line x1={40} y1={-40} x2={-40} y2={40} /></g>}
+    </g>
+  );
+};
+
+// card 5: the hill is empty, seventy
+const S5: React.FC<{t: number}> = ({t}) => {
+  const swap = ap(t, 5, 5, 0.5);
+  const n = Math.round(70 * ap(t, 5, 5, 2.4));
+  return (
+    <g>
+      <g opacity={1 - swap}><Hill cx={CX} cy={820} r={210} ring={1} dashed archers={0} /><Txt x={CX} y={1180} text="JOY BO'SH" size={84} c={RUST} k={ap(t, 5, 1, 0.5)} /></g>
+      <g opacity={swap}>
+        <text x={CX} y={740} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={300} fill={PAPER}>{n}</text>
+        <Txt x={CX} y={850} text="SHAHID" size={72} c={GOLD} />
+        {Array.from({length: 70}, (_, i) => <circle key={i} cx={CX - 9 * 44 / 2 + (i % 10) * 44} cy={960 + Math.floor(i / 10) * 48} r={15} fill={i < n ? ASH : BLUE} opacity={i < n ? 0.6 : 1} />)}
+      </g>
+    </g>
+  );
+};
+
+// card 9: three causes, then "from yourselves"
+const S9: React.FC<{t: number}> = ({t}) => (
+  <g>
+    {[3, 6, 8].map((wi, i) => { const k = ap(t, 9, wi, 0.4); return <Pill key={i} x={CX} y={520 + i * 170} w={680} text={['ZAIFLIK', 'IXTILOF', 'ISYON'][i]} c={RUST} k={k} size={64} />; })}
+    {ap(t, 9, 13, 0.5) > 0.01 && <g opacity={ap(t, 9, 13, 0.5)}><g stroke={GOLD} strokeWidth={10} strokeLinecap="round" fill="none" filter="url(#glow)"><path d={`M${CX} 960 V1060`} /><path d={`M${CX - 30} 1030 L${CX} 1062 L${CX + 30} 1030`} /></g></g>}
+    <Pill x={CX} y={1190} w={760} text="BU O'ZINGIZDAN" k={ap(t, 9, 13, 0.5)} size={56} />
+  </g>
+);
+
+// card 10: the lesson
+const S10: React.FC<{t: number}> = ({t}) => {
+  const lock = ap(t, 10, 10, 0.6);
+  const sw = ap(t, 10, 10, 0.3);
+  return (
+    <g>
+      <Hill cx={CX} cy={760} r={200} ring={0.4 + 0.6 * lock} archers={1} />
+      <g opacity={lock} transform={`translate(${CX} 760)`} filter="url(#glow)"><rect x={-36} y={-6} width={72} height={56} rx={10} fill={GOLD} /><path d="M-22 -6 V-26 A22 22 0 0 1 22 -26 V-6" fill="none" stroke={GOLD} strokeWidth={11} /></g>
+      <Pill x={CX} y={1130} w={760} text="G'ALABA YAQIN" c={PAPER} k={ap(t, 10, 5, 0.5) * (1 - sw)} size={56} />
+      <Pill x={CX} y={1130} w={860} text="BUYRUQQA SODIQ" k={sw} size={56} />
+    </g>
+  );
+};
+
+// card 11: call to action
+const S11: React.FC<{t: number}> = ({t}) => (
+  <g>
+    <Txt x={CX} y={560} text="SIZNINGCHA?" size={110} c={GOLD} k={ap(t, 11, 0, 0.5)} />
+    <g opacity={ap(t, 11, 5, 0.4)} transform="translate(300 900) scale(1.8)"><path d="M0 -40 H160 a16 16 0 0 1 16 16 V30 a16 16 0 0 1 -16 16 H50 l-30 24 v-24 H0 a16 16 0 0 1 -16 -16 V-24 a16 16 0 0 1 16 -16z" fill={GOLD} transform="translate(-60 0)" /><circle cx={-30} cy={2} r={7} fill="#150f0b" /><circle cx={20} cy={2} r={7} fill="#150f0b" /><circle cx={70} cy={2} r={7} fill="#150f0b" /></g>
+    <g opacity={ap(t, 11, 7, 0.4)} transform={`translate(${760 + 40 * ap(t, 11, 8, 1)} ${960 - 40 * ap(t, 11, 8, 1)}) scale(1.7)`}><path d="M-60 -10 L70 -50 L10 50 L-6 6 Z" fill={BLUE} /><path d="M-6 6 L70 -50" stroke="#0b1b2c" strokeWidth={4} /></g>
+  </g>
+);
+
+const SCENES: Record<number, React.FC<{t: number}>> = {1: S1, 2: S2, 3: S3, 4: S4, 5: S5, 9: S9, 10: S10, 11: S11};
+
+const MapScene: React.FC<{t: number}> = ({t}) => {
+  const panelIn = ap(t, 6, 2, 0.7) * (1 - ap(t, 9, 0, 0.6));
   return (
     <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
       <Defs />
-      <g opacity={intro * mapDim}>
-        {/* paper grid */}
-        {Array.from({length: 24}, (_, i) => <line key={'g' + i} x1={80} y1={290 + i * 50} x2={960} y2={290 + i * 50} stroke={PAPER} strokeOpacity={0.07} strokeWidth={1.5} />)}
-        {Array.from({length: 18}, (_, i) => <line key={'v' + i} x1={80 + i * 50} y1={290} x2={80 + i * 50} y2={1400} stroke={PAPER} strokeOpacity={0.07} strokeWidth={1.5} />)}
-        <rect x={80} y={290} width={880} height={1110} rx={22} fill="none" stroke={PAPER} strokeOpacity={0.35} strokeWidth={3} />
-        {/* mountain Uhud */}
-        <path d="M80 290 H250 Q320 520 262 800 Q330 1100 262 1400 H80 Z" fill="url(#mtn)" />
-        {[0, 1, 2, 3, 4].map((i) => <path key={i} d={`M${80 + i * 34} 290 H${250 - i * 18} Q${320 - i * 36} 520 ${262 - i * 28} 800 Q${330 - i * 40} 1100 ${262 - i * 28} 1400 H${80 + i * 34}`} fill="none" stroke={PAPER} strokeOpacity={0.18} strokeWidth={2} />)}
-        <Label x={150} y={860} text="UHUD TOG'I" c={PAPER} size={30} />
-        {/* hill with contours */}
-        <circle cx={hx} cy={hy} r={HILL.r + 26} fill="url(#hillG)" opacity={0.85} />
-        {[0, 1, 2].map((i) => <circle key={i} cx={hx} cy={hy} r={HILL.r + 26 - i * 24} fill="none" stroke={PAPER} strokeOpacity={0.3} strokeWidth={2} />)}
-        {/* ring on the hill */}
-        {hillRing > 0.01 && (
-          <g filter="url(#glow)">
-            <circle cx={hx} cy={hy} r={HILL.r + 40 + (1 - hillRing) * 40} fill="none" stroke={GOLD} strokeWidth={6} opacity={hillRing * (1 - 0.5 * gone)} strokeDasharray={gone > 0.2 ? '10 14' : undefined} />
-          </g>
-        )}
-        {/* loot */}
-        {LOOT.map(([lx, ly], i) => <g key={i} opacity={lootOn * (0.4 + 0.6 * ap(t, 4, 5 + (i % 2), 0.4))} transform={`translate(${lx} ${ly + (enemyY - ENEMY0.y) * 0.4})`}><circle r={16} fill={GOLD} stroke="#a8741c" strokeWidth={4} filter="url(#glow)" /><circle r={8} fill="none" stroke="#a8741c" strokeWidth={3} /></g>)}
-        {/* routes / arrows */}
-        <Arrow x1={700} y1={armyY - 80} x2={700} y2={enemyY + 100} c={BLUE} k={aWin} />
-        <Arrow x1={700} y1={enemyY + 90} x2={700} y2={armyY - 60} c={RUST} k={aLose} />
-        <Arrow x1={hx + 40} y1={hy + 60} x2={560} y2={armyY - 40} c={BLUE} k={aHelp} dash="4 18" w={7} />
-        {aHelp > 0.3 && <g opacity={aHelp} filter="url(#glow)" stroke={RUST} strokeWidth={10} strokeLinecap="round"><line x1={505} y1={880} x2={555} y2={930} /><line x1={555} y1={880} x2={505} y2={930} /></g>}
-        {route > 0.01 && <path d="M650 540 Q360 600 340 800 T560 990" fill="none" stroke={RUST} strokeWidth={9} strokeLinecap="round" strokeDasharray="22 16" pathLength={1} opacity={0.95} style={{strokeDashoffset: 0}} clipPath={undefined} filter="url(#glow)" strokeDashoffset={-(1 - route) * 120} />}
-        {route > 0.8 && <g opacity={ease(sm(route, 0.8, 1))} filter="url(#glow)"><circle cx={560} cy={990} r={34 + 10 * pulse(t, G(5, 3) + 1.3, 1)} fill="none" stroke={RUST} strokeWidth={6} /></g>}
-        {/* armies */}
-        <Block cx={ENEMY0.x} cy={enemyY} c={RUST} />
-        <Block cx={ARMY0.x} cy={armyY} c={BLUE} ash={unitsAsh} glow={blueGlow} />
-        {/* archers */}
-        {ARCHERS.map(([ax, ay], i) => {
-          const away = leave * (i % 2 === 0 ? 1 : 0.6) + gone * (i % 2 === 0 ? 0 : 0.4);
-          const x = hx + ax + (700 - hx - ax) * away * 0.55, y = hy + ay + (500 - hy - ay) * away * 0.55;
-          return (
-            <g key={i} transform={`translate(${x} ${y}) scale(${archersIn})`} opacity={archersIn}>
-              <circle r={15} fill={BLUE} />
-              <path d="M-9 -12 Q-22 0 -9 12" fill="none" stroke="#0b1b2c" strokeWidth={4} strokeLinecap="round" /><line x1={-9} y1={-12} x2={-9} y2={12} stroke="#0b1b2c" strokeWidth={2} />
-            </g>
-          );
-        })}
-        {/* commander tag */}
-        {tagOn > 0.01 && (
-          <g opacity={tagOn} transform={`translate(0 ${(1 - tagOn) * 14})`}>
-            <line x1={hx} y1={hy - HILL.r - 30} x2={hx + 40} y2={hy - HILL.r - 60} stroke={GOLD} strokeWidth={4} />
-            <rect x={hx + 6} y={hy - HILL.r - 140} width={420} height={84} rx={16} fill="rgba(12,8,5,.92)" stroke={GOLD} strokeWidth={3} />
-            <text x={hx + 216} y={hy - HILL.r - 110} textAnchor="middle" fontFamily={MONT} fontWeight={600} fontSize={26} fill={PAPER}>O'QCHILAR BOSHLIG'I</text>
-            <text x={hx + 216} y={hy - HILL.r - 76} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={34} fill={GOLD}>Abdulloh ibn Jubayr</text>
-          </g>
-        )}
-        {/* lock / stamp */}
-        {stamp > 0.01 && (
-          <g opacity={stamp * (1 - ap(t, 3, 0, 0.5))} transform={`translate(${hx + 160} ${hy + 200}) rotate(-6) scale(${1.2 - 0.2 * stamp})`}>
-            <rect x={-170} y={-44} width={340} height={88} rx={14} fill="rgba(12,8,5,.9)" stroke={GOLD} strokeWidth={5} />
-            <text x={0} y={14} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={44} fill={GOLD}>BITTA BUYRUQ</text>
-          </g>
-        )}
-        {lockK > 0.01 && <g opacity={lockK} transform={`translate(${hx} ${hy})`} filter="url(#glow)"><rect x={-22} y={-4} width={44} height={34} rx={6} fill={GOLD} /><path d="M-13 -4 V-16 A13 13 0 0 1 13 -16 V-4" fill="none" stroke={GOLD} strokeWidth={7} /></g>}
-        {/* question + sealed */}
-        {q > 0.01 && <g opacity={q}><circle cx={540} cy={800} r={130 + 14 * pulse(t, G(1, 6), 1.6)} fill="rgba(10,6,4,.72)" stroke={GOLD} strokeWidth={6} filter="url(#glow)" /><text x={540} y={850} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={170} fill={GOLD}>?</text></g>}
-        {sealed > 0.01 && <g opacity={sealed}><rect x={230} y={1210} width={620} height={90} rx={20} fill="rgba(12,8,5,.92)" stroke={GOLD} strokeWidth={4} /><text x={540} y={1272} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={40} fill={GOLD}>JAVOB OXIRIDA</text></g>}
-        {/* casualties counter */}
-        {ap(t, 5, 5, 0.4) > 0.01 && (
-          <g opacity={ap(t, 5, 5, 0.4) * (1 - ap(t, 6, 0, 0.5))} transform="translate(640 1230)">
-            <rect x={-20} y={-34} width={340} height={170} rx={18} fill="rgba(12,8,5,.92)" stroke={PAPER} strokeOpacity={0.5} strokeWidth={3} />
-            <text x={150} y={36} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={100} fill={PAPER}>{Math.round(70 * ap(t, 5, 5, 2.0))}</text>
-            <text x={150} y={104} textAnchor="middle" fontFamily={MONT} fontWeight={600} fontSize={30} fill={PAPER}>SHAHID</text>
-          </g>
-        )}
-        {/* "from yourselves" arrows in card 9 */}
-        {ap(t, 9, 13, 0.5) > 0.01 && (
-          <g opacity={ap(t, 9, 13, 0.5)}>
-            <Arrow x1={hx + 90} y1={hy + 100} x2={ARMY0.x - 90} y2={ARMY0.y - 120} c={GOLD} k={ap(t, 9, 13, 1.0)} w={8} />
-            <rect x={400} y={1220} width={460} height={90} rx={18} fill="rgba(12,8,5,.92)" stroke={GOLD} strokeWidth={4} />
-            <text x={630} y={1280} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={38} fill={GOLD}>O'ZINGIZDAN</text>
-          </g>
-        )}
-        {/* three words on the hill, card 9 */}
-        {[3, 6, 8].map((wi, i) => {
-          const k = ap(t, 9, wi, 0.4) * (1 - ap(t, 10, 0, 0.5));
-          const txt = ['ZAIFLIK', 'IXTILOF', 'ISYON'][i];
-          return k > 0.01 ? (
-            <g key={i} opacity={k} transform={`translate(0 ${(1 - k) * 12})`}>
-              <rect x={470} y={430 + i * 100} width={330} height={78} rx={16} fill="rgba(12,8,5,.92)" stroke={RUST} strokeWidth={4} />
-              <text x={635} y={485 + i * 100} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={44} fill={RUST}>{txt}</text>
-            </g>
-          ) : null;
-        })}
-        {/* final: gold lock on hill, card 10 */}
-        {inGold > 0.01 && <g opacity={inGold} filter="url(#glow)"><circle cx={hx} cy={hy} r={HILL.r + 40} fill="none" stroke={GOLD} strokeWidth={8} /></g>}
-        {ap(t, 10, 5, 0.5) > 0.01 && <g opacity={ap(t, 10, 5, 0.5) * (1 - ap(t, 11, 0, 0.5))}><rect x={300} y={1210} width={660} height={90} rx={18} fill="rgba(12,8,5,.92)" stroke={GOLD} strokeWidth={4} /><text x={630} y={1272} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={38} fill={GOLD}>{ap(t, 10, 10, 0.3) > 0.5 ? 'BUYRUQQA SODIQ QOLISH' : "G'ALABA YAQIN"}</text></g>}
-        {/* CTA icons card 11 */}
-        {ap(t, 11, 5, 0.4) > 0.01 && (
-          <g opacity={ap(t, 11, 5, 0.4)} transform="translate(300 1250)">
-            <path d="M0 -40 H160 a16 16 0 0 1 16 16 V30 a16 16 0 0 1 -16 16 H50 l-30 24 v-24 H0 a16 16 0 0 1 -16 -16 V-24 a16 16 0 0 1 16 -16z" fill={GOLD} /><circle cx={30} cy={2} r={6} fill="#150f0b" /><circle cx={80} cy={2} r={6} fill="#150f0b" /><circle cx={130} cy={2} r={6} fill="#150f0b" />
-          </g>
-        )}
-        {ap(t, 11, 7, 0.4) > 0.01 && (
-          <g opacity={ap(t, 11, 7, 0.4)} transform={`translate(${620 + 60 * ap(t, 11, 8, 1)} ${1250 - 30 * ap(t, 11, 8, 1)})`}><path d="M-60 -10 L70 -50 L10 50 L-6 6 Z" fill={BLUE} /><path d="M-6 6 L70 -50" stroke="#0b1b2c" strokeWidth={4} /></g>
-        )}
-      </g>
-      {/* Oli Imron panel */}
+      {Object.entries(SCENES).map(([k, Sc]) => {
+        const n = Number(k);
+        const t0 = START[n], t1 = START[n] + cardFrames(n) / FPS;
+        const o = ease(sm(t, t0 - 0.05, t0 + 0.45)) * (1 - ease(sm(t, t1 - 0.3, t1 + 0.1)));
+        if (o <= 0.01) return null;
+        return <g key={n} opacity={o}><Sc t={t} /></g>;
+      })}
       {panelIn > 0.01 && <AyatPanel t={t} k={panelIn} />}
     </svg>
   );
