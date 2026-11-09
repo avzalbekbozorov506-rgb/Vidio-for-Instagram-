@@ -13,53 +13,54 @@
  "sources": [
   "Sahih al-Bukhari 4043 (o'qchilar, buyruq, o'lja, yetmish nafar)",
   "Sahih al-Bukhari 4067 (Abdulloh ibn Jubayr o'qchilar boshlig'i, 3:153)",
-  "Qur'on 3:152-153 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)"
+  "Qur'on 3:152-153 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)",
+  "Qur'on 3:165 (bu o'zingizning huzuringizdan)"
  ],
  "rules": "Payg'ambar va sahobalar tasvirsiz; sonlar faqat Buxoriydagi 70; o'qchilar soni va Xolid ibn Validning aylanib o'tishi tekshirilmaganligi uchun aytilmaydi",
  "cards": [
   {
    "n": 1,
-   "vo": "Uhud jangida musulmonlar g'alaba qilib turishgan edi. Nega hammasi bir zumda o'zgardi? Javob oxirida, obuna bo'ling.",
+   "vo": "Uhud jangida musulmonlar g'alaba qozonayotgan edi. Nega hammasi bir zumda o'zgardi? Javob oxirida, obuna bo'ling.",
    "on_screen": "UHUD: NEGA?"
   },
   {
    "n": 2,
-   "vo": "Payg'ambar alayhissalom bir joyga o'qchilarni qo'ydilar. Boshliq Abdulloh ibn Jubayr edi. Buyruq bitta, jilmanglar.",
+   "vo": "Payg'ambar alayhissalom bir joyga o'qchilarni qo'ydilar. Ularning boshlig'i Abdulloh ibn Jubayr edi. Buyruq bitta edi, joyingizdan jilmang.",
    "on_screen": "O'QCHILAR"
   },
   {
    "n": 3,
-   "vo": "G'alaba qilayotganimizni ko'rsangiz ham jilmang. Mag'lub bo'layotganimizni ko'rsangiz ham, yordamga kelmang.",
+   "vo": "Bizning g'alaba qilayotganimizni ko'rsangizlar ham jilmanglar. Yengilayotganimizni ko'rsangizlar ham, yordamga kelmanglar. Shunday dedilar.",
    "on_screen": "JILMANGLAR"
   },
   {
    "n": 4,
-   "vo": "Jang boshlandi. Dushman chekindi. Ovozlar eshitildi, o'lja, o'lja! Abdulloh va'dani eslatdi, lekin hamrohlari rozi bo'lmadi.",
+   "vo": "Jang boshlandi. Dushman qochdi. Musulmonlar, o'lja, o'lja, deya boshladi. Abdulloh Payg'ambarga bergan ahdini eslatdi, lekin o'qchilar rozi bo'lmadi.",
    "on_screen": "O'LJA!"
   },
   {
    "n": 5,
-   "vo": "Joy bo'shab qoldi. Jang o'zgardi. Yetmish musulmon shahid bo'ldi.",
+   "vo": "O'qchilar joyini tashladi. Jang o'zgardi. Yetmish musulmon shahid bo'ldi.",
    "on_screen": "70 SHAHID"
   },
   {
    "n": 6,
-   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi. Sizlar ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilgunigizcha.",
+   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi. Sizlar Uning izni bilan ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilib, isyon qilgunigizcha.",
    "on_screen": "OLI IMRON 3:152"
   },
   {
    "n": 7,
-   "vo": "Va oyat shunday tugaydi. Batahqiq, sizni afv etdi.",
+   "vo": "Oyat davom etadi. Sizni imtihon qilish uchun ulardan burdi. Batahqiq, sizni afv etdi.",
    "on_screen": "AFV ETDI"
   },
   {
    "n": 8,
-   "vo": "Javob oyatning o'zida. Bir izohga ko'ra, g'alaba dushman kuchi bilan emas, buyruqdan chetga chiqish bilan yo'qoldi.",
+   "vo": "Javob oyatning o'zida. Zaiflik, amr haqida ixtilof va isyon. Yana bir oyatda aytiladi, bu o'zingizning huzuringizdan.",
    "on_screen": "JAVOB"
   },
   {
    "n": 9,
-   "vo": "Eng xavfli payt ba'zan qiyinchilik emas, g'alaba yaqin ko'ringan paytdir.",
+   "vo": "Bir izohga ko'ra, bu voqea g'alaba yaqin ko'ringan paytda ham buyruqqa sodiq qolish kerakligini eslatadi.",
    "on_screen": "XULOSA"
   },
   {
