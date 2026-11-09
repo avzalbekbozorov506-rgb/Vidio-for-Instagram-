@@ -37,7 +37,7 @@
     },
     {
       "n": 3,
-      "vo": "Ildiz ma'nosi haqidagi izohlardan biri. Yuzlanmoq, yordam so'ramoq, tayanmoq.",
+      "vo": "Ildiz ma'nosi haqidagi izohlardan biri, yuzlanmoq va yordam so'ramoq.",
       "on_screen": "ILDIZ MA'NOSI"
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "n": 11,
-      "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu ikki gap yonma-yon turadi.",
+      "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu gaplar birga aytilgan.",
       "on_screen": "TUG'ILISH = BOG'LIQLIK"
     },
     {
