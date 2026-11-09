@@ -71,26 +71,21 @@
     },
     {
       "n": 10,
-      "vo": "Yana bir joyda, miqdori ellik ming yil bo'lgan kun deyiladi.",
-      "on_screen": "70:4 · ELLIK MING YIL"
+      "vo": "Yana bir joyda ellik ming yil bo'lgan kun deyiladi. Bu oyatlar boshqa mavzuda, lekin kun yigirma to'rt soat emas.",
+      "on_screen": "70:4 · KUN 24 SOAT EMAS"
     },
     {
       "n": 11,
-      "vo": "Bu oyatlar boshqa mavzuda, lekin ularda ham kun yigirma to'rt soat emas.",
-      "on_screen": "24 SOAT EMAS"
-    },
-    {
-      "n": 12,
       "vo": "Olti kunning har biri qancha davom etganini oyat aytmaydi. Olimlar turlicha tushunishgan.",
       "on_screen": "OLIMLAR TURLICHA"
     },
     {
-      "n": 13,
+      "n": 12,
       "vo": "Demak, javob shu. Zid bo'lishi shart emas, chunki oyatdagi kun davr bo'lishi mumkin.",
       "on_screen": "KUN = DAVR"
     },
     {
-      "n": 14,
+      "n": 13,
       "vo": "Yaqiningizga yuboring va obuna bo'ling.",
       "on_screen": "OBUNA BO'LING"
     }
