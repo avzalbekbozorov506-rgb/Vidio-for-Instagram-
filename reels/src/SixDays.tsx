@@ -431,18 +431,33 @@ export const SixDays: React.FC<{guide?: boolean}> = ({guide = false}) => {
 
 export const SixDaysCover: React.FC = () => {
   loadFonts();
+  const zig = 'M590 240 L520 520 L610 640 L490 900 L580 1040 L450 1320 L540 1440 L420 1680';
   return (
-    <Page n={1} over={<>
-      <Txt k={1} y={300} size={170}>OLTI KUN</Txt>
-      <Txt k={1} y={480} size={96} font={SANS} sp={12} color={DIM}>YOKI</Txt>
-      <Txt k={1} y={600} size={150} color={TEAL}>MILLIARD YIL?</Txt>
-      <Txt k={1} y={1420} size={38} font={SANS} sp={6} color={RED}>QOF · 50:38</Txt>
-    </>}>
-      <Svg>
-        {Array.from({length: 6}, (_, i) => <Tile key={i} x={150 + i * 140} y={900} s={1.1} k={1} />)}
-        <rect x={150} y={1090} width={780} height={60} rx={10} fill={TEAL} stroke={INK} strokeWidth={5} />
-        {Array.from({length: 27}, (_, i) => <line key={i} x1={150 + i * 30} y1={1160} x2={150 + i * 30} y2={i % 5 ? 1176 : 1196} stroke={INK} strokeWidth={4} />)}
-      </Svg>
-    </Page>
+    <AbsoluteFill style={{background: '#14110d'}}>
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #ffd35a 0%, #f0a21c 60%, #c9760a 100%)', clipPath: 'polygon(0 0, 55% 0, 39% 100%, 0 100%)'}} />
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(200deg, #2aa3b8 0%, #1f7f90 45%, #0b3b47 100%)', clipPath: 'polygon(55% 0, 100% 0, 100% 100%, 39% 100%)'}} />
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 45% at 30% 38%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%), radial-gradient(ellipse 60% 40% at 78% 70%, rgba(120,230,255,.28), rgba(0,0,0,0) 60%)'}} />
+      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+        <path d={zig} fill="none" stroke="#fff6dc" strokeWidth={46} strokeLinejoin="round" opacity={0.25} style={{filter: 'blur(14px)'}} />
+        <path d={zig} fill="none" stroke={RED} strokeWidth={26} strokeLinejoin="round" strokeLinecap="round" />
+        <path d={zig} fill="none" stroke="#fff3d6" strokeWidth={8} strokeLinejoin="round" strokeLinecap="round" />
+        {Array.from({length: 6}, (_, i) => <Tile key={i} x={60 + (i % 3) * 120} y={1110 + Math.floor(i / 3) * 124} s={1.1} k={1} />)}
+        <rect x={650} y={1170} width={330} height={64} rx={12} fill="#0b3b47" stroke="#fff6dc" strokeWidth={5} />
+        {Array.from({length: 14}, (_, i) => <line key={i} x1={660 + i * 23} y1={1240} x2={660 + i * 23} y2={i % 5 ? 1256 : 1276} stroke="#fff6dc" strokeWidth={4} />)}
+      </svg>
+      <div style={{position: 'absolute', left: 20, width: 500, top: 370, textAlign: 'center', fontFamily: DISP, fontSize: 540, lineHeight: 0.95, color: INK, textShadow: '10px 12px 0 rgba(255,255,255,.55)'}}>6</div>
+      <div style={{position: 'absolute', left: 20, width: 500, top: 860, textAlign: 'center', fontFamily: DISP, fontSize: 210, lineHeight: 1, color: INK, letterSpacing: 4, textShadow: '6px 8px 0 rgba(255,255,255,.55)'}}>KUN</div>
+      <div style={{position: 'absolute', left: 620, width: 420, top: 400, textAlign: 'center', fontFamily: DISP, fontSize: 230, lineHeight: 1, color: '#ffffff', textShadow: '8px 10px 0 rgba(0,0,0,.35)'}}>13,8</div>
+      <div style={{position: 'absolute', left: 620, width: 420, top: 640, textAlign: 'center', fontFamily: DISP, fontSize: 104, lineHeight: 1, color: '#ffd35a', textShadow: '6px 8px 0 rgba(0,0,0,.35)'}}>MILLIARD</div>
+      <div style={{position: 'absolute', left: 620, width: 420, top: 760, textAlign: 'center', fontFamily: DISP, fontSize: 170, lineHeight: 1, color: '#ffffff', textShadow: '6px 8px 0 rgba(0,0,0,.35)'}}>YIL</div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1440, display: 'flex', justifyContent: 'center'}}>
+        <div style={{padding: '14px 70px', background: RED, color: '#fff', fontFamily: DISP, fontSize: 150, lineHeight: 1.05, letterSpacing: 3, transform: 'skewX(-8deg)', boxShadow: '12px 14px 0 rgba(0,0,0,.5)', border: '8px solid #fff'}}>ZIDDIYATMI?!</div>
+      </div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 270, display: 'flex', justifyContent: 'center'}}>
+        <div style={{padding: '12px 36px', borderRadius: 40, background: INK, color: '#ffe9ac', fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: 6}}>QUR'ON  VS  FAN</div>
+      </div>
+      <AbsoluteFill style={{backgroundImage: `url(${staticFile('noise.png')})`, backgroundSize: '512px 512px', opacity: 0.18, mixBlendMode: 'multiply'}} />
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 85% 70% at 50% 46%, rgba(0,0,0,0) 55%, rgba(30,15,0,.5) 100%)'}} />
+    </AbsoluteFill>
   );
 };

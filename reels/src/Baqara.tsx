@@ -380,9 +380,18 @@ export const Baqara: React.FC<{guide?: boolean}> = ({guide = false}) => {
 export const BaqaraCover: React.FC = () => {
   loadFonts();
   return (
-    <Frame n={1} dark top={<>Nega <A>«Sigir»</A>?</>}>
-      <Svg><Cow x={330} y={620} s={1.3} fill="#f4f4f2" spot="#0a0a0a" /></Svg>
-      <div dir="rtl" style={{position: 'absolute', left: 80, width: 920, top: 1040, textAlign: 'center', fontFamily: AR, fontWeight: 700, fontSize: 130, color: ACC}}>سورة البقرة</div>
-    </Frame>
+    <AbsoluteFill style={{background: '#070707'}}>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 65% 38% at 50% 40%, rgba(255,122,26,.55), rgba(255,122,26,0) 70%)'}} />
+      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+        <Dots count={286} shown={400} base="#2b2b2b" r={7} pitch={26} x0={190} y0={1410} hi={(i) => (i >= 66 && i <= 72 ? 1 : 0)} />
+        <g style={{filter: 'drop-shadow(0 0 40px rgba(255,122,26,.7))'}}><Cow x={190} y={380} s={2.2} fill="#f6f6f3" spot="#070707" /></g>
+      </svg>
+      <div style={{position: 'absolute', left: 0, width: W, top: 262, display: 'flex', justifyContent: 'center'}}>
+        <div style={{padding: '12px 40px', borderRadius: 40, background: ACC, color: '#070707', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 5}}>ENG UZUN SURA</div>
+      </div>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 880, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 150, lineHeight: 1, color: '#f6f6f3', letterSpacing: 2}}>NEGA</div>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 1000, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 250, lineHeight: 1, color: ACC, letterSpacing: 0, textShadow: '0 0 60px rgba(255,122,26,.55)'}}>SIGIR?</div>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 1290, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 56, color: '#f6f6f3', letterSpacing: 2}}>286 OYATDAN <span style={{color: ACC}}>FAQAT 7</span></div>
+    </AbsoluteFill>
   );
 };
