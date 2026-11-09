@@ -23,6 +23,7 @@ import {AntCinema, AntCinemaCover, CINE_FRAMES} from './AntCinema';
 import {SunCosmos, SunCosmosCover, SUN_FRAMES} from './SunCosmos';
 import {SixDays, SixDaysCover, SIX_FRAMES} from './SixDays';
 import {Baqara, BaqaraCover, BAQ_FRAMES} from './Baqara';
+import {Somad, SomadCover, SOMAD_FRAMES} from './Somad';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
@@ -42,6 +43,8 @@ export const Root: React.FC = () => {
     <Composition id="SixDaysCover" component={SixDaysCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Baqara" component={Baqara} durationInFrames={BAQ_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BaqaraCover" component={BaqaraCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Somad" component={Somad} durationInFrames={SOMAD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="SomadCover" component={SomadCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="AyatCover" component={AyatCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="BeeLife" component={BeeLife} durationInFrames={BEELIFE_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BeeCover" component={BeeCover} durationInFrames={1} fps={30} width={1080} height={1920} />
