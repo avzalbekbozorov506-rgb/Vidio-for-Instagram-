@@ -32,12 +32,12 @@
     },
     {
       "n": 2,
-      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Lekin bu ma'noning kichik bir qismi.",
+      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu ma'noning kichik qismi.",
       "on_screen": "TARJIMA: KICHIK QISM"
     },
     {
       "n": 3,
-      "vo": "Ildiz ma'nosi haqidagi izohlardan biri shunday: yuzlanmoq, yordam so'ramoq, tayanmoq.",
+      "vo": "Ildiz ma'nosi haqidagi izohlardan biri. Yuzlanmoq, yordam so'ramoq, tayanmoq.",
       "on_screen": "ILDIZ MA'NOSI"
     },
     {
@@ -47,61 +47,51 @@
     },
     {
       "n": 5,
-      "vo": "Endi o'ylab ko'ring. Yer Quyoshga bog'liq. Quyosh esa o'zi bo'ysunadigan qonunlarga.",
-      "on_screen": "YER → QUYOSH → QONUNLAR"
+      "vo": "Yer Quyoshga bog'liq. Quyosh o'zi bo'ysunadigan qonunlarga. Galaktikalar esa Koinot qonunlariga.",
+      "on_screen": "YER → QUYOSH → GALAKTIKA"
     },
     {
       "n": 6,
-      "vo": "Galaktikalar esa Koinot qonunlariga bog'liq.",
-      "on_screen": "GALAKTIKALAR"
-    },
-    {
-      "n": 7,
-      "vo": "Inson havoga, suvga, ovqatga, yurakka va tanasining har bir hujayrasiga bog'liq.",
+      "vo": "Inson havoga, suvga, ovqatga, yurakka va har bir hujayrasiga bog'liq.",
       "on_screen": "INSON"
     },
     {
-      "n": 8,
+      "n": 7,
       "vo": "Hujayra ham o'zicha yashamaydi. U minglab jarayonlarga tayanadi.",
       "on_screen": "HUJAYRA"
     },
     {
-      "n": 9,
-      "vo": "Demak, har bir daraja boshqasiga tayanadi.",
-      "on_screen": "HAR DARAJA TAYANADI"
-    },
-    {
-      "n": 10,
-      "vo": "Lekin shu tarzda borsak, hammasi nimaga tayanadi?",
+      "n": 8,
+      "vo": "Demak, har daraja boshqasiga tayanadi. Lekin shu tarzda borsak, hammasi nimaga tayanadi?",
       "on_screen": "NIMAGA TAYANADI?"
     },
     {
-      "n": 11,
+      "n": 9,
       "vo": "Imon nuqtai nazaridan javob bitta so'z. Somad, mutlaq tayanch.",
       "on_screen": "SOMAD = MUTLAQ TAYANCH"
     },
     {
-      "n": 12,
+      "n": 10,
       "vo": "Ixlos surasi, ikkinchi va uchinchi oyatlar. Alloh somaddir. U tug'magan va tug'ilmagan.",
       "on_screen": "IXLOS · 112:2–3"
     },
     {
-      "n": 13,
+      "n": 11,
       "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu ikki gap yonma-yon turadi.",
       "on_screen": "TUG'ILISH = BOG'LIQLIK"
     },
     {
-      "n": 14,
+      "n": 12,
       "vo": "Somad so'zi Qur'onda faqat shu oyatda keladi.",
       "on_screen": "FAQAT BIR MARTA"
     },
     {
-      "n": 15,
-      "vo": "Bu ismni qanchalik chuqur anglasangiz, mutlaq tayanchni Undan boshqadan izlash shunchalik kamayadi.",
+      "n": 13,
+      "vo": "Bu ismni chuqur anglasangiz, mutlaq tayanchni Undan boshqadan izlash kamayadi.",
       "on_screen": "MUTLAQ TAYANCH"
     },
     {
-      "n": 16,
+      "n": 14,
       "vo": "Obuna bo'ling, Allohning boshqa ismlarini ham birga tahlil qilamiz.",
       "on_screen": "OBUNA BO'LING"
     }
