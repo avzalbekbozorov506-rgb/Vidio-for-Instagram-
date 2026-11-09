@@ -32,12 +32,12 @@
     },
     {
       "n": 2,
-      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu ma'noning faqat kichik qismi.",
+      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu faqat kichik qismi.",
       "on_screen": "TARJIMA: KICHIK QISM"
     },
     {
       "n": 3,
-      "vo": "Ildiz ma'nosi haqidagi bir izohga ko'ra, bu so'z yuzlanish va yordam so'rash ma'nosiga yaqin.",
+      "vo": "Bir izohga ko'ra, ildizi yuzlanish va yordam so'rash ma'nosiga yaqin.",
       "on_screen": "ILDIZ MA'NOSI"
     },
     {
@@ -47,51 +47,46 @@
     },
     {
       "n": 5,
-      "vo": "Yer Quyoshga bog'liq. Quyosh o'zi bo'ysunadigan qonunlarga bog'liq. Galaktikalar esa Koinot qonunlariga.",
+      "vo": "Yer Quyoshga, Quyosh o'z qonunlariga, galaktikalar Koinot qonunlariga bog'liq.",
       "on_screen": "YER → QUYOSH → GALAKTIKA"
     },
     {
       "n": 6,
-      "vo": "Inson havoga, suvga, ovqatga, yurakka va tanasidagi har bir hujayraga bog'liq.",
-      "on_screen": "INSON"
+      "vo": "Inson havoga, suvga, ovqatga va hujayralariga bog'liq. Hujayra esa minglab jarayonlarga tayanadi.",
+      "on_screen": "INSON → HUJAYRA"
     },
     {
       "n": 7,
-      "vo": "Hujayra ham o'zicha yashamaydi. U minglab jarayonlarga tayanadi.",
-      "on_screen": "HUJAYRA"
-    },
-    {
-      "n": 8,
-      "vo": "Demak, har bir daraja boshqasiga tayanadi. Lekin shu yo'ldan ketaversak, hammasi nimaga tayanadi?",
+      "vo": "Demak, har daraja boshqasiga tayanadi. Lekin hammasi nimaga tayanadi?",
       "on_screen": "NIMAGA TAYANADI?"
     },
     {
-      "n": 9,
+      "n": 8,
       "vo": "Imon nuqtai nazaridan javob bitta so'z. Somad, mutlaq tayanch.",
       "on_screen": "SOMAD = MUTLAQ TAYANCH"
     },
     {
-      "n": 10,
+      "n": 9,
       "vo": "Ixlos surasi, ikkinchi va uchinchi oyatlar. Alloh somaddir. U tug'magan va tug'ilmagan.",
       "on_screen": "IXLOS · 112:2–3"
     },
     {
-      "n": 11,
+      "n": 10,
       "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu ikki jumla birga kelgan.",
       "on_screen": "TUG'ILISH = BOG'LIQLIK"
     },
     {
-      "n": 12,
+      "n": 11,
       "vo": "Somad so'zi Qur'onda faqat shu oyatda keladi.",
       "on_screen": "FAQAT BIR MARTA"
     },
     {
-      "n": 13,
-      "vo": "Bu ismni qanchalik chuqur anglasangiz, mutlaq tayanchni Undan boshqada izlashingiz shunchalik kamayadi.",
+      "n": 12,
+      "vo": "Bu ismni qanchalik anglasangiz, mutlaq tayanchni Undan boshqada izlashingiz shunchalik kamayadi.",
       "on_screen": "MUTLAQ TAYANCH"
     },
     {
-      "n": 14,
+      "n": 13,
       "vo": "Obuna bo'ling, Allohning boshqa ismlarini ham birga tahlil qilamiz.",
       "on_screen": "OBUNA BO'LING"
     }
