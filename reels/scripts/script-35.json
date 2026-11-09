@@ -8,7 +8,7 @@
   "genre": "fact-quran",
   "series": "Qur'on va fan",
   "status": "draft, ok on voice pending",
-  "hook": "Olti kunmi yoki milliardlab yilmi? Javob oxirida.",
+  "hook": "Qur'on olti kun deydi, fan esa milliardlab yil. Ziddiyatmi? Javob oxirida.",
   "cover_text": "OLTI KUN YOKI MILLIARD YIL",
   "reference": "instagram.com/reel/DfNDsprFJT_ (@towardseternityrussian, 60 с, 5516 лайков): аят 50:38 → вопрос «шесть дней или миллиарды лет» → что значит «день» → период/эпоха. Сценарий свой, своими словами.",
   "rules": "Диктор читает узбекский перевод аята (Содик, alquran.cloud, латиница моя), арабский на экране. Без «доказано/чудо». Показываем, что «день» не обязан быть 24 часами, но НЕ утверждаем, что шесть дней = шесть конкретных эр: оговорка в карточке 12.",
@@ -26,12 +26,12 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Olti kunmi yoki milliardlab yilmi? Javob oxirida.",
-      "on_screen": "OLTI KUNMI?"
+      "vo": "Qur'on olti kun deydi, fan esa milliardlab yil. Ziddiyatmi? Javob oxirida.",
+      "on_screen": "ZIDDIYATMI?"
     },
     {
       "n": 2,
-      "vo": "Qof surasi, o'ttiz sakkizinchi oyat. Ma'nosi shunday.",
+      "vo": "Qof surasi, o'ttiz sakkizinchi oyat.",
       "on_screen": "QOF SURASI · 50:38"
     },
     {
@@ -46,27 +46,27 @@
     },
     {
       "n": 5,
-      "vo": "Fan esa aytadi, olam taxminan o'n uch milliard sakkiz yuz million yil oldin paydo bo'lgan.",
+      "vo": "Fan esa olam taxminan o'n uch milliard sakkiz yuz million yil oldin paydo bo'lgan, deydi.",
       "on_screen": "13,8 MLRD YIL"
     },
     {
       "n": 6,
-      "vo": "Demak, ziddiyat bormi? Gap bitta so'zda. Kun.",
+      "vo": "Ziddiyat bormi? Gap bitta so'zda. Kun.",
       "on_screen": "GAP: KUN"
     },
     {
       "n": 7,
-      "vo": "Biz kunni yigirma to'rt soat deb bilamiz. Bu Yerning aylanishiga bog'liq.",
+      "vo": "Biz kunni yigirma to'rt soat deb bilamiz. U Yerning o'z o'qi atrofida aylanishiga bog'liq.",
       "on_screen": "24 SOAT = YER AYLANISHI"
     },
     {
       "n": 8,
-      "vo": "Lekin Yer hali yo'q paytda, yigirma to'rt soatlik kun ham bo'lmagan.",
+      "vo": "Lekin Yer hali yaratilmagan paytda, yigirma to'rt soatlik kun ham bo'lmagan.",
       "on_screen": "YER HALI YO'Q"
     },
     {
       "n": 9,
-      "vo": "Qur'onning o'zida boshqa o'lchov ham bor. Robbingiz huzuridagi bir kun, sizlar sanaydigan ming yildekdir.",
+      "vo": "Eng qiziq joyi shunda. Qur'onning o'zida boshqa o'lchov ham bor. Robbing huzuridagi bir kun, siz sanaydigan ming yildekdir.",
       "on_screen": "22:47 · BIR KUN = MING YIL"
     },
     {
@@ -81,12 +81,12 @@
     },
     {
       "n": 12,
-      "vo": "Oltita davr aynan nima ekanini oyat aytmaydi. Olimlar turlicha tushunishgan.",
+      "vo": "Olti kunning har biri qancha davom etganini oyat aytmaydi. Olimlar turlicha tushunishgan.",
       "on_screen": "OLIMLAR TURLICHA"
     },
     {
       "n": 13,
-      "vo": "Demak, javob shu. Kun davr degani ham bo'lishi mumkin. Shuning uchun olti kun va milliardlab yil albatta zid bo'lishi shart emas.",
+      "vo": "Demak, javob shu. Zid bo'lishi shart emas, chunki oyatdagi kun davr bo'lishi mumkin.",
       "on_screen": "KUN = DAVR"
     },
     {
