@@ -1,0 +1,67 @@
+{
+ "id": "script-39",
+ "title": "She'ro (Sirius): Qur'onda nomi aytilgan yulduz",
+ "lang": "uz",
+ "voice": "voice_ba303813-3023-48aa-a454-4b5705669d35",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "Qur'on va fan",
+ "series": "Qur'on va fan",
+ "status": "draft, ok kutilmoqda",
+ "hook": "Qur'onda bitta yulduzning nomi aytilgan. Bu qaysi yulduz va nega aynan u?",
+ "cover_text": "QUR'ONDA NOMI AYTILGAN YAGONA YULDUZ",
+ "reference": "YouTube Shorts jDGtMz9CNX0 (Amir's Life): faqat mavzu; '861 harf' da'vosi tasdiqlanmadi (869-880 harf), olinmaydi",
+ "sources": [
+  "Qur'on 53:1, 53:49 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)",
+  "Tafsir Ibn Kathir 53:49: Ibn Abbos, Mujohid, Qatoda, Ibn Zayd - She'ro = Sirius, arablarning bir guruhi sig'ingan",
+  "Sirius masofasi taxminan 8.6 yorug'lik yili"
+ ],
+ "rules": "Raqamli sirlar da'vo qilinmaydi; 'yagona yulduz' iborasini foydalanuvchi tekshiradi; Payg'ambar va sahobalar tasvirsiz",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda bitta yulduzning nomi aytilgan. Bu qaysi yulduz va nega aynan u? Javob oxirida, obuna bo'ling.",
+   "on_screen": "QAYSI YULDUZ?"
+  },
+  {
+   "n": 2,
+   "vo": "Najm surasi, ya'ni Yulduz surasi. Uning boshida shunday deyiladi. Botayotgan yulduz bilan qasam.",
+   "on_screen": "NAJM · 53:1"
+  },
+  {
+   "n": 3,
+   "vo": "Qirq to'qqizinchi oyatda esa shunday deyiladi. Va, albatta, She'roning Robbisi ham Uning O'zi.",
+   "on_screen": "NAJM · 53:49"
+  },
+  {
+   "n": 4,
+   "vo": "She'ro, bu arabcha nom. Ibn Abbos, Mujohid va Qatoda kabi olimlar uni Sirius yulduzi deb izohlaganlar.",
+   "on_screen": "SHE'RO = SIRIUS"
+  },
+  {
+   "n": 5,
+   "vo": "Nega aynan u? Bir izohga ko'ra, arablarning bir guruhi shu yulduzga sig'inar edi. Oyat esa yulduzning ham Robbisi borligini aytadi.",
+   "on_screen": "NEGA AYNAN U?"
+  },
+  {
+   "n": 6,
+   "vo": "Sirius tungi osmondagi eng yorqin yulduz. Uning nuri bizga taxminan sakkiz yarim yildan oshiq yo'l bosib keladi.",
+   "on_screen": "SIRIUS"
+  },
+  {
+   "n": 7,
+   "vo": "Internetda bu oyatga raqamli sirlar bog'laydilar. Lekin harflarni sanash usuliga qarab son o'zgaradi. Shuning uchun biz faqat oyatga va fanga tayanamiz.",
+   "on_screen": "SONLAR EMAS"
+  },
+  {
+   "n": 8,
+   "vo": "Javob shu. Nomi aytilgan yagona yulduz She'ro, ya'ni Sirius. Oyat esa uni emas, uning Robbini ulug'laydi.",
+   "on_screen": "JAVOB"
+  },
+  {
+   "n": 9,
+   "vo": "Sizningcha, bu oyat bizga nimani eslatadi? Izohda yozing. Videoni yaqiningizga yuboring.",
+   "on_screen": "SIZNINGCHA?"
+  }
+ ]
+}
