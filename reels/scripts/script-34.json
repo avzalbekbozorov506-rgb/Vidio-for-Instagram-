@@ -56,7 +56,7 @@
     },
     {
       "n": 7,
-      "vo": "Yuzni uch marta yuving: peshonadagi soch chiqqan joydan iyak ostigacha, ikki quloq orasigacha.",
+      "vo": "Yuzni uch marta yuving. Peshonadagi soch chiqqan joydan iyak ostigacha, ikki quloq orasigacha.",
       "on_screen": "3 · YUZ"
     },
     {
@@ -76,17 +76,17 @@
     },
     {
       "n": 11,
-      "vo": "Endi xatolar. Birinchisi: suvni isrof qilish va yuzga urish.",
+      "vo": "Endi xatolar. Birinchisi, suvni isrof qilish va yuzga urish.",
       "on_screen": "1-XATO"
     },
     {
       "n": 12,
-      "vo": "Ikkinchisi: tirnoqdagi lak yoki bo'yoq. Suv teriga yetmasa, tahorat durust bo'lmaydi.",
+      "vo": "Ikkinchisi, tirnoqdagi lak yoki bo'yoq. Suv teriga yetmasa, tahorat durust bo'lmaydi.",
       "on_screen": "2-XATO"
     },
     {
       "n": 13,
-      "vo": "Uchinchisi: igna uchicha joy quruq qolsa ham, tahorat durust bo'lmaydi.",
+      "vo": "Uchinchisi, igna uchicha joy quruq qolsa ham, tahorat durust bo'lmaydi.",
       "on_screen": "3-XATO"
     },
     {
