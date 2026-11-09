@@ -8,7 +8,7 @@
   "genre": "fact-quran",
   "series": "Qur'on va fan",
   "status": "draft, ok on voice pending",
-  "hook": "Qur'on olti kun deydi, fan esa milliardlab yil. Ziddiyatmi? Javob oxirida.",
+  "hook": "Olti kunmi yoki milliardlab yilmi? Javob oxirida.",
   "cover_text": "OLTI KUN YOKI MILLIARD YIL",
   "reference": "instagram.com/reel/DfNDsprFJT_ (@towardseternityrussian, 60 с, 5516 лайков): аят 50:38 → вопрос «шесть дней или миллиарды лет» → что значит «день» → период/эпоха. Сценарий свой, своими словами.",
   "rules": "Диктор читает узбекский перевод аята (Содик, alquran.cloud, латиница моя), арабский на экране. Без «доказано/чудо». Показываем, что «день» не обязан быть 24 часами, но НЕ утверждаем, что шесть дней = шесть конкретных эр: оговорка в карточке 12.",
@@ -26,7 +26,7 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Qur'on olti kun deydi, fan esa milliardlab yil. Ziddiyatmi? Javob oxirida.",
+      "vo": "Olti kunmi yoki milliardlab yilmi? Javob oxirida.",
       "on_screen": "ZIDDIYATMI?"
     },
     {
