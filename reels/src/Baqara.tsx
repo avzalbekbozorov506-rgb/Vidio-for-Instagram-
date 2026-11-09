@@ -338,13 +338,8 @@ const S14: React.FC = () => {
   const card = ap(t, 14, 0, 0.4), btn = ap(t, 14, 1, 0.4), done = ap(t, 14, 4, 0.4);
   return (
     <Frame n={14} dark>
-      <Svg>
-        <g opacity={card} transform={`translate(300 800) scale(${0.8 + 0.2 * bounce(card)})`}>
-          <circle r={70} fill={ACC} /><text y={22} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={64} fill="#0a0a0a">OM</text>
-        </g>
-      </Svg>
-      <div style={{position: 'absolute', left: 410, top: 745, fontFamily: SANS, fontWeight: 800, fontSize: 52, color: '#f4f4f2', opacity: card}}>Oddiy mohiyat</div>
-      <div style={{position: 'absolute', left: 410, top: 815, fontFamily: SANS, fontWeight: 600, fontSize: 30, color: 'rgba(255,255,255,.6)', opacity: card}}>@mohiyat___</div>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 730, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 64, color: '#f4f4f2', opacity: card, transform: `scale(${0.9 + 0.1 * bounce(card)})`}}>Oddiy mohiyat</div>
+      <div style={{position: 'absolute', left: 80, width: 920, top: 820, textAlign: 'center', fontFamily: SANS, fontWeight: 600, fontSize: 34, color: 'rgba(255,255,255,.6)', opacity: card}}>@mohiyat___</div>
       <div style={{position: 'absolute', left: 0, width: W, top: 960, display: 'flex', justifyContent: 'center', opacity: btn, transform: `scale(${0.85 + 0.15 * btn})`}}>
         <div style={{padding: '22px 64px', borderRadius: 50, background: done > 0.5 ? '#1f9d55' : ACC, color: '#0a0a0a', fontFamily: SANS, fontWeight: 800, fontSize: 44}}>{done > 0.5 ? '✓ Obuna bo\'ldingiz' : "Obuna bo'ling"}</div>
       </div>
