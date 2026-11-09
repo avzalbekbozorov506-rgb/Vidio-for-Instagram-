@@ -1,0 +1,93 @@
+{
+  "id": "script-30",
+  "title": "Chumoli ogohlantiradimi? (серия «Qur'on va fan» №1, 27:18)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran-gold",
+  "series": "Qur'on va fan",
+  "hook": "Chumoli xavf haqida boshqalarni ogohlantira oladimi? Javob oxirida.",
+  "cover_text": "CHUMOLI OGOHLANTIRADI",
+  "rules": "РЕШЕНИЕ ПОЛЬЗОВАТЕЛЯ 2026-11-09: диктор читает УЗБЕКСКИЙ перевод аята (Содик, alquran.cloud, латиница моя), арабский текст остаётся на экране без голоса, арабские слова не произносим. Без слов «доказано/чудо». Стридуляцию муравьёв не упоминать (источник не подтверждён). Проверка выполнена оркестратором.",
+  "ayat": {
+    "27:18": {
+      "ar": "حَتَّىٰٓ إِذَآ أَتَوْا۟ عَلَىٰ وَادِ ٱلنَّمْلِ قَالَتْ نَمْلَةٌۭ يَٰٓأَيُّهَا ٱلنَّمْلُ ٱدْخُلُوا۟ مَسَٰكِنَكُمْ لَا يَحْطِمَنَّكُمْ سُلَيْمَٰنُ وَجُنُودُهُۥ وَهُمْ لَا يَشْعُرُونَ",
+      "uz": "Toki ular chumolilar vodiysiga kelganlarida, bir chumoli: «Ey chumolilar, maskanlaringizga kiringlar, Sulaymon va uning askarlari sizlarni bilmasdan ezib yubormasinlar», dedi."
+    }
+  },
+  "facts": [
+    "Alarm pheromones у муравьёв вырабатываются часто в жвальной (mandibular) железе; реакция зависит от концентрации и вида: притяжение/защита или бегство (antwiki.org/wiki/Alarm_Communication; PeerJ 5319; Springer s10886-023-01407-4).",
+    "Э. Уилсон 1958: тревожная реакция у Pogonomyrmex badius вызывается феромоном жвальной железы (Hölldobler & Wilson 1970; Harvard Magazine «Speaking Pheromone»).",
+    "Термин «pheromone» предложен в 1959 в Nature (Karlson & Lüscher; Harvard Magazine).",
+    "Стридуляция как сигнал тревоги: подтверждения в надёжных источниках не найдено, НЕ используем."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Chumoli xavf haqida boshqalarni ogohlantira oladimi? Javob oxirida.",
+      "on_screen": "CHUMOLI OGOHLANTIRADIMI?"
+    },
+    {
+      "n": 2,
+      "vo": "Naml surasi, o'n sakkizinchi oyat. Ma'nosi shunday.",
+      "on_screen": "NAML SURASI · 27:18"
+    },
+    {
+      "n": 3,
+      "vo": "Toki ular chumolilar vodiysiga kelganlarida, bir chumoli, ey chumolilar, maskanlaringizga kiringlar, dedi.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 4,
+      "vo": "Sulaymon va uning askarlari sizlarni bilmasdan ezib yubormasinlar.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 5,
+      "vo": "Chumolilar haqiqatan xavf haqida xabar beradimi? Ming to'qqiz yuz ellik sakkizinchi yilda olim Edvard Uilson shuni tekshirdi.",
+      "on_screen": "UILSON · 1958"
+    },
+    {
+      "n": 6,
+      "vo": "Xavfda chumoli maxsus modda chiqaradi.",
+      "on_screen": "XAVF MODDASI"
+    },
+    {
+      "n": 7,
+      "vo": "Qo'shni chumolilar uni sezadi. Ba'zilari qochadi, ba'zilari himoyaga shoshiladi.",
+      "on_screen": "XABAR YETDI"
+    },
+    {
+      "n": 8,
+      "vo": "Ming to'qqiz yuz ellik to'qqizinchi yilda bunday moddalarga feromon, degan nom berildi.",
+      "on_screen": "FEROMON · 1959"
+    },
+    {
+      "n": 9,
+      "vo": "Chumolilar so'z aytmaydi, ular modda bilan gaplashadi. Lekin xabar bitta, xavf bor.",
+      "on_screen": "MODDA BILAN GAPLASHADI"
+    },
+    {
+      "n": 10,
+      "vo": "Oyat chumolining ogohlantirishini aytadi. Fan esa ogohlantirish bor ekanini ko'rsatdi.",
+      "on_screen": "OYAT VA FAN"
+    },
+    {
+      "n": 11,
+      "vo": "Bu mos kelish o'ylantiradi.",
+      "on_screen": "BU MOS KELISH O'YLANTIRADI"
+    },
+    {
+      "n": 12,
+      "vo": "Demak, javob shu. Chumoli xavf haqida boshqalarni ogohlantiradi.",
+      "on_screen": "CHUMOLI OGOHLANTIRADI"
+    },
+    {
+      "n": 13,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ],
+  "status": "draft, ok on voice pending"
+}

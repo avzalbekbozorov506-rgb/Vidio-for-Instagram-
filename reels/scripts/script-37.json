@@ -1,0 +1,94 @@
+{
+  "id": "script-37",
+  "title": "Somad: Allohning bitta so'zga sig'maydigan ismi (112:2) — формат @religion_times «Ас-Самад», СВОЙ текст",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran",
+  "series": "Allohning ismlari",
+  "status": "draft: нужна религиозная проверка и проверка носителем до озвучки",
+  "hook": "Allohning bir ismi bor, uni bitta so'zga sig'dirib bo'lmaydi. Somad.",
+  "cover_text": "SOMAD",
+  "reference": "instagram.com/reel/Del0sJaI6S_ (@religion_times, 80 с, ru, 27 тыс. лайков). Берём структуру (имя, перевод-«малая часть», корень, зависимости уровней: Земля-Солнце-законы-галактики-человек-клетка, вопрос «на чём всё держится», ответ, аят 112:2-3, рождение=зависимость, единственный раз в Коране, призыв). Текст/озвучка/иконки/анимации СВОИ.",
+  "rules": "Религиозный материал: проверка имамом/носителем до озвучки. Перевод аята: Содик (alquran.cloud): «Alloh somaddir», «U tug'magan va tug'ilmagan». Толкование Ибн Аббаса: все творение обращается к Нему в нуждах (Ибн Касир, 112:2); другие толкования («не полый внутри», Муджахид) существуют: в карточках 2-3 подаём как «одно из толкований». «Рождение = зависимость» (карточка 13) подаём как «Bir izohga ko'ra»: источник толкования не проверен. Слово ас-Самад встречается в Коране один раз (112:2).",
+  "ayat": {
+    "112:2-3": {
+      "ar": "ٱللَّهُ ٱلصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ",
+      "uz": "Alloh somaddir. U tug'magan va tug'ilmagan."
+    }
+  },
+  "facts": [
+    "112:2 «Alloh somaddir» (Содик: «Hojatlarni va rag'batlarni qondiruvchidir»); 112:3 «lam yalid wa lam yulad».",
+    "Ибн Аббас через Икриму (Ибн Касир): тот, на кого опирается всё творение в нуждах.",
+    "Другие толкования: Муджахид, Саид ибн аль-Мусайяб: «без пустоты внутри» (Study Qur'an).",
+    "Научные пункты ролика (Земля-Солнце, галактики, человек, клетка) общеизвестны; цифры не используем."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Allohning bir ismi bor, uni bitta so'zga sig'dirib bo'lmaydi. Somad.",
+      "on_screen": "SOMAD"
+    },
+    {
+      "n": 2,
+      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu faqat kichik qismi.",
+      "on_screen": "TARJIMA: KICHIK QISM"
+    },
+    {
+      "n": 3,
+      "vo": "Bir izohga ko'ra, ildizi yuzlanish va yordam so'rash ma'nosiga yaqin.",
+      "on_screen": "ILDIZ MA'NOSI"
+    },
+    {
+      "n": 4,
+      "vo": "Ibn Abbosdan rivoyat qilinishicha, butun mavjudot o'z hojatlari uchun Unga murojaat qiladi.",
+      "on_screen": "HAMMA UNGA YUZLANADI"
+    },
+    {
+      "n": 5,
+      "vo": "Yer Quyoshga, Quyosh o'z qonunlariga, galaktikalar Koinot qonunlariga bog'liq.",
+      "on_screen": "YER → QUYOSH → GALAKTIKA"
+    },
+    {
+      "n": 6,
+      "vo": "Inson havoga, suvga, ovqatga va hujayralariga bog'liq. Hujayra esa minglab jarayonlarga tayanadi.",
+      "on_screen": "INSON → HUJAYRA"
+    },
+    {
+      "n": 7,
+      "vo": "Demak, har daraja boshqasiga tayanadi. Lekin hammasi nimaga tayanadi?",
+      "on_screen": "NIMAGA TAYANADI?"
+    },
+    {
+      "n": 8,
+      "vo": "Imon nuqtai nazaridan javob bitta so'z. Somad, mutlaq tayanch.",
+      "on_screen": "SOMAD = MUTLAQ TAYANCH"
+    },
+    {
+      "n": 9,
+      "vo": "Ixlos surasi, ikkinchi va uchinchi oyatlar. Alloh somaddir. U tug'magan va tug'ilmagan.",
+      "on_screen": "IXLOS · 112:2–3"
+    },
+    {
+      "n": 10,
+      "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu ikki jumla birga kelgan.",
+      "on_screen": "TUG'ILISH = BOG'LIQLIK"
+    },
+    {
+      "n": 11,
+      "vo": "Somad so'zi Qur'onda faqat shu oyatda keladi.",
+      "on_screen": "FAQAT BIR MARTA"
+    },
+    {
+      "n": 12,
+      "vo": "Bu ismni qanchalik anglasangiz, mutlaq tayanchni Undan boshqada izlashingiz shunchalik kamayadi.",
+      "on_screen": "MUTLAQ TAYANCH"
+    },
+    {
+      "n": 13,
+      "vo": "Obuna bo'ling, Allohning boshqa ismlarini ham birga tahlil qilamiz.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}

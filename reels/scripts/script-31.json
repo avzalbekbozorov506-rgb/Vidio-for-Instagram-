@@ -1,0 +1,91 @@
+{
+  "id": "script-31",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran-gold",
+  "series": "Qur'on va fan",
+  "status": "draft, ok on voice pending",
+  "rules": "Диктор читает УЗБЕКСКИЙ перевод аята (Содик, alquran.cloud, латиница моя), арабский на экране без голоса. Без «доказано/чудо». Проверка выполнена оркестратором по решению пользователя 2026-11-09.",
+  "title": "Quyosh joyida turadimi? (36:38)",
+  "cover_text": "QUYOSH TURMAYDI",
+  "ayat": {
+    "36:38": {
+      "ar": "وَٱلشَّمْسُ تَجْرِى لِمُسْتَقَرٍّۢ لَّهَا ۚ ذَٰلِكَ تَقْدِيرُ ٱلْعَزِيزِ ٱلْعَلِيمِ",
+      "uz": "Quyosh o'z istiqrori uchun jarayon etar. Bu aziz va o'ta biluvchi zotning taqdir qilganidir."
+    }
+  },
+  "facts": [
+    "Солнце обращается вокруг центра Галактики со скоростью около 220 км/с, один оборот около 230 млн лет (Astronomy.com; Live Science; NASA StarChild).",
+    "Слово mustaqarr (istiqror) толкуют как «место/время/путь», Содик: «ажратилган макон ва замон»; в ролике оговорка."
+  ],
+  "hook": "Quyosh turgan joyida turadimi? Javob oxirida.",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Quyosh turgan joyida turadimi? Javob oxirida.",
+      "on_screen": "QUYOSH TURADIMI?"
+    },
+    {
+      "n": 2,
+      "vo": "Yosin surasi, o'ttiz sakkizinchi oyat. Ma'nosi shunday.",
+      "on_screen": "YOSIN SURASI · 36:38"
+    },
+    {
+      "n": 3,
+      "vo": "Quyosh o'z istiqrori uchun jarayon etar.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 4,
+      "vo": "Bu aziz va o'ta biluvchi zotning taqdir qilganidir.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 5,
+      "vo": "Oyatda quyosh harakat qiladi, deyilgan.",
+      "on_screen": "QUYOSH HARAKAT QILADI"
+    },
+    {
+      "n": 6,
+      "vo": "Qadimda ham quyosh osmonda yurishini hamma ko'rgan. Lekin u Yerni aylanadi, deb o'ylashgan.",
+      "on_screen": "YER MARKAZDA?"
+    },
+    {
+      "n": 7,
+      "vo": "Bugun bilamiz, quyosh joyida turmaydi. U galaktikamiz markazi atrofida aylanadi.",
+      "on_screen": "GALAKTIKA MARKAZI"
+    },
+    {
+      "n": 8,
+      "vo": "Tezligi soniyasiga taxminan ikki yuz yigirma kilometr.",
+      "on_screen": "220 KM/S"
+    },
+    {
+      "n": 9,
+      "vo": "Bir marta to'liq aylanish taxminan ikki yuz o'ttiz million yil oladi.",
+      "on_screen": "230 MLN YIL"
+    },
+    {
+      "n": 10,
+      "vo": "Oyatdagi istiqror so'zini olimlar turlicha tushunishgan. Joy deb ham, vaqt deb ham.",
+      "on_screen": "IKKI XIL TUSHUNISH"
+    },
+    {
+      "n": 11,
+      "vo": "Oyat quyosh harakatini aytadi, fan esa bu harakat qanday ekanini ko'rsatdi.",
+      "on_screen": "OYAT VA FAN"
+    },
+    {
+      "n": 12,
+      "vo": "Demak, javob shu. Quyosh joyida turmaydi, u galaktika markazi atrofida yuradi.",
+      "on_screen": "QUYOSH YURADI"
+    },
+    {
+      "n": 13,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}
