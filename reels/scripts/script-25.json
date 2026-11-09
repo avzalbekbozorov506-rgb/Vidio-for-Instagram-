@@ -6,7 +6,7 @@
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "explainer-build-it",
- "hook": "Besh yil to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
+ "hook": "Besh yil kredit to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
  "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
  "facts": [
   "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
@@ -15,12 +15,12 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Besh yil to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
-   "on_screen": "5 YIL TO'LADINGIZ. QARZ QANCHA?"
+   "vo": "Besh yil kredit to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
+   "on_screen": "5 YIL KREDIT TO'LADINGIZ. QARZ QANCHA?"
   },
   {
    "n": 2,
-   "vo": "Keling, kreditni o'zimiz qurib ko'ramiz. Aytaylik, yuz ming dollar, yillik o'n ikki foiz, o'n yil. Bu faqat misol.",
+   "vo": "Keling, kreditni o'zimiz qurib ko'ramiz. Aytaylik, bankdan yuz ming dollar oldingiz, yillik o'n ikki foiz, o'n yil. Bu faqat misol.",
    "on_screen": "100 000 $ · 12 % · 10 YIL"
   },
   {
