@@ -161,7 +161,6 @@ const S1: React.FC = () => {
     <Space n={1} zoom={0.1} over={<>
       <Big k={sw} y={290} size={150}>QUYOSH</Big>
       <Big k={q} y={1120} size={200} color={CY}>?</Big>
-      <Label k={ap(t, 1, 4)} y={1330} color={CY2}>JAVOB OXIRIDA</Label>
     </>}>
       <Svg>
         <SunDisc x={540} y={800} r={210} t={t} />
