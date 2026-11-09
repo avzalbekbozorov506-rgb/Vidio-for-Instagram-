@@ -18,7 +18,7 @@ const group = (words: TimedWord[], maxWords = 3, maxChars = 20): TimedWord[][] =
   return out;
 };
 
-export const KaraokeSubtitles: React.FC<{words: TimedWord[]; y?: number; accent?: string}> = ({words, y = 1490, accent = '#ffb703'}) => {
+export const KaraokeSubtitles: React.FC<{words: TimedWord[]; y?: number; accent?: string; outline?: boolean}> = ({words, y = 1490, accent = '#ffb703', outline = true}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const t = frame / fps;
@@ -37,7 +37,7 @@ export const KaraokeSubtitles: React.FC<{words: TimedWord[]; y?: number; accent?
         {chunk.map((w, i) => {
           const active = t >= w.s - 0.02 && t < w.e;
           return (
-            <span key={i} style={{display: 'inline-block', marginRight: i < chunk.length - 1 ? 30 : 0, color: active ? accent : '#fff', transform: `scale(${active ? 1.08 : 1})`, WebkitTextStroke: '10px rgba(8,14,26,.92)', paintOrder: 'stroke fill', textShadow: '0 6px 18px rgba(0,0,0,.55)'}}>
+            <span key={i} style={{display: 'inline-block', marginRight: i < chunk.length - 1 ? 30 : 0, color: active ? accent : '#fff', transform: `scale(${active ? 1.08 : 1})`, ...(outline ? {WebkitTextStroke: '10px rgba(8,14,26,.92)', paintOrder: 'stroke fill', textShadow: '0 6px 18px rgba(0,0,0,.55)'} : {textShadow: '0 3px 14px rgba(0,0,0,.9), 0 0 3px rgba(0,0,0,.8)'})}}>
               {w.w.replace(/[.,:;]$/, '')}
             </span>
           );
