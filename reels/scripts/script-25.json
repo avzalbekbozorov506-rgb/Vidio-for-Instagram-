@@ -1,0 +1,83 @@
+{
+ "id": "script-25",
+ "title": "Yuz ming dollar kredit: aslida qancha qaytarasiz? (2D, аннуитет)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "explainer-build-it",
+ "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Keling, kreditni o'zimiz qurib ko'ramiz.",
+ "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
+ "facts": [
+  "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
+ ],
+ "caption": "",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Keling, kreditni o'zimiz qurib ko'ramiz.",
+   "on_screen": "5 YIL TO'LADINGIZ, QARZ HALI KATTA"
+  },
+  {
+   "n": 2,
+   "vo": "Aytaylik, siz bankdan yuz ming dollar oldingiz. Yillik foiz o'n ikki, muddat o'n yil. Bu faqat misol.",
+   "on_screen": "100 000 $ · 12 % · 10 YIL"
+  },
+  {
+   "n": 3,
+   "vo": "Eng oddiy yo'l: yuz ming dollarni yuz yigirma oyga bo'lamiz. Oyiga sakkiz yuz o'ttiz uch dollar.",
+   "on_screen": "100 000 ÷ 120 = 833 $"
+  },
+  {
+   "n": 4,
+   "vo": "Lekin bank bepul bermaydi. Shuning uchun har oy qolgan qarzga foiz qo'shamiz. Birinchi oy foiz bir ming dollar.",
+   "on_screen": "FOIZ: 1 000 $ HAR OY"
+  },
+  {
+   "n": 5,
+   "vo": "Lekin qarz kamaygan sari to'lov ham o'zgarib turadi. Shuning uchun hammasini bir xil oylik to'lovga tenglaymiz. Bu annuitet.",
+   "on_screen": "BIR XIL TO'LOV · ANNUITET"
+  },
+  {
+   "n": 6,
+   "vo": "Hisoblasak, har oy bir ming to'rt yuz o'ttiz besh dollar chiqadi.",
+   "on_screen": "1 435 $ HAR OY"
+  },
+  {
+   "n": 7,
+   "vo": "Lekin birinchi oyda shu pulning bir mingi foizga ketadi. Qarzga atigi to'rt yuz o'ttiz besh dollar.",
+   "on_screen": "1 000 FOIZGA · 435 QARZGA"
+  },
+  {
+   "n": 8,
+   "vo": "Qarz kamaygan sari foiz ham kamayadi, qarzga ketadigan qism o'sadi. Lekin bu juda sekin bo'ladi.",
+   "on_screen": "FOIZ KAMAYADI, QARZ KAMAYADI SEKIN"
+  },
+  {
+   "n": 9,
+   "vo": "Besh yildan keyin siz sakson olti ming dollar to'ladingiz. Lekin qarz atigi o'ttiz besh yarim mingga kamaydi.",
+   "on_screen": "5 YIL: 86 000 TO'LADINGIZ · QARZ −35 500"
+  },
+  {
+   "n": 10,
+   "vo": "Qolgan ellik mingdan ortiq foizga ketdi. Hali oltmish besh mingga yaqin qarzdorsiz.",
+   "on_screen": "50 000 $ FOIZGA KETDI"
+  },
+  {
+   "n": 11,
+   "vo": "O'n yildan keyin jami bir yuz yetmish ikki ming dollar to'laysiz. Ya'ni yetmish ikki ming ortiqcha.",
+   "on_screen": "10 YIL: 172 000 $"
+  },
+  {
+   "n": 12,
+   "vo": "Demak, yuz ming dollar qarz olsangiz, aslida yuz yetmish ikki ming dollar qaytarasiz.",
+   "on_screen": "100 000 → 172 000"
+  },
+  {
+   "n": 13,
+   "vo": "Kreditdan oldin so'rang: jami qancha qaytaraman? Buni qarz olmoqchi yaqiningizga yuboring.",
+   "on_screen": "JAMI QANCHA QAYTARAMAN?"
+  }
+ ],
+ "status": "draft, ok on voice pending"
+}
