@@ -1,0 +1,84 @@
+{
+ "id": "script-26",
+ "title": "Siz asalari bo'lib tug'ildingiz (аналог @shay.cartoon, 2D-мультфильм)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "life-cycle-cartoon",
+ "reference": "instagram.com/reel/DfKmJZeoDV9 (@shay.cartoon, 'ты родился муравьём', 148k лайков, 119 с): ты-форма, мультяшный герой, цепочка работ-повышений, финал про самую опасную работу",
+ "hook": "Siz asalari bo'lib tug'ildingiz. Tabriklayman, endi umringiz oxirigacha ishlaysiz.",
+ "cover_text": "SIZ ASALARI BO'LIB TUG'ILDINGIZ",
+ "facts": [
+  "Рабочие пчёлы только самки; семья в сезон десятки тысяч; матка до ~1500-2000 яиц в день, живёт 3-5 лет; порядок работ по возрасту: чистка ячеек, кормление личинок, строительство (воск, шестигранные соты), охрана, фуражир (самые старшие); виляющий танец передаёт направление и расстояние; ~1/12 чайной ложки мёда за жизнь рабочей; летом рабочая живёт ~5-6 недель (проверить по Wikipedia: Honey bee, Worker bee, Waggle dance)."
+ ],
+ "caption": "",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Siz asalari bo'lib tug'ildingiz. Tabriklayman, endi umringiz oxirigacha ishlaysiz.",
+   "on_screen": "SIZ ASALARI BO'LIB TUG'ILDINGIZ"
+  },
+  {
+   "n": 2,
+   "vo": "Uyada siz bilan birga o'n minglab opa singil bor. Ha, ishchi asalarilarning hammasi qiz bolalar.",
+   "on_screen": "10 000+ OPA SINGIL"
+  },
+  {
+   "n": 3,
+   "vo": "Onangiz malika. U hech qachon ish qilmaydi, faqat tuxum qo'yadi. Kuniga ming donadan ko'proq, umri bo'yi.",
+   "on_screen": "MALIKA: 1000+ TUXUM HAR KUN"
+  },
+  {
+   "n": 4,
+   "vo": "Siz esa birinchi kunlaridayoq ishga kirasiz. Birinchi ish tozalash. Bo'sh uyachalarni yalab tozalaysiz.",
+   "on_screen": "1-ISH: TOZALASH"
+  },
+  {
+   "n": 5,
+   "vo": "Keyin siz enagasiz. Lichinkalarni boqasiz, kechayu kunduz. Dam olish kuni yo'q.",
+   "on_screen": "2-ISH: ENAGA"
+  },
+  {
+   "n": 6,
+   "vo": "Keyin qurilishga o'tasiz. Tanangizdan mum chiqadi, siz undan oltiburchak uyalar qurasiz.",
+   "on_screen": "3-ISH: QURUVCHI"
+  },
+  {
+   "n": 7,
+   "vo": "Keyin siz qo'riqchisiz. Eshik oldida turib, begona asalarilarni uyaga kiritmaysiz. Ish haqi yo'q.",
+   "on_screen": "4-ISH: QO'RIQCHI"
+  },
+  {
+   "n": 8,
+   "vo": "Eng oxirgi ish esa eng xavfli. Uyadan chiqib, gullarga uchasiz. Yo'lni boshqalarga raqs bilan tushuntirasiz.",
+   "on_screen": "5-ISH: OZUQA TERISH"
+  },
+  {
+   "n": 9,
+   "vo": "Eng qizig'i, bu xavfli ishni eng yoshlarga emas, eng keksa asalarilarga topshirishadi.",
+   "on_screen": "ENG XAVFLISI: ENG KEKSALARGA"
+  },
+  {
+   "n": 10,
+   "vo": "Butun umringiz davomida siz bir choy qoshiqning o'n ikkidan bir qismicha asal ishlab chiqarasiz.",
+   "on_screen": "1/12 CHOY QOSHIQ ASAL"
+  },
+  {
+   "n": 11,
+   "vo": "Yozda ishchi asalari taxminan besh, olti hafta yashaydi. Siz ham shuncha.",
+   "on_screen": "5-6 HAFTA"
+  },
+  {
+   "n": 12,
+   "vo": "Demak, siz yashadingiz, ishladingiz va shirin asal qoldirdingiz. Keyingi safar asalni totganda eslang.",
+   "on_screen": "ASAL: SIZNING UMRINGIZ"
+  },
+  {
+   "n": 13,
+   "vo": "Siz qaysi ishni tanlardingiz? Izohda yozing. Buni asalni yaxshi ko'radigan yaqiningizga yuboring.",
+   "on_screen": "QAYSI ISHNI TANLARDINGIZ?"
+  }
+ ],
+ "status": "draft, ok on voice pending"
+}
