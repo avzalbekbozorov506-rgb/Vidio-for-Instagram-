@@ -32,27 +32,27 @@
     },
     {
       "n": 2,
-      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu ma'noning kichik qismi.",
+      "vo": "Ko'pincha uni, boshqaga muhtoj bo'lmagan, deb tarjima qilishadi. Bu ma'noning faqat kichik qismi.",
       "on_screen": "TARJIMA: KICHIK QISM"
     },
     {
       "n": 3,
-      "vo": "Ildiz ma'nosi haqidagi izohlardan biri, yuzlanmoq va yordam so'ramoq.",
+      "vo": "Ildiz ma'nosi haqidagi bir izohga ko'ra, bu so'z yuzlanish va yordam so'rash ma'nosiga yaqin.",
       "on_screen": "ILDIZ MA'NOSI"
     },
     {
       "n": 4,
-      "vo": "Ibn Abbosdan rivoyat qilinishicha, butun mavjudot hojatlari uchun Unga murojaat qiladi.",
+      "vo": "Ibn Abbosdan rivoyat qilinishicha, butun mavjudot o'z hojatlari uchun Unga murojaat qiladi.",
       "on_screen": "HAMMA UNGA YUZLANADI"
     },
     {
       "n": 5,
-      "vo": "Yer Quyoshga bog'liq. Quyosh o'zi bo'ysunadigan qonunlarga. Galaktikalar esa Koinot qonunlariga.",
+      "vo": "Yer Quyoshga bog'liq. Quyosh o'zi bo'ysunadigan qonunlarga bog'liq. Galaktikalar esa Koinot qonunlariga.",
       "on_screen": "YER → QUYOSH → GALAKTIKA"
     },
     {
       "n": 6,
-      "vo": "Inson havoga, suvga, ovqatga, yurakka va har bir hujayrasiga bog'liq.",
+      "vo": "Inson havoga, suvga, ovqatga, yurakka va tanasidagi har bir hujayraga bog'liq.",
       "on_screen": "INSON"
     },
     {
@@ -62,7 +62,7 @@
     },
     {
       "n": 8,
-      "vo": "Demak, har daraja boshqasiga tayanadi. Lekin shu tarzda borsak, hammasi nimaga tayanadi?",
+      "vo": "Demak, har bir daraja boshqasiga tayanadi. Lekin shu yo'ldan ketaversak, hammasi nimaga tayanadi?",
       "on_screen": "NIMAGA TAYANADI?"
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "n": 11,
-      "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu gaplar birga aytilgan.",
+      "vo": "Bir izohga ko'ra, tug'ilish ham bog'liqlik. Shuning uchun bu ikki jumla birga kelgan.",
       "on_screen": "TUG'ILISH = BOG'LIQLIK"
     },
     {
@@ -87,7 +87,7 @@
     },
     {
       "n": 13,
-      "vo": "Bu ismni chuqur anglasangiz, mutlaq tayanchni Undan boshqadan izlash kamayadi.",
+      "vo": "Bu ismni qanchalik chuqur anglasangiz, mutlaq tayanchni Undan boshqada izlashingiz shunchalik kamayadi.",
       "on_screen": "MUTLAQ TAYANCH"
     },
     {
