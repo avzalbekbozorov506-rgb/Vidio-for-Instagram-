@@ -30,7 +30,7 @@
   },
   {
    "n": 3,
-   "vo": "Qirq to'qqizinchi oyatda esa shunday deyiladi. Va, albatta, She'roning Robbisi ham Uning O'zi.",
+   "vo": "Lekin asosiy gap bundan keyin. Qirq to'qqizinchi oyatda yulduzning nomi aytiladi. Va, albatta, She'roning Robbisi ham Uning O'zi.",
    "on_screen": "NAJM · 53:49"
   },
   {
@@ -40,17 +40,17 @@
   },
   {
    "n": 5,
-   "vo": "Nega aynan u? Bir izohga ko'ra, arablarning bir guruhi shu yulduzga sig'inishgan. Oyat esa shu yulduzning ham Robbisi borligini eslatadi.",
+   "vo": "Endi eng muhim savol. Nega aynan u? Bir izohga ko'ra, arablarning bir guruhi shu yulduzga sig'inishgan. Oyat esa shu yulduzning ham Robbisi borligini eslatadi.",
    "on_screen": "NEGA AYNAN U?"
   },
   {
    "n": 6,
-   "vo": "Endi fan nima deydi? Sirius tungi osmondagi eng yorqin yulduz. Uning nuri bizga taxminan sakkiz yarim yilda yetib keladi.",
+   "vo": "Endi fan nima deydi? Sirius tungi osmondagi eng yorqin yulduz. Eng qizig'i, uning nuri bizga taxminan sakkiz yarim yilda yetib keladi.",
    "on_screen": "SIRIUS"
   },
   {
    "n": 7,
-   "vo": "Internetda ba'zilar bu oyatga sonlar bilan sir bog'laydi. Lekin harflarni sanash usuliga qarab son o'zgaradi. Biz faqat oyatga va fanga tayanamiz.",
+   "vo": "Lekin bu yerda bitta tuzoq bor. Internetda ba'zilar bu oyatga sonlar bilan sir bog'laydi. Harflarni sanash usuliga qarab esa son o'zgaradi. Biz faqat oyatga va fanga tayanamiz.",
    "on_screen": "SONLAR EMAS"
   },
   {
@@ -63,5 +63,10 @@
    "vo": "Sizningcha, bu oyat bizga nimani eslatadi? Izohda yozing. Videoni yaqiningizga yuboring.",
    "on_screen": "SIZNINGCHA?"
   }
+ ],
+ "hook_options": [
+  "A (hozirgi): Qur'onda bitta yulduzning nomi aytilgan. Bu qaysi yulduz va nega aynan u? Javob oxirida, obuna bo'ling.",
+  "B: Osmondagi eng yorqin yulduz Qur'onda ham tilga olingan. Nega aynan u? Javob oxirida, obuna bo'ling.",
+  "C: Qur'onda bir yulduzning nomi aytilgan, va unga arablar sig'inishgan. Oyat nima deydi? Javob oxirida, obuna bo'ling."
  ]
 }
