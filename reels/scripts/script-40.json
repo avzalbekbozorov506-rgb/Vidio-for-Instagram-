@@ -1,0 +1,82 @@
+{
+ "id": "script-40",
+ "title": "Qur'onning eng uzun oyati (2:282): qarz",
+ "lang": "uz",
+ "voice": "voice_ba303813-3023-48aa-a454-4b5705669d35",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "Qur'on va hayot",
+ "series": "Qur'on",
+ "status": "draft, ok kutilmoqda",
+ "hook": "Qur'onning eng uzun oyati nima haqida deb o'ylaysiz? Namoz haqida ham emas, jannat va do'zax haqida ham emas. Bu oyat qarz haqida.",
+ "cover_text": "QUR'ONNING ENG UZUN OYATI NIMA HAQIDA?",
+ "reference": "foydalanuvchi yuborgan mp4 (rus tilida, oltin chang uslubi): format, ketma-ketlik va vizual uslub; matn, ovoz va rasmlar o'zimizniki",
+ "sources": [
+  "Qur'on 2:282 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)",
+  "2:282 eng uzun oyat: alquran.cloud matnidan sanab tekshirildi (145 so'z, 711 belgi)",
+  "Baqara surasi 286 oyat"
+ ],
+ "rules": "Naqd savdoda yozish shart emasligi (oyat davomi) tavsifda aytiladi; guvohlar jinsi haqidagi tafsilot videoda aytilmaydi; foydalanuvchi diniy tekshiruvni o'zi qiladi",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onning eng uzun oyati nima haqida deb o'ylaysiz? Namoz haqida ham emas, jannat va do'zax haqida ham emas. Bu oyat qarz haqida.",
+   "on_screen": "EN UZUN OYAT"
+  },
+  {
+   "n": 2,
+   "vo": "Bu Baqara surasining ikki yuz sakson ikkinchi oyati. Eng uzun suraning eng uzun oyati.",
+   "on_screen": "2:282"
+  },
+  {
+   "n": 3,
+   "vo": "Va butun oyat bitta narsa haqida. Qarzni to'g'ri yozish haqida.",
+   "on_screen": "QARZ"
+  },
+  {
+   "n": 4,
+   "vo": "Alloh aytadi. Ey iymon keltirganlar! Ma'lum muddatga qarz oldi-berdi qilsangiz, uni yozib qo'ying. Orangizda bir yozuvchi adolat bilan yozsin.",
+   "on_screen": "OYAT"
+  },
+  {
+   "n": 5,
+   "vo": "Kichik bo'lsa ham, katta bo'lsa ham, muddatigacha yozishingizni malol olmang.",
+   "on_screen": "KICHIK · KATTA"
+  },
+  {
+   "n": 6,
+   "vo": "Oyat hamma mayda narsani o'ylab qo'ygan. Matnni qarz oluvchi aytib turadi.",
+   "on_screen": "HAMMASI MAYDASIGACHA"
+  },
+  {
+   "n": 7,
+   "vo": "U qodir bo'lmasa, uning valiysi aytadi. Guvohlar kerak. Yozuvchiga ham, guvohga ham zarar yetkazilmaydi.",
+   "on_screen": "4 QOIDA"
+  },
+  {
+   "n": 8,
+   "vo": "Bugun buni tilxat yoki shartnoma deymiz. Qur'on esa buni bandma-band bayon qilgan, taxminan ming to'rt yuz yil oldin.",
+   "on_screen": "TILXAT · 1400 YIL"
+  },
+  {
+   "n": 9,
+   "vo": "Nega bularning hammasi kerak? Javob oyatning o'zida.",
+   "on_screen": "NEGA?"
+  },
+  {
+   "n": 10,
+   "vo": "Shundoq qilmog'ingiz Allohning huzurida adolatliroq, guvohlikka kuchliroq va shubhalanmasligingiz uchun yaqinroqdir.",
+   "on_screen": "ADOLAT · ISBOT · SHUBHASIZ"
+  },
+  {
+   "n": 11,
+   "vo": "Chunki yozilmagan qarz yaqin do'stlarni ham janjallashtirib qo'yishi mumkin.",
+   "on_screen": "YOZILMAGAN QARZ"
+  },
+  {
+   "n": 12,
+   "vo": "Obuna bo'ling va bu videoni yaqinlaringizga yuboring.",
+   "on_screen": "OBUNA"
+  }
+ ]
+}
