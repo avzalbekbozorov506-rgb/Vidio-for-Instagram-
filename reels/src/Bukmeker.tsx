@@ -180,7 +180,7 @@ const Scene2: React.FC = () => {
       <In at={EV(2, 7)} x={90} y={760} w={900}>
         <div style={{display: 'flex', alignItems: 'center', gap: 36}}>
           <svg width={190} height={190}><circle cx={95} cy={95} r={88} fill="none" stroke={BLUE} strokeWidth={5} /><line x1={95} y1={7} x2={95} y2={183} stroke={BLUE} strokeWidth={3} /><text x={50} y={118} fontFamily={MONT} fontWeight={800} fontSize={58} fill={BLUE} textAnchor="middle">A</text><text x={142} y={118} fontFamily={MONT} fontWeight={800} fontSize={58} fill={RED} textAnchor="middle">B</text></svg>
-          <div><Txt size={40} color={BLUE}>shans 50 / 50</Txt><div style={{height: 10}} /><Txt size={30} color="#5a68b0" weight={600}>halol koeffitsient</Txt></div>
+          <div><Txt size={40} color={BLUE}>shans 50 / 50</Txt><div style={{height: 10}} /><Txt size={30} color="#5a68b0" weight={600}>sof koeffitsient</Txt></div>
         </div>
       </In>
       <In at={EV(2, 11)} x={700} y={785}><Txt size={96} color="#8c93c4">2,00</Txt></In>
