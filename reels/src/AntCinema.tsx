@@ -226,7 +226,7 @@ const S4: React.FC = () => {
 };
 const S5: React.FC = () => {
   const t = useT();
-  const lens = ap(t, 5, 6, 0.6), pair = ap(t, 5, 0), sig = ap(t, 5, 4, 0.8), yr = ap(t, 5, 10, 1.0), nm = ap(t, 5, 13), ok = ap(t, 5, 16);
+  const lens = ap(t, 5, 6, 0.6), pair = ap(t, 5, 0), sig = ap(t, 5, 4, 0.8), yr = ap(t, 5, 6, 1.9), nm = ap(t, 5, 13), ok = ap(t, 5, 16);
   const fl = 0.92 + 0.08 * Math.sin(t * 38);
   return (
     <Stage cam={push(t, 5, 0, 0.05)} dark={lens > 0 ? 0.4 : 0} blur={lens > 0 ? 8 : 0} over={<>
@@ -285,7 +285,7 @@ const S7: React.FC = () => {
 };
 const S8: React.FC = () => {
   const t = useT();
-  const yr = ap(t, 8, 4, 1.0), mol = ap(t, 8, 7, 0.6), fe = ap(t, 8, 8, 0.9), tag = ap(t, 8, 11);
+  const yr = ap(t, 8, 0, 1.8), mol = ap(t, 8, 7, 0.6), fe = ap(t, 8, 8, 0.9), tag = ap(t, 8, 11);
   const nodes = Array.from({length: 6}, (_, i) => { const a = (Math.PI / 3) * i - Math.PI / 2; return [540 + 150 * Math.cos(a), 800 + 150 * Math.sin(a)] as [number, number]; });
   const side: [number, number, number][] = [[0, 540, 520], [2, 880, 940], [4, 200, 940]];
   return (
