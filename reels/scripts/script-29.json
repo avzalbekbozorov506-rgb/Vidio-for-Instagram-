@@ -1,0 +1,82 @@
+{
+  "id": "script-29",
+  "title": "Osmon kengayadimi? (серия «Qur'on va fan» №1, 51:47)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran-gold",
+  "series": "Qur'on va fan",
+  "hook": "Qur'on osmon kengayishini aytganmi? Javob oxirida.",
+  "cover_text": "OSMON KENGAYADI",
+  "rules": "Серия «Qur'on va fan». Подача: оyat говорит, наука нашла позже; слова «доказано/чудо» НЕ используем; спорное толкование показываем честно. Аят ТОЛЬКО текстом на экране (арабский Усмани и перевод Содика, alquran.cloud), диктор аят не читает. Проверка науки и текста выполнена оркестратором по пользовательскому решению от 2026-11-09.",
+  "ayat": {
+    "51:47": {
+      "ar": "وَٱلسَّمَآءَ بَنَيْنَٰهَا بِأَيْي۟دٍۢ وَإِنَّا لَمُوسِعُونَ",
+      "uz": "Osmonni O'z qudratimiz ila bino qildik. Albatta, Biz keng qiluvchimiz."
+    }
+  },
+  "facts": [
+    "Эйнштейн в 1917 ввёл космологическую постоянную, чтобы Вселенная оставалась статичной (arXiv:1108.0709, Discovery of the Expansion of the Universe).",
+    "Леметр 1927: вывод расширения из общей теории относительности (французский журнал, малоизвестный). Хаббл 1929: связь скорости и расстояния галактик. Закон сегодня называют Хаббла-Леметра (arXiv:1108.0709; Wikipedia: History of the Big Bang theory).",
+    "Слово lamusi'una (51:47) от корня wasi'a: толкуется как «расширяющие» или как «обладающие мощью/даруем пропитание». Кулиев (alquran.cloud ru.kuliev) приводит оба варианта; Sahih International: «expander». Перевод Содика: «keng qiluvchimiz». Комментарий классических тафсиров Ибн Касира НЕ проверен по первоисточнику, в ролике не цитируем."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Qur'on osmon kengayishini aytganmi? Javob oxirida.",
+      "on_screen": "OSMON KENGAYADIMI?"
+    },
+    {
+      "n": 2,
+      "vo": "Bir asr oldin olimlar koinot o'zgarmaydi, deb o'ylashgan. Hatto Eynshteyn ham.",
+      "on_screen": "KOINOT O'ZGARMAS?"
+    },
+    {
+      "n": 3,
+      "vo": "Lekin ming to'qqiz yuz yigirma yettinchi yilda Lemetr hisoblab ko'rdi. Koinot kengayishi kerak.",
+      "on_screen": "LEMETR · 1927"
+    },
+    {
+      "n": 4,
+      "vo": "Ming to'qqiz yuz yigirma to'qqizinchi yilda Xabbl ko'rdi. Galaktikalar uzoqlashyapti, uzoqrog'i tezroq.",
+      "on_screen": "XABBL · 1929"
+    },
+    {
+      "n": 5,
+      "vo": "Shar yuziga nuqtalar chizib, shishiring. Nuqtalar uzoqlashadi. Galaktikalar qimirlamaydi, fazoning o'zi kattalashadi.",
+      "on_screen": "FAZO KATTALASHADI"
+    },
+    {
+      "n": 6,
+      "vo": "Endi oyatga qarang. Zariyot surasi, ellik birinchi oyat, qirq yettinchi. Matn ekranda.",
+      "on_screen": "ZORIYOT SURASI · 51:47"
+    },
+    {
+      "n": 7,
+      "vo": "Oxirgi so'z, keng qiluvchi, degan ma'noni bildiradi.",
+      "on_screen": "KENG QILUVCHI"
+    },
+    {
+      "n": 8,
+      "vo": "Halol bo'lamiz, bu so'zni qudratli, deb ham tushunishgan.",
+      "on_screen": "IKKI XIL TUSHUNISH"
+    },
+    {
+      "n": 9,
+      "vo": "Ko'p tarjimonlar kengaytiruvchi, deb o'qiydi. Qur'on fan darsligi emas, lekin bu mos kelish o'ylantiradi.",
+      "on_screen": "BU MOS KELISH O'YLANTIRADI"
+    },
+    {
+      "n": 10,
+      "vo": "Demak, javob shu. Oyatdagi so'z kengayishni anglatishi mumkin, fan esa kengayishni ko'rsatdi.",
+      "on_screen": "OSMON KENGAYADI"
+    },
+    {
+      "n": 11,
+      "vo": "Bu videoni yaqiningizga yuboring. Keyingi videoda chumoli.",
+      "on_screen": "YUBORING"
+    }
+  ],
+  "status": "draft, ok on voice pending"
+}
