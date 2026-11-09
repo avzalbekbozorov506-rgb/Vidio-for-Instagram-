@@ -232,9 +232,9 @@ const KEYW = new Set(['zaiflashib,', 'ixtilof', 'isyon', 'qilib,', 'qilgunigizch
 
 const AyatPanel: React.FC<{t: number; k: number}> = ({t, k}) => {
   const rows: {n: number; from: number; ar: string; y: number; fs: number}[] = [
-    {n: 6, from: 10, ar: AR1, y: 530, fs: 64},
-    {n: 7, from: 0, ar: AR2, y: 800, fs: 46},
-    {n: 8, from: 3, ar: AR3, y: 1140, fs: 54},
+    {n: 6, from: 10, ar: AR1, y: 525, fs: 64},
+    {n: 7, from: 0, ar: AR2, y: 760, fs: 46},
+    {n: 8, from: 3, ar: AR3, y: 1150, fs: 54},
   ];
   return (
     <g opacity={k}>
@@ -253,7 +253,7 @@ const AyatPanel: React.FC<{t: number; k: number}> = ({t, k}) => {
           <g key={ri} opacity={o}>
             <foreignObject x={110} y={r.y - 70} width={820} height={150}><div dir="rtl" style={{fontFamily: AR, fontWeight: 700, fontSize: r.fs, lineHeight: 1.5, color: '#fff3d6', textAlign: 'center', textShadow: `0 0 24px ${GOLD}66`}}>{r.ar}</div></foreignObject>
             {lines.map((ln, li) => (
-              <text key={li} x={520} y={r.y + (ri === 1 ? 126 : 86) + li * 46} textAnchor="middle" fontFamily={MONT} fontWeight={600} fontSize={34}>
+              <text key={li} x={520} y={r.y + (ri === 1 ? 118 : 86) + li * 46} textAnchor="middle" fontFamily={MONT} fontWeight={600} fontSize={34}>
                 {ln.map((x, wi) => {
                   const a = ap(t, r.n, x.idx, 0.25);
                   const key = KEYW.has(x.w);
