@@ -1,0 +1,125 @@
+{
+  "id": "script-21",
+  "title": "O'rtacha tezlik kamerasi (3D, аналог ролика @stellan.lab)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "explainer-3d-hud",
+  "hook": "O'rtacha tezlik kamerasi oldida tormoz bosish foydasiz.",
+  "answer_line": "Demak, ustundagi kamera radar emas. U o'n ikki kilometrlik sekundomerning bir uchi. Shuning uchun uning oldida tormoz bosish foydasiz.",
+  "final_line": "Demak, ustundagi kamera radar emas. U o'n ikki kilometrlik sekundomerning bir uchi. Shuning uchun uning oldida tormoz bosish foydasiz.",
+  "cover_text": "TORMOZ BOSISH FOYDASIZ",
+  "cards": [
+    {
+      "n": 1,
+      "role": "hook",
+      "vo": "O'rtacha tezlik kamerasi oldida tormoz bosish foydasiz.",
+      "on_screen": "TORMOZ BOSISH FOYDASIZ",
+      "visual_hint": "Tungi trassa, kamera ustuni, qora mashina. HUD yuqorida: sekundomer, o'rtacha tezlik."
+    },
+    {
+      "n": 2,
+      "role": "noradar",
+      "vo": "Unga radar ham, yo'l inspektori ham kerak emas. Unda u tezlikni oshirganingizni qayerdan biladi?",
+      "on_screen": "QAYERDAN BILADI?",
+      "visual_hint": "Kameraga zoom, belgi A. Savol: u qanday biladi?"
+    },
+    {
+      "n": 3,
+      "role": "time",
+      "vo": "Chunki u tezligingizni umuman o'lchamaydi. U vaqtni qayd etadi.",
+      "on_screen": "U VAQTNI QAYD ETADI",
+      "visual_hint": "Sekundomer yaqin plan, tik-tak."
+    },
+    {
+      "n": 4,
+      "role": "setup",
+      "vo": "Tasavvur qiling, tun, bo'sh yo'l, tezlik chegarasi oltmish. Birinchi kameradan roppa-rosa oltmish bilan o'tasiz va tezlashasiz.",
+      "on_screen": "A: 60",
+      "visual_hint": "Yo'l tepadan, belgi 60, mashina A kameradan o'tadi, spidometr 60, keyin tezlashadi."
+    },
+    {
+      "n": 5,
+      "role": "second",
+      "vo": "O'n ikki kilometrdan keyin ikkinchisini ko'rasiz. Tormoz bosib, ellik to'qqiz bilan o'tasiz.",
+      "on_screen": "B: 59",
+      "visual_hint": "Mashina B kameraga yaqinlashadi, spidometr 59."
+    },
+    {
+      "n": 6,
+      "role": "fine",
+      "vo": "Ikkala o'tish ham mukammal. Lekin jarima baribir keladi.",
+      "on_screen": "JARIMA BARIBIR KELADI",
+      "visual_hint": "A va B ustida yashil belgi, qizil xat belgisi."
+    },
+    {
+      "n": 7,
+      "role": "ir",
+      "vo": "Birinchi kamera mashinani ko'z ko'rmaydigan infraqizil nur bilan yoritadi.",
+      "on_screen": "INFRAQIZIL NUR",
+      "visual_hint": "Kamera yaqin plan, nur mashinaga tushadi."
+    },
+    {
+      "n": 8,
+      "role": "plate",
+      "vo": "Ko'pchilik raqamlar nurni to'g'ri orqaga qaytaradigan qilib yasalgan, shuning uchun raqamingiz yarqirab turadi. Dastur uni o'qib, aniq vaqtni yozadi.",
+      "on_screen": "RAQAM YARQIRAYDI",
+      "visual_hint": "Raqam plastinkasi makro, mikroprizmalar, nur qaytadi, dastur raqamni va vaqtni yozadi."
+    },
+    {
+      "n": 9,
+      "role": "anpr",
+      "vo": "Bu avtomatik raqam aniqlash deyiladi. Lekin bitta suratdan tezlikni bilib bo'lmaydi. Eng ayyor joyi endi boshlanadi.",
+      "on_screen": "BITTA RASM YETMAYDI",
+      "visual_hint": "Oq-qora surat, savol belgilari, so'ng 'ENG AYYOR JOYI' matni."
+    },
+    {
+      "n": 10,
+      "role": "math",
+      "vo": "Ikkinchi kamera o'sha raqamni o'qiydi va yana vaqtni yozadi. O'n ikki kilometr o'n daqiqada. Bu soatiga yetmish ikki kilometr.",
+      "on_screen": "12 KM ÷ 10 DAQ = 72 KM/SOAT",
+      "visual_hint": "Ikkinchi kamera, ikki vaqt yozuvi, hisob ekranda, o'rtacha tezlik 72."
+    },
+    {
+      "n": 11,
+      "role": "sixty",
+      "vo": "Oltmish bilan bu yo'lga roppa-rosa o'n ikki daqiqa ketadi. Demak, kameralar oldidagi tezligingizning ahamiyati yo'q. Va bunga e'tiroz bildirib bo'lmaydi.",
+      "on_screen": "60 KM/SOAT = 12 DAQ",
+      "visual_hint": "Ko'rinmas mashina 12 daqiqada, qulf belgisi: E'TIROZ YO'Q."
+    },
+    {
+      "n": 12,
+      "role": "mvt",
+      "vo": "O'rtacha yetmish ikki bilan ketgan bo'lsangiz, demak biror payt roppa-rosa yetmish ikki bilan ketgansiz. Matematiklar buni o'rta qiymat teoremasi deydi.",
+      "on_screen": "O'RTA QIYMAT TEOREMASI",
+      "visual_hint": "Grafik: tezlik va vaqt, qizil nuqta o'rtacha chizig'ida."
+    },
+    {
+      "n": 13,
+      "role": "ocr",
+      "vo": "Lekin yana bir muammo bor. Dastur sakkizni B harfi deb o'qisachi? Shuning uchun ko'p tizimlarda jarimadan oldin raqamni odam tekshiradi.",
+      "on_screen": "8 YOKI B?",
+      "visual_hint": "Raqamdagi 8 katta, B ga aylanadi, savol belgisi, 'ODAM TEKSHIRADI'."
+    },
+    {
+      "n": 14,
+      "role": "station",
+      "vo": "Yo'lda yoqilg'i quyish shoxobchasiga to'xtasangizchi? U faqat vaqtni qo'shadi, o'rtacha tezlik esa oshmaydi, kamayadi.",
+      "on_screen": "TO'XTASANGIZ?",
+      "visual_hint": "Mashina shoxobchaga, o'rtacha tezlik 72 dan 58 gacha tushadi."
+    },
+    {
+      "n": 15,
+      "role": "final",
+      "vo": "Demak, ustundagi kamera radar emas. U o'n ikki kilometrlik sekundomerning bir uchi. Shuning uchun uning oldida tormoz bosish foydasiz.",
+      "on_screen": "O'N IKKI KM SEKUNDOMER",
+      "visual_hint": "Radar belgisi o'chadi, sekundomer 12 km uzunlikda yonadi."
+    }
+  ],
+  "caption": "O'rtacha tezlik kamerasi oldida tormoz bosish foydasiz. U radar emas, u vaqtni o'lchaydi: ikki kamera orasidagi o'n ikki kilometr.\n\nBu qanday ishlashini bilarmidingiz? Izohda yozing. Yaqiningizga yuboring va obuna bo'ling.\n\n#oddiymohiyat #kamera #yoqol #tezlik #bilasizmi #o'zbekcha",
+  "facts": [
+    "O'rtacha tezlik tizimi (point-to-point speed enforcement): ikki kamera orasidagi vaqt va masofa; ANPR; retroreflektiv raqamlar; o'rta qiymat teoremasi (Mean Value Theorem). Manba tekshiriladi. Asl ro'yxat: @stellan.lab (rus tilida, 2026-10-18), faqat tuzilma va raqamlar qayta ishlangan, matn va animatsiya o'zimizniki."
+  ],
+  "status": "draft, ok on voice pending"
+}
