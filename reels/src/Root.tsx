@@ -18,6 +18,7 @@ import {Bukmeker, BukmekerCover, BUKMEKER_FRAMES} from './Bukmeker';
 import {AyatBee, AyatCover, AYAT_FRAMES} from './AyatBee';
 import {BeeLife, BeeCover, BEELIFE_FRAMES} from './BeeLife';
 import {BeeTest} from './BeeTest';
+import {AyatAnt, AntCover, ANT_FRAMES} from './AyatAnt';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
@@ -27,6 +28,8 @@ export const Root: React.FC = () => {
   return (
     <>
     <Composition id="AyatBee" component={AyatBee} durationInFrames={AYAT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="AyatAnt" component={AyatAnt} durationInFrames={ANT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="AntCover" component={AntCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="AyatCover" component={AyatCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="BeeLife" component={BeeLife} durationInFrames={BEELIFE_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BeeCover" component={BeeCover} durationInFrames={1} fps={30} width={1080} height={1920} />
