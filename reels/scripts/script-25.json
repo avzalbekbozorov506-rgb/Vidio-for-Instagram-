@@ -6,16 +6,16 @@
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "explainer-build-it",
- "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega?",
+ "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Javob oxirida.",
  "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
  "facts": [
   "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
  ],
- "caption": "Yuz ming dollar kredit olsangiz, aslida qancha qaytarasiz? Besh yildan keyin ham qarzingiz katta bo'lib qoladi. Sababi: foiz avval to'lanadi, qarz keyin kamayadi. Bu oddiy hisob-kitob misoli (yillik o'n ikki foiz, o'n yil, teng oylik to'lov). Haqiqiy bank shartlari boshqacha bo'lishi mumkin. Bu moliyaviy maslahat emas.",
+ "caption": "Yuz ming dollar kredit olsangiz, aslida qancha qaytarasiz? Besh yildan keyin ham qarzingiz katta bo'lib qoladi. Javob videoning oxirida. Sababi: foiz avval to'lanadi, qarz keyin kamayadi. Bu oddiy hisob-kitob misoli (yillik o'n ikki foiz, o'n yil, teng oylik to'lov). Haqiqiy bank shartlari boshqacha bo'lishi mumkin. Bu moliyaviy maslahat emas.",
  "cards": [
   {
    "n": 1,
-   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega?",
+   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Javob oxirida.",
    "on_screen": "5 YIL TO'LADINGIZ, QARZ HALI KATTA"
   },
   {
@@ -65,18 +65,18 @@
   },
   {
    "n": 11,
-   "vo": "O'n yildan keyin jami bir yuz yetmish ikki ming dollar to'laysiz. Ya'ni yetmish ikki ming ortiqcha.",
+   "vo": "Endi o'n yilni ko'ramiz. Jami bir yuz yetmish ikki ming dollar to'laysiz. Ya'ni yetmish ikki ming ortiqcha.",
    "on_screen": "10 YIL: 172 000 $"
   },
   {
    "n": 12,
-   "vo": "Demak, yuz ming dollar qarz olsangiz, aslida yuz yetmish ikki ming dollar qaytarasiz.",
-   "on_screen": "100 000 → 172 000"
+   "vo": "Javob shu. Foiz avval olinadi, qarz esa keyin kamayadi. Shuning uchun yuz ming dollar olib, yuz yetmish ikki ming qaytarasiz.",
+   "on_screen": "JAVOB: FOIZ AVVAL OLINADI"
   },
   {
    "n": 13,
-   "vo": "Kreditdan oldin so'rang, jami qancha qaytaraman? Buni qarz olmoqchi yaqiningizga yuboring.",
-   "on_screen": "JAMI QANCHA QAYTARAMAN?"
+   "vo": "Kreditdan oldin so'rang, jami qancha qaytaraman? Buni yaqiningizga yuboring va obuna bo'ling.",
+   "on_screen": "OBUNA BO'LING"
   }
  ],
  "status": "draft, ok on voice pending"
