@@ -439,14 +439,19 @@ export const Somad: React.FC<{guide?: boolean}> = ({guide = false}) => {
 
 export const SomadCover: React.FC = () => {
   loadFonts();
+  const cx = 540, cy = 700;
   return (
     <Stage dark>
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse 65% 38% at 50% 40%, rgba(74,155,255,.4), rgba(74,155,255,0) 70%)'}} />
-      <Svg>{Array.from({length: 150}, (_, i) => { const a = rnd(i) * Math.PI * 2, R = 140 + rnd(i + 3) * 420; return <circle key={i} cx={540 + Math.cos(a) * R} cy={800 + Math.sin(a) * R * 0.6} r={2 + 3 * rnd(i + 8)} fill="#bcd8ff" opacity={0.6 * (1 - R / 650)} />; })}</Svg>
-      <div style={{position: 'absolute', left: 0, width: W, top: 262, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 40px', borderRadius: 40, background: BLUE2, color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 5}}>ALLOHNING ISMI</div></div>
-      <ArWord y={500} size={340} dark />
-      <div style={{position: 'absolute', left: 80, width: 920, top: 1010, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 190, lineHeight: 1, color: '#f6f6f3'}}>SOMAD</div>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 1240, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 56, color: BLUE2, lineHeight: 1.15}}>BITTA SO'ZGA<br />SIG'MAYDI</div>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 62% 30% at 50% 36%, rgba(74,155,255,.55), rgba(74,155,255,0) 72%)'}} />
+      <Svg>
+        {Array.from({length: 150}, (_, i) => { const a = (i / 150) * Math.PI * 2; return <circle key={'r1' + i} cx={cx + Math.cos(a) * 400} cy={cy + Math.sin(a) * 400} r={3 + 2 * rnd(i)} fill="#8fc0ff" opacity={0.35 + 0.5 * rnd(i + 4)} />; })}
+        {Array.from({length: 110}, (_, i) => { const a = (i / 110) * Math.PI * 2; return <circle key={'r2' + i} cx={cx + Math.cos(a) * 320} cy={cy + Math.sin(a) * 320} r={2 + 1.5 * rnd(i + 9)} fill="#bcd8ff" opacity={0.25 + 0.5 * rnd(i + 2)} />; })}
+        {Array.from({length: 160}, (_, i) => { const a = rnd(i + 40) * Math.PI * 2, R = 430 + rnd(i + 3) * 120; return <circle key={'s' + i} cx={cx + Math.cos(a) * R} cy={cy + Math.sin(a) * R} r={1.5 + 2.5 * rnd(i + 8)} fill="#bcd8ff" opacity={0.5 * (1 - (R - 430) / 150)} />; })}
+      </Svg>
+      <div style={{position: 'absolute', left: 0, width: W, top: 290, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 44px', borderRadius: 44, background: BLUE2, color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 6}}>ALLOHNING ISMI</div></div>
+      <ArWord y={cy - 150} size={290} dark />
+      <div style={{position: 'absolute', left: 60, width: 960, top: 1090, whiteSpace: 'nowrap', textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 112, lineHeight: 1.02, color: '#ffffff', textShadow: '0 8px 0 rgba(0,0,0,.5)'}}>TARJIMA QILIB<br /><span style={{color: BLUE2, textShadow: `0 0 50px rgba(74,155,255,.7), 0 8px 0 rgba(0,0,0,.5)`}}>BO'LMAYDI</span></div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 40px', borderRadius: 44, border: '4px solid #ffffff', color: '#ffffff', fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 2}}>QUR'ONDA FAQAT <span style={{color: BLUE2}}>1 MARTA</span></div></div>
     </Stage>
   );
 };
