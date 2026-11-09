@@ -8,7 +8,7 @@
  "genre": "Qur'on va fan",
  "series": "Qur'on va fan",
  "status": "draft, ok kutilmoqda",
- "hook": "Qur'onda bitta yulduzning nomi aytilgan. Bu qaysi yulduz va nega aynan u?",
+ "hook": "Osmondagi eng yorqin yulduz Qur'onda ham tilga olingan. Nega aynan u? Javob oxirida, obuna bo'ling.",
  "cover_text": "QUR'ONDA NOMI AYTILGAN YAGONA YULDUZ",
  "reference": "YouTube Shorts jDGtMz9CNX0 (Amir's Life): faqat mavzu; '861 harf' da'vosi tasdiqlanmadi (869-880 harf), olinmaydi",
  "sources": [
@@ -20,8 +20,8 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda bitta yulduzning nomi aytilgan. Bu qaysi yulduz va nega aynan u? Javob oxirida, obuna bo'ling.",
-   "on_screen": "QAYSI YULDUZ?"
+   "vo": "Osmondagi eng yorqin yulduz Qur'onda ham tilga olingan. Nega aynan u? Javob oxirida, obuna bo'ling.",
+   "on_screen": "ENG YORQIN YULDUZ"
   },
   {
    "n": 2,
