@@ -1,0 +1,37 @@
+{
+ "id": "script-24",
+ "title": "Quvur nega taqillaydi (короткая версия 65 с)",
+ "base": "script-23",
+ "note": "Сборка из карточек vo-23 (1 обрезана до 'qayerdan?', 4, 8, 9, 14, 15) + новые фразы в vo-24",
+ "new_cards": [
+  {
+   "id": "P",
+   "vo": "Oxirigacha ko'ring, eng oddiy yechim oxirida."
+  },
+  {
+   "id": "B1",
+   "vo": "Suv og'ir va tez oqadi. Kranni birdan yopsak, u to'xtay olmaydi."
+  },
+  {
+   "id": "B2",
+   "vo": "Zarba quvurni devorga uradi, birikmalarni ham sindirishi mumkin. Taqillash shundan."
+  },
+  {
+   "id": "B3",
+   "vo": "Lekin eng oddiy yechim bepul. Kranni sekin yoping, suv asta to'xtaydi va zarba deyarli bo'lmaydi."
+  }
+ ],
+ "order": [
+  "23:1(trim 5.9s)",
+  "24:P",
+  "24:B1",
+  "23:4",
+  "24:B2",
+  "23:8",
+  "23:9",
+  "24:B3",
+  "23:14",
+  "23:15"
+ ],
+ "status": "draft, ok on voice pending"
+}
