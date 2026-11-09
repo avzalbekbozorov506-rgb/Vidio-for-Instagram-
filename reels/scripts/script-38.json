@@ -35,7 +35,7 @@
   },
   {
    "n": 4,
-   "vo": "Jang boshlandi. Dushman qochdi. Musulmonlar, o'lja, o'lja, deya boshladi. Abdulloh Payg'ambarga bergan ahdini eslatdi, lekin o'qchilar rozi bo'lmadi.",
+   "vo": "Jang boshlandi. Dushman qochdi. Musulmonlar, o'lja, o'lja, deya boshladi. Abdulloh ahdni eslatdi, lekin o'qchilar rozi bo'lmadi.",
    "on_screen": "O'LJA!"
   },
   {
@@ -45,26 +45,31 @@
   },
   {
    "n": 6,
-   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi. Sizlar Uning izni bilan ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilib, isyon qilgunigizcha.",
+   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi.",
    "on_screen": "OLI IMRON 3:152"
   },
   {
    "n": 7,
+   "vo": "Sizlar Uning izni bilan ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilib, isyon qilgunigizcha.",
+   "on_screen": "TOKI ZAIFLASHIB..."
+  },
+  {
+   "n": 8,
    "vo": "Oyat davom etadi. Sizni imtihon qilish uchun ulardan burdi. Batahqiq, sizni afv etdi.",
    "on_screen": "AFV ETDI"
   },
   {
-   "n": 8,
+   "n": 9,
    "vo": "Javob oyatning o'zida. Zaiflik, amr haqida ixtilof va isyon. Yana bir oyatda aytiladi, bu o'zingizning huzuringizdan.",
    "on_screen": "JAVOB"
   },
   {
-   "n": 9,
+   "n": 10,
    "vo": "Bir izohga ko'ra, bu voqea g'alaba yaqin ko'ringan paytda ham buyruqqa sodiq qolish kerakligini eslatadi.",
    "on_screen": "XULOSA"
   },
   {
-   "n": 10,
+   "n": 11,
    "vo": "Sizningcha, Uhud bizga nimani o'rgatadi? Izohda yozing. Videoni yaqiningizga yuboring.",
    "on_screen": "SIZNINGCHA?"
   }
