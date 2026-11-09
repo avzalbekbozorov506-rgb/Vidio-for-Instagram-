@@ -15,6 +15,7 @@ import {Siphon, SiphonCover, SIPHON_FRAMES} from './Siphon';
 import {Electro, ElectroCover, ELECTRO_FRAMES} from './Electro';
 import {Speedcam, SpeedcamCover, SPEEDCAM_FRAMES} from './Speedcam';
 import {Bukmeker, BukmekerCover, BUKMEKER_FRAMES} from './Bukmeker';
+import {BeeTest} from './BeeTest';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
@@ -23,6 +24,7 @@ import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from '
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="BeeTest" component={BeeTest} durationInFrames={30} fps={30} width={1080} height={1920} defaultProps={{scene: 0}} />
     <Composition id="Kredit" component={Kredit} durationInFrames={KREDIT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="KreditCover" component={KreditCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Hammer" component={Hammer} durationInFrames={HAMMER_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
