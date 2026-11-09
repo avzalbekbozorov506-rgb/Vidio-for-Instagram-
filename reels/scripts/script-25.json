@@ -1,37 +1,37 @@
 {
  "id": "script-25",
- "title": "Yuz ming dollar kredit: aslida qancha qaytarasiz? (2D, аннуитет)",
+ "title": "Yuz million so'm kredit: aslida qancha qaytarasiz? (so'm, 2D, annuitet)",
  "lang": "uz",
  "voice": "Jasur Noir",
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "explainer-build-it",
- "hook": "Yuz ming dollar kredit. Qancha qaytarasiz? Javob oxirida, siz esa obuna bo'ling.",
- "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
+ "hook": "Yuz million so'm kredit. Qancha qaytarasiz? Javob oxirida, siz esa obuna bo'ling.",
+ "cover_text": "100 MLN SO'M KREDIT: 173 MLN QAYTARASIZ",
  "facts": [
-  "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
+  "Аннуитет в сумах: P=100 000 000, ставка 24 %/год (2 %/мес), n=60: платёж 2 876 797; сумма 172 607 795; переплата 72 607 795; месяц 1: 2 000 000 процентов + 876 797 долга; после 30 платежей: выплачено 86 303 897, погашено долга 35 569 953, процентов 50 733 944, остаток 64 430 047 (проверено кодом). Округления в тексте: 173 млн, 73 млн, 86 млн, 35,5 млн, 50+ млн, 64+ млн."
  ],
- "caption": "Yuz ming dollar kredit olsangiz, aslida qancha qaytarasiz? Besh yildan keyin ham qarzingiz katta bo'lib qoladi. Javob videoning oxirida. Sababi: foiz avval to'lanadi, qarz keyin kamayadi. Bu oddiy hisob-kitob misoli (yillik o'n ikki foiz, o'n yil, teng oylik to'lov). Haqiqiy bank shartlari boshqacha bo'lishi mumkin. Bu moliyaviy maslahat emas.",
+ "caption": "Yuz million so'm kredit olsangiz, aslida qancha qaytarasiz? Javob videoning oxirida. Sababi: foiz avval to'lanadi, qarz keyin kamayadi. Bu hisob-kitob misoli (yillik yigirma to'rt foiz, besh yil, teng oylik to'lov). Haqiqiy bank shartlari boshqacha bo'lishi mumkin. Bu moliyaviy maslahat emas.",
  "cards": [
   {
    "n": 1,
-   "vo": "Yuz ming dollar kredit. Qancha qaytarasiz? Javob oxirida, siz esa obuna bo'ling.",
-   "on_screen": "100 000 $ KREDIT · QANCHA QAYTARASIZ?"
+   "vo": "Yuz million so'm kredit. Qancha qaytarasiz? Javob oxirida, siz esa obuna bo'ling.",
+   "on_screen": "100 MLN SO'M KREDIT · QANCHA QAYTARASIZ?"
   },
   {
    "n": 2,
-   "vo": "Keling, kreditni o'zimiz qurib ko'ramiz. Aytaylik, yillik o'n ikki foiz, muddat o'n yil. Bu faqat misol.",
-   "on_screen": "100 000 $ · 12 % · 10 YIL"
+   "vo": "Keling, kreditni o'zimiz qurib ko'ramiz. Aytaylik, yillik yigirma to'rt foiz, muddat besh yil. Bu faqat misol.",
+   "on_screen": "24 % · 5 YIL"
   },
   {
    "n": 3,
-   "vo": "Eng oddiy yo'l bu yuz ming dollarni yuz yigirma oyga bo'lish. Oyiga sakkiz yuz o'ttiz uch dollar.",
-   "on_screen": "100 000 ÷ 120 = 833 $"
+   "vo": "Eng oddiy yo'l bu yuz million so'mni oltmish oyga bo'lish. Oyiga bir million olti yuz oltmish olti ming so'm.",
+   "on_screen": "100 MLN ÷ 60 = 1,67 MLN"
   },
   {
    "n": 4,
-   "vo": "Lekin bank bepul bermaydi. Shuning uchun har oy qolgan qarzga foiz qo'shamiz. Birinchi oy foiz bir ming dollar.",
-   "on_screen": "FOIZ: 1 000 $ HAR OY"
+   "vo": "Lekin bank bepul bermaydi. Shuning uchun har oy qolgan qarzga foiz qo'shamiz. Birinchi oy foiz ikki million so'm.",
+   "on_screen": "FOIZ: 2 MLN HAR OY"
   },
   {
    "n": 5,
@@ -40,13 +40,13 @@
   },
   {
    "n": 6,
-   "vo": "Hisoblasak, har oy bir ming to'rt yuz o'ttiz besh dollar chiqadi.",
-   "on_screen": "1 435 $ HAR OY"
+   "vo": "Hisoblasak, har oy ikki million sakkiz yuz yetmish yetti ming so'm chiqadi.",
+   "on_screen": "2,877 MLN HAR OY"
   },
   {
    "n": 7,
-   "vo": "Lekin birinchi oyda shu pulning bir ming dollari foizga ketadi. Qarzga atigi to'rt yuz o'ttiz besh dollar.",
-   "on_screen": "1 000 FOIZGA · 435 QARZGA"
+   "vo": "Lekin birinchi oyda shu pulning ikki million so'mi foizga ketadi. Qarzga atigi sakkiz yuz yetmish yetti ming so'm.",
+   "on_screen": "2 MLN FOIZGA · 0,877 QARZGA"
   },
   {
    "n": 8,
@@ -55,22 +55,22 @@
   },
   {
    "n": 9,
-   "vo": "Besh yildan keyin siz sakson olti ming dollar to'ladingiz. Lekin qarz atigi o'ttiz besh yarim mingga kamaydi.",
-   "on_screen": "5 YIL: 86 000 TO'LADINGIZ · QARZ −35 500"
+   "vo": "Ikki yarim yildan keyin siz sakson olti million so'm to'ladingiz. Lekin qarz atigi o'ttiz besh yarim millionga kamaydi.",
+   "on_screen": "2,5 YIL: 86 MLN TO'LADINGIZ · QARZ −35,5"
   },
   {
    "n": 10,
-   "vo": "Qolgan ellik mingdan ortiq foizga ketdi. Hali oltmish besh mingga yaqin qarzdorsiz.",
-   "on_screen": "50 000 $ FOIZGA KETDI"
+   "vo": "Qolgan ellik milliondan ortiq foizga ketdi. Hali oltmish to'rt milliondan ortiq qarzdorsiz.",
+   "on_screen": "50 MLN FOIZGA KETDI"
   },
   {
    "n": 11,
-   "vo": "Endi o'n yilni ko'ramiz. Jami bir yuz yetmish ikki ming dollar to'laysiz. Ya'ni yetmish ikki ming ortiqcha.",
-   "on_screen": "10 YIL: 172 000 $"
+   "vo": "Endi besh yilni ko'ramiz. Jami bir yuz yetmish uch million so'm to'laysiz. Ya'ni yetmish uch million ortiqcha.",
+   "on_screen": "5 YIL: 173 MLN"
   },
   {
    "n": 12,
-   "vo": "Javob shu. Foiz avval olinadi, qarz esa keyin kamayadi. Shuning uchun yuz ming dollar olib, yuz yetmish ikki ming qaytarasiz.",
+   "vo": "Javob shu. Foiz avval olinadi, qarz esa keyin kamayadi. Shuning uchun yuz million so'm olib, bir yuz yetmish uch million qaytarasiz.",
    "on_screen": "JAVOB: FOIZ AVVAL OLINADI"
   },
   {
