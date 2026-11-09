@@ -439,19 +439,25 @@ export const Somad: React.FC<{guide?: boolean}> = ({guide = false}) => {
 
 export const SomadCover: React.FC = () => {
   loadFonts();
-  const cx = 540, cy = 700;
+  const cx = 540, cy = 720;
   return (
     <Stage dark>
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse 62% 30% at 50% 36%, rgba(74,155,255,.55), rgba(74,155,255,0) 72%)'}} />
       <Svg>
-        {Array.from({length: 150}, (_, i) => { const a = (i / 150) * Math.PI * 2; return <circle key={'r1' + i} cx={cx + Math.cos(a) * 400} cy={cy + Math.sin(a) * 400} r={3 + 2 * rnd(i)} fill="#8fc0ff" opacity={0.35 + 0.5 * rnd(i + 4)} />; })}
-        {Array.from({length: 110}, (_, i) => { const a = (i / 110) * Math.PI * 2; return <circle key={'r2' + i} cx={cx + Math.cos(a) * 320} cy={cy + Math.sin(a) * 320} r={2 + 1.5 * rnd(i + 9)} fill="#bcd8ff" opacity={0.25 + 0.5 * rnd(i + 2)} />; })}
-        {Array.from({length: 160}, (_, i) => { const a = rnd(i + 40) * Math.PI * 2, R = 430 + rnd(i + 3) * 120; return <circle key={'s' + i} cx={cx + Math.cos(a) * R} cy={cy + Math.sin(a) * R} r={1.5 + 2.5 * rnd(i + 8)} fill="#bcd8ff" opacity={0.5 * (1 - (R - 430) / 150)} />; })}
+        <defs>
+          <radialGradient id="cvOrb" r="0.5"><stop offset="0" stopColor="#ffffff" /><stop offset="0.18" stopColor="rgba(190,225,255,.95)" /><stop offset="0.5" stopColor="rgba(60,140,255,.45)" /><stop offset="1" stopColor="rgba(30,90,220,0)" /></radialGradient>
+        </defs>
+        {Array.from({length: 420}, (_, i) => { const a = rnd(i + 11) * Math.PI * 2, R = 60 + rnd(i + 5) * 520; return <circle key={'st' + i} cx={cx + Math.cos(a) * R * 1.5} cy={cy + Math.sin(a) * R * 1.1} r={1 + 2.6 * rnd(i + 8)} fill="#cfe3ff" opacity={0.25 + 0.6 * rnd(i + 1)} />; })}
       </Svg>
-      <div style={{position: 'absolute', left: 0, width: W, top: 290, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 44px', borderRadius: 44, background: BLUE2, color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 6}}>ALLOHNING ISMI</div></div>
-      <ArWord y={cy - 150} size={290} dark />
-      <div style={{position: 'absolute', left: 60, width: 960, top: 1090, whiteSpace: 'nowrap', textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 112, lineHeight: 1.02, color: '#ffffff', textShadow: '0 8px 0 rgba(0,0,0,.5)'}}>TARJIMA QILIB<br /><span style={{color: BLUE2, textShadow: `0 0 50px rgba(74,155,255,.7), 0 8px 0 rgba(0,0,0,.5)`}}>BO'LMAYDI</span></div>
-      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 40px', borderRadius: 44, border: '4px solid #ffffff', color: '#ffffff', fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 2}}>QUR'ONDA FAQAT <span style={{color: BLUE2}}>1 MARTA</span></div></div>
+      <Svg><Galaxy x={cx} y={cy} R={560} t={6} /></Svg>
+      <Svg>
+        {Array.from({length: 48}, (_, i) => { const a = (i / 48) * Math.PI * 2; return <line key={i} x1={cx + Math.cos(a) * 130} y1={cy + Math.sin(a) * 130} x2={cx + Math.cos(a) * (360 + 160 * rnd(i + 2))} y2={cy + Math.sin(a) * (360 + 160 * rnd(i + 2))} stroke="rgba(150,200,255,.22)" strokeWidth={2 + 2 * rnd(i)} />; })}
+        <circle cx={cx} cy={cy} r={420} fill="url(#cvOrb)" />
+        <circle cx={cx} cy={cy} r={300} fill="none" stroke="rgba(160,210,255,.55)" strokeWidth={3} strokeDasharray="3 10" />
+      </Svg>
+      <div style={{position: 'absolute', left: 0, width: W, top: 290, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 44px', borderRadius: 44, background: '#ffffff', color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 44, letterSpacing: 6}}>ALLOHNING ISMI</div></div>
+      <div dir="rtl" style={{position: 'absolute', left: 80, width: 920, top: cy - 150, textAlign: 'center', fontFamily: AR, fontWeight: 700, fontSize: 290, lineHeight: 1.25, color: '#0a2a66', textShadow: '0 0 24px rgba(255,255,255,.9), 0 0 60px rgba(255,255,255,.6)'}}>{AR_WORD}</div>
+      <div style={{position: 'absolute', left: 40, width: 1000, top: 1130, whiteSpace: 'nowrap', textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 124, lineHeight: 1.02, color: '#ffffff', textShadow: '0 8px 0 rgba(0,0,0,.6)'}}>NEGA AYNAN<br /><span style={{color: BLUE2, textShadow: '0 0 50px rgba(74,155,255,.8), 0 8px 0 rgba(0,0,0,.6)'}}>«SOMAD»?</span></div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 40px', borderRadius: 44, border: '4px solid #ffffff', background: 'rgba(0,0,0,.55)', color: '#ffffff', fontFamily: SANS, fontWeight: 800, fontSize: 42}}>TARJIMA QILIB <span style={{color: BLUE2}}>BO'LMAYDI</span></div></div>
     </Stage>
   );
 };
