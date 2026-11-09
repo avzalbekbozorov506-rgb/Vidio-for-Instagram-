@@ -324,24 +324,14 @@ export const UhudCover: React.FC = () => {
   return (
     <AbsoluteFill>
       <Backdrop t={4} />
-      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
-        <Defs />
-        <g transform="translate(0 20)">
-          {Array.from({length: 24}, (_, i) => <line key={'g' + i} x1={80} y1={290 + i * 50} x2={960} y2={290 + i * 50} stroke={PAPER} strokeOpacity={0.07} strokeWidth={1.5} />)}
-          <path d="M80 270 H250 Q320 520 262 800 Q300 950 280 1080 H80 Z" fill="url(#mtn)" />
-          <circle cx={440} cy={730} r={104} fill="url(#hillG)" /><circle cx={440} cy={730} r={120} fill="none" stroke={GOLD} strokeWidth={8} filter="url(#glow)" />
-          {ARCHERS.map(([ax, ay], i) => <g key={i} transform={`translate(${440 + ax} ${730 + ay})`}><circle r={15} fill={BLUE} /><path d="M-9 -12 Q-22 0 -9 12" fill="none" stroke="#0b1b2c" strokeWidth={4} strokeLinecap="round" /></g>)}
-          <Block cx={700} cy={470} c={RUST} />
-          <Block cx={700} cy={1010} c={BLUE} ash={0.55} />
-          <Arrow x1={650} y1={560} x2={590} y2={940} c={RUST} k={1} />
-        </g>
-      </svg>
-      <div style={{position: 'absolute', left: 0, width: W, top: 270, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 44px', borderRadius: 44, background: '#fff', color: '#150f0b', fontFamily: MONT, fontWeight: 800, fontSize: 46, letterSpacing: 4}}>UHUD JANGI</div></div>
-      <div style={{position: 'absolute', left: 40, width: 1000, top: 1110, textAlign: 'center', whiteSpace: 'nowrap', fontFamily: MONT, fontWeight: 800, textShadow: '0 8px 0 rgba(0,0,0,.6)'}}>
-        <div style={{fontSize: 118, lineHeight: 1.05, color: '#fff'}}>G'ALABA NEGA</div>
-        <div style={{fontSize: 150, lineHeight: 1.05, color: GOLD}}>YO'QOLDI?</div>
+      <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}><Defs /><circle cx={540} cy={820} r={520} fill="rgba(255,170,70,.16)" filter="url(#soft)" /></svg>
+      <div style={{position: 'absolute', left: 0, width: W, top: 330, display: 'flex', justifyContent: 'center'}}><div style={{padding: '14px 52px', borderRadius: 48, background: '#fff', color: '#150f0b', fontFamily: MONT, fontWeight: 800, fontSize: 56, letterSpacing: 5}}>UHUD JANGI</div></div>
+      <div style={{position: 'absolute', left: 30, width: 1020, top: 520, textAlign: 'center', whiteSpace: 'nowrap', fontFamily: MONT, fontWeight: 800, textShadow: '0 10px 0 rgba(0,0,0,.6)', lineHeight: 1.02}}>
+        <div style={{fontSize: 190, color: '#fff'}}>G'ALABA</div>
+        <div style={{fontSize: 190, color: '#fff'}}>NEGA</div>
+        <div style={{fontSize: 156, color: GOLD, textShadow: `0 0 60px ${GOLD}88, 0 10px 0 rgba(0,0,0,.6)`}}>YO'QOLDI?</div>
       </div>
-      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 38px', borderRadius: 44, border: '4px solid #fff', background: 'rgba(0,0,0,.5)', color: '#fff', fontFamily: MONT, fontWeight: 800, fontSize: 40}}>QUR'ON · OLI IMRON <span style={{color: GOLD}}>3:152</span></div></div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1240, display: 'flex', justifyContent: 'center'}}><div style={{padding: '14px 44px', borderRadius: 48, border: '5px solid #fff', background: 'rgba(0,0,0,.5)', color: '#fff', fontFamily: MONT, fontWeight: 800, fontSize: 46}}>BIR BUYRUQ · <span style={{color: GOLD}}>OLI IMRON 3:152</span></div></div>
       <Finish />
     </AbsoluteFill>
   );
