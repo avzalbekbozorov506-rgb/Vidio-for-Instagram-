@@ -132,14 +132,66 @@ const IconSvg: React.FC<{k: Icon; c: string}> = ({k, c}) => {
   }
 };
 
+
+// ---------- props: so'm banknotes, bundles, bank, coin ----------
+const NoteSvg: React.FC<{x: number; y: number; w?: number; h?: number; c?: string; rot?: number; label?: string}> = ({x, y, w = 150, h = 70, c = '#27a06f', rot = 0, label = '100 000'}) => (
+  <g transform={`translate(${x} ${y}) rotate(${rot} ${w / 2} ${h / 2})`}>
+    <rect width={w} height={h} rx={7} fill={c} />
+    <rect width={w} height={h * 0.5} rx={7} fill="#fff" opacity={0.1} />
+    <rect x={5} y={5} width={w - 10} height={h - 10} rx={4} fill="none" stroke="rgba(255,255,255,.55)" strokeWidth={1.6} />
+    <circle cx={w * 0.2} cy={h / 2} r={h * 0.26} fill="rgba(255,255,255,.2)" />
+    <circle cx={w * 0.2} cy={h / 2} r={h * 0.15} fill="none" stroke="rgba(255,255,255,.6)" strokeWidth={1.4} />
+    <text x={w * 0.62} y={h * 0.52} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={h * 0.3} fill="#fff">{label}</text>
+    <text x={w * 0.62} y={h * 0.76} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={h * 0.15} fill="#fff" opacity={0.85} letterSpacing={2}>SO'M</text>
+  </g>
+);
+const BundleSvg: React.FC<{x: number; y: number; w?: number; h?: number; c?: string; part?: number}> = ({x, y, w = 84, h = 52, c = '#27a06f', part = 1}) => {
+  const ww = w * part;
+  return (
+    <g>
+      <rect x={x} y={y + 10} width={ww} height={h} rx={6} fill="#000" opacity={0.35} />
+      <rect x={x} y={y + 8} width={ww} height={h} rx={6} fill={c} opacity={0.55} />
+      <rect x={x} y={y + 4} width={ww} height={h} rx={6} fill={c} opacity={0.8} />
+      <rect x={x} y={y} width={ww} height={h} rx={6} fill={c} />
+      <rect x={x} y={y} width={ww} height={h * 0.45} rx={6} fill="#fff" opacity={0.12} />
+      <rect x={x + 3} y={y + 3} width={ww - 6} height={h - 6} rx={4} fill="none" stroke="rgba(255,255,255,.5)" strokeWidth={1.4} />
+      {part > 0.5 && <><rect x={x + ww * 0.38} y={y - 2} width={ww * 0.24} height={h + 4} fill="#f2e7c8" opacity={0.92} /><text x={x + ww * 0.5} y={y + h * 0.62} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={h * 0.22} fill="#5b4a1a">10</text></>}
+    </g>
+  );
+};
+const BankSvg: React.FC<{x: number; y: number; w?: number}> = ({x, y, w = 300}) => {
+  const h = w * 0.8;
+  return (
+    <g>
+      <defs><linearGradient id="bk2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#a9c4d8" /><stop offset="0.5" stopColor="#4a6a86" /><stop offset="1" stopColor="#22364a" /></linearGradient></defs>
+      <polygon points={`${x},${y + h * 0.3} ${x + w / 2},${y} ${x + w},${y + h * 0.3}`} fill="url(#bk2)" stroke="#d7ecf8" strokeWidth={2} />
+      <text x={x + w / 2} y={y + h * 0.25} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={w * 0.11} fill="#0b1a28" letterSpacing={3}>BANK</text>
+      <rect x={x - 6} y={y + h * 0.3} width={w + 12} height={h * 0.07} rx={3} fill="#cfe3f0" />
+      {Array.from({length: 5}, (_, i) => <g key={i}><rect x={x + w * 0.07 + i * (w * 0.86 / 4.4)} y={y + h * 0.4} width={w * 0.085} height={h * 0.4} fill="url(#bk2)" /><rect x={x + w * 0.07 + i * (w * 0.86 / 4.4) + 3} y={y + h * 0.4} width={w * 0.012} height={h * 0.4} fill="#fff" opacity={0.35} /></g>)}
+      <rect x={x - 12} y={y + h * 0.8} width={w + 24} height={h * 0.07} rx={3} fill="#9fb9cc" />
+      <rect x={x - 24} y={y + h * 0.87} width={w + 48} height={h * 0.07} rx={3} fill="#7893a9" />
+      <circle cx={x + w / 2} cy={y + h * 0.045} r={w * 0.022} fill={AMB} />
+    </g>
+  );
+};
+const CoinSvg: React.FC<{cx: number; cy: number; r?: number; c?: string; label?: string}> = ({cx, cy, r = 20, c = RED, label = '%'}) => (
+  <g>
+    <circle cx={cx} cy={cy} r={r} fill={c} />
+    <circle cx={cx} cy={cy} r={r * 0.78} fill="none" stroke="rgba(255,255,255,.65)" strokeWidth={2} />
+    <text x={cx} y={cy + r * 0.3} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={r * 0.95} fill="#fff">{label}</text>
+  </g>
+);
+
 // ---------- per-word cues (one highlight + icon at a time) ----------
 type Box = [number, number, number, number];
 const BOX: Record<string, Box> = {
   A_L: [100, 300, 520, 550], A_R: [520, 300, 940, 550], CHART: [100, 880, 940, 1340],
-  SUB1: [250, 980, 830, 1140],
+  SUB1: [250, 1040, 830, 1200], BANK1: [100, 620, 400, 880], PILE1: [490, 690, 940, 880],
+  CT: [120, 600, 940, 1020], R1: [150, 680, 910, 760], R2: [150, 770, 910, 850], R3: [150, 860, 910, 940], STMP: [570, 915, 940, 1005],
+  BANK4: [100, 610, 310, 790], B11ALL: [120, 630, 924, 930], B11G: [120, 630, 924, 740], B11R: [120, 740, 924, 930], BIG11B: [200, 940, 880, 1050],
   CHIP1: [100, 620, 500, 760], CHIP2: [540, 620, 940, 760], TL: [100, 790, 940, 860], STAMP: [300, 980, 740, 1140],
   GRID: [140, 640, 920, 990], BLOCK1: [140, 640, 212, 692], RES3: [130, 1080, 930, 1190],
-  BANK: [100, 600, 240, 780], RED4: [530, 650, 870, 750], GRN4: [250, 650, 530, 750], F1: [100, 800, 940, 880], F2: [100, 900, 940, 980],
+  BANK: [100, 600, 240, 780], RED4: [590, 650, 890, 750], GRN4: [340, 650, 590, 750], F1: [100, 800, 940, 880], F2: [100, 900, 940, 980],
   BARS5: [130, 640, 930, 1000], BADGE5: [260, 1040, 820, 1140], NUM6: [200, 1040, 880, 1200],
   B7R: [120, 690, 676, 800], B7G: [676, 690, 920, 800], PCT7: [200, 830, 880, 930],
   CUR9: [130, 880, 520, 1340], SPR: [120, 630, 541, 730], SPG: [541, 630, 836, 730],
@@ -147,17 +199,17 @@ const BOX: Record<string, Box> = {
   BIG12: [160, 640, 920, 860], HI12A: [130, 880, 325, 1340], HI12B: [520, 880, 910, 1340], Q13: [120, 640, 940, 820], PL13: [400, 880, 680, 1100],
 };
 const CUES: Record<number, [number, string, Icon?][]> = {
-  1: [[0, 'A_L'], [1, 'A_L', 'coin'], [3, 'A_L'], [4, 'A_R'], [5, 'A_R', 'coin'], [6, 'A_R', 'lock'], [7, 'A_R', 'clock'], [8, 'SUB1'], [10, 'SUB1', 'bell'], [11, 'SUB1', 'check']],
-  2: [[1, 'A_L'], [3, 'A_L', 'tool'], [5, 'CHIP1'], [6, 'CHIP1'], [7, 'CHIP1', 'percent'], [10, 'CHIP2'], [11, 'CHIP2'], [12, 'CHIP2', 'clock'], [13, 'STAMP'], [15, 'STAMP', 'warn']],
+  1: [[0, 'PILE1'], [1, 'PILE1', 'coin'], [3, 'BANK1', 'bank'], [4, 'A_R'], [5, 'A_R', 'coin'], [6, 'A_R', 'lock'], [7, 'A_R', 'clock'], [8, 'SUB1'], [10, 'SUB1', 'bell'], [11, 'SUB1', 'check']],
+  2: [[1, 'CT'], [3, 'CT', 'tool'], [5, 'R1'], [6, 'R2'], [7, 'R2'], [9, 'R2', 'percent'], [10, 'R3'], [11, 'R3'], [12, 'R3', 'clock'], [13, 'STMP'], [15, 'STMP', 'warn']],
   3: [[4, 'GRID'], [5, 'GRID', 'coin'], [7, 'GRID'], [8, 'GRID', 'split'], [10, 'BLOCK1'], [12, 'RES3'], [14, 'RES3'], [18, 'RES3', 'check']],
-  4: [[1, 'BANK', 'bank'], [2, 'BANK'], [8, 'GRN4'], [10, 'RED4', 'percent'], [11, 'RED4', 'plus'], [13, 'F2'], [15, 'RED4'], [17, 'RED4', 'warn']],
+  4: [[1, 'BANK4', 'bank'], [2, 'BANK4'], [8, 'GRN4'], [10, 'RED4', 'percent'], [11, 'RED4', 'plus'], [13, 'F2'], [15, 'RED4'], [17, 'RED4', 'warn']],
   5: [[1, 'BARS5'], [4, 'BARS5', 'warn'], [6, 'BARS5'], [10, 'BARS5'], [12, 'BARS5'], [15, 'BARS5', 'check'], [17, 'BADGE5']],
   6: [[1, 'BARS5'], [3, 'NUM6'], [7, 'NUM6'], [10, 'NUM6', 'coin'], [11, 'NUM6', 'check']],
   7: [[1, 'B7R'], [5, 'B7R'], [7, 'B7R', 'percent'], [9, 'PCT7', 'warn'], [10, 'B7G'], [14, 'B7G'], [17, 'B7G', 'down']],
   8: [[0, 'CHART'], [3, 'CHART', 'percent'], [5, 'CHART', 'down'], [6, 'CHART'], [9, 'CHART', 'plus'], [12, 'CHART'], [13, 'CHART', 'clock']],
   9: [[0, 'CUR9', 'clock'], [3, 'CUR9'], [5, 'A_R'], [8, 'A_R', 'coin'], [9, 'A_R'], [13, 'A_L'], [16, 'A_L', 'down'], [17, 'A_L', 'warn']],
   10: [[1, 'SPR'], [4, 'SPR', 'percent'], [5, 'SPR', 'warn'], [7, 'A_L'], [9, 'A_L'], [11, 'A_L', 'warn']],
-  11: [[1, 'CHART', 'clock'], [4, 'T11G'], [7, 'BIG11'], [11, 'BIG11', 'coin'], [13, 'T11R'], [16, 'T11R', 'warn']],
+  11: [[1, 'B11ALL', 'clock'], [4, 'B11G'], [7, 'BIG11B'], [11, 'BIG11B', 'coin'], [13, 'B11R'], [16, 'B11R', 'warn']],
   12: [[0, 'BIG12'], [2, 'HI12A', 'percent'], [4, 'HI12A', 'warn'], [5, 'HI12B'], [8, 'HI12B', 'down'], [11, 'BIG12'], [16, 'BIG12', 'coin'], [20, 'BIG12', 'check']],
   13: [[0, 'Q13'], [3, 'Q13'], [5, 'Q13', 'coin'], [6, 'PL13'], [9, 'PL13'], [10, 'PL13', 'plane']],
 };
@@ -205,10 +257,23 @@ const S1: React.FC = () => {
   const t = useT();
   const bal = P0 * ease(sm(t, 0, 1.2));
   const k = ease(sm(t, EV(1, 8), EV(1, 8) + 0.4));
+  const bk = ease(sm(t, 0, 0.5));
+  const nb = Math.floor(11 * sm(t, 0.1, 1.5));
+  const q = ease(sm(t, EV(1, 4), EV(1, 4) + 0.4));
   return (<>
     <PanelA bal={bal} unknown={t >= EV(1, 4)} />
+    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+      <Defs />
+      <g opacity={bk}><BankSvg x={110} y={640} w={270} /></g>
+      <path d="M410 770 h54 m-16 -14 l16 14 l-16 14" fill="none" stroke={CY} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" opacity={bk} filter="url(#glow)" />
+      <g opacity={1 - 0.65 * q}>
+        {Array.from({length: 10}, (_, i) => { const col = i % 5, row = Math.floor(i / 5); return i < nb ? <BundleSvg key={i} x={500 + col * 88} y={700 + row * 84} w={80} h={54} c="#27a06f" /> : null; })}
+      </g>
+      <text x={720} y={900} textAnchor="middle" fontFamily={MONT} fontWeight={800} fontSize={26} fill="#8fb4c4" opacity={1 - 0.65 * q}>10 PACHKA × 10 MLN SO'M</text>
+    </svg>
+    {q > 0 && <div style={{position: 'absolute', left: 500, width: 440, top: 690, textAlign: 'center', opacity: q, transform: `scale(${0.8 + 0.2 * q})`}}><Tx size={190} color={AMB} align="center">?</Tx></div>}
     {k > 0 && (
-      <div style={{position: 'absolute', left: 0, width: W, top: 1010, display: 'flex', justifyContent: 'center', opacity: k, transform: `scale(${0.85 + 0.15 * k})`}}>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1060, display: 'flex', justifyContent: 'center', opacity: k, transform: `scale(${0.85 + 0.15 * k})`}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 24, padding: '28px 56px', borderRadius: 60, background: 'linear-gradient(180deg, rgba(24,44,66,.95), rgba(8,18,30,.98))', border: `4px solid ${AMB}`, boxShadow: `0 0 50px ${AMB}55`}}>
           <svg width={70} height={70} viewBox="-30 -30 60 60"><IconSvg k="bell" c={AMB} /></svg>
           <Tx size={60} color="#fff">OBUNA BO'LING</Tx>
@@ -219,20 +284,30 @@ const S1: React.FC = () => {
 };
 const S2: React.FC = () => {
   const t = useT();
+  const r1 = ease(sm(t, 0.3, 0.8)), r2 = ease(sm(t, EV(2, 6), EV(2, 6) + 0.4)), r3 = ease(sm(t, EV(2, 10), EV(2, 10) + 0.4));
+  const sg = sm(t, EV(2, 12) + 0.2, EV(2, 12) + 1.2);
   const tl = sm(t, EV(2, 10), EV(2, 12) + 0.4);
+  const row = (y: number, label: string, val: string, col: string, k: number) => (
+    <div style={{position: 'absolute', left: 160, width: 700, top: y, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', opacity: k, transform: `translateY(${(1 - k) * 12}px)`}}>
+      <Tx size={26} color="#8fb4c4" ls={3}>{label}</Tx><Tx size={44} color={col}>{val}</Tx>
+    </div>
+  );
   return (<>
     <PanelA bal={P0} />
-    <Pop at={EV(2, 6)} x={100} y={620} w={400}>
-      <div style={{height: 140, borderRadius: 24, border: `3px solid ${RED}`, background: 'rgba(255,90,104,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16}}><Tx size={72} color={RED}>24 %</Tx><Tx size={26} color="#cfe1ee">YILLIK</Tx></div>
-    </Pop>
-    <Pop at={EV(2, 10)} x={540} y={620} w={400}>
-      <div style={{height: 140, borderRadius: 24, border: `3px solid ${CY}`, background: 'rgba(82,227,255,.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16}}><Tx size={72} color={CY}>5 YIL</Tx><Tx size={26} color="#cfe1ee">= 60 OY</Tx></div>
-    </Pop>
+    <Glass x={120} y={600} w={820} h={420} />
+    <div style={{position: 'absolute', left: 160, top: 625}}><Tx size={24} color={CY} ls={5}>KREDIT SHARTNOMASI</Tx></div>
     <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
-      {Array.from({length: 61}, (_, i) => (i / 60 <= tl ? <line key={i} x1={120 + i * 13} y1={810} x2={120 + i * 13} y2={i % 12 === 0 ? 850 : 830} stroke={CY} strokeWidth={i % 12 === 0 ? 4 : 2} /> : null))}
+      <line x1={160} y1={668} x2={900} y2={668} stroke="#2a4a62" strokeWidth={2} />
+      <g transform="translate(850 640) scale(0.5)"><NoteSvg x={0} y={0} w={110} h={52} /></g>
+      <path d="M170 975 q30 -40 50 0 q15 25 35 -25 q20 -35 40 10 q20 30 50 -10 l70 5" fill="none" stroke={CY} strokeWidth={4} strokeLinecap="round" pathLength={100} strokeDasharray={100} strokeDashoffset={100 * (1 - sg)} opacity={0.9} />
+      <text x={170} y={1008} fontFamily={MONT} fontWeight={700} fontSize={18} fill="#6f8696">MIJOZ IMZOSI</text>
+      {Array.from({length: 61}, (_, i) => (i / 60 <= tl ? <line key={i} x1={120 + i * 13.67} y1={1075} x2={120 + i * 13.67} y2={i % 12 === 0 ? 1115 : 1095} stroke={CY} strokeWidth={i % 12 === 0 ? 4 : 2} /> : null))}
     </svg>
-    <Pop at={EV(2, 13)} x={300} y={1000} w={440}>
-      <div style={{transform: 'rotate(-5deg)', border: `5px solid ${AMB}`, borderRadius: 18, padding: '14px 0', textAlign: 'center', background: 'rgba(255,180,58,.08)'}}><Tx size={84} color={AMB} align="center">MISOL</Tx></div>
+    {row(690, 'SUMMA', "100 MLN SO'M", '#fff', r1)}
+    {row(780, 'FOIZ', '24 % YILLIK', RED, r2)}
+    {row(870, 'MUDDAT', '5 YIL · 60 OY', CY, r3)}
+    <Pop at={EV(2, 13)} x={590} y={930} w={330}>
+      <div style={{transform: 'rotate(-6deg)', border: `5px solid ${AMB}`, borderRadius: 14, padding: '2px 0', textAlign: 'center', background: 'rgba(14,24,36,.92)'}}><Tx size={52} color={AMB} align="center">MISOL</Tx></div>
     </Pop>
   </>);
 };
@@ -254,19 +329,22 @@ const S3: React.FC = () => {
 };
 const S4: React.FC = () => {
   const t = useT();
+  const bk = ease(sm(t, EV(4, 1) - 0.2, EV(4, 1) + 0.4));
   const g = ease(sm(t, 0.3, 1.0));
   const r = ease(sm(t, EV(4, 10), EV(4, 11) + 0.6));
-  const sc = 170;
+  const sc = 150;
+  const coins = [0, 1, 2].map((i) => ease(sm(t, EV(4, 12) + i * 0.25, EV(4, 12) + i * 0.25 + 0.7)));
   return (<>
     <PanelA bal={P0} />
     <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
       <Defs />
-      <g opacity={ease(sm(t, EV(4, 1), EV(4, 1) + 0.4))}><rect x={100} y={650} width={110} height={100} rx={14} fill="rgba(82,227,255,.1)" stroke={CY} strokeWidth={3} /><g transform="translate(155 700) scale(1.6)"><IconSvg k="bank" c={CY} /></g></g>
-      <rect x={250} y={660} width={1.667 * sc * g} height={80} rx={10} fill={GRN} />
-      <rect x={250 + 1.667 * sc} y={660} width={2.0 * sc * r} height={80} rx={10} fill={RED} filter="url(#glow)" />
+      <g opacity={bk}><BankSvg x={110} y={620} w={190} /></g>
+      <rect x={340} y={660} width={1.667 * sc * g} height={80} rx={10} fill={GRN} />
+      <rect x={340 + 1.667 * sc} y={660} width={2.0 * sc * r} height={80} rx={10} fill={RED} filter="url(#glow)" />
+      {coins.map((c, i) => c > 0 && c < 1 ? <CoinSvg key={i} cx={640 - c * 430} cy={700 + Math.sin(c * Math.PI) * -60 + 60 * c} r={20} /> : null)}
     </svg>
-    <Pop at={EV(4, 8)} x={250} y={760} w={300}><Tx size={30} color={GRN}>QARZ 1,67</Tx></Pop>
-    <Pop at={EV(4, 14)} x={560} y={760} w={380}><Tx size={30} color={RED}>FOIZ 2,0</Tx></Pop>
+    <Pop at={EV(4, 8)} x={340} y={760} w={260}><Tx size={30} color={GRN}>QARZ 1,67</Tx></Pop>
+    <Pop at={EV(4, 14)} x={620} y={760} w={320}><Tx size={30} color={RED}>FOIZ 2,0</Tx></Pop>
     <Pop at={EV(4, 12)} x={100} y={830} w={840}><Tx size={46} color="#fff">100 MLN × 2 % = 2 MLN</Tx></Pop>
     <Pop at={EV(4, 13)} x={100} y={915} w={840}><Tx size={30} color="#8fb4c4">24 % ÷ 12 OY = HAR OY 2 %</Tx></Pop>
   </>);
@@ -360,21 +438,25 @@ const S10: React.FC = () => {
 };
 const S11: React.FC = () => {
   const t = useT();
-  const k = ease(sm(t, EV(11, 4), EV(11, 9) + 0.6));
-  const k2 = ease(sm(t, EV(11, 12), EV(11, 15) + 0.6));
-  const sc = 4.6;
   const paid = 86.3 + (172.6 - 86.3) * ease(sm(t, EV(11, 4), EV(11, 11)));
+  const gN = Math.floor(11 * sm(t, EV(11, 4), EV(11, 9)));
+  const rN = 8 * sm(t, EV(11, 12), EV(11, 15) + 0.4);
   return (<>
     <PanelA bal={t >= EV(11, 4) ? 0 : balAt(30)} paid={paid} />
     <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
       <Defs />
-      <rect x={120} y={640} width={100 * sc * k} height={90} rx={10} fill={GRN} />
-      <rect x={120 + 100 * sc} y={640} width={72.6 * sc * k2} height={90} rx={10} fill={RED} filter="url(#glow)" />
+      {Array.from({length: 18}, (_, i) => {
+        const col = i % 6, row = Math.floor(i / 6);
+        const x = 120 + col * 134, y = 640 + row * 100;
+        if (i < 10) return i < gN ? <BundleSvg key={i} x={x} y={y} w={120} h={74} c="#27a06f" /> : null;
+        const k = Math.min(1, rN - (i - 10));
+        if (k <= 0) return null;
+        return <BundleSvg key={i} x={x} y={y} w={120} h={74} c="#d4485a" part={i === 17 ? 0.26 * k : 1} />;
+      })}
     </svg>
-    <Pop at={EV(11, 4)} x={120} y={745} w={460}><Tx size={30} color={GRN}>QARZ 100</Tx></Pop>
-    <Pop at={EV(11, 13)} x={580} y={745} w={340}><Tx size={30} color={RED} align="right">FOIZ 72,6</Tx></Pop>
-    <Pop at={EV(11, 7)} x={200} y={830} w={680}><Tx size={96} color={AMB} align="center">173 MLN</Tx></Pop>
-    <Chart upto={N} opacity={0.4} />
+    <Pop at={EV(11, 7)} x={200} y={940} w={680}><Tx size={100} color={AMB} align="center">173 MLN</Tx></Pop>
+    <Pop at={EV(11, 4)} x={120} y={1060} w={400}><Tx size={28} color={GRN}>■ QARZ 100 MLN</Tx></Pop>
+    <Pop at={EV(11, 13)} x={540} y={1060} w={400}><Tx size={28} color={RED} align="right">■ FOIZ 72,6 MLN</Tx></Pop>
   </>);
 };
 const S12: React.FC = () => {
@@ -515,10 +597,17 @@ export const Kredit: React.FC<{guide?: boolean}> = ({guide = false}) => (
 export const KreditCover: React.FC = () => (
   <AbsoluteFill>
     <Backdrop />
+    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+      <Defs />
+      <g opacity={0.22}><BankSvg x={190} y={330} w={700} /></g>
+      {[0, 1, 2].map((i) => <BundleSvg key={`g${i}`} x={90 + (i % 2) * 22} y={470 - i * 22} w={150} h={92} c="#27a06f" />)}
+      {[0, 1, 2, 3].map((i) => <BundleSvg key={`r${i}`} x={800 - (i % 2) * 22} y={900 - i * 22} w={150} h={92} c="#d4485a" />)}
+      <NoteSvg x={785} y={450} w={170} h={80} rot={8} />
+      <path d="M540 700 v110 m-30 -26 l30 28 l30 -28" fill="none" stroke={AMB} strokeWidth={12} strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)" />
+    </svg>
     <div style={{position: 'absolute', left: 80, width: 880, top: 330, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 40, letterSpacing: 5, color: '#8fb4c4'}}>KREDIT OLSANGIZ</div>
     <div style={{position: 'absolute', left: 80, width: 880, top: 400, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 200, color: '#fff', lineHeight: 1, textShadow: '0 10px 40px rgba(0,0,0,.7)'}}>100</div>
     <div style={{position: 'absolute', left: 80, width: 880, top: 610, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 54, color: CY}}>MLN SO'M</div>
-    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}><Defs /><path d="M540 700 v110 m-30 -26 l30 28 l30 -28" fill="none" stroke={AMB} strokeWidth={12} strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)" /></svg>
     <div style={{position: 'absolute', left: 80, width: 880, top: 850, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 220, color: RED, lineHeight: 1, textShadow: `0 0 50px ${RED}88, 0 10px 40px rgba(0,0,0,.7)`}}>173</div>
     <div style={{position: 'absolute', left: 80, width: 880, top: 1080, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 54, color: AMB}}>MLN QAYTARASIZ</div>
     <div style={{position: 'absolute', left: 80, width: 880, top: 1230, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 46, color: '#fff'}}>nega shuncha ko'p?</div>
