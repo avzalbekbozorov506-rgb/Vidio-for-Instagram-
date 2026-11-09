@@ -75,7 +75,7 @@
     },
     {
       "n": 11,
-      "vo": "Qur'on fan darsligi emas, lekin bu mos kelish o'ylantiradi.",
+      "vo": "Bu mos kelish o'ylantiradi.",
       "on_screen": "BU MOS KELISH O'YLANTIRADI"
     },
     {
@@ -85,8 +85,8 @@
     },
     {
       "n": 13,
-      "vo": "Yaqiningizga yuboring. Keyingi videoda suv va hayot.",
-      "on_screen": "YUBORING"
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
     }
   ],
   "status": "draft, ok on voice pending"
