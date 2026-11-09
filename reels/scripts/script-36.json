@@ -35,7 +35,7 @@
     },
     {
       "n": 4,
-      "vo": "Namoz, ro'za, zakot, nikoh va ajrim, savdo, sudxo'rlik taqiqi, vasiyat, shartnomalar, qotillik taqiqi.",
+      "vo": "Namoz, ro'za, zakot, nikoh, savdo, sudxo'rlik taqiqi, vasiyat, shartnomalar, qotillik taqiqi.",
       "on_screen": "QONUNLAR RO'YXATI"
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "n": 6,
-      "vo": "Olimlarning bir izohi shunday: qonunlardan oldin insondagi asosiy to'siq ko'rsatiladi.",
+      "vo": "Olimlarning bir izohi shunday. Qonunlardan oldin insondagi asosiy to'siq ko'rsatiladi.",
       "on_screen": "BIR IZOH"
     },
     {
