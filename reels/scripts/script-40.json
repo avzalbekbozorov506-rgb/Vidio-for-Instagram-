@@ -25,7 +25,7 @@
   },
   {
    "n": 2,
-   "vo": "Bu Baqara surasining ikki yuz sakson ikkinchi oyati. Eng uzun suraning eng uzun oyati.",
+   "vo": "U Baqara surasidagi ikki yuz sakson ikkinchi oyat. Eng uzun suraning eng uzun oyati.",
    "on_screen": "2:282"
   },
   {
@@ -40,7 +40,7 @@
   },
   {
    "n": 5,
-   "vo": "Kichik bo'lsa ham, katta bo'lsa ham, muddatigacha yozishingizni malol olmang.",
+   "vo": "Oyat davom etadi. Kichik bo'lsa ham, katta bo'lsa ham, muddatigacha yozishingizni malol olmang.",
    "on_screen": "KICHIK · KATTA"
   },
   {
@@ -50,7 +50,7 @@
   },
   {
    "n": 7,
-   "vo": "U qodir bo'lmasa, uning valiysi aytadi. Guvohlar kerak. Yozuvchiga ham, guvohga ham zarar yetkazilmaydi.",
+   "vo": "U qodir bo'lmasa, uning valiysi, ya'ni vakili aytadi. Guvohlar kerak. Yozuvchiga ham, guvohga ham zarar yetkazilmasin.",
    "on_screen": "4 QOIDA"
   },
   {
@@ -65,12 +65,12 @@
   },
   {
    "n": 10,
-   "vo": "Shundoq qilmog'ingiz Allohning huzurida adolatliroq, guvohlikka kuchliroq va shubhalanmasligingiz uchun yaqinroqdir.",
+   "vo": "Oyat aytadi, yozib qo'yishingiz Allohning huzurida adolatliroq, guvohlikka kuchliroq va shubhalanmasligingiz uchun yaqinroqdir.",
    "on_screen": "ADOLAT · ISBOT · SHUBHASIZ"
   },
   {
    "n": 11,
-   "vo": "Chunki yozilmagan qarz yaqin do'stlarni ham janjallashtirib qo'yishi mumkin.",
+   "vo": "Hayotda ham shunday. Yozilmagan qarz yaqin do'stlarni ham janjallashtirib qo'yishi mumkin.",
    "on_screen": "YOZILMAGAN QARZ"
   },
   {
