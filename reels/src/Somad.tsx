@@ -439,26 +439,22 @@ export const Somad: React.FC<{guide?: boolean}> = ({guide = false}) => {
 
 export const SomadCover: React.FC = () => {
   loadFonts();
-  const cx = 540, cy = 660, RED = '#ff3b3b';
-  const Guess: React.FC<{y: number; text: string; rot: number; x: number}> = ({y, text, rot, x}) => (
-    <div style={{position: 'absolute', left: x, top: y, transform: `rotate(${rot}deg)`, padding: '10px 30px', borderRadius: 18, background: 'rgba(255,255,255,.94)', fontFamily: SANS, fontWeight: 800, fontSize: 46, color: '#101418', whiteSpace: 'nowrap'}}>
-      {text}
-      <div style={{position: 'absolute', left: -12, right: -12, top: '50%', height: 9, background: RED, borderRadius: 5, transform: 'rotate(-4deg)'}} />
-    </div>
-  );
+  const cx = 540, cy = 640;
   return (
     <Stage dark>
       <Svg>
-        <defs><radialGradient id="cvO" r="0.5"><stop offset="0" stopColor="rgba(120,185,255,.85)" /><stop offset="0.5" stopColor="rgba(40,110,255,.35)" /><stop offset="1" stopColor="rgba(30,90,220,0)" /></radialGradient></defs>
-        <circle cx={cx} cy={cy} r={430} fill="url(#cvO)" />
-        {Array.from({length: 200}, (_, i) => { const a = (i / 200) * Math.PI * 2; return <circle key={i} cx={cx + Math.cos(a) * 330} cy={cy + Math.sin(a) * 330} r={2 + 2 * rnd(i)} fill="#9ccaff" opacity={0.3 + 0.5 * rnd(i + 3)} />; })}
+        <defs><radialGradient id="cvO" r="0.5"><stop offset="0" stopColor="rgba(140,195,255,.9)" /><stop offset="0.5" stopColor="rgba(40,110,255,.38)" /><stop offset="1" stopColor="rgba(30,90,220,0)" /></radialGradient></defs>
+        {Array.from({length: 360}, (_, i) => { const a = rnd(i + 11) * Math.PI * 2, R = 80 + rnd(i + 5) * 520; return <circle key={'st' + i} cx={cx + Math.cos(a) * R * 1.4} cy={cy + Math.sin(a) * R} r={1 + 2.4 * rnd(i + 8)} fill="#cfe3ff" opacity={0.2 + 0.55 * rnd(i + 1)} />; })}
+        <circle cx={cx} cy={cy} r={440} fill="url(#cvO)" />
+        {Array.from({length: 200}, (_, i) => { const a = (i / 200) * Math.PI * 2; return <circle key={i} cx={cx + Math.cos(a) * 340} cy={cy + Math.sin(a) * 340} r={2 + 2 * rnd(i)} fill="#9ccaff" opacity={0.3 + 0.5 * rnd(i + 3)} />; })}
       </Svg>
-      <ArWord y={cy - 130} size={300} dark />
-      <Guess x={80} y={290} text="MUSTAQIL" rot={-6} />
-      <Guess x={600} y={310} text="TAYANCH" rot={5} />
-      <Guess x={320} y={960} text="MUHTOJ EMAS" rot={-3} />
-      <div style={{position: 'absolute', left: 40, width: 1000, top: 1110, textAlign: 'center', whiteSpace: 'nowrap', fontFamily: SANS, fontWeight: 800, fontSize: 112, lineHeight: 1.02, color: '#ffffff', textShadow: '0 8px 0 rgba(0,0,0,.6)'}}>BU SO'Z NIMA<br /><span style={{color: RED, textShadow: '0 0 40px rgba(255,59,59,.55), 0 8px 0 rgba(0,0,0,.6)'}}>DEMAK?!</span></div>
-      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 38px', borderRadius: 44, background: BLUE2, color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 42}}>QUR'ONDA FAQAT 1 MARTA</div></div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 290, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 44px', borderRadius: 44, background: '#ffffff', color: '#06101f', fontFamily: SANS, fontWeight: 800, fontSize: 46, letterSpacing: 4}}>ALLOHNING ISMI</div></div>
+      <ArWord y={cy - 140} size={300} dark />
+      <div style={{position: 'absolute', left: 40, width: 1000, top: 1060, textAlign: 'center', whiteSpace: 'nowrap', fontFamily: SANS, fontWeight: 800, color: '#ffffff', textShadow: '0 8px 0 rgba(0,0,0,.6)'}}>
+        <div style={{fontSize: 190, lineHeight: 1, color: BLUE2, textShadow: '0 0 50px rgba(74,155,255,.8), 0 8px 0 rgba(0,0,0,.6)'}}>«SOMAD»</div>
+        <div style={{fontSize: 118, lineHeight: 1.1}}>NIMA DEMAK?</div>
+      </div>
+      <div style={{position: 'absolute', left: 0, width: W, top: 1450, display: 'flex', justifyContent: 'center'}}><div style={{padding: '12px 38px', borderRadius: 44, border: '4px solid #ffffff', background: 'rgba(0,0,0,.5)', color: '#ffffff', fontFamily: SANS, fontWeight: 800, fontSize: 40}}>IXLOS SURASI · <span style={{color: BLUE2}}>QUR'ONDA 1 MARTA</span></div></div>
     </Stage>
   );
 };
