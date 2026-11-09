@@ -1,0 +1,71 @@
+{
+ "id": "script-38",
+ "title": "Uhud jangi: nega g'alaba yo'qoldi",
+ "lang": "uz",
+ "voice": "voice_ba303813-3023-48aa-a454-4b5705669d35",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "Islom tarixi",
+ "series": "Islom tarixi",
+ "status": "draft, ok kutilmoqda",
+ "hook": "Uhud jangida musulmonlar g'alaba qilib turishgan edi. Nega bir zumda hammasi o'zgardi?",
+ "cover_text": "UHUD: G'ALABA NEGA YO'QOLDI?",
+ "sources": [
+  "Sahih al-Bukhari 4043 (o'qchilar, buyruq, o'lja, yetmish nafar)",
+  "Sahih al-Bukhari 4067 (Abdulloh ibn Jubayr o'qchilar boshlig'i, 3:153)",
+  "Qur'on 3:152-153 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)"
+ ],
+ "rules": "Payg'ambar va sahobalar tasvirsiz; sonlar faqat Buxoriydagi 70; o'qchilar soni va Xolid ibn Validning aylanib o'tishi tekshirilmaganligi uchun aytilmaydi",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Uhud jangida musulmonlar g'alaba qilib turishgan edi. Nega hammasi bir zumda o'zgardi? Javob oxirida, obuna bo'ling.",
+   "on_screen": "UHUD: NEGA?"
+  },
+  {
+   "n": 2,
+   "vo": "Payg'ambar alayhissalom bir joyga o'qchilarni qo'ydilar. Boshliq Abdulloh ibn Jubayr edi. Buyruq bitta, jilmanglar.",
+   "on_screen": "O'QCHILAR"
+  },
+  {
+   "n": 3,
+   "vo": "G'alaba qilayotganimizni ko'rsangiz ham jilmang. Mag'lub bo'layotganimizni ko'rsangiz ham, yordamga kelmang.",
+   "on_screen": "JILMANGLAR"
+  },
+  {
+   "n": 4,
+   "vo": "Jang boshlandi. Dushman chekindi. Ovozlar eshitildi, o'lja, o'lja! Abdulloh va'dani eslatdi, lekin hamrohlari rozi bo'lmadi.",
+   "on_screen": "O'LJA!"
+  },
+  {
+   "n": 5,
+   "vo": "Joy bo'shab qoldi. Jang o'zgardi. Yetmish musulmon shahid bo'ldi.",
+   "on_screen": "70 SHAHID"
+  },
+  {
+   "n": 6,
+   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi. Sizlar ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilgunigizcha.",
+   "on_screen": "OLI IMRON 3:152"
+  },
+  {
+   "n": 7,
+   "vo": "Va oyat shunday tugaydi. Batahqiq, sizni afv etdi.",
+   "on_screen": "AFV ETDI"
+  },
+  {
+   "n": 8,
+   "vo": "Javob oyatning o'zida. Bir izohga ko'ra, g'alaba dushman kuchi bilan emas, buyruqdan chetga chiqish bilan yo'qoldi.",
+   "on_screen": "JAVOB"
+  },
+  {
+   "n": 9,
+   "vo": "Eng xavfli payt ba'zan qiyinchilik emas, g'alaba yaqin ko'ringan paytdir.",
+   "on_screen": "XULOSA"
+  },
+  {
+   "n": 10,
+   "vo": "Sizningcha, Uhud bizga nimani o'rgatadi? Izohda yozing. Videoni yaqiningizga yuboring.",
+   "on_screen": "SIZNINGCHA?"
+  }
+ ]
+}
