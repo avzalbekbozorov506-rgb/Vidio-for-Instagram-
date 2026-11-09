@@ -229,7 +229,9 @@ const Graph: React.FC<{t: number; total: number; series: Series[]; title?: strin
 );
 
 // ---------- labels & text ----------
+const SHOW_LABELS = false; // user: no separate caption above the word subtitles
 const Label: React.FC<{t: number; items: [number, string, string?][]}> = ({t, items}) => {
+  if (!SHOW_LABELS) return null;
   let cur: [number, string, string?] | null = null;
   for (const it of items) if (t >= it[0]) cur = it;
   if (!cur) return null;
