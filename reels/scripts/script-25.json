@@ -6,26 +6,26 @@
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "explainer-build-it",
- "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Keling, kreditni o'zimiz qurib ko'ramiz.",
+ "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega?",
  "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
  "facts": [
   "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
  ],
- "caption": "",
+ "caption": "Yuz ming dollar kredit olsangiz, aslida qancha qaytarasiz? Besh yildan keyin ham qarzingiz katta bo'lib qoladi. Sababi: foiz avval to'lanadi, qarz keyin kamayadi. Bu oddiy hisob-kitob misoli (yillik o'n ikki foiz, o'n yil, teng oylik to'lov). Haqiqiy bank shartlari boshqacha bo'lishi mumkin. Bu moliyaviy maslahat emas.",
  "cards": [
   {
    "n": 1,
-   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Keling, kreditni o'zimiz qurib ko'ramiz.",
+   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega?",
    "on_screen": "5 YIL TO'LADINGIZ, QARZ HALI KATTA"
   },
   {
    "n": 2,
-   "vo": "Aytaylik, siz bankdan yuz ming dollar oldingiz. Yillik foiz o'n ikki, muddat o'n yil. Bu faqat misol.",
+   "vo": "Keling, kreditni o'zimiz qurib ko'ramiz. Aytaylik, yuz ming dollar, yillik o'n ikki foiz, o'n yil. Bu faqat misol.",
    "on_screen": "100 000 $ · 12 % · 10 YIL"
   },
   {
    "n": 3,
-   "vo": "Eng oddiy yo'l: yuz ming dollarni yuz yigirma oyga bo'lamiz. Oyiga sakkiz yuz o'ttiz uch dollar.",
+   "vo": "Eng oddiy yo'l bu yuz ming dollarni yuz yigirma oyga bo'lish. Oyiga sakkiz yuz o'ttiz uch dollar.",
    "on_screen": "100 000 ÷ 120 = 833 $"
   },
   {
@@ -75,7 +75,7 @@
   },
   {
    "n": 13,
-   "vo": "Kreditdan oldin so'rang: jami qancha qaytaraman? Buni qarz olmoqchi yaqiningizga yuboring.",
+   "vo": "Kreditdan oldin so'rang, jami qancha qaytaraman? Buni qarz olmoqchi yaqiningizga yuboring.",
    "on_screen": "JAMI QANCHA QAYTARAMAN?"
   }
  ],
