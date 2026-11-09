@@ -408,11 +408,18 @@ export const Bukmeker: React.FC = () => (
 export const BukmekerCover: React.FC = () => (
   <AbsoluteFill>
     <Paper />
-    <Coupon at={-1} scale={0.95} y={420} x={70} circleAt={-1} />
-    <div style={{position: 'absolute', left: 60, top: 1150, width: 960}}>
-      <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 96, color: BLUE, lineHeight: 1.05}}>BUKMEKERNI</div>
-      <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 96, color: RED, lineHeight: 1.05}}>YUTIB BO'LMAYDI</div>
-      <div style={{fontFamily: HAND, fontStyle: 'italic', fontWeight: 600, fontSize: 44, color: GRN, marginTop: 20}}>gap koeffitsientdagi bir raqamda</div>
+    <div style={{position: 'absolute', left: 0, width: W, top: 230, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 40, letterSpacing: 6, color: '#5a68b0'}}>ISTALGAN KOEFFITSIENTDA</div>
+    <div style={{position: 'absolute', left: 0, width: W, top: 290, textAlign: 'center', fontFamily: MONT, fontWeight: 800, fontSize: 400, color: BLUE, letterSpacing: -10, lineHeight: 1}}>105<span style={{fontSize: 230}}> %</span></div>
+    <svg width={W} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
+      <ellipse cx={540} cy={510} rx={485} ry={235} fill="none" stroke={RED} strokeWidth={14} transform="rotate(-2 540 510)" />
+      <path d="M180 770 Q540 810 900 760" fill="none" stroke={RED} strokeWidth={8} strokeLinecap="round" />
+    </svg>
+    <div style={{position: 'absolute', left: 0, width: W, top: 800, textAlign: 'center', fontFamily: HAND, fontStyle: 'italic', fontWeight: 600, fontSize: 60, color: GRN, transform: 'rotate(-2deg)'}}>100 bo'lishi kerak edi...</div>
+    <Coupon at={-1} scale={0.62} x={95} y={940} circleAt={-1} />
+    <div style={{position: 'absolute', left: 640, top: 1010, transform: 'rotate(8deg)', border: `8px solid ${RED}`, borderRadius: 18, padding: '10px 26px', fontFamily: MONT, fontWeight: 800, fontSize: 64, color: RED, background: 'rgba(231,229,224,.9)'}}>+5,3 %</div>
+    <div style={{position: 'absolute', left: 60, top: 1400, width: 960, background: BLUE, borderRadius: 30, padding: '30px 20px', textAlign: 'center', boxShadow: '0 16px 36px rgba(20,30,90,.4)'}}>
+      <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 86, color: '#fff', lineHeight: 1.05}}>BUKMEKERNI</div>
+      <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 86, color: '#ffd24d', lineHeight: 1.05}}>YUTIB BO'LMAYDI</div>
     </div>
   </AbsoluteFill>
 );
