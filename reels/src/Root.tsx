@@ -15,12 +15,15 @@ import {Siphon, SiphonCover, SIPHON_FRAMES} from './Siphon';
 import {Electro, ElectroCover, ELECTRO_FRAMES} from './Electro';
 import {Speedcam, SpeedcamCover, SPEEDCAM_FRAMES} from './Speedcam';
 import {Bukmeker, BukmekerCover, BUKMEKER_FRAMES} from './Bukmeker';
+import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
 
 // Instagram Reels: 1080x1920, 30fps
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="Hammer" component={Hammer} durationInFrames={HAMMER_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="HammerCover" component={HammerCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Bukmeker" component={Bukmeker} durationInFrames={BUKMEKER_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="BukmekerCover" component={BukmekerCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Speedcam" component={Speedcam} durationInFrames={SPEEDCAM_FRAMES} fps={30} width={1080} height={1920} />
