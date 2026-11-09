@@ -1,0 +1,103 @@
+{
+  "id": "script-34",
+  "title": "Tahorat qanday olinadi (ханафитский мазхаб, источник О'MI)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fiqh-howto",
+  "series": "Tahorat",
+  "status": "draft: ТРЕБУЕТ ПРОВЕРКИ ИМАМОМ до озвучки и публикации",
+  "hook": "Tahoratni to'g'ri olyapsizmi? Xatolar oxirida.",
+  "cover_text": "TAHORAT QANDAY OLINADI",
+  "rules": "Мазхаб ханафитский. Источники: O'zbekiston musulmonlari idorasi: «Nurul izoh: Tahorat» (muslim.uz/uz/e/post/23784), «Tahoratning farzlari» (muslim.uz/uz/e/post/41177), «Tahorat qilish tartibi» (muslim.uz/uz/e/post/23974). Перевод аята 5:6 из статьи 41177 (не Содик). Без лиц, 2D: руки, вода, стрелки. Правило про ро'задор/больных НЕ включено (в присланном видео, возможно, обрезано: источник говорит, что невыполняющие рўза делают тщательно, фастующие без усердия).",
+  "ayat": {
+    "5:6": {
+      "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا قُمْتُمْ إِلَى ٱلصَّلَوٰةِ فَٱغْسِلُوا۟ وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى ٱلْمَرَافِقِ وَٱمْسَحُوا۟ بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى ٱلْكَعْبَيْنِ",
+      "uz": "Ey imon keltirganlar, qachon namozga tursangiz yuzlaringizni va qo'llaringizni tirsaklarigacha yuvingiz, boshlaringizga mas'h tortingiz va oyoqlaringizni ham to'piqlarigacha (yuvingiz)!"
+    }
+  },
+  "facts": [
+    "Фарзов четыре (ханафиты): лицо, руки с локтями, четверть головы, ноги с щиколотками (muslim.uz 23784, 41177).",
+    "Сунны (18): начало с мытья рук, бисмилля, мисвак, рот 3 раза, нос 3 раза, каждый орган по 3 раза, мас'х всей головы один раз, уши, порядок, правое раньше левого, мас'х шеи (не горла) (23784).",
+    "Условия правильности: игольное острие сухого места не допускается; лак/краска, не пропускающие воду, снимаются (23784).",
+    "Макрухи: расточительство воды, слишком мало воды, удар водой по лицу, мирские разговоры, просьба о помощи без причины (23784)."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Tahoratni to'g'ri olyapsizmi? Xatolar oxirida.",
+      "on_screen": "TAHORAT: TO'G'RIMI?"
+    },
+    {
+      "n": 2,
+      "vo": "Moida surasi, oltinchi oyat. Ma'nosi shunday.",
+      "on_screen": "MOIDA SURASI · 5:6"
+    },
+    {
+      "n": 3,
+      "vo": "Namozga tursangiz, yuzlaringizni va qo'llaringizni tirsaklarigacha yuvinglar.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 4,
+      "vo": "Boshlaringizga mas'h tortinglar va oyoqlaringizni ham to'piqlarigacha yuvinglar.",
+      "on_screen": "OYAT · TARJIMA"
+    },
+    {
+      "n": 5,
+      "vo": "Tahoratni niyat qilib, Bismillah deb boshlang. Qo'llarni bilagigacha uch marta yuving.",
+      "on_screen": "1 · QO'LLAR"
+    },
+    {
+      "n": 6,
+      "vo": "Og'izni o'ng qo'l bilan uch marta chaying. Burunga suv tortib, chap qo'l bilan qoqing.",
+      "on_screen": "2 · OG'IZ VA BURUN"
+    },
+    {
+      "n": 7,
+      "vo": "Yuzni uch marta yuving: peshonadagi soch chiqqan joydan iyak ostigacha, ikki quloq orasigacha.",
+      "on_screen": "3 · YUZ"
+    },
+    {
+      "n": 8,
+      "vo": "Qo'llarni tirsaklari bilan qo'shib yuving. Avval o'ng, keyin chap.",
+      "on_screen": "4 · QO'LLAR"
+    },
+    {
+      "n": 9,
+      "vo": "Boshga mas'h torting. Farzi boshning to'rtdan biri, sunnati hammasi. Quloq va bo'yinga ham.",
+      "on_screen": "5 · MAS'H"
+    },
+    {
+      "n": 10,
+      "vo": "Oyoqlarni to'piqlari bilan qo'shib yuving. Avval o'ng, keyin chap.",
+      "on_screen": "6 · OYOQLAR"
+    },
+    {
+      "n": 11,
+      "vo": "Endi xatolar. Birinchisi: suvni isrof qilish va yuzga urish.",
+      "on_screen": "1-XATO"
+    },
+    {
+      "n": 12,
+      "vo": "Ikkinchisi: tirnoqdagi lak yoki bo'yoq. Suv teriga yetmasa, tahorat durust bo'lmaydi.",
+      "on_screen": "2-XATO"
+    },
+    {
+      "n": 13,
+      "vo": "Uchinchisi: igna uchicha joy quruq qolsa ham, tahorat durust bo'lmaydi.",
+      "on_screen": "3-XATO"
+    },
+    {
+      "n": 14,
+      "vo": "Farzi atigi to'rtta, qolganlari sunnat. Shoshmasdan, to'liq yuving.",
+      "on_screen": "TO'LIQ YUVING"
+    },
+    {
+      "n": 15,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}
