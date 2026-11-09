@@ -128,7 +128,6 @@ const S2: React.FC<{t: number}> = ({t}) => {
           <Txt x={CX} y={890} text="YULDUZ" size={84} c={GOLD} k={ap(t, 2, 3, 0.5)} ls={8} />
         </g>
       </g>
-      {shift > 0.01 && <Txt x={CX} y={800} text="NAJM · 53" size={50} c={PAPER} k={shift} ls={6} />}
       {shift > 0.01 && <g opacity={shift}>
         <Ar x={CX} y={1010} size={116} text="وَٱلنَّجْمِ إِذَا هَوَىٰ" k={ease(sm(shift, 0.2, 1))} />
         <Pill x={CX} y={1200} w={380} text="53 : 1" k={ease(sm(shift, 0.5, 1))} size={48} />
@@ -145,6 +144,7 @@ const S3: React.FC<{t: number}> = ({t}) => {
   const hl = ap(t, 3, 13, 0.5);
   return (
     <g>
+      <g opacity={0.5 * (1 - v)}><Star x={CX} y={560} s={0.7} spike={0.8} spin={t * 3} /></g>
       {hook > 0.01 && <g opacity={hook}><Txt x={CX} y={720} text="ASOSIY GAP" size={120} c={GOLD} k={hook} ls={4} /><Txt x={CX} y={830} text="SHU YERDA" size={64} c={PAPER} k={hook} ls={6} /></g>}
       <g opacity={v}>
         <Ar x={CX} y={620} size={104} k={1} text={<>وَأَنَّهُۥ هُوَ رَبُّ <span style={{color: hl > 0.5 ? GOLD : '#fff3d6', textShadow: hl > 0.5 ? `0 0 40px ${GOLD}, 0 0 90px ${GOLD}88` : undefined}}>ٱلشِّعْرَىٰ</span></>} />
@@ -212,6 +212,7 @@ const S6: React.FC<{t: number}> = ({t}) => {
   const sx = 540 + (190 - 540) * slide;
   return (
     <g>
+      {ap(t, 6, 1, 0.4) * (1 - ap(t, 6, 4, 0.4)) > 0.01 && <g opacity={ap(t, 6, 1, 0.4) * (1 - ap(t, 6, 4, 0.4))}><Txt x={CX} y={760} text="FAN" size={190} c={ICE} ls={14} /><Txt x={CX} y={880} text="NIMA DEYDI?" size={78} c="#fff" ls={4} /></g>}
       <Txt x={CX} y={520} text={`${years}`} size={190} c={GOLD} k={ap(t, 6, 15, 0.5)} />
       <Txt x={CX} y={600} text="YIL" size={60} c={PAPER} k={ap(t, 6, 15, 0.5)} ls={10} />
       <Star x={sx} y={860} s={(1.05 - 0.43 * slide) * s} k={s} spike={s} spin={t * 3} />
@@ -227,12 +228,26 @@ const S6: React.FC<{t: number}> = ({t}) => {
 
 // card 7: the numbers trap
 const S7: React.FC<{t: number}> = ({t}) => {
-  const trap = ap(t, 7, 3, 0.4) * (1 - ap(t, 7, 6, 0.4));
+  const trap = ap(t, 7, 0, 0.4) * (1 - ap(t, 7, 6, 0.4));
   const nums = [[14, '869', "so'zlar orasida"], [16, '875', '+ bitta so\'z'], [19, '880', '+ ikkala so\'z']] as const;
   const fade = 1 - ap(t, 7, 21, 0.6);
   const pair = ap(t, 7, 23, 0.5);
   return (
     <g>
+      {(() => {
+        const bk = ap(t, 7, 6, 0.4) * (1 - ap(t, 7, 14, 0.4));
+        if (bk <= 0.01) return null;
+        const full = "Qur'on + harflar = sir?";
+        const n = Math.round(full.length * sm(t, G(7, 7), G(7, 13)));
+        return (
+          <g opacity={bk} transform={`translate(0 ${(1 - bk) * 16})`}>
+            <rect x={100} y={650} width={880} height={120} rx={60} fill="rgba(235,240,255,.95)" />
+            <circle cx={175} cy={708} r={20} fill="none" stroke="#33405f" strokeWidth={6} /><line x1={190} y1={724} x2={210} y2={744} stroke="#33405f" strokeWidth={6} strokeLinecap="round" />
+            <text x={250} y={724} fontFamily={MONT} fontWeight={600} fontSize={44} fill="#101828">{full.slice(0, n)}{Math.floor(t * 2.5) % 2 === 0 ? '|' : ''}</text>
+            <Txt x={CX} y={900} text="INTERNETDA" size={52} c={PAPER} ls={6} />
+          </g>
+        );
+      })()}
       {trap > 0.01 && <g opacity={trap}><Txt x={CX} y={760} text="TUZOQ!" size={170} c={RUST} k={trap} ls={4} /></g>}
       <g opacity={fade}>
         {nums.map(([wi, n, lab], i) => {
@@ -265,8 +280,8 @@ const S8: React.FC<{t: number}> = ({t}) => {
     <g>
       <g opacity={lord}><Beam x={CX} y0={300} y1={760} w0={170} w1={420} k={0.85} /><Ar x={CX} y={360} size={140} text="رَبّ" k={lord} c={GOLD} w={500} /></g>
       <Star x={CX} y={760 + 160 * up} s={1.0 - 0.45 * up} k={ap(t, 8, 2, 0.8) * (1 - 0.3 * up)} spike={1 - 0.5 * up} spin={t * 3} />
-      <Txt x={CX} y={1150} text="SIRIUS" size={110} c="#fff" k={ap(t, 8, 6, 0.5) * (1 - 0.5 * up)} ls={10} />
-      <Ar x={CX} y={1010} size={100} text="ٱلشِّعْرَىٰ" k={ap(t, 8, 6, 0.5) * (1 - up)} c={GOLD} />
+      <Txt x={CX} y={1210} text="SIRIUS" size={110} c="#fff" k={ap(t, 8, 6, 0.5) * (1 - 0.5 * up)} ls={10} />
+      <Ar x={CX} y={1040} size={100} text="ٱلشِّعْرَىٰ" k={ap(t, 8, 6, 0.5) * (1 - up)} c={GOLD} />
       {up > 0.01 && <g stroke={GOLD} strokeWidth={9} strokeLinecap="round" fill="none" filter="url(#glow)" opacity={ap(t, 8, 15, 0.5) * 0.9}><path d={`M${CX} 1050 V860`} /><path d={`M${CX - 30} 890 L${CX} 856 L${CX + 30} 890`} /></g>}
     </g>
   );
