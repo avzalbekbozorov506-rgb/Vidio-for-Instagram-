@@ -6,7 +6,7 @@
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "explainer-build-it",
- "hook": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Javob oxirida.",
+ "hook": "Besh yil to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
  "cover_text": "100 000 $ KREDIT: 172 000 $ QAYTARASIZ",
  "facts": [
   "Аннуитет: P=100000, r=1%/мес, n=120: платёж 1434,71; сумма 172165; переплата 72165; месяц 1: 1000 процентов + 434,71 долга; после 60 платежей: выплачено 86083, остаток долга 64497, погашено долга 35503, процентов 50580 (проверено кодом)."
@@ -15,8 +15,8 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Yuz ming dollar qarz olib, besh yil to'lasangiz ham, hali oltmish besh mingga yaqin qarzdor bo'lasiz. Nega? Javob oxirida.",
-   "on_screen": "5 YIL TO'LADINGIZ, QARZ HALI KATTA"
+   "vo": "Besh yil to'ladingiz. Qarz qancha? Javob oxirida, siz esa obuna bo'ling.",
+   "on_screen": "5 YIL TO'LADINGIZ. QARZ QANCHA?"
   },
   {
    "n": 2,
@@ -75,8 +75,8 @@
   },
   {
    "n": 13,
-   "vo": "Kreditdan oldin so'rang, jami qancha qaytaraman? Buni yaqiningizga yuboring va obuna bo'ling.",
-   "on_screen": "OBUNA BO'LING"
+   "vo": "Kreditdan oldin so'rang, jami qancha qaytaraman? Buni qarz olmoqchi yaqiningizga yuboring.",
+   "on_screen": "YUBORING"
   }
  ],
  "status": "draft, ok on voice pending"
