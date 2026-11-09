@@ -1,0 +1,82 @@
+{
+  "id": "script-36",
+  "title": "Nega eng uzun sura Sigir deb ataladi? (Baqara) — аналог формата @religion_times, СВОЙ текст и графика",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "fact-quran",
+  "series": "Qur'on",
+  "status": "draft: нужна проверка носителем и религиозная проверка перед озвучкой",
+  "hook": "Qur'onning eng uzun surasi nega Sigir deb ataladi? Javob oxirida.",
+  "cover_text": "NEGA «SIGIR»?",
+  "reference": "instagram.com/reel/ (@religion_times, 79 с, ru): вопрос о названии суры, сетка точек 286 аятов, иконки законов, история о корове. Берём ТОЛЬКО формат (структура, минимализм, чёрно-белая смена, сетка точек); текст, озвучка, иконки, название канала, формулировки и цвет акцента СВОИ.",
+  "rules": "Не копировать текст, голос, иконки, лого и порядок фраз оригинала. Трактовку причины названия подавать как ОДНО из толкований («Bir izoh»), не как факт. Пророка не изображать (силуэты людей без лиц, имя Muso только в озвучке). Проверено по alquran.cloud: 286 аятов, самая длинная сура; история 2:67-71 (в традиции 67-73); законы 2:43, 2:178, 2:180, 2:183, 2:226, 2:275, 2:282.",
+  "facts": [
+    "Сура 2: 286 аятов, самая длинная (alquran.cloud).",
+    "История о корове 2:67-71 (Содик); в аяте 2:71: «Сал бўлмаса, қилмасдилар».",
+    "Причина названия: толкование, источник толкования НЕ проверен по тафсирам, поэтому подаём как «Bir izoh»."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Qur'onning eng uzun surasi nega Sigir deb ataladi? Javob oxirida.",
+      "on_screen": "NEGA «SIGIR»?"
+    },
+    {
+      "n": 2,
+      "vo": "Baqara surasida ikki yuz sakson oltita oyat bor. Sigir haqida atigi yettitasi.",
+      "on_screen": "286 OYAT · 7 TASI SIGIR"
+    },
+    {
+      "n": 3,
+      "vo": "Qolganlarida namoz, ro'za, zakot, qarz va sudxo'rlik taqiqi kabi qonunlar. Lekin sura Sigir deb nomlangan.",
+      "on_screen": "QONUNLAR VA SIGIR"
+    },
+    {
+      "n": 4,
+      "vo": "Keling, o'sha hikoyani eslaylik. Muso o'z qavmiga, sigir so'ying, dedi.",
+      "on_screen": "SIGIR SO'YING"
+    },
+    {
+      "n": 5,
+      "vo": "Ular bajarmadi, savol bera boshladi. Sigir qanday? Rangi qanday? Qaysi biri?",
+      "on_screen": "SAVOL, SAVOL, SAVOL"
+    },
+    {
+      "n": 6,
+      "vo": "Har javobdan keyin shart ko'paydi. Oxirida juda aniq sigir kerak bo'lib qoldi.",
+      "on_screen": "SHART KO'PAYDI"
+    },
+    {
+      "n": 7,
+      "vo": "Oyat voqeani shunday tugatadi: sal bo'lmasa, qilmasdilar.",
+      "on_screen": "SAL BO'LMASA, QILMASDILAR"
+    },
+    {
+      "n": 8,
+      "vo": "Nega sura shu nom bilan atalgan? Olimlar turlicha izohlaydi.",
+      "on_screen": "OLIMLAR TURLICHA"
+    },
+    {
+      "n": 9,
+      "vo": "Bir izoh shunday: qonunni bilishning o'zi kam, buyruq kelganda bahona izlamaslik kerak.",
+      "on_screen": "BIR IZOH"
+    },
+    {
+      "n": 10,
+      "vo": "Shu izohga ko'ra, sigir bu suraning asosiy mavzusi emas, balki asosiy saboqning belgisi.",
+      "on_screen": "SIGIR = BELGI"
+    },
+    {
+      "n": 11,
+      "vo": "Demak, javob shu. Sigir nomi qonunlardan oldin bitta savol beradi. Siz buyruq kelganda bahona izlaysizmi?",
+      "on_screen": "SIZ-CHI?"
+    },
+    {
+      "n": 12,
+      "vo": "Yaqiningizga yuboring va obuna bo'ling.",
+      "on_screen": "OBUNA BO'LING"
+    }
+  ]
+}
