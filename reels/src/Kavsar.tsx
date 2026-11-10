@@ -103,12 +103,12 @@ const Badge: React.FC<{y: number; label: string; k: number}> = ({y, label, k}) =
 // ---------- scenes ----------
 const S1: React.FC = () => {
   const t = useT();
-  const three = ap(t, 1, 5, 0.4), q = ap(t, 1, 7, 0.4);
+  const three = sm(t, 0.1, 0.7), oy = ap(t, 1, 6, 0.3), q = ap(t, 1, 7, 0.4);
   return (
     <Frame n={1} top={<>Qur'onning <G>eng qisqa</G> surasi</>} topK={ap(t, 1, 0, 0.3)} glow={0.2 + 0.3 * three}>
       <KeyFlash at={Math.round(EV(1, 5) * FPS)} color="242,184,75" strength={0.18} />
       <Big top={470} size={430} color={GOLD} k={three} glow>3</Big>
-      <Big top={900} size={110} k={three} ls={10}>OYAT</Big>
+      <Big top={900} size={110} k={oy} ls={10}>OYAT</Big>
       <Big top={1060} size={78} k={q} color={CREAM}>NEGA <G>MUHIM</G>?</Big>
     </Frame>
   );
@@ -131,14 +131,14 @@ const S2: React.FC = () => {
 const S3: React.FC = () => {
   const t = useT();
   const drop = sm(t, EV(3, 9) - 0.1, EV(3, 9) + 0.35), land = drop >= 1;
-  const y = 520 + 480 * ease(Math.min(1, drop)) - (land ? 14 * Math.exp(-(t - EV(3, 9) - 0.35) * 9) * Math.sin((t - EV(3, 9)) * 38) : 0);
+  const y = 520 + 480 * ease(Math.min(1, drop)) + (drop < 1 ? 14 * Math.sin(t * 3) : 0) - (land ? 14 * Math.exp(-(t - EV(3, 9) - 0.35) * 9) * Math.sin((t - EV(3, 9)) * 38) : 0);
   const pain = ap(t, 3, 5, 0.4);
   return (
-    <Frame n={3} top={<>Kichkina sura, <G>katta og'riq</G></>} topK={ap(t, 3, 2, 0.3)} glow={0.2}>
+    <Frame n={3} top={<>Kichkina sura, <G>katta og'riq</G></>} topK={sm(t, 0.05, 0.4)} glow={0.2}>
       <KeyFlash at={Math.round((EV(3, 9) + 0.35) * FPS)} color="224,70,59" strength={0.12} />
       <Svg>
         <ellipse cx={540} cy={1075} rx={260 * (0.4 + 0.6 * drop)} ry={26} fill="rgba(0,0,0,.55)" />
-        <g transform={`translate(0 ${y})`} opacity={sm(t, EV(3, 7), EV(3, 7) + 0.3)}>
+        <g transform={`translate(0 ${y})`} opacity={sm(t, 0.2, 0.7)}>
           <rect x={340} y={0} width={400} height={170} rx={30} fill="#10223f" stroke={GOLD} strokeWidth={6} />
           <text x={540} y={118} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={88} fill={CREAM}>SO'Z</text>
         </g>
@@ -172,7 +172,8 @@ const S5: React.FC = () => {
   const t = useT();
   const word = ap(t, 5, 3, 0.4), cut = sm(t, EV(5, 7) - 0.1, EV(5, 7) + 0.4), mean = ap(t, 5, 5, 0.4);
   return (
-    <Frame n={5} top={<>Dushmanlar aytdi</>} topK={ap(t, 5, 1, 0.3)}>
+    <Frame n={5} top={<>Dushmanlar aytdi</>} topK={sm(t, 0.05, 0.4)}>
+      <Svg>{[260, 540, 820].map((cx, i) => <g key={i} opacity={sm(t, 0.3 + i * 0.25, 0.7 + i * 0.25) * (1 - 0.6 * word)}><rect x={cx - 90} y={470} width={180} height={110} rx={40} fill="none" stroke={RED} strokeWidth={5} /><path d={`M${cx - 20} 580 l-14 34 l46 -34z`} fill="none" stroke={RED} strokeWidth={5} /></g>)}</Svg>
       <Arabic top={420} size={240} k={word} color={CREAM}>أبتر</Arabic>
       <Big top={760} size={96} k={word} color={RED} ls={6}>ABTAR</Big>
       <Svg>
@@ -188,7 +189,7 @@ const S5: React.FC = () => {
 };
 const S6: React.FC = () => {
   const t = useT();
-  const l = ap(t, 6, 0, 0.4), r = ap(t, 6, 2, 0.4), arrow = sm(t, EV(6, 6) - 0.2, EV(6, 6) + 0.5);
+  const l = sm(t, 0.1, 0.6), r = sm(t, 0.6, 1.2), arrow = sm(t, EV(6, 6) - 0.2, EV(6, 6) + 0.5);
   return (
     <Frame n={6} top={<>Mufassirlar <G>izohi</G></>} topK={l}>
       <Svg>
@@ -203,7 +204,7 @@ const S6: React.FC = () => {
 };
 const AyahCard: React.FC<{n: number; num: number; text: string; startWord: number; hi?: string}> = ({n, num, text, startWord}) => {
   const t = useT();
-  const k = ap(t, n, startWord, 0.6), badge = ap(t, n, 0, 0.3);
+  const k = Math.max(sm(t, 0.5, 1.3) * 0.3, ap(t, n, startWord, 0.6)), badge = sm(t, 0.05, 0.4);
   return (
     <Frame n={n} glow={0.4}>
       <KeyFlash at={Math.round(EV(n, startWord) * FPS)} color="242,184,75" strength={0.12} />
@@ -216,7 +217,7 @@ const AyahCard: React.FC<{n: number; num: number; text: string; startWord: numbe
 const S7: React.FC = () => <AyahCard n={7} num={1} text="إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ" startWord={3} />;
 const S8: React.FC = () => {
   const t = useT();
-  const flow = sm(t, EV(8, 2), EV(8, 3) + 1.5), river = ap(t, 8, 7, 0.5);
+  const flow = sm(t, 0.2, 1.4), river = ap(t, 8, 7, 0.5);
   const dots = Array.from({length: 46}, (_, i) => {
     const p = ((i / 46 + t * 0.12) % 1), x = 120 + p * 840, y = 820 + 60 * Math.sin(p * 9 + t * 2);
     return <circle key={i} cx={x} cy={y} r={7 + (i % 4) * 3} fill={GOLD} opacity={flow * (0.35 + 0.5 * ((i % 5) / 5))} />;
@@ -234,10 +235,10 @@ const S8: React.FC = () => {
 };
 const S9: React.FC = () => {
   const t = useT();
-  const ay = ap(t, 9, 3, 0.6), dome = ap(t, 9, 4, 0.5), shukr = ap(t, 9, 14, 0.5), nol = ap(t, 9, 12, 0.3), cross = sm(t, EV(9, 13) - 0.1, EV(9, 13) + 0.4);
+  const ay = Math.max(sm(t, 0.5, 1.3) * 0.3, ap(t, 9, 3, 0.6)), dome = ap(t, 9, 4, 0.5), shukr = ap(t, 9, 14, 0.5), nol = ap(t, 9, 12, 0.3), cross = sm(t, EV(9, 13) - 0.1, EV(9, 13) + 0.4);
   return (
     <Frame n={9} glow={0.35}>
-      <Badge y={290} label="2-OYAT" k={ap(t, 9, 0, 0.3)} />
+      <Badge y={290} label="2-OYAT" k={sm(t, 0.05, 0.4)} />
       <Arabic top={420} size={130} k={ay}>فَصَلِّ لِرَبِّكَ وَٱنْحَرْ</Arabic>
       <Svg>
         <g opacity={dome} transform="translate(340 1040)">
@@ -256,8 +257,8 @@ const S10: React.FC = () => <AyahCard n={10} num={3} text="إِنَّ شَانِ
 const S11: React.FC = () => {
   const t = useT();
   const fly = sm(t, EV(11, 3), EV(11, 7) + 0.2), back = sm(t, EV(11, 8) - 0.2, EV(11, 9) + 0.3);
-  const x = 200 + 680 * ease(fly) - 680 * ease(back), y = 760 - 160 * Math.sin(fly * Math.PI) * (1 - back);
-  const word = ap(t, 11, 3, 0.3);
+  const x = 200 + 680 * ease(fly) - 680 * ease(back), y = 650 - 120 * Math.sin(fly * Math.PI) * (1 - back);
+  const word = sm(t, EV(11, 3) - 0.1, EV(11, 3) + 0.3);
   return (
     <Frame n={11} top={<>Bir izohga ko'ra</>} topK={ap(t, 11, 0, 0.3)}>
       <KeyFlash at={Math.round((EV(11, 9) + 0.3) * FPS)} color="224,70,59" strength={0.14} />
@@ -276,13 +277,13 @@ const S12: React.FC = () => {
   const t = useT();
   const rows: [string, number, number][] = [["NE'MAT", 8, 1], ['SHUKR', 10, 2], ['OQIBAT', 12, 3]];
   return (
-    <Frame n={12} top={<><G>3</G> oyat, <G>3</G> gap</>} topK={ap(t, 12, 3, 0.3)}>
+    <Frame n={12} top={<><G>3</G> oyat, <G>3</G> gap</>} topK={sm(t, 0.05, 0.4)}>
       {rows.map(([label, wi, num], i) => {
-        const k = ap(t, 12, wi, 0.45);
+        const k = ap(t, 12, wi, 0.45), slot = sm(t, 0.9 + i * 0.3, 1.4 + i * 0.3);
         return (
-          <div key={i} style={{position: 'absolute', left: 140, width: 800, top: 480 + i * 240, height: 190, borderRadius: 34, background: 'rgba(16,34,63,.92)', border: `3px solid ${GOLD}`, display: 'flex', alignItems: 'center', opacity: k, transform: `translateX(${(1 - k) * 80}px)`}}>
+          <div key={i} style={{position: 'absolute', left: 140, width: 800, top: 480 + i * 240, height: 190, borderRadius: 34, background: 'rgba(16,34,63,.92)', border: `3px solid ${GOLD}`, display: 'flex', alignItems: 'center', opacity: slot * (0.35 + 0.65 * k), transform: `translateX(${(1 - slot) * 80}px)`}}>
             <div style={{width: 120, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 90, color: GOLD}}>{num}</div>
-            <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 70, color: CREAM, letterSpacing: 3}}>{label}</div>
+            <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 70, color: CREAM, letterSpacing: 3, opacity: k}}>{label}</div>
           </div>
         );
       })}
@@ -291,9 +292,9 @@ const S12: React.FC = () => {
 };
 const S13: React.FC = () => {
   const t = useT();
-  const short = ap(t, 13, 4, 0.5), strong = ap(t, 13, 12, 0.5);
+  const short = sm(t, 0.3, 0.9), strong = ap(t, 13, 12, 0.5);
   return (
-    <Frame n={13} top={<>Qisqa, <G>lekin muhim</G></>} topK={ap(t, 13, 3, 0.3)} glow={0.25 + 0.3 * strong}>
+    <Frame n={13} top={<>Qisqa, <G>lekin muhim</G></>} topK={sm(t, 0.05, 0.4)} glow={0.25 + 0.3 * strong}>
       <Svg>
         <rect x={140} y={620} width={800} height={26} rx={13} fill="rgba(246,239,224,.14)" opacity={ap(t, 13, 5, 0.3)} />
         <rect x={140} y={620} width={800} height={26} rx={13} fill="none" stroke="rgba(246,239,224,.3)" strokeWidth={2} opacity={ap(t, 13, 5, 0.3)} />
