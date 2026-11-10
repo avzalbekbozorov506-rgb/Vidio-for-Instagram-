@@ -43,8 +43,8 @@ const CAM: Record<number, CamKey[]> = {
   3: [[0, 1.0, 0, 0, 0], [5.4, 1.03, 0, 0, 0], [5.9, 1.12, 0, 40, 0], [6.8, 1.04, 0, 10, 0]],
   4: [[0, 1.0, 0, 0, 0], [4.2, 1.1, 0, 20, 0], [5.2, 1.16, 0, -30, 0]],
   5: [[0, 1.0, -40, 0, 0], [4.4, 1.05, 0, 0, 0], [5.3, 1.1, 40, 40, 2], [7.5, 1.06, 60, 60, 3]],
-  6: [[0, 1.08, 160, 0, 0], [2.0, 1.08, 160, 0, 0], [3.0, 1.0, -120, 0, 0], [5.2, 1.06, -40, 0, 0]],
-  7: [[0, 1.0, 0, 0, 0], [1.6, 1.0, 0, 0, 0], [4.3, 1.2, 0, -20, 0], [5.5, 1.26, 0, -20, 0]],
+  6: [[0, 1.0, 90, 0, 0], [2.0, 1.0, 90, 0, 0], [3.0, 1.0, -70, 0, 0], [5.2, 1.04, -30, 0, 0]],
+  7: [[0, 1.0, 0, 0, 0], [1.6, 1.0, 0, 0, 0], [4.3, 1.1, 0, -20, 0], [5.5, 1.14, 0, -20, 0]],
   8: [[0, 1.0, 0, 0, 0], [1.8, 1.0, 0, 0, 0], [3.6, 0.7, 0, -10, 0], [5.0, 0.7, 0, -10, 0], [7.0, 0.85, -80, 0, 0]],
   9: [[0, 1.0, 0, 0, 0], [2.6, 1.14, 0, -30, 0], [6.8, 1.14, 0, -30, 0], [8.4, 0.96, 0, 40, 0], [11, 1.06, 0, 40, 0]],
   10: [[0, 1.0, 0, 0, 0], [2.0, 1.14, 0, -20, 0], [7.7, 1.28, 0, -20, 0]],
@@ -53,6 +53,26 @@ const CAM: Record<number, CamKey[]> = {
   13: [[0, 1.0, 0, 0, 0], [2.9, 1.0, 0, 0, 0], [3.4, 1.12, 0, 0, 0], [6.5, 1.0, 0, 0, 0], [8.3, 1.3, 0, 0, 0]],
   14: [[0, 1.0, 0, 0, 0], [2.4, 1.0, 0, 0, 0], [3.2, 1.14, 0, -30, 0], [6.7, 1.08, 0, -10, 0]],
 };
+type TiltKey = [number, number, number]; // t, rotateX, rotateY (deg)
+const TILT: Record<number, TiltKey[]> = {
+  1: [[0, 20, 0], [2.5, 4, 0], [6.5, -4, 6]], 2: [[0, -6, 8], [4, 8, -4]], 3: [[0, 14, 0], [5.5, 6, 0], [5.9, -16, 0], [7, 4, 0]],
+  4: [[0, 8, -8], [4.5, 0, 6], [5.2, -14, 0]], 5: [[0, 4, 14], [4.5, 8, -6], [7.5, 14, -10]], 6: [[0, 4, 16], [3, 4, -16], [5.2, 2, -8]],
+  7: [[0, 10, 8], [3, 0, -4], [5.5, -6, 4]], 8: [[0, 0, 0], [3.6, 42, 0], [5.0, 32, 6], [7, 14, -6]], 9: [[0, 8, -8], [6.8, -4, 6], [8.6, 18, 0], [11, 6, 0]],
+  10: [[0, 8, 8], [4, -4, -4], [7.7, -8, 6]], 11: [[0, 6, 18], [3.2, 6, -18], [4.9, 8, 18], [5.4, 0, 6]], 12: [[0, 26, 0], [4, 14, 6], [9.3, 2, -4]],
+  13: [[0, 28, 0], [2.9, 8, 0], [6.5, 24, 0], [8.3, 0, 0]], 14: [[0, 12, 0], [3.2, -6, 0], [6.7, 6, 0]],
+};
+const tiltAt = (n: number, t: number) => {
+  const k = TILT[n]; if (t <= k[0][0]) return {rx: k[0][1], ry: k[0][2]};
+  for (let i = 0; i < k.length - 1; i++) if (t >= k[i][0] && t <= k[i + 1][0]) { const e = ease((t - k[i][0]) / (k[i + 1][0] - k[i][0] || 1)); return {rx: k[i][1] + (k[i + 1][1] - k[i][1]) * e, ry: k[i][2] + (k[i + 1][2] - k[i][2]) * e}; }
+  const l = k[k.length - 1]; return {rx: l[1], ry: l[2]};
+};
+const Person: React.FC<{x: number; y: number; s?: number; color?: string; k?: number; face?: number}> = ({x, y, s = 1, color = '#120b06', k = 1, face = 1}) => (
+  <g transform={`translate(${x} ${y}) scale(${s * face} ${s})`} opacity={k}>
+    <ellipse cx={0} cy={118} rx={80} ry={14} fill="rgba(0,0,0,.45)" />
+    <circle cy={-118} r={38} fill={color} stroke="rgba(255,154,46,.55)" strokeWidth={3} />
+    <path d="M-66 112 q0 -170 66 -170 q66 0 66 170z" fill={color} stroke="rgba(255,154,46,.55)" strokeWidth={3} />
+  </g>
+);
 const camAt = (n: number, t: number) => {
   const k = CAM[n]; let a = k[0], b = k[k.length - 1];
   if (t <= k[0][0]) return {s: a[1], x: a[2], y: a[3], r: a[4]};
@@ -178,7 +198,7 @@ const Subs: React.FC<{ws: TW[]}> = ({ws}) => {
 // ---------- scenes ----------
 const Scene: React.FC<{n: number}> = ({n}) => {
   const t = useT(), tAbs = START[n - 1] + t;
-  const cam = camAt(n, t);
+  const cam = camAt(n, t), tilt = tiltAt(n, t);
   const E = (i: number, d = 0.35) => ease(sm(t, EV(n, i), EV(n, i) + d));
   const AY: Record<number, string> = {7: 'إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ', 9: 'فَصَلِّ لِرَبِّكَ وَٱنْحَرْ', 10: 'إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ'};
   let tint = ''; let body: React.ReactNode = null;
@@ -191,7 +211,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           <Roll v={3} k={c} x={470} y={640} size={330} />
           <Txt x={640} y={640} size={90} color={CREAM} k={c} anchor="start" ls={8}>OYAT</Txt>
           <Txt x={540} y={760} size={34} color="rgba(246,239,224,.6)" k={c} ls={6}>ENG QISQA SURA</Txt>
-          <g transform={`translate(0 ${(1 - easeOut(sm(t, 0.3, 1.1))) * 90})`} opacity={sm(t, 0.3, 0.9)}><g transform={`translate(540 1010) scale(${pulse}) translate(-540 -1010)`}><Scroll cx={540} cy={1010} open={0.0} seal={sealK * 1} h={220} /></g></g>
+          <Person x={250} y={1090} s={0.8} k={sm(t, 1.2, 1.9)} /><g transform={`translate(0 ${(1 - easeOut(sm(t, 0.3, 1.1))) * 90})`} opacity={sm(t, 0.3, 0.9)}><g transform={`translate(540 1010) scale(${pulse}) translate(-540 -1010)`}><Scroll cx={540} cy={1010} open={0.0} seal={sealK * 1} h={220} /></g></g>
         </g>
       ); break;
     }
@@ -234,11 +254,12 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       tint = `rgba(224,70,59,${0.12 * sm(t, EV(5, 3), EV(5, 3) + 0.6)})`;
       body = (
         <g>
+          {[300, 540, 780].map((px, i) => <Person key={i} x={px} y={1130} s={0.95} k={sm(t, 0.1 + i * 0.2, 0.6 + i * 0.2)} face={i === 2 ? -1 : 1} />)}
           <Tile x={540} y={500} w={460} h={170} label="ABTAR" color={RED} k={ab} size={84} />
           <g>
-            <line x1={120} y1={880} x2={120 + 840 * line} y2={880} stroke={GOLD} strokeWidth={8} strokeLinecap="round" />
-            {nodes.map((x, i) => { const right = x > 560; const dx = right ? fall * 90 : 0, dy = right ? fall * fall * 380 : 0; return <circle key={i} cx={x + dx} cy={880 + dy} r={20} fill={right ? (cut > 0 ? RED : GOLD) : GOLD} opacity={sm(line, (i / nodes.length) * 0.9, (i / nodes.length) * 0.9 + 0.1) * (right ? 1 - fall * 0.8 : 1)} />; })}
-            {cut > 0 && cut < 1 && <line x1={470 + 120 * (1 - cut)} y1={720 + 300 * (1 - cut)} x2={650 - 120 * (1 - cut)} y2={1040 - 300 * (1 - cut)} stroke="#fff" strokeWidth={10} opacity={1 - cut * 0.4} strokeLinecap="round" />}
+            <line x1={120} y1={860} x2={120 + 840 * line} y2={860} stroke={GOLD} strokeWidth={8} strokeLinecap="round" />
+            {nodes.map((x, i) => { const right = x > 560; const dx = right ? fall * 90 : 0, dy = right ? fall * fall * 380 : 0; return <circle key={i} cx={x + dx} cy={860 + dy} r={20} fill={right ? (cut > 0 ? RED : GOLD) : GOLD} opacity={sm(line, (i / nodes.length) * 0.9, (i / nodes.length) * 0.9 + 0.1) * (right ? 1 - fall * 0.8 : 1)} />; })}
+            {cut > 0 && cut < 1 && <line x1={470 + 120 * (1 - cut)} y1={700 + 300 * (1 - cut)} x2={650 - 120 * (1 - cut)} y2={1020 - 300 * (1 - cut)} stroke="#fff" strokeWidth={10} opacity={1 - cut * 0.4} strokeLinecap="round" />}
           </g>
         </g>
       ); break;
@@ -267,7 +288,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       body = (
         <g>
           {dots}
-          <Scroll cx={540} cy={680} open={op} h={310} fullW={880} text={AY[n]} reveal={rv} glow={rv * (0.6 + 0.4 * Math.sin(t * 3))} />
+          <Scroll cx={540} cy={680} open={op} h={310} fullW={740} text={AY[n]} reveal={rv} glow={rv * (0.6 + 0.4 * Math.sin(t * 3))} />
           {showTiles && (
             <g>
               <Tile x={290} y={1090} w={380} h={150} label="NOLISH" color={RED} k={nol} size={58} />
@@ -300,7 +321,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       const hit = EV(11, 9) + 0.0;
       body = (
         <g>
-          <circle cx={250} cy={800} r={46} fill="none" stroke={GOLD} strokeWidth={6} opacity={sm(t, 0.2, 0.8)} /><circle cx={830} cy={800} r={46} fill="none" stroke={CREAM} strokeWidth={6} opacity={sm(t, 0.4, 1.0)} />
+          <Person x={250} y={900} s={1.0} k={sm(t, 0.2, 0.8)} /><Person x={830} y={900} s={1.0} k={sm(t, 0.4, 1.0)} face={-1} />
           <path d="M250 800 C 400 560 680 560 830 800" fill="none" stroke="rgba(255,154,46,.3)" strokeWidth={5} strokeDasharray="10 14" opacity={sm(t, 0.6, 1.2)} />
           <Tile x={x} y={y} w={300} h={120} label="ABTAR" color={back > 0.9 ? GOLD : RED} k={sm(t, 0.2, 0.8)} size={48} />
           <Shock at={4.9} t={t} x={250} y={800} color="224,70,59" max={380} />
@@ -367,7 +388,9 @@ const Scene: React.FC<{n: number}> = ({n}) => {
     <AbsoluteFill style={{background: BG}}>
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 75% 42% at 50% 42%, rgba(255,140,40,.22), rgba(255,140,40,0) 70%), linear-gradient(180deg,#1a0f07 0%,#0a0604 60%,#050302 100%)'}} />
       <div style={{position: 'absolute', inset: 0, opacity: 0.8}}><Bokeh count={10} color="255,154,46" opacity={0.09} /></div>
-      <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', transformOrigin: `540px ${cy}px`, transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.s}) rotate(${cam.r}deg)`}}>{body}</svg>
+      <div style={{position: 'absolute', inset: 0, perspective: 1500, perspectiveOrigin: '50% 45%'}}>
+        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', transformOrigin: `540px ${cy}px`, transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg) translate(${cam.x}px, ${cam.y + 50}px) scale(${cam.s}) rotate(${cam.r}deg)`}}>{body}</svg>
+      </div>
       {tint && <AbsoluteFill style={{background: tint, mixBlendMode: 'multiply'}} />}
       <Vignette strength={0.65} />
       <Grain opacity={0.06} />
