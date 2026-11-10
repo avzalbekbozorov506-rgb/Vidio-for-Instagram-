@@ -52,8 +52,8 @@ const buildTimeline = () => {
     {k: 'num1400', cx: 540, cy: 960, sc: 0.85, a: G(8, 14), o: CARD_END(8) + 0.1},
     {k: 'question', cx: 540, cy: 840, sc: 0.8, a: G(9, 3), o: G(9, 4) + 0.9},
     {k: 'scales', cx: 540, cy: 690, sc: 1.0, a: G(10, 0) - 0.2, o: CARD_END(10) + 0.2},
-    {k: 'people', cx: 540, cy: 900, sc: 1.0, a: G(11, 3) + 0.2, o: CARD_END(11) + 0.1, col: 'silver'},
-    {k: 'link', cx: 540, cy: 800, sc: 1.2, a: G(11, 5), o: G(11, 8)},
+    {k: 'people', cx: 540, cy: 900, sc: 1.0, a: G(11, 0) + 0.1, o: CARD_END(11) + 0.1, col: 'silver'},
+    {k: 'link', cx: 540, cy: 800, sc: 1.2, a: G(11, 3), o: G(11, 8)},
     {k: 'share', cx: 540, cy: 800, sc: 1.0, a: G(12, 0) + 0.1, o: 1e9},
   ];
   BURST = [
@@ -65,7 +65,7 @@ const buildTimeline = () => {
     {cx: 540, cy: 760, t0: G(7, 14), n: 460, power: 760},
     {cx: 540, cy: 820, t0: G(8, 6), n: 420, power: 760},
     {cx: 540, cy: 860, t0: G(9, 3) + 0.2, n: 640, power: 900},
-    {cx: 540, cy: 900, t0: G(11, 3), n: 460, power: 700, col: 'red'},
+    {cx: 540, cy: 900, t0: G(11, 0), n: 460, power: 700, col: 'red'},
     {cx: 540, cy: 800, t0: G(12, 0), n: 520, power: 800},
   ];
 };
@@ -150,7 +150,7 @@ const DustCanvas: React.FC<{t: number}> = ({t}) => {
 
 // ---------- background ----------
 const Backdrop: React.FC<{t: number}> = ({t}) => {
-  const red = sm(t, G(11, 2), G(11, 4)) * (1 - sm(t, CARD_END(11) - 0.2, CARD_END(11) + 0.5));
+  const red = sm(t, G(11, 0), G(11, 3)) * (1 - sm(t, CARD_END(11) - 0.2, CARD_END(11) + 0.5));
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg,#0c1124 0%,#0a0e1d 45%,#080a14 100%)'}}>
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
@@ -328,9 +328,20 @@ const Scenes: React.FC<{t: number}> = ({t}) => {
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}><Debris t={t} /></svg>
       {/* card 5: ornament */}
       {orn > 0.01 && <div style={{opacity: orn}}>
-        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}><g transform="translate(540 830)">{[0, 45].map((r) => <rect key={r} x={-52} y={-52} width={104} height={104} fill="none" stroke={GOLD} strokeWidth={3} transform={`rotate(${r + 20 * orn})`} />)}<circle r={14} fill={GOLD} /></g></svg>
-        <Ser y={970} size={74} italic c={CREAM} text={<><span style={{opacity: ap(t, 5, 3, 0.4)}}>kichik</span><span style={{color: GOLD, margin: '0 26px'}}>·</span><span style={{opacity: ap(t, 5, 6, 0.4)}}>katta</span></>} />
-        <Lab text="MUDDATIGACHA" y={1130} k={ap(t, 5, 9, 0.5)} />
+        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
+          <line x1={170} y1={900} x2={170 + 740 * ap(t, 5, 9, 0.9) * 0 + 740 * sm(t, G(5, 3), G(5, 9))} y2={900} stroke={GOLD} strokeWidth={4} strokeLinecap="round" opacity={0.8} />
+          <g opacity={ap(t, 5, 3, 0.4)}><circle cx={200} cy={900} r={24} fill={GOLD} filter="drop-shadow(0 0 14px rgba(230,194,107,.8))" /></g>
+          <g opacity={ap(t, 5, 6, 0.4)}><circle cx={850} cy={900} r={80} fill="none" stroke={GOLD} strokeWidth={6} /><circle cx={850} cy={900} r={58} fill={GOLD} opacity={0.85} /></g>
+          <g opacity={ap(t, 5, 9, 0.5)} transform="translate(540 600)">
+            <rect x={-110} y={-100} width={220} height={210} rx={18} fill="rgba(10,14,28,.85)" stroke={GOLD} strokeWidth={5} />
+            <rect x={-110} y={-100} width={220} height={52} rx={18} fill={GOLD} />
+            <line x1={-60} y1={-120} x2={-60} y2={-80} stroke={GOLD} strokeWidth={9} strokeLinecap="round" /><line x1={60} y1={-120} x2={60} y2={-80} stroke={GOLD} strokeWidth={9} strokeLinecap="round" />
+            {[0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => <rect key={r + '-' + c} x={-84 + c * 46} y={-26 + r * 44} width={28} height={26} rx={5} fill={r === 2 && c === 3 ? GOLD : 'rgba(241,230,207,.45)'} />))}
+          </g>
+        </svg>
+        <Ser y={960} x={90} w={220} size={70} italic c={CREAM} text="kichik" k={ap(t, 5, 3, 0.4)} />
+        <Ser y={1000} x={740} w={220} size={70} italic c={CREAM} text="katta" k={ap(t, 5, 6, 0.4)} />
+        <Lab text="MUDDATIGACHA" y={760} k={ap(t, 5, 9, 0.5)} />
       </div>}
       {/* cards 6-7: doc + list */}
       <Lab text="HAMMASI MAYDASIGACHA" y={330} k={ap(t, 6, 0, 0.5) * (1 - ap(t, 8, 0, 0.3))} />
@@ -345,6 +356,7 @@ const Scenes: React.FC<{t: number}> = ({t}) => {
       {/* card 10: list */}
       {[[6, 'I', 'Adolatliroq', 'Alloh huzurida'], [8, 'II', 'Kuchliroq', 'guvohlik uchun'], [10, 'III', 'Shubhadan xoli', 'shubhalanmaslik uchun']].map(([wi, no, tx, cap], i) => <Row key={no as string} y={1040 + i * 112} n={no as string} text={tx as string} cap={cap as string} roman k={ap(t, 10, wi as number, 0.5) * (1 - ap(t, 11, 0, 0.4))} />)}
       {/* card 11: red scene */}
+      <Lab text="HAYOTDA HAM" y={330} k={ap(t, 11, 0, 0.4) * (1 - ap(t, 11, 3, 0.3))} c="#e0605a" />
       <Ser y={360} size={88} c="#e0605a" text="Yozilmagan qarz" k={ap(t, 11, 3, 0.5) * (1 - ap(t, 12, 0, 0.3))} />
       <Ser y={1160} size={58} italic c={CREAM} text={<>yaqin do'stlarni ham<br />janjallashtirib qo'yishi mumkin</>} k={ap(t, 11, 6, 0.6) * (1 - ap(t, 12, 0, 0.3))} />
       {/* card 12 */}
