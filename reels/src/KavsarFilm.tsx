@@ -303,8 +303,8 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           {ground(1190, '#20130a')}
           <Tree x={250} y={1190} cut={cut} />
           {cut > 0 && cut < 0.6 && <line x1={150} y1={800 - 150 * cut} x2={450} y2={1000 - 150 * cut} stroke="#fff" strokeWidth={10} opacity={1 - cut * 1.5} strokeLinecap="round" />}
-          <Fig x={640} y={1190} s={0.85} armR={95} flip={-1} lean={6} k={sm(t, 0.1, 0.6)} /><Fig x={800} y={1190} s={0.9} armL={-15} armR={70} flip={-1} k={sm(t, 0.2, 0.7)} /><Fig x={930} y={1200} s={0.8} lean={-6} k={sm(t, 0.3, 0.8)} flip={-1} />
-          <InkWord x={720} y={650} k={ink} />
+          <Fig x={600} y={1190} s={0.85} armR={95} flip={-1} lean={6} k={sm(t, 0.1, 0.6)} /><Fig x={745} y={1190} s={0.9} armL={-15} armR={70} flip={-1} k={sm(t, 0.2, 0.7)} /><Fig x={865} y={1200} s={0.8} lean={-6} k={sm(t, 0.3, 0.8)} flip={-1} />
+          <InkWord x={690} y={650} k={ink} />
           {Array.from({length: 9}, (_, i) => { const lim = fp * 9, v = lim > i ? 1 - Math.min(1, wind * (1 + i * 0.1)) * (i < 6 ? 0.9 : 0.5) : 0; return <ellipse key={i} cx={560 - i * 54} cy={1215 + (i % 2) * 14} rx={22} ry={10} fill="rgba(0,0,0,.65)" opacity={v} />; })}
         </g>
       ); break;
@@ -319,9 +319,9 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           {ground(1130, '#1d1109')}<rect x={420} y={990} width={560} height={30} rx={6} fill="#3a2414" stroke={AMB} strokeWidth={2} />
           <Glow x={800} y={850} r={190} a={0.45} /><rect x={790} y={870} width={20} height={120} fill="#c9a24a" /><ellipse cx={800} cy={850} rx={46} ry={30} fill="#ffd98a" />
           <Fig x={560} y={1000} s={0.82} lean={24} armR={40 + 8 * write} armL={20} head={22} />
-          {beam > 0 && <polygon points={`800,850 ${300 - 0},${690} ${300},${790}`} fill={`rgba(255,215,130,${0.38 * beam * (1 - dis * 0.4)})`} style={{filter: 'blur(6px)'}} />}
-          <InkWord x={250} y={680} k={0.95 * (1 - dis)} size={140} />
-          {dis > 0 && Array.from({length: 18}, (_, i) => <circle key={i} cx={250 + Math.cos(i * 1.7) * dis * 140} cy={690 - dis * 120 + Math.sin(i * 2.3) * dis * 80} r={6} fill={GOLD} opacity={1 - dis} />)}
+          {beam > 0 && <polygon points={`800,850 ${330},${860} ${330},${960}`} fill={`rgba(255,215,130,${0.38 * beam * (1 - dis * 0.4)})`} style={{filter: 'blur(6px)'}} />}
+          <InkWord x={280} y={900} k={0.95 * (1 - dis)} size={150} />
+          {dis > 0 && Array.from({length: 18}, (_, i) => <circle key={i} cx={280 + Math.cos(i * 1.7) * dis * 140} cy={900 - dis * 120 + Math.sin(i * 2.3) * dis * 80} r={6} fill={GOLD} opacity={1 - dis} />)}
         </g>
       ); break;
     }
@@ -333,14 +333,14 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           <rect x={-200} y={1080} width={W + 400} height={500} fill="#1b0f08" />
           <Book cx={540} cy={800} open={1} glowK={0.4 + 0.5 * pour} />
           <clipPath id="ay1"><rect x={540 + 150 - 300 * rv} y={650} width={300 * rv} height={300} /></clipPath>
-          <g clipPath="url(#ay1)"><text x={690} y={820} textAnchor="middle" direction="rtl" fontFamily={AR} fontWeight={700} fontSize={64} fill="#3a2410">{AY1}</text></g>
+          <g clipPath="url(#ay1)"><text x={690} y={820} textAnchor="middle" direction="rtl" fontFamily={AR} fontWeight={700} fontSize={88} fill="#3a2410">{AY1}</text></g>
           {pour > 0 && Array.from({length: 40}, (_, i) => { const p = (pour * 1.4 - (i % 10) * 0.07 + (i * 0.013)) , q = Math.max(0, Math.min(1, p)); const x = 560 + Math.sin(i * 3.1) * 90 * q + (i % 5 - 2) * 20, y = 830 + q * 380; return q > 0 && q < 1 ? <circle key={i} cx={x} cy={y} r={7 + (i % 3) * 3} fill={i % 2 ? GOLD : '#fff0b8'} opacity={0.9} /> : null; })}
         </g>
       ); break;
     }
     case 8: {
-      const rain = sm(t, W_(2) - 0.2, W_(3) + 1.0), river = ease(sm(t, W_(7) - 0.4, W_(8) + 0.6));
-      light = [50, 30, '255,190,80', 0.3 + 0.2 * river];
+      const flow = sm(t, 0.1, 2.0), river = ease(sm(t, W_(7) - 0.4, W_(8) + 0.6)), bookK = 1 - ease(sm(t, 3.0, 4.2));
+      light = [50, 38, '255,190,80', 0.32 + 0.2 * river];
       body = (
         <g>
           <g opacity={river}>
@@ -349,7 +349,8 @@ const Scene: React.FC<{n: number}> = ({n}) => {
             {Array.from({length: 12}, (_, i) => <path key={i} d={`M${60 + i * 90} ${960 + (i % 4) * 60} q30 -14 60 0`} stroke="rgba(255,255,255,.4)" strokeWidth={4} fill="none" />)}
             <Palm x={90} y={920} s={1.1} /><Palm x={230} y={900} s={0.8} /><Palm x={960} y={930} s={1.15} /><Palm x={830} y={900} s={0.8} />
           </g>
-          {Array.from({length: 90}, (_, i) => { const sp = 0.6 + (i % 7) * 0.12, q = ((t - 1.8 - (i % 30) * 0.05) * sp) % 1.2, x = 80 + ((i * 97) % 920), y = 300 + q * 1000; return rain > 0 && q > 0 ? <circle key={i} cx={x} cy={y} r={7 + (i % 4) * 2} fill={i % 3 ? GOLD : '#fff0b8'} opacity={rain * (y > 1000 ? 0.4 : 0.9)} /> : null; })}
+          <g opacity={bookK}><rect x={-200} y={1080} width={W + 400} height={500} fill="#1b0f08" /><Book cx={540} cy={900} open={1} glowK={0.9} /></g>
+          {Array.from({length: 130}, (_, i) => { const sp = 0.45 + (i % 9) * 0.1, ph = (i % 26) * 0.07, q = ((t - ph) * sp) % 1.3, spread = 60 + q * 520, x = 540 + Math.sin(i * 2.7) * spread, y = 880 + q * 520 - Math.cos(i * 1.3) * 20; return flow > 0 && t > ph ? <circle key={i} cx={x} cy={y} r={6 + (i % 4) * 3} fill={i % 3 ? GOLD : '#fff0b8'} opacity={flow * (1 - Math.max(0, q - 0.9) * 2.5)} /> : null; })}
         </g>
       ); break;
     }
@@ -394,7 +395,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           {ground(1190, '#1a0f08')}
           <ellipse cx={200} cy={900} rx={90 * sh} ry={220 * sh} fill="rgba(255,205,110,.25)" style={{filter: 'blur(14px)'}} /><ellipse cx={200} cy={900} rx={46} ry={160} fill="none" stroke="rgba(255,225,150,.9)" strokeWidth={7} />
           <Fig x={860 + 30 * hit} y={1190} s={0.95} armR={95} flip={-1} lean={6 - 18 * hit} head={hit * 18} />
-          <g transform={`translate(${sx} ${sy}) rotate(${(fly - back) * 360})`} opacity={sm(t, 1.5, 1.9) * (1 - hit)}><path d="M-60 0 L0 -26 L60 0 L0 26Z" fill="#150a08" stroke="#e0463b" strokeWidth={5} style={{filter: 'drop-shadow(0 0 14px rgba(224,70,59,.9))'}} /></g>
+          <g transform={`translate(${sx} ${sy}) rotate(${(fly - back) * 360})`} opacity={sm(t, 1.5, 1.9) * (1 - hit)}><path d="M-110 0 L0 -48 L110 0 L0 48Z" fill="#150a08" stroke="#e0463b" strokeWidth={7} style={{filter: 'drop-shadow(0 0 14px rgba(224,70,59,.9))'}} /></g>
           {t > 3.0 && t < 4.0 && <circle cx={200} cy={900} r={30 + (t - 3.0) * 160} fill="none" stroke={`rgba(255,225,150,${0.8 - (t - 3.0) * 0.8})`} strokeWidth={6} />}
           <Shock at={4.9} t={t} x={860} y={900} color="224,70,59" max={400} />
         </g>
@@ -439,7 +440,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
           <rect x={-200} y={1010} width={W + 400} height={500} fill="#1b0f08" />
           <g opacity={flood}>{Array.from({length: 16}, (_, i) => <line key={i} x1={540} y1={800} x2={540 + Math.cos(i * 0.39) * 1000} y2={800 + Math.sin(i * 0.39) * 1000} stroke="rgba(255,215,130,.1)" strokeWidth={30} />)}</g>
           <Book cx={540} cy={780} open={open} glowK={flood} seal={1 - 0 * crack} crack={crack} />
-          <Fig x={540} y={1330} s={1.05} lean={4} head={-8} armL={6} armR={-6} k={sm(t, 0.2, 0.9)} color="#080403" />
+          <Fig x={540} y={1400} s={0.85} lean={4} head={-8} armL={6} armR={-6} k={sm(t, 0.2, 0.9)} color="#080403" />
           <g transform={`translate(540 1180) scale(${0.85 + 0.15 * btn})`} opacity={btn}><rect x={-230} y={-48} width={460} height={96} rx={48} fill={ORANGE} /><text y={16} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={42} fill={BG}>Obuna bo'ling</text></g>
         </g>
       ); break;
