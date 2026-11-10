@@ -1,0 +1,98 @@
+{
+ "id": "script-41",
+ "title": "Nega eng qisqa sura shunchalik muhim? (Kavsar, 108) - формат Sigir, СВОЙ текст",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "fact-quran",
+ "series": "Qur'on",
+ "status": "draft: нужна проверка носителем и религиозная проверка перед озвучкой",
+ "hook": "Qur'onning eng qisqa surasi atigi uch oyat. Nega u shunchalik muhim? Javob oxirida.",
+ "cover_text": "UCH OYAT. NEGA MUHIM?",
+ "reference": "Формат лучшего ролика аккаунта (Sigir, DfhVd6RCdLA): хук-парадокс с числом, ответ в конце, «bir izohga ko'ra».",
+ "rules": "Пророка не изображать. Причину ниспослания и трактовку «абтар» подавать как ривоят и толкование (Ибн Касир, Табари), точные тафсиры сверить перед озвучкой. Перевод аятов: Содик (alquran.cloud). Без чисел-чудес.",
+ "facts": [
+  "Сура 108 Al-Kawthar: 3 аята, самая короткая (alquran.cloud).",
+  "108:1 Албатта, Биз сенга Кавсарни бердик. 108:2 Бас, Роббингга намоз ўқи ва жонлик сўй. 108:3 Албатта, сени ёмон кўриб, айбловчининг орқаси кесикдир.",
+  "Причина: ривоят о насмешках над Пророком после смерти сыновей (Ибн Касир) - сверить по тафсиру.",
+  "Кавсар: «обилие»; толкования: река в раю / обильное благо."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onning eng qisqa surasi atigi uch oyat. Nega u shunchalik muhim? Javob oxirida.",
+   "on_screen": "UCH OYAT. NEGA MUHIM?"
+  },
+  {
+   "n": 2,
+   "vo": "Bu Kavsar surasi. Uni bir nafasda o'qib bo'ladi.",
+   "on_screen": "KAVSAR · 3 OYAT"
+  },
+  {
+   "n": 3,
+   "vo": "Lekin bu qisqa surada katta og'riq bor. Va bitta og'ir so'z.",
+   "on_screen": "OG'IR SO'Z"
+  },
+  {
+   "n": 4,
+   "vo": "Rivoyatlarga ko'ra, Payg'ambarimizning o'g'illari go'dakligida vafot etgan.",
+   "on_screen": "O'G'ILLARI VAFOT ETGAN"
+  },
+  {
+   "n": 5,
+   "vo": "Shunda dushmanlar unga abtar deyishdi. Ya'ni, orqasi kesik, izsiz ketadigan odam.",
+   "on_screen": "ABTAR = ORQASI KESIK"
+  },
+  {
+   "n": 6,
+   "vo": "Ko'pchilik mufassirlar aytadi: sura aynan shu so'zga javob bo'lib kelgan. Nega bu javob shunchalik qisqa?",
+   "on_screen": "SHU SO'ZGA JAVOB"
+  },
+  {
+   "n": 7,
+   "vo": "Birinchi oyat shunday. Albatta, Biz senga Kavsarni berdik.",
+   "on_screen": "1 · KAVSAR BERILDI"
+  },
+  {
+   "n": 8,
+   "vo": "Kavsar, ya'ni behisob yaxshilik. Bir izohga ko'ra jannatdagi daryo, boshqa izohga ko'ra mo'l ne'mat.",
+   "on_screen": "KAVSAR = BEHISOB YAXSHILIK"
+  },
+  {
+   "n": 9,
+   "vo": "Ikkinchi oyat. Bas, Robbingga namoz o'qi va jonlik so'y.",
+   "on_screen": "2 · SHUKR"
+  },
+  {
+   "n": 10,
+   "vo": "Ya'ni, og'riqqa javob nolish emas, shukr. Nega shunday?",
+   "on_screen": "OG'RIQQA JAVOB: SHUKR"
+  },
+  {
+   "n": 11,
+   "vo": "Uchinchi oyat. Albatta, seni yomon ko'rib, ayblovchining orqasi kesikdir.",
+   "on_screen": "3 · ABTAR KIM?"
+  },
+  {
+   "n": 12,
+   "vo": "Demak, abtar deb atalgan odam emas, atagan odam bo'lib chiqdi. Bu ham bir izoh.",
+   "on_screen": "ABTAR KIM BO'LDI?"
+  },
+  {
+   "n": 13,
+   "vo": "Shu izohga ko'ra, uch oyatda uch gap bor. Ne'mat berildi, shukr buyurildi, tuhmatning oqibati aytildi.",
+   "on_screen": "NE'MAT · SHUKR · OQIBAT"
+  },
+  {
+   "n": 14,
+   "vo": "Shuning uchun u qisqa. Katta tasalli uzun bo'lishi shart emas.",
+   "on_screen": "QISQA = TASALLI"
+  },
+  {
+   "n": 15,
+   "vo": "Sizningcha, qisqa gapdagi eng katta tasalli nima? Izohda yozing va obuna bo'ling.",
+   "on_screen": "IZOHDA YOZING"
+  }
+ ]
+}
