@@ -46,7 +46,7 @@
   },
   {
    "n": 6,
-   "vo": "Ko'pchilik mufassirlar aytadi. Sura aynan shu so'zga javob bo'lib kelgan.",
+   "vo": "Mufassirlar aytishicha, sura aynan shu so'zga javob bo'lib kelgan.",
    "on_screen": "SHU SO'ZGA JAVOB"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
    "n": 9,
-   "vo": "Ikkinchi oyat. Bas, Robbingga namoz o'qi va jonlik so'y. Og'riqqa javob shukr.",
+   "vo": "Ikkinchi oyat. Bas, Robbingga namoz o'qi va jonlik so'y. Ya'ni, og'riqqa javob nolish emas, shukr.",
    "on_screen": "2 · SHUKR"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
    "n": 11,
-   "vo": "Demak, abtar deb atalgan emas, atagan bo'lib chiqdi. Bu ham bir izoh.",
+   "vo": "Bir izohga ko'ra, abtar so'zi uni aytgan odamning o'ziga qaytdi.",
    "on_screen": "ABTAR KIM BO'LDI?"
   },
   {
@@ -81,7 +81,7 @@
   },
   {
    "n": 13,
-   "vo": "Shuning uchun u qisqa. Katta tasalli uzun bo'lishi shart emas.",
+   "vo": "Shuning uchun bu sura qisqa, lekin muhim. Og'riqli so'zga u qisqa va aniq javob bergan.",
    "on_screen": "QISQA = TASALLI"
   },
   {
