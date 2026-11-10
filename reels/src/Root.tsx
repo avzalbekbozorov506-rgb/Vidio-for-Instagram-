@@ -27,6 +27,11 @@ import {Somad, SomadCover, SOMAD_FRAMES} from './Somad';
 import {Uhud, UhudCover, UHUD_FRAMES} from './Uhud';
 import {Sirius, SiriusCover, SIRIUS_FRAMES} from './Sirius';
 import {Gold, GoldCover, GOLD_FRAMES} from './Gold';
+import {Kavsar, KavsarCover, KAVSAR_FRAMES} from './Kavsar';
+import {CalliTest, CALLI_FRAMES} from './CalliTest';
+import {KavsarDust, DUST_FRAMES} from './KavsarDust';
+import {KavsarHisob, KHISOB_FRAMES} from './KavsarHisob';
+import {KavsarFilm, KFILM_FRAMES} from './KavsarFilm';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
 import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from './ThunderPro';
@@ -51,6 +56,12 @@ export const Root: React.FC = () => {
     <Composition id="Gold" component={Gold} durationInFrames={GOLD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="GoldCover" component={GoldCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UhudCover" component={UhudCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Kavsar" component={Kavsar} durationInFrames={KAVSAR_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KavsarCover" component={KavsarCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="CalliTest" component={CalliTest} durationInFrames={CALLI_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KavsarDust" component={KavsarDust} durationInFrames={DUST_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KavsarHisob" component={KavsarHisob} durationInFrames={KHISOB_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KavsarFilm" component={KavsarFilm} durationInFrames={KFILM_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BaqaraCover" component={BaqaraCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Somad" component={Somad} durationInFrames={SOMAD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="SomadCover" component={SomadCover} durationInFrames={1} fps={30} width={1080} height={1920} />
