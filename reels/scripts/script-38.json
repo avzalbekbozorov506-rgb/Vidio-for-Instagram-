@@ -1,0 +1,77 @@
+{
+ "id": "script-38",
+ "title": "Uhud jangi: nega g'alaba yo'qoldi",
+ "lang": "uz",
+ "voice": "voice_ba303813-3023-48aa-a454-4b5705669d35",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "Islom tarixi",
+ "series": "Islom tarixi",
+ "status": "draft, ok kutilmoqda",
+ "hook": "Uhud jangida musulmonlar g'alaba qilib turishgan edi. Nega bir zumda hammasi o'zgardi?",
+ "cover_text": "UHUD: G'ALABA NEGA YO'QOLDI?",
+ "sources": [
+  "Sahih al-Bukhari 4043 (o'qchilar, buyruq, o'lja, yetmish nafar)",
+  "Sahih al-Bukhari 4067 (Abdulloh ibn Jubayr o'qchilar boshlig'i, 3:153)",
+  "Qur'on 3:152-153 (alquran.cloud, Muhammad Sodiq Muhammad Yusuf)",
+  "Qur'on 3:165 (bu o'zingizning huzuringizdan)"
+ ],
+ "rules": "Payg'ambar va sahobalar tasvirsiz; sonlar faqat Buxoriydagi 70; o'qchilar soni va Xolid ibn Validning aylanib o'tishi tekshirilmaganligi uchun aytilmaydi",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Uhud jangida musulmonlar g'alaba qozonayotgan edi. Nega hamma narsa bir zumda o'zgardi? Javob oxirida, obuna bo'ling.",
+   "on_screen": "UHUD: NEGA?"
+  },
+  {
+   "n": 2,
+   "vo": "Payg'ambar alayhissalom bir joyga o'qchilarni qo'ydilar. Ularning boshlig'i Abdulloh ibn Jubayr edi. Buyruq bitta edi, joyingizdan jilmang.",
+   "on_screen": "O'QCHILAR"
+  },
+  {
+   "n": 3,
+   "vo": "Bizning g'alaba qilayotganimizni ko'rsangizlar ham jilmanglar. Yengilayotganimizni ko'rsangizlar ham, yordamga kelmanglar. Shunday dedilar.",
+   "on_screen": "JILMANGLAR"
+  },
+  {
+   "n": 4,
+   "vo": "Jang boshlandi. Dushman qochdi. Musulmonlar, o'lja, o'lja, deya boshladi. Abdulloh ahdni eslatdi, lekin o'qchilar rozi bo'lmadi.",
+   "on_screen": "O'LJA!"
+  },
+  {
+   "n": 5,
+   "vo": "O'qchilar joyini tashladi. Jang o'zgardi. Yetmish musulmon shahid bo'ldi.",
+   "on_screen": "70 SHAHID"
+  },
+  {
+   "n": 6,
+   "vo": "Qur'on buni Oli Imron surasida eslaydi, yuz ellik ikkinchi oyat. Batahqiq, Alloh va'dasi ustidan chiqdi.",
+   "on_screen": "OLI IMRON 3:152"
+  },
+  {
+   "n": 7,
+   "vo": "Sizlar Uning izni bilan ularni qira boshladingiz, toki zaiflashib, amr haqida ixtilof qilib, isyon qilgunigizcha.",
+   "on_screen": "TOKI ZAIFLASHIB..."
+  },
+  {
+   "n": 8,
+   "vo": "Oyat davom etadi. Sizni imtihon qilish uchun ulardan burdi. Batahqiq, sizni afv etdi.",
+   "on_screen": "AFV ETDI"
+  },
+  {
+   "n": 9,
+   "vo": "Javob oyatning o'zida. Zaiflik, amr haqida ixtilof va isyon. Yana bir oyatda aytiladi, bu o'zingizning huzuringizdan.",
+   "on_screen": "JAVOB"
+  },
+  {
+   "n": 10,
+   "vo": "Bir izohga ko'ra, bu voqea g'alaba yaqin ko'ringan paytda ham buyruqqa sodiq qolish kerakligini eslatadi.",
+   "on_screen": "XULOSA"
+  },
+  {
+   "n": 11,
+   "vo": "Sizningcha, Uhud bizga nimani o'rgatadi? Izohda yozing. Videoni yaqiningizga yuboring.",
+   "on_screen": "SIZNINGCHA?"
+  }
+ ]
+}
