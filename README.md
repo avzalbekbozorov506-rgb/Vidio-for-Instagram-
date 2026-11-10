@@ -16,4 +16,5 @@ Format: 1080x1920, 30fps. Uzbek voiceover: put the mp3 in `reels/public/` and pa
 - `reels/public/vo-NN/` озвучка и `words.json`; `public/fonts`, `music`, `sfx`.
 - `reels/release/` обложки и подписи; mp4 опубликованных роликов не хранятся.
 - `reels/docs/` правила и заметки: `INDEX.md` (все ролики и статусы), `COVER_GUIDE.md`, `PIPELINE.md`.
-- `CLAUDE.md` контекст проекта и журнал сессий.
+- `CLAUDE.md` короткий контекст: состояние, правила, конвейер. `reels/docs/HISTORY.md` полный архив журнала сессий 1-6.
+- `reels/storyboards/` раскадровки; `.claude/agents/` сценарист `avzalbot2` и раскадровщик `avzalbot3`.
