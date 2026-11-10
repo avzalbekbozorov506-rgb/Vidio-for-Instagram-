@@ -46,7 +46,7 @@
   },
   {
    "n": 6,
-   "vo": "Ko'pchilik mufassirlar aytadi: sura aynan shu so'zga javob bo'lib kelgan. Nega bu javob shunchalik qisqa?",
+   "vo": "Ko'pchilik mufassirlar aytadi. Sura aynan shu so'zga javob bo'lib kelgan.",
    "on_screen": "SHU SO'ZGA JAVOB"
   },
   {
@@ -56,41 +56,36 @@
   },
   {
    "n": 8,
-   "vo": "Kavsar, ya'ni behisob yaxshilik. Bir izohga ko'ra jannatdagi daryo, boshqa izohga ko'ra mo'l ne'mat.",
+   "vo": "Kavsar, ya'ni behisob yaxshilik. Bir izohga ko'ra jannatdagi daryo.",
    "on_screen": "KAVSAR = BEHISOB YAXSHILIK"
   },
   {
    "n": 9,
-   "vo": "Ikkinchi oyat. Bas, Robbingga namoz o'qi va jonlik so'y.",
+   "vo": "Ikkinchi oyat. Bas, Robbingga namoz o'qi va jonlik so'y. Og'riqqa javob shukr.",
    "on_screen": "2 · SHUKR"
   },
   {
    "n": 10,
-   "vo": "Ya'ni, og'riqqa javob nolish emas, shukr. Nega shunday?",
-   "on_screen": "OG'RIQQA JAVOB: SHUKR"
-  },
-  {
-   "n": 11,
    "vo": "Uchinchi oyat. Albatta, seni yomon ko'rib, ayblovchining orqasi kesikdir.",
    "on_screen": "3 · ABTAR KIM?"
   },
   {
-   "n": 12,
-   "vo": "Demak, abtar deb atalgan odam emas, atagan odam bo'lib chiqdi. Bu ham bir izoh.",
+   "n": 11,
+   "vo": "Demak, abtar deb atalgan emas, atagan bo'lib chiqdi. Bu ham bir izoh.",
    "on_screen": "ABTAR KIM BO'LDI?"
   },
   {
-   "n": 13,
+   "n": 12,
    "vo": "Shu izohga ko'ra, uch oyatda uch gap bor. Ne'mat berildi, shukr buyurildi, tuhmatning oqibati aytildi.",
    "on_screen": "NE'MAT · SHUKR · OQIBAT"
   },
   {
-   "n": 14,
+   "n": 13,
    "vo": "Shuning uchun u qisqa. Katta tasalli uzun bo'lishi shart emas.",
    "on_screen": "QISQA = TASALLI"
   },
   {
-   "n": 15,
+   "n": 14,
    "vo": "Sizningcha, qisqa gapdagi eng katta tasalli nima? Izohda yozing va obuna bo'ling.",
    "on_screen": "IZOHDA YOZING"
   }
