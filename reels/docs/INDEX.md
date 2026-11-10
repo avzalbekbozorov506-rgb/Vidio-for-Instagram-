@@ -23,7 +23,7 @@
 | Uhud jangi (3:152) | script-38 | vo-38 | Uhud | опубликован 09.11 (DfhrZmrgeVz) |
 | She'ro (Sirius, 53:49) | script-39 | vo-39 | Sirius | опубликован 09.11 (DfiB-xwDjb6) |
 | Qur'onning eng uzun oyati (2:282) | script-40 | vo-40 | Gold | запланирован 11.11 06:00 |
-| Kavsar: nega eng qisqa sura muhim (108) | script-41 | vo-41 | KavsarFilm (также Kavsar, KavsarDust, KavsarHisob) | запланирован 11.11 12:00, пост 68474d59-103b-4c3c-a0b8-34e1610654fc (kavsar-film-cover.mp4) |
+| Kavsar: nega eng qisqa sura muhim (108) | script-41 | vo-41 | KavsarFilm (также Kavsar, KavsarDust, KavsarHisob) | готов (kavsar-film-cover.mp4), публикация отменена пользователем 11.11, не опубликован |
 
 Без озвучки: script-18 (канализация), 28 (бабочка), 32 (2:23), 33 (6:125), 34 (tahorat, нужна проверка имамом). Отменены/архив: 01-05, 07, 08, 10-15, 17, 24, 29; монолог, стихи, якорь (файлы удалены, исходники в `src/`).
 
