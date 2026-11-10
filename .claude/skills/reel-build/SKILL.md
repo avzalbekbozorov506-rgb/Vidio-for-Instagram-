@@ -30,6 +30,7 @@ python3 scripts/word-timing.py scripts/script-NN.json public/vo-NN     # без 
 ### 4. Сборка композиции `src/<Name>.tsx` (образец `src/Kavsar.tsx`)
 - Зарегистрировать `<Name>` и `<Name>Cover` в `src/Root.tsx`.
 - События привязаны к `words.json` (`EV(n,i)`), одна крупная идея на карточку, деталь на смысловое слово, НИ ОДНОГО пустого экрана в начале карточки (опорный объект с 0,1-0,5 с), без плашки над субтитрами, безопасная зона x 80..960, y 250..1560, без изображения Пророков и сподвижников.
+- Сюжет и удержание: скил `reel-motion-retention` (хук с обещанием, смена картинки каждые 2-3 с, подсюжет-счётчик, события на словах); готовый образец стиля «пыль»: `src/KavsarDust.tsx`.
 - Кинематограф: блоки `src/blocks/Cinematic.tsx` (`ParallaxLayer`, `Bokeh`, `Vignette`, `Grain`, `PopIn`, `KeyFlash`, `SlowPush`), чек-лист `reels/docs/CINEMATIC_2D.md`.
 - Звук: `music/ambient.wav` 0.05, sfx ×0.6 на ключевых словах, голос главный.
 - `npx tsc --noEmit` должен проходить.
@@ -41,6 +42,7 @@ python3 scripts/word-timing.py scripts/script-NN.json public/vo-NN     # без 
 `./scripts/render-part.sh <Id> vo-NN out/x-raw.mp4 [карточки для перерендера]`. Кэш по карточкам в `out/parts/<Id>/`; при правке общих блоков или озвучки `rm -r out/parts/<Id>`. Альтернатива: `npx remotion render <Id> out/x-raw.mp4 --concurrency=4` (≈13-15 мин на 100 с; машина на 4 ядра, ускорить нельзя).
 
 ### 7. Мастеринг и проверка готового mp4
+- `python3 scripts/pacing.py <mp4>`: темп смены картинки, тихие участки >=3 с.
 - `./scripts/master.sh out/x-raw.mp4 release/<name>-reel.mp4` (-16 LUFS).
 - Кадры каждые 2,5 с: `ffmpeg -i f.mp4 -vf "fps=1/2.5,scale=216:384,tile=10x5" -frames:v 1 sheet.png`; смотреть глазами зрителя. `ffprobe`: 1080x1920, 30 fps, h264, yuv420p, aac.
 - Что не проверено (например, звук на слух), назвать честно.
