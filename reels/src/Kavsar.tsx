@@ -131,13 +131,13 @@ const S2: React.FC = () => {
 const S3: React.FC = () => {
   const t = useT();
   const drop = sm(t, EV(3, 9) - 0.1, EV(3, 9) + 0.35), land = drop >= 1;
-  const y = 520 + 480 * ease(Math.min(1, drop)) + (drop < 1 ? 14 * Math.sin(t * 3) : 0) - (land ? 14 * Math.exp(-(t - EV(3, 9) - 0.35) * 9) * Math.sin((t - EV(3, 9)) * 38) : 0);
+  const y = 520 + 400 * ease(Math.min(1, drop)) + (drop < 1 ? 14 * Math.sin(t * 3) : 0) - (land ? 14 * Math.exp(-(t - EV(3, 9) - 0.35) * 9) * Math.sin((t - EV(3, 9)) * 38) : 0);
   const pain = ap(t, 3, 5, 0.4);
   return (
     <Frame n={3} top={<>Kichkina sura, <G>katta og'riq</G></>} topK={sm(t, 0.05, 0.4)} glow={0.2}>
       <KeyFlash at={Math.round((EV(3, 9) + 0.35) * FPS)} color="224,70,59" strength={0.12} />
       <Svg>
-        <ellipse cx={540} cy={1075} rx={260 * (0.4 + 0.6 * drop)} ry={26} fill="rgba(0,0,0,.55)" />
+        <ellipse cx={540} cy={995} rx={260 * (0.4 + 0.6 * drop)} ry={26} fill="rgba(0,0,0,.55)" />
         <g transform={`translate(0 ${y})`} opacity={sm(t, 0.2, 0.7)}>
           <rect x={340} y={0} width={400} height={170} rx={30} fill="#10223f" stroke={GOLD} strokeWidth={6} />
           <text x={540} y={118} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={88} fill={CREAM}>SO'Z</text>
@@ -209,8 +209,8 @@ const AyahCard: React.FC<{n: number; num: number; text: string; startWord: numbe
     <Frame n={n} glow={0.4}>
       <KeyFlash at={Math.round(EV(n, startWord) * FPS)} color="242,184,75" strength={0.12} />
       <Badge y={290} label={`${num}-OYAT`} k={badge} />
-      <Arabic top={520} size={Math.min(150, 4200 / text.length)} k={k}>{text}</Arabic>
-      <Svg><line x1={340} y1={470} x2={740} y2={470} stroke={GOLD} strokeWidth={4} opacity={badge * 0.7} /><line x1={340} y1={1010} x2={740} y2={1010} stroke={GOLD} strokeWidth={4} opacity={k * 0.7} /></Svg>
+      <Arabic top={660} size={Math.min(128, 3600 / text.length)} k={k}>{text}</Arabic>
+      <Svg><line x1={340} y1={620} x2={740} y2={620} stroke={GOLD} strokeWidth={4} opacity={badge * 0.7} /><line x1={340} y1={960} x2={740} y2={960} stroke={GOLD} strokeWidth={4} opacity={k * 0.7} /></Svg>
     </Frame>
   );
 };
@@ -257,16 +257,16 @@ const S10: React.FC = () => <AyahCard n={10} num={3} text="إِنَّ شَانِ
 const S11: React.FC = () => {
   const t = useT();
   const fly = sm(t, EV(11, 3), EV(11, 7) + 0.2), back = sm(t, EV(11, 8) - 0.2, EV(11, 9) + 0.3);
-  const x = 200 + 680 * ease(fly) - 680 * ease(back), y = 650 - 120 * Math.sin(fly * Math.PI) * (1 - back);
+  const x = 260 + 560 * ease(fly) - 560 * ease(back), y = 650 - 120 * Math.sin(fly * Math.PI) * (1 - back);
   const word = sm(t, EV(11, 3) - 0.1, EV(11, 3) + 0.3);
   return (
     <Frame n={11} top={<>Bir izohga ko'ra</>} topK={ap(t, 11, 0, 0.3)}>
       <KeyFlash at={Math.round((EV(11, 9) + 0.3) * FPS)} color="224,70,59" strength={0.14} />
       <Svg>
-        <circle cx={200} cy={820} r={46} fill="none" stroke={GOLD} strokeWidth={6} opacity={ap(t, 11, 5, 0.3)} />
-        <circle cx={880} cy={820} r={46} fill="none" stroke={CREAM} strokeWidth={6} opacity={ap(t, 11, 6, 0.3)} />
-        <text x={200} y={930} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={30} fill={GOLD} opacity={ap(t, 11, 5, 0.3)}>AYTGAN</text>
-        <text x={880} y={930} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={30} fill={CREAM} opacity={ap(t, 11, 6, 0.3)}>AYBLANGAN</text>
+        <circle cx={260} cy={820} r={46} fill="none" stroke={GOLD} strokeWidth={6} opacity={ap(t, 11, 5, 0.3)} />
+        <circle cx={820} cy={820} r={46} fill="none" stroke={CREAM} strokeWidth={6} opacity={ap(t, 11, 6, 0.3)} />
+        <text x={260} y={930} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={30} fill={GOLD} opacity={ap(t, 11, 5, 0.3)}>AYTGAN</text>
+        <text x={820} y={930} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={30} fill={CREAM} opacity={ap(t, 11, 6, 0.3)}>AYBLANGAN</text>
       </Svg>
       <div style={{position: 'absolute', left: x - 140, top: y, width: 280, textAlign: 'center', opacity: word, fontFamily: SANS, fontWeight: 800, fontSize: 70, color: back >= 1 ? GOLD : RED}}>ABTAR</div>
       <Big top={1130} size={58} k={back} color={CREAM}>o'ziga <span style={{color: RED}}>qaytdi</span></Big>
