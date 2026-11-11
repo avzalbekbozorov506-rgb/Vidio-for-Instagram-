@@ -27,6 +27,10 @@
 | Haqiqiy bankrot kim? (хадис Муслим 2581) | script-42 | vo-42 | Bankrot (+BankrotCover) | готов (bankrot-cover.mp4), НЕ опубликован, пользователь загружает вручную как «Пробный» |
 | Ikki bog' (Kahf 18:32-44) | script-44 | vo-44 | IkkiBog (+IkkiCover) | опубликован 11.11 (DfmPdpBkuNl), стиль турецкого ролика |
 | Nega sura o'rgimchak? (Ankabut 29) | script-45 | vo-45 | Ankabut (+AnkabutCover) | опубликован 11.11 (DfmPuMdiaHq), паутина как мир |
+| Yunus: qorong'ulikdagi duo (21:87-88, 37:139-148) | script-49 | vo-49 | ShadowYunus (+YunusCover), стиль «театр теней» | готов (release/yunus-cover.mp4), НЕ опубликован, ждёт проверки пользователя |
+| Maryam (yagona ayol) | script-46 | - | - | сценарий готов, без озвучки (1092 знака) |
+| Ashobul Kahf: nechta edilar | script-47 | - | - | сценарий готов, без озвучки (1041 знак) |
+| Oyatul Kursiy | script-48 | - | - | сценарий готов, без озвучки (802 знака) |
 | Yelkangizda nima bor (притча, 23:1-2) | script-43 | - | - | сценарий-черновик, без озвучки (заменён по просьбе на аяты) |
 
 Без озвучки: script-18 (канализация), 28 (бабочка), 32 (2:23), 33 (6:125), 34 (tahorat, нужна проверка имамом). Отменены/архив: 01-05, 07, 08, 10-15, 17, 24, 29; монолог, стихи, якорь (файлы удалены, исходники в `src/`).
