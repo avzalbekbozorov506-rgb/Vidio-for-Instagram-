@@ -17,14 +17,14 @@ const lerp = (a: number, b: number, u: number) => a + (b - a) * u;
 const INK = '#2a1c14';
 
 let fontsStarted = false;
-const loadFonts = () => {
+export const loadFonts = () => {
   if (fontsStarted) return; fontsStarted = true;
   const h = delayRender('wc-fonts');
   const list: [string, string, string][] = [['Cormorant', 'cormorant-600.woff2', '600'], ['Montserrat', 'montserrat-800-12.woff2', '800']];
   Promise.all(list.map(([fam, file, w]) => new FontFace(fam, `url(${staticFile('fonts/' + file)})`, {weight: w}).load().then((ff) => document.fonts.add(ff)))).then(() => continueRender(h)).catch((e) => { console.error(e); continueRender(h); });
 };
 
-const Subs: React.FC<{ws: TimedWord[]; t: number}> = ({ws, t}) => {
+export const Subs: React.FC<{ws: TimedWord[]; t: number}> = ({ws, t}) => {
   const chunks: TimedWord[][] = []; let cur: TimedWord[] = [];
   for (const w of ws) { const len = cur.reduce((a, x) => a + x.w.length + 1, 0) + w.w.length; if (cur.length && (cur.length >= 4 || len > 26)) { chunks.push(cur); cur = []; } cur.push(w); if (/[.,?!]$/.test(w.w)) { chunks.push(cur); cur = []; } }
   if (cur.length) chunks.push(cur);
@@ -38,7 +38,7 @@ const Subs: React.FC<{ws: TimedWord[]; t: number}> = ({ws, t}) => {
       {c.map((w, i) => <span key={i} style={{marginRight: i < c.length - 1 ? 16 : 0, opacity: t >= w.s - 0.02 ? 1 : 0.5}}>{w.w}</span>)}</div></div>);
 };
 
-const Title: React.FC<{text: string; a: number; top?: number; size?: number; color?: string}> = ({text, a, top = 300, size = 100, color = INK}) => (
+export const Title: React.FC<{text: string; a: number; top?: number; size?: number; color?: string}> = ({text, a, top = 300, size = 100, color = INK}) => (
   <div style={{position: 'absolute', left: 0, right: 0, top, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 14}px)`, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: size, letterSpacing: 4, color, textShadow: '0 0 24px rgba(250,243,228,.9)'}}>{text}</div>
 );
 
