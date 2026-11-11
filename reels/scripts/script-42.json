@@ -1,0 +1,80 @@
+{
+  "id": "script-42",
+  "title": "Haqiqiy bankrot kim? (хадис о муфлисе, Муслим 2581) - сюжет по присланному видео, свой текст, 2D",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "islom-hadis",
+  "series": "Hadis",
+  "status": "draft v2: правки после самопроверки, ждёт ок пользователя и религиозной проверки",
+  "hook": "Bankrot kim? Puli yo'q odammi? Yo'q. Haqiqiy bankrot boshqa. Oxirigacha ko'ring.",
+  "cover_text": "HAQIQIY BANKROT KIM?",
+  "reference": "Присланное пользователем mp4 (AI-видео, рынок, два героя, мешки = савоб, очередь кредиторов). Сюжет и порядок бит те же, текст и картинка свои.",
+  "rules": "Пророка и сподвижников не изображать, людей только безликими силуэтами. Хадис: Сахих Муслим 2581 (Абу Хурайра), формулировки сверить с переводом перед публикацией. Концовку про ад подавать как предупреждение, без добавлений.",
+  "facts": [
+    "Хадис о муфлисе: Сахих Муслим 2581 (книга 45, хадис 77), со слов Абу Хурайры; сверено по англ. переводу (hadeethenc, abuaminaelias, sunnah.com).",
+    "Пророк (с.а.в.) спросил сподвижников, знают ли они, кто муфлис. Те ответили: у кого нет ни дирхема, ни имущества.",
+    "Пророк: муфлис из моей уммы приходит в Судный день с намазом, постом и закятом, но он оскорблял этого, клеветал на этого, пожирал имущество этого, проливал кровь этого, бил этого (ПЯТЬ пунктов).",
+    "Каждому отдаётся из его благих дел; если добрые дела кончились раньше, чем расплатился, берётся из грехов тех людей и возлагается на него, затем он брошен в огонь (условие «если»).",
+    "«Навбат/очередь» в хадисе НЕТ: это образ из присланного видео, для религиозной проверки.",
+    "По решению пользователя фраза про огонь (do'zax) из озвучки убрана; в хадисе она есть («затем он брошен в огонь»)."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Bankrot kim? Puli yo'q odammi? Yo'q. Haqiqiy bankrot boshqa. Oxirigacha ko'ring.",
+      "on_screen": "HAQIQIY BANKROT KIM?",
+      "visual_hint": "рынок в силуэтах, вопрос, монеты исчезают"
+    },
+    {
+      "n": 2,
+      "vo": "Payg'ambarimiz sollallohu alayhi vasallam sahobalardan bankrot kimligini so'radilar. Ular, puli ham, mulki ham yo'q odam, deb javob berishdi.",
+      "on_screen": "PULI HAM MULKI YO'Q",
+      "visual_hint": "пустой кошелёк, пустой прилавок"
+    },
+    {
+      "n": 3,
+      "vo": "Payg'ambarimiz esa shunday dedilar. Ummatimning bankroti Qiyomat kuni namoz, ro'za va zakot bilan keladi.",
+      "on_screen": "NAMOZ · RO'ZA · ZAKOT",
+      "visual_hint": "силуэт идёт с тремя полными мешками, на мешках значки"
+    },
+    {
+      "n": 4,
+      "vo": "Lekin u bunisini so'kkan, bunisiga tuhmat qilgan, bunisining mulkini yegan, bunisining qonini to'kkan, bunisini urgan bo'ladi.",
+      "on_screen": "SO'KKAN · TUHMAT · MULK · QON · URGAN",
+      "visual_hint": "четыре безликих силуэта выходят из толпы, указывают на героя"
+    },
+    {
+      "n": 5,
+      "vo": "Hisob boshlanadi. Har bir haq egasiga o'sha odamning savobidan beriladi.",
+      "on_screen": "HAR BIR HAQ EGASIGA",
+      "visual_hint": "очередь, каждый уносит по мешку"
+    },
+    {
+      "n": 6,
+      "vo": "Savobi tugab, haq egalari hali qolsachi?",
+      "on_screen": "SAVOB TUGASA?",
+      "visual_hint": "пустая телега, очередь осталась"
+    },
+    {
+      "n": 7,
+      "vo": "Shunda ularning gunohlaridan olinib, unga yuklanadi. Bu juda og'ir ogohlantirish.",
+      "on_screen": "GUNOHLAR UNGA YUKLANADI",
+      "visual_hint": "мешки с тёмными грехами ложатся на плечи героя"
+    },
+    {
+      "n": 8,
+      "vo": "Haqiqiy bankrot puli yo'q odam emas. Haqiqiy bankrot, savobi boshqalarga tarqab ketgan odam.",
+      "on_screen": "HAQIQIY BANKROT",
+      "visual_hint": "возврат к хуку: пустая сцена, одинокий силуэт"
+    },
+    {
+      "n": 9,
+      "vo": "Zimmangizda kimning haqi bor? O'ylab ko'ring va yaqiningizga yuboring.",
+      "on_screen": "ZIMMANGIZDA KIM BOR?",
+      "visual_hint": "силуэт оборачивается, за ним тени людей"
+    }
+  ],
+  "caption": "Haqiqiy bankrot kim? Pul emas, savobingiz boshqalarga tarqab ketishi mumkin. Muslim rivoyatidagi hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom #qiyomat #savob"
+}

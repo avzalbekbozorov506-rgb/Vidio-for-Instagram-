@@ -1,0 +1,87 @@
+{
+  "id": "script-45",
+  "title": "Nega Qur'ondagi sura o'rgimchak deb ataladi? (Ankabut 29, ayat 41) - формат Sigir, визуал как в турецком ролике",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "quran-nom",
+  "series": "Qur'on",
+  "status": "draft: ждёт ок пользователя и религиозной проверки",
+  "hook": "Qur'onda bir sura o'rgimchak deb ataladi. Nega aynan u? Javob oxirida.",
+  "cover_text": "NEGA O'RGIMCHAK?",
+  "reference": "Формат Sigir (script-36): вопрос о названии суры, парадокс с числом, «Javob oxirida», толкование как «bir izohga ko'ra». Визуал: плоская иллюстрация во дворе-саду как в ikki bog' (ссылка на турецкий ролик).",
+  "rules": "Пророков (Нух, Муса) не изображать, только упомянуть в тексте. Причину связи паука с Корун/Фираун подавать как «bir izohga ko'ra». Арабский 29:41 на экране без голоса.",
+  "facts": [
+    "Сура 29 (Al-Ankabut): 69 аятов (alquran.cloud).",
+    "Слово «анкабут» (паук) во всём Коране только в 29:41 (дважды в этом аяте), проверено по quran-simple.",
+    "29:2 «Одамлар иймон келтирдик дейишлари ила имтиҳон қилинмай, тарк этилишларини ўйладиларми?» (uz.sodik).",
+    "29:14 Нух: эллик йили кам минг йил (uz.sodik).",
+    "29:38 Од и Самуд; 29:39 «Қорун, Фиръавн ва Ҳомонларни (ҳам ҳалок қилдик). Муса очиқ ҳужжатлар келтирди, улар ер юзида мутакаббирлик қилдилар»; 29:40 «ҳар бирини гуноҳи туфайли тутдик: баъзилари устига тош ёғдирдик, баъзиларини қичқириқ ушлади, баъзиларини ерга ютдирдик ва баъзиларини ғарқ қилдик» (uz.sodik, en.sahih).",
+    "29:41 стоит непосредственно после 29:40: «Аллоҳни қўйиб, ўзга дўстлар тутганларнинг мисоли ўзига уй тутган ўргимчакка ўхшайди. Энг заиф уй ўргимчакнинг уясидир».",
+    "Название суры по аяту 41: quran.com/29/info и введение Маудуди (alim.org). Причина «почему именно этот образ» и связь с Корун/Фираун: толкование, подаётся как «bir izohga ko'ra»; тафсиры не сверены дословно."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Qur'onda bir sura o'rgimchak deb ataladi. Nega aynan u? Javob oxirida.",
+      "on_screen": "O'RGIMCHAK",
+      "visual_hint": "двор-сад, паутина в углу арки, лучи света, название сверху (на экране без плашки)"
+    },
+    {
+      "n": 2,
+      "vo": "Bu sura oltmish to'qqiz oyatdan iborat. O'rgimchak esa butun Qur'onda faqat bitta oyatda tilga olinadi.",
+      "on_screen": "69 OYAT",
+      "visual_hint": "двор, паутина крупно, 69 точек-сетка и одна подсвечена"
+    },
+    {
+      "n": 3,
+      "vo": "Suraning boshida bir savol turadi. Odamlar, iymon keltirdik, deyishlari bilan sinalmay qoldiriladi deb o'ylaydimi?",
+      "on_screen": "29:2",
+      "visual_hint": "человек произносит слова, они повисают в воздухе; сверху набегают тучи, ветер"
+    },
+    {
+      "n": 4,
+      "vo": "Suraning ichida qissalar bor. Ularning oxirida kuchli nomlar keladi, Qorun, Fir'avn, Homon. Ularga ochiq dalillar keldi, ular esa yer yuzida kibr qildi.",
+      "on_screen": "",
+      "visual_hint": "три богатых силуэта: сундуки золота, трон, высокая башня; у ворот светят ясные знаки"
+    },
+    {
+      "n": 5,
+      "vo": "Alloh har birini gunohi tufayli tutdi. Ba'zilarini yer yutdi, ba'zilarini suv bosdi.",
+      "on_screen": "29:40",
+      "visual_hint": "вихрь и вода, земля трескается у подножия дворцов; силуэты исчезают"
+    },
+    {
+      "n": 6,
+      "vo": "Va aynan shundan keyingi oyatda o'rgimchak keladi.",
+      "on_screen": "",
+      "visual_hint": "камера медленно возвращается к паутине на арке, нить дрожит"
+    },
+    {
+      "n": 7,
+      "vo": "Allohni qo'yib, boshqalarni himoyachi tutganlarning misoli, o'ziga uy tutgan o'rgimchakka o'xshaydi. Holbuki, eng zaif uy o'rgimchak uyidir.",
+      "on_screen": "29:41",
+      "visual_hint": "паутина-дом рядом с каменным домом, ветер, нити дрожат; арабский 29:41 без голоса"
+    },
+    {
+      "n": 8,
+      "vo": "Bir izohga ko'ra, Qorun boyligiga, Fir'avn qudratiga suyandi. Ular qurgan uy kuchli ko'rindi, lekin o'rgimchak uyidan mustahkam emas edi.",
+      "on_screen": "",
+      "visual_hint": "сундуки и трон на паутине; налетает ветер, паутина рвётся"
+    },
+    {
+      "n": 9,
+      "vo": "Tafsirlarda sura nomi shu misoldan olingani aytiladi. Imtihon kelganda tayanching nima ekani bilinadi.",
+      "on_screen": "",
+      "visual_hint": "человек выбирает между домом из паутины и каменным домом, ветер рвёт паутину"
+    },
+    {
+      "n": 10,
+      "vo": "Siz qaysi uyga suyanyapsiz? Yaqiningizga yuboring.",
+      "on_screen": "",
+      "visual_hint": "человек у ворот между двумя домами; конец зеркалит хук"
+    }
+  ],
+  "caption": "Nega Qur'ondagi sura o'rgimchak deb ataladi? Ankabut surasi va 41-oyat.\n\n#oddiymohiyat #o'zbekcha #qur'on #ankabut #islom #hikmat"
+}
