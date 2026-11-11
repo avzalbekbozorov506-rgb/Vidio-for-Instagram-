@@ -55,9 +55,15 @@
   },
   {
    "n": 7,
-   "vo": "Qorong'ulikda Yunus nima dedi? U shunday dedi, sendan o'zga Iloh yo'q, Sen poksan, albatta, men zolimlardan bo'ldim. Yaqiningizga yuboring.",
+   "vo": "Qorong'ulikda Yunus nima dedi? U shunday dedi, sendan o'zga Iloh yo'q, Sen poksan, albatta, men zolimlardan bo'ldim.",
    "on_screen": "DUO",
    "visual_hint": "арабский дуа 21:87, ночное море, луна; конец зеркалит хук"
+  },
+  {
+   "n": 8,
+   "vo": "Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "OBUNA BO'LING",
+   "visual_hint": "ночное море, луна, мягкая плашка-слот; без дуа"
   }
  ],
  "caption": "Yunus alayhissalom: qorong'ulikdagi duo\n\n#oddiymohiyat #o'zbekcha #qur'on #hikmat #islom"
