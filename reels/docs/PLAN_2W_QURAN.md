@@ -1,38 +1,38 @@
 # План на 2 недели: Qur'on, 2 ролика в день (12.11-25.11.2026)
-Слоты (Ташкент, +05:00): 13:00 и 20:00. Сильнейший ролик дня на 20:00.
+Слоты (Ташкент, +05:00): 11:00 и 16:00 (с 11.11.2026, вечером не публикуем). Сильнейший ролик дня на 16:00.
 Все аяты сверяются с alquran.cloud (ar + uz.sodik + en.sahih) ДО сценария. Хадисы только с номером (Бухари/Муслим). Толкования помечать «bir izohga ko'ra». Религиозную проверку делает пользователь; перед публикацией напоминать про @dinuzbbot.
 Статус всех: идея. Источники ниже ориентировочные, точные сверяются при написании сценария.
 
 | # | Дата | Слот | Тема (хук-вопрос) | Источник | Заметка |
 |---|---|---|---|---|---|
-| 1 | чт 12.11 | 13:00 | Qur'onda nomi bilan atalgan yagona ayol kim? (Maryam) | 19 сура, 3:42-47 | число упоминаний сверить |
-| 2 | чт 12.11 | 20:00 | Ashobul Kahf: nechta edilar? | 18:9-26, особенно 18:22, 18:25 | «Javob oxirida»: Alloh biladi |
-| 3 | пт 13.11 | 13:00 | Qur'onning eng ulug' oyati qaysi? (Oyatul Kursiy) | 2:255, хадис Муслим 810 | |
-| 4 | пт 13.11 | 20:00 | Hojar va Zamzam: suv qanday paydo bo'ldi? | 2:158, 14:37, хадис Бухари 3364 | история из хадиса, не из аята |
-| 5 | сб 14.11 | 13:00 | Yunus va baliq: qorong'ulikdagi duo | 21:87-88, 37:139-148 | |
-| 6 | сб 14.11 | 20:00 | Ikki dengiz uchrashadi, lekin aralashmaydi | 55:19-20, 25:53 | «bir izohga ko'ra», без «mo'jiza» |
-| 7 | вс 15.11 | 13:00 | Qadr kechasi: ming oydan yaxshi, bu necha yil? | 97 сура, арифметика кодом (1000/12) | не подавать как число-чудо |
-| 8 | вс 15.11 | 20:00 | Suvdan hamma tirik jonzot yaratildi | 21:30, 24:45 | наука по первоисточникам |
-| 9 | пн 16.11 | 13:00 | Musoning tayog'i: "o'ngingda nima bor?" | 20:17-21 | |
-| 10 | пн 16.11 | 20:00 | Fil egalari: Ka'bani kim himoya qildi? | 105 сура | кадры в стиле плоской иллюстрации |
-| 11 | вт 17.11 | 13:00 | Qorun xazinasi: boylik nega yutib yubordi | 28:76-82 | связка с деньгами |
-| 12 | вт 17.11 | 20:00 | Nuh kemasi: o'g'li nega tushmadi | 11:40-47 | |
-| 13 | ср 18.11 | 13:00 | Qur'onning birinchi oyati qaysi? (Iqro) | 96:1-5 | |
-| 14 | ср 18.11 | 20:00 | Zulqarnayn devori kimdan saqladi | 18:83-98 | личность Зулькарнайна спорна, честно |
-| 15 | чт 19.11 | 13:00 | Luqmonning o'g'liga 3 nasihati | 31:13-19 | |
-| 16 | чт 19.11 | 20:00 | Ibrohim va olov: nega kuymadi | 21:68-69, 37:97-98 | |
-| 17 | пт 20.11 | 13:00 | Fotiha: namozni ikkiga bo'ldim | 1 сура, хадис Муслим 395 | |
-| 18 | пт 20.11 | 20:00 | Sulaymon va hud-hud: qush nima xabar keltirdi | 27:20-28 | |
-| 19 | сб 21.11 | 13:00 | Asr surasi: zarardan qutulishning 4 sharti | 103 сура | коротко, 30-40 с |
-| 20 | сб 21.11 | 20:00 | Yusufning tushi: 11 yulduz | 12:4, 12:100 | |
-| 21 | вс 22.11 | 13:00 | Takosur: sizni nima chalg'itdi | 102 сура | |
-| 22 | вс 22.11 | 20:00 | Isro: bir kechada Makkadan Qudsgacha | 17:1 | без деталей me'roj, их из хадиса отдельно |
-| 23 | пн 23.11 | 13:00 | Ayyubning sabri | 38:41-44, 21:83-84 | |
-| 24 | пн 23.11 | 20:00 | Hech kim bu kabi suraga ega bo'la olmaydi (вызов) | 2:23 | есть script-32 (черновик) |
-| 25 | вт 24.11 | 13:00 | Nega ko'ksi torayadi (osmonga ko'tarilganday) | 6:125 | есть script-33 (черновик), наука осторожно |
-| 26 | вт 24.11 | 20:00 | Musoga dengiz yoriladi | 26:61-67 | |
-| 27 | ср 25.11 | 13:00 | Falaq va Nos: himoya suralari | 113, 114 | хадис о чтении перед сном с номером |
-| 28 | ср 25.11 | 20:00 | Quraysh surasi: bir mehmon bo'lib qolgan sura | 106 сура | запас/замена |
+| 1 | чт 12.11 | 11:00 | Qur'onda nomi bilan atalgan yagona ayol kim? (Maryam) | 19 сура, 3:42-47 | число упоминаний сверить |
+| 2 | чт 12.11 | 16:00 | Ashobul Kahf: nechta edilar? | 18:9-26, особенно 18:22, 18:25 | «Javob oxirida»: Alloh biladi |
+| 3 | пт 13.11 | 11:00 | Qur'onning eng ulug' oyati qaysi? (Oyatul Kursiy) | 2:255, хадис Муслим 810 | |
+| 4 | пт 13.11 | 16:00 | Hojar va Zamzam: suv qanday paydo bo'ldi? | 2:158, 14:37, хадис Бухари 3364 | история из хадиса, не из аята |
+| 5 | сб 14.11 | 11:00 | Yunus va baliq: qorong'ulikdagi duo | 21:87-88, 37:139-148 | |
+| 6 | сб 14.11 | 16:00 | Ikki dengiz uchrashadi, lekin aralashmaydi | 55:19-20, 25:53 | «bir izohga ko'ra», без «mo'jiza» |
+| 7 | вс 15.11 | 11:00 | Qadr kechasi: ming oydan yaxshi, bu necha yil? | 97 сура, арифметика кодом (1000/12) | не подавать как число-чудо |
+| 8 | вс 15.11 | 16:00 | Suvdan hamma tirik jonzot yaratildi | 21:30, 24:45 | наука по первоисточникам |
+| 9 | пн 16.11 | 11:00 | Musoning tayog'i: "o'ngingda nima bor?" | 20:17-21 | |
+| 10 | пн 16.11 | 16:00 | Fil egalari: Ka'bani kim himoya qildi? | 105 сура | кадры в стиле плоской иллюстрации |
+| 11 | вт 17.11 | 11:00 | Qorun xazinasi: boylik nega yutib yubordi | 28:76-82 | связка с деньгами |
+| 12 | вт 17.11 | 16:00 | Nuh kemasi: o'g'li nega tushmadi | 11:40-47 | |
+| 13 | ср 18.11 | 11:00 | Qur'onning birinchi oyati qaysi? (Iqro) | 96:1-5 | |
+| 14 | ср 18.11 | 16:00 | Zulqarnayn devori kimdan saqladi | 18:83-98 | личность Зулькарнайна спорна, честно |
+| 15 | чт 19.11 | 11:00 | Luqmonning o'g'liga 3 nasihati | 31:13-19 | |
+| 16 | чт 19.11 | 16:00 | Ibrohim va olov: nega kuymadi | 21:68-69, 37:97-98 | |
+| 17 | пт 20.11 | 11:00 | Fotiha: namozni ikkiga bo'ldim | 1 сура, хадис Муслим 395 | |
+| 18 | пт 20.11 | 16:00 | Sulaymon va hud-hud: qush nima xabar keltirdi | 27:20-28 | |
+| 19 | сб 21.11 | 11:00 | Asr surasi: zarardan qutulishning 4 sharti | 103 сура | коротко, 30-40 с |
+| 20 | сб 21.11 | 16:00 | Yusufning tushi: 11 yulduz | 12:4, 12:100 | |
+| 21 | вс 22.11 | 11:00 | Takosur: sizni nima chalg'itdi | 102 сура | |
+| 22 | вс 22.11 | 16:00 | Isro: bir kechada Makkadan Qudsgacha | 17:1 | без деталей me'roj, их из хадиса отдельно |
+| 23 | пн 23.11 | 11:00 | Ayyubning sabri | 38:41-44, 21:83-84 | |
+| 24 | пн 23.11 | 16:00 | Hech kim bu kabi suraga ega bo'la olmaydi (вызов) | 2:23 | есть script-32 (черновик) |
+| 25 | вт 24.11 | 11:00 | Nega ko'ksi torayadi (osmonga ko'tarilganday) | 6:125 | есть script-33 (черновик), наука осторожно |
+| 26 | вт 24.11 | 16:00 | Musoga dengiz yoriladi | 26:61-67 | |
+| 27 | ср 25.11 | 11:00 | Falaq va Nos: himoya suralari | 113, 114 | хадис о чтении перед сном с номером |
+| 28 | ср 25.11 | 16:00 | Quraysh surasi: bir mehmon bo'lib qolgan sura | 106 сура | запас/замена |
 
 ## Затраты и темп
 Озвучка ≈ 800-1000 кредитов VoiceLab на ролик (1 кредит на знак). 28 роликов ≈ 25 000 кредитов; цену конкретного ролика называть по знакам ДО озвучки. Сборка 1 ролика = сценарий + озвучка + композиция + рендер, за сессию реально 3-4 ролика.
