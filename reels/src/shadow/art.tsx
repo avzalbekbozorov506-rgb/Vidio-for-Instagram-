@@ -126,7 +126,7 @@ export const Vine: React.FC<{x0: number; y0: number; w: number; h: number; k: nu
     <g>
       <path d={d} stroke={INK} strokeWidth={9} fill="none" strokeLinecap="round" strokeLinejoin="round" />
       {Array.from({length: drawn}, (_, i) => { const [px, py] = pt((i + 1) / N), sc = Math.min(1, (k * N - i) / 1.5), up = i % 2 ? -1 : 1; return <g key={i} transform={`translate(${px} ${py}) rotate(${up * 35 + Math.sin(t * 1.5 + i) * 5}) scale(${sc})`}><path d="M0 0 C25 -50 80 -50 100 0 C80 40 25 40 0 0 Z" fill={INK} /><line x1={0} y1={0} x2={86} y2={0} stroke="rgba(255,225,150,.5)" strokeWidth={2} /></g>; })}
-      {k > 0.55 && (() => { const [px, py] = pt(0.55), sc = Math.min(1, (k - 0.55) * 3); return <ellipse cx={px} cy={py + 60 * sc} rx={46 * sc} ry={64 * sc} fill={INK} />; })()}
+      {k > 0.55 && (() => { const [px, py] = pt(0.55), sc = Math.min(1, (k - 0.55) * 3); return <g><line x1={px} y1={py} x2={px} y2={py + 40 * sc} stroke={INK} strokeWidth={8} /><ellipse cx={px} cy={py + 120 * sc} rx={74 * sc} ry={100 * sc} fill={INK} /><ellipse cx={px - 26 * sc} cy={py + 100 * sc} rx={10 * sc} ry={28 * sc} fill="rgba(255,225,150,.45)" /></g>; })()}
     </g>
   );
 };
@@ -136,10 +136,9 @@ export const Bubbles: React.FC<{x: number; y: number; t: number; k: number}> = (
 );
 
 export const Ribs: React.FC<{k?: number}> = ({k = 1}) => (
-  <g opacity={k} stroke={INK} strokeWidth={26} fill="none" strokeLinecap="round">
-    {Array.from({length: 7}, (_, i) => <path key={i} d={`M${-100 + i * 190} -60 Q${-30 + i * 190} 900 ${-100 + i * 190 + (i < 3 ? 120 : -120)} 2100`} />)}
-    <path d="M-200 1800 Q540 1500 1300 1800" strokeWidth={90} />
-    <path d="M-200 100 Q540 460 1300 100" strokeWidth={80} />
+  <g opacity={k} stroke={INK} strokeWidth={34} fill="none" strokeLinecap="round">
+    {Array.from({length: 9}, (_, i) => { const y = 120 + i * 230; return (<g key={i}><path d={`M-120 ${y} Q190 ${y + 40} 330 ${y + 330}`} /><path d={`M1200 ${y} Q890 ${y + 40} 750 ${y + 330}`} /></g>); })}
+    <path d="M-200 1950 Q540 1650 1300 1950" strokeWidth={110} />
   </g>
 );
 

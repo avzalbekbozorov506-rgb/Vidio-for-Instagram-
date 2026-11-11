@@ -37,6 +37,7 @@ import {Bankrot, BANKROT_FRAMES} from './Bankrot';
 import {IkkiBog, IKKI_FRAMES} from './IkkiBog';
 import {Ankabut, ANKABUT_FRAMES} from './Ankabut';
 import {ShadowYunus, SHADOW_FRAMES} from './ShadowYunus';
+import {YunusCover} from './shadow/YunusCover';
 import {AnkabutCover, IkkiCover} from './bog/Covers';
 import {BankrotCover} from './bankrot/BankrotCover';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
@@ -47,6 +48,7 @@ import {ThunderPro, ThunderProCover, ThunderProCover2, THUNDERPRO_FRAMES} from '
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="YunusCover" component={YunusCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ShadowYunus" component={ShadowYunus} durationInFrames={SHADOW_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="AyatBee" component={AyatBee} durationInFrames={AYAT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="AyatAnt" component={AyatAnt} durationInFrames={ANT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
