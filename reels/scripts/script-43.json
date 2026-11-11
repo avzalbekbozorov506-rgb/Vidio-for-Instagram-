@@ -1,0 +1,89 @@
+{
+  "id": "script-43",
+  "title": "Sirtingda nima bor? (притча о дровах в мечети, 23:1-2) - сюжет по присланному видео, свой текст, 2D",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "islom-hikoya",
+  "series": "Hikoya",
+  "status": "draft: ждёт ок пользователя и религиозной проверки",
+  "hook": "Namozda sirtingizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirgan. Nega? Oxirigacha ko'ring.",
+  "cover_text": "SIRTINGDA NIMA BOR?",
+  "reference": "Присланное mp4 (турецкая притча «Sırtında ne var»: человек входит в мечеть с дровами, видит на спинах людей их заботы, у имама корова). Сюжет и порядок бит те же, текст и картинка свои.",
+  "rules": "Притча народная, источник неизвестен: подавать как «aytishlaricha», не как хадис. Лица Пророков и сподвижников не показывать; люди вымышленные. Аят 23:1-2 арабским на экране без голоса, перевод Содик (alquran.cloud). Имама не высмеивать.",
+  "facts": [
+    "Притча не из Корана и не из хадисов; происхождение не установлено (народная, турецкая версия в присланном видео).",
+    "23:1 Батаҳқиқ, мўминлар нажот топдилар. 23:2 Улар намозларида хушуъ қилувчилардир (uz.sodik, alquran.cloud).",
+    "Связанный аят 107:4-5: вайл намозхонлар, кто ўз намозларини унитувчилар (не использован в озвучке)."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Namozda sirtingizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirgan. Nega? Oxirigacha ko'ring.",
+      "on_screen": "SIRTINGDA NIMA BOR?",
+      "visual_hint": "masjid, одинокая фигура с дровами у входа"
+    },
+    {
+      "n": 2,
+      "vo": "U avval jamoatga bir qaradi, indamay chiqib ketdi. Ko'p o'tmay yelkasiga o'tin ortib qaytdi va shu holda namozga turdi.",
+      "on_screen": "",
+      "visual_hint": "вход в мечеть, дрова связаны за спиной, пол с красным ковром"
+    },
+    {
+      "n": 3,
+      "vo": "Sajdada o'tinlar to'kilib ketdi, jamoat bezovta bo'ldi. Imom unga dedi, yelkada o'tin bilan ham namoz o'qiladimi?",
+      "on_screen": "",
+      "visual_hint": "дрова рассыпались, ряды молящихся оборачиваются, имам идёт к нему"
+    },
+    {
+      "n": 4,
+      "vo": "U shunday dedi. Kirsam, yelkam bo'sh edi, qarasam hammaning yelkasida nimadir bor ekan. Men ham o'tinimni olib keldim.",
+      "on_screen": "",
+      "visual_hint": "крупно двое, жест рукой на ряды"
+    },
+    {
+      "n": 5,
+      "vo": "Imom hayron bo'ldi. U jamoatga ishora qildi. Anavining yelkasida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
+      "on_screen": "",
+      "visual_hint": "у людей на плечах появляются ребёнок, кувшин с золотом, товары"
+    },
+    {
+      "n": 6,
+      "vo": "Jamoat qotib qoldi. Chunki u kimga nima degan bo'lsa, to'g'ri aytgan edi.",
+      "on_screen": "",
+      "visual_hint": "лица, замершие люди"
+    },
+    {
+      "n": 7,
+      "vo": "Keyin imomga qarab dedi, eng ko'p sizga hayron bo'ldim. Sizning yelkangizda sigir bor edi.",
+      "on_screen": "",
+      "visual_hint": "у имама на плечах корова"
+    },
+    {
+      "n": 8,
+      "vo": "Imom namoz paytida sut bermay qo'ygan keksa sigirini sotsammikan, sotmasammikan, deb o'ylayotgan ekan.",
+      "on_screen": "",
+      "visual_hint": "имам в хлеву у коровы (мысль)"
+    },
+    {
+      "n": 9,
+      "vo": "Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda, telefonda, rejalarda.",
+      "on_screen": "",
+      "visual_hint": "человек на молитвенном коврике, за спиной мешок-мысли: рынок, телефон"
+    },
+    {
+      "n": 10,
+      "vo": "Qur'onda aytilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir.",
+      "on_screen": "23:1-2",
+      "visual_hint": "арабский текст аята без голоса, свет, мешок падает с плеч"
+    },
+    {
+      "n": 11,
+      "vo": "Dunyo eshik oldida kutib tursin, u qochib ketmaydi. Bugun namozda sirtingizda nima bor edi?",
+      "on_screen": "",
+      "visual_hint": "мешки у порога мечети, человек входит налегке"
+    }
+  ],
+  "caption": "Namozda sirtingizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirgan... Xalq hikoyasi va Mo'minun surasi 1-2 oyat.\n\n#oddiymohiyat #o'zbekcha #namoz #xushu #hikoya #islom"
+}
