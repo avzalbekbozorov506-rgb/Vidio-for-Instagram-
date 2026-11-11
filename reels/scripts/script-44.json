@@ -1,0 +1,92 @@
+{
+  "id": "script-44",
+  "title": "Ikki bog' (Kahf 18:32-44) - визуал как в присланном турецком ролике (плоская иллюстрация), сюжет из аятов",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "quran-hikoya",
+  "series": "Qur'on",
+  "status": "draft: ждёт ок пользователя и религиозной проверки",
+  "hook": "Bir kishining ikki bog'i bor edi, hosili hech kam bo'lmasdi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
+  "cover_text": "IKKI BOG' NEGA YO'Q BO'LDI?",
+  "reference": "Визуал: присланный турецкий ролик «Sırtında ne var» (плоская векторная иллюстрация, тёплая гамма, крупные декорации, люди с ношей). Сюжет и текст свои, из аятов.",
+  "rules": "Люди вымышленные, это не Пророки и не сподвижники. Не называть владельца кофиром от себя (в аятах: «зулм қилган ҳолда»). Арабский аят на экране без голоса, перевод Содик. Имена двух людей в аятах не названы, не придумывать.",
+  "facts": [
+    "18:32-33: два сада с виноградом, окружены финиковыми пальмами, посевы между ними, плоды без недостатка, посреди ручей.",
+    "18:34: «У него был (иной) плод/имущество», он хвастался перед другом: у меня больше имущества и людей сильнее.",
+    "18:35-36: вошёл в сад, поступая несправедливо к себе: не думаю, что это пропадёт, не думаю, что Час наступит; а если вернусь к Господу, найду лучше.",
+    "18:37-41: друг ответил: ты не уверовал в Создавшего тебя из праха? ... почему, войдя в сад, не сказал «Что пожелает Аллах, нет силы кроме как у Аллаха»? ... возможно, Господь даст мне лучше и пошлёт на твой сад бедствие с неба, или вода уйдёт в землю.",
+    "18:42-44: плоды были охвачены (уничтожением), он хлопал руками над потраченным, сад лежал на своих опорах, сказал «если бы я не приобщал никого к Господу»; не оказалось у него помощников кроме Аллаха; помощь истинная принадлежит Аллаху, Он лучший по награде и исходу (alquran.cloud, uz.sodik).",
+    "Идентичность двух людей в аятах не названа; в тафсирах есть версии, не использовать."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Bir kishining ikki bog'i bor edi, hosili hech kam bo'lmasdi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
+      "on_screen": "IKKI BOG'",
+      "visual_hint": "два сада с лозой и пальмами, ручей между ними, золотой свет, владелец и друг на дорожке"
+    },
+    {
+      "n": 2,
+      "vo": "Kahf surasida Alloh ikki kishini misol qilib keltiradi. Birining ikki uzum bog'i bor edi, atrofi xurmo bilan o'ralgan, orasidan anhor oqardi.",
+      "on_screen": "",
+      "visual_hint": "вид с высоты: два сада, пальмы, ручей"
+    },
+    {
+      "n": 3,
+      "vo": "U do'sti bilan gaplashib maqtandi, mening molim sendan ko'p, yordamchilarim ham kuchliroq.",
+      "on_screen": "",
+      "visual_hint": "богач и друг идут по саду, богач показывает рукой на всё, хвастается, за ним слуги"
+    },
+    {
+      "n": 4,
+      "vo": "Keyin bog'iga kirib, o'ziga zulm qilgan holda dedi, bu hech qachon yo'q bo'lmaydi. Qiyomat ham bo'lmasa kerak.",
+      "on_screen": "",
+      "visual_hint": "богач у входа в сад, самодовольно, за спиной пышные лозы"
+    },
+    {
+      "n": 5,
+      "vo": "Do'sti unga dedi, seni tuproqdan yaratgan Zotga kufr keltirdingmi?",
+      "on_screen": "",
+      "visual_hint": "друг напротив, спокойно говорит, жест на небо/на землю"
+    },
+    {
+      "n": 6,
+      "vo": "Bog'ingga kirganingda, Alloh xohlagani bo'ladi, quvvat faqat Allohdadir, deb nega aytmading?",
+      "on_screen": "18:39",
+      "visual_hint": "арабский аят 18:39 без голоса, друг показывает на вход в сад"
+    },
+    {
+      "n": 7,
+      "vo": "Balki Robbim menga sening bog'ingdan yaxshisini berar, seningkiga esa osmondan ofat yuborar.",
+      "on_screen": "",
+      "visual_hint": "небо темнеет, над садом собираются тучи"
+    },
+    {
+      "n": 8,
+      "vo": "Shunday bo'ldi. Mevalari halokat bilan o'ralib, bog' vayron bo'ldi. U sarflaganiga afsuslanib, qo'llarini ishqalab qoldi.",
+      "on_screen": "",
+      "visual_hint": "сад увядает, ручей пересыхает, ишкомы падают, богач сжимает руки"
+    },
+    {
+      "n": 9,
+      "vo": "Bog'ida ishkomlar qulab yotardi. U dedi, qani edi Robbimga hech kimni sherik qilmagan bo'lsam.",
+      "on_screen": "18:42",
+      "visual_hint": "руины сада, богач на коленях, ладони у лица"
+    },
+    {
+      "n": 10,
+      "vo": "Unga yordam beradigan hech kim chiqmadi, o'zi ham o'zini qutqara olmadi.",
+      "on_screen": "",
+      "visual_hint": "никого рядом, пустая дорожка, друг стоит поодаль"
+    },
+    {
+      "n": 11,
+      "vo": "Bog' yo'qolgani uchun emas. U bog'ga ishondi, Beruvchiga emas. Siz bog'ingizga kirganda nima deysiz?",
+      "on_screen": "",
+      "visual_hint": "пустая калитка в цветущий сад, человек у входа; конец зеркалит хук"
+    }
+  ],
+  "caption": "Ikki bog' haqida Qur'ondagi misol. Kahf surasi 32-44 oyatlar.\n\n#oddiymohiyat #o'zbekcha #qur'on #kahf #hikmat #islom"
+}
