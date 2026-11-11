@@ -27,6 +27,7 @@ import {Somad, SomadCover, SOMAD_FRAMES} from './Somad';
 import {Uhud, UhudCover, UHUD_FRAMES} from './Uhud';
 import {Sirius, SiriusCover, SIRIUS_FRAMES} from './Sirius';
 import {Gold, GoldCover, GOLD_FRAMES} from './Gold';
+import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
 import {Kavsar, KavsarCover, KAVSAR_FRAMES} from './Kavsar';
 import {CalliTest, CALLI_FRAMES} from './CalliTest';
 import {KavsarDust, DUST_FRAMES} from './KavsarDust';
@@ -67,6 +68,8 @@ export const Root: React.FC = () => {
     <Composition id="SiriusCover" component={SiriusCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Gold" component={Gold} durationInFrames={GOLD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="GoldCover" component={GoldCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Alham100" component={Alham100} durationInFrames={ALHAM_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="AlhamCover" component={AlhamCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UhudCover" component={UhudCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Kavsar" component={Kavsar} durationInFrames={KAVSAR_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="KavsarCover" component={KavsarCover} durationInFrames={1} fps={30} width={1080} height={1920} />
