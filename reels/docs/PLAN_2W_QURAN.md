@@ -1,53 +1,45 @@
-# План на 2 недели: Qur'on, 2 ролика в день (12.11-25.11.2026)
-Слоты (Ташкент, +05:00): 11:00 и 16:00 (с 11.11.2026, вечером не публикуем). Сильнейший ролик дня на 16:00.
-Все аяты сверяются с alquran.cloud (ar + uz.sodik + en.sahih) ДО сценария. Хадисы только с номером (Бухари/Муслим). Толкования помечать «bir izohga ko'ra». Религиозную проверку делает пользователь; перед публикацией напоминать про @dinuzbbot.
-Статус всех: идея. Источники ниже ориентировочные, точные сверяются при написании сценария.
+# План на 2 недели (версия 2, 11.11.2026): хадисы про жизнь + вопросы и загадки
+Слоты (Ташкент, +05:00): 11:00 и 16:00, вечером не публикуем. Чередуем: утром хадис или вопрос, днём сильнейший.
+Формат «Savol»: вопрос в хуке, «Javob oxirida», ответ теми же словами в конце. Формат «Hadis»: короткий рассказ-история с номером хадиса из Бухари или Муслима, подача как урок (ibrat).
+Все числа («необходимо посчитать») считать кодом по тексту Корана (alquran.cloud), не по памяти. Номера хадисов ниже написаны по памяти, ОБЯЗАТЕЛЬНО сверять по сборнику до сценария.
+Правила безопасного контента и каждый ролик заканчивается призывом «Obuna bo'ling va yaqiningizga yuboring.» (см. CLAUDE.md).
+Стили: театр теней (драмы и истории), бумажный театр (тихие истории и природа), каллиграфия/орнамент (сами аяты), плоский сад (бытовые притчи и хадисы).
 
-| # | Дата | Слот | Тема (хук-вопрос) | Источник | Заметка |
-|---|---|---|---|---|---|
-| 1 | чт 12.11 | 11:00 | Qur'onda nomi bilan atalgan yagona ayol kim? (Maryam) | 19 сура, 3:42-47 | число упоминаний сверить |
-| 2 | чт 12.11 | 16:00 | Ashobul Kahf: nechta edilar? | 18:9-26, особенно 18:22, 18:25 | «Javob oxirida»: Alloh biladi |
-| 3 | пт 13.11 | 11:00 | Qur'onning eng ulug' oyati qaysi? (Oyatul Kursiy) | 2:255, хадис Муслим 810 | |
-| 4 | пт 13.11 | 16:00 | Hojar va Zamzam: suv qanday paydo bo'ldi? | 2:158, 14:37, хадис Бухари 3364 | история из хадиса, не из аята |
-| 5 | сб 14.11 | 11:00 | Yunus va baliq: qorong'ulikdagi duo | 21:87-88, 37:139-148 | |
-| 6 | сб 14.11 | 16:00 | Ikki dengiz uchrashadi, lekin aralashmaydi | 55:19-20, 25:53 | «bir izohga ko'ra», без «mo'jiza» |
-| 7 | вс 15.11 | 11:00 | Qadr kechasi: ming oydan yaxshi, bu necha yil? | 97 сура, арифметика кодом (1000/12) | не подавать как число-чудо |
-| 8 | вс 15.11 | 16:00 | Suvdan hamma tirik jonzot yaratildi | 21:30, 24:45 | наука по первоисточникам |
-| 9 | пн 16.11 | 11:00 | Musoning tayog'i: "o'ngingda nima bor?" | 20:17-21 | |
-| 10 | пн 16.11 | 16:00 | Fil egalari: Ka'bani kim himoya qildi? | 105 сура | кадры в стиле плоской иллюстрации |
-| 11 | вт 17.11 | 11:00 | Qorun xazinasi: boylik nega yutib yubordi | 28:76-82 | связка с деньгами |
-| 12 | вт 17.11 | 16:00 | Nuh kemasi: o'g'li nega tushmadi | 11:40-47 | |
-| 13 | ср 18.11 | 11:00 | Qur'onning birinchi oyati qaysi? (Iqro) | 96:1-5 | |
-| 14 | ср 18.11 | 16:00 | Zulqarnayn devori kimdan saqladi | 18:83-98 | личность Зулькарнайна спорна, честно |
-| 15 | чт 19.11 | 11:00 | Luqmonning o'g'liga 3 nasihati | 31:13-19 | |
-| 16 | чт 19.11 | 16:00 | Ibrohim va olov: nega kuymadi | 21:68-69, 37:97-98 | |
-| 17 | пт 20.11 | 11:00 | Fotiha: namozni ikkiga bo'ldim | 1 сура, хадис Муслим 395 | |
-| 18 | пт 20.11 | 16:00 | Sulaymon va hud-hud: qush nima xabar keltirdi | 27:20-28 | |
-| 19 | сб 21.11 | 11:00 | Asr surasi: zarardan qutulishning 4 sharti | 103 сура | коротко, 30-40 с |
-| 20 | сб 21.11 | 16:00 | Yusufning tushi: 11 yulduz | 12:4, 12:100 | |
-| 21 | вс 22.11 | 11:00 | Takosur: sizni nima chalg'itdi | 102 сура | |
-| 22 | вс 22.11 | 16:00 | Isro: bir kechada Makkadan Qudsgacha | 17:1 | без деталей me'roj, их из хадиса отдельно |
-| 23 | пн 23.11 | 11:00 | Ayyubning sabri | 38:41-44, 21:83-84 | |
-| 24 | пн 23.11 | 16:00 | Hech kim bu kabi suraga ega bo'la olmaydi (вызов) | 2:23 | есть script-32 (черновик) |
-| 25 | вт 24.11 | 11:00 | Nega ko'ksi torayadi (osmonga ko'tarilganday) | 6:125 | есть script-33 (черновик), наука осторожно |
-| 26 | вт 24.11 | 16:00 | Musoga dengiz yoriladi | 26:61-67 | |
-| 27 | ср 25.11 | 11:00 | Falaq va Nos: himoya suralari | 113, 114 | хадис о чтении перед сном с номером |
-| 28 | ср 25.11 | 16:00 | Quraysh surasi: bir mehmon bo'lib qolgan sura | 106 сура | запас/замена |
-
-## Затраты и темп
-Озвучка ≈ 800-1000 кредитов VoiceLab на ролик (1 кредит на знак). 28 роликов ≈ 25 000 кредитов; цену конкретного ролика называть по знакам ДО озвучки. Сборка 1 ролика = сценарий + озвучка + композиция + рендер, за сессию реально 3-4 ролика.
-Предложение: идти пачками по 4, выкладывать по слотам; остальные слоты переносить, если проверка отстаёт.
+| № | Дата | Слот | Тема | Тип | Источник | Статус |
+|---|---|---|---|---|---|---|
+| 1 | чт 12.11 | 11:00 | Yunus: qorong'ulikda nima dedi? | Savol | 21:87-88, 37:139-148 | ГОТОВ, запланирован 12.11 11:00 |
+| 2 | чт 12.11 | 16:00 | Qur'onda ismi bilan atalgan yagona ayol kim? (Maryam) | Savol | 19 сура, 3:42 | script-46 готов |
+| 3 | пт 13.11 | 11:00 | Niyatga qarab amallar (hadis) | Hadis | Бухари 1, Муслим 1907 | номер сверить |
+| 4 | пт 13.11 | 16:00 | Qur'onda eng ulug' oyat qaysi? (Oyatul Kursiy) | Savol | 2:255, Муслим 810 | script-48 готов, номер сверить |
+| 5 | сб 14.11 | 11:00 | Haqiqiy kuchli odam kim? (g'azab) | Hadis | Бухари 6114, Муслим 2609 | номер сверить |
+| 6 | сб 14.11 | 16:00 | Ashobul Kahf: nechta edilar? | Savol | 18:22, 18:25 | script-47 готов |
+| 7 | вс 15.11 | 11:00 | Yaxshi gapir yoki jim tur (hadis) | Hadis | Бухари 6018, Муслим 47 | номер сверить |
+| 8 | вс 15.11 | 16:00 | Qur'onda faqat bitta oy ismi bor. Qaysi? (Ramazon) | Savol | 2:185 | проверить кодом |
+| 9 | пн 16.11 | 11:00 | Onam, onam, onam: kimga birinchi yaxshilik? (hadis) | Hadis | Бухари 5971, Муслим 2548 | номер сверить |
+| 10 | пн 16.11 | 16:00 | Qaysi surada bismillah yo'q? (Tavba) va ikki marta bor surasi (Naml) | Savol | 9, 27:30 | проверить кодом |
+| 11 | вт 17.11 | 11:00 | O'zingga yoqqanni birodaringga ham yoqtir (hadis) | Hadis | Бухари 13, Муслим 45 | номер сверить |
+| 12 | вт 17.11 | 16:00 | Qur'onda ismi tilga olingan yagona sahoba kim? (Zayd) | Savol | 33:37 | сверить |
+| 13 | ср 18.11 | 11:00 | Munofiqning uch belgisi (hadis) | Hadis | Бухари 33, Муслим 59 | номер сверить |
+| 14 | ср 18.11 | 16:00 | Muhammad ismi Qur'onda necha marta? | Savol | 3:144, 33:40, 47:2, 48:29; Ahmad 61:6 | считать кодом |
+| 15 | чт 19.11 | 11:00 | Chanqagan itga suv bergan ayol (hadis) | Hadis | Бухари 3321, Муслим 2245 | номер сверить |
+| 16 | чт 19.11 | 16:00 | Musoning ismi Qur'onda necha marta? | Savol | код по тексту | считать кодом |
+| 17 | пт 20.11 | 11:00 | Ikki ne'mat: sog'liq va bo'sh vaqt (hadis) | Hadis | Бухари 6412 | номер сверить |
+| 18 | пт 20.11 | 16:00 | Ibrohim ismi Qur'onda necha marta? Qaysi sura uning nomida? | Savol | 14 сура, код | считать кодом |
+| 19 | сб 21.11 | 11:00 | Dunyoda musofirdek bo'l (hadis) | Hadis | Бухари 6416 | номер сверить |
+| 20 | сб 21.11 | 16:00 | Fir'avn ismi Qur'onda necha marta? | Savol | код по тексту | считать кодом |
+| 21 | вс 22.11 | 11:00 | Mo'min mo'minga g'ishtdek (hadis) | Hadis | Бухари 481, Муслим 2585 | номер сверить |
+| 22 | вс 22.11 | 16:00 | Qur'onda nechta payg'ambarning ismi bor? | Savol | код/источник | сверить |
+| 23 | пн 23.11 | 11:00 | Musulmon kim? Qo'lidan va tilidan omon (hadis) | Hadis | Бухари 10, Муслим 40 | номер сверить |
+| 24 | пн 23.11 | 16:00 | Qur'onda eng qisqa sura va nega qisqa? (Kavsar) | Savol | 108 | script-41 есть, отдельное решение пользователя |
+| 25 | вт 24.11 | 11:00 | Qiyinchilikni yengillatganga Alloh yengillatadi (hadis) | Hadis | Муслим 2699 | номер сверить |
+| 26 | вт 24.11 | 16:00 | Qur'onda Makka qaysi oyatda tilga olingan? | Savol | 48:24, 3:96 (Bakka) | сверить |
+| 27 | ср 25.11 | 11:00 | Uch narsa amal uzilmaydi: sadaqai joriya (hadis) | Hadis | Муслим 1631 | номер сверить |
+| 28 | ср 25.11 | 16:00 | Quraysh surasi: nega bunday nom? | Savol | 106 | запас |
 
 ## Правила безопасного контента (решение пользователя 11.11.2026)
-Юридическая причина: постановление Кабинета Министров № 180 от 14.04.2022 (экспертиза религиозных материалов). Заключения комитета нет, обращение решено не отправлять; поэтому контент делаем максимально нейтральным. Это снижение риска, а не гарантия законности.
-1. Только цитаты: аяты (перевод М. Содик М. Юсуф) и хадисы из Бухари/Муслима с номером. Без собственных толкований, фетв, указаний «как поступать в религии».
-2. Толкование только общепризнанное и с автором («Ibn Kasir yozishicha»), не «bir izohga ko'ra» без имени.
-3. Без политики, сект и течений, споров между мазхабами, джихада, хиджаба, сравнения религий, критики кого-либо.
-4. Без призывов принять веру или поменять поведение в религиозных терминах: подача как история и урок («ibrat»).
-5. Без голоса и записей конкретных проповедников без письменного разрешения.
-6. Научные параллели только по первоисточникам, без слов «isbotlandi/mo'jiza»; при сомнении тему убирать.
-7. В описании всегда: источник, «mazmun qisqartirib berildi», «to'liq izoh uchun ishonchli ulamolarga murojaat qiling».
-
-## Порядок приоритета
-Сначала (низкий риск, истории и нравственные уроки): 1 Maryam, 2 Ashobul Kahf, 3 Oyatul Kursiy, 5 Yunus, 9 Muso tayog'i, 11 Qorun, 12 Nuh, 13 Iqro, 15 Luqmon, 16 Ibrohim, 18 Sulaymon, 20 Yusuf, 23 Ayyub, 26 Muso va dengiz, 19 Asr, 21 Takosur, 10 Fil, 28 Quraysh, 7 Qadr kechasi, 17 Fotiha, 27 Falaq va Nos.
-Переработать или отложить (спорная трактовка или научные параллели): 6 Ikki dengiz, 8 Suvdan hayot, 14 Zulqarnayn, 24 вызов 2:23, 25 Ko'ksning torayishi 6:125, 22 Isro, 4 Hojar va Zamzam (только если опираться на хадис с номером).
+1. Только цитаты: аяты (перевод М. Содик М. Юсуф) и хадисы из Бухари/Муслима с номером. Без собственных толкований, фетв и указаний «как поступать в религии».
+2. Без политики, сект, споров между мазхабами, джихада, хиджаба, сравнения религий и критики кого-либо.
+3. Подача как история и урок, без призывов принять веру.
+4. Без голоса и записей конкретных проповедников без разрешения.
+5. Лица и пророки не изображаются: силуэты, символы.
+6. В описании: источник, «mazmun qisqartirib berildi», «to'liq izoh uchun ishonchli ulamolarga murojaat qiling».
