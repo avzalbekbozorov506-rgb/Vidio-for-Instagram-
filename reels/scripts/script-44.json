@@ -35,7 +35,7 @@
     },
     {
       "n": 3,
-      "vo": "U do'sti bilan gaplashib maqtandi, mening molim sendan ko'p, yordamchilarim ham kuchliroq.",
+      "vo": "U do'sti bilan gaplashib maqtandi, mening molim sendan ko'p, odamlarim ham kuchliroq.",
       "on_screen": "",
       "visual_hint": "богач и друг идут по саду, богач показывает рукой на всё, хвастается, за ним слуги"
     },
@@ -55,7 +55,8 @@
       "n": 6,
       "vo": "Bog'ingga kirganingda, Alloh xohlagani bo'ladi, quvvat faqat Allohdadir, deb nega aytmading?",
       "on_screen": "18:39",
-      "visual_hint": "арабский аят 18:39 без голоса, друг показывает на вход в сад"
+      "visual_hint": "арабский аят 18:39 без голоса, друг показывает на вход в сад",
+      "arabic": "وَلَوْلَآ إِذْ دَخَلْتَ جَنَّتَكَ قُلْتَ مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ"
     },
     {
       "n": 7,
@@ -65,7 +66,7 @@
     },
     {
       "n": 8,
-      "vo": "Shunday bo'ldi. Bog' vayron bo'ldi. U sarflaganiga afsuslanib, qo'llarini ishqalab qoldi.",
+      "vo": "Shunday bo'ldi. Uning mevalari halokat bilan o'raldi. U sarflaganiga afsuslanib, qo'llarini ishqalab qoldi.",
       "on_screen": "",
       "visual_hint": "сад увядает, ручей пересыхает, ишкомы падают, богач сжимает руки"
     },
@@ -83,10 +84,11 @@
     },
     {
       "n": 11,
-      "vo": "Bog' yo'qolgani uchun emas. U bog'ga ishondi, Beruvchiga emas. Siz bog'ingizga kirganda nima deysiz?",
+      "vo": "Haqiqiy yordam faqat Allohdadir. Siz bog'ingizga kirganda nima deysiz?",
       "on_screen": "",
       "visual_hint": "пустая калитка в цветущий сад, человек у входа; конец зеркалит хук"
     }
   ],
-  "caption": "Ikki bog' haqida Qur'ondagi misol. Kahf surasi 32-44 oyatlar.\n\n#oddiymohiyat #o'zbekcha #qur'on #kahf #hikmat #islom"
+  "caption": "Ikki bog' haqida Qur'ondagi misol. Kahf surasi 32-44 oyatlar.\n\n#oddiymohiyat #o'zbekcha #qur'on #kahf #hikmat #islom",
+  "source_check": "Сверено 11.11: uz.sodik и en.sahih (alquran.cloud) по 18:32-37, 39, 40, 42-44; арабский 18:39 quran-uthmani. Пропущены 18:38 и 18:41 (сознательно). Своих толкований в озвучке нет, кроме связок «Keyin», «Shunday bo'ldi»."
 }
