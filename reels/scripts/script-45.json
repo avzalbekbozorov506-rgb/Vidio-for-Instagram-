@@ -42,48 +42,42 @@
     },
     {
       "n": 4,
-      "vo": "Ichida qissalar bor. Nuh o'z qavmi orasida ellik yili kam ming yil turdi.",
-      "on_screen": "",
-      "visual_hint": "песочные часы, годы идут, дерево растёт и стареет, дом за стеной"
-    },
-    {
-      "n": 5,
-      "vo": "Keyin esa kuchli nomlar keladi. Qorun, Fir'avn, Homon. Ularga ochiq dalillar keldi, ular esa yer yuzida kibr qildi.",
+      "vo": "Suraning ichida qissalar bor. Ularning oxirida kuchli nomlar keladi, Qorun, Fir'avn, Homon. Ularga ochiq dalillar keldi, ular esa yer yuzida kibr qildi.",
       "on_screen": "",
       "visual_hint": "три богатых силуэта: сундуки золота, трон, высокая башня; у ворот светят ясные знаки"
     },
     {
-      "n": 6,
+      "n": 5,
       "vo": "Alloh har birini gunohi tufayli tutdi. Ba'zilarini yer yutdi, ba'zilarini suv bosdi.",
       "on_screen": "29:40",
       "visual_hint": "вихрь и вода, земля трескается у подножия дворцов; силуэты исчезают"
     },
     {
-      "n": 7,
+      "n": 6,
       "vo": "Va aynan shundan keyingi oyatda o'rgimchak keladi.",
       "on_screen": "",
       "visual_hint": "камера медленно возвращается к паутине на арке, нить дрожит"
     },
     {
-      "n": 8,
+      "n": 7,
       "vo": "Allohni qo'yib, boshqalarni himoyachi tutganlarning misoli, o'ziga uy tutgan o'rgimchakka o'xshaydi. Holbuki, eng zaif uy o'rgimchak uyidir.",
       "on_screen": "29:41",
       "visual_hint": "паутина-дом рядом с каменным домом, ветер, нити дрожат; арабский 29:41 без голоса"
     },
     {
-      "n": 9,
+      "n": 8,
       "vo": "Bir izohga ko'ra, Qorun boyligiga, Fir'avn qudratiga suyandi. Ular qurgan uy kuchli ko'rindi, lekin o'rgimchak uyidan mustahkam emas edi.",
       "on_screen": "",
       "visual_hint": "сундуки и трон на паутине; налетает ветер, паутина рвётся"
     },
     {
-      "n": 10,
+      "n": 9,
       "vo": "Tafsirlarda sura nomi shu misoldan olingani aytiladi. Imtihon kelganda tayanching nima ekani bilinadi.",
       "on_screen": "",
       "visual_hint": "человек выбирает между домом из паутины и каменным домом, ветер рвёт паутину"
     },
     {
-      "n": 11,
+      "n": 10,
       "vo": "Siz qaysi uyga suyanyapsiz? Yaqiningizga yuboring.",
       "on_screen": "",
       "visual_hint": "человек у ворот между двумя домами; конец зеркалит хук"
