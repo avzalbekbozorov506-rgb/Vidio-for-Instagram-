@@ -28,37 +28,37 @@
    "n": 2,
    "vo": "Uning ismi Qur'onda o'ttiz to'rt marta keladi. Bitta sura esa butunlay uning nomi bilan ataladi.",
    "on_screen": "34 MARTA",
-   "visual_hint": "счётчик, свиток с арабским названием суры"
+   "visual_hint": "счётчик, свиток с арабским названием суры (имя не показывать)"
   },
   {
    "n": 3,
-   "vo": "Farishtalar dedilar. Ey Maryam, albatta, Alloh seni tanlab oldi, pokladi va olamdagi ayollardan ustunligingni ixtiyor qildi.",
-   "on_screen": "3:42",
-   "visual_hint": "арабский 3:42 на экране, лучи света"
-  },
-  {
-   "n": 4,
-   "vo": "Maryam oilasidan ajralib, sharqdagi bir joyga chiqdi. Alloh unga Ruhimizni yubordi, u unga butun bir odam bo'lib ko'rindi.",
+   "vo": "Bir ayol oilasidan ajralib, sharqdagi bir joyga chiqdi va o'zi bilan ular orasiga to'siq oldi. Alloh aytadi, Biz unga O'z ruhimizni yubordik, u unga butun bir odam bo'lib ko'rindi.",
    "on_screen": "19:16-17",
    "visual_hint": "силуэт у стены на востоке, свет"
   },
   {
-   "n": 5,
-   "vo": "Farishta dedi, men Robbingning elchisiman, senga pok o'g'il hadya etish uchun keldim. Maryam dedi, menga hech bir inson tegmagan bo'lsa, qanday qilib o'g'il bo'ladi? Farishta dedi, ana shunday, Robbing aytdiki, bu Men uchun osondir.",
+   "n": 4,
+   "vo": "Farishta dedi, men Robbingning elchisiman, senga pok o'g'il hadya etish uchun keldim. Ayol dedi, menga hech bir inson tegmagan bo'lsa, qanday qilib o'g'il bo'ladi? Farishta dedi, ana shunday, Robbing aytdiki, bu Men uchun osondir.",
    "on_screen": "19:19-21",
    "visual_hint": "два силуэта, свет между ними"
   },
   {
-   "n": 6,
+   "n": 5,
    "vo": "Tug'ish og'rig'i uni xurmo tanasiga olib bordi. U dedi, koshki bundan oldin o'lsam edi. Shunda unga nido keldi, mahzun bo'lma, Robbing ostingdan ariq qildi.",
    "on_screen": "19:23-24",
    "visual_hint": "хурма, ручей появляется"
   },
   {
-   "n": 7,
+   "n": 6,
    "vo": "Xurmo tanasini silkit, senga yangi meva tushadi. Ye, ich va ko'zing quvonsin.",
    "on_screen": "19:25-26",
    "visual_hint": "хурмы падают, лёгкая вспышка"
+  },
+  {
+   "n": 7,
+   "vo": "Farishtalar ham unga dedilar, ey Maryam, albatta, Alloh seni tanlab oldi, pokladi va olamdagi ayollardan ustunligingni ixtiyor qildi.",
+   "on_screen": "3:42",
+   "visual_hint": "арабский 3:42, лучи света; ИМЯ ПЕРВЫЙ РАЗ ЗДЕСЬ"
   },
   {
    "n": 8,
