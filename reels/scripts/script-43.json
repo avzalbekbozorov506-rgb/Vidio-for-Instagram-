@@ -1,6 +1,6 @@
 {
   "id": "script-43",
-  "title": "Sirtingda nima bor? (притча о дровах в мечети, 23:1-2) - сюжет по присланному видео, свой текст, 2D",
+  "title": "Yelkangizda nima bor? (притча о дровах в мечети, 23:1-2) - сюжет по присланному видео, свой текст, 2D",
   "lang": "uz",
   "voice": "Jasur Noir",
   "model": "lison-v2",
@@ -8,79 +8,80 @@
   "genre": "islom-hikoya",
   "series": "Hikoya",
   "status": "draft: ждёт ок пользователя и религиозной проверки",
-  "hook": "Namozda sirtingizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirgan. Nega? Oxirigacha ko'ring.",
-  "cover_text": "SIRTINGDA NIMA BOR?",
+  "hook": "Namozda yelkangizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirdi. Oxirigacha ko'ring.",
+  "cover_text": "YELKANGDA NIMA BOR?",
   "reference": "Присланное mp4 (турецкая притча «Sırtında ne var»: человек входит в мечеть с дровами, видит на спинах людей их заботы, у имама корова). Сюжет и порядок бит те же, текст и картинка свои.",
   "rules": "Притча народная, источник неизвестен: подавать как «aytishlaricha», не как хадис. Лица Пророков и сподвижников не показывать; люди вымышленные. Аят 23:1-2 арабским на экране без голоса, перевод Содик (alquran.cloud). Имама не высмеивать.",
   "facts": [
     "Притча не из Корана и не из хадисов; происхождение не установлено (народная, турецкая версия в присланном видео).",
     "23:1 Батаҳқиқ, мўминлар нажот топдилар. 23:2 Улар намозларида хушуъ қилувчилардир (uz.sodik, alquran.cloud).",
-    "Связанный аят 107:4-5: вайл намозхонлар, кто ўз намозларини унитувчилар (не использован в озвучке)."
+    "Связанный аят 107:4-5: вайл намозхонлар, кто ўз намозларини унитувчилар (не использован в озвучке).",
+    "«Xushu' ya'ni namozda qalb bilan turish» - краткое пояснение, формулировку сверить у имама/по тафсиру."
   ],
   "cards": [
     {
       "n": 1,
-      "vo": "Namozda sirtingizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirgan. Nega? Oxirigacha ko'ring.",
-      "on_screen": "SIRTINGDA NIMA BOR?",
-      "visual_hint": "masjid, одинокая фигура с дровами у входа"
+      "vo": "Namozda yelkangizda nima bor? Aytishlaricha, bir kishi masjidga yelkasida o'tin bilan kirdi. Oxirigacha ko'ring.",
+      "on_screen": "YELKANGIZDA NIMA BOR?",
+      "visual_hint": "мечеть снаружи, фигура с дровами у входа"
     },
     {
       "n": 2,
-      "vo": "U jamoatga bir qarab, indamay chiqib ketdi. Ko'p o'tmay yelkasiga o'tin ortib qaytdi va namozga turdi.",
+      "vo": "U jamoatga bir qarab, indamay chiqib ketdi. Hamma hayron bo'ldi. Ko'p o'tmay u yelkasiga o'tin ortib qaytdi va namozga turdi.",
       "on_screen": "",
-      "visual_hint": "вход в мечеть, дрова связаны за спиной, пол с красным ковром"
+      "visual_hint": "вход, взгляд на ряды, уходит, возвращается с дровами, встаёт в ряд"
     },
     {
       "n": 3,
-      "vo": "Sajdada o'tinlar to'kilib, jamoat bezovta bo'ldi. Imom dedi, yelkada o'tin bilan ham namoz o'qiladimi?",
+      "vo": "Sajdada o'tinlar to'kilib, jamoat bezovta bo'ldi. Namozdan so'ng imom so'radi, hoy birodar, yelkada o'tin bilan ham namoz o'qiladimi?",
       "on_screen": "",
-      "visual_hint": "дрова рассыпались, ряды молящихся оборачиваются, имам идёт к нему"
+      "visual_hint": "сажда, дрова рассыпаются, ряды оборачиваются, после намаза имам подходит"
     },
     {
       "n": 4,
-      "vo": "U dedi, kirsam yelkam bo'sh edi, hammaning yelkasida nimadir bor ekan. Men ham o'tinimni olib keldim.",
+      "vo": "U dedi, kirsam yelkam bo'sh edi, qarasam hamma nimadir ko'tarib turibdi. Bu yerda odat shunday ekan, deb men ham o'tinimni olib keldim.",
       "on_screen": "",
-      "visual_hint": "крупно двое, жест рукой на ряды"
+      "visual_hint": "крупно двое, жест на ряды, герой показывает на свою пустую спину"
     },
     {
       "n": 5,
-      "vo": "Imom hayron bo'ldi. U ishora qildi. Anavining yelkasida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
+      "vo": "Imom hayron bo'ldi. Hamma nima ko'tarib turibdi? Kishi jamoatga ishora qildi. Anavida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla, anavisida bir to'p mato.",
       "on_screen": "",
-      "visual_hint": "у людей на плечах появляются ребёнок, кувшин с золотом, товары"
+      "visual_hint": "у людей на плечах проявляются: ребёнок, кувшин золота, тюк ткани"
     },
     {
       "n": 6,
-      "vo": "Jamoat qotib qoldi, chunki u hammaga to'g'ri aytgan edi.",
+      "vo": "Jamoat qotib qoldi. Chunki har kim aynan shuni o'ylab turgan edi.",
       "on_screen": "",
-      "visual_hint": "лица, замершие люди"
+      "visual_hint": "замершие лица, переглядываются"
     },
     {
       "n": 7,
-      "vo": "Keyin imomga dedi, sizning yelkangizda sigir bor edi.",
+      "vo": "Keyin imomga qarab, eng ko'p sizga hayron bo'ldim, dedi. Yelkangizda sigir bor edi.",
       "on_screen": "",
-      "visual_hint": "у имама на плечах корова"
+      "visual_hint": "герой смотрит на имама, у имама на плечах корова"
     },
     {
       "n": 8,
-      "vo": "Imom namoz paytida sut bermay qo'ygan keksa sigirini sotsammikan, sotmasammikan, deb o'ylayotgan ekan.",
+      "vo": "Chunki imom namozda sut bermay qo'ygan keksa sigirini sotsammikan, sotmasammikan, deb o'ylab turgan ekan.",
       "on_screen": "",
-      "visual_hint": "имам в хлеву у коровы (мысль)"
+      "visual_hint": "имам в хлеву у старой коровы (мысль), торг"
     },
     {
       "n": 9,
-      "vo": "Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda va telefonda.",
+      "vo": "Imom indamay qoldi. Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda, ishda va telefonda.",
       "on_screen": "",
-      "visual_hint": "человек на молитвенном коврике, за спиной мешок-мысли: рынок, телефон"
+      "visual_hint": "имам молчит; человек на коврике, на спине мешок: рынок, работа, телефон"
     },
     {
       "n": 10,
-      "vo": "Qur'onda aytilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir.",
+      "vo": "Qur'onda shunday deyilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir. Xushu' ya'ni namozda qalb bilan turish.",
       "on_screen": "23:1-2",
-      "visual_hint": "арабский текст аята без голоса, свет, мешок падает с плеч"
+      "visual_hint": "арабский аят 23:1-2 без голоса, свет, мешок падает с плеч"
     },
     {
       "n": 11,
-      "vo": "Dunyo eshik oldida kutib tursin, u qochib ketmaydi. Bugun namozda sirtingizda nima bor edi?",
+      "vo": "Dunyo eshik oldida kutib tursin, u hech qayoqqa qochmaydi. Bugun namozda yelkangizda nima bor edi? Yaqiningizga yuboring.",
       "on_screen": "",
       "visual_hint": "мешки у порога мечети, человек входит налегке"
     }
