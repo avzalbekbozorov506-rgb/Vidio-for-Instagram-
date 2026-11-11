@@ -56,7 +56,21 @@ const DarkBG: React.FC<{t: number; warm?: number; storm?: number}> = ({t, warm =
 
 const Rain: React.FC<{t: number; k: number}> = ({t, k}) => (<g opacity={k} stroke="rgba(210,225,240,.5)" strokeWidth={3}>{Array.from({length: 80}, (_, i) => { const x = (rnd(i) * 3200 - 1000 + t * 160) % 3200 - 1000, y = ((rnd(i + 4) * 2600 + t * 1500) % 2600) - 400; return <line key={i} x1={x} y1={y} x2={x - 40} y2={y + 110} />; })}</g>);
 
-type Out = {body: React.ReactNode; flash?: number; tint?: string; overlay?: React.ReactNode; light?: boolean};
+const AYAH2 = 'أَحَسِبَ ٱلنَّاسُ أَن يُتْرَكُوٓا۟ أَن يَقُولُوٓا۟ ءَامَنَّا وَهُمْ لَا يُفْتَنُونَ';
+/** аят на экране: арабский сверху, узбекский перевод ниже, слова подсвечиваются по озвучке (диктор читает только узбекский) */
+const AyahBlock: React.FC<{ws: TimedWord[]; from: number; t: number; L: number; arabic: string; label: string; top?: number; arSize?: number}> = ({ws, from, t, L, arabic, label, top = 250, arSize = 68}) => {
+  const a0 = ws[from].s - 0.35, a = tm(t, a0, a0 + 0.5) * (1 - tm(t, L - 0.3, L));
+  if (a <= 0) return null;
+  return (<div style={{position: 'absolute', left: 50, right: 50, top, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 18}px)`}}>
+    <div style={{fontFamily: 'AmiriAr, serif', fontWeight: 700, direction: 'rtl', fontSize: arSize, lineHeight: 1.7, color: '#fff3d0', textShadow: '0 4px 22px rgba(0,0,0,.8)'}}>{arabic}</div>
+    <div style={{width: 160, height: 2, margin: '4px auto 14px', background: 'rgba(255,225,150,.6)'}} />
+    <div style={{fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: 52, lineHeight: 1.18, color: '#fffdf6', textShadow: '0 2px 14px rgba(0,0,0,.85)'}}>
+      {ws.slice(from).map((w, i) => <React.Fragment key={i}><span style={{opacity: t >= w.s - 0.02 ? 1 : 0.42}}>{w.w}</span>{' '}</React.Fragment>)}</div>
+    <div style={{marginTop: 10, fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: 38, letterSpacing: 4, color: '#ffe19a'}}>{label}</div>
+  </div>);
+};
+
+type Out = {body: React.ReactNode; flash?: number; tint?: string; overlay?: React.ReactNode; light?: boolean; subsUntil?: number};
 const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
   const e = env(t, ws);
   switch (n) {
@@ -77,7 +91,8 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
     case 3: { // испытание: ветер трясёт паутину
       const wind = tm(t, 0.05 * L, 0.7 * L) * 1.1, fl = Math.max(0, 1 - Math.abs(t - 0.55 * L) * 6) * 0.45;
       return {body: (<g><DarkBG t={t} storm={tm(t, 0.2 * L, 0.8 * L) * 0.5} /><SpiderWeb cx={540} cy={900} R={520} t={t} wind={wind} />
-        {Array.from({length: 18}, (_, i) => { const x = ((rnd(i) * 1500 - 200 + t * (260 + 200 * wind)) % 1500) - 200, y = 200 + rnd(i + 3) * 1500; return <line key={i} x1={x} y1={y} x2={x - 110 * wind} y2={y + 6} stroke={`rgba(255,240,210,${0.3 * wind})`} strokeWidth={2} />; })}</g>), flash: fl};
+        {Array.from({length: 18}, (_, i) => { const x = ((rnd(i) * 1500 - 200 + t * (260 + 200 * wind)) % 1500) - 200, y = 200 + rnd(i + 3) * 1500; return <line key={i} x1={x} y1={y} x2={x - 110 * wind} y2={y + 6} stroke={`rgba(255,240,210,${0.3 * wind})`} strokeWidth={2} />; })}</g>), flash: fl,
+        overlay: <AyahBlock ws={ws} from={5} t={t} L={L} arabic={AYAH2} label="Ankabut 29:2" top={260} />, subsUntil: 5};
     }
     case 4: { // золотые «дворцы» вырисовываются
       const c = tm(t, 0.15 * L, 0.38 * L), th = tm(t, 0.38 * L, 0.6 * L), tw = tm(t, 0.6 * L, 0.82 * L);
@@ -111,11 +126,11 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
     case 7: { // паук плетёт дом, рядом каменный
       const dr = ease(tm(t, 0.08 * L, 0.62 * L)), wind = tm(t, 0.7 * L, 0.95 * L) * 0.9;
       return {body: (<g><DarkBG t={t} warm={1.1} />
-        <Threads lines={SHAPES.house} x={330} y={1300} s={1.0} t={t} draw={dr} fray={wind * 0.8} color="255,248,225" w={3} glow={0.7} />
-        <SpiderWeb cx={330} cy={1020} R={170} t={t} draw={dr} wind={wind} seed={4} rings={6} spokes={10} opacity={0.5 * dr} dew={false} />
-        <StoneHouse x={790} y={1300} s={0.78} lit={tm(t, 0.3 * L, 0.6 * L)} />
-        <Spider x={330 + 120 * Math.sin(dr * 6)} y={1180 - 120 * dr} s={0.8} t={t} /></g>),
-        overlay: (<div style={{position: 'absolute', left: 50, right: 50, top: 250, textAlign: 'center', opacity: tm(t, 0.08 * L, 0.2 * L) * (1 - tm(t, 0.93 * L, L))}}><div style={{fontFamily: 'AmiriAr, serif', fontWeight: 700, direction: 'rtl', fontSize: 74, lineHeight: 1.75, color: '#fff3d0', textShadow: '0 4px 22px rgba(0,0,0,.8)'}}>{AYAH41}</div><div style={{marginTop: 4, fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: 40, letterSpacing: 4, color: '#ffe19a'}}>Ankabut 29:41</div></div>)};
+        <Threads lines={SHAPES.house} x={330} y={1400} s={1.0} t={t} draw={dr} fray={wind * 0.8} color="255,248,225" w={3} glow={0.7} />
+        <SpiderWeb cx={330} cy={1120} R={170} t={t} draw={dr} wind={wind} seed={4} rings={6} spokes={10} opacity={0.5 * dr} dew={false} />
+        <StoneHouse x={790} y={1400} s={0.78} lit={tm(t, 0.3 * L, 0.6 * L)} />
+        <Spider x={330 + 120 * Math.sin(dr * 6)} y={1280 - 120 * dr} s={0.8} t={t} /></g>),
+        overlay: <AyahBlock ws={ws} from={0} t={t} L={L} arabic={AYAH41} label="Ankabut 29:41" top={230} arSize={64} />, subsUntil: 0};
     }
     case 8: { // «дворцы» были на паутине: ветер рвёт всё
       const g = tm(t, 0.0, 0.2 * L), wind = tm(t, 0.15 * L, 0.5 * L), tear = tm(t, 0.35 * L, 0.85 * L);
@@ -166,7 +181,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       <Grain opacity={0.05} />
       {o.overlay}
       {o.flash ? <AbsoluteFill style={{background: `rgba(255,255,255,${o.flash})`}} /> : null}
-      <SerifSubs ws={ws} t={t} />
+      <SerifSubs ws={o.subsUntil === undefined ? ws : ws.slice(0, o.subsUntil)} t={t} />
     </AbsoluteFill>
   );
 };
