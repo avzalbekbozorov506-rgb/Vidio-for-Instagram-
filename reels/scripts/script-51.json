@@ -1,0 +1,68 @@
+{
+ "id": "script-51",
+ "title": "Chanqagan it (хадис Бухари 173/2363, Муслим 2244): диалог дед и внук, формат референса, плоская живопись кодом",
+ "lang": "uz",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "hadis-dialog",
+ "series": "Hadis",
+ "status": "draft: ждёт «ок» (цена по знакам, 3 голоса), номер хадиса сверить",
+ "voices": {
+  "boy": {
+   "id": "voice_fa56cecf-9b0b-45ba-9ec3-494efb5b301f",
+   "name": "Javohir"
+  },
+  "grandpa": {
+   "id": "voice_8bae02c6-d078-4757-9d62-0fce6da23cf7",
+   "name": "Amir"
+  },
+  "jasur": {
+   "id": "voice_ba303813-3023-48aa-a454-4b5705669d35",
+   "name": "Jasur Noir"
+  }
+ },
+ "hook": "Bobo, it chanqabdi. Suv bersam bo'ladimi?",
+ "cover_text": "BOBO, IT CHANQABDI",
+ "rules": "Безопасный контент: хадис пересказан близко к тексту дедом, своих выводов нет; рамка (двор, дед, внук) — иллюстрация. Лица без черт. Призыв голосом Jasur в конце.",
+ "facts": [
+  "Хадис Абу Хурайры: человек, мучимый жаждой, спустился в колодец, напился, вышел и увидел пса, лижущего влажную землю от жажды; наполнил обувь водой, напоил пса; Аллах принял это и простил его (Бухари 173, 2363; Муслим 2244). Номера по памяти, сверить."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "speaker": "boy",
+   "vo": "Bobo, it chanqabdi. Suv bersam bo'ladimi?",
+   "on_screen": "BOBO, IT CHANQABDI",
+   "visual_hint": "жаркий двор, мальчик с бутылкой, у арыка тяжело дышит собака, общий план"
+  },
+  {
+   "n": 2,
+   "speaker": "grandpa",
+   "vo": "Payg'ambarimiz sollallohu alayhi vasallam aytganlar. Bir kishi chanqab, quduqdan suv ichdi.",
+   "on_screen": "",
+   "visual_hint": "дед на скамье, рассказывает; вставка: человек у колодца, пустыня, широкий кадр"
+  },
+  {
+   "n": 3,
+   "speaker": "grandpa",
+   "vo": "Chiqsa, bir it chanqoqdan nam tuproqni yalab yotibdi. U dedi, bu itga ham menga yetgan chanqoq yetibdi.",
+   "on_screen": "",
+   "visual_hint": "вставка: собака у колодца, человек замирает; крупно руки"
+  },
+  {
+   "n": 4,
+   "speaker": "grandpa",
+   "vo": "U yana tushib, maxsisini suvga to'ldirib, itga ichirdi. Alloh uni kechirdi.",
+   "on_screen": "",
+   "visual_hint": "вставка: человек наполняет обувь и поит собаку; свет сверху"
+  },
+  {
+   "n": 5,
+   "speaker": "jasur",
+   "vo": "Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "OBUNA BO'LING",
+   "visual_hint": "двор: мальчик ставит миску, собака пьёт, дед рядом; финал-действие"
+  }
+ ],
+ "caption": "Chanqagan itga suv bergan kishi. Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom #hikmat"
+}
