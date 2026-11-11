@@ -36,6 +36,7 @@ import {ArtTest} from './bankrot/ArtTest';
 import {Bankrot, BANKROT_FRAMES} from './Bankrot';
 import {IkkiBog, IKKI_FRAMES} from './IkkiBog';
 import {Ankabut, ANKABUT_FRAMES} from './Ankabut';
+import {AnkabutCover, IkkiCover} from './bog/Covers';
 import {BankrotCover} from './bankrot/BankrotCover';
 import {Kredit, KreditCover, KREDIT_FRAMES} from './Kredit';
 import {Hammer, HammerCover, HAMMER_FRAMES} from './Hammer';
@@ -70,6 +71,8 @@ export const Root: React.FC = () => {
     <Composition id="BankrotCover" component={BankrotCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="IkkiBog" component={IkkiBog} durationInFrames={IKKI_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="Ankabut" component={Ankabut} durationInFrames={ANKABUT_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="IkkiCover" component={IkkiCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="AnkabutCover" component={AnkabutCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ArtTest" component={ArtTest} durationInFrames={30} fps={30} width={1080} height={1920} />
     <Composition id="KavsarFilm" component={KavsarFilm} durationInFrames={KFILM_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BaqaraCover" component={BaqaraCover} durationInFrames={1} fps={30} width={1080} height={1920} />
