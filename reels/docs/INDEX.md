@@ -24,6 +24,10 @@
 | She'ro (Sirius, 53:49) | script-39 | vo-39 | Sirius | опубликован 09.11 (DfiB-xwDjb6) |
 | Qur'onning eng uzun oyati (2:282) | script-40 | vo-40 | Gold | запланирован 11.11 06:00 |
 | Kavsar: nega eng qisqa sura muhim (108) | script-41 | vo-41 | KavsarFilm (также Kavsar, KavsarDust, KavsarHisob) | готов (kavsar-film-cover.mp4), публикация отменена пользователем 11.11, не опубликован |
+| Haqiqiy bankrot kim? (хадис Муслим 2581) | script-42 | vo-42 | Bankrot (+BankrotCover) | готов (bankrot-cover.mp4), НЕ опубликован, пользователь загружает вручную как «Пробный» |
+| Ikki bog' (Kahf 18:32-44) | script-44 | vo-44 | IkkiBog (+IkkiCover) | опубликован 11.11 (DfmPdpBkuNl), стиль турецкого ролика |
+| Nega sura o'rgimchak? (Ankabut 29) | script-45 | vo-45 | Ankabut (+AnkabutCover) | опубликован 11.11 (DfmPuMdiaHq), паутина как мир |
+| Yelkangizda nima bor (притча, 23:1-2) | script-43 | - | - | сценарий-черновик, без озвучки (заменён по просьбе на аяты) |
 
 Без озвучки: script-18 (канализация), 28 (бабочка), 32 (2:23), 33 (6:125), 34 (tahorat, нужна проверка имамом). Отменены/архив: 01-05, 07, 08, 10-15, 17, 24, 29; монолог, стихи, якорь (файлы удалены, исходники в `src/`).
 
