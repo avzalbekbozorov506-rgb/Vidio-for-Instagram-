@@ -1,0 +1,65 @@
+{
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "series": "Qur'on",
+ "status": "draft: ждёт «ок» пользователя (цена по знакам) и религиозной проверки",
+ "rules": "Безопасный контент (11.11): только цитаты аятов (uz.sodik) и хадисов с номером, без своих толкований. Пророков, Марьям и ангелов не изображать лицом: силуэты со спины, символы (свет, хурма, вода). Арабский на экране без голоса.",
+ "id": "script-47",
+ "title": "Ashobul Kahf: nechta edilar?",
+ "genre": "quran-hikoya",
+ "hook": "Qur'onda g'orga kirib, yillar davomida uxlagan yigitlar haqida hikoya bor. Ular necha kishi edi? Javob oxirida.",
+ "cover_text": "NECHTA EDILAR?",
+ "facts": [
+  "18:10-11, 18:18, 18:19, 18:22, 18:25, 18:26 (uz.sodik + en.sahih сверены).",
+  "18:22: люди называют три, пять, семь, собаку считают лишней; «Роббим уларнинг саноғини яхши билгувчидир. Уларни жуда оз киши билур». Точное число в тексте аята не названо.",
+  "18:25: триста лет и девять лет добавили (uz.sodik). Сноски про солнечные и лунные годы НЕ используются.",
+  "Спорное для проверяющего: мнение Ибн Аббаса про «семь» (в сценарии не используется)."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda g'orga kirib, yillar davomida uxlagan yigitlar haqida hikoya bor. Ular necha kishi edi? Javob oxirida.",
+   "on_screen": "NECHTA EDILAR?",
+   "visual_hint": "двор-сад превращается в вход в пещеру, свет"
+  },
+  {
+   "n": 2,
+   "vo": "Yigitlar g'orga panoh topib dedilar, ey Robbimiz, bizga O'z huzuringdan rahmat bergin va ishimizni o'zing to'g'rilagin. Alloh g'orda ularning quloqlariga bir necha yil parda urdi.",
+   "on_screen": "18:10-11",
+   "visual_hint": "пещера, силуэты юношей, тишина"
+  },
+  {
+   "n": 3,
+   "vo": "Ularni uyg'oq deb o'ylaysan, holbuki, uxlab yotadilar. Ularni goh o'ngga, goh chapga ag'darib turamiz. Itlari esa ostonada old oyoqlarini cho'zib yotadi.",
+   "on_screen": "18:18",
+   "visual_hint": "спящие силуэты, собака на пороге, сдвиг лучей солнца"
+  },
+  {
+   "n": 4,
+   "vo": "G'orlarida uch yuz yil qoldilar va to'qqiz yil ziyoda ham qildilar. Keyin Alloh ularni uyg'otdi. Biri dedi, qancha qoldingiz? Ular dedilar, bir kun yoki bir kunning bir qismicha.",
+   "on_screen": "18:25, 18:19",
+   "visual_hint": "смена дня и ночи, календарь листается"
+  },
+  {
+   "n": 5,
+   "vo": "Odamlar ularning soni haqida tortishdilar. Ba'zilar uchta, itlari to'rtinchisi dedilar. Ba'zilar beshta, itlari oltinchisi. Yana boshqalar yettita, itlari sakkizinchisi.",
+   "on_screen": "3? 5? 7?",
+   "visual_hint": "три варианта числа с силуэтами и собакой"
+  },
+  {
+   "n": 6,
+   "vo": "Qur'on shunday deydi. Sen de, Robbim ularning sanog'ini yaxshi biluvchidir. Ularni juda oz kishi biladi.",
+   "on_screen": "18:22",
+   "visual_hint": "арабский 18:22, вопросительные знаки гаснут"
+  },
+  {
+   "n": 7,
+   "vo": "Demak, g'ordagi yigitlar necha kishi edi? Qur'on aniq son aytmaydi. Ularning sanog'ini Alloh biladi. Yaqiningizga yuboring.",
+   "on_screen": "ALLOH BILADI",
+   "visual_hint": "замкнутый круг с пещерой; конец зеркалит хук"
+  }
+ ],
+ "caption": "Ashobul Kahf: nechta edilar?\n\n#oddiymohiyat #o'zbekcha #qur'on #hikmat #islom"
+}

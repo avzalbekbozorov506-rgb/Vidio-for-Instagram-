@@ -1,0 +1,70 @@
+{
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "series": "Qur'on",
+ "status": "draft: ждёт «ок» пользователя (цена по знакам) и религиозной проверки",
+ "rules": "Безопасный контент (11.11): только цитаты аятов (uz.sodik) и хадисов с номером, без своих толкований. Пророков, Марьям и ангелов не изображать лицом: силуэты со спины, символы (свет, хурма, вода). Арабский на экране без голоса.",
+ "id": "script-49",
+ "title": "Yunus alayhissalom: qorong'ulikdagi duo",
+ "genre": "quran-hikoya",
+ "hook": "Bir payg'ambarni katta baliq yutdi. U qorong'ulikda nima dedi? Javob oxirida.",
+ "cover_text": "QORONG'ULIKDAGI DUO",
+ "facts": [
+  "21:87-88, 37:139-148 (uz.sodik + en.sahih сверены). Зуннун = Юнус по 37:139 и сноске к 21:87 (в vo используется только 37:139 про посланника).",
+  "Дуа: «Сендан ўзга Илоҳ йўқ, Сен поксан, албатта, мен золимлардан бўлдим» (21:87).",
+  "Сноски uz.sodik (мнение о том, что Юнус «должен был терпеть») НЕ используются."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Bir payg'ambarni katta baliq yutdi. U qorong'ulikda nima dedi? Javob oxirida.",
+   "on_screen": "NIMA DEDI?",
+   "visual_hint": "тёмный океан, силуэт кита, одинокий свет"
+  },
+  {
+   "n": 2,
+   "vo": "Yunus alayhissalom payg'ambarlardandir. U g'azablangan holda chiqib ketdi va to'lgan kemaga qochdi. Qur'a tashlashdi va u mag'lublardan bo'ldi.",
+   "on_screen": "37:139-141",
+   "visual_hint": "корабль, жребий, волны (без лица)"
+  },
+  {
+   "n": 3,
+   "vo": "Uni nahang baliq yutdi. Shunda u zulmatlarda turib nido qildi.",
+   "on_screen": "37:142, 21:87",
+   "visual_hint": "глубина, три слоя тьмы: ночь, море, кит"
+  },
+  {
+   "n": 4,
+   "vo": "Sendan o'zga Iloh yo'q, Sen poksan, albatta, men zolimlardan bo'ldim.",
+   "on_screen": "21:87",
+   "visual_hint": "арабский 21:87, свет в темноте"
+  },
+  {
+   "n": 5,
+   "vo": "Agar u ko'p tasbeh aytuvchilardan bo'lmaganida edi, qayta tiriladigan kungacha uning qornida qolib ketar edi.",
+   "on_screen": "37:143-144",
+   "visual_hint": "свет внутри, пузырьки тасбиха"
+  },
+  {
+   "n": 6,
+   "vo": "Shunda Alloh aytdi, Biz uning duosini ijobat qildik, unga g'amdan najot berdik. Mo'minlarga shunday najot berurmiz.",
+   "on_screen": "21:88",
+   "visual_hint": "кит выходит на поверхность, рассвет"
+  },
+  {
+   "n": 7,
+   "vo": "Alloh yana aytdi, Biz uni bemor holida ochiq maydonga otdik, ustiga qovoq daraxtini o'stirdik. Va uni yuz ming yoki undan ko'proq odamga payg'ambar qilib yubordik. Ular iymon keltirdilar.",
+   "on_screen": "37:145-148",
+   "visual_hint": "берег, тыква растёт, толпа вдали"
+  },
+  {
+   "n": 8,
+   "vo": "Qorong'ulikda Yunus nima dedi? Sendan o'zga Iloh yo'q, Sen poksan, men zolimlardan bo'ldim. Yaqiningizga yuboring.",
+   "on_screen": "DUO",
+   "visual_hint": "арабский дуа, свет; конец зеркалит хук"
+  }
+ ],
+ "caption": "Yunus alayhissalom: qorong'ulikdagi duo\n\n#oddiymohiyat #o'zbekcha #qur'on #hikmat #islom"
+}
