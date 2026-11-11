@@ -8,7 +8,7 @@
   "genre": "quran-hikoya",
   "series": "Qur'on",
   "status": "draft: ждёт ок пользователя и религиозной проверки",
-  "hook": "Bir kishining ikki bog'i bor edi, hosili hech kam bo'lmasdi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
+  "hook": "Bir kishining ikki bog'i bor edi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
   "cover_text": "IKKI BOG' NEGA YO'Q BO'LDI?",
   "reference": "Визуал: присланный турецкий ролик «Sırtında ne var» (плоская векторная иллюстрация, тёплая гамма, крупные декорации, люди с ношей). Сюжет и текст свои, из аятов.",
   "rules": "Люди вымышленные, это не Пророки и не сподвижники. Не называть владельца кофиром от себя (в аятах: «зулм қилган ҳолда»). Арабский аят на экране без голоса, перевод Содик. Имена двух людей в аятах не названы, не придумывать.",
@@ -23,13 +23,13 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Bir kishining ikki bog'i bor edi, hosili hech kam bo'lmasdi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
+      "vo": "Bir kishining ikki bog'i bor edi. Lekin ularning oxiri boshqacha bo'ldi. Nega? Oxirigacha ko'ring.",
       "on_screen": "IKKI BOG'",
       "visual_hint": "два сада с лозой и пальмами, ручей между ними, золотой свет, владелец и друг на дорожке"
     },
     {
       "n": 2,
-      "vo": "Kahf surasida Alloh ikki kishini misol qilib keltiradi. Birining ikki uzum bog'i bor edi, atrofi xurmo bilan o'ralgan, orasidan anhor oqardi.",
+      "vo": "Kahf surasida Alloh ikki kishini misol qiladi. Birining ikki uzum bog'i bor edi, orasidan anhor oqardi.",
       "on_screen": "",
       "visual_hint": "вид с высоты: два сада, пальмы, ручей"
     },
@@ -65,7 +65,7 @@
     },
     {
       "n": 8,
-      "vo": "Shunday bo'ldi. Mevalari halokat bilan o'ralib, bog' vayron bo'ldi. U sarflaganiga afsuslanib, qo'llarini ishqalab qoldi.",
+      "vo": "Shunday bo'ldi. Bog' vayron bo'ldi. U sarflaganiga afsuslanib, qo'llarini ishqalab qoldi.",
       "on_screen": "",
       "visual_hint": "сад увядает, ручей пересыхает, ишкомы падают, богач сжимает руки"
     },
