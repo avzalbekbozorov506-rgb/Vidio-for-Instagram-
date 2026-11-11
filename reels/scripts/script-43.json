@@ -15,8 +15,7 @@
   "facts": [
     "Притча не из Корана и не из хадисов; происхождение не установлено (народная, турецкая версия в присланном видео).",
     "23:1 Батаҳқиқ, мўминлар нажот топдилар. 23:2 Улар намозларида хушуъ қилувчилардир (uz.sodik, alquran.cloud).",
-    "Связанный аят 107:4-5: вайл намозхонлар, кто ўз намозларини унитувчилар (не использован в озвучке).",
-    "«Xushu' ya'ni namozda qalb bilan turish» - краткое пояснение, формулировку сверить у имама/по тафсиру."
+    "Связанный аят 107:4-5: вайл намозхонлар, кто ўз намозларини унитувчилар (не использован в озвучке)."
   ],
   "cards": [
     {
@@ -39,13 +38,13 @@
     },
     {
       "n": 4,
-      "vo": "U dedi, kirsam yelkam bo'sh edi, hamma nimadir ko'tarib turibdi. Odat shunday ekan, deb men ham o'tinimni olib keldim.",
+      "vo": "U dedi, kirsam yelkam bo'sh edi, hamma nimadir ko'tarib turibdi. Odat shunday ekan, deb o'tinimni olib keldim.",
       "on_screen": "",
       "visual_hint": "крупно двое, жест на ряды, герой показывает на свою пустую спину"
     },
     {
       "n": 5,
-      "vo": "Imom hayron bo'ldi. Hamma nima ko'tarib turibdi? Kishi ishora qildi. Anavida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
+      "vo": "Imom hayron bo'ldi. Kishi ishora qildi. Anavida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
       "on_screen": "",
       "visual_hint": "у людей на плечах проявляются: ребёнок, кувшин золота, тюк ткани"
     },
@@ -75,7 +74,7 @@
     },
     {
       "n": 10,
-      "vo": "Qur'onda deyilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir. Xushu' ya'ni namozda qalb bilan turish.",
+      "vo": "Qur'onda deyilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir.",
       "on_screen": "23:1-2",
       "visual_hint": "арабский аят 23:1-2 без голоса, свет, мешок падает с плеч"
     },
