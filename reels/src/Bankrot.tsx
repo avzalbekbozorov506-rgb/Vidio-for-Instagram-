@@ -10,7 +10,7 @@ import words from '../public/vo-42/words.json';
  * «Haqiqiy bankrot kim?» — сюжет присланного видео (рынок, два героя, мешки-савоб, очередь): детальная 2D-иллюстрация.
  * Герои вымышленные. Пророк и сподвижники не показаны.
  */
-const FPS = 30, W = 1080, H = 1920, PAD = 0.25, VOICE = false;
+const FPS = 30, W = 1080, H = 1920, PAD = 0.25, VOICE = true;
 const dur = (n: number) => (durations as Record<string, number>)[String(n)];
 const segLen = (n: number) => dur(n) + PAD;
 const TL = Array.from({length: 9}, (_, i) => i + 1);
@@ -60,7 +60,7 @@ const SHOTS: Record<number, Shot[]> = {
   1: [{from: 0, keys: [[0, 1.15, 560, 900, 0], [1, 1.0, 540, 880, 0]]}, {from: 0.43, keys: [[0, 1.5, 540, 780, -0.6], [1, 1.75, 545, 740, 0.4]]}],
   2: [{from: 0, keys: [[0, 2.0, 700, 690, 0], [1, 2.2, 690, 680, 0.5]]}, {from: 0.4, keys: [[0, 1.35, 530, 820, 0], [1, 1.5, 500, 880, 0]]}, {from: 0.78, keys: [[0, 2.1, 360, 700, 0], [1, 2.25, 365, 690, -0.4]]}],
   3: [{from: 0, keys: [[0, 1.0, 1000, 900, 0], [1, 1.05, 620, 880, 0]]}, {from: 0.33, keys: [[0, 1.45, 540, 1060, 0], [1, 1.65, 540, 1040, 0]]}, {from: 0.8, keys: [[0, 2.1, 600, 650, 0], [1, 2.0, 600, 640, 0]]}],
-  4: [{from: 0, keys: [[0, 1.0, 540, 900, 0], [1, 1.1, 540, 860, 0]]}, {from: 0.55, keys: [[0, 1.75, 540, 800, 0], [1, 2.0, 540, 780, 0.8]]}],
+  4: [{from: 0, keys: [[0, 1.0, 540, 900, 0], [1, 1.1, 540, 860, 0]]}, {from: 0.62, keys: [[0, 1.45, 540, 800, 0], [1, 1.65, 540, 780, 0.8]]}],
   5: [{from: 0, keys: [[0, 1.05, 500, 950, 0], [1, 1.15, 420, 950, 0]]}, {from: 0.42, keys: [[0, 1.8, 300, 1020, 0], [1, 1.9, 330, 1000, 0]]}, {from: 0.76, keys: [[0, 1.9, 900, 800, 0], [1, 1.9, 910, 800, 0]]}],
   6: [{from: 0, keys: [[0, 1.1, 540, 900, 0], [0.6, 1.5, 420, 820, 0], [1, 2.0, 340, 760, -0.6]]}],
   7: [{from: 0, keys: [[0, 1.0, 540, 900, 0], [1, 1.12, 540, 880, 0]]}, {from: 0.4, keys: [[0, 1.8, 540, 830, 0], [1, 2.1, 540, 860, 1.2]]}],
@@ -137,20 +137,21 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
       )};
     }
     case 4: { // обвинители подходят и показывают пальцем
-      const arr = [0.04, 0.22, 0.42, 0.6].map((f) => f * L), tags = ["SO'KKAN", 'TUHMAT', 'HAQ YEGAN', 'URGAN'], tx = [170, 400, 690, 930], ty = [830, 860, 860, 830], from = [-120, -120, 1200, 1200];
-      const kinds = ['porter', 'woman', 'robe', 'elder'] as const, hy = kf(t, [[0, 0], [arr[0] + 0.4, -0.5], [arr[1] + 0.6, -0.3], [arr[2] + 0.6, 0.3], [arr[3] + 0.6, 0.5], [L, 0.1]]);
+      const idxs = [2, 4, 7, 10, 13], arr = idxs.map((k) => Math.max(0, (ws[Math.min(k, ws.length - 1)]?.s ?? 0) - 0.95)), tags = ["SO'KKAN", 'TUHMAT', 'MULK', 'QON', 'URGAN'];
+      const tx = [120, 310, 560, 780, 960], ty = [830, 860, 817, 860, 830], from = [-120, -120, 540, 1200, 1200], ss = [0.66, 0.66, 0.5, 0.66, 0.66];
+      const kinds = ['porter', 'woman', 'robe', 'elder', 'porter'] as const, hy = kf(t, [[0, 0], [arr[0] + 0.4, -0.5], [arr[1] + 0.6, -0.35], [arr[2] + 0.6, 0.0], [arr[3] + 0.6, 0.35], [arr[4] + 0.6, 0.5], [L, 0.1]]);
       return {body: (
         <g>
           <Market pan={0} t={t} />
           <FarCrowd pan={0} t={t} n={12} />
-          {[0, 1, 2, 3].map((i) => {
-            const k = ease(tm(t, arr[i], arr[i] + 1.1)), moving = k > 0.01 && k < 0.99, x = from[i] + (tx[i] - from[i]) * k, pt = tm(t, arr[i] + 1.0, arr[i] + 1.5), shake = Math.sin(t * 11 + i * 2) * 10 * pt, left = i < 2;
+          {[2, 0, 1, 3, 4].map((i) => {
+            const mid = i === 2, k = ease(tm(t, arr[i], arr[i] + (mid ? 0.6 : 1.1))), moving = !mid && k > 0.01 && k < 0.99, x = from[i] + (tx[i] - from[i]) * k, pt = tm(t, arr[i] + (mid ? 0.4 : 1.0), arr[i] + (mid ? 0.9 : 1.5)), shake = Math.sin(t * 11 + i * 2) * 10 * pt, left = i < 2, right = i > 2;
             const tgtp: [number, number] = [(left ? 1 : -1) * (170 + 90 * pt), 110 - 40 * pt + shake];
             return (
               <g key={i} opacity={Math.min(1, k * 4)}>
-                <Person kind={kinds[i]} t={t} seed={i + 1} amp={moving ? 1 : 0} walk={t * 1.2 + i} s={0.66} x={x} y={ty[i] + 0} flip={1} face={{...ACC[i], yaw: left ? 0.55 : -0.55, brow: -0.9 * pt, sad: -0.5 * pt, mouth: pt > 0.3 && t - arr[i] < 2.4 ? 0.3 + 0.7 * Math.abs(Math.sin(t * 15 + i)) : 0, blink: blinkAt(t, i), gaze: [left ? 1 : -1, 0.3]}}
-                  ikR={left && pt > 0 ? tgtp : undefined} ikL={!left && pt > 0 ? tgtp : undefined} armR={moving ? [10 - 20 * Math.sin(t * 7), 6] : [8, 4]} armL={moving ? [10 + 20 * Math.sin(t * 7), 6] : [8, 4]} point={left ? 'R' : 'L'} nod={pt * 0.8 * Math.abs(Math.sin(t * 6 + i))} />
-                <Tag x={tx[i]} y={ty[i] - 215} text={tags[i]} k={tm(t, arr[i] + 1.0, arr[i] + 1.4)} />
+                <Person kind={kinds[i]} t={t} seed={i + 1} amp={moving ? 1 : 0} walk={t * 1.2 + i} s={ss[i]} x={x} y={ty[i]} flip={1} face={{...ACC[i], yaw: left ? 0.55 : right ? -0.55 : 0, brow: -0.9 * pt, sad: -0.5 * pt, mouth: pt > 0.3 && t - arr[i] < 2.6 ? 0.3 + 0.7 * Math.abs(Math.sin(t * 15 + i)) : 0, blink: blinkAt(t, i), gaze: [left ? 1 : right ? -1 : 0, 0.3]}}
+                  ikR={left && pt > 0 ? tgtp : undefined} ikL={right && pt > 0 ? tgtp : undefined} armR={mid ? [150 * pt + 8, 30 * pt] : moving ? [10 - 20 * Math.sin(t * 7), 6] : [8, 4]} armL={moving ? [10 + 20 * Math.sin(t * 7), 6] : [8, 4]} point={left ? 'R' : right ? 'L' : undefined} nod={pt * 0.8 * Math.abs(Math.sin(t * 6 + i))} />
+                <Tag x={tx[i]} y={ty[i] - (mid ? 175 : 215)} text={tags[i]} k={tm(t, arr[i] + (mid ? 0.5 : 1.0), arr[i] + (mid ? 0.9 : 1.4))} />
               </g>
             );
           })}
@@ -236,14 +237,15 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
       ), mood: 0.3 * (1 - a)};
     }
     default: { // 9: «Orqangizda kim turibdi?»
-      const f = ease(tm(t, 0.35 * L, 0.55 * L)), tap = Math.sin(t * 9) * 4 * tm(t, 0.2 * L, 0.3 * L), hyaw = kf(t, [[0, -0.2], [0.3 * L, -0.2], [0.45 * L, 0.8], [0.8 * L, 0.8], [L, 0.4]]);
+      const T4 = ws[Math.min(4, ws.length - 1)]?.s ?? 0.5 * L, reach = ease(tm(t, T4 - 0.55, T4 - 0.05)), f = ease(tm(t, ws[1].s, ws[1].s + 1.4)), tap = Math.sin(t * 9) * 4 * reach, hyaw = kf(t, [[0, -0.2], [T4 - 0.3, -0.2], [T4 + 0.3, 0.8], [L - 0.8, 0.8], [L, 0.4]]);
+      const ikt: [number, number] = [130 - 30 * reach, 150 - 200 * reach + tap + 18 * Math.sin(t * 3) * (1 - reach)];
       return {body: (
         <g>
           <Market pan={0} t={t} focus="wall" horizon={1400} />
           <g style={{filter: 'blur(14px)'}}><Person kind="modern" tie legs={false} shadow={false} t={t} seed={5} s={0.9} x={880} y={720} face={{...HERO, yaw: hyaw, sad: 0.6, mouth: 0}} /></g>
           {[0, 1, 2, 3].map((i) => <g key={i} opacity={f * 0.55} style={{filter: 'blur(5px)'}}><Person kind="robe" legs={false} shadow={false} t={t} seed={i} s={0.4} x={150 + i * 250} y={1080} face={{...ACC[i], mouth: 0}} /></g>)}
-          <Person kind="robe" legs={false} shadow={false} t={t} seed={3} s={1.9} x={470} y={800} face={{...TEACHER, yaw: 0.05 + 0.1 * Math.sin(t), mouth: mouthOf(t, ws, 5), blink: blinkAt(t, 0), brow: 0.5, gaze: [0, 0]}} ikR={[100, -50 + tap]} armL={listen(t, 3).L} nod={0.5 * e} tilt={2 * Math.sin(t * 0.7)}
-            front={<g><path d={`M96 ${-52 + tap} L84 ${-80 + tap}`} stroke="#d9a47a" strokeWidth={13} strokeLinecap="round" /><ellipse cx={104} cy={-46 + tap} rx={17} ry={22} fill="#d9a47a" /></g>} />
+          <Person kind="robe" legs={false} shadow={false} t={t} seed={3} s={1.9} x={470} y={800} face={{...TEACHER, yaw: 0.05 + 0.1 * Math.sin(t), mouth: mouthOf(t, ws, 5), blink: blinkAt(t, 0), brow: 0.5, gaze: [0, 0]}} ikR={ikt} armL={listen(t, 3).L} nod={0.5 * e} tilt={2 * Math.sin(t * 0.7)}
+            front={<g opacity={tm(reach, 0.85, 1)}><path d={`M96 ${-52 + tap} L84 ${-80 + tap}`} stroke="#d9a47a" strokeWidth={13} strokeLinecap="round" /><ellipse cx={104} cy={-46 + tap} rx={17} ry={22} fill="#d9a47a" /></g>} />
           <Dust t={t} n={24} />
         </g>
       ), mood: 0.25};
