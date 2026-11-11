@@ -128,7 +128,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
 
 const Dust: React.FC<{t: number; n?: number}> = ({t, n = 36}) => (<g opacity={0.55}>{Array.from({length: n}, (_, i) => <circle key={i} cx={((rnd(i) * 1400 + t * (20 + rnd(i + 1) * 40)) % 1500) - 200} cy={(rnd(i + 5) * 1900 + Math.sin(t * 0.8 + i) * 30) % 1900} r={1.5 + rnd(i + 9) * 3} fill="rgba(255,236,190,.8)" />)}</g>);
 
-const SerifSubs: React.FC<{ws: TimedWord[]; t: number}> = ({ws, t}) => {
+export const SerifSubs: React.FC<{ws: TimedWord[]; t: number}> = ({ws, t}) => {
   const chunks: TimedWord[][] = []; let cur: TimedWord[] = [];
   for (const w of ws) { const len = cur.reduce((a, x) => a + x.w.length + 1, 0) + w.w.length; if (cur.length && (cur.length >= 4 || len > 26)) { chunks.push(cur); cur = []; } cur.push(w); if (/[.,?!]$/.test(w.w)) { chunks.push(cur); cur = []; } }
   if (cur.length) chunks.push(cur);
