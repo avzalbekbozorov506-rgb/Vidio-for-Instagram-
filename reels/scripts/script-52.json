@@ -1,0 +1,50 @@
+{
+ "id": "script-52",
+ "title": "Niyatga qarab amallar (хадис, Бухари 1, Муслим 1907)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "hadis",
+ "series": "Hadis",
+ "status": "draft: ждёт «ок» (цена по знакам), номер хадиса сверить по сборнику",
+ "hook": "Ikki kishi bir yo'ldan hijrat qildi. Ularning mukofoti bir xil bo'ladimi? Javob oxirida.",
+ "cover_text": "IKKI KISHI, BIR YO'L",
+ "rules": "Безопасный контент: слова хадиса близко к тексту, без своих выводов. Путники силуэтами без лиц. Призыв в конце.",
+ "facts": [
+  "Хадис Умара ибн аль-Хаттаба: «Деяния оцениваются по намерениям, и каждому достаётся то, что он намеревался. Чья хиджра была к Аллаху и Его Посланнику, та хиджра к Аллаху и Его Посланнику; чья хиджра ради мирского или женщины, на которой он женится, та хиджра к тому, к чему он переселился» (Бухари 1, Муслим 1907). Номера по памяти, сверить."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Ikki kishi bir yo'ldan hijrat qildi. Ularning mukofoti bir xil bo'ladimi? Javob oxirida.",
+   "on_screen": "IKKI KISHI, BIR YO'L",
+   "visual_hint": "два путника выходят из города по одной дороге на рассвете, широкий кадр"
+  },
+  {
+   "n": 2,
+   "vo": "Payg'ambarimiz sollallohu alayhi vasallam dedilar. Amallar niyatga qarab bo'ladi. Har kim uchun faqat niyat qilgani bor.",
+   "on_screen": "NIYAT",
+   "visual_hint": "сверху свет, у каждого путника над головой своё «намерение» (светящийся шар)"
+  },
+  {
+   "n": 3,
+   "vo": "Kimning hijrati Alloh va Uning Rasuli uchun bo'lsa, hijrati Alloh va Uning Rasuli uchundir.",
+   "on_screen": "1-YO'L",
+   "visual_hint": "первый путник идёт к свету на горизонте"
+  },
+  {
+   "n": 4,
+   "vo": "Kimning hijrati dunyo uchun yoki uylanadigan ayol uchun bo'lsa, hijrati o'sha uchundir.",
+   "on_screen": "2-YO'L",
+   "visual_hint": "второй путник идёт к мешку монет и дому; лиц нет"
+  },
+  {
+   "n": 5,
+   "vo": "Yo'l bir bo'lsa ham, amallar niyatga qarab bo'ladi. Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "NIYAT",
+   "visual_hint": "две дороги расходятся, свет над первым; конец зеркалит хук"
+  }
+ ],
+ "caption": "Niyatga qarab amallar. Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom #niyat"
+}

@@ -1,0 +1,63 @@
+{
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "series": "Qur'on",
+ "status": "draft: ждёт «ок» пользователя (цена по знакам) и религиозной проверки",
+ "rules": "Безопасный контент (11.11): только цитаты аятов (uz.sodik) и хадисов с номером, без своих толкований. Пророков, Марьям и ангелов не изображать лицом: силуэты со спины, символы (свет, хурма, вода). Арабский на экране без голоса.",
+ "id": "script-48",
+ "title": "Qur'onning eng ulug' oyati (Oyatul Kursiy)",
+ "genre": "quran-oyat",
+ "hook": "Qur'onda eng ulug' oyat qaysi? Javob oxirida.",
+ "cover_text": "ENG ULUG' OYAT",
+ "facts": [
+  "2:255 (uz.sodik + en.sahih сверены). Только основной текст аята, сноски не используются.",
+  "Хадис: Имам Муслим и Имам Ахмад от Убай ибн Кааба: величайший аят в Книге Аллаха — Аят аль-Курси (по сноске uz.sodik к 2:255). Номер хадиса Муслима 810 ЗАПОМНЕН ПО ПАМЯТИ, сверить по сборнику перед публикацией."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda eng ulug' oyat qaysi? Javob oxirida.",
+   "on_screen": "ENG ULUG' OYAT",
+   "visual_hint": "купол, свет, арабская каллиграфия, вопросительный знак"
+  },
+  {
+   "n": 2,
+   "vo": "Bu oyat Baqara surasida. Keling, avval o'qib ko'ramiz.",
+   "on_screen": "BAQARA 255",
+   "visual_hint": "свиток раскрывается, название суры"
+  },
+  {
+   "n": 3,
+   "vo": "Alloh, Undan o'zga iloh yo'q zotdir. U tirik va qayyumdir. Uni mudroq ham, uyqu ham olmas.",
+   "on_screen": "2:255 (1)",
+   "visual_hint": "арабский 2:255 строка 1-2, свет"
+  },
+  {
+   "n": 4,
+   "vo": "Osmonlaru yerdagi narsalar Unikidir. Uning huzurida O'zining iznisiz hech kim shafoat qila olmas.",
+   "on_screen": "2:255 (2)",
+   "visual_hint": "небо и земля, свет"
+  },
+  {
+   "n": 5,
+   "vo": "U ularning oldilaridagi narsani ham, ortlaridagi narsani ham bilur. Uning ilmidan hech narsani ihota qila olmaslar, magar O'zi xohlaganini, xolos.",
+   "on_screen": "2:255 (3)",
+   "visual_hint": "две стороны, горизонт, свет"
+  },
+  {
+   "n": 6,
+   "vo": "Uning kursisi osmonlaru yerni qamragan. Ularni muhofaza qilish Uni charchatmas. Va U Oliy va Azim zotdir.",
+   "on_screen": "2:255 (4)",
+   "visual_hint": "огромный круг, небо и земля"
+  },
+  {
+   "n": 7,
+   "vo": "Imom Muslim Ubay ibn Ka'b roziyallohu anhudan rivoyat qilgan hadisda, Alloh kitobidagi eng ulug' oyat Kursi oyati ekani aytilgan. Eng ulug' oyat Oyatul Kursiydir. Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "OYATUL KURSIY",
+   "visual_hint": "название, свет; конец зеркалит хук"
+  }
+ ],
+ "caption": "Qur'onning eng ulug' oyati (Oyatul Kursiy)\n\n#oddiymohiyat #o'zbekcha #qur'on #hikmat #islom"
+}

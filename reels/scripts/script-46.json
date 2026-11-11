@@ -1,0 +1,71 @@
+{
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "series": "Qur'on",
+ "status": "draft: ждёт «ок» пользователя (цена по знакам) и религиозной проверки",
+ "rules": "Безопасный контент (11.11): только цитаты аятов (uz.sodik) и хадисов с номером, без своих толкований. Пророков, Марьям и ангелов не изображать лицом: силуэты со спины, символы (свет, хурма, вода). Арабский на экране без голоса.",
+ "id": "script-46",
+ "title": "Qur'onda ismi bilan atalgan yagona ayol (Maryam)",
+ "genre": "quran-hikoya",
+ "hook": "Qur'onda ko'p payg'ambarlarning ismi bor. Lekin ayollardan faqat bittasi ismi bilan tilga olingan. U kim? Javob oxirida.",
+ "cover_text": "YAGONA AYOL",
+ "facts": [
+  "Ismi Maryam: токен «مريم» в quran-simple-clean встречается 34 раза (проверено кодом, alquran.cloud); сура 19 названа Maryam.",
+  "Другие женщины в Коране по имени не названы (общеизвестно, сверить с религиозным проверяющим).",
+  "3:42 (uz.sodik): «Фаришталарнинг: Эй Марям, албатта, Аллоҳ сени танлаб олди, поклади ва оламдаги аёллардан устунлигингни ихтиёр қилди».",
+  "19:16-17, 19:19-21, 19:23-26 (uz.sodik + en.sahih сверены). Толкование из сносок uz.sodik НЕ используется."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda ko'p payg'ambarlarning ismi bor. Lekin ayollardan faqat bittasi ismi bilan tilga olingan. U kim? Javob oxirida.",
+   "on_screen": "YAGONA AYOL",
+   "visual_hint": "двор-сад, свет сверху, силуэт женщины спиной к зрителю"
+  },
+  {
+   "n": 2,
+   "vo": "Uning ismi Qur'onda o'ttiz to'rt marta keladi. Bitta sura esa butunlay uning nomi bilan ataladi.",
+   "on_screen": "34 MARTA",
+   "visual_hint": "счётчик, свиток с арабским названием суры (имя не показывать)"
+  },
+  {
+   "n": 3,
+   "vo": "Bir ayol oilasidan ajralib, sharqdagi bir joyga chiqdi va o'zi bilan ular orasiga to'siq oldi. Alloh aytadi, Biz unga O'z ruhimizni yubordik, u unga butun bir odam bo'lib ko'rindi.",
+   "on_screen": "19:16-17",
+   "visual_hint": "силуэт у стены на востоке, свет"
+  },
+  {
+   "n": 4,
+   "vo": "Farishta dedi, men Robbingning elchisiman, senga pok o'g'il hadya etish uchun keldim. Ayol dedi, menga hech bir inson tegmagan bo'lsa, qanday qilib o'g'il bo'ladi? Farishta dedi, ana shunday, Robbing aytdiki, bu Men uchun osondir.",
+   "on_screen": "19:19-21",
+   "visual_hint": "два силуэта, свет между ними"
+  },
+  {
+   "n": 5,
+   "vo": "Tug'ish og'rig'i uni xurmo tanasiga olib bordi. U dedi, koshki bundan oldin o'lsam edi. Shunda unga nido keldi, mahzun bo'lma, Robbing ostingdan ariq qildi.",
+   "on_screen": "19:23-24",
+   "visual_hint": "хурма, ручей появляется"
+  },
+  {
+   "n": 6,
+   "vo": "Xurmo tanasini silkit, senga yangi meva tushadi. Ye, ich va ko'zing quvonsin.",
+   "on_screen": "19:25-26",
+   "visual_hint": "хурмы падают, лёгкая вспышка"
+  },
+  {
+   "n": 7,
+   "vo": "Farishtalar ham unga dedilar, ey Maryam, albatta, Alloh seni tanlab oldi, pokladi va olamdagi ayollardan ustunligingni ixtiyor qildi.",
+   "on_screen": "3:42",
+   "visual_hint": "арабский 3:42, лучи света; ИМЯ ПЕРВЫЙ РАЗ ЗДЕСЬ"
+  },
+  {
+   "n": 8,
+   "vo": "Demak, Qur'onda ismi bilan tilga olingan yagona ayol Maryamdir. Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "MARYAM",
+   "visual_hint": "название суры, мягкий свет; конец зеркалит хук"
+  }
+ ],
+ "caption": "Qur'onda ismi bilan atalgan yagona ayol (Maryam)\n\n#oddiymohiyat #o'zbekcha #qur'on #hikmat #islom"
+}
