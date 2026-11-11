@@ -121,32 +121,39 @@ const arm = (sx: number, a1: number, a2: number, col: string, skin: string, len 
   );
 };
 export const Person: React.FC<{
-  kind?: BodyKind; face?: FaceP; x?: number; y?: number; s?: number; flip?: number; legs?: boolean; walk?: number; armL?: [number, number]; armR?: [number, number]; point?: 'L' | 'R'; ikL?: [number, number]; ikR?: [number, number]; front?: React.ReactNode;
-  lean?: number; bow?: number; tie?: boolean; opacity?: number; children?: React.ReactNode; cropBelow?: number; shadow?: boolean;
-}> = ({kind = 'robe', face = {}, x = 0, y = 0, s = 1, flip = 1, legs = true, walk = 0, armL = [8, 4], armR = [8, 4], point, ikL, ikR, front, lean = 0, bow = 0, tie = false, opacity = 1, children, shadow = true}) => {
+  kind?: BodyKind; face?: FaceP; x?: number; y?: number; s?: number; flip?: number; legs?: boolean; walk?: number; amp?: number; armL?: [number, number]; armR?: [number, number]; point?: 'L' | 'R'; ikL?: [number, number]; ikR?: [number, number]; front?: React.ReactNode;
+  lean?: number; bow?: number; tie?: boolean; opacity?: number; children?: React.ReactNode; shadow?: boolean; t?: number; tilt?: number; nod?: number; seed?: number;
+}> = ({kind = 'robe', face = {}, x = 0, y = 0, s = 1, flip = 1, legs = true, walk = 0, amp = 0, armL = [8, 4], armR = [8, 4], point, ikL, ikR, front, lean = 0, bow = 0, tie = false, opacity = 1, children, shadow = true, t = 0, tilt = 0, nod = 0, seed = 1}) => {
   const c = COL[kind], skin = face.skin ?? '#dba77a';
   const robeLike = kind !== 'modern';
-  const sw = Math.sin(walk * Math.PI * 2) * 22;
+  const ph = walk * Math.PI * 2;
+  const liftL = Math.max(0, Math.sin(ph)) * 28 * amp, liftR = Math.max(0, -Math.sin(ph)) * 28 * amp;
+  const spL = Math.sin(ph) * 16 * amp, spR = -Math.sin(ph) * 16 * amp;
+  const breath = Math.sin(t * 1.7 + seed) * 0.012, sway = Math.sin(t * 0.8 + seed * 2) * 0.9 + Math.sin(ph) * 1.4 * amp;
+  const bob = Math.abs(Math.sin(ph)) * 10 * amp;
+  const leg = (sd: number, lift: number, sp: number) => {
+    const hx = sd * 40, kx = sd * 42 + sp * 0.4, ky = 640 - lift * 0.5, ax = sd * 44 + sp, ay = 800 - lift;
+    return (
+      <g key={sd}>
+        <path d={`M${hx} 455 L${kx} ${ky} L${ax} ${ay}`} stroke={sd < 0 ? '#1d2634' : '#222c3c'} strokeWidth={64} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d={`M${hx} 455 L${kx} ${ky} L${ax} ${ay}`} stroke="rgba(255,255,255,.04)" strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" fill="none" transform="translate(-14 0)" />
+        <path d={`M${ax - 44} ${ay + 12} q-4 28 28 28 h58 q-2 -22 -10 -34z`} fill="#150d08" transform={`translate(${sd > 0 ? 6 : 0} ${-lift * 0.0})`} />
+      </g>
+    );
+  };
   return (
-    <g transform={`translate(${x} ${y}) scale(${s * flip} ${s})`} opacity={opacity}>
-      {shadow && <ellipse cx={0} cy={826} rx={150} ry={20} fill="rgba(40,22,8,.38)" />}
-      <g transform={`rotate(${lean} 0 820)`}>
+    <g transform={`translate(${x} ${y - bob * s}) scale(${s * flip} ${s})`} opacity={opacity}>
+      {shadow && <ellipse cx={0} cy={826} rx={150 - bob * 2} ry={20} fill="rgba(40,22,8,.38)" />}
+      <g transform={`rotate(${lean + sway} 0 820)`}>
         {legs && (robeLike ? (
           <g>
-            <path d={`M-96 440 L${-110 + sw * 0.4} 826 L${110 + sw * 0.4} 826 L96 440Z`} fill={c.b} />
-            <path d={`M-96 440 L${-110 + sw * 0.4} 826 L${110 + sw * 0.4} 826 L96 440Z`} fill="url(#shadeR)" />
-            {[-60, -20, 25, 62].map((fx, i) => <path key={i} d={`M${fx} 460 L${fx * 1.12 + sw * 0.3} 822`} stroke="rgba(0,0,0,.16)" strokeWidth={6} />)}
-            <ellipse cx={-46 + sw} cy={830} rx={40} ry={14} fill="#2a1a10" /><ellipse cx={50 - sw} cy={830} rx={40} ry={14} fill="#2a1a10" />
+            <path d={`M-98 440 L-116 ${826 - liftL * 0.5} Q0 ${840 - (liftL + liftR) * 0.15} 116 ${826 - liftR * 0.5} L98 440Z`} fill={c.b} />
+            <path d={`M-98 440 L-116 ${826 - liftL * 0.5} Q0 ${840 - (liftL + liftR) * 0.15} 116 ${826 - liftR * 0.5} L98 440Z`} fill="url(#shadeR)" />
+            {[-60, -20, 25, 62].map((fx, i) => <path key={i} d={`M${fx} 460 L${fx * 1.12} ${822 - (fx < 0 ? liftL : liftR) * 0.4}`} stroke="rgba(0,0,0,.16)" strokeWidth={6} />)}
+            <ellipse cx={-48 + spL} cy={832 - liftL} rx={40} ry={14} fill="#2a1a10" /><ellipse cx={50 + spR} cy={832 - liftR} rx={40} ry={14} fill="#2a1a10" />
           </g>
-        ) : (
-          <g>
-            <path d={`M-80 450 L${-78 + sw} 800 L${-16 + sw} 800 L2 450Z`} fill="#1d2634" /><path d={`M-2 450 L${16 - sw} 800 L${78 - sw} 800 L82 450Z`} fill="#222c3c" />
-            <path d={`M-80 450 L${-78 + sw} 800 L${-16 + sw} 800 L2 450Z`} fill="url(#shadeR)" />
-            <path d={`M${-90 + sw} 800 q-6 30 30 30 h56 q-4 -24 -10 -30z`} fill="#150d08" /><path d={`M${84 - sw} 800 q6 30 -30 30 h-56 q4 -24 10 -30z`} fill="#150d08" />
-          </g>
-        ))}
-        <g transform={`rotate(${bow} 0 300)`}>
-          {/* торс */}
+        ) : (<g>{leg(-1, liftL, spL)}{leg(1, liftR, spR)}</g>))}
+        <g transform={`rotate(${bow} 0 300) translate(0 480) scale(1 ${1 + breath}) translate(0 -480)`}>
           {kind === 'modern' ? (
             <g>
               <path d="M-106 168 Q-108 128 -56 118 L56 118 Q108 128 106 168 L120 478 L-120 478Z" fill={c.a} />
@@ -168,9 +175,9 @@ export const Person: React.FC<{
             </g>
           )}
           {arm(-1, armL[0], armL[1], c.a, skin, 150, point === 'L', ikL)}
-          <g transform="translate(0 0)">{arm(1, armR[0], armR[1], c.a, skin, 150, point === 'R', ikR)}</g>
+          {arm(1, armR[0], armR[1], c.a, skin, 150, point === 'R', ikR)}
           {children}
-          <Face {...face} />
+          <g transform={`translate(0 ${nod * 7}) rotate(${tilt} 0 95)`}><Face {...face} /></g>
           {front}
         </g>
       </g>
