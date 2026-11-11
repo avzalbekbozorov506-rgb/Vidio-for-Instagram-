@@ -339,7 +339,7 @@ export const Alham40Cover: React.FC = () => {
           <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         </defs>
         <rect x={0} y={GROUND} width={1080} height={470} fill="#0b1318" />
-        <Tree k={1} f={40} />
+        <g transform="translate(-165 -40)"><Tree k={1} f={40} /></g>
       </svg>
       <div style={{position: 'absolute', left: 80, width: 920, top: 300, textAlign: 'center', fontFamily: MONT}}>
         <div style={{fontWeight: 600, fontSize: 40, letterSpacing: 6, color: GOLD2}}>100 TA ZARBA</div>
