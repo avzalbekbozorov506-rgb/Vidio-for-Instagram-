@@ -1,0 +1,44 @@
+{
+ "id": "script-50",
+ "title": "Haqiqiy kuchli odam kim? (хадис, Бухари 6114, Муслим 2609), стиль акварель",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "hadis",
+ "series": "Hadis",
+ "status": "draft: ждёт «ок» пользователя (цена по знакам), номер хадиса сверить по сборнику",
+ "hook": "Haqiqiy kuchli odam kim? Kurashda hammani yengadimi?",
+ "cover_text": "KIM KUCHLI?",
+ "rules": "Безопасный контент: только цитата хадиса, без своих выводов. Без лиц. Призыв в конце. ~20 секунд.",
+ "facts": [
+  "Хадис Абу Хурайры: «Кучли одам курашда енгадиган эмас, балки ғазаб пайтида ўзини тута олган кишидир» (Бухари 6114, Муслим 2609). НОМЕР ПО ПАМЯТИ, сверить по сборнику."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Haqiqiy kuchli odam kim? Kurashda hammani yengadimi?",
+   "on_screen": "KIM KUCHLI?",
+   "visual_hint": "две фигуры борются, акварельный фон"
+  },
+  {
+   "n": 2,
+   "vo": "Payg'ambarimiz sollallohu alayhi vasallam dedilar. Kuchli odam kurashda yengadigan kishi emas.",
+   "on_screen": "KURASH EMAS",
+   "visual_hint": "красное пятно гнева растёт"
+  },
+  {
+   "n": 3,
+   "vo": "Kuchli odam faqat g'azab paytida o'zini tuta oladigan kishidir.",
+   "on_screen": "G'AZAB",
+   "visual_hint": "красное сменяется спокойным синим, фигура сидит спокойно"
+  },
+  {
+   "n": 4,
+   "vo": "Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "OBUNA BO'LING",
+   "visual_hint": "чернильная капля, самолётик"
+  }
+ ],
+ "caption": "Haqiqiy kuchli odam kim? Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom #hikmat"
+}
