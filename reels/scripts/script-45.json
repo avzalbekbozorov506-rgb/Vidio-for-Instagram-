@@ -1,0 +1,93 @@
+{
+  "id": "script-45",
+  "title": "Nega Qur'ondagi sura o'rgimchak deb ataladi? (Ankabut 29, ayat 41) - формат Sigir, визуал как в турецком ролике",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "quran-nom",
+  "series": "Qur'on",
+  "status": "draft: ждёт ок пользователя и религиозной проверки",
+  "hook": "Nega Qur'ondagi bir sura o'rgimchak deb ataladi? Javob oxirida.",
+  "cover_text": "NEGA O'RGIMCHAK?",
+  "reference": "Формат Sigir (script-36): вопрос о названии суры, парадокс с числом, «Javob oxirida», толкование как «bir izohga ko'ra». Визуал: плоская иллюстрация во дворе-саду как в ikki bog' (ссылка на турецкий ролик).",
+  "rules": "Пророков (Нух, Лут, Шуайб) не изображать, только упомянуть в тексте. Причину названия подавать как «bir izohga ko'ra»: тафсиры по причине названия суры НЕ сверены. Арабский 29:41 на экране без голоса.",
+  "facts": [
+    "Сура 29 (Al-Ankabut): 69 аятов (alquran.cloud).",
+    "Слово «анкабут» (паук) во всём Коране только в 29:41 (дважды в этом аяте), проверено по quran-simple.",
+    "29:2 «Одамлар иймон келтирдик дейишлари ила имтиҳон қилинмай тарк этилишларини ўйладиларми?» (uz.sodik).",
+    "29:14 Нух: эллик йили кам минг йил (uz.sodik).",
+    "29:39 Корун, Фирауна и Хаман упомянуты (quran-simple); 29:26-33 Лут, 29:36 Шуайб.",
+    "29:41 «Аллоҳни қўйиб, ўзга дўстлар тутганларнинг мисоли ўзига уй тутган ўргимчакка ўхшайди. Энг заиф уй ўргимчакнинг уясидир» (uz.sodik).",
+    "Фраза «Shu izohga ko'ra, sura nomi ... xabarini aytadi» - толкование, источник не проверен по тафсирам."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Nega Qur'ondagi bir sura o'rgimchak deb ataladi? Javob oxirida.",
+      "on_screen": "O'RGIMCHAK",
+      "visual_hint": "двор-сад, паутина в углу арки, лучи света"
+    },
+    {
+      "n": 2,
+      "vo": "Bu sura oltmish to'qqiz oyatdan iborat. O'rgimchak esa butun Qur'onda faqat bitta oyatda tilga olinadi.",
+      "on_screen": "69 OYAT",
+      "visual_hint": "сад, паутина крупно, на ней одна капля света; дата-сетка из 69 точек, одна подсвечена"
+    },
+    {
+      "n": 3,
+      "vo": "Suraning qolgan qismi boshqa haqida. Unda Nuh, Lut, Shuayb qissalari, Qorun bilan Fir'avn ham bor.",
+      "on_screen": "",
+      "visual_hint": "три-четыре безликих силуэта у ворот: образы историй (без лиц Пророков), далёкие фигуры, сундуки Каруна"
+    },
+    {
+      "n": 4,
+      "vo": "Nuh qavmi orasida ellik yili kam ming yil turdi.",
+      "on_screen": "",
+      "visual_hint": "песочные часы, годы идут, дерево растёт и стареет за кадром"
+    },
+    {
+      "n": 5,
+      "vo": "Suraning boshida esa savol turadi. Odamlar, iymon keltirdik, deyishlari bilan sinalmay qoldiriladi deb o'ylaydimi?",
+      "on_screen": "29:2",
+      "visual_hint": "человек произносит слова, они повисают в воздухе, затем испытание: ветер/дождь над двором"
+    },
+    {
+      "n": 6,
+      "vo": "Lekin sura Imtihon, Nuh yoki Qorun deb emas, O'rgimchak deb atalgan. Nega?",
+      "on_screen": "",
+      "visual_hint": "ворота с надписью-вопросом, паутина на воротах"
+    },
+    {
+      "n": 7,
+      "vo": "Bir izohga ko'ra, sababi suradagi bitta misolda. Allohni qo'yib, boshqalarni himoyachi tutganlar o'rgimchakka o'xshaydi.",
+      "on_screen": "29:41",
+      "visual_hint": "два дома во дворе: каменный и дом из паутины; человек у дома-паутины"
+    },
+    {
+      "n": 8,
+      "vo": "U o'ziga uy tutdi. Holbuki, eng zaif uy o'rgimchak uyidir.",
+      "on_screen": "",
+      "visual_hint": "паутина-дом, лёгкий ветер, нити дрожат"
+    },
+    {
+      "n": 9,
+      "vo": "Boylik, odamlar, kuch, bular mustahkam ko'rinadi. Imtihon kelganda esa nima haqiqiy tayanch ekani bilinadi.",
+      "on_screen": "",
+      "visual_hint": "богатые сундуки, люди, мешки у паутины; налетает ветер, но стоит каменный дом"
+    },
+    {
+      "n": 10,
+      "vo": "Shu izohga ko'ra, sura nomi butun suraning xabarini aytadi. Kuchli ko'ringan narsaga emas, haqiqiy tayanchga suyan.",
+      "on_screen": "",
+      "visual_hint": "ветер рвёт паутину, каменный дом стоит; человек выбирает"
+    },
+    {
+      "n": 11,
+      "vo": "Siz qaysi uyga suyanyapsiz? Yaqiningizga yuboring.",
+      "on_screen": "",
+      "visual_hint": "человек стоит между двумя домами у ворот; конец зеркалит хук"
+    }
+  ],
+  "caption": "Nega Qur'ondagi sura o'rgimchak deb ataladi? Ankabut surasi va 41-oyat.\n\n#oddiymohiyat #o'zbekcha #qur'on #ankabut #islom #hikmat"
+}
