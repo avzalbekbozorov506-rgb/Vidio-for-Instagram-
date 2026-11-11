@@ -27,61 +27,61 @@
     },
     {
       "n": 2,
-      "vo": "U jamoatga bir qarab, indamay chiqib ketdi. Hamma hayron bo'ldi. Ko'p o'tmay u yelkasiga o'tin ortib qaytdi va namozga turdi.",
+      "vo": "U jamoatga bir qarab, indamay chiqib ketdi. Hamma hayron. Ko'p o'tmay yelkasida o'tin bilan qaytib, namozga turdi.",
       "on_screen": "",
       "visual_hint": "вход, взгляд на ряды, уходит, возвращается с дровами, встаёт в ряд"
     },
     {
       "n": 3,
-      "vo": "Sajdada o'tinlar to'kilib, jamoat bezovta bo'ldi. Namozdan so'ng imom so'radi, hoy birodar, yelkada o'tin bilan ham namoz o'qiladimi?",
+      "vo": "Sajdada o'tinlar to'kilib ketdi. Namozdan so'ng imom so'radi, yelkada o'tin bilan ham namoz o'qiladimi?",
       "on_screen": "",
       "visual_hint": "сажда, дрова рассыпаются, ряды оборачиваются, после намаза имам подходит"
     },
     {
       "n": 4,
-      "vo": "U dedi, kirsam yelkam bo'sh edi, qarasam hamma nimadir ko'tarib turibdi. Bu yerda odat shunday ekan, deb men ham o'tinimni olib keldim.",
+      "vo": "U dedi, kirsam yelkam bo'sh edi, hamma nimadir ko'tarib turibdi. Odat shunday ekan, deb men ham o'tinimni olib keldim.",
       "on_screen": "",
       "visual_hint": "крупно двое, жест на ряды, герой показывает на свою пустую спину"
     },
     {
       "n": 5,
-      "vo": "Imom hayron bo'ldi. Hamma nima ko'tarib turibdi? Kishi jamoatga ishora qildi. Anavida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla, anavisida bir to'p mato.",
+      "vo": "Imom hayron bo'ldi. Hamma nima ko'tarib turibdi? Kishi ishora qildi. Anavida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
       "on_screen": "",
       "visual_hint": "у людей на плечах проявляются: ребёнок, кувшин золота, тюк ткани"
     },
     {
       "n": 6,
-      "vo": "Jamoat qotib qoldi. Chunki har kim aynan shuni o'ylab turgan edi.",
+      "vo": "Jamoat qotib qoldi. Chunki har kim aynan shuni o'ylayotgan edi.",
       "on_screen": "",
       "visual_hint": "замершие лица, переглядываются"
     },
     {
       "n": 7,
-      "vo": "Keyin imomga qarab, eng ko'p sizga hayron bo'ldim, dedi. Yelkangizda sigir bor edi.",
+      "vo": "Keyin imomga qarab, sizga eng ko'p hayron bo'ldim, dedi. Yelkangizda sigir bor edi.",
       "on_screen": "",
       "visual_hint": "герой смотрит на имама, у имама на плечах корова"
     },
     {
       "n": 8,
-      "vo": "Chunki imom namozda sut bermay qo'ygan keksa sigirini sotsammikan, sotmasammikan, deb o'ylab turgan ekan.",
+      "vo": "Imom namozda sut bermay qo'ygan keksa sigirini sotsammikan, deb o'ylab turgan ekan.",
       "on_screen": "",
       "visual_hint": "имам в хлеву у старой коровы (мысль), торг"
     },
     {
       "n": 9,
-      "vo": "Imom indamay qoldi. Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda, ishda va telefonda.",
+      "vo": "Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda va telefonda.",
       "on_screen": "",
       "visual_hint": "имам молчит; человек на коврике, на спине мешок: рынок, работа, телефон"
     },
     {
       "n": 10,
-      "vo": "Qur'onda shunday deyilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir. Xushu' ya'ni namozda qalb bilan turish.",
+      "vo": "Qur'onda deyilgan, batahqiq, mo'minlar najot topdilar. Ular namozlarida xushu' qiluvchilardir. Xushu' ya'ni namozda qalb bilan turish.",
       "on_screen": "23:1-2",
       "visual_hint": "арабский аят 23:1-2 без голоса, свет, мешок падает с плеч"
     },
     {
       "n": 11,
-      "vo": "Dunyo eshik oldida kutib tursin, u hech qayoqqa qochmaydi. Bugun namozda yelkangizda nima bor edi? Yaqiningizga yuboring.",
+      "vo": "Dunyo eshik oldida kutib tursin, u qochib ketmaydi. Bugun namozda yelkangizda nima bor edi?",
       "on_screen": "",
       "visual_hint": "мешки у порога мечети, человек входит налегке"
     }
