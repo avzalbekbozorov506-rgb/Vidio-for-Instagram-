@@ -26,37 +26,37 @@
     },
     {
       "n": 2,
-      "vo": "U avval jamoatga bir qaradi, indamay chiqib ketdi. Ko'p o'tmay yelkasiga o'tin ortib qaytdi va shu holda namozga turdi.",
+      "vo": "U jamoatga bir qarab, indamay chiqib ketdi. Ko'p o'tmay yelkasiga o'tin ortib qaytdi va namozga turdi.",
       "on_screen": "",
       "visual_hint": "вход в мечеть, дрова связаны за спиной, пол с красным ковром"
     },
     {
       "n": 3,
-      "vo": "Sajdada o'tinlar to'kilib ketdi, jamoat bezovta bo'ldi. Imom unga dedi, yelkada o'tin bilan ham namoz o'qiladimi?",
+      "vo": "Sajdada o'tinlar to'kilib, jamoat bezovta bo'ldi. Imom dedi, yelkada o'tin bilan ham namoz o'qiladimi?",
       "on_screen": "",
       "visual_hint": "дрова рассыпались, ряды молящихся оборачиваются, имам идёт к нему"
     },
     {
       "n": 4,
-      "vo": "U shunday dedi. Kirsam, yelkam bo'sh edi, qarasam hammaning yelkasida nimadir bor ekan. Men ham o'tinimni olib keldim.",
+      "vo": "U dedi, kirsam yelkam bo'sh edi, hammaning yelkasida nimadir bor ekan. Men ham o'tinimni olib keldim.",
       "on_screen": "",
       "visual_hint": "крупно двое, жест рукой на ряды"
     },
     {
       "n": 5,
-      "vo": "Imom hayron bo'ldi. U jamoatga ishora qildi. Anavining yelkasida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
+      "vo": "Imom hayron bo'ldi. U ishora qildi. Anavining yelkasida ko'k ko'zli bola bor edi, mana bunisida bir xum tilla.",
       "on_screen": "",
       "visual_hint": "у людей на плечах появляются ребёнок, кувшин с золотом, товары"
     },
     {
       "n": 6,
-      "vo": "Jamoat qotib qoldi. Chunki u kimga nima degan bo'lsa, to'g'ri aytgan edi.",
+      "vo": "Jamoat qotib qoldi, chunki u hammaga to'g'ri aytgan edi.",
       "on_screen": "",
       "visual_hint": "лица, замершие люди"
     },
     {
       "n": 7,
-      "vo": "Keyin imomga qarab dedi, eng ko'p sizga hayron bo'ldim. Sizning yelkangizda sigir bor edi.",
+      "vo": "Keyin imomga dedi, sizning yelkangizda sigir bor edi.",
       "on_screen": "",
       "visual_hint": "у имама на плечах корова"
     },
@@ -68,7 +68,7 @@
     },
     {
       "n": 9,
-      "vo": "Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda, telefonda, rejalarda.",
+      "vo": "Biz ham shundaymiz. Tanamiz sajdada, fikrimiz esa savdoda va telefonda.",
       "on_screen": "",
       "visual_hint": "человек на молитвенном коврике, за спиной мешок-мысли: рынок, телефон"
     },
