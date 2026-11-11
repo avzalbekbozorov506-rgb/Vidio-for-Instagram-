@@ -331,20 +331,29 @@ export const Alham40: React.FC<{guide?: boolean}> = ({guide = false}) => {
 
 export const Alham40Cover: React.FC = () => {
   loadFonts();
+  const f = IM[69] + 12;
   return (
-    <AbsoluteFill style={{background: '#070b14'}}>
+    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 62%, #1b2230 0%, #070b14 70%)'}}>
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', inset: 0}}>
         <defs>
-          <radialGradient id="halo2"><stop offset="0" stopColor={GOLD} stopOpacity="0.55" /><stop offset="1" stopColor={GOLD} stopOpacity="0" /></radialGradient>
+          <radialGradient id="rock" cx="0.38" cy="0.3" r="0.9"><stop offset="0" stopColor="#6b7889" /><stop offset="0.55" stopColor="#4a5566" /><stop offset="1" stopColor="#2a3240" /></radialGradient>
+          <linearGradient id="rockDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0.5" stopColor="#000" stopOpacity="0" /><stop offset="1" stopColor="#000" stopOpacity="0.45" /></linearGradient>
+          <radialGradient id="halo"><stop offset="0.55" stopColor={GOLD} stopOpacity="0" /><stop offset="0.82" stopColor={GOLD} stopOpacity="0.28" /><stop offset="1" stopColor={GOLD} stopOpacity="0" /></radialGradient>
           <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+          <clipPath id="bclip"><path d={blobPath} /></clipPath>
         </defs>
         <rect x={0} y={GROUND} width={1080} height={470} fill="#0b1318" />
-        <g transform="translate(-165 -40)"><Tree k={1} f={40} /></g>
+        <g transform="translate(20 -20)">
+          <ellipse cx={BX} cy={GROUND + 6} rx={BRX * 0.95} ry={20} fill="#000" opacity={0.5} />
+          <Boulder f={f} n={70} jolt={9} split={0} />
+          <Person f={IM[69] - 2} broke={0} />
+        </g>
       </svg>
-      <div style={{position: 'absolute', left: 80, width: 920, top: 300, textAlign: 'center', fontFamily: MONT}}>
-        <div style={{fontWeight: 600, fontSize: 40, letterSpacing: 6, color: GOLD2}}>100 TA ZARBA</div>
-        <div style={{fontWeight: 800, fontSize: 92, lineHeight: 1.1, color: CREAM, marginTop: 24}}>Yuzta Alhamdulillah</div>
-        <div style={{fontWeight: 800, fontSize: 92, lineHeight: 1.1, color: GOLD}}>nima qiladi?</div>
+      <div style={{position: 'absolute', left: 80, width: 880, top: 290, textAlign: 'center', fontFamily: MONT}}>
+        <div style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontWeight: 800, fontSize: 34, letterSpacing: 5, padding: '10px 28px', borderRadius: 8}}>HAR ZARBAGA BITTA HAMD</div>
+        <div style={{fontWeight: 800, fontSize: 330, lineHeight: 1, color: GOLD, marginTop: 20, textShadow: '0 0 60px rgba(255,194,74,.45)'}}>100</div>
+        <div style={{fontWeight: 800, fontSize: 84, lineHeight: 1.1, color: CREAM, marginTop: -10}}>marta Alhamdulillah</div>
+        <div style={{fontWeight: 600, fontSize: 44, color: GOLD2, marginTop: 20}}>Tosh nima bo'ladi?</div>
       </div>
     </AbsoluteFill>
   );
