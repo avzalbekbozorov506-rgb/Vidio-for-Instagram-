@@ -1,0 +1,51 @@
+{
+  "id": "script-61",
+  "title": "Bitta odamga yuboring (Muslim 1893, Bukhari 6406 / Muslim 2694), формат по образцу пользователя",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "zikr",
+  "series": "Yuborish",
+  "status": "сценарий готов, ждёт ок на озвучку",
+  "hook": "Shu videoni bitta odamga yuborsangiz, nima bo'lishini bilasizmi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+  "cover_text": "1 TA YUBORISH = ?",
+  "facts": [
+    "Муслим 1893 (Абу Масуд аль-Ансари): указавший на добро получает награду как исполнитель; сверено по sunnah.com.",
+    "Бухари 6406 и Муслим 2694 (Абу Хурайра): два слова тяжёлые на весах, лёгкие на языке, любимые Рахману; сверено по sunnah.com.",
+    "Арифметика: 3 в 7-й степени = 2187, посчитано кодом; это только счёт, не обещание награды."
+  ],
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Shu videoni bitta odamga yuborsangiz, nima bo'lishini bilasizmi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "on_screen": "1 = ?",
+      "visual_hint": "одна лампа-огонёк на ночном городе, вопрос «1 ta yuborish = ?»"
+    },
+    {
+      "n": 2,
+      "vo": "Payg'ambarimiz sollallohu alayhi vasallam aytdilar. Kim yaxshilikka yo'llasa, unga o'sha yaxshilikni qilgan kishining ajricha ajr bor.",
+      "on_screen": "MUSLIM 1893",
+      "visual_hint": "два огонька соединены дугой и знаком равенства; источник на экране"
+    },
+    {
+      "n": 3,
+      "vo": "Tasavvur qiling. Siz bir kishiga bitta zikr o'rgatdingiz. U uch kishiga o'rgatdi, ular yana uchtadan o'rgatdi. Yettinchi qadamda bu ikki mingdan ortiq odam bo'ladi.",
+      "on_screen": "2187",
+      "visual_hint": "1 -> 3 -> 9 -> 27 ... -> 2187: огоньки расходятся веером, счётчик растёт"
+    },
+    {
+      "n": 4,
+      "vo": "Zikr esa juda oddiy. Subhanallohi va bihamdihi, Subhanallohil a'ziym. Payg'ambarimiz bu ikki kalima tilga yengil, tarozida og'ir, Rahmonga suyukli, dedilar.",
+      "on_screen": "BUKHARI 6406 · MUSLIM 2694",
+      "visual_hint": "золотые весы: чаша с двумя огоньками опускается; арабское слово не нужно"
+    },
+    {
+      "n": 5,
+      "vo": "Foydali deb bilsangiz, bitta yoki undan ko'proq odamga yuboring.",
+      "on_screen": "1 yoki ko'proq",
+      "visual_hint": "огонёк летит к другому огоньку, финальный кадр с подписью @mohiyat___"
+    }
+  ],
+  "caption": "Shu videoni bitta odamga yuborsangiz, nima bo'ladi?\n\n#oddiymohiyat #o'zbekcha #zikr #hadis #islom"
+}
