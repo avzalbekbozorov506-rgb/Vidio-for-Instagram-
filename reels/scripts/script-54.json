@@ -7,11 +7,14 @@
  "speed": 1.0,
  "genre": "ayat",
  "series": "Nega",
- "status": "draft: ждёт «ок» и проверки",
+ "status": "draft v3: источники сверены (alquran.cloud uz.sodik, Ibn Kathir 169, Ma'arif al-Qur'an 168 через api.quran.com), ждёт «ок» и религиозной проверки",
  "hook": "Qur'onda bir sura bor. Unda ahdga vafo ham, tahorat ham, dinning mukammal bo'lgani ham bor. Lekin u dasturxon deb ataladi. Nega? Javob oxirida.",
  "cover_text": "NEGA DASTURXON?",
  "facts": [
-  "5:112 havoriylar so'rashdi; 5:113 4 sabab; 5:114 duo; 5:115 Alloh javobi (uz.sodik, alquran.cloud, 12.11.2026). Dasturxon so'zi faqat 112, 114, 115 oyatlarda (kod bilan sanalgan). Sura 120 oyat, Madaniy. 5:1 ahdlar, 5:3 din mukammal, 5:6 tahorat va 'ne'matini batamom'. Izoh: Sodik tarjimasi 5:115. 'Sura nomi shu qissadan' tafsirdan tasdiqlash kerak."
+  "Аяты 5:1, 5:3, 5:6, 5:112-115 по переводу Muhammad Sodik (api.alquran.cloud, uz.sodik). Слово «dasturxon» только в 5:112, 114, 115 (посчитано кодом), сура 120 аятов, мединская.",
+  "Ibn Kathir (Abridged), тафсир 5:112: «This is the story of the Ma'idah, the name of which this Surah bears». Там же: Исо ответил «Have Taqwa of Allah! And do not ask for this, for it may become a trial for you».",
+  "Ma'arif al-Qur'an, 5:112-115: «The Better the Blessing, the Worse the Curse of Ingratitude». Там же: мнения о том, сошёл ли стол, расходятся, большинство считает что сошёл (в сценарии это НЕ утверждается).",
+  "Qurtubi 5:112 даёт разные толкования вопроса хавариев; в сценарии не используется."
  ],
  "cards": [
   {
@@ -34,7 +37,7 @@
   },
   {
    "n": 4,
-   "vo": "Iso alayhissalom darrov rozi bo'lmadi. Agar mo'min bo'lsangiz, Allohdan taqvo qiling, dedi.",
+   "vo": "Iso alayhissalom darrov rozi bo'lmadi. Agar mo'min bo'lsangiz, Allohdan taqvo qiling, dedi. Ibn Kasir tafsirida: bu so'rov sizga sinov bo'lib qolishi mumkin, deb tushuntiriladi.",
    "on_screen": "DARROV ROZI BO'LMADI",
    "visual_hint": "свет между людьми, пауза"
   },
@@ -52,8 +55,8 @@
   },
   {
    "n": 7,
-   "vo": "Tarjima izohida aytiladi. Mo'jizani ko'rgandan keyin ham kufr keltirgan qavm qattiq azobga duchor bo'ladi.",
-   "on_screen": "IZOH",
+   "vo": "Maorif ul Qur'on tafsirida yozilgan. Ne'mat qanchalik katta bo'lsa, uning noshukrligi uchun azob ham shunchalik og'ir bo'ladi.",
+   "on_screen": "MAORIF UL QUR'ON",
    "visual_hint": "книга, строка подчёркивается"
   },
   {
@@ -64,7 +67,7 @@
   },
   {
    "n": 9,
-   "vo": "Dasturxon ham osmondan tushgan ne'mat edi. Sura shu qissadan nom oldi. Siz ne'matlarga qanday javob beryapsiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "Ibn Kasir yozadi. Bu surada dasturxon qissasi bor, sura shu nom bilan ataladi. Siz ne'matlarga qanday javob beryapsiz? Obuna bo'ling va yaqiningizga yuboring.",
    "on_screen": "DASTURXON",
    "visual_hint": "золотой стол, свет, финальный вопрос"
   }
