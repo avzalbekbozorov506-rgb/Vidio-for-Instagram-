@@ -13,7 +13,8 @@
   "facts": [
     "Муслим 1893 (Абу Масуд аль-Ансари): указавший на добро получает награду как исполнитель; сверено по sunnah.com.",
     "Бухари 6406 и Муслим 2694 (Абу Хурайра): два слова тяжёлые на весах, лёгкие на языке, любимые Рахману; сверено по sunnah.com.",
-    "Арифметика: 3 в 7-й степени = 2187, посчитано кодом; это только счёт, не обещание награды."
+    "Арифметика: 3 в 7-й степени = 2187, посчитано кодом; это только счёт, не обещание награды.",
+    "Сюжет: хук (что будет, если отправить) -> правило (Muslim 1893) -> масштаб цепочки с оговоркой «ajrni Alloh biladi» -> простой пример (зикр, Bukhari 6406 / Muslim 2694) -> ответ теми же словами (yuborish = yaxshilikka yo'llash bo'lishi mumkin) + призыв."
   ],
   "cards": [
     {
@@ -30,19 +31,19 @@
     },
     {
       "n": 3,
-      "vo": "Tasavvur qiling. Siz bir kishiga bitta zikr o'rgatdingiz. U uch kishiga o'rgatdi, ular yana uchtadan o'rgatdi. Yettinchi qadamda bu ikki mingdan ortiq odam bo'ladi.",
+      "vo": "Yaxshilik kichik bo'lishi mumkin. Tasavvur qiling. Siz bir kishiga bitta zikr o'rgatdingiz. U uch kishiga o'rgatdi, ular yana uchtadan o'rgatdi. Yettinchi qadamda bu ikki mingdan ortiq odam bo'ladi. Bu faqat hisob, ajrni esa Alloh biladi.",
       "on_screen": "2187",
       "visual_hint": "1 -> 3 -> 9 -> 27 ... -> 2187: огоньки расходятся веером, счётчик растёт"
     },
     {
       "n": 4,
-      "vo": "Zikr esa juda oddiy. Subhanallohi va bihamdihi, Subhanallohil a'ziym. Payg'ambarimiz bu ikki kalima tilga yengil, tarozida og'ir, Rahmonga suyukli, dedilar.",
+      "vo": "Zikr esa juda oddiy. Subhanallohi va bihamdihi, Subhanallohil a'ziym. Payg'ambarimiz bu ikki kalimani tilga yengil, tarozida og'ir, Rahmonga suyukli, deb ta'riflaganlar.",
       "on_screen": "BUKHARI 6406 · MUSLIM 2694",
       "visual_hint": "золотые весы: чаша с двумя огоньками опускается; арабское слово не нужно"
     },
     {
       "n": 5,
-      "vo": "Foydali deb bilsangiz, bitta yoki undan ko'proq odamga yuboring.",
+      "vo": "Mana javob. Foydali narsani yuborish yaxshilikka yo'llash bo'lishi mumkin. Foydali deb bilsangiz, bitta yoki undan ko'proq odamga yuboring.",
       "on_screen": "1 yoki ko'proq",
       "visual_hint": "огонёк летит к другому огоньку, финальный кадр с подписью @mohiyat___"
     }
