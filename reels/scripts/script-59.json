@@ -1,0 +1,76 @@
+{
+ "id": "script-59",
+ "title": "Zakariyo duosi: kech, lekin rad etilmadi (19:2-11)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Qissa",
+ "status": "draft: вне плана, по трендовой теме «Alloh kech beradi» (Instagram: _aishaahmedova_ 970K, abdurahmonumarov_2 852K, achinarli_haq1qat 1M; 2D-история bobur_expert 823K); ждёт «ок»",
+ "hook": "Bir payg'ambarning suyaklari mo'rtlashgan, sochi oqargan, xotini bepusht edi. Shunda ham u duodan to'xtamadi. Alloh unga qanday javob berdi? Javob oxirida.",
+ "cover_text": "ALLOH KECH BERDI",
+ "facts": [
+  "19:2-11 по uz.sodik (alquran.cloud).",
+  "Ibn Kathir 19:2-6: Закария был пророком Бану Исраил; дуа тихое, ибо так любимее Аллаху; «я никогда не получал от Тебя иного, кроме ответа на мой дуа»; «мавали» - родственники после него, наследство понято как пророчество, а не имущество; плотник (Ibn Kathir ссылается на хадис, номер не называем).",
+  "Сценарий не копирует чужие ролики: тема и формат (2D-история, спокойный диктор, вопрос зрителю), текст и картинки свои.",
+  "Религиозная проверка на пользователе."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Bir payg'ambarning suyaklari mo'rtlashgan, sochi oqargan, xotini bepusht edi. Shunda ham u duodan to'xtamadi. Alloh unga qanday javob berdi? Javob oxirida.",
+   "on_screen": "SUYAKLAR MO'RT",
+   "visual_hint": "старик в силуэте у михраба при свете лампы, тёплый свет, 2D-иллюстрация"
+  },
+  {
+   "n": 2,
+   "vo": "Bu Zakariyo alayhissalom. Ibn Kasir yozadi, u duradgorlik qilib, qo'li bilan topgan narsasini yer edi. Qur'on bu qissani, Robbingning bandasi Zakariyoga rahmati zikri, deb boshlaydi.",
+   "on_screen": "ZAKARIYO",
+   "visual_hint": "мастерская плотника, стружка, силуэт с рубанком (лицо не рисуем)"
+  },
+  {
+   "n": 3,
+   "vo": "U duoni yashirincha qildi. Qur'on aytadi, Robbiga maxfiy nido qilgan chog'ini esla. Ibn Kasir yozadi, yashirin duo Allohga eng suyukli.",
+   "on_screen": "YASHIRIN DUO",
+   "visual_hint": "ночь, человек в молитве, тишина, свет окна"
+  },
+  {
+   "n": 4,
+   "vo": "U dedi. Ey Robbim, suyaklarim mo'rtlashdi, boshim oqardi. Senga duo qilish bilan hech qachon baxtsiz bo'lmaganman.",
+   "on_screen": "19:4",
+   "visual_hint": "арабская строка 19:4 золотом"
+  },
+  {
+   "n": 5,
+   "vo": "Ibn Kasir bu so'zlarni shunday tushuntiradi. Sen mening duoimni hech qachon rad etmagansan.",
+   "on_screen": "RAD ETMAGANSAN",
+   "visual_hint": "две ладони, свет вокруг, ни одна не закрыта"
+  },
+  {
+   "n": 6,
+   "vo": "Uning qo'rquvi ham bor edi. Ortimda qolgan qarindoshlardan qo'rqdim, xotinim esa tug'maydi, dedi. Menga O'zing tomoningdan merosxo'r ato et. Ibn Kasirga ko'ra, bu mol-dunyo emas, payg'ambarlik merosi edi.",
+   "on_screen": "MEROS",
+   "visual_hint": "дом и пустая колыбель-силуэт, свиток наследия"
+  },
+  {
+   "n": 7,
+   "vo": "Alloh javob berdi. Ey Zakariyo, senga Yahyo ismli o'g'ilning xushxabarini beramiz. Bundan oldin bu ismni hech kimga bermaganmiz.",
+   "on_screen": "YAHYO",
+   "visual_hint": "светящееся имя Yahyo, золотой свет"
+  },
+  {
+   "n": 8,
+   "vo": "Zakariyo hayron bo'ldi. Xotinim tug'maydi, o'zim qarib qoldim, qanday bo'ladi? Alloh dedi. Bu men uchun oson. Seni ham avval yaratdim, sen esa hech narsa emas eding.",
+   "on_screen": "OSON",
+   "visual_hint": "слова «Bu men uchun oson», светлая пустая колыбель"
+  },
+  {
+   "n": 9,
+   "vo": "Mana, Alloh Zakariyoga shunday javob bergan. Duo kech ijobat bo'ldi, lekin hech qachon rad etilmadi. Siz qaysi duoingizni, kech bo'ldi, deb to'xtatib qo'ygansiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "KECH, LEKIN RAD ETILMADI",
+   "visual_hint": "финальный вопрос зрителю, свет"
+  }
+ ],
+ "caption": "Alloh kech beradi, lekin rad etmaydi. Zakariyo alayhissalom duosi.\n\n#oddiymohiyat #o'zbekcha #qur'on #duo #zakariyo #islom"
+}
