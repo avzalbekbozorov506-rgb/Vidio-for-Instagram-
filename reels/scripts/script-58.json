@@ -7,9 +7,9 @@
  "speed": 1.0,
  "genre": "ayat",
  "series": "Nega",
- "status": "draft: слот 13.11 16:00, источники сверены (uz.sodik 18, Ibn Kathir 18:1 и 18:23, Ibn Ashur 18), ждёт «ок»",
- "hook": "Bir surada to'rtta hikoya bor. Lekin sura faqat bittasining nomi bilan ataladi, G'or deb. Nega aynan g'or? Javob oxirida.",
- "cover_text": "15 KUN VAHIY KELMADI",
+ "status": "draft v2: хук усилен по вирусному Reels @efes_travel.tour (831K, пещера из Корана) и TikTok про Kahf (906K); слот сегодня вечером или 13.11 16:00, ждёт «ок»",
+ "hook": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Butun bir sura shu g'orning nomi bilan ataladi, garchi unda yana uchta hikoya bor. Nega aynan g'or? Javob oxirida.",
+ "cover_text": "309 YIL UXLADI",
  "facts": [
   "Сура 18: 110 аятов; пещера 18:9-26 (18 аятов); Муса и Хызр 18:60-82 (23 аята); Зульмаркайн 18:83-98 (16); два сада 18:32-44 (13). Посчитано кодом.",
   "Ibn Kathir 18:1 (рассказ Ибн Исхака от Ибн Аббаса): курайшиты послали ан-Надра и Укбу к иудейским учёным в Медину; те велели спросить о юношах древности, о путешественнике до востока и запада и о руhe; Пророк сказал «завтра расскажу» без «иншаАллах»; вахй не было пятнадцать дней; Джибриль принёс суру об асхаби-каф.",
@@ -20,8 +20,8 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Bir surada to'rtta hikoya bor. Lekin sura faqat bittasining nomi bilan ataladi, G'or deb. Nega aynan g'or? Javob oxirida.",
-   "on_screen": "G'OR?",
+   "vo": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Butun bir sura shu g'orning nomi bilan ataladi, garchi unda yana uchta hikoya bor. Nega aynan g'or? Javob oxirida.",
+   "on_screen": "309 YIL",
    "visual_hint": "свиток-сура Kahf, четыре ячейки-истории, одна подсвечена пещерой"
   },
   {
