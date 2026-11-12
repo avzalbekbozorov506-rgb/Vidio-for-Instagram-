@@ -1,43 +1,61 @@
 {
  "id": "script-53",
- "title": "Haqiqiy kuchli odam kim? (хадис, Бухари 6114, Муслим 2609)",
+ "title": "G'azab: bitta so'z (Бухари 6115, 6114; Муслим 2610, 2609)",
  "lang": "uz",
  "voice": "Jasur Noir",
  "model": "lison-v2",
  "speed": 1.0,
  "genre": "hadis",
  "series": "Hadis",
- "status": "draft: ждёт «ок» и религиозной проверки",
- "hook": "Kuchli odam kim? Hammani yiqitadiganmi? Javob oxirida.",
- "cover_text": "KUCHLI ODAM KIM?",
+ "status": "draft v2: ждёт «ок» и религиозной проверки, номера сверить",
+ "hook": "Bir odamning g'azabi shunchalik oshdiki, yuzi qizarib ketdi. Payg'ambarimiz bitta so'zni aytdilar. Shu so'z aytilsa, g'azab ketadi. Qanday so'z? Javob oxirida.",
+ "cover_text": "QANDAY SO'Z?",
  "facts": [
-  "Хадис Абу Хурайры: «Сильный не тот, кто побеждает в борьбе, а сильный тот, кто владеет собой в гневе» (Бухари 6114, Муслим 2609). Номера сверить."
+  "Сулейман ибн Сурад: двое поносили друг друга при Пророке, у одного покраснело лицо и вздулись жилы. Пророк сказал: «Я знаю слово, если он скажет его, это уйдёт: а'узу билляхи минаш-шайтани-р-раджим». Ему передали, он ответил: «Разве во мне безумие?» (Бухари 3282, 6115; Муслим 2610). Хадис о сильном (Бухари 6114, Муслим 2609). Номера по памяти, сверить."
  ],
  "cards": [
   {
    "n": 1,
-   "vo": "Kuchli odam kim? Hammani yiqitadiganmi? Javob oxirida.",
-   "on_screen": "KUCHLI ODAM KIM?",
-   "visual_hint": "два человека борются на площади, толпа смотрит"
+   "vo": "Bir odamning g'azabi shunchalik oshdiki, yuzi qizarib ketdi. Payg'ambarimiz bitta so'zni aytdilar. Shu so'z aytilsa, g'azab ketadi. Qanday so'z? Javob oxirida.",
+   "on_screen": "QANDAY SO'Z?",
+   "visual_hint": "человек с красным лицом, пар из ушей, тёмный фон"
   },
   {
    "n": 2,
-   "vo": "Payg'ambarimiz sollallohu alayhi vasallam dedilar. Kuchli odam kurashda yengadigan emas.",
-   "on_screen": "KURASH EMAS",
-   "visual_hint": "борец поднимает соперника, затем силуэт Пророка не рисуем: свет и надпись"
+   "vo": "Ikki kishi Payg'ambarimiz sollallohu alayhi vasallamning huzurida bir-birini haqorat qila boshladi. Biri shu qadar g'azablandiki, yuzi qizarib, bo'yin tomirlari bo'rtib chiqdi.",
+   "on_screen": "G'AZAB",
+   "visual_hint": "двое спорят перед светом (Пророка не рисуем), один краснеет, жилы на шее"
   },
   {
    "n": 3,
-   "vo": "Kuchli odam g'azab paytida o'zini tutib oladigan odamdir.",
-   "on_screen": "G'AZAB PAYTIDA",
-   "visual_hint": "человек в гневе: красная дымка, он опускает сжатую руку и выдыхает, дымка гаснет"
+   "vo": "Payg'ambarimiz dedilar. Men bir so'zni bilaman. Agar u shuni aytsa, g'azabi ketadi.",
+   "on_screen": "BIR SO'Z",
+   "visual_hint": "свет и тишина, красная дымка начинает сереть, вопрос в воздухе"
   },
   {
    "n": 4,
-   "vo": "Buxoriy va Muslim rivoyat qilgan hadis. Kuchli odam g'azab paytida o'zini tutib oladigan odam. Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "U so'z mana bu. Men quvilgan shaytondan Allohga panoh tilayman.",
+   "on_screen": "PANOH",
+   "visual_hint": "арабская надпись أعوذ بالله من الشيطان الرجيم золотом, красная дымка гаснет"
+  },
+  {
+   "n": 5,
+   "vo": "Odamlar bu so'zni unga aytishdi. U esa dedi. Menda telbalik bormi?",
+   "on_screen": "MENDA TELBALIKMI?",
+   "visual_hint": "человек отмахивается, остальные переглядываются"
+  },
+  {
+   "n": 6,
+   "vo": "Yana bir hadisda Payg'ambarimiz dedilar. Kuchli odam kurashda yengadigan emas. Kuchli odam g'azab paytida o'zini tutib oladigan odamdir.",
    "on_screen": "KUCHLI ODAM",
-   "visual_hint": "спокойный человек в свете, рядом иконка книги"
+   "visual_hint": "борец и спокойный человек рядом, подсветка на спокойном"
+  },
+  {
+   "n": 7,
+   "vo": "Bitta so'z, g'azab kelganda aytiladigan so'z. Men quvilgan shaytondan Allohga panoh tilayman. Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "PANOH",
+   "visual_hint": "арабская надпись крупно, золото"
   }
  ],
- "caption": "Haqiqiy kuchli odam kim? Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom"
+ "caption": "G'azab kelganda aytiladigan bitta so'z. Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom"
 }
