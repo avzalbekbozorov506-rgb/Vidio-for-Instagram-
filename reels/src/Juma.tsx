@@ -296,21 +296,28 @@ export const Juma: React.FC<{guide?: boolean}> = ({guide = false}) => (
 export const JumaCover: React.FC = () => {
   loadFonts();
   const t = 6;
+  const leavers = SEATS_SORT.filter((x) => !STAY.has(x.seed)), stayers = SEATS_SORT.filter((x) => STAY.has(x.seed));
   return (
     <AbsoluteFill style={{background: '#07060b'}}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
-        <Night t={t} warm={1.2} />
-        <g transform="translate(0 -40)"><Tiles t={t} appear={() => 1} hot={1} dim={1} /></g>
-        <Minbar x={250} b={0.9} />
-        {SEATS_SORT.filter((s) => STAY.has(s.seed)).map((s) => <Fig key={s.seed} x={s.x} y={s.y} s={s.s} seed={s.seed} t={t} glow={0.2} />)}
+        <Night t={t} warm={1.3} />
+        <Minbar x={230} b={1} />
+        {leavers.map((s, i) => <g key={s.seed} opacity={0.62 - i * 0.02}><Fig x={s.x + 380 + i * 34} y={s.y} s={s.s} seed={s.seed} t={t} seated={false} run={1} /></g>)}
+        <Puff x={880} y={GY} t={t} k={0.9} />
+        <Camel x={1040} y={GY - 6} s={0.72} t={t} />
+        {stayers.map((s) => <Fig key={s.seed} x={s.x - 150} y={s.y} s={s.s * 1.15} seed={s.seed} t={t} glow={0.55} />)}
       </svg>
-      <Bloom x={540} y={760} r={700} o={0.3} />
+      <Bloom x={300} y={1200} r={700} o={0.3} />
       <Vignette strength={0.5} />
       <Grain opacity={0.05} />
-      <Label text="NEGA SURA" a={1} top={290} size={52} color={GOLD2} />
-      <Label text="JUMA" a={1} top={380} size={190} color={CREAM} />
-      <Label text="deb ataladi?" a={1} top={620} size={70} color={GOLD} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1110, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 46, color: CREAM}}><span style={{background: '#e0322a', padding: '8px 24px', borderRadius: 8}}>11 OYAT · 1 SO'Z</span></div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800}}>
+        <span style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontSize: 50, letterSpacing: 5, padding: '10px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(224,50,42,.45)'}}>XUTBA PAYTIDA</span>
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1}}>
+        <div style={{fontSize: 330, color: GOLD, textShadow: '0 0 70px rgba(255,194,74,.65), 0 10px 40px rgba(0,0,0,.7)'}}>12</div>
+        <div style={{fontSize: 118, color: CREAM, marginTop: 6, textShadow: '0 6px 30px rgba(0,0,0,.8)'}}>KISHI QOLDI</div>
+        <div style={{fontSize: 56, color: GOLD2, marginTop: 26, textShadow: '0 4px 24px rgba(0,0,0,.8)'}}>Nega sura <span style={{color: '#fff'}}>JUMA</span> deb ataladi?</div>
+      </div>
     </AbsoluteFill>
   );
 };
