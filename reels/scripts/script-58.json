@@ -20,31 +20,31 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Butun bir sura shu g'orning nomi bilan ataladi, garchi unda yana uchta hikoya bor. Nega aynan g'or?",
+      "vo": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Nega butun bir sura g'or deb ataladi? Bu hikoya bitta aytilmagan so'zdan boshlandi.",
       "on_screen": "309 YIL",
       "visual_hint": "свиток-сура Kahf, четыре ячейки-истории, одна подсвечена пещерой"
     },
     {
       "n": 2,
-      "vo": "Qurayshliklar yahudiy olimlaridan maslahat so'radilar. Olimlar savol berishni aytdilar. G'orda uxlagan yigitlar kim edi? Ruh nima? Agar javob bersa, u payg'ambar, dedilar.",
+      "vo": "Qurayshliklar yahudiy olimlaridan maslahat so'radilar. Olimlar dedilar, g'orda uxlagan yigitlar haqida so'ranglar. Javob bersa, u payg'ambar.",
       "on_screen": "3 SAVOL",
       "visual_hint": "шкала: полоска 110, участки 18 (пещера) и 23 (Муса и Хызр), пещера короче"
     },
     {
       "n": 3,
-      "vo": "Payg'ambarimiz sollallohu alayhi vasallam, ertaga aytaman, dedilar, lekin inshaalloh demadilar. Vahiy o'n besh kun kelmadi. Shunda Jabroil alayhissalom g'or surasi bilan keldi.",
+      "vo": "Payg'ambarimiz sollallohu alayhi vasallam, ertaga aytaman, dedilar. Lekin inshaalloh demadilar. O'n besh kun vahiy kelmadi. Makkada gap-so'z ko'paydi. Endi nima bo'ladi?",
       "on_screen": "15 KUN",
       "visual_hint": "Макка на закате, силуэты людей Курайш, письмо уходит в Мадину (верблюд)"
     },
     {
       "n": 4,
-      "vo": "Unda amr bor. Biror ishni, ertaga albatta qilaman, dema. Magar, Alloh xohlasa, degin.",
+      "vo": "Shunda Jabroil alayhissalom g'or surasi bilan keldi. Unda amr bor. Biror ishni, ertaga qilaman, dema. Magar, Alloh xohlasa, degin.",
       "on_screen": "INSHAALLOH",
       "visual_hint": "три вопроса по очереди: молодые люди, путник на восток и запад, ruh (светящийся шар)"
     },
     {
       "n": 5,
-      "vo": "Mana, sura nega G'or deb ataladi. Ibn Ashur yozadi, savol shu yigitlar haqida edi, sura esa g'or hikoyasi bilan nomlangan. Obuna bo'ling va yaqiningizga yuboring.",
+      "vo": "Mana javob. Ibn Ashur yozadi, savol yigitlar haqida edi, sura esa g'or hikoyasi bilan nomlangan. Obuna bo'ling va yaqiningizga yuboring.",
       "on_screen": "IBN ASHUR",
       "visual_hint": "три вопроса по очереди: молодые люди, путник на восток и запад, ruh (светящийся шар)"
     }
