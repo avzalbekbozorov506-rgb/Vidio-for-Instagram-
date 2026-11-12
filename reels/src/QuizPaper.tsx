@@ -51,9 +51,9 @@ const Strip: React.FC<{t: number; u: number; k: number; txt: string; ok: boolean
   const rev = sm(u, 5.0, 5.3);
   const cols = [GREEN, TERRA, MUST], tcol = [CREAM, CREAM, INK];
   const color = ok ? cols[k] : (rev > 0.5 ? FADE : cols[k]);
-  const sc = ok ? 1 + 0.07 * rev : 1 - 0.03 * rev;
+  const sc = ok ? 1 + 0.05 * rev : 1 - 0.03 * rev;
   return (
-    <div style={{opacity: a > 0 ? 1 : 0, transform: `translateX(${(1 - a) * -900}px) scale(${sc})`, transformOrigin: 'center'}}>
+    <div style={{position: 'absolute', inset: 0, zIndex: ok ? 5 : 1, pointerEvents: 'none', opacity: a > 0 ? 1 : 0, transform: `translateX(${(1 - a) * -900}px) scale(${sc})`, transformOrigin: `540px ${744 + k * 140}px`}}>
       <Sheet t={t} x={130} y={690 + k * 140} w={820} h={108} color={color} rot={k % 2 ? 0.6 : -0.6} seed={20 + k} shadow={7}>
         <div style={{position: 'absolute', left: 22, width: 66, height: 66, borderRadius: 33, background: CREAM, color: INK, fontSize: 38, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '2px 3px 0 rgba(58,40,24,.25)'}}>{['A', 'B', 'C'][k]}</div>
         <div style={{fontSize: 50, fontWeight: 800, color: !ok && rev > 0.5 ? '#9a8a68' : tcol[k], paddingLeft: 90}}>{txt}</div>
@@ -101,7 +101,7 @@ const Question: React.FC<{i: number; t: number; q: QData['qs'][0]}> = ({i, t, q}
         </div>
       )}
       {rev > 0.2 && <div style={{position: 'absolute', top: 1140, left: 0, right: 0, textAlign: 'center', fontSize: 48, fontWeight: 800, color: GREEN, opacity: rev}}>To'g'ri javob: {['A', 'B', 'C'][q.a]}</div>}
-      <Confetti u={u} ok={q.a} />
+      <div style={{position: 'absolute', inset: 0, zIndex: 9}}><Confetti u={u} ok={q.a} /></div>
     </div>
   );
 };
