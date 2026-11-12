@@ -45,3 +45,5 @@
 | Yaxshilik (без озвучки, 39 с, хадис Muslim 1893, призыв подписаться) | композиция `Yaxshilik`, `release/yaxshilik-reel.mp4`, обложка, описание | готов, не опубликован |
 
 | Quiz (без озвучки, 35 с, 4 вопроса A/B/C, факты alquran.cloud) | композиция `Quiz`, `release/quiz-reel.mp4`, обложка, описание | готов, не опубликован |
+
+| Quiz2 / Quiz3 / Quiz4 (без озвучки, 36 с, кнопка Obuna bo'ling внизу, восточная музыка) | `release/quiz2-reel.mp4`, `quiz3-reel.mp4`, `quiz4-reel.mp4` + обложки и описания | готовы, не опубликованы |

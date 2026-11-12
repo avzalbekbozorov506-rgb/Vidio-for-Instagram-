@@ -31,6 +31,7 @@ import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
 import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
+import {Quiz2, Quiz3, Quiz4, Quiz2Cover, Quiz3Cover, Quiz4Cover, QP_FRAMES} from './QuizPack';
 import {Quiz, QuizCover, QUIZ_FRAMES} from './Quiz';
 import {Yaxshilik, YaxshilikCover, YAX_FRAMES} from './Yaxshilik';
 import {Istigfar, Subhan, Hamd30, IstigfarCover, SubhanCover, HamdCover, DHIKR_FRAMES} from './Dhikr';
@@ -85,6 +86,12 @@ export const Root: React.FC = () => {
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="FalakCover" component={FalakCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz2" component={Quiz2} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz2Cover" component={Quiz2Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz3" component={Quiz3} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz3Cover" component={Quiz3Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz4" component={Quiz4} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz4Cover" component={Quiz4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Quiz" component={Quiz} durationInFrames={QUIZ_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizCover" component={QuizCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Yaxshilik" component={Yaxshilik} durationInFrames={YAX_FRAMES} fps={30} width={1080} height={1920} />
