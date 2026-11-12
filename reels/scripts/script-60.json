@@ -7,8 +7,8 @@
  "speed": 1.0,
  "genre": "ayat",
  "series": "Ilm va oyat",
- "status": "draft: вне плана, по вирусному TikTok @ustadhrhyad (6,3 млн, 101 с) и ещё двум; формат упрощён и очищен от «доказательства»; ждёт «ок»",
- "hook": "Qur'onda uch so'zli bir ibora bor. Uni harflari bo'yicha oldidan ham, orqasidan ham o'qisangiz, bir xil chiqadi. Va bu ibora aynan aylanish haqida. Oxirigacha ko'ring, o'zingiz tekshirib ko'rasiz.",
+ "status": "draft v2: грамматика и логика перепроверены, карточка 6 упрощена; ждёт «ок»",
+ "hook": "Qur'onda uch so'zli bir ibora bor. Uni boshidan ham, oxiridan ham harflab o'qisangiz, bir xil chiqadi. Va bu ibora aynan aylanish haqida. Oxirigacha ko'ring, o'zingiz tekshirib ko'rasiz.",
  "cover_text": "OLDIDAN HAM ORQASIDAN HAM",
  "facts": [
   "Фраза «كل في فلك» (kullun fi falak) встречается в Коране дважды: 21:33 и 36:40 (проверено кодом по quran-simple-clean).",
@@ -20,37 +20,37 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda uch so'zli bir ibora bor. Uni harflari bo'yicha oldidan ham, orqasidan ham o'qisangiz, bir xil chiqadi. Va bu ibora aynan aylanish haqida. Oxirigacha ko'ring, o'zingiz tekshirib ko'rasiz.",
+   "vo": "Qur'onda uch so'zli bir ibora bor. Uni boshidan ham, oxiridan ham harflab o'qisangiz, bir xil chiqadi. Va bu ibora aynan aylanish haqida. Oxirigacha ko'ring, o'zingiz tekshirib ko'rasiz.",
    "on_screen": "BU TASODIFMI?",
    "visual_hint": "арабская фраза «كل في فلك» золотом в центре, вокруг неё вращаются Солнце и Луна"
   },
   {
    "n": 2,
-   "vo": "Alloh aytadi. U kechani, kunduzni, Quyoshni va Oyni yaratgan zotdir. Hammasi falakda suzmoqda. Bu Anbiyo surasining o'ttiz uchinchi oyati.",
+   "vo": "Qur'onda shunday deyilgan. Alloh kechani, kunduzni, Quyoshni va Oyni yaratgan zotdir. Hammasi falakda suzmoqda. Bu Anbiyo surasining o'ttiz uchinchi oyati.",
    "on_screen": "ANBIYO 21:33",
    "visual_hint": "аят 21:33 арабским, перевод слово за словом, Солнце и Луна на орбите"
   },
   {
    "n": 3,
-   "vo": "Ibn Kasir tafsirida yozilgan. Quyosh ham, Oy ham o'z yo'lida va o'z falagida yuradi. Ibn Abbos aytadi, ular charx kabi, doira bo'ylab aylanadi.",
+   "vo": "Falak nima? Ibn Kasir tafsirida yozilgan. Quyosh ham, Oy ham o'z yo'lida va o'z falagida yuradi. Ibn Abbos aytadi, ular charx kabi, doira bo'ylab aylanadi.",
    "on_screen": "FALAK",
    "visual_hint": "страница Ibn Kasir, строка про falak подсвечена; колесо вращается"
   },
   {
    "n": 4,
-   "vo": "Endi bitta o'yin. Palindrom nima? Oldidan ham, orqasidan ham bir xil o'qiladigan so'z. Masalan, Anna yoki radar.",
+   "vo": "Endi bitta o'yin. Palindrom nima? Boshidan ham, oxiridan ham bir xil o'qiladigan so'z. Masalan, Anna yoki radar.",
    "on_screen": "PALINDROM",
    "visual_hint": "слова ANNA и RADAR зеркально отражаются, надпись PALINDROM"
   },
   {
    "n": 5,
-   "vo": "Lekin ma'noli butun bir ibora palindrom bo'lishi juda kam uchraydi.",
+   "vo": "Lekin butun bir iborani shunday topish oson emas.",
    "on_screen": "KAM UCHRAYDI",
    "visual_hint": "одна длинная фраза пытается отразиться и ломается"
   },
   {
    "n": 6,
-   "vo": "Endi oyatning oxiriga qarang. Kullun, fi, falak. Kof, lom, fe, ya, fe, lom, kof. Yetti harf. Oldidan ham, orqasidan ham bir xil. Markazda ya harfi turibdi, qolgan harflar uning atrofida aylanadi.",
+   "vo": "Endi oyatdagi shu uch so'zga qarang. Kullun, fi, falak, ya'ni hammasi falakda. Arabcha yozuvda yetti harf. Kof, lom, fe, ya, fe, lom, kof. Boshidan ham, oxiridan ham bir xil. Xuddi ko'zgudagi aks kabi, o'rtada ya harfi, ikki tomonida bir xil harflar.",
    "on_screen": "KOF LOM FE YA FE LOM KOF",
    "visual_hint": "семь букв выстраиваются в ряд, центральная ЯА светится, остальные вращаются вокруг"
   },
@@ -62,7 +62,7 @@
   },
   {
    "n": 8,
-   "vo": "Bu harflar yozuviga qarab qilingan kuzatuv, tafsir izohi emas. Oyatning asosiy ma'nosi esa shuki, Quyosh ham, Oy ham o'z falagida. Siz buni ilgari sezganmisiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "Bu harflar yozuviga qarab qilingan kuzatuv, tafsir izohi emas. Oyatning asosiy ma'nosi esa shuki, Quyosh ham, Oy ham o'z falagida yuradi. Siz buni ilgari sezganmisiz? Obuna bo'ling va yaqiningizga yuboring.",
    "on_screen": "SIZ SEZGANMISIZ?",
    "visual_hint": "фраза-палиндром светится, вопрос зрителю"
   }
