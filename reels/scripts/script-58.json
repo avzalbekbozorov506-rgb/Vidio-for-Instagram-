@@ -1,0 +1,71 @@
+{
+ "id": "script-58",
+ "title": "Nega sura G'or (Kahf) deb ataladi? (18:9-26, 18:23-24)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Nega",
+ "status": "draft: слот 13.11 16:00, источники сверены (uz.sodik 18, Ibn Kathir 18:1 и 18:23, Ibn Ashur 18), ждёт «ок»",
+ "hook": "Bir surada to'rtta hikoya bor. Lekin sura faqat bittasining nomi bilan ataladi, G'or deb. Nega aynan g'or? Javob oxirida.",
+ "cover_text": "15 KUN VAHIY KELMADI",
+ "facts": [
+  "Сура 18: 110 аятов; пещера 18:9-26 (18 аятов); Муса и Хызр 18:60-82 (23 аята); Зульмаркайн 18:83-98 (16); два сада 18:32-44 (13). Посчитано кодом.",
+  "Ibn Kathir 18:1 (рассказ Ибн Исхака от Ибн Аббаса): курайшиты послали ан-Надра и Укбу к иудейским учёным в Медину; те велели спросить о юношах древности, о путешественнике до востока и запада и о руhe; Пророк сказал «завтра расскажу» без «иншаАллах»; вахй не было пятнадцать дней; Джибриль принёс суру об асхаби-каф.",
+  "Ibn Kathir 18:23: причина аятов 23-24, вахй задержан на пятнадцать дней.",
+  "Ibn Ashur, введение к Kahf: Пророк назвал суру «аль-Кахф» (Муслим, Абу Дауд от Абу Дарды; Бухари от аль-Бараа); по ибн Мардавайху ещё «Асхаб аль-Кахф»; сура переходит к рассказу о людях пещеры, о которой спрашивали; назва по её рассказу.",
+  "Номера хадисов не называем. Религиозная проверка на пользователе."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Bir surada to'rtta hikoya bor. Lekin sura faqat bittasining nomi bilan ataladi, G'or deb. Nega aynan g'or? Javob oxirida.",
+   "on_screen": "G'OR?",
+   "visual_hint": "свиток-сура Kahf, четыре ячейки-истории, одна подсвечена пещерой"
+  },
+  {
+   "n": 2,
+   "vo": "Kahf surasi yuz o'n oyatdan iborat. G'or haqidagi hikoya o'n sakkiz oyat, Musa va Xizr haqidagi hikoya esa yigirma uch oyat. Demak, g'or eng uzun hikoya ham emas.",
+   "on_screen": "110 OYAT",
+   "visual_hint": "шкала: полоска 110, участки 18 (пещера) и 23 (Муса и Хызр), пещера короче"
+  },
+  {
+   "n": 3,
+   "vo": "Hammasi Makkada boshlandi. Qurayshliklar Payg'ambarimiz sollallohu alayhi vasallam haqida so'rash uchun Madinadagi yahudiy olimlariga odam yubordilar.",
+   "on_screen": "MAKKA",
+   "visual_hint": "Макка на закате, силуэты людей Курайш, письмо уходит в Мадину (верблюд)"
+  },
+  {
+   "n": 4,
+   "vo": "Olimlar uchta savol berishni maslahat berdilar. Qadimda yashagan bir necha yigit kim edi? Yerning sharqi va g'arbigacha yetgan kishi kim edi? Ruh nima? Agar javob bersa, u payg'ambar, dedilar.",
+   "on_screen": "3 SAVOL",
+   "visual_hint": "три вопроса по очереди: молодые люди, путник на восток и запад, ruh (светящийся шар)"
+  },
+  {
+   "n": 5,
+   "vo": "Qurayshliklar shu savollarni Payg'ambarimizdan so'radilar. U zot dedilar. Ertaga aytib beraman. Lekin, inshaalloh, demadilar. Vahiy kelmadi. O'n besh kun kelmadi.",
+   "on_screen": "ERTAGA...",
+   "visual_hint": "календарь с днями, пустое окно света, цифры 1 ... 15"
+  },
+  {
+   "n": 6,
+   "vo": "Makkada gap-so'z ko'paydi. Va'da qildi, javob esa yo'q, deyishdi. Payg'ambarimiz xafa bo'ldilar. Shunda Jabroil alayhissalom g'or haqidagi sura bilan keldi.",
+   "on_screen": "15 KUN",
+   "visual_hint": "люди перешёптываются, свет в окне, Джибриль как свет, свиток сура"
+  },
+  {
+   "n": 7,
+   "vo": "Suraning ichida shu voqeaning izi bor. Zinhor biror narsani, buni ertaga albatta qilaman, dema. Magar, Alloh xohlasa, degin.",
+   "on_screen": "18:23-24",
+   "visual_hint": "аят 18:23-24 арабским золотом"
+  },
+  {
+   "n": 8,
+   "vo": "Mana, sura nega G'or deb ataladi. Ibn Ashur yozadi, savol shu yigitlar haqida edi, sura esa g'or hikoyasiga e'tibor berib nomlangan. Bu nomni Payg'ambarimizning o'zlari bergan. Siz ertangi rejangizni aytganda, inshaalloh deysizmi? Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "G'OR",
+   "visual_hint": "сцена пещеры, свет, финальный вопрос"
+  }
+ ],
+ "caption": "Nega sura G'or deb ataladi? Kahf surasi.\n\n#oddiymohiyat #o'zbekcha #qur'on #kahf #islom"
+}
