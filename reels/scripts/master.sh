@@ -4,5 +4,5 @@
 # Video stream is copied untouched; only audio is re-encoded (AAC 192k). Voice stays dominant (music/SFX levels are set in the composition).
 set -euo pipefail
 in="$1"; out="$2"
-ffmpeg -y -loglevel error -i "$in" -c:v copy -af "loudnorm=I=-16:TP=-1.5:LRA=7" -c:a aac -b:a 192k "$out"
+ffmpeg -y -loglevel error -i "$in" -c:v copy -af "loudnorm=I=-${LUFS:-16}:TP=-1.5:LRA=7" -c:a aac -b:a 192k "$out"
 ffmpeg -i "$out" -af ebur128=peak=true -f null - 2>&1 | grep -E "I:|Peak:" | tail -2

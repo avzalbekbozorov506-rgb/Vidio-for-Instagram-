@@ -31,6 +31,7 @@ import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
 import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
+import {Yaxshilik, YaxshilikCover, YAX_FRAMES} from './Yaxshilik';
 import {Istigfar, Subhan, Hamd30, IstigfarCover, SubhanCover, HamdCover, DHIKR_FRAMES} from './Dhikr';
 import {Alham40, Alham40Cover, ALHAM40_FRAMES} from './Alham40';
 import {Kavsar, KavsarCover, KAVSAR_FRAMES} from './Kavsar';
@@ -83,6 +84,8 @@ export const Root: React.FC = () => {
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="FalakCover" component={FalakCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Yaxshilik" component={Yaxshilik} durationInFrames={YAX_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="YaxshilikCover" component={YaxshilikCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Istigfar" component={Istigfar} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Subhan" component={Subhan} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Hamd30" component={Hamd30} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
