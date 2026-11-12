@@ -49,3 +49,5 @@
 | Quiz2 / Quiz3 / Quiz4 (без озвучки, 36 с, кнопка Obuna bo'ling внизу, восточная музыка) | `release/quiz2-reel.mp4`, `quiz3-reel.mp4`, `quiz4-reel.mp4` + обложки и описания | готовы, не опубликованы |
 
 | QuizP2 / QuizP3 / QuizP4 (бумажный стиль, 36 с, без озвучки, кнопка Obuna bo'ling) | `release/quizp2-reel.mp4`, `quizp3-reel.mp4`, `quizp4-reel.mp4` + обложки и описания | готовы, не опубликованы |
+
+| Carousel1 «5 sura 5 jonivor» (7 слайдов 1080x1350) | `release/carousel1-s1..s7.png`, описание `carousel1-caption.txt`, композиция `Carousel` | готова, не опубликована |
