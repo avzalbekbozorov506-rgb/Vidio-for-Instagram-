@@ -310,7 +310,7 @@ export const JumaCover: React.FC = () => {
       <Label text="NEGA SURA" a={1} top={290} size={52} color={GOLD2} />
       <Label text="JUMA" a={1} top={380} size={190} color={CREAM} />
       <Label text="deb ataladi?" a={1} top={620} size={70} color={GOLD} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1330, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 46, color: CREAM}}><span style={{background: '#e0322a', padding: '8px 24px', borderRadius: 8}}>11 OYAT · 1 SO'Z</span></div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1110, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 46, color: CREAM}}><span style={{background: '#e0322a', padding: '8px 24px', borderRadius: 8}}>11 OYAT · 1 SO'Z</span></div>
     </AbsoluteFill>
   );
 };
