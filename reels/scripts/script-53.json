@@ -1,0 +1,43 @@
+{
+ "id": "script-53",
+ "title": "Haqiqiy kuchli odam kim? (хадис, Бухари 6114, Муслим 2609)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "hadis",
+ "series": "Hadis",
+ "status": "draft: ждёт «ок» и религиозной проверки",
+ "hook": "Kuchli odam kim? Hammani yiqitadiganmi? Javob oxirida.",
+ "cover_text": "KUCHLI ODAM KIM?",
+ "facts": [
+  "Хадис Абу Хурайры: «Сильный не тот, кто побеждает в борьбе, а сильный тот, кто владеет собой в гневе» (Бухари 6114, Муслим 2609). Номера сверить."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Kuchli odam kim? Hammani yiqitadiganmi? Javob oxirida.",
+   "on_screen": "KUCHLI ODAM KIM?",
+   "visual_hint": "два человека борются на площади, толпа смотрит"
+  },
+  {
+   "n": 2,
+   "vo": "Payg'ambarimiz sollallohu alayhi vasallam dedilar. Kuchli odam kurashda yengadigan emas.",
+   "on_screen": "KURASH EMAS",
+   "visual_hint": "борец поднимает соперника, затем силуэт Пророка не рисуем: свет и надпись"
+  },
+  {
+   "n": 3,
+   "vo": "Kuchli odam g'azab paytida o'zini tutib oladigan odamdir.",
+   "on_screen": "G'AZAB PAYTIDA",
+   "visual_hint": "человек в гневе: красная дымка, он опускает сжатую руку и выдыхает, дымка гаснет"
+  },
+  {
+   "n": 4,
+   "vo": "Buxoriy va Muslim rivoyat qilgan hadis. Kuchli odam g'azab paytida o'zini tutib oladigan odam. Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "KUCHLI ODAM",
+   "visual_hint": "спокойный человек в свете, рядом иконка книги"
+  }
+ ],
+ "caption": "Haqiqiy kuchli odam kim? Hadis.\n\n#oddiymohiyat #o'zbekcha #hadis #islom"
+}
