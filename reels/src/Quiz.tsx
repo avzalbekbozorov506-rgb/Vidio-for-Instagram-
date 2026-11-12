@@ -84,7 +84,7 @@ export const Quiz: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS;
   const tf = T0 + 4 * CYC; // 28.0
   const sfx: [number, string, number][] = [[0.3, 'chime', 0.14]];
-  Q.forEach((_, i) => { const b = T0 + i * CYC; [2.0, 3.0, 4.0].forEach((d) => sfx.push([b + d, 'tick', 0.22])); sfx.push([b + 5.0, 'ding', 0.28]); });
+  Q.forEach((_, i) => { const b = T0 + i * CYC; [2.0, 3.0, 4.0].forEach((d) => sfx.push([b + d, 'tick', 0.5])); sfx.push([b + 5.0, 'ding', 0.45]); });
   sfx.push([tf, 'chime', 0.14]);
   return (
     <AbsoluteFill style={{background: '#04060f'}}>
@@ -111,7 +111,7 @@ export const Quiz: React.FC = () => {
         <div style={{fontSize: 92, color: GOLD, textShadow: '0 0 40px rgba(255,194,74,.5), ' + shadow}}>Obuna bo'ling.</div>
         <div style={{fontSize: 50, color: CREAM, marginTop: 24, textShadow: shadow}}>Har kuni bitta sura sirri</div>
       </div>
-      <Audio src={staticFile('music/oriental.wav')} volume={0.7} />
+      <Audio src={staticFile('music/oriental.wav')} volume={0.32} />
       {sfx.map(([s, n, v], i) => <Sequence key={i} from={Math.round(s * FPS)}><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
     </AbsoluteFill>
   );
