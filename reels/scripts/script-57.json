@@ -8,7 +8,7 @@
  "genre": "ayat",
  "series": "Nega",
  "status": "draft: слот 13.11 11:00, источники сверены (uz.sodik 62:9-11, Ibn Kathir 62:11, Ibn Ashur 62), ждёт «ок»",
- "hook": "Qur'onda bir sura Juma deb ataladi. U atigi o'n bir oyatdan iborat. Juma so'zi esa butun surada faqat bitta oyatda keladi. Nega sura aynan shu nom bilan ataladi? Javob oxirida.",
+ "hook": "Qur'onda bir sura Juma deb ataladi. U atigi o'n bir oyatdan iborat. Juma so'zi esa butun surada faqat bitta oyatda uchraydi. Nega sura aynan shu nom bilan ataladi? Javob oxirida.",
  "cover_text": "NEGA JUMA?",
  "facts": [
   "Сура 62: 11 аятов, мединская; слово «Juma» только в 62:9 (код по quran-simple-clean).",
@@ -19,7 +19,7 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda bir sura Juma deb ataladi. U atigi o'n bir oyatdan iborat. Juma so'zi esa butun surada faqat bitta oyatda keladi. Nega sura aynan shu nom bilan ataladi? Javob oxirida.",
+   "vo": "Qur'onda bir sura Juma deb ataladi. U atigi o'n bir oyatdan iborat. Juma so'zi esa butun surada faqat bitta oyatda uchraydi. Nega sura aynan shu nom bilan ataladi? Javob oxirida.",
    "on_screen": "JUMA?",
    "visual_hint": "свиток-сура, из 11 ячеек одна подсвечена слово «Juma»"
   },
@@ -31,31 +31,31 @@
   },
   {
    "n": 3,
-   "vo": "Shu payt Shomdan savdo karvoni kirib keldi. Odamlar karvon tomon yugurdi. Jobir roziyallohu anhu aytadi. Payg'ambarimiz bilan atigi o'n ikki kishi qoldi.",
+   "vo": "Shu payt Shomdan savdo karvoni kirib keldi. Odamlar karvon tomon yugurdi. Jobir roziyallohu anhu shunday rivoyat qiladi. Payg'ambarimiz bilan atigi o'n ikki kishi qoldi.",
    "on_screen": "KARVON",
    "visual_hint": "караван верблюдов у ворот, люди встают и бегут, остаются двенадцать фигур"
   },
   {
    "n": 4,
-   "vo": "Shunda oyat tushdi. Ular savdo yoki o'yin-kulgi ko'rganlarida, unga tomon yopirildilar va seni tik holda tark etdilar. Ayt, Alloh huzuridagi narsa o'yin-kulgidan ham, tijoratdan ham yaxshidir.",
+   "vo": "Shunda oyat nozil bo'ldi. Ular savdo yoki o'yin-kulgi ko'rganlarida, unga tomon yopirildilar va seni tik holda tark etdilar. Ayt, Alloh huzuridagi narsa o'yin-kulgidan ham, tijoratdan ham yaxshidir.",
    "on_screen": "OYAT",
    "visual_hint": "арабская строка 62:11 золотом, пустое место перед минбаром"
   },
   {
    "n": 5,
-   "vo": "Ibn Ashur yozadi. Bu sura asosan juma namozidan qolib ketishdan ogohlantirish uchun tushgan va namoz vaqtida chalg'itadigan narsani tark etishga buyuradi.",
+   "vo": "Ibn Ashur yozadi. Bu sura juma namozidan qolib ketishdan ogohlantirish uchun nozil bo'lgan. Unda namoz vaqtida chalg'itadigan narsani tark etish buyuriladi.",
    "on_screen": "IBN ASHUR",
    "visual_hint": "страница Ibn Ashur, строка о причине названия подсвечена"
   },
   {
    "n": 6,
-   "vo": "Endi suraning to'qqizinchi oyatiga qaraylik. Juma kuni namozga chaqirilganda, Allohning zikriga shoshiling va savdoni qo'ying. Namoz tugagach, yer yuzida tarqalib, Allohning fazlidan talab qiling.",
+   "vo": "Endi suraning to'qqizinchi oyatiga qaraylik. Juma kuni namozga chaqirilganda, Allohning zikriga shoshiling va savdoni qo'ying. Namoz tugagach, yer yuzi bo'ylab tarqaling va Allohning fazlidan talab qiling.",
    "on_screen": "9-OYAT",
    "visual_hint": "весы: на одной чаше торговая лавка, на другой свет; лавка отходит назад"
   },
   {
    "n": 7,
-   "vo": "Mana, sura nega Juma deb ataladi. Ibn Ashurga ko'ra, nom suradagi Juma so'zidan olingan, sura esa shu kun namozi haqida. Siz bugun nimani qo'yib, Allohning zikriga shoshilasiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "Mana, sura nega Juma deb ataladi. Ibn Ashurga ko'ra, nom suradagi Juma so'zidan olingan, sura esa shu kun namozi haqida. Siz bugun nimadan voz kechib, Allohning zikriga shoshilasiz? Obuna bo'ling va yaqiningizga yuboring.",
    "on_screen": "JUMA",
    "visual_hint": "11 ячеек, одна светится, надпись «Juma», финальный вопрос зрителю"
   }
