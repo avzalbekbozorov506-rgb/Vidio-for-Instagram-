@@ -1,0 +1,70 @@
+{
+ "id": "script-56",
+ "title": "Hudhud: qush qanday qutuldi? (27:20-28)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Qissa",
+ "status": "draft: источники сверены (uz.sodik 27:20-28, Ibn Kathir 27:20), ждёт «ок»",
+ "hook": "Qur'onda eng kuchli podshoh bir qushni qidiryapti. Qush kechikdi. Podshoh qasam ichdi, uni jazolayman. Qush qanday qutuldi? Bitta jumla bilan. Javob oxirida.",
+ "cover_text": "QUSH QANDAY QUTULDI?",
+ "facts": [
+  "Слово «Hudhud» только в 27:20 (код по uz.sodik).",
+  "27:20-28 по uz.sodik, в т.ч. «Сен билмаган нарсани билдим», «Кўрамиз, рост сўзладингми ёки ёлғончилардан бўлдингми?».",
+  "Ibn Kathir 27:20: Ибн Аббас — удод показывал Сулейману воду под землёй; Суфьян ибн Уйайна и Абдуллах ибн Шаддад — птицы сказали удоду о клятве Сулеймана, удод спросил: «Он не сделал исключения?», «Сделал: пока не принесёт ясное доказательство», «Тогда я спасён». Подано как «rivoyat qilinadi».",
+  "Сулеймана не рисуем (пророк): свет и тень."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda eng kuchli podshoh bir qushni qidiryapti. Qush kechikdi. Podshoh qasam ichdi, uni jazolayman. Qush qanday qutuldi? Bitta jumla bilan. Javob oxirida.",
+   "on_screen": "QUSH KECHIKDI",
+   "visual_hint": "пустынная земля на рассвете, стая птиц в небе, одна пустая ветка (Сулеймана не рисуем: свет и тень на земле)"
+  },
+  {
+   "n": 2,
+   "vo": "Bu Sulaymon alayhissalom va Hudhud. Hudhud butun Qur'onda faqat bitta oyatda tilga olinadi.",
+   "on_screen": "HUDHUD",
+   "visual_hint": "маленькая птица удод на камне, золотой контур, крупно"
+  },
+  {
+   "n": 3,
+   "vo": "Rivoyat qilinadi, Hudhud Sulaymon alayhissalomga yer ostidagi suvni ko'rsatib berardi. Bir kuni Sulaymon qushlarni tekshirib dedi. Nega Hudhudni ko'rmayapman? Yoki u yo'qlardan bo'ldimi?",
+   "on_screen": "QUSHLARNI TEKSHIRDI",
+   "visual_hint": "птицы выстраиваются, одна пустая линия"
+  },
+  {
+   "n": 4,
+   "vo": "Va qasam ichdi. Albatta, uni qattiq azoblayman, yoki so'yaman, yoki u menga ochiq dalil keltirsin.",
+   "on_screen": "QASAM",
+   "visual_hint": "золотая тень над землёй, молния-предупреждение"
+  },
+  {
+   "n": 5,
+   "vo": "Qushlar Hudhudga aytdi. Sulaymon seni so'yaman, dedi. Hudhud so'radi. U istisno qildimi? Ha, dalil keltirmasa, dedi. Shunda Hudhud dedi. Unda men qutulibman.",
+   "on_screen": "UNDA MEN QUTULIBMAN",
+   "visual_hint": "птицы шепчутся, удод стоит перед ними и вдруг поднимает голову"
+  },
+  {
+   "n": 6,
+   "vo": "Va Hudhud keldi. U dedi. Men sen bilmagan narsani bildim. Senga Sabadan ishonchli xabar olib keldim. U yerda bir ayol hukmronlik qiladi, uning ulug' taxti bor. Ular Allohni qo'yib, quyoshga sajda qilishyapti.",
+   "on_screen": "MEN BILMAGAN NARSANI BILDIM",
+   "visual_hint": "удод летит над горами, в дали золотой город Саба и солнце"
+  },
+  {
+   "n": 7,
+   "vo": "Endi o'ylab ko'ring. Sulaymon alayhissalom shu daqiqada nima qildi? Jazolamadi. Ko'r-ko'rona ishonib ham qo'ymadi. U dedi. Ko'ramiz, rost aytdingmi yoki yolg'onchilardanmisan? Va maktub yozdi.",
+   "on_screen": "KO'RAMIZ",
+   "visual_hint": "письмо в луче света, ищущая рука падает на печать"
+  },
+  {
+   "n": 8,
+   "vo": "Qush bitta jumla bilan qutuldi. Men sen bilmagan narsani bildim. Kechikkan ham eng muhim xabarni olib kelishi mumkin. Eng kuchli odam ham avval eshitadi, keyin tekshiradi. Siz oxirgi marta kimnidir kutib, tinglab ko'rdingizmi? Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "BITTA JUMLA",
+   "visual_hint": "удод на плече света, финальный вопрос зрителю"
+  }
+ ],
+ "caption": "Hudhud: qush qanday qutuldi? Qur'on qissasi.\n\n#oddiymohiyat #o'zbekcha #quron #hudhud #islom"
+}
