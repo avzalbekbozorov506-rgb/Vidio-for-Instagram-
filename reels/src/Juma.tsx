@@ -18,12 +18,12 @@ const TL = [1, 2, 3, 4, 5, 6, 7];
 const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); acc += segLen(n); });
 export const JUMA_FRAMES = Math.round(acc * FPS);
 const useT = () => useCurrentFrame() / FPS;
-const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+export const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
-const GOLD = '#ffc24a', GOLD2 = '#ffe39a', CREAM = '#fff3d0', GY = 1560;
+export const GOLD = '#ffc24a', GOLD2 = '#ffe39a', CREAM = '#fff3d0', GY = 1560;
 
 let fontsStarted = false;
-const loadFonts = () => {
+export const loadFonts = () => {
   if (fontsStarted) return; fontsStarted = true;
   const h = delayRender('juma-fonts');
   const list: [string, string, string][] = [['Montserrat', 'montserrat-800-12.woff2', '800'], ['AmiriAr', 'amiri-arabic-400.woff2', '400'], ['AmiriAr', 'amiri-arabic-700.woff2', '700'], ['Cormorant', 'cormorant-600.woff2', '600']];
@@ -35,7 +35,7 @@ const AYAH9 = 'يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا�
 const AYAH10 = 'فَإِذَا قُضِيَتِ ٱلصَّلَوٰةُ فَٱنتَشِرُوا۟ فِى ٱلْأَرْضِ وَٱبْتَغُوا۟ مِن فَضْلِ ٱللَّهِ';
 const NAME_AR = 'سُورَةُ ٱلْجُمُعَةِ';
 
-const find = (ws: TimedWord[], text: string, k = 0) => { let c = 0; for (let i = 0; i < ws.length; i++) if (ws[i].w.toLowerCase().startsWith(text.toLowerCase())) { if (c === k) return i; c++; } return 0; };
+export const find = (ws: TimedWord[], text: string, k = 0) => { let c = 0; for (let i = 0; i < ws.length; i++) if (ws[i].w.toLowerCase().startsWith(text.toLowerCase())) { if (c === k) return i; c++; } return 0; };
 
 const SHOTS: Record<number, Shot[]> = {
   1: [{from: 0, keys: [[0, 1.12, 540, 960, 0], [1, 1.0, 540, 960, 0]]}],
@@ -48,7 +48,7 @@ const SHOTS: Record<number, Shot[]> = {
 };
 
 /* ---------- мир ---------- */
-const Palm: React.FC<{x: number; s?: number; t: number; seed?: number}> = ({x, s = 1, t, seed = 0}) => (
+export const Palm: React.FC<{x: number; s?: number; t: number; seed?: number}> = ({x, s = 1, t, seed = 0}) => (
   <g transform={`translate(${x} ${GY}) scale(${s})`}>
     <path d={`M-9 0 Q-4 -150 ${Math.sin(t * 0.8 + seed) * 3} -280 L6 -280 Q8 -150 11 0 Z`} fill="#241810" />
     {[-70, -40, -12, 14, 42, 70].map((a, i) => <path key={i} d={`M0 -280 Q${a * 1.6} ${-330 + Math.abs(a) * 0.5} ${a * 2.8 + Math.sin(t * 1.1 + i + seed) * 6} ${-270 + Math.abs(a) * 1.5}`} stroke="#241810" strokeWidth={9} fill="none" strokeLinecap="round" />)}
@@ -60,7 +60,7 @@ const City: React.FC = () => (
     <ellipse cx={720} cy={GY - 96} rx={46} ry={40} /><rect x={676} y={GY - 100} width={88} height={102} /><rect x={880} y={GY - 250} width={22} height={254} /><circle cx={891} cy={GY - 258} r={14} />
   </g>
 );
-const Night: React.FC<{t: number; warm?: number}> = ({t, warm = 1}) => (
+export const Night: React.FC<{t: number; warm?: number}> = ({t, warm = 1}) => (
   <g>
     <defs>
       <linearGradient id="jsky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#0a1122" /><stop offset=".5" stopColor="#241d38" /><stop offset="1" stopColor="#6b3a1f" /></linearGradient>
@@ -88,7 +88,7 @@ const Minbar: React.FC<{x: number; b: number}> = ({x, b}) => (
   </g>
 );
 const ROBES = ['#3b3f4f', '#4a3a2e', '#2e4a48', '#4a4a37', '#42324a'];
-const Fig: React.FC<{x: number; y: number; s?: number; seed?: number; seated?: boolean; glow?: number; run?: number; t: number; flip?: boolean}> = ({x, y, s = 1, seed = 0, seated = true, glow = 0, run = 0, t, flip}) => {
+export const Fig: React.FC<{x: number; y: number; s?: number; seed?: number; seated?: boolean; glow?: number; run?: number; t: number; flip?: boolean}> = ({x, y, s = 1, seed = 0, seated = true, glow = 0, run = 0, t, flip}) => {
   const sway = run > 0 ? Math.sin(t * 17 + seed) * 5 * run : Math.sin(t * 0.9 + seed) * 0.8;
   const hop = run > 0 ? Math.abs(Math.sin(t * 17 + seed)) * 9 * run : 0;
   const robe = ROBES[seed % ROBES.length];
@@ -116,7 +116,7 @@ const Camel: React.FC<{x: number; y: number; s?: number; t: number; ph?: number}
     </g>
   );
 };
-const Puff: React.FC<{x: number; y: number; t: number; k: number}> = ({x, y, t, k}) => (
+export const Puff: React.FC<{x: number; y: number; t: number; k: number}> = ({x, y, t, k}) => (
   <g opacity={k}>{Array.from({length: 9}, (_, i) => { const u = (t * 0.7 + rnd(i)) % 1; return <circle key={i} cx={x + (rnd(i + 3) - 0.5) * 200 + u * 170} cy={y - u * 120 - rnd(i + 5) * 40} r={26 + u * 50} fill={`rgba(206,170,120,${0.34 * (1 - u)})`} />; })}</g>
 );
 /** сетка из 11 плиток-аятов */
@@ -156,7 +156,7 @@ const Stall: React.FC<{x: number; y: number; open: number; t: number}> = ({x, y,
 );
 
 /* ---------- блок аята ---------- */
-const AyahBlock: React.FC<{ws: TimedWord[]; from: number; to?: number; t: number; L: number; arabic: string; label: string; top?: number; arSize?: number; end?: number}> = ({ws, from, to, t, L, arabic, label, top = 250, arSize = 62, end}) => {
+export const AyahBlock: React.FC<{ws: TimedWord[]; from: number; to?: number; t: number; L: number; arabic: string; label: string; top?: number; arSize?: number; end?: number}> = ({ws, from, to, t, L, arabic, label, top = 250, arSize = 62, end}) => {
   const seg = ws.slice(from, to ?? ws.length), a0 = ws[from].s - 0.35, e = end ?? (to !== undefined ? ws[to - 1].e + 0.7 : L - 0.3);
   const a = tm(t, a0, a0 + 0.5) * (1 - tm(t, e - 0.3, e));
   if (a <= 0) return null;
@@ -168,7 +168,7 @@ const AyahBlock: React.FC<{ws: TimedWord[]; from: number; to?: number; t: number
     <div style={{marginTop: 10, fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: 38, letterSpacing: 4, color: GOLD2}}>{label}</div>
   </div>);
 };
-const Label: React.FC<{text: string; a: number; top?: number; size?: number; color?: string}> = ({text, a, top = 300, size = 64, color = CREAM}) => (
+export const Label: React.FC<{text: string; a: number; top?: number; size?: number; color?: string}> = ({text, a, top = 300, size = 64, color = CREAM}) => (
   <div style={{position: 'absolute', left: 60, right: 60, top, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 14}px)`, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: size, letterSpacing: 4, color, textShadow: '0 4px 24px rgba(0,0,0,.8), 0 0 30px rgba(255,194,74,.35)'}}>{text}</div>
 );
 

@@ -29,6 +29,7 @@
 | Nega sura o'rgimchak? (Ankabut 29) | script-45 | vo-45 | Ankabut (+AnkabutCover) | опубликован 11.11 (DfmPuMdiaHq), паутина как мир |
 | Yunus: qorong'ulikdagi duo (21:87-88, 37:139-148) | script-49 | vo-49 | ShadowYunus (+YunusCover), стиль «театр теней» | запланирован 12.11 11:00 (пост 0172bb32-6104-46b7-a7f9-5b0105260ad1), mp4 в release/ до выхода |
 | Nega sura Juma deb ataladi? (62:9-11) | script-57 | vo-57 | Juma (+JumaCover) | запланирован 13.11 11:00 (пост a53bd15a-2ff5-4951-801f-d19285f52918), mp4 в release/ до выхода |
+| Zakariyo duosi: Alloh kech beradi (19:2-11), вне плана по трендовым Reels | script-59 | vo-59 | Zakariyo (+ZakariyoCover) | готов (zakariyo-cover.mp4), публикация 12.11 вечером, mp4 в release/ до выхода |
 | Maryam (yagona ayol) | script-46 | - | - | сценарий готов, без озвучки (1092 знака) |
 | Ashobul Kahf: nechta edilar | script-47 | - | - | сценарий готов, без озвучки (1041 знак) |
 | Oyatul Kursiy | script-48 | - | - | сценарий готов, без озвучки (802 знака) |
