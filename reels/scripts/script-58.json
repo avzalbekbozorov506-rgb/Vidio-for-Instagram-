@@ -20,7 +20,7 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Nega butun bir sura g'or deb ataladi? Bu hikoya bitta aytilmagan so'zdan boshlandi.",
+      "vo": "Alloh yigitlarni g'orda uch yuz to'qqiz yil uxlatdi. Nega butun bir sura G'or deb ataladi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "309 YIL",
       "visual_hint": "свиток-сура Kahf, четыре ячейки-истории, одна подсвечена пещерой"
     },
@@ -44,7 +44,7 @@
     },
     {
       "n": 5,
-      "vo": "Mana javob. Ibn Ashur yozadi, savol yigitlar haqida edi, sura esa g'or hikoyasi bilan nomlangan. Har kuni bitta surani ochamiz. Ertaga navbat Isro surasida. Obuna bo'ling, o'tkazib yubormang.",
+      "vo": "Mana javob. Ibn Ashur yozadi, savol yigitlar haqida edi, sura esa g'or hikoyasi bilan nomlangan. Har kuni bitta surani ochamiz. Ertaga navbat Isro surasida.",
       "on_screen": "IBN ASHUR",
       "visual_hint": "три вопроса по очереди: молодые люди, путник на восток и запад, ruh (светящийся шар)"
     }
