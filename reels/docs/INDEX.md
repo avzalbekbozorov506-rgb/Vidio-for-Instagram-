@@ -31,6 +31,9 @@
 | Nega sura Juma deb ataladi? (62:9-11) | script-57 | vo-57 | Juma (+JumaCover) | запланирован 13.11 11:00 (пост a53bd15a-2ff5-4951-801f-d19285f52918), mp4 в release/ до выхода |
 | Zakariyo duosi: Alloh kech beradi (19:2-11), вне плана по трендовым Reels | script-59 | vo-59 | Zakariyo (+ZakariyoCover) | готов (zakariyo-cover.mp4), публикация 12.11 вечером, mp4 в release/ до выхода |
 | Kullun fi falak: oldidan ham orqasidan ham bir xil (21:33, 36:40), вне плана по вирусному TikTok 6,3 млн | script-60 | vo-60 | Falak (+FalakCover) | готов (falak-cover.mp4), не опубликован, mp4 в release/ |
+| Astag'firulloh 30 с (окно, 100 раз), без озвучки | - | - | Istigfar (+IstigfarCover) | готов (istigfar30-reel.mp4), не опубликован |
+| Subhanalloh 30 с (узор света, 100 раз), без озвучки | - | - | Subhan (+SubhanCover) | готов (subhan30-reel.mp4), не опубликован |
+| Alhamdulillah 30 с (поле цветов, 100 раз), без озвучки | - | - | Hamd30 (+HamdCover) | готов (hamd30-reel.mp4), не опубликован |
 | Maryam (yagona ayol) | script-46 | - | - | сценарий готов, без озвучки (1092 знака) |
 | Ashobul Kahf: nechta edilar | script-47 | - | - | сценарий готов, без озвучки (1041 знак) |
 | Oyatul Kursiy | script-48 | - | - | сценарий готов, без озвучки (802 знака) |
