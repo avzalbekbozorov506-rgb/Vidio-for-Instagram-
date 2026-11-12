@@ -21,49 +21,43 @@
    "n": 1,
    "vo": "Qur'onda bir sura Xonalar deb ataladi. U atigi o'n sakkizta oyatdan iborat. Xonalar esa faqat bitta oyatda tilga olinadi. Nega aynan shu nom? Javob oxirida.",
    "on_screen": "XONALAR?",
-   "visual_hint": "свиток, один маленький знак «дом» среди 18 ячеек"
+   "visual_hint": "свиток, один знак «дом» среди 18 ячеек"
   },
   {
    "n": 2,
-   "vo": "Payg'ambarimiz sollallohu alayhi vasallamning xonalari oldida bir kishi turib baqirdi. Hoy Muhammad, hoy Muhammad! Sahroda o'sgan, ta'lim ko'rmagan arablardan biri edi.",
+   "vo": "Payg'ambarimiz sollallohu alayhi vasallamning xonalari oldida bir kishi baqirdi. Hoy Muhammad, hoy Muhammad! Sahroda o'sgan, ta'lim ko'rmagan arablardan biri edi.",
    "on_screen": "BAQIRIQ",
-   "visual_hint": "глинобитные дома в Медине на закате, у входа силуэт человека с поднятыми руками, Пророка не рисуем: свет в окне"
+   "visual_hint": "глинобитные дома на закате, у входа силуэт человека с поднятыми руками, Пророка не рисуем: свет в окне"
   },
   {
    "n": 3,
-   "vo": "Shunda oyat tushdi. Xonalar ortidan chaqirayotganlarning ko'pi aql ishlatmaydi. Agar siz chiqquningizcha sabr qilganlarida, o'zlariga yaxshi bo'lardi.",
+   "vo": "Shunda oyat tushdi. Xonalar ortidan chaqirayotganlarning ko'pi aql ishlatmaydi. Sabr qilib kutganlarida, o'zlariga yaxshi bo'lardi.",
    "on_screen": "OYAT",
    "visual_hint": "золотая арабская строка над дверью, человек опускает руки и ждёт"
   },
   {
    "n": 4,
-   "vo": "Bir baqiriq, bir oyat. Lekin sura shu bilan tugamadi. Qurtubiy yozadi. Arablarda Payg'ambarimiz bilan gaplashishda ham, odamlarga laqab qo'yishda ham qo'pollik bor edi. Sura esa go'zal xulq va odobga buyuradi.",
+   "vo": "Bir baqiriq, bir oyat. Lekin sura shu bilan tugamadi. Qurtubiy yozadi. Arablarda qo'pollik bor edi, sura esa go'zal xulq va odobga buyuradi.",
    "on_screen": "ODOB SURASI",
-   "visual_hint": "страница Курталя, строка подсвечена: «адаб»"
+   "visual_hint": "страница Qurtubiy, строка подсвечена: «адаб»"
   },
   {
    "n": 5,
-   "vo": "Qarang, oyatlar qanday davom etadi. Allohdan va Rasulidan oldin shoshilmang. Ovozingizni Payg'ambar ovozidan baland ko'tarmang. Fosiq xabar keltirsa, avval aniqlang.",
-   "on_screen": "SHOSHILMANG",
-   "visual_hint": "три знака по словам: стрела вперёд (шоспилманг), ухо (голос тише), лупа (проверь)"
+   "vo": "Qarang, qanday davom etadi. Ovozingizni Payg'ambar ovozidan baland ko'tarmang. Fosiq xabar keltirsa, aniqlang. Bir qavm boshqasini masxara qilmasin, ehtimol, ular bulardan yaxshiroqdir. G'iybat qilmang.",
+   "on_screen": "QANDAY DAVOM ETADI",
+   "visual_hint": "знаки по словам: ухо (голос тише), лупа (проверь), смех перечёркнут, шёпот перечёркнут"
   },
   {
    "n": 6,
-   "vo": "Hech bir qavm boshqasini masxara qilmasin, ehtimol, ular bulardan yaxshiroqdir. Gumondan chetda bo'ling. Josuslik qilmang. G'iybat qilmang. Alloh so'raydi. Biringiz o'lgan birodarining go'shtini yeyishni yaxshi ko'radimi?",
-   "on_screen": "GUMON, G'IYBAT",
-   "visual_hint": "знаки: смех, глаз-шпион, шепот: перечёркиваются, золото на «ehtimol ular yaxshiroq»"
+   "vo": "Va oxirgi oyat butun insoniyatga aytiladi. Biz sizlarni bir erkak va ayoldan yaratdik, xalqlar va qabilalar qildik. Alloh oldida eng hurmatlingiz, eng taqvodoringizdir.",
+   "on_screen": "BARCHA ODAMLAR",
+   "visual_hint": "карта племён сливается в один свет"
   },
   {
    "n": 7,
-   "vo": "Va oxirgi oyat butun insoniyatga aytiladi. Biz sizlarni bir erkak va ayoldan yaratdik, tanishishingiz uchun xalqlar va qabilalar qildik. Alloh oldida eng hurmatlingiz, eng taqvodoringizdir.",
-   "on_screen": "BARCHA ODAMLAR",
-   "visual_hint": "карта народов и племён сливается в один свет"
-  },
-  {
-   "n": 8,
-   "vo": "Qarang. Bitta kishining baqirig'i sabab bo'lgan oyat suraga nom berdi. Sura esa butun odamzodga murojaat bilan tugaydi. Odob eshik oldida, ovozdan boshlanadi. Siz bugun kimning oldida ovozingizni pasaytirasiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "Bir kishining baqirig'i suraga nom berdi. Sura esa butun odamzodga murojaat bilan tugaydi. Odob ovozdan boshlanadi. Siz bugun kimning oldida ovozingizni pasaytirasiz? Obuna bo'ling va yaqiningizga yuboring.",
    "on_screen": "XONALAR",
-   "visual_hint": "дверь, у которой человек стоит тихо и ждёт; финальный вопрос"
+   "visual_hint": "дверь, у которой человек стоит тихо; финальный вопрос"
   }
  ],
  "caption": "Nega Qur'ondagi sura Xonalar deb ataladi? Hujurot surasi.\n\n#oddiymohiyat #o'zbekcha #quron #hujurot #islom"
