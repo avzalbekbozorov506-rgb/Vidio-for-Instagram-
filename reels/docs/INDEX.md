@@ -55,3 +55,4 @@
 | Карусель 2 «Qur'on raqamlarda» (10 слайдов) | `Carousel2`, `release/carousel2-s1..s10.png` | запланирована 13.11 06:00 (пост 190e5f03-d75d-419a-a9e9-f4cc6d931111) |
 | Kahf (script-58, ~66 с, призыв подписки в начале) | script-58 | сценарий готов, ждёт «ок» на озвучку (~730 кредитов) |
 | Рубрика «5 ta tanlangan» (условие: подписка + комментарий, Kavsar 3 oyat; 26 с, бумажный стиль) | композиция `Rubrika`, `release/rubrika-reel.mp4`, обложка, описание | готова, не опубликована; обещание: выбрать 5 комментаторов и подписаться, итог в следующем видео |
+| Zanjir «Bitta odamga yuboring» (script-61, vo-61 озвучка пользователя, композиция `Zanjir`; 58 с; хадисы Muslim 1893, Bukhari 6406 / Muslim 2694; формат по образцу пользователя) | `release/zanjir-cover.mp4`, `zanjir-cover.png`, `zanjir-caption.txt` | готов, не опубликован |
