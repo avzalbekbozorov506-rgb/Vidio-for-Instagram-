@@ -51,3 +51,5 @@
 | QuizP2 / QuizP3 / QuizP4 (бумажный стиль, 36 с, без озвучки, кнопка Obuna bo'ling) | `release/quizp2-reel.mp4`, `quizp3-reel.mp4`, `quizp4-reel.mp4` + обложки и описания | готовы, не опубликованы |
 
 | Carousel1 «5 sura 5 jonivor» (7 слайдов 1080x1350) | `release/carousel1-s1..s7.png`, описание `carousel1-caption.txt`, композиция `Carousel` | готова, не опубликована |
+
+| Carousel2 «Qur'on raqamlarda» (10 слайдов, зелёно-золотой, без ошибок Canva) | `release/carousel2-s1..s10.png`, `carousel2-caption.txt`, композиция `Carousel2` | готова, не опубликована |
