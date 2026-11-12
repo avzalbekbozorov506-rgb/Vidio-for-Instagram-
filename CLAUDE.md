@@ -5,8 +5,8 @@
 Полный старый журнал сессий 1-6: `reels/docs/HISTORY.md` (читать только за деталями). Карта репозитория: `README.md`. Список роликов и статусы: `reels/docs/INDEX.md`.
 
 ## Старт сессии
-Хук `.claude/hooks/session-start.sh` (SessionStart, только облако) сам: ставит `reels/node_modules` и pillow, печатает сводку (слоты на сегодня и завтра из `PLAN_MONTH.md`, сценарии без озвучки, наличие ключа). Эта сводка приходит в начале сессии.
-1. Прочитать этот файл, `reels/docs/INDEX.md`, `reels/docs/PLAN_MONTH.md`, `reels/docs/STYLE_PASSPORT.md` (если сводка не пришла, прочитать сразу). Не переспрашивать решённое.
+Хук `.claude/hooks/session-start.sh` (SessionStart, только облако) сам: ставит `reels/node_modules` и pillow, печатает сводку (слоты на сегодня и завтра из `PLAN_AYAT.md`, сценарии без озвучки, наличие ключа). Эта сводка приходит в начале сессии.
+1. Прочитать этот файл, `reels/docs/INDEX.md`, `reels/docs/PLAN_AYAT.md`, `reels/docs/STYLE_PASSPORT.md` (если сводка не пришла, прочитать сразу). Не переспрашивать решённое.
 2. Если нет `reels/` или `.claude/agents/`: `git fetch origin main && git merge origin/main`. Если хук не сработал: `cd reels && npm install`.
 3. Проверить ключ: `echo ${AISHA_API_KEY:+set}` (значение не показывать).
 4. Короткий отчёт пользователю: что готово, что дальше по плану на сегодня, чего не хватает.
