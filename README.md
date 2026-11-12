@@ -17,5 +17,3 @@ npx remotion render <Id> out/x.mp4
 - `reels/release/` обложки (png), описания (txt), готовые mp4 невышедших роликов; mp4 вышедших не хранятся.
 - `reels/docs/` правила и заметки: `INDEX.md` (все ролики и статусы), `PLAN_AYAT.md` (план слотов), `STYLE_PASSPORT.md`, `COVER_GUIDE.md`, `CAPTION_FORMAT.md`; `docs/archive/` устаревшие планы; `docs/report/` отчёт по темам.
 - `reels/storyboards/` раскадровки; `.claude/agents/` сценарист `avzalbot2` и раскадровщик `avzalbot3`; `.claude/hooks/` стартовая сводка сессии.
-
-- `bot/` бот комментарий -> личка -> проверка подписки -> файл (код и тест готовы, не подключён к Instagram; инструкция `bot/README.md`).
