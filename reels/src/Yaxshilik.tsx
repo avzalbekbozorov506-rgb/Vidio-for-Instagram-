@@ -17,7 +17,7 @@ const MONT = 'Montserrat, Arial, sans-serif';
 const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
 const ease = (x: number) => x * x * (3 - 2 * x);
 
-type Node = {x: number; y: number; s: number; layer: number; parent: number; seed: number; ignite: number; spark0: number};
+export type Node = {x: number; y: number; s: number; layer: number; parent: number; seed: number; ignite: number; spark0: number};
 const LAYERS = [
   {xs: [540], y: 1390, s: 1.5, start: 0, ig: 1.2},
   {xs: [330, 750], y: 1284, s: 1.25, start: 5.0, ig: 6.2},
@@ -30,7 +30,7 @@ LAYERS.forEach((L, k) => L.xs.forEach((x, j) => {
   NODES.push({x, y: L.y + (rnd(idx + 3) - 0.5) * 22, s: L.s, layer: k, parent: k === 0 ? -1 : (k === 1 ? 0 : (k === 2 ? 1 + Math.floor(j / 2) : 3 + Math.floor(j / 2))), seed: idx * 1.7, spark0: L.start + j * 0.12, ignite: L.ig + j * 0.12}); // eslint-disable-line
 }));
 
-const Lantern: React.FC<{n: Node; t: number}> = ({n, t}) => {
+export const Lantern: React.FC<{n: Node; t: number}> = ({n, t}) => {
   const lit = sm(t, n.ignite, n.ignite + 0.9);
   const flick = lit * (0.88 + 0.12 * Math.sin(t * 8 + n.seed) * Math.sin(t * 3.1 + n.seed * 2));
   const breath = t > 16 ? 0.12 * Math.sin(t * 1.4 - n.x / 160 + n.layer) : 0;
@@ -67,7 +67,7 @@ const Spark: React.FC<{n: Node; t: number}> = ({n, t}) => {
   );
 };
 
-const Stars: React.FC<{t: number}> = ({t}) => (
+export const Stars: React.FC<{t: number}> = ({t}) => (
   <g>
     {Array.from({length: 80}).map((_, i) => {
       const x = rnd(i * 3 + 1) * W, y = 90 + rnd(i * 3 + 2) * 960, r = 1.2 + rnd(i * 3 + 3) * 2.4;
@@ -103,8 +103,8 @@ const Scene: React.FC<{t: number}> = ({t}) => (
   </svg>
 );
 
-const fadeIO = (t: number, a: number, b: number, d = 0.55) => sm(t, a, a + d) * (1 - sm(t, b - d, b));
-const shadow = '0 4px 26px rgba(0,0,0,.85)';
+export const fadeIO = (t: number, a: number, b: number, d = 0.55) => sm(t, a, a + d) * (1 - sm(t, b - d, b));
+export const shadow = '0 4px 26px rgba(0,0,0,.85)';
 
 const Words: React.FC<{text: string; t: number; t0: number; size: number; color: string; gap?: number}> = ({text, t, t0, size, color, gap = 0.1}) => (
   <div style={{fontSize: size, color, fontWeight: 800, lineHeight: 1.18, textShadow: shadow}}>
