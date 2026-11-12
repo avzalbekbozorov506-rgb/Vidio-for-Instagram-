@@ -8,68 +8,69 @@
  "genre": "ayat",
  "series": "Nega",
  "status": "draft v3: источники сверены (alquran.cloud uz.sodik, Ibn Kathir 169, Ma'arif al-Qur'an 168 через api.quran.com), ждёт «ок» и религиозной проверки",
- "hook": "Qur'onda bir sura bor. Unda ahdga vafo ham, tahorat ham, dinning mukammal bo'lgani ham bor. Lekin u dasturxon deb ataladi. Nega? Javob oxirida.",
+ "hook": "Qur'onda bir sura bor. Unda ahdlar ham bor, tahorat ham, dinning mukammal bo'lgani ham. Lekin nomi oddiygina, dasturxon. Nega? Buning ortida bitta hikoya bor. Oxirigacha eshiting.",
  "cover_text": "NEGA DASTURXON?",
  "facts": [
   "Аяты 5:1, 5:3, 5:6, 5:112-115 по переводу Muhammad Sodik (api.alquran.cloud, uz.sodik). Слово «dasturxon» только в 5:112, 114, 115 (посчитано кодом), сура 120 аятов, мединская.",
   "Ibn Kathir (Abridged), тафсир 5:112: «This is the story of the Ma'idah, the name of which this Surah bears». Там же: Исо ответил «Have Taqwa of Allah! And do not ask for this, for it may become a trial for you».",
   "Ma'arif al-Qur'an, 5:112-115: «The Better the Blessing, the Worse the Curse of Ingratitude». Там же: мнения о том, сошёл ли стол, расходятся, большинство считает что сошёл (в сценарии это НЕ утверждается).",
-  "Qurtubi 5:112 даёт разные толкования вопроса хавариев; в сценарии не используется."
+  "Qurtubi 5:112 даёт разные толкования вопроса хавариев; в сценарии не используется.",
+  "Ibn Kathir 5:112-115: некоторые учёные говорят, что хавариты были бедными (Ibn Kathir, abridged). Ibn Abbas (через Ibn Abi Hatim): ангелы принесли стол с семью рыбами и семью лепёшками, последняя группа ела как первая. Ishaq b. Abdullah (через Ibn Jarir): стол был ниспослан, но когда некоторые припрятали еду, говоря «завтра может не прийти», стол поднялся. В сценарии подано как «rivoyat qilinadi»."
  ],
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda bir sura bor. Unda ahdga vafo ham, tahorat ham, dinning mukammal bo'lgani ham bor. Lekin u dasturxon deb ataladi. Nega? Javob oxirida.",
+   "vo": "Qur'onda bir sura bor. Unda ahdlar ham bor, tahorat ham, dinning mukammal bo'lgani ham. Lekin nomi oddiygina, dasturxon. Nega? Buning ortida bitta hikoya bor. Oxirigacha eshiting.",
    "on_screen": "DASTURXON?",
-   "visual_hint": "свиток-сура, три знака (договор, вода, свет), в центре накрытый стол"
+   "visual_hint": "свиток-сура, три знака (договор, вода, свет), внизу накрытый стол в тени"
   },
   {
    "n": 2,
-   "vo": "Bu sura yuz yigirma oyatdan iborat. Dasturxon esa faqat uchta oyatda tilga olinadi.",
-   "on_screen": "120 ... 3",
-   "visual_hint": "счётчик 120 ячеек, три загораются золотом"
+   "vo": "Iso alayhissalomning yonida oddiy odamlar yurardi. Havoriylar. Ibn Kasir yozadi, ba'zi olimlarga ko'ra ular kambag'al edi. Ertangi nonni o'ylab uxlaydigan odamlar.",
+   "on_screen": "HAVORIYLAR",
+   "visual_hint": "бедные люди у костра, пустая миска, тёплый вечерний свет (Исо не рисуем: свет)"
   },
   {
    "n": 3,
-   "vo": "Iso alayhissalomning havoriylari so'rashdi. Robbing bizga osmondan dasturxon tushira oladimi?",
-   "on_screen": "HAVORIYLAR SO'RADI",
-   "visual_hint": "люди смотрят в небо, Исо не рисуем: тёплый свет"
+   "vo": "Bir kuni ular so'radi. Ey Iso, Robbing bizga osmondan dasturxon tushira oladimi?",
+   "on_screen": "SO'RADILAR",
+   "visual_hint": "люди поднимают лица к небу"
   },
   {
    "n": 4,
-   "vo": "Iso alayhissalom darrov rozi bo'lmadi. Agar mo'min bo'lsangiz, Allohdan taqvo qiling, dedi. Ibn Kasir tafsirida: bu so'rov sizga sinov bo'lib qolishi mumkin, deb tushuntiriladi.",
-   "on_screen": "DARROV ROZI BO'LMADI",
-   "visual_hint": "свет между людьми, пауза"
+   "vo": "Iso alayhissalom ha demadi. U dedi. Allohdan taqvo qiling, agar mo'min bo'lsangiz. Ibn Kasir tushuntiradi. Bu so'rov sizga sinov bo'lib qolishi mumkin.",
+   "on_screen": "HA DEMADI",
+   "visual_hint": "свет, пауза, люди переглядываются"
   },
   {
    "n": 5,
-   "vo": "Ular aytdi. Biz undan yemoqni, qalbimiz taskin topishini va sening rostligingga guvoh bo'lishni istaymiz.",
-   "on_screen": "ULAR NIMA ISTADI",
-   "visual_hint": "иконки: еда, сердце, правда"
+   "vo": "Ular yana aytdi. Biz undan yemoqchimiz. Qalbimiz taskin topsin. Sening rostligingga guvoh bo'laylik. Shunda Iso alayhissalom duo qildi. Ey Robbimiz, osmondan dasturxon tushir. U avvalgilarimizga ham, keyingilarimizga ham bayram bo'lsin.",
+   "on_screen": "DUO",
+   "visual_hint": "ночь, руки подняты (силуэт), звёзды"
   },
   {
    "n": 6,
-   "vo": "Iso alayhissalom duo qildi. Alloh javob berdi. Men uni albatta tushiruvchiman. Lekin kim kufr keltirsa, uni olamlarda hech kimni azoblamagan azob bilan azoblayman.",
-   "on_screen": "DUO VA JAVOB",
-   "visual_hint": "свет падает вниз, стол спускается в луче, рядом тень-предупреждение"
+   "vo": "Alloh javob berdi. Men uni albatta tushiraman. Lekin bundan keyin kim kufr keltirsa, uni olamlarda hech kimni azoblamagan azob bilan azoblayman.",
+   "on_screen": "JAVOB",
+   "visual_hint": "стол спускается в золотом луче, рядом тёмная тень-предупреждение"
   },
   {
    "n": 7,
-   "vo": "Maorif ul Qur'on tafsirida yozilgan. Ne'mat qanchalik katta bo'lsa, uning noshukrligi uchun azob ham shunchalik og'ir bo'ladi.",
-   "on_screen": "MAORIF UL QUR'ON",
-   "visual_hint": "книга, строка подчёркивается"
+   "vo": "Ibn Abbosdan rivoyat qilinadi. Farishtalar dasturxonni keltirdi. Unda yettita baliq va yettita non bor edi. Birinchi kelgan ham, oxirgi kelgan ham bir xil to'yib yedi.",
+   "on_screen": "7 BALIQ, 7 NON",
+   "visual_hint": "на столе семь рыб и семь лепёшек, люди едят, золотой свет"
   },
   {
    "n": 8,
-   "vo": "Endi suraning boshiga qaytamiz. Uchinchi oyatda shunday deyiladi. Bugun dinningizni mukammal qildim, ne'matimni batamom qildim.",
-   "on_screen": "NE'MAT BATAMOM",
-   "visual_hint": "свиток возвращается к началу, 3-я подсвечена"
+   "vo": "Ishoq ibn Abdulloh esa shunday rivoyat qiladi. Ba'zilar, ertaga tushmay qolar, deb, taomni yashirincha olib qo'ydi. Va dasturxon ko'tarilib ketdi.",
+   "on_screen": "ERTAGA?",
+   "visual_hint": "чья-то рука прячет лепёшку, стол медленно поднимается в небо"
   },
   {
    "n": 9,
-   "vo": "Ibn Kasir yozadi. Bu surada dasturxon qissasi bor, sura shu nom bilan ataladi. Siz ne'matlarga qanday javob beryapsiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "vo": "Maorif ul Qur'on tafsirida yozilgan. Ne'mat qanchalik katta bo'lsa, noshukrlik azobi ham shunchalik og'ir. Mana, sura nega dasturxon deb ataladi. Ibn Kasirga ko'ra, bu o'sha dasturxonning qissasi. Siz ertangi kundan qo'rqib, bugungi ne'matni qadrlashni unutmayapsizmi? Obuna bo'ling va yaqiningizga yuboring.",
    "on_screen": "DASTURXON",
-   "visual_hint": "золотой стол, свет, финальный вопрос"
+   "visual_hint": "золотой стол, вопрос зрителю, призыв"
   }
  ],
  "caption": "Nega Qur'ondagi sura Dasturxon deb ataladi? Moida surasi.\n\n#oddiymohiyat #o'zbekcha #quron #moida #islom"
