@@ -29,11 +29,11 @@
 | Nega sura o'rgimchak? (Ankabut 29) | script-45 | vo-45 | Ankabut (+AnkabutCover) | опубликован 11.11 (DfmPuMdiaHq), паутина как мир |
 | Yunus: qorong'ulikdagi duo (21:87-88, 37:139-148) | script-49 | vo-49 | ShadowYunus (+YunusCover), стиль «театр теней» | запланирован 12.11 11:00 (пост 0172bb32-6104-46b7-a7f9-5b0105260ad1), mp4 в release/ до выхода |
 | Nega sura Juma deb ataladi? (62:9-11) | script-57 | vo-57 | Juma (+JumaCover) | запланирован 13.11 11:00 (пост a53bd15a-2ff5-4951-801f-d19285f52918), mp4 в release/ до выхода |
-| Zakariyo duosi: Alloh kech beradi (19:2-11), вне плана по трендовым Reels | script-59 | vo-59 | Zakariyo (+ZakariyoCover) | готов (zakariyo-cover.mp4), публикация 12.11 вечером, mp4 в release/ до выхода |
+| Zakariyo duosi: Alloh kech beradi (19:2-11), вне плана по трендовым Reels | script-59 | vo-59 | Zakariyo (+ZakariyoCover) | готов (zakariyo-cover.mp4), опубликован 12.11 (Dfo_jj1gdIP), mp4 в release/ до проверки метрик |
 | Kullun fi falak: oldidan ham orqasidan ham bir xil (21:33, 36:40), вне плана по вирусному TikTok 6,3 млн | script-60 | vo-60 | Falak (+FalakCover) | готов (falak-cover.mp4), не опубликован, mp4 в release/ |
-| Astag'firulloh 30 с (окно, 100 раз), без озвучки | - | - | Istigfar (+IstigfarCover) | готов (istigfar30-reel.mp4), не опубликован |
-| Subhanalloh 30 с (узор света, 100 раз), без озвучки | - | - | Subhan (+SubhanCover) | готов (subhan30-reel.mp4), не опубликован |
-| Alhamdulillah 30 с (поле цветов, 100 раз), без озвучки | - | - | Hamd30 (+HamdCover) | готов (hamd30-reel.mp4), не опубликован |
+| Astag'firulloh 30 с (окно, 100 раз), без озвучки | - | - | Istigfar (+IstigfarCover) | опубликован 12.11 (DfpOj4zEuj5), mp4 в release/ до проверки метрик |
+| Subhanalloh 30 с (узор света, 100 раз), без озвучки | - | - | Subhan (+SubhanCover) | опубликован 12.11 (DfpOsp4kYFc), mp4 в release/ до проверки метрик |
+| Alhamdulillah 30 с (поле цветов, 100 раз), без озвучки | - | - | Hamd30 (+HamdCover) | опубликован 12.11 (DfpO96aCG-b), mp4 в release/ до проверки метрик |
 | Maryam (yagona ayol) | script-46 | - | - | сценарий готов, без озвучки (1092 знака) |
 | Ashobul Kahf: nechta edilar | script-47 | - | - | сценарий готов, без озвучки (1041 знак) |
 | Oyatul Kursiy | script-48 | - | - | сценарий готов, без озвучки (802 знака) |
