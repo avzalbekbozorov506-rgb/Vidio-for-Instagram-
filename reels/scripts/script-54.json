@@ -1,0 +1,79 @@
+{
+ "id": "script-54",
+ "title": "Nega sura Dasturxon (Moida) deb ataladi? (5:112-115)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Nega",
+ "status": "draft: ждёт «ок» и проверки",
+ "hook": "Qur'onda bir sura bor. Unda ahdga vafo qilish ham, namoz uchun tahorat ham, dinning mukammal bo'lgani haqidagi oyat ham bor. Lekin u dasturxon deb ataladi. Nega? Javob oxirida.",
+ "cover_text": "NEGA DASTURXON?",
+ "facts": [
+  "5:112 havoriylar so'rashdi; 5:113 4 sabab; 5:114 duo; 5:115 Alloh javobi (uz.sodik, alquran.cloud, 12.11.2026). Dasturxon so'zi faqat 112, 114, 115 oyatlarda (kod bilan sanalgan). Sura 120 oyat, Madaniy. 5:1 ahdlar, 5:3 din mukammal, 5:6 tahorat va 'ne'matini batamom'. Izoh: Sodik tarjimasi 5:115. 'Sura nomi shu qissadan' tafsirdan tasdiqlash kerak."
+ ],
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda bir sura bor. Unda ahdga vafo qilish ham, namoz uchun tahorat ham, dinning mukammal bo'lgani haqidagi oyat ham bor. Lekin u dasturxon deb ataladi. Nega? Javob oxirida.",
+   "on_screen": "DASTURXON?",
+   "visual_hint": "свиток-сура, из него выходят три знака (договор, вода, свет), в центре накрытый стол"
+  },
+  {
+   "n": 2,
+   "vo": "Bu sura yuz yigirma oyatdan iborat. Dasturxon esa faqat uchta oyatda tilga olinadi.",
+   "on_screen": "120 ... 3",
+   "visual_hint": "счётчик 120 ячеек, три из них загораются золотом"
+  },
+  {
+   "n": 3,
+   "vo": "Bir kuni Iso alayhissalomning havoriylari so'rashdi. Robbing bizga osmondan dasturxon tushira oladimi?",
+   "on_screen": "HAVORIYLAR SO'RADI",
+   "visual_hint": "группа людей смотрит в небо, Исо не рисуем: тёплый свет"
+  },
+  {
+   "n": 4,
+   "vo": "Iso alayhissalom darrov rozi bo'lmadi. U dedi. Agar mo'min bo'lsangiz, Allohdan taqvo qiling.",
+   "on_screen": "DARROV ROZI BO'LMADI",
+   "visual_hint": "свет между людьми, пауза"
+  },
+  {
+   "n": 5,
+   "vo": "Ular aytdi. Undan yemoqni, qalblarimiz taskin topishini, sen rost aytganingni bilishni va bunga guvoh bo'lishni istaymiz.",
+   "on_screen": "4 SABAB",
+   "visual_hint": "четыре иконки по словам: еда, сердце, правда, свидетель"
+  },
+  {
+   "n": 6,
+   "vo": "Iso alayhissalom duo qildi. Ey Robbimiz, bizga osmondan dasturxon tushir. U avvalimizga ham, oxirimizga ham bayram bo'lsin.",
+   "on_screen": "DUO",
+   "visual_hint": "ночное небо, свет падает вниз"
+  },
+  {
+   "n": 7,
+   "vo": "Alloh javob berdi. Men uni albatta tushiruvchiman. Lekin bundan keyin kim kufr keltirsa, uni olamlarda hech kimni azoblamagan azob bilan azoblayman.",
+   "on_screen": "LEKIN",
+   "visual_hint": "стол спускается в луче, рядом тёмная тень-предупреждение"
+  },
+  {
+   "n": 8,
+   "vo": "Muhammad Sodik tarjimasidagi izohda aytiladi. Mo'jiza talab qilgan qavm, mo'jiza kelgandan keyin ham kufr keltirsa, qattiq azobga duchor bo'ladi.",
+   "on_screen": "IZOH",
+   "visual_hint": "книга, строка подчёркивается"
+  },
+  {
+   "n": 9,
+   "vo": "Endi suraning boshiga qaytamiz. Uchinchi oyatda shunday deyiladi. Bugun dinningizni mukammal qildim, ne'matimni batamom qildim. Oltinchi oyatda ham, Alloh ne'matini batamom qilishni istaydi.",
+   "on_screen": "NE'MAT BATAMOM",
+   "visual_hint": "свиток возвращается к началу, 3 и 6 подсвечены"
+  },
+  {
+   "n": 10,
+   "vo": "Dasturxon ham osmondan tushgan ne'mat edi. Sura nomi shu qissadan olingan. Siz ne'matlarga qanday javob beryapsiz? Obuna bo'ling va yaqiningizga yuboring.",
+   "on_screen": "DASTURXON",
+   "visual_hint": "золотой стол, свет, финальный вопрос"
+  }
+ ],
+ "caption": "Nega Qur'ondagi sura Dasturxon deb ataladi? Moida surasi.\n\n#oddiymohiyat #o'zbekcha #quron #moida #islom"
+}
