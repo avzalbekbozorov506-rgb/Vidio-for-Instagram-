@@ -172,7 +172,7 @@ export const QuizPaperPlayer: React.FC<{data: QData}> = ({data}) => {
       </div>
       <div style={{position: 'absolute', inset: 0, opacity: end}}>
         <Sheet t={t} x={90} y={440} w={900} h={300} rot={1} seed={12} color={MUST}>
-          <div style={{textAlign: 'center'}}><div style={{fontSize: 92, fontWeight: 800, color: INK}}>Obuna bo'ling.</div><div style={{fontSize: 48, fontWeight: 800, color: INK, marginTop: 16}}>Har kuni bitta sura sirri</div></div>
+          <div style={{textAlign: 'center'}}><div style={{fontSize: 92, fontWeight: 800, color: INK}}>Obuna bo'ling.</div><div style={{fontSize: 48, fontWeight: 800, color: INK, marginTop: 16}}>Har kuni bitta sura siri</div></div>
         </Sheet>
       </div>
       <FollowPaper t={t} />

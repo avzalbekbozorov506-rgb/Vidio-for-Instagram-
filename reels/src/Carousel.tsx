@@ -145,7 +145,7 @@ export const Carousel: React.FC<{i: number}> = ({i}) => {
           </div>
         ))}
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, bottom: 110, textAlign: 'center', fontSize: 42, fontWeight: 800, color: INK}}>Har kuni bitta sura sirri · @mohiyat___</div>
+      <div style={{position: 'absolute', left: 0, right: 0, bottom: 110, textAlign: 'center', fontSize: 42, fontWeight: 800, color: INK}}>Har kuni bitta sura siri · @mohiyat___</div>
     </Frame>
   );
 };

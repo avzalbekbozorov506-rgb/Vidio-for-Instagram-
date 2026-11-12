@@ -150,7 +150,7 @@ export const QuizPlayer: React.FC<{data: QData}> = ({data}) => {
       </div>
       <div style={{position: 'absolute', left: 80, right: 100, top: 480, textAlign: 'center', fontFamily: MONT, fontWeight: 800, opacity: sm(t, TF + 4.9, TF + 5.6)}}>
         <div style={{fontSize: 92, color: GOLD, textShadow: '0 0 40px rgba(255,194,74,.5), ' + shadow}}>Obuna bo'ling.</div>
-        <div style={{fontSize: 50, color: CREAM, marginTop: 24, textShadow: shadow}}>Har kuni bitta sura sirri</div>
+        <div style={{fontSize: 50, color: CREAM, marginTop: 24, textShadow: shadow}}>Har kuni bitta sura siri</div>
       </div>
       <FollowButton t={t} />
       <Audio src={staticFile('music/oriental.wav')} volume={0.32} />
