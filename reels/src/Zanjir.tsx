@@ -13,13 +13,13 @@ import words from '../public/vo-61/words.json';
  * Формат по образцу пользователя, текст и озвучка свои (голос предоставил пользователь), рисунки свои. Без лиц.
  */
 const FPS = 30, W = 1080, H = 1920, PAD = 0.25;
-const dur = (n: number) => (durations as Record<string, number>)[String(n)];
-const segLen = (n: number) => dur(n) + PAD;
-const TL = [1, 2, 3, 4, 5];
-const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); acc += segLen(n); });
+export const dur = (n: number) => (durations as Record<string, number>)[String(n)];
+export const segLen = (n: number) => dur(n) + PAD;
+export const TL = [1, 2, 3, 4, 5];
+export const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); acc += segLen(n); });
 export const ZAN_FRAMES = Math.round(acc * FPS);
-const W_ = (n: number) => (words as any)[String(n)] as TimedWord[];
-const tw = (ws: TimedWord[], text: string, k = 0) => { const i = find(ws, text, k); return ws[i] ? ws[i].s : 0; };
+export const W_ = (n: number) => (words as any)[String(n)] as TimedWord[];
+export const tw = (ws: TimedWord[], text: string, k = 0) => { const i = find(ws, text, k); return ws[i] ? ws[i].s : 0; };
 
 const Orb: React.FC<{x: number; y: number; r?: number; a?: number; t?: number}> = ({x, y, r = 24, a = 1, t = 0}) => {
   const p = 1 + 0.06 * Math.sin(t * 3 + x);
@@ -32,9 +32,9 @@ const Lamp: React.FC<{x: number; y: number; lit: number; t: number}> = ({x, y, l
 const Bell: React.FC<{c: string; s: number}> = ({c, s}) => <svg width={s} height={s} viewBox="0 0 48 48"><g fill={c}><path d="M24 7c-7 0-10 6-10 12v6l-4 6h28l-4-6v-6c0-6-3-12-10-12z" /><circle cx={24} cy={38} r={3.8} /></g></svg>;
 
 // уровни цепочки 1,3,9,...,2187 (k=0..7)
-const LV = [1, 3, 9, 27, 81, 243, 729, 2187];
-const levelPos = (k: number) => { const c = Math.min(LV[k], 54), w = 140 + 105 * k; return Array.from({length: c}, (_, i) => ({x: 540 + (c === 1 ? 0 : (i - (c - 1) / 2) * (w / (c - 1))), y: 1230 - k * 105})); };
-const LR = [20, 16, 12, 9, 6, 5, 4, 3];
+export const LV = [1, 3, 9, 27, 81, 243, 729, 2187];
+export const levelPos = (k: number) => { const c = Math.min(LV[k], 54), w = 140 + 105 * k; return Array.from({length: c}, (_, i) => ({x: 540 + (c === 1 ? 0 : (i - (c - 1) / 2) * (w / (c - 1))), y: 1230 - k * 105})); };
+export const LR = [20, 16, 12, 9, 6, 5, 4, 3];
 const ChainBody: React.FC<{t: number; T: number[]}> = ({t, T}) => {
   const lines: React.ReactElement[] = [];
   for (let k = 1; k <= 3; k++) {
@@ -166,7 +166,7 @@ const SceneC: React.FC<{n: number}> = ({n}) => {
   );
 };
 
-const sfxFor = (n: number): [number, string, number][] => {
+export const sfxFor = (n: number): [number, string, number][] => {
   const ws = W_(n);
   if (n === 1) return [[0.3, 'rise', 0.3], [tw(ws, 'obuna'), 'pop', 0.4]];
   if (n === 2) return [[tw(ws, "yo'llasa"), 'whoosh', 0.3], [tw(ws, 'ajricha'), 'chime', 0.5]];
