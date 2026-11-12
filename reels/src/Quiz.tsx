@@ -111,7 +111,7 @@ export const Quiz: React.FC = () => {
         <div style={{fontSize: 92, color: GOLD, textShadow: '0 0 40px rgba(255,194,74,.5), ' + shadow}}>Obuna bo'ling.</div>
         <div style={{fontSize: 50, color: CREAM, marginTop: 24, textShadow: shadow}}>Har kuni bitta sura sirri</div>
       </div>
-      <Audio src={staticFile('music/calm2.wav')} volume={0.7} />
+      <Audio src={staticFile('music/oriental.wav')} volume={0.7} />
       {sfx.map(([s, n, v], i) => <Sequence key={i} from={Math.round(s * FPS)}><Audio src={staticFile(`sfx/${n}.wav`)} volume={v} /></Sequence>)}
     </AbsoluteFill>
   );
