@@ -8,11 +8,11 @@ import {QData, QP_FRAMES, QUIZ2, QUIZ3, QUIZ4} from './QuizPack';
 const FPS = 30, W = 1080, H = 1920;
 const T0 = 3.4, CYC = 6.4, TF = T0 + 4 * CYC;
 const TAPS = [1.8, 10.0, 18.5, 27.0, 33.3];
-const INK = '#3a2a1a', CREAM = '#f6ecd6', SHEET = '#fbf5e6', GREEN = '#1f6b5a', TERRA = '#c9553d', MUST = '#e9b44c', KRAFT = '#d8b98a', FADE = '#d9c9a6', RED = '#d63c32';
+export const INK = '#3a2a1a', CREAM = '#f6ecd6', SHEET = '#fbf5e6', GREEN = '#1f6b5a', TERRA = '#c9553d', MUST = '#e9b44c', KRAFT = '#d8b98a', FADE = '#d9c9a6', RED = '#d63c32';
 const MONT = 'Montserrat, Arial, sans-serif';
-const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
-const back = (x: number) => { const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
-const fadeIO = (t: number, a: number, b: number, d = 0.4) => sm(t, a, a + d) * (1 - sm(t, b - d, b));
+export const sm = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], clamp);
+export const back = (x: number) => { const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+export const fadeIO = (t: number, a: number, b: number, d = 0.4) => sm(t, a, a + d) * (1 - sm(t, b - d, b));
 const jag = (w: number, h: number, seed: number, step = 26, amp = 4) => {
   const P: string[] = [];
   const j = (k: number) => (rnd(seed * 31 + k) - 0.5) * 2 * amp;
@@ -23,7 +23,7 @@ const jag = (w: number, h: number, seed: number, step = 26, amp = 4) => {
   for (let y = h - step; y > 0; y -= step) P.push(`${j(k++)}px ${y + j(k++)}px`);
   return `polygon(${P.join(',')})`;
 };
-const Sheet: React.FC<{t: number; x: number; y: number; w: number; h: number; color?: string; rot?: number; seed?: number; shadow?: number; children?: React.ReactNode; style?: React.CSSProperties}> = ({t, x, y, w, h, color = SHEET, rot = 0, seed = 1, shadow = 9, children, style}) => {
+export const Sheet: React.FC<{t: number; x: number; y: number; w: number; h: number; color?: string; rot?: number; seed?: number; shadow?: number; children?: React.ReactNode; style?: React.CSSProperties}> = ({t, x, y, w, h, color = SHEET, rot = 0, seed = 1, shadow = 9, children, style}) => {
   const k = Math.floor(t * 8);
   const dx = (rnd(k * 7 + seed) - 0.5) * 3, dy = (rnd(k * 11 + seed) - 0.5) * 3, dr = (rnd(k * 5 + seed) - 0.5) * 0.7;
   return (
@@ -35,7 +35,7 @@ const Sheet: React.FC<{t: number; x: number; y: number; w: number; h: number; co
 const Star8: React.FC<{cx: number; cy: number; r: number; fill: string; stroke: string; sc?: number}> = ({cx, cy, r, fill, stroke, sc = 1}) => (
   <g transform={`translate(${cx} ${cy}) scale(${sc})`}><rect x={-r} y={-r} width={2 * r} height={2 * r} fill={fill} stroke={stroke} strokeWidth={3} /><rect x={-r} y={-r} width={2 * r} height={2 * r} fill={fill} stroke={stroke} strokeWidth={3} transform="rotate(45)" /><circle r={r * 0.28} fill={stroke} opacity={0.35} /></g>
 );
-const Background: React.FC = () => (
+export const Background: React.FC = () => (
   <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
     <rect width={W} height={H} fill={CREAM} />
     {Array.from({length: 6 * 9}).map((_, i) => { const c = i % 6, r = Math.floor(i / 6); return <g key={i} opacity={0.5}><Star8 cx={90 + c * 180 + (r % 2) * 90} cy={120 + r * 210} r={44} fill="#ecdcb6" stroke="#dcc79a" /></g>; })}
@@ -46,7 +46,7 @@ const Background: React.FC = () => (
   </svg>
 );
 
-const Strip: React.FC<{t: number; u: number; k: number; txt: string; ok: boolean}> = ({t, u, k, txt, ok}) => {
+export const Strip: React.FC<{t: number; u: number; k: number; txt: string; ok: boolean}> = ({t, u, k, txt, ok}) => {
   const a0 = 0.7 + k * 0.4, a = back(sm(Math.floor(u * 12) / 12, a0, a0 + 0.45));
   const rev = sm(u, 5.0, 5.3);
   const cols = [GREEN, TERRA, MUST], tcol = [CREAM, CREAM, INK];
@@ -63,7 +63,7 @@ const Strip: React.FC<{t: number; u: number; k: number; txt: string; ok: boolean
   );
 };
 
-const Confetti: React.FC<{u: number; ok: number}> = ({u, ok}) => {
+export const Confetti: React.FC<{u: number; ok: number}> = ({u, ok}) => {
   const tau = Math.floor((u - 5.0) * 24) / 24;
   if (tau < 0 || tau > 1.3) return null;
   const cols = [GREEN, TERRA, MUST, '#2b8c8a', RED];
@@ -106,14 +106,14 @@ const Question: React.FC<{i: number; t: number; q: QData['qs'][0]}> = ({i, t, q}
   );
 };
 
-const Progress: React.FC<{t: number}> = ({t}) => (
+export const Progress: React.FC<{t: number}> = ({t}) => (
   <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
     {[0, 1, 2, 3].map((i) => { const u = t - (T0 + i * CYC + 5.0), on = u >= 0, sc = on ? back(sm(u, 0, 0.4)) : 1;
       return <g key={i} style={{filter: 'drop-shadow(3px 5px 0 rgba(58,40,24,.28))'}}><Star8 cx={250 + i * 193} cy={1345} r={40} fill={on ? MUST : '#e5d5ae'} stroke={on ? '#b57f1f' : '#c9b583'} sc={sc} /></g>; })}
   </svg>
 );
 
-const FollowPaper: React.FC<{t: number}> = ({t}) => {
+export const FollowPaper: React.FC<{t: number}> = ({t}) => {
   const show = sm(t, 0.25, 0.8);
   let press = 0, ripple = -1, done = 0, cur = 0;
   TAPS.forEach((ta) => {

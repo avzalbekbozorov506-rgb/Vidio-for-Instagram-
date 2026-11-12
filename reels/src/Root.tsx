@@ -32,6 +32,7 @@ import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Carousel} from './Carousel';
+import {Rubrika, RubrikaCover, RUB_FRAMES} from './Rubrika';
 import {Carousel2} from './Carousel2';
 import {QuizP2, QuizP3, QuizP4, QuizP2Cover, QuizP3Cover, QuizP4Cover} from './QuizPaper';
 import {Quiz2, Quiz3, Quiz4, Quiz2Cover, Quiz3Cover, Quiz4Cover, QP_FRAMES} from './QuizPack';
@@ -95,6 +96,8 @@ export const Root: React.FC = () => {
     <Composition id="QuizP3Cover" component={QuizP3Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizP4" component={QuizP4} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizP4Cover" component={QuizP4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Rubrika" component={Rubrika} durationInFrames={RUB_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="RubrikaCover" component={RubrikaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Carousel2" component={Carousel2} durationInFrames={1} fps={30} width={1080} height={1350} defaultProps={{i: 0}} />
     <Composition id="Carousel" component={Carousel} durationInFrames={1} fps={30} width={1080} height={1350} defaultProps={{i: 0}} />
     <Composition id="Quiz2" component={Quiz2} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
