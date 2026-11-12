@@ -27,6 +27,18 @@ import {Somad, SomadCover, SOMAD_FRAMES} from './Somad';
 import {Uhud, UhudCover, UHUD_FRAMES} from './Uhud';
 import {Sirius, SiriusCover, SIRIUS_FRAMES} from './Sirius';
 import {Gold, GoldCover, GOLD_FRAMES} from './Gold';
+import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
+import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
+import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
+import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
+import {Carousel} from './Carousel';
+import {Carousel2} from './Carousel2';
+import {QuizP2, QuizP3, QuizP4, QuizP2Cover, QuizP3Cover, QuizP4Cover} from './QuizPaper';
+import {Quiz2, Quiz3, Quiz4, Quiz2Cover, Quiz3Cover, Quiz4Cover, QP_FRAMES} from './QuizPack';
+import {Quiz, QuizCover, QUIZ_FRAMES} from './Quiz';
+import {Yaxshilik, YaxshilikCover, YAX_FRAMES} from './Yaxshilik';
+import {Istigfar, Subhan, Hamd30, IstigfarCover, SubhanCover, HamdCover, DHIKR_FRAMES} from './Dhikr';
+import {Alham40, Alham40Cover, ALHAM40_FRAMES} from './Alham40';
 import {Kavsar, KavsarCover, KAVSAR_FRAMES} from './Kavsar';
 import {CalliTest, CALLI_FRAMES} from './CalliTest';
 import {KavsarDust, DUST_FRAMES} from './KavsarDust';
@@ -67,6 +79,40 @@ export const Root: React.FC = () => {
     <Composition id="SiriusCover" component={SiriusCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Gold" component={Gold} durationInFrames={GOLD_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="GoldCover" component={GoldCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Alham100" component={Alham100} durationInFrames={ALHAM_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="Alham40" component={Alham40} durationInFrames={ALHAM40_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="Alham40Cover" component={Alham40Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="AlhamCover" component={AlhamCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Juma" component={Juma} durationInFrames={JUMA_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="JumaCover" component={JumaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Zakariyo" component={Zakariyo} durationInFrames={ZAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="FalakCover" component={FalakCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP2" component={QuizP2} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP2Cover" component={QuizP2Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP3" component={QuizP3} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP3Cover" component={QuizP3Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP4" component={QuizP4} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP4Cover" component={QuizP4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Carousel2" component={Carousel2} durationInFrames={1} fps={30} width={1080} height={1350} defaultProps={{i: 0}} />
+    <Composition id="Carousel" component={Carousel} durationInFrames={1} fps={30} width={1080} height={1350} defaultProps={{i: 0}} />
+    <Composition id="Quiz2" component={Quiz2} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz2Cover" component={Quiz2Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz3" component={Quiz3} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz3Cover" component={Quiz3Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz4" component={Quiz4} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz4Cover" component={Quiz4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Quiz" component={Quiz} durationInFrames={QUIZ_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizCover" component={QuizCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Yaxshilik" component={Yaxshilik} durationInFrames={YAX_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="YaxshilikCover" component={YaxshilikCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Istigfar" component={Istigfar} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Subhan" component={Subhan} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Hamd30" component={Hamd30} durationInFrames={DHIKR_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="IstigfarCover" component={IstigfarCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="SubhanCover" component={SubhanCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="HamdCover" component={HamdCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UhudCover" component={UhudCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Kavsar" component={Kavsar} durationInFrames={KAVSAR_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="KavsarCover" component={KavsarCover} durationInFrames={1} fps={30} width={1080} height={1920} />

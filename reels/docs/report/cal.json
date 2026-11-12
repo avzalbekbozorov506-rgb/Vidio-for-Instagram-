@@ -1,0 +1,600 @@
+[
+ {
+  "n": 1,
+  "date": "чт 12.11",
+  "time": "11:00",
+  "title": "Yunus: qorong'ulikdagi duo",
+  "kind": "done",
+  "note": "запланирован, вышел 11:00",
+  "P": null
+ },
+ {
+  "n": 2,
+  "date": "чт 12.11",
+  "time": "16:00",
+  "title": "Alham40 (100 zarba), не формат «nega»",
+  "kind": "ready",
+  "note": "ролик готов, обложка и описание есть",
+  "P": null
+ },
+ {
+  "n": 3,
+  "date": "пт 13.11",
+  "time": "11:00",
+  "title": "Juma",
+  "kind": "nega",
+  "P": 80,
+  "note": "пятница",
+  "ref": 62
+ },
+ {
+  "n": 4,
+  "date": "пт 13.11",
+  "time": "16:00",
+  "title": "G'or (Kahf)",
+  "kind": "nega",
+  "P": 92,
+  "note": "пятница, тоже",
+  "ref": 18
+ },
+ {
+  "n": 5,
+  "date": "сб 14.11",
+  "time": "11:00",
+  "title": "Isro",
+  "kind": "nega",
+  "P": 91,
+  "ref": 17,
+  "note": ""
+ },
+ {
+  "n": 6,
+  "date": "сб 14.11",
+  "time": "16:00",
+  "title": "Ixlos",
+  "kind": "nega",
+  "P": 93,
+  "ref": 112,
+  "note": ""
+ },
+ {
+  "n": 7,
+  "date": "вс 15.11",
+  "time": "11:00",
+  "title": "Oli Imron",
+  "kind": "nega",
+  "P": 86,
+  "ref": 3,
+  "note": ""
+ },
+ {
+  "n": 8,
+  "date": "вс 15.11",
+  "time": "16:00",
+  "title": "Dasturxon (Moida)",
+  "kind": "nega",
+  "P": 87,
+  "ref": 5,
+  "note": ""
+ },
+ {
+  "n": 9,
+  "date": "пн 16.11",
+  "time": "11:00",
+  "title": "Fotiha",
+  "kind": "nega",
+  "P": 85,
+  "ref": 1,
+  "note": ""
+ },
+ {
+  "n": 10,
+  "date": "пн 16.11",
+  "time": "16:00",
+  "title": "Yunus",
+  "kind": "nega",
+  "P": 85,
+  "ref": 10,
+  "note": ""
+ },
+ {
+  "n": 11,
+  "date": "вт 17.11",
+  "time": "11:00",
+  "title": "Nur",
+  "kind": "nega",
+  "P": 82,
+  "ref": 24,
+  "note": ""
+ },
+ {
+  "n": 12,
+  "date": "вт 17.11",
+  "time": "16:00",
+  "title": "Hijr",
+  "kind": "nega",
+  "P": 83,
+  "ref": 15,
+  "note": ""
+ },
+ {
+  "n": 13,
+  "date": "ср 18.11",
+  "time": "11:00",
+  "title": "Fil",
+  "kind": "nega",
+  "P": 82,
+  "ref": 105,
+  "note": ""
+ },
+ {
+  "n": 14,
+  "date": "ср 18.11",
+  "time": "16:00",
+  "title": "Hud",
+  "kind": "nega",
+  "P": 82,
+  "ref": 11,
+  "note": ""
+ },
+ {
+  "n": 15,
+  "date": "чт 19.11",
+  "time": "11:00",
+  "title": "Qadr",
+  "kind": "nega",
+  "P": 81,
+  "ref": 97,
+  "note": ""
+ },
+ {
+  "n": 16,
+  "date": "чт 19.11",
+  "time": "16:00",
+  "title": "Alaq (Iqro)",
+  "kind": "nega",
+  "P": 81,
+  "ref": 96,
+  "note": ""
+ },
+ {
+  "n": 17,
+  "date": "пт 20.11",
+  "time": "11:00",
+  "title": "Temir (Hadid)",
+  "kind": "nega",
+  "P": 80,
+  "ref": 57,
+  "note": ""
+ },
+ {
+  "n": 18,
+  "date": "пт 20.11",
+  "time": "16:00",
+  "title": "Xonalar (Hujurot)",
+  "kind": "nega",
+  "P": 80,
+  "ref": 49,
+  "note": ""
+ },
+ {
+  "n": 19,
+  "date": "сб 21.11",
+  "time": "11:00",
+  "title": "Tavba (Bara'a)",
+  "kind": "nega",
+  "P": 80,
+  "ref": 9,
+  "note": ""
+ },
+ {
+  "n": 20,
+  "date": "сб 21.11",
+  "time": "16:00",
+  "title": "Luqmon",
+  "kind": "nega",
+  "P": 80,
+  "ref": 31,
+  "note": ""
+ },
+ {
+  "n": 21,
+  "date": "вс 22.11",
+  "time": "11:00",
+  "title": "Ibrohim",
+  "kind": "nega",
+  "P": 78,
+  "ref": 14,
+  "note": ""
+ },
+ {
+  "n": 22,
+  "date": "вс 22.11",
+  "time": "16:00",
+  "title": "Maryam",
+  "kind": "nega",
+  "P": 79,
+  "ref": 19,
+  "note": ""
+ },
+ {
+  "n": 23,
+  "date": "пн 23.11",
+  "time": "11:00",
+  "title": "Qissalar (Qasas)",
+  "kind": "nega",
+  "P": 77,
+  "ref": 28,
+  "note": ""
+ },
+ {
+  "n": 24,
+  "date": "пн 23.11",
+  "time": "16:00",
+  "title": "Haj",
+  "kind": "nega",
+  "P": 78,
+  "ref": 22,
+  "note": ""
+ },
+ {
+  "n": 25,
+  "date": "вт 24.11",
+  "time": "11:00",
+  "title": "Quraysh",
+  "kind": "nega",
+  "P": 76,
+  "ref": 106,
+  "note": ""
+ },
+ {
+  "n": 26,
+  "date": "вт 24.11",
+  "time": "16:00",
+  "title": "Mulk",
+  "kind": "nega",
+  "P": 77,
+  "ref": 67,
+  "note": ""
+ },
+ {
+  "n": 27,
+  "date": "ср 25.11",
+  "time": "11:00",
+  "title": "Nuh",
+  "kind": "nega",
+  "P": 75,
+  "ref": 71,
+  "note": ""
+ },
+ {
+  "n": 28,
+  "date": "ср 25.11",
+  "time": "16:00",
+  "title": "Saba",
+  "kind": "nega",
+  "P": 75,
+  "ref": 34,
+  "note": ""
+ },
+ {
+  "n": 29,
+  "date": "чт 26.11",
+  "time": "11:00",
+  "title": "Josiya",
+  "kind": "nega",
+  "P": 74,
+  "ref": 45,
+  "note": ""
+ },
+ {
+  "n": 30,
+  "date": "чт 26.11",
+  "time": "16:00",
+  "title": "Rahmon",
+  "kind": "nega",
+  "P": 75,
+  "ref": 55,
+  "note": ""
+ },
+ {
+  "n": 31,
+  "date": "пт 27.11",
+  "time": "11:00",
+  "title": "Mujodala",
+  "kind": "nega",
+  "P": 73,
+  "ref": 58,
+  "note": ""
+ },
+ {
+  "n": 32,
+  "date": "пт 27.11",
+  "time": "16:00",
+  "title": "A'rof",
+  "kind": "nega",
+  "P": 74,
+  "ref": 7,
+  "note": ""
+ },
+ {
+  "n": 33,
+  "date": "сб 28.11",
+  "time": "11:00",
+  "title": "Zilzol (Zalzala)",
+  "kind": "nega",
+  "P": 72,
+  "ref": 99,
+  "note": ""
+ },
+ {
+  "n": 34,
+  "date": "сб 28.11",
+  "time": "16:00",
+  "title": "Tin",
+  "kind": "nega",
+  "P": 72,
+  "ref": 95,
+  "note": ""
+ },
+ {
+  "n": 35,
+  "date": "вс 29.11",
+  "time": "11:00",
+  "title": "Fotir (Malaika)",
+  "kind": "nega",
+  "P": 71,
+  "ref": 35,
+  "note": ""
+ },
+ {
+  "n": 36,
+  "date": "вс 29.11",
+  "time": "16:00",
+  "title": "Zeb-ziynat (Zuxruf)",
+  "kind": "nega",
+  "P": 71,
+  "ref": 43,
+  "note": ""
+ },
+ {
+  "n": 37,
+  "date": "пн 30.11",
+  "time": "11:00",
+  "title": "Chorva (An'om)",
+  "kind": "nega",
+  "P": 70,
+  "ref": 6,
+  "note": ""
+ },
+ {
+  "n": 38,
+  "date": "пн 30.11",
+  "time": "16:00",
+  "title": "Burkanib olgan (Muddassir)",
+  "kind": "nega",
+  "P": 71,
+  "ref": 74,
+  "note": ""
+ },
+ {
+  "n": 39,
+  "date": "вт 01.12",
+  "time": "11:00",
+  "title": "Zuho",
+  "kind": "nega",
+  "P": 70,
+  "ref": 93,
+  "note": ""
+ },
+ {
+  "n": 40,
+  "date": "вт 01.12",
+  "time": "16:00",
+  "title": "Shoirlar (Shuaro)",
+  "kind": "nega",
+  "P": 70,
+  "ref": 26,
+  "note": ""
+ },
+ {
+  "n": 41,
+  "date": "ср 02.12",
+  "time": "11:00",
+  "title": "Tutun (Duxon)",
+  "kind": "nega",
+  "P": 69,
+  "ref": 44,
+  "note": ""
+ },
+ {
+  "n": 42,
+  "date": "ср 02.12",
+  "time": "16:00",
+  "title": "Sharh",
+  "kind": "nega",
+  "P": 70,
+  "ref": 94,
+  "note": ""
+ },
+ {
+  "n": 43,
+  "date": "чт 03.12",
+  "time": "11:00",
+  "title": "Qum tepalari (Ahqof)",
+  "kind": "nega",
+  "P": 69,
+  "ref": 46,
+  "note": ""
+ },
+ {
+  "n": 44,
+  "date": "чт 03.12",
+  "time": "16:00",
+  "title": "Guruhlar (Zumar)",
+  "kind": "nega",
+  "P": 69,
+  "ref": 39,
+  "note": ""
+ },
+ {
+  "n": 45,
+  "date": "пт 04.12",
+  "time": "11:00",
+  "title": "Nasr",
+  "kind": "nega",
+  "P": 69,
+  "ref": 110,
+  "note": ""
+ },
+ {
+  "n": 46,
+  "date": "пт 04.12",
+  "time": "16:00",
+  "title": "O'ranib olgan (Muzzammil)",
+  "kind": "nega",
+  "P": 69,
+  "ref": 73,
+  "note": ""
+ },
+ {
+  "n": 47,
+  "date": "сб 05.12",
+  "time": "11:00",
+  "title": "Jin",
+  "kind": "nega",
+  "P": 68,
+  "ref": 72,
+  "note": ""
+ },
+ {
+  "n": 48,
+  "date": "сб 05.12",
+  "time": "16:00",
+  "title": "Payg'ambarlar (Anbiyo)",
+  "kind": "nega",
+  "P": 68,
+  "ref": 21,
+  "note": ""
+ },
+ {
+  "n": 49,
+  "date": "вс 06.12",
+  "time": "11:00",
+  "title": "Qalam",
+  "kind": "nega",
+  "P": 67,
+  "ref": 68,
+  "note": ""
+ },
+ {
+  "n": 50,
+  "date": "вс 06.12",
+  "time": "16:00",
+  "title": "Asr",
+  "kind": "nega",
+  "P": 68,
+  "ref": 103,
+  "note": ""
+ },
+ {
+  "n": 51,
+  "date": "пн 07.12",
+  "time": "11:00",
+  "title": "Muhammad",
+  "kind": "nega",
+  "P": 67,
+  "ref": 47,
+  "note": ""
+ },
+ {
+  "n": 52,
+  "date": "пн 07.12",
+  "time": "16:00",
+  "title": "Toriq",
+  "kind": "nega",
+  "P": 67,
+  "ref": 86,
+  "note": ""
+ },
+ {
+  "n": 53,
+  "date": "вт 08.12",
+  "time": "11:00",
+  "title": "Furqon",
+  "kind": "nega",
+  "P": 64,
+  "ref": 25,
+  "note": ""
+ },
+ {
+  "n": 54,
+  "date": "вт 08.12",
+  "time": "16:00",
+  "title": "Yasin",
+  "kind": "nega",
+  "P": 66,
+  "ref": 36,
+  "note": ""
+ },
+ {
+  "n": 55,
+  "date": "ср 09.12",
+  "time": "11:00",
+  "title": "Sajda",
+  "kind": "nega",
+  "P": 62,
+  "ref": 32,
+  "note": ""
+ },
+ {
+  "n": 56,
+  "date": "ср 09.12",
+  "time": "16:00",
+  "title": "Takosur",
+  "kind": "nega",
+  "P": 63,
+  "ref": 102,
+  "note": ""
+ },
+ {
+  "n": 57,
+  "date": "чт 10.12",
+  "time": "11:00",
+  "title": "Tun (Layl)",
+  "kind": "nega",
+  "P": 61,
+  "ref": 92,
+  "note": ""
+ },
+ {
+  "n": 58,
+  "date": "чт 10.12",
+  "time": "16:00",
+  "title": "Quyosh (Shams)",
+  "kind": "nega",
+  "P": 61,
+  "ref": 91,
+  "note": ""
+ },
+ {
+  "n": 59,
+  "date": "пт 11.12",
+  "time": "11:00",
+  "title": "Shahar (Balad)",
+  "kind": "nega",
+  "P": 58,
+  "ref": 90,
+  "note": ""
+ },
+ {
+  "n": 60,
+  "date": "пт 11.12",
+  "time": "16:00",
+  "title": "Naba",
+  "kind": "nega",
+  "P": 58,
+  "ref": 78,
+  "note": ""
+ }
+]

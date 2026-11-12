@@ -1,0 +1,274 @@
+<title>Отчёт по контент-плану</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<style>
+/* Layout: one reading column, tables and charts scroll inside their own boxes. Palette: ink, paper, one gold accent, red for risk, green for strong. */
+:root{--bg:#f6f4ee;--surface:#ffffff;--ink:#1b1f26;--muted:#5d6672;--line:#dcd8cc;--accent:#a8741a;--accent-soft:#f1e4c6;--good:#2f7d4f;--good-soft:#d9eddf;--warn:#b5471d;--warn-soft:#f6dccf;--mid:#8a7a45;--mid-soft:#efe9cf;--bar:#c9bfa4;--f-body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;--f-head:'Fraunces',Georgia,'Times New Roman',serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161a;--surface:#1c2026;--ink:#ecebe5;--muted:#9aa2ad;--line:#333a44;--accent:#e0b457;--accent-soft:#3a3016;--good:#6fc58e;--good-soft:#1c3326;--warn:#ec8b64;--warn-soft:#3b2218;--mid:#cdbd7d;--mid-soft:#2f2b17;--bar:#5a5640;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14161a;--surface:#1c2026;--ink:#ecebe5;--muted:#9aa2ad;--line:#333a44;--accent:#e0b457;--accent-soft:#3a3016;--good:#6fc58e;--good-soft:#1c3326;--warn:#ec8b64;--warn-soft:#3b2218;--mid:#cdbd7d;--mid-soft:#2f2b17;--bar:#5a5640;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--f-head);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.1}
+h2{font-size:clamp(22px,3.4vw,28px);line-height:1.2;margin-bottom:14px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin:0 0 12px;max-width:70ch}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+.lead{font-size:18px;color:var(--ink);max-width:68ch}
+.muted{color:var(--muted)}
+section{min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.card .big{font-family:var(--f-head);font-size:34px;line-height:1;margin-bottom:6px}
+.card .big.g{color:var(--good)}.card .big.w{color:var(--warn)}.card .big.a{color:var(--accent)}
+.card p{font-size:14px;margin:0;color:var(--muted)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:14px 16px;border-radius:0 8px 8px 0;max-width:78ch}
+.callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+.callout p:last-child{margin:0}
+ul.plain{margin:0 0 12px;padding-left:20px;max-width:72ch}
+ul.plain li{margin-bottom:6px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg);position:sticky;top:0;white-space:nowrap;cursor:pointer;user-select:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.pill.g{background:var(--good-soft);color:var(--good)}.pill.m{background:var(--mid-soft);color:var(--mid)}.pill.w{background:var(--warn-soft);color:var(--warn)}.pill.n{background:var(--accent-soft);color:var(--accent)}
+.score{font-weight:800;font-variant-numeric:tabular-nums}
+.dots{letter-spacing:2px;color:var(--accent);white-space:nowrap}
+.dots i{font-style:normal;color:var(--line)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:center}
+.controls button,.controls input{font:inherit;font-size:14px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.controls button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.controls input{border-radius:8px;min-width:0;flex:1 1 180px}
+.controls button:focus-visible,.controls input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bars{display:flex;flex-direction:column;gap:7px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.bar{display:grid;grid-template-columns:minmax(96px,150px) 1fr 64px;gap:10px;align-items:center;font-size:13px}
+.bar .t{height:18px;background:var(--line);border-radius:3px;position:relative;min-width:0}
+.bar .t b{position:absolute;left:0;top:0;bottom:0;background:var(--bar);border-radius:3px}
+.bar.hi .t b{background:var(--accent)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.bar .m{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--warn)}
+.legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.fix{white-space:nowrap}
+.day{background:var(--accent-soft)}
+.src{font-size:12.5px;color:var(--muted)}
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.sc .card .big{font-size:30px}
+@media (max-width:520px){.bar{grid-template-columns:90px 1fr 54px;font-size:12px}th,td{padding:8px 7px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<div class="wrap" id="top">
+
+<header>
+<div class="kicker">@mohiyat___ · план 12.11–11.12.2026 · отчёт от 12.11</div>
+<h1>Отчёт по контент-плану: что выбрано, почему и чего ждать</h1>
+<p class="lead">Я разобрал все 60 тем плана «Nega sura … deb ataladi?», сверил каждую с текстом Корана и тафсирами, сопоставил с результатами ваших роликов. Короткий вывод: формат правильный, но первый план был собран механически, и в нём не хватало самых известных сур. Ниже оценки по каждой теме и предложенный новый порядок.</p>
+</header>
+
+<section id="summary">
+<h2>Главное</h2>
+<div class="cards">
+<div class="card"><div class="big g">27 209</div><p>просмотров у ролика «Sigir» (Baqara). Это в 10 раз больше любого другого ролика аккаунта и в 158 раз выше обычного уровня.</p></div>
+<div class="card"><div class="big a">1,15%</div><p>доля репостов от просмотров у «Sigir» (314 на 27 209). Ролик пересылают, а не только смотрят.</p></div>
+<div class="card"><div class="big w">14 из 59</div><p>тем первого плана слабые или рискованные для формата: имя суры в них просто первое слово, ярких загадок нет.</p></div>
+<div class="card"><div class="big g">13</div><p>тем, которых не было в плане, но они сильнее среднего: Ixlos, Fotiha, Oli Imron, Maryam, Tavba и другие.</p></div>
+</div>
+<div class="callout" style="margin-top:16px"><p><b>Решение для вас.</b> Предлагаю заменить 14 слабых тем на 13 сильных, поставить самые сильные в первые 10 дней и проверить гипотезу «имя суры как загадка» на 20 роликах, до того как делать остальные. Таблицы и порядок ниже.</p></div>
+</section>
+
+<section id="data">
+<h2>1. Что показывают ваши цифры</h2>
+<p>Данные из ShapelessAI по опубликованным роликам аккаунта (снято 12.11, 09:09 UTC). Красная черта на графике — обычный уровень аккаунта: медиана 172 просмотра на 46 постах.</p>
+<div class="bars" id="bars" role="img" aria-label="Просмотры десяти роликов, ролик Sigir впереди с 27 209"></div>
+<div class="legend"><span>■ золотой: формат «Nega sura … deb ataladi»</span><span>■ серый: остальное</span><span>красная черта: медиана аккаунта 172</span></div>
+<h3 style="margin-top:18px">Что из этого следует</h3>
+<ul class="plain">
+<li><b>Один ролик сделал почти всё.</b> «Sigir» набрал 27 209, следующий — 2 630 («Asalari»), потом 1 906 («5 turkiy davlat»). Остальные в среднем около 150 просмотров.</li>
+<li><b>Что в «Sigir» было особенным (моя гипотеза, не доказанная):</b> известное название суры, контраст (286 аятов, корова в семи), зрителю хочется узнать ответ, роликом делятся. Ровно это и есть формат вашего плана.</li>
+<li><b>Первые сутки решают всё.</b> У «Sigir» за сутки набралось 26 112 из 27 209 (96%). Если ролик не пошёл в первый день, потом он почти не растёт.</li>
+<li><b>Время выхода.</b> «Sigir» вышел в 17:31 по Ташкенту. Слот 16:00 ближе всего к этому времени, поэтому сильнейший ролик дня ставлю на 16:00.</li>
+<li><b>Чего я не знаю.</b> Ролики от 10 по 12.11 (Ankabut, Ikki bog', Gold, Somad, Yunus и другие) ещё без цифр: платформа их не подтянула, а баланс vidIQ исчерпан. Ankabut сделан в том же формате, что «Sigir», и это самый важный результат, которого пока нет. Его нужно проверить через сутки.</li>
+</ul>
+</section>
+
+<section id="honest">
+<h2>2. Почему я взял эти темы, и что в плане было слабым</h2>
+<p><b>Как я выбирал в первый раз.</b> Я взял суры, чьи названия встречаются только в одном-двух аятах длинной суры (Moida, Hujurot, Hadid, Duxon, Hijr и так далее). Это повторяет структуру «Sigir» и «O'rgimchak»: большое название, маленький эпизод. Логика верная, но выбор был механическим, и я не проверил, насколько эти суры знакомы вашему зрителю.</p>
+<div class="callout warn">
+<p><b>Что я нашёл при проверке.</b></p>
+<ul class="plain" style="margin:8px 0 0">
+<li>В плане не было самых известных сур: <b>Ixlos, Fotiha, Oli Imron, Maryam, Tavba</b>. Именно по ним у людей есть вопрос «а почему так называется?». В Ixlos, например, слова «ixlos» нет вообще.</li>
+<li>В 14 темах загадки нет: название просто первое слово суры (Noziot, Qiyomat, Haqqa, Mursalot, Qori'a, Burj и другие). Это 14 слабых слотов из 59.</li>
+<li>Часть тем содержит материал про Страшный суд и наказание (Haqqa, Qiyomat, Noziot, Qamar). Это не в духе «безопасного» контента, который вы выбрали.</li>
+<li>Тафсиры (Ibn Kathir, Qurtubiy) редко прямо говорят «почему сура так названа». Нужный источник — <b>Ibn Ashur, «at-Tahrir wa at-Tanwir»</b>: у него для каждой суры есть абзац о причине названия («ваджх ат-тасмийа»). Я получил этот текст для 90 сур и прочитал абзац для большинства кандидатов.</li>
+<li>Мои прошлые сценарии были пересказом цитат, а не историей. Это уже исправлено подходом «человек, сцена, поворот».</li>
+</ul>
+</div>
+</section>
+
+<section id="method">
+<h2>3. Как я оценивал темы</h2>
+<p>Для каждой суры я посчитал по тексту Корана число аятов и в скольких из них встречается слово из названия. Потом поставил оценки от 1 до 5. Оценки «известность» и «история» — мои редакторские, не измеренные. Остальное опирается на текст и тафсиры.</p>
+<div class="scroll"><table>
+<thead><tr><th>Критерий</th><th>Что оценивается</th><th class="num">Вес</th></tr></thead>
+<tbody>
+<tr><td><b>Загадка (Т)</b></td><td>Насколько название не совпадает с содержанием. Слово в 1-2 аятах из 50+ даёт 5.</td><td class="num">30%</td></tr>
+<tr><td><b>Известность (F)</b></td><td>Насколько сура знакома узбекскому зрителю. Ixlos, Kahf, Mulk, Rahmon — 5.</td><td class="num">25%</td></tr>
+<tr><td><b>История (W)</b></td><td>Можно ли рассказать это как сцену: герои, поворот, финал.</td><td class="num">20%</td></tr>
+<tr><td><b>Картинка (V)</b></td><td>Насколько хорошо рисуется в вашем 2D-стиле без лиц пророков.</td><td class="num">15%</td></tr>
+<tr><td><b>Источник (S)</b></td><td>Есть ли прямое объяснение названия в Ibn Ashur, Ibn Kathir, Qurtubiy.</td><td class="num">10%</td></tr>
+<tr><td><b>Риск (R)</b></td><td>0-3: сюжеты о наказании, споры, спорные чудеса. Вычитается с коэффициентом 0,4.</td><td class="num">минус</td></tr>
+</tbody></table></div>
+<p class="src" style="margin-top:8px">Итоговый балл 0-100: (0,30·Т + 0,25·F + 0,20·W + 0,15·V + 0,10·S − 0,4·R) × 20. Это инструмент сравнения тем между собой, а не прогноз просмотров.</p>
+</section>
+
+<section id="table">
+<h2>4. Все темы с оценками</h2>
+<p>73 суры: 59 из первого плана и 14 новых кандидатов (13 из них вошли в новый план). Нажмите на заголовок колонки, чтобы отсортировать.</p>
+<div class="controls" id="ctl">
+<button data-f="all" class="on">Все 73</button><button data-f="in">В новом плане (58)</button><button data-f="new">Новые</button><button data-f="out">Не берём (15)</button>
+<input id="q" type="search" placeholder="Поиск по названию" aria-label="Поиск по названию">
+</div>
+<div class="scroll"><table id="tb"><thead><tr>
+<th class="num" data-k="rank">№</th><th data-k="uz">Сура</th><th class="num" data-k="ayahs">Аятов</th><th class="num" data-k="hits">Слово в аятах</th><th class="num" data-k="T">Загадка</th><th class="num" data-k="F">Известн.</th><th class="num" data-k="W">История</th><th class="num" data-k="V">Картинка</th><th class="num" data-k="S">Источник</th><th class="num" data-k="R">Риск</th><th class="num" data-k="P">Балл</th><th>Статус</th><th>Как называется и почему</th>
+</tr></thead><tbody></tbody></table></div>
+<p class="src">«Слово в аятах» посчитано кодом по тексту Корана (alquran.cloud, quran-simple-clean). Причины названий: Ibn Ashur (quran-tafsir.net/ashour), Ibn Kathir и Qurtubiy (api.quran.com). Для Saba, Shuaro, Ibrohim, Anbiyo, Kahf, Qamar, Muzzammil, Qiyomat причину названия я пока вывел из текста: точную формулировку нужно проверить в Ibn Ashur при написании сценария.</p>
+</section>
+
+<section id="swap">
+<h2>5. Что поменять в плане</h2>
+<div class="two">
+<div class="card"><h3>Добавить (13)</h3><p><b>Ixlos</b>, <b>Fotiha</b>, <b>Oli Imron</b>, <b>Maryam</b>, <b>Tavba (Bara'a)</b>, <b>Mujodala</b>, <b>A'rof</b>, <b>Josiya</b>, <b>Sharh</b>, <b>Nasr</b>, <b>Muhammad</b>, <b>Yasin</b>, <b>Takosur</b>. Самые сильные — Ixlos (слова «ixlos» в суре нет), Fotiha (слова «fotiha» нет), Tavba (единственная сура без Bismillah) и Oli Imron.</p></div>
+<div class="card"><h3>Убрать (14)</h3><p>Mo'minlar, Voqea, Ma'orij, Burj, Humaza, Fajr, Odiyot, Inson, Qamar, Qori'a, Mursalot, Haqqa, Qiyomat, Noziot. Ma'un из новых кандидатов тоже не берём (тема о лицемерах). В большинстве название — просто первое слово, загадки нет. Часть из них про наказание или спорные чудеса.</p></div>
+</div>
+<p style="margin-top:14px">Что я <b>не</b> трогал: Kahf, Isro, Moida, Hujurot, Yunus, Hijr, Nur, Hud, Fil, Alaq, Qadr, Hadid и ещё десятки сильных тем остаются.</p>
+</section>
+
+<section id="order">
+<h2>6. Предложенный порядок и почему именно он</h2>
+<div class="cards">
+<div class="card"><h3>1. Сильное в начале</h3><p>Первые 10 дней — темы с баллом 80+. За это время мы проверим, работает ли формат «имя суры как загадка» на разных темах, не дожидаясь конца месяца.</p></div>
+<div class="card"><h3>2. Лучшее на 16:00</h3><p>В каждом дне более сильная тема идёт на 16:00, потому что «Sigir» вышел в 17:31. Утро 11:00 — вторая по силе.</p></div>
+<div class="card"><h3>3. Пятницы</h3><p>13.11 — Juma (11:00) и Kahf (16:00). В пятницу люди чаще заходят за темой суры. Остальные пятницы идут с обычными темами.</p></div>
+<div class="card"><h3>4. Лёгкое в конце</h3><p>Суры, где название просто первое слово (Sharh, Asr, Toriq, Naba), идут последними. Если подход подтвердится, к ним мы подойдём с опытом.</p></div>
+</div>
+<div class="callout" style="margin-top:16px"><p><b>Слот 12.11 16:00.</b> Сегодня сильные сценарии не успеть, поэтому я поставил готовый Alham40 («100 zarba»). Если не хотите, этот слот можно пропустить. Yunus 10 (16.11) не дублирует Yunus 21:87, там речь о другом аяте и другой теме.</p></div>
+<div class="controls" style="margin-top:16px"><button id="showAll" class="on" type="button">Показать все 60 слотов</button><button id="show10" type="button">Первые 10 дней</button></div>
+<div class="scroll"><table id="cal"><thead><tr><th class="num">№</th><th>Дата</th><th>Слот</th><th>Тема</th><th class="num">Балл</th><th>Заметка</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="forecast">
+<h2>7. Чего ждать за месяц</h2>
+<p>Прогноз сделан по вашим собственным цифрам, поэтому он грубый. В плане 58 роликов формата «Nega» плюс Yunus и Alham40. Базовые числа:</p>
+<ul class="plain">
+<li>Типичный ролик аккаунта: около 170-190 просмотров.</li>
+<li>Из 10 измеренных роликов 3 набрали не меньше 1 900, один из них — больше 20 000.</li>
+<li>Формат «Nega sura» измерен один раз (Sigir). Второй (Ankabut) пока без цифр. На одном замере строить уверенный прогноз нельзя.</li>
+</ul>
+<div class="sc">
+<div class="card"><div class="big w">≈ 10 тыс.</div><p><b>Осторожный.</b> Все ролики идут на уровне типичных (около 180). Формат оказался разовой удачей. Репостов около 100.</p></div>
+<div class="card"><div class="big a">≈ 55 тыс.</div><p><b>Базовый.</b> 8 роликов по 2 500, 1 ролик на 25 000, остальные по 200. Репостов около 550 (при 1%).</p></div>
+<div class="card"><div class="big g">≈ 150 тыс.</div><p><b>Удачный.</b> Формат «Sigir» повторяется: 6 роликов по 20 000 и 10 по 2 500. Репостов около 1 500.</p></div>
+</div>
+<p class="src" style="margin-top:8px">Вероятности я не называю: данных слишком мало. Это три возможных исхода, а не обещание. Подписчики в прогноз не вошли, потому что текущее число подписчиков мне недоступно.</p>
+
+<h3 style="margin-top:22px">Контрольные точки и правила решений</h3>
+<div class="scroll"><table>
+<thead><tr><th>Когда</th><th>Что смотрим</th><th>Если хорошо</th><th>Если плохо</th></tr></thead>
+<tbody>
+<tr><td class="fix"><b>13.11</b> (завтра)</td><td>Цифры Ankabut, Ikki bog', Yunus за первые сутки</td><td>Формат «Nega» подтверждён, продолжаем</td><td>Если Ankabut ниже 500, пересматриваем крючки и обложки, а не темы</td></tr>
+<tr><td class="fix"><b>16.11</b> (день 5)</td><td>Первые 4-5 новых «Nega»: просмотры и репосты за сутки</td><td>Берём темы того же типа</td><td>Если ни одна не выше 1 000, меняем хуки по образцу Sigir</td></tr>
+<tr><td class="fix"><b>22.11</b> (день 10)</td><td>Сколько из 20 набрали 2 500 и больше, доля репостов</td><td>10% и выше — идём по плану</td><td>Ниже 5% — убираем тип темы, который не сработал</td></tr>
+<tr><td class="fix"><b>2.12</b> (день 20)</td><td>Какие механики лучше: «слово только в аяте», «имя не в тексте», «имя пророка»</td><td>Переставляем остаток плана под лучшие</td><td>Сокращаем до одного ролика в день</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="risks">
+<h2>8. Что я не смог проверить и риски</h2>
+<ul class="plain">
+<li><b>Оценки «известность» и «история» — мои.</b> Если вы лучше знаете, какие суры любит ваш зритель, поправьте, и таблица пересчитается по тем же весам.</li>
+<li><b>Нет цифр по роликам 10-12.11.</b> Платформа их ещё не подтянула, а у vidIQ закончились кредиты. Проверить стоит через сутки.</li>
+<li><b>Тафсиры я читал в английском и арабском виде,</b> на узбекский перевожу сам. Религиозную проверку делаете вы.</li>
+<li><b>Правило постановления № 180 (экспертиза религиозных материалов)</b> остаётся риском. Мой подход (только цитаты, без толкований и фетв, источник называется) его снижает, но не снимает.</li>
+<li><b>Все числа в сценариях</b> (число аятов, сколько раз слово) считаются кодом по тексту, а не по памяти.</li>
+<li><b>Длина.</b> Хорошие сценарии с историей получаются 80-100 секунд. Нужно решить, оставляем ли такую длину или режем до 60.</li>
+</ul>
+</section>
+
+<section id="next">
+<h2>9. Что нужно от вас</h2>
+<ol class="plain">
+<li>Согласны ли заменить 14 слабых тем на 13 сильных (раздел 5)? Если да, я обновлю `PLAN_AYAT.md`.</li>
+<li>Согласны ли с порядком из раздела 6? Особенно с Ixlos на 14.11 в 16:00.</li>
+<li>Что поставить в слот 12.11 16:00: Alham40 или оставить пустым?</li>
+<li>Какой сценарий писать первым: Ixlos, Kahf, Isro, Moida? После вашего выбора пишу по образцу Hudhud/Hujurot, но с более сильной историей, и показываю.</li>
+</ol>
+</section>
+
+</div>
+<script>
+const ROWS=[{"n": 112, "uz": "Ixlos", "F": 5, "T": 5, "W": 4, "S": 5, "V": 4, "R": 0, "P": 93, "mech": "Слова «ихлас» в суре НЕТ; Ibn Ashur: названа по содержанию (чистота единобожия), ещё «Таухид»", "ayahs": 4, "hits": 0, "type": "Meccan", "inplan": false, "rank": 1}, {"n": 18, "uz": "G'or (Kahf)", "F": 5, "T": 4, "W": 5, "S": 4, "V": 5, "R": 0, "P": 92, "mech": "Название по рассказу о людях пещеры; в суре ещё три истории; слово «хадид» тоже есть, но название другое (Ibn Ashur)", "ayahs": 110, "hits": 6, "type": "Meccan", "inplan": true, "rank": 2}, {"n": 17, "uz": "Isro", "F": 4, "T": 5, "W": 4, "S": 5, "V": 5, "R": 0, "P": 91, "mech": "В 111 аятах Исро только в первом; у Сподвижников называлась «Бани Исраил» (Ibn Ashur)", "ayahs": 111, "hits": 0, "type": "Meccan", "inplan": true, "rank": 3}, {"n": 5, "uz": "Dasturxon (Moida)", "F": 3, "T": 5, "W": 5, "S": 5, "V": 4, "R": 0, "P": 87, "mech": "Название из рассказа о столе (Ibn Ashur: «в ней история стола»); слово только в 3 аятах из 120", "ayahs": 120, "hits": 2, "type": "Medinan", "inplan": true, "rank": 4}, {"n": 3, "uz": "Oli Imron", "F": 4, "T": 4, "W": 5, "S": 5, "V": 4, "R": 0, "P": 86, "mech": "Ibn Ashur: название времён Пророка (Муслим); семья Имрана в аятах 33-35 из 200", "ayahs": 200, "hits": 2, "type": "Medinan", "inplan": false, "rank": 5}, {"n": 10, "uz": "Yunus", "F": 4, "T": 4, "W": 4, "S": 5, "V": 5, "R": 0, "P": 85, "mech": "Ibn Ashur: сура единственная, где говорится об особенности народа Йунуса (10:98)", "ayahs": 109, "hits": 1, "type": "Meccan", "inplan": true, "rank": 6}, {"n": 1, "uz": "Fotiha", "F": 5, "T": 4, "W": 4, "S": 4, "V": 4, "R": 0, "P": 85, "mech": "Много имён (Ibn Ashur: «ас-Саб' аль-масани», Ibn Kathir…); слова «Фатиха» в ней нет", "ayahs": 7, "hits": 0, "type": "Meccan", "inplan": false, "rank": 7}, {"n": 15, "uz": "Hijr", "F": 3, "T": 5, "W": 4, "S": 5, "V": 4, "R": 0, "P": 83, "mech": "Слово только здесь во всём Коране (Ibn Ashur); у тунисских учеников «Рубама»", "ayahs": 99, "hits": 1, "type": "Meccan", "inplan": true, "rank": 8}, {"n": 24, "uz": "Nur", "F": 5, "T": 4, "W": 4, "S": 5, "V": 5, "R": 1, "P": 82, "mech": "Название от аята «Аллах — свет небес и земли» (24:35), сура в основном о нормах поведения", "ayahs": 64, "hits": 2, "type": "Medinan", "inplan": true, "rank": 9}, {"n": 11, "uz": "Hud", "F": 4, "T": 4, "W": 4, "S": 5, "V": 4, "R": 0, "P": 82, "mech": "Один из пророков в названии, рассказ о многих народах; название от Пророка (Ibn Ashur)", "ayahs": 123, "hits": 6, "type": "Meccan", "inplan": true, "rank": 10}, {"n": 105, "uz": "Fil", "F": 5, "T": 2, "W": 5, "S": 5, "V": 5, "R": 0, "P": 82, "mech": "Название по событию (слон Абрахи), сура из 5 аятов", "ayahs": 5, "hits": 1, "type": "Meccan", "inplan": true, "rank": 11}, {"n": 96, "uz": "Alaq (Iqro)", "F": 5, "T": 3, "W": 4, "S": 5, "V": 4, "R": 0, "P": 81, "mech": "Ibn Ashur: во времена Сподвижников звалась «Икра би-исми Раббика»; «аль-Алак» — слово во 2-м аяте", "ayahs": 19, "hits": 1, "type": "Meccan", "inplan": true, "rank": 12}, {"n": 97, "uz": "Qadr", "F": 5, "T": 3, "W": 4, "S": 5, "V": 4, "R": 0, "P": 81, "mech": "Название по слову «ляйлят аль-кадр» в сурe", "ayahs": 5, "hits": 3, "type": "Meccan", "inplan": true, "rank": 13}, {"n": 49, "uz": "Xonalar (Hujurot)", "F": 3, "T": 5, "W": 4, "S": 5, "V": 3, "R": 0, "P": 80, "mech": "Название из аята 4: вскрик у комнат Пророка (Ibn Ashur, Ibn Kathir); сура на 18 аятов о манерах", "ayahs": 18, "hits": 1, "type": "Medinan", "inplan": true, "rank": 14}, {"n": 57, "uz": "Temir (Hadid)", "F": 4, "T": 5, "W": 4, "S": 5, "V": 4, "R": 1, "P": 80, "mech": "Слово 1 раз (57:25). Ibn Ashur: слово есть и в Кахф, но Кахф назван по пещере", "ayahs": 29, "hits": 1, "type": "Medinan", "inplan": true, "rank": 15}, {"n": 31, "uz": "Luqmon", "F": 4, "T": 3, "W": 5, "S": 5, "V": 4, "R": 0, "P": 80, "mech": "Ibn Ashur: назван из-за мудрости Лукмана (31:12-19), он не пророк", "ayahs": 34, "hits": 2, "type": "Meccan", "inplan": true, "rank": 16}, {"n": 62, "uz": "Juma", "F": 5, "T": 4, "W": 3, "S": 5, "V": 3, "R": 0, "P": 80, "mech": "Слово 62:9 (пятница); Ibn Ashur: название времён Сподвижников", "ayahs": 11, "hits": 1, "type": "Medinan", "inplan": true, "rank": 17}, {"n": 9, "uz": "Tavba (Bara'a)", "F": 4, "T": 5, "W": 4, "S": 5, "V": 4, "R": 1, "P": 80, "mech": "Название «Бараа» по первому слову; нет басмалы; ещё «аль-Мукашкиша»", "ayahs": 129, "hits": 1, "type": "Medinan", "inplan": false, "rank": 18}, {"n": 19, "uz": "Maryam", "F": 5, "T": 2, "W": 5, "S": 5, "V": 4, "R": 0, "P": 79, "mech": "Ibn Ashur: рассказ о Марьям и её сыне подробно описан в этой суре", "ayahs": 98, "hits": 3, "type": "Meccan", "inplan": false, "rank": 19}, {"n": 14, "uz": "Ibrohim", "F": 4, "T": 4, "W": 4, "S": 3, "V": 4, "R": 0, "P": 78, "mech": "Название по 14:35-41, мольба Ибрахима", "ayahs": 52, "hits": 1, "type": "Meccan", "inplan": true, "rank": 20}, {"n": 22, "uz": "Haj", "F": 4, "T": 4, "W": 3, "S": 5, "V": 4, "R": 0, "P": 78, "mech": "Слово в 22:27 (азан о хадже); Ibn Ashur: назвали при Пророке (Абу Давуд, Тирмизи)", "ayahs": 78, "hits": 1, "type": "Medinan", "inplan": true, "rank": 21}, {"n": 28, "uz": "Qissalar (Qasas)", "F": 3, "T": 4, "W": 4, "S": 5, "V": 4, "R": 0, "P": 77, "mech": "Слово в 28:25, рассказ Мусы у Шуайба; сура вся из историй", "ayahs": 88, "hits": 1, "type": "Meccan", "inplan": true, "rank": 22}, {"n": 67, "uz": "Mulk", "F": 5, "T": 3, "W": 3, "S": 5, "V": 4, "R": 0, "P": 77, "mech": "Ещё «Табарак аль-Мульк» (при Пророке, Тирмизи), аль-Вакия", "ayahs": 30, "hits": 1, "type": "Meccan", "inplan": true, "rank": 23}, {"n": 106, "uz": "Quraysh", "F": 4, "T": 3, "W": 4, "S": 5, "V": 4, "R": 0, "P": 76, "mech": "Ibn Ashur: «Ли-илафи Курайш» и «Курайш»; название по племени", "ayahs": 4, "hits": 1, "type": "Meccan", "inplan": true, "rank": 24}, {"n": 34, "uz": "Saba", "F": 3, "T": 4, "W": 4, "S": 4, "V": 4, "R": 0, "P": 75, "mech": "Название из 34:15, рассказ о народе Саба и плотине", "ayahs": 54, "hits": 1, "type": "Meccan", "inplan": true, "rank": 25}, {"n": 71, "uz": "Nuh", "F": 4, "T": 2, "W": 5, "S": 4, "V": 5, "R": 0, "P": 75, "mech": "Вся сура о Нухе", "ayahs": 28, "hits": 3, "type": "Meccan", "inplan": true, "rank": 26}, {"n": 55, "uz": "Rahmon", "F": 5, "T": 3, "W": 3, "S": 4, "V": 4, "R": 0, "P": 75, "mech": "Слово «Рахман» в 1 аяте; повторяющийся аят", "ayahs": 78, "hits": 1, "type": "Medinan", "inplan": true, "rank": 27}, {"n": 45, "uz": "Josiya", "F": 2, "T": 5, "W": 3, "S": 5, "V": 4, "R": 0, "P": 74, "mech": "Слово «джасия» (28) во всём Коране только здесь (Ibn Ashur)", "ayahs": 37, "hits": 1, "type": "Meccan", "inplan": false, "rank": 28}, {"n": 7, "uz": "A'rof", "F": 4, "T": 4, "W": 4, "S": 5, "V": 4, "R": 1, "P": 74, "mech": "Слова «Аль-А'раф» только в 7:46, 48; ещё «Аль-Микат», «Аль-Мисак»", "ayahs": 206, "hits": 2, "type": "Meccan", "inplan": false, "rank": 29}, {"n": 58, "uz": "Mujodala", "F": 3, "T": 4, "W": 5, "S": 5, "V": 4, "R": 1, "P": 73, "mech": "Ibn Ashur: открывается спором женщины (жены Аус ибн ас-Самита) перед Пророком; ещё «Кад самиа»", "ayahs": 22, "hits": 0, "type": "Medinan", "inplan": false, "rank": 30}, {"n": 95, "uz": "Tin", "F": 4, "T": 3, "W": 3, "S": 5, "V": 4, "R": 0, "P": 72, "mech": "Ibn Ashur: названа по первому слову", "ayahs": 8, "hits": 1, "type": "Meccan", "inplan": true, "rank": 31}, {"n": 99, "uz": "Zilzol (Zalzala)", "F": 4, "T": 3, "W": 3, "S": 5, "V": 4, "R": 0, "P": 72, "mech": "Ещё «Иза зульзилат» (Сподвижники, Тирмизи, Бухари)", "ayahs": 8, "hits": 0, "type": "Medinan", "inplan": true, "rank": 32}, {"n": 43, "uz": "Zeb-ziynat (Zuxruf)", "F": 3, "T": 4, "W": 3, "S": 4, "V": 4, "R": 0, "P": 71, "mech": "Слово в 43:35; в Бухари «Ха Мим аз-Зухруф»", "ayahs": 89, "hits": 1, "type": "Meccan", "inplan": true, "rank": 33}, {"n": 35, "uz": "Fotir (Malaika)", "F": 3, "T": 3, "W": 4, "S": 5, "V": 4, "R": 0, "P": 71, "mech": "Два имени: «Фатир» (первое слово) и «Малаика» (Бухари, Тирмизи) — Ibn Ashur", "ayahs": 45, "hits": 1, "type": "Meccan", "inplan": true, "rank": 34}, {"n": 74, "uz": "Burkanib olgan (Muddassir)", "F": 3, "T": 3, "W": 4, "S": 5, "V": 4, "R": 0, "P": 71, "mech": "Ibn Ashur: названа по описанию Пророка", "ayahs": 56, "hits": 1, "type": "Meccan", "inplan": true, "rank": 35}, {"n": 6, "uz": "Chorva (An'om)", "F": 4, "T": 4, "W": 3, "S": 5, "V": 4, "R": 1, "P": 70, "mech": "Слово «an'am» повторяется 6 раз в разделе 136-144 (Ibn Ashur), сура о тавхиде", "ayahs": 165, "hits": 4, "type": "Meccan", "inplan": true, "rank": 36}, {"n": 26, "uz": "Shoirlar (Shuaro)", "F": 3, "T": 5, "W": 4, "S": 4, "V": 3, "R": 1, "P": 70, "mech": "Слово в 26:224, сура рассказывает о пророках", "ayahs": 227, "hits": 1, "type": "Meccan", "inplan": true, "rank": 37}, {"n": 93, "uz": "Zuho", "F": 4, "T": 2, "W": 4, "S": 5, "V": 4, "R": 0, "P": 70, "mech": "Причина ниспослания в Сахихайн", "ayahs": 11, "hits": 1, "type": "Meccan", "inplan": true, "rank": 38}, {"n": 94, "uz": "Sharh", "F": 4, "T": 2, "W": 4, "S": 5, "V": 4, "R": 0, "P": 70, "mech": "Первые слова «Разве не раскрыли»", "ayahs": 8, "hits": 1, "type": "Meccan", "inplan": false, "rank": 39}, {"n": 44, "uz": "Tutun (Duxon)", "F": 3, "T": 5, "W": 3, "S": 4, "V": 4, "R": 1, "P": 69, "mech": "Слово в 44:10; в мусхафах «Ха Мим ад-Духан»", "ayahs": 59, "hits": 1, "type": "Meccan", "inplan": true, "rank": 40}, {"n": 39, "uz": "Guruhlar (Zumar)", "F": 3, "T": 4, "W": 4, "S": 5, "V": 4, "R": 1, "P": 69, "mech": "Слово в 39:71, 73; у Вахба ибн Мунаббиха ещё «Гураф» (Qurtubi)", "ayahs": 75, "hits": 2, "type": "Meccan", "inplan": true, "rank": 41}, {"n": 46, "uz": "Qum tepalari (Ahqof)", "F": 2, "T": 5, "W": 3, "S": 4, "V": 3, "R": 0, "P": 69, "mech": "Слово в 46:21, сура названа Ибн Аббасом и Ибн Масудом", "ayahs": 35, "hits": 1, "type": "Meccan", "inplan": true, "rank": 42}, {"n": 73, "uz": "O'ranib olgan (Muzzammil)", "F": 3, "T": 3, "W": 4, "S": 4, "V": 4, "R": 0, "P": 69, "mech": "Название по первому аяту «о закутавшийся»", "ayahs": 20, "hits": 1, "type": "Meccan", "inplan": true, "rank": 43}, {"n": 110, "uz": "Nasr", "F": 4, "T": 3, "W": 3, "S": 5, "V": 3, "R": 0, "P": 69, "mech": "Название по первым словам (Бухари), 3 аята", "ayahs": 3, "hits": 1, "type": "Medinan", "inplan": false, "rank": 44}, {"n": 21, "uz": "Payg'ambarlar (Anbiyo)", "F": 4, "T": 3, "W": 3, "S": 3, "V": 4, "R": 0, "P": 68, "mech": "Сура о пророках, но в ней только часть; точная причина — проверить", "ayahs": 112, "hits": 0, "type": "Meccan", "inplan": true, "rank": 45}, {"n": 72, "uz": "Jin", "F": 4, "T": 3, "W": 4, "S": 5, "V": 4, "R": 1, "P": 68, "mech": "Название из первого аята (джинны слушали Коран); ещё «Куль уха»", "ayahs": 28, "hits": 3, "type": "Meccan", "inplan": true, "rank": 46}, {"n": 103, "uz": "Asr", "F": 5, "T": 2, "W": 3, "S": 5, "V": 3, "R": 0, "P": 68, "mech": "Назвали по первому слову (Бухари)", "ayahs": 3, "hits": 1, "type": "Meccan", "inplan": true, "rank": 47}, {"n": 68, "uz": "Qalam", "F": 3, "T": 3, "W": 3, "S": 5, "V": 4, "R": 0, "P": 67, "mech": "Первый аят; Ibn Ashur: «Нун» и «аль-Калям»", "ayahs": 52, "hits": 1, "type": "Meccan", "inplan": true, "rank": 48}, {"n": 86, "uz": "Toriq", "F": 3, "T": 3, "W": 3, "S": 5, "V": 4, "R": 0, "P": 67, "mech": "Ibn Ashur: слово в начале; Qurtubi: звезда, что «стучится» ночью", "ayahs": 17, "hits": 2, "type": "Meccan", "inplan": true, "rank": 49}, {"n": 47, "uz": "Muhammad", "F": 4, "T": 4, "W": 3, "S": 5, "V": 3, "R": 1, "P": 67, "mech": "Имя в 47:2; ещё «Аль-Китал» (Ibn Ashur)", "ayahs": 38, "hits": 1, "type": "Medinan", "inplan": false, "rank": 50}, {"n": 36, "uz": "Yasin", "F": 5, "T": 3, "W": 3, "S": 5, "V": 3, "R": 1, "P": 66, "mech": "Название по двум буквам в начале (Ibn Ashur)", "ayahs": 83, "hits": 9, "type": "Meccan", "inplan": false, "rank": 51}, {"n": 25, "uz": "Furqon", "F": 3, "T": 3, "W": 3, "S": 5, "V": 3, "R": 0, "P": 64, "mech": "Ibn Kathir: «названа Фуркан, потому что отличает истину от лжи»", "ayahs": 77, "hits": 1, "type": "Meccan", "inplan": true, "rank": 52}, {"n": 102, "uz": "Takosur", "F": 4, "T": 2, "W": 3, "S": 5, "V": 3, "R": 0, "P": 63, "mech": "Первое слово", "ayahs": 8, "hits": 1, "type": "Meccan", "inplan": false, "rank": 53}, {"n": 32, "uz": "Sajda", "F": 3, "T": 3, "W": 3, "S": 4, "V": 3, "R": 0, "P": 62, "mech": "Ещё называется «аль-Мададжи'» (32:16), «аль-Мунджийа»; по Ibn Ashur", "ayahs": 30, "hits": 0, "type": "Meccan", "inplan": true, "rank": 54}, {"n": 91, "uz": "Quyosh (Shams)", "F": 3, "T": 2, "W": 3, "S": 5, "V": 4, "R": 0, "P": 61, "mech": "Первое слово, 7 клятв", "ayahs": 15, "hits": 1, "type": "Meccan", "inplan": true, "rank": 55}, {"n": 92, "uz": "Tun (Layl)", "F": 3, "T": 2, "W": 3, "S": 5, "V": 4, "R": 0, "P": 61, "mech": "Первое слово", "ayahs": 21, "hits": 1, "type": "Meccan", "inplan": true, "rank": 56}, {"n": 78, "uz": "Naba", "F": 4, "T": 2, "W": 3, "S": 5, "V": 4, "R": 1, "P": 58, "mech": "Название от слова «Наба» в начале; ещё «Амма»", "ayahs": 40, "hits": 1, "type": "Meccan", "inplan": true, "rank": 57}, {"n": 90, "uz": "Shahar (Balad)", "F": 3, "T": 2, "W": 3, "S": 5, "V": 3, "R": 0, "P": 58, "mech": "Первый аят (клятва городом)", "ayahs": 20, "hits": 2, "type": "Meccan", "inplan": true, "rank": 58}, {"n": 23, "uz": "Mo'minlar (Mu'minun)", "F": 3, "T": 2, "W": 3, "S": 4, "V": 3, "R": 0, "P": 56, "mech": "Первый аят «Преуспели верующие»; ещё «Кад афлаха»", "ayahs": 118, "hits": 1, "type": "Meccan", "inplan": true, "rank": 59}, {"n": 56, "uz": "Voqea", "F": 5, "T": 2, "W": 2, "S": 5, "V": 3, "R": 1, "P": 56, "mech": "Название по первому слову; Ibn Ashur: наименование Пророком", "ayahs": 96, "hits": 1, "type": "Meccan", "inplan": true, "rank": 60}, {"n": 70, "uz": "Ma'orij", "F": 3, "T": 3, "W": 3, "S": 5, "V": 3, "R": 1, "P": 56, "mech": "Название по 70:3 «Господин ступеней»; ещё «Сааля Саиль»", "ayahs": 44, "hits": 1, "type": "Meccan", "inplan": true, "rank": 61}, {"n": 85, "uz": "Burj", "F": 3, "T": 3, "W": 3, "S": 4, "V": 3, "R": 1, "P": 54, "mech": "Первый аят о небесных созвездиях", "ayahs": 22, "hits": 1, "type": "Meccan", "inplan": true, "rank": 62}, {"n": 104, "uz": "Humaza", "F": 4, "T": 2, "W": 3, "S": 4, "V": 3, "R": 1, "P": 53, "mech": "Первое слово", "ayahs": 9, "hits": 1, "type": "Meccan", "inplan": true, "rank": 63}, {"n": 89, "uz": "Tong (Fajr)", "F": 3, "T": 2, "W": 3, "S": 5, "V": 4, "R": 1, "P": 53, "mech": "Первое слово", "ayahs": 30, "hits": 1, "type": "Meccan", "inplan": true, "rank": 64}, {"n": 107, "uz": "Ma'un", "F": 4, "T": 3, "W": 3, "S": 5, "V": 3, "R": 2, "P": 53, "mech": "Слово в 107:7; тема о лицемерах", "ayahs": 7, "hits": 1, "type": "Meccan", "inplan": false, "rank": 65}, {"n": 100, "uz": "Chopayotgan otlar (Odiyot)", "F": 3, "T": 2, "W": 3, "S": 4, "V": 4, "R": 1, "P": 51, "mech": "Название по первому аяту (Qurtubi: «одийат» от «ады» — бег)", "ayahs": 11, "hits": 1, "type": "Meccan", "inplan": true, "rank": 66}, {"n": 76, "uz": "Inson", "F": 3, "T": 2, "W": 3, "S": 4, "V": 3, "R": 1, "P": 48, "mech": "Ещё называли «Халь ата» при Сподвижниках (Бухари)", "ayahs": 31, "hits": 2, "type": "Medinan", "inplan": true, "rank": 67}, {"n": 54, "uz": "Oy (Qamar)", "F": 3, "T": 3, "W": 3, "S": 3, "V": 4, "R": 2, "P": 47, "mech": "Первый аят; спорная тема чудес, пропустим", "ayahs": 55, "hits": 1, "type": "Meccan", "inplan": true, "rank": 68}, {"n": 101, "uz": "Qori'a", "F": 3, "T": 2, "W": 2, "S": 3, "V": 3, "R": 1, "P": 42, "mech": "Нет сообщений от Сподвижников о названии (Ibn Ashur)", "ayahs": 11, "hits": 3, "type": "Meccan", "inplan": true, "rank": 69}, {"n": 77, "uz": "Mursalot", "F": 2, "T": 2, "W": 2, "S": 4, "V": 3, "R": 1, "P": 39, "mech": "Первые слова, клятва ветрами", "ayahs": 50, "hits": 1, "type": "Meccan", "inplan": true, "rank": 70}, {"n": 69, "uz": "Haqqa", "F": 3, "T": 2, "W": 2, "S": 5, "V": 3, "R": 2, "P": 38, "mech": "Слово из 1-3 аятов, тема Дня Суда: пропустим", "ayahs": 52, "hits": 3, "type": "Meccan", "inplan": true, "rank": 71}, {"n": 75, "uz": "Qiyomat", "F": 3, "T": 2, "W": 2, "S": 3, "V": 3, "R": 2, "P": 34, "mech": "Тема Дня Суда", "ayahs": 40, "hits": 2, "type": "Meccan", "inplan": true, "rank": 72}, {"n": 79, "uz": "Noziot", "F": 2, "T": 2, "W": 2, "S": 5, "V": 3, "R": 2, "P": 33, "mech": "Клятва в первом аяте", "ayahs": 46, "hits": 1, "type": "Meccan", "inplan": true, "rank": 73}];
+const CAL=[{"n": 1, "date": "чт 12.11", "time": "11:00", "title": "Yunus: qorong'ulikdagi duo", "kind": "done", "note": "запланирован, вышел 11:00", "P": null}, {"n": 2, "date": "чт 12.11", "time": "16:00", "title": "Alham40 (100 zarba), не формат «nega»", "kind": "ready", "note": "ролик готов, обложка и описание есть", "P": null}, {"n": 3, "date": "пт 13.11", "time": "11:00", "title": "Juma", "kind": "nega", "P": 80, "note": "пятница", "ref": 62}, {"n": 4, "date": "пт 13.11", "time": "16:00", "title": "G'or (Kahf)", "kind": "nega", "P": 92, "note": "пятница, тоже", "ref": 18}, {"n": 5, "date": "сб 14.11", "time": "11:00", "title": "Isro", "kind": "nega", "P": 91, "ref": 17, "note": ""}, {"n": 6, "date": "сб 14.11", "time": "16:00", "title": "Ixlos", "kind": "nega", "P": 93, "ref": 112, "note": ""}, {"n": 7, "date": "вс 15.11", "time": "11:00", "title": "Oli Imron", "kind": "nega", "P": 86, "ref": 3, "note": ""}, {"n": 8, "date": "вс 15.11", "time": "16:00", "title": "Dasturxon (Moida)", "kind": "nega", "P": 87, "ref": 5, "note": ""}, {"n": 9, "date": "пн 16.11", "time": "11:00", "title": "Fotiha", "kind": "nega", "P": 85, "ref": 1, "note": ""}, {"n": 10, "date": "пн 16.11", "time": "16:00", "title": "Yunus", "kind": "nega", "P": 85, "ref": 10, "note": ""}, {"n": 11, "date": "вт 17.11", "time": "11:00", "title": "Nur", "kind": "nega", "P": 82, "ref": 24, "note": ""}, {"n": 12, "date": "вт 17.11", "time": "16:00", "title": "Hijr", "kind": "nega", "P": 83, "ref": 15, "note": ""}, {"n": 13, "date": "ср 18.11", "time": "11:00", "title": "Fil", "kind": "nega", "P": 82, "ref": 105, "note": ""}, {"n": 14, "date": "ср 18.11", "time": "16:00", "title": "Hud", "kind": "nega", "P": 82, "ref": 11, "note": ""}, {"n": 15, "date": "чт 19.11", "time": "11:00", "title": "Qadr", "kind": "nega", "P": 81, "ref": 97, "note": ""}, {"n": 16, "date": "чт 19.11", "time": "16:00", "title": "Alaq (Iqro)", "kind": "nega", "P": 81, "ref": 96, "note": ""}, {"n": 17, "date": "пт 20.11", "time": "11:00", "title": "Temir (Hadid)", "kind": "nega", "P": 80, "ref": 57, "note": ""}, {"n": 18, "date": "пт 20.11", "time": "16:00", "title": "Xonalar (Hujurot)", "kind": "nega", "P": 80, "ref": 49, "note": ""}, {"n": 19, "date": "сб 21.11", "time": "11:00", "title": "Tavba (Bara'a)", "kind": "nega", "P": 80, "ref": 9, "note": ""}, {"n": 20, "date": "сб 21.11", "time": "16:00", "title": "Luqmon", "kind": "nega", "P": 80, "ref": 31, "note": ""}, {"n": 21, "date": "вс 22.11", "time": "11:00", "title": "Ibrohim", "kind": "nega", "P": 78, "ref": 14, "note": ""}, {"n": 22, "date": "вс 22.11", "time": "16:00", "title": "Maryam", "kind": "nega", "P": 79, "ref": 19, "note": ""}, {"n": 23, "date": "пн 23.11", "time": "11:00", "title": "Qissalar (Qasas)", "kind": "nega", "P": 77, "ref": 28, "note": ""}, {"n": 24, "date": "пн 23.11", "time": "16:00", "title": "Haj", "kind": "nega", "P": 78, "ref": 22, "note": ""}, {"n": 25, "date": "вт 24.11", "time": "11:00", "title": "Quraysh", "kind": "nega", "P": 76, "ref": 106, "note": ""}, {"n": 26, "date": "вт 24.11", "time": "16:00", "title": "Mulk", "kind": "nega", "P": 77, "ref": 67, "note": ""}, {"n": 27, "date": "ср 25.11", "time": "11:00", "title": "Nuh", "kind": "nega", "P": 75, "ref": 71, "note": ""}, {"n": 28, "date": "ср 25.11", "time": "16:00", "title": "Saba", "kind": "nega", "P": 75, "ref": 34, "note": ""}, {"n": 29, "date": "чт 26.11", "time": "11:00", "title": "Josiya", "kind": "nega", "P": 74, "ref": 45, "note": ""}, {"n": 30, "date": "чт 26.11", "time": "16:00", "title": "Rahmon", "kind": "nega", "P": 75, "ref": 55, "note": ""}, {"n": 31, "date": "пт 27.11", "time": "11:00", "title": "Mujodala", "kind": "nega", "P": 73, "ref": 58, "note": ""}, {"n": 32, "date": "пт 27.11", "time": "16:00", "title": "A'rof", "kind": "nega", "P": 74, "ref": 7, "note": ""}, {"n": 33, "date": "сб 28.11", "time": "11:00", "title": "Zilzol (Zalzala)", "kind": "nega", "P": 72, "ref": 99, "note": ""}, {"n": 34, "date": "сб 28.11", "time": "16:00", "title": "Tin", "kind": "nega", "P": 72, "ref": 95, "note": ""}, {"n": 35, "date": "вс 29.11", "time": "11:00", "title": "Fotir (Malaika)", "kind": "nega", "P": 71, "ref": 35, "note": ""}, {"n": 36, "date": "вс 29.11", "time": "16:00", "title": "Zeb-ziynat (Zuxruf)", "kind": "nega", "P": 71, "ref": 43, "note": ""}, {"n": 37, "date": "пн 30.11", "time": "11:00", "title": "Chorva (An'om)", "kind": "nega", "P": 70, "ref": 6, "note": ""}, {"n": 38, "date": "пн 30.11", "time": "16:00", "title": "Burkanib olgan (Muddassir)", "kind": "nega", "P": 71, "ref": 74, "note": ""}, {"n": 39, "date": "вт 01.12", "time": "11:00", "title": "Zuho", "kind": "nega", "P": 70, "ref": 93, "note": ""}, {"n": 40, "date": "вт 01.12", "time": "16:00", "title": "Shoirlar (Shuaro)", "kind": "nega", "P": 70, "ref": 26, "note": ""}, {"n": 41, "date": "ср 02.12", "time": "11:00", "title": "Tutun (Duxon)", "kind": "nega", "P": 69, "ref": 44, "note": ""}, {"n": 42, "date": "ср 02.12", "time": "16:00", "title": "Sharh", "kind": "nega", "P": 70, "ref": 94, "note": ""}, {"n": 43, "date": "чт 03.12", "time": "11:00", "title": "Qum tepalari (Ahqof)", "kind": "nega", "P": 69, "ref": 46, "note": ""}, {"n": 44, "date": "чт 03.12", "time": "16:00", "title": "Guruhlar (Zumar)", "kind": "nega", "P": 69, "ref": 39, "note": ""}, {"n": 45, "date": "пт 04.12", "time": "11:00", "title": "Nasr", "kind": "nega", "P": 69, "ref": 110, "note": ""}, {"n": 46, "date": "пт 04.12", "time": "16:00", "title": "O'ranib olgan (Muzzammil)", "kind": "nega", "P": 69, "ref": 73, "note": ""}, {"n": 47, "date": "сб 05.12", "time": "11:00", "title": "Jin", "kind": "nega", "P": 68, "ref": 72, "note": ""}, {"n": 48, "date": "сб 05.12", "time": "16:00", "title": "Payg'ambarlar (Anbiyo)", "kind": "nega", "P": 68, "ref": 21, "note": ""}, {"n": 49, "date": "вс 06.12", "time": "11:00", "title": "Qalam", "kind": "nega", "P": 67, "ref": 68, "note": ""}, {"n": 50, "date": "вс 06.12", "time": "16:00", "title": "Asr", "kind": "nega", "P": 68, "ref": 103, "note": ""}, {"n": 51, "date": "пн 07.12", "time": "11:00", "title": "Muhammad", "kind": "nega", "P": 67, "ref": 47, "note": ""}, {"n": 52, "date": "пн 07.12", "time": "16:00", "title": "Toriq", "kind": "nega", "P": 67, "ref": 86, "note": ""}, {"n": 53, "date": "вт 08.12", "time": "11:00", "title": "Furqon", "kind": "nega", "P": 64, "ref": 25, "note": ""}, {"n": 54, "date": "вт 08.12", "time": "16:00", "title": "Yasin", "kind": "nega", "P": 66, "ref": 36, "note": ""}, {"n": 55, "date": "ср 09.12", "time": "11:00", "title": "Sajda", "kind": "nega", "P": 62, "ref": 32, "note": ""}, {"n": 56, "date": "ср 09.12", "time": "16:00", "title": "Takosur", "kind": "nega", "P": 63, "ref": 102, "note": ""}, {"n": 57, "date": "чт 10.12", "time": "11:00", "title": "Tun (Layl)", "kind": "nega", "P": 61, "ref": 92, "note": ""}, {"n": 58, "date": "чт 10.12", "time": "16:00", "title": "Quyosh (Shams)", "kind": "nega", "P": 61, "ref": 91, "note": ""}, {"n": 59, "date": "пт 11.12", "time": "11:00", "title": "Shahar (Balad)", "kind": "nega", "P": 58, "ref": 90, "note": ""}, {"n": 60, "date": "пт 11.12", "time": "16:00", "title": "Naba", "kind": "nega", "P": 58, "ref": 78, "note": ""}];
+const VID=[["Sigir (Baqara)",27209,1],["Asalari (аят)",2630,0],["5 turkiy davlat",1906,0],["Sirius",279,0],["Chaqmoq",189,0],["Bukmeker",166,0],["Oyiga atigi",165,0],["Chumoli",121,0],["Kredit",41,0],["Hisob",33,0]];
+const MED=172;
+(function(){
+  const bars=document.getElementById('bars');
+  const mx=Math.log10(30000)-Math.log10(20);
+  const sc=v=>Math.max(0,(Math.log10(v)-Math.log10(20))/mx*100);
+  VID.forEach(([n,v,hi])=>{
+    const d=document.createElement('div');d.className='bar'+(hi?' hi':'');
+    const t=document.createElement('span');t.textContent=n;
+    const tr=document.createElement('div');tr.className='t';
+    const b=document.createElement('b');b.style.width=sc(v)+'%';tr.appendChild(b);
+    const m=document.createElement('i');m.className='m';m.style.left=sc(MED)+'%';tr.appendChild(m);
+    const vv=document.createElement('span');vv.className='v';vv.textContent=v.toLocaleString('ru');
+    d.append(t,tr,vv);bars.appendChild(d);
+  });
+  const cap=document.createElement('div');cap.className='src';cap.textContent='Шкала логарифмическая: деления идут в 10 раз, иначе малые ролики не видны.';bars.appendChild(cap);
+})();
+function dots(n){const s=document.createElement('span');s.className='dots';s.setAttribute('aria-label',n+' из 5');s.innerHTML='●'.repeat(n)+'<i>'+'●'.repeat(5-n)+'</i>';return s;}
+function pill(txt,c){const p=document.createElement('span');p.className='pill '+c;p.textContent=txt;return p;}
+let filt='all',sortK='rank',sortD=1,query='';
+function status(r){if(r.rank>58)return ['убрать','w'];if(!r.inplan)return ['новая','g'];return ['в плане','n'];}
+function render(){
+  const tb=document.querySelector('#tb tbody');tb.innerHTML='';
+  let list=ROWS.filter(r=>{
+    if(filt==='in'&&r.rank>58)return false;
+    if(filt==='new'&&r.inplan)return false;
+    if(filt==='out'&&!(r.rank>58))return false;
+    if(query&&!r.uz.toLowerCase().includes(query))return false;
+    return true;});
+  list.sort((a,b)=>{const x=a[sortK],y=b[sortK];return (typeof x==='string'?x.localeCompare(y):x-y)*sortD;});
+  list.forEach(r=>{
+    const tr=document.createElement('tr');
+    const cells=[[r.rank,'num'],[r.uz,''],[r.ayahs,'num'],[r.hits,'num']];
+    cells.forEach(([v,c])=>{const td=document.createElement('td');td.className=c;td.textContent=v;tr.appendChild(td);});
+    ['T','F','W','V','S'].forEach(k=>{const td=document.createElement('td');td.className='num';td.appendChild(dots(r[k]));tr.appendChild(td);});
+    let td=document.createElement('td');td.className='num';td.textContent=r.R;tr.appendChild(td);
+    td=document.createElement('td');td.className='num';const sp=document.createElement('span');sp.className='score';sp.textContent=r.P;td.appendChild(sp);tr.appendChild(td);
+    td=document.createElement('td');const s=status(r);td.appendChild(pill(s[0],s[1]));tr.appendChild(td);
+    td=document.createElement('td');td.textContent=r.mech;td.style.minWidth='260px';tr.appendChild(td);
+    tb.appendChild(tr);
+  });
+}
+document.querySelectorAll('#ctl button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#ctl button').forEach(x=>x.classList.remove('on'));b.classList.add('on');filt=b.dataset.f;render();}));
+document.getElementById('q').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render();});
+document.querySelectorAll('#tb th[data-k]').forEach(th=>th.addEventListener('click',()=>{const k=th.dataset.k;if(sortK===k)sortD=-sortD;else{sortK=k;sortD=(k==='uz'||k==='rank')?1:-1;}render();}));
+render();
+let lim=60;
+function renderCal(){
+  const tb=document.querySelector('#cal tbody');tb.innerHTML='';
+  CAL.slice(0,lim).forEach(x=>{
+    const tr=document.createElement('tr');
+    [[x.n,'num'],[x.date,'fix'],[x.time,'fix'],[x.title,''],[x.P==null?'':x.P,'num'],[x.note||'','']].forEach(([v,c])=>{const td=document.createElement('td');td.className=c;td.textContent=v;tr.appendChild(td);});
+    if(x.time==='16:00')tr.className='day';
+    tb.appendChild(tr);
+  });
+}
+document.getElementById('showAll').addEventListener('click',e=>{lim=60;e.target.classList.add('on');document.getElementById('show10').classList.remove('on');renderCal();});
+document.getElementById('show10').addEventListener('click',e=>{lim=20;e.target.classList.add('on');document.getElementById('showAll').classList.remove('on');renderCal();});
+renderCal();
+</script>

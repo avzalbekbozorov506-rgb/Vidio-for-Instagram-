@@ -35,6 +35,8 @@ for r in $ranges; do
   done_n=$((done_n+1)); say "готово карточек $done_n/$n"
 done
 say "звук..."
+# озвучка или музыка новее закэшированного звука: перерисовать звук (иначе в ролике останется старый голос)
+if [ -s "$parts/audio.wav" ] && [ -n "$(find "public/$vo" public/music public/sfx -newer "$parts/audio.wav" -type f -name "*.wav" 2>/dev/null | head -1)" ]; then rm -f "$parts/audio.wav"; fi
 if [ ! -s "$parts/audio.wav" ]; then for try in 1 2 3; do npx remotion render "$id" "$parts/audio.tmp.wav" --codec=wav >"out/$id.audio.log" 2>&1 && [ -s "$parts/audio.tmp.wav" ] && mv "$parts/audio.tmp.wav" "$parts/audio.wav" && break; sleep 3; done; fi
 [ -s "$parts/audio.wav" ] || { say "ОШИБКА: звук не отрендерился"; exit 1; }
 : > "$parts/list.txt"; for f in $(ls "$parts"/c*.mp4 | sort); do echo "file '$(basename $f)'" >> "$parts/list.txt"; done

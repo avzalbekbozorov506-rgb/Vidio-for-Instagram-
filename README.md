@@ -1,20 +1,19 @@
 # Vidio-for-Instagram-
-Video for Instagram
+Reels и карусели для Instagram @mohiyat___ («Oddiy mohiyat»): Remotion + озвучка VoiceLab.
 
-## Reels (Remotion)
+## Запуск
 ```
-cd reels
-npm install
-npm run studio                      # preview
-npx remotion render Reel out/reel.mp4
+cd reels && npm install
+npm run studio                 # предпросмотр
+npx remotion render <Id> out/x.mp4
 ```
-Format: 1080x1920, 30fps. Uzbek voiceover: put the mp3 in `reels/public/` and pass `audio` prop.
+Формат: 1080x1920, 30 fps (карусели: 1080x1350). Полный порядок сборки: `.claude/skills/reel-build`, `reels/docs/PIPELINE.md`.
 
 ## Структура
-- `reels/src/` композиции Remotion (одна на ролик, регистрируются в `Root.tsx`), `blocks/` общие блоки (субтитры), `bee/`, `diorama/` наборы графики.
-- `reels/scripts/` сценарии `script-NN.json`, озвучка (`tts-cards.mjs`), тайминги слов (`word-timing.py`), мастеринг (`master.sh`).
-- `reels/public/vo-NN/` озвучка и `words.json`; `public/fonts`, `music`, `sfx`.
-- `reels/release/` обложки и подписи; mp4 опубликованных роликов не хранятся.
-- `reels/docs/` правила и заметки: `INDEX.md` (все ролики и статусы), `COVER_GUIDE.md`, `PIPELINE.md`.
-- `CLAUDE.md` короткий контекст: состояние, правила, конвейер. `reels/docs/HISTORY.md` полный архив журнала сессий 1-6.
-- `reels/storyboards/` раскадровки; `.claude/agents/` сценарист `avzalbot2` и раскадровщик `avzalbot3`.
+- `CLAUDE.md` правила, решения пользователя, состояние сессии (читать первым).
+- `reels/src/` композиции Remotion: по одной на ролик, регистрируются в `Root.tsx`; `blocks/` общие блоки (субтитры, кинослои); подпапки с графикой (`bee/`, `diorama/`, `paper/` и др.). Квизы: `Quiz*.tsx`, карусели: `Carousel*.tsx`, зикр: `Dhikr.tsx`.
+- `reels/scripts/` сценарии `script-NN.json` и инструменты (список и описания: `reels/scripts/README.md`).
+- `reels/public/vo-NN/` озвучка роликов: `words.json`, `durations.json` (wav/mp3 вышедших удалены); `fonts`, `music`, `sfx`, `img`.
+- `reels/release/` обложки (png), описания (txt), готовые mp4 невышедших роликов; mp4 вышедших не хранятся.
+- `reels/docs/` правила и заметки: `INDEX.md` (все ролики и статусы), `PLAN_AYAT.md` (план слотов), `STYLE_PASSPORT.md`, `COVER_GUIDE.md`, `CAPTION_FORMAT.md`; `docs/archive/` устаревшие планы; `docs/report/` отчёт по темам.
+- `reels/storyboards/` раскадровки; `.claude/agents/` сценарист `avzalbot2` и раскадровщик `avzalbot3`; `.claude/hooks/` стартовая сводка сессии.

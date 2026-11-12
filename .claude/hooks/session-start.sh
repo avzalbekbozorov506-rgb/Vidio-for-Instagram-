@@ -30,8 +30,8 @@ import datetime, os, re, subprocess, json, glob
 tz = datetime.timezone(datetime.timedelta(hours=5))
 now = datetime.datetime.now(tz)
 print("=== СВОДКА СТАРТА СЕССИИ (автоматически, Ташкент %s) ===" % now.strftime("%d.%m.%Y %H:%M"))
-print("Прочитай сам, без напоминаний: CLAUDE.md (правила и состояние), reels/docs/INDEX.md (статусы роликов), reels/docs/PLAN_MONTH.md (план слотов), reels/docs/STYLE_PASSPORT.md (стиль и кинослои), reels/docs/CAPTION_FORMAT.md (описание).")
-plan = "reels/docs/PLAN_MONTH.md"
+print("Прочитай сам, без напоминаний: CLAUDE.md (правила и состояние), reels/docs/INDEX.md (статусы роликов), reels/docs/PLAN_AYAT.md (план слотов), reels/docs/STYLE_PASSPORT.md (стиль и кинослои), reels/docs/CAPTION_FORMAT.md (описание).")
+plan = "reels/docs/PLAN_AYAT.md"
 if os.path.exists(plan):
     rows = [l for l in open(plan, encoding="utf-8") if l.startswith("| ") and re.match(r"\| \d+ \|", l)]
     def pick(day):
