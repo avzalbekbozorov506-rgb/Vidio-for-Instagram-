@@ -30,6 +30,7 @@ import {Gold, GoldCover, GOLD_FRAMES} from './Gold';
 import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
 import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
+import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Alham40, Alham40Cover, ALHAM40_FRAMES} from './Alham40';
 import {Kavsar, KavsarCover, KAVSAR_FRAMES} from './Kavsar';
 import {CalliTest, CALLI_FRAMES} from './CalliTest';
@@ -79,6 +80,8 @@ export const Root: React.FC = () => {
     <Composition id="JumaCover" component={JumaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Zakariyo" component={Zakariyo} durationInFrames={ZAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="FalakCover" component={FalakCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UhudCover" component={UhudCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Kavsar" component={Kavsar} durationInFrames={KAVSAR_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="KavsarCover" component={KavsarCover} durationInFrames={1} fps={30} width={1080} height={1920} />
