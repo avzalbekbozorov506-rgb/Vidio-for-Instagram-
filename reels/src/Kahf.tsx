@@ -20,9 +20,6 @@ const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); ac
 export const KAHF_FRAMES = Math.round(acc * FPS);
 const useT = () => useCurrentFrame() / FPS;
 
-const AY23 = 'وَلَا تَقُولَنَّ لِشَا۟ىْءٍ إِنِّى فَاعِلٌۭ ذَٰلِكَ غَدًا';
-const AY24 = 'إِلَّآ أَن يَشَآءَ ٱللَّهُ';
-const NAME_AR = 'سُورَةُ ٱلْكَهْفِ';
 
 const SHOTS: Record<number, Shot[]> = {
   1: [{from: 0, keys: [[0, 1.1, 540, 1000, 0], [1, 1.0, 540, 960, 0]]}],
@@ -143,8 +140,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
       </g>),
         overlay: (<>
           <Label text="JABROIL" a={tm(t, 0.1, 0.6) * (1 - tm(t, 3.2, 3.8))} top={330} size={110} color={GOLD2} />
-          <Arabic text={AY23} a={a1} label="Kahf 18:23" />
-          <Arabic text={AY24} a={a2} label="Kahf 18:24" />
+          <Label text="KAHF 18:23-24" a={tm(t, W_('Unda').s, W_('Unda').s + 0.5)} top={330} size={64} color={GOLD2} />
           <Label text="ERTAGA QILAMAN" a={ert} top={660} size={72} color={CREAM} />
           <Label text="ALLOH XOHLASA" a={xoh} top={660} size={80} color={GOLD} /></>)};
     }
@@ -156,7 +152,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
         <g opacity={1 - bk * 0.8}><Cave x={540} s={1.1} glow={gl} sleepers t={t} /></g>
         <g opacity={bk}><Book y={1050} open={1} glow={1} t={t} /></g></g>),
         overlay: (<>
-          <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', opacity: nm, fontFamily: 'AmiriAr, serif', fontWeight: 700, fontSize: 180, color: CREAM, textShadow: '0 0 40px rgba(255,194,74,.5), 0 4px 24px rgba(0,0,0,.8)'}}>{NAME_AR}</div>
+          <Label text="G'OR SURASI" a={nm} top={330} size={120} color={CREAM} />
           <Label text="SAVOL: YIGITLAR" a={tm(t, W_('Yigitlar').s - 0.1, W_('Yigitlar').s + 0.4) * (1 - tm(t, 4.4, 4.8))} top={330} size={80} color={GOLD2} />
           <Label text="MANA JAVOB" a={tm(t, 0.1, 0.7) * (1 - tm(t, 1.0, 1.4))} top={330} size={110} color={GOLD2} />
           <Label text="IBN ASHUR" a={bk} top={300} size={100} color={GOLD2} />

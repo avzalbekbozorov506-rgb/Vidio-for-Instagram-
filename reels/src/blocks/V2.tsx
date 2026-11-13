@@ -115,3 +115,18 @@ export const SoundBed: React.FC<{beds: [string, number][]; events: [number, stri
 /** слово события: время старта слова по тексту (startsWith) */
 export const at = (ws: TimedWord[], text: string, k = 0) => { let c = 0; for (const w of ws) if (w.w.toLowerCase().replace(/[^a-z'‘’]/g, '').startsWith(text.toLowerCase())) { if (c === k) return w.s; c++; } return 0; };
 export {ease, tm};
+
+/** узбекская цитата крупно: слова из озвучки (индексы from..to-1), подсвечиваются по реальным таймингам голоса */
+export const QuoteUz: React.FC<{ws: TimedWord[]; from: number; to: number; t: number; label?: string; top?: number; size?: number}> = ({ws, from, to, t, label, top = 300, size = 78}) => {
+  const seg = ws.slice(from, to), a0 = seg[0].s - 0.3, e = seg[seg.length - 1].e + 0.5;
+  const a = tm(t, a0, a0 + 0.5) * (1 - tm(t, e - 0.3, e));
+  if (a <= 0) return null;
+  return (
+    <div style={{position: 'absolute', left: 60, right: 60, top, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 16}px)`}}>
+      {label && <div style={{fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: 40, letterSpacing: 5, color: GOLD2, marginBottom: 12}}>{label}</div>}
+      <div style={{fontFamily: 'Cormorant, Georgia, serif', fontWeight: 600, fontSize: size, lineHeight: 1.18, color: '#fffdf6', textShadow: '0 4px 22px rgba(0,0,0,.85)'}}>
+        {seg.map((w, i) => { const cur = t >= w.s && t < w.e + 0.1, done = t >= w.s - 0.02; return <React.Fragment key={i}><span style={{display: 'inline-block', opacity: done ? 1 : 0.3, color: cur ? '#fff0b8' : '#fffdf6', textShadow: cur ? '0 0 34px rgba(255,194,74,.95), 0 4px 22px rgba(0,0,0,.8)' : undefined, transform: `scale(${cur ? 1.06 : 1})`}}>{w.w}</span>{' '}</React.Fragment>; })}
+      </div>
+    </div>
+  );
+};

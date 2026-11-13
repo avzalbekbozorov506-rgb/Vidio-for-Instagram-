@@ -5,7 +5,7 @@ import {Bloom, Dust, GodRays, Grade} from './blocks/Cinema2';
 import {SerifSubs} from './IkkiBog';
 import {Shot, TimedWord, camNow, ease, tm} from './bog/anim';
 import {loadFonts} from './Juma';
-import {CREAM, Calligraphy, GOLD, GOLD2, Hills, Label2, Mosque, Par, Person, SoundBed, Sky, at, punch, rnd, Cam} from './blocks/V2';
+import {CREAM, QuoteUz, GOLD, GOLD2, Hills, Label2, Mosque, Par, Person, SoundBed, Sky, at, punch, rnd, Cam} from './blocks/V2';
 import durations from '../public/vo-62/durations.json';
 import words from '../public/vo-62/words.json';
 
@@ -20,7 +20,6 @@ const TL = [1, 2, 3, 4, 5];
 const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); acc += segLen(n); });
 export const ISRO_FRAMES = Math.round(acc * FPS);
 const useT = () => useCurrentFrame() / FPS;
-const AY = ['سُبْحَٰنَ', 'ٱلَّذِىٓ', 'أَسْرَىٰ', 'بِعَبْدِهِۦ', 'لَيْلًۭا', 'مِّنَ', 'ٱلْمَسْجِدِ', 'ٱلْحَرَامِ', 'إِلَى', 'ٱلْمَسْجِدِ', 'ٱلْأَقْصَا'];
 
 const SHOTS: Record<number, Shot[]> = {
   1: [{from: 0, keys: [[0, 1.0, 540, 960, 0], [1, 1.12, 560, 1000, 0]]}, {from: 0.4, keys: [[0, 1.5, 540, 1280, 0], [1, 1.62, 540, 1300, 0]]}, {from: 0.74, keys: [[0, 1.1, 640, 1080, 0], [1, 1.0, 540, 960, 0]]}],
@@ -94,7 +93,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
           <g stroke="#4a2f18" strokeWidth={16} strokeLinecap="round"><line x1={-100} y1={0} x2={60} y2={-150} /><line x1={100} y1={0} x2={-60} y2={-150} /></g>
           <g transform="translate(0 -170) rotate(-6)"><path d="M-130 0 Q-65 -22 0 -4 L0 90 Q-65 70 -130 92 Z" fill="#efe3c4" stroke="#8a6a3a" strokeWidth={3} /><path d="M130 0 Q65 -22 0 -4 L0 90 Q65 70 130 92 Z" fill="#e8dab6" stroke="#8a6a3a" strokeWidth={3} />
             {[0, 1, 2, 3].map((i) => <React.Fragment key={i}><rect x={-110} y={14 + i * 18} width={80} height={5} rx={2} fill="#5a4630" opacity={0.7} /><rect x={32} y={14 + i * 18} width={80} height={5} rx={2} fill="#5a4630" opacity={0.7} /></React.Fragment>)}</g>
-          <text x={0} y={-330} textAnchor="middle" fontFamily="AmiriAr, serif" fontWeight={700} fontSize={190} fill={GOLD} opacity={hot} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>؟</text></g>
+          <text x={0} y={-300} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={190} fill={GOLD} opacity={hot} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>?</text></g>
       </g>),
         overlay: (<>
           <Label2 text="SAHOBALAR" a={tm(t, 0.1, 0.7) * (1 - tm(t, 3.5, 4.0))} top={300} size={84} />
@@ -170,7 +169,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <rect x={-300} y={1490} width={1700} height={700} fill="#0b0912" />
       </g>),
         overlay: (<>
-          <Calligraphy words={AY} t={t} t0={o0 + 0.3} t1={7.6} a={tm(t, 0.9, 1.5) * (1 - tm(t, tun - 0.3, tun + 0.2))} top={300} size={92} />
+          <QuoteUz ws={ws} from={2} to={13} t={t} label="ISRO 17:1" top={300} size={80} />
           <Label2 text="17:1" a={tm(t, 0.2, 0.8) * (1 - tm(t, 1.8, 2.2))} top={330} size={120} color={GOLD2} />
           <Label2 text="TUNGI SAYR" a={tm(t, tun, tun + 0.5) * (1 - tm(t, isro - 0.2, isro))} top={330} size={110} />
           <Label2 text="ISRO" a={tm(t, isro, isro + 0.5)} top={330} size={180} color={GOLD} />
@@ -232,7 +231,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       <Vignette strength={0.5} />
       <Grain opacity={0.05} />
       {o.overlay}
-      <SerifSubs ws={ws} t={t} />
+      <div style={{opacity: n === 4 ? 1 - tm(t, ws[2].s - 0.3, ws[2].s - 0.1) * (1 - tm(t, ws[12].e + 0.2, ws[12].e + 0.5)) : 1}}><SerifSubs ws={ws} t={t} /></div>
     </AbsoluteFill>
   );
 };
