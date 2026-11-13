@@ -147,7 +147,3 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
-reels/draft-audio/
-# аудио и видео из присланных пользователем лекций в git не кладём
-reels/public/lec/
-reels/release/lec-*.mp4
