@@ -1,0 +1,47 @@
+{
+  "id": "script-63",
+  "title": "Nega sura Ixlos deb ataladi? (112:1-4)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "ayat",
+  "series": "Nega",
+  "status": "сценарий готов (14.11), без озвучки, ждёт ок",
+  "hook": "Ixlos surasida ixlos so'zi umuman yo'q. Nega uni Ixlos deb atashadi?",
+  "cover_text": "IXLOS SO'ZI YO'Q",
+  "facts": [
+    "Ibn Ashur, введение к 112: в эпоху Пророка называлась «Куль хува Аллаху ахад» (Тирмизи от Абу Хурайры; Ахмад от Абу Мас'уда аль-Ансари и Умм Кульсум бинт Укба: «равна трети Корана»); в большинстве мусхафов, тафсиров и у Тирмизи «аль-Ихлас»: имя известно краткостью и собирает смыслы суры, так как в ней обучение искренности ибадата Аллаху, то есть чистоте веры от ширка; в тунисских мусхафах «ат-Таухид».",
+    "Ibn Kathir 112:1: Ахмад от Убайя ибн Ка'ба: многобожники сказали «Расскажи нам о родословной твоего Господа», сура ниспослана; также Тирмизи и Ибн Джарир.",
+    "Слова «ихлас» в суре нет (проверено по тексту 112:1-4, alquran.cloud). Перевод 112:1-4 (uz.sodik).",
+    "Арабские слова Jasur не читает: название в начале суры («Куль хува...») показываем на экране. Религиозная проверка на пользователе."
+  ],
+  "caption": "Ixlos surasida ixlos so'zi yo'q. Nega shunday ataladi?",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Ixlos surasida ixlos so'zi umuman yo'q. Nega uni Ixlos deb atashadi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "on_screen": "IXLOS?"
+    },
+    {
+      "n": 2,
+      "vo": "Payg'ambarimiz zamonida bu sura o'zining birinchi so'zlari bilan atalgan. Termiziy rivoyatida, Payg'ambarimiz sollallohu alayhi vasallam, bu sura Qur'onning uchdan biriga teng, dedilar.",
+      "on_screen": "UCHDAN BIR"
+    },
+    {
+      "n": 3,
+      "vo": "Mushriklar Payg'ambarimizga dedilar, Rabbingning nasabini ayt. Ya'ni kimdan tug'ilgan? Ahmad buni Ubay ibn Ka'bdan rivoyat qiladi. Endi javob nima bo'ladi?",
+      "on_screen": "NASABINI AYT"
+    },
+    {
+      "n": 4,
+      "vo": "Alloh oyatlar tushirdi. Ayt, Alloh yagonadir. Alloh behojatdir. U tug'magan va tug'ilmagan. Va Unga hech kim teng bo'lmagan.",
+      "on_screen": "112:1-4"
+    },
+    {
+      "n": 5,
+      "vo": "Mana javob. Ibn Ashur yozadi, sura ixlos deb nomlandi, chunki unda ibodatni faqat Allohga xos qilish o'rgatiladi. Har kuni bitta surani o'rganamiz. Ertaga navbat Oli Imron surasida.",
+      "on_screen": "IXLOS"
+    }
+  ]
+}
