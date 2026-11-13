@@ -33,6 +33,7 @@ import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Carousel} from './Carousel';
 import {ArabDars} from './ArabDars';
+import {Qalb, QalbCover, QALB_FRAMES} from './Qalb';
 import {QuizArab, QuizArabCover, QARAB_FRAMES} from './QuizArab';
 import {Zanjir, ZanjirCover, ZAN_FRAMES} from './Zanjir';
 import {ZanjirP, ZanjirPCover} from './ZanjirPaper';
@@ -102,6 +103,8 @@ export const Root: React.FC = () => {
     <Composition id="QuizP4Cover" component={QuizP4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizArab" component={QuizArab} durationInFrames={QARAB_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizArabCover" component={QuizArabCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Qalb" component={Qalb} durationInFrames={QALB_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QalbCover" component={QalbCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ArabDars" component={ArabDars as any} durationInFrames={1} fps={30} width={1080} height={1350} defaultProps={{page: 1}} />
     <Composition id="Zanjir" component={Zanjir} durationInFrames={ZAN_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="ZanjirCover" component={ZanjirCover} durationInFrames={1} fps={30} width={1080} height={1920} />
