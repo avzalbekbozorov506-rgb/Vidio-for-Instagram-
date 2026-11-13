@@ -148,3 +148,5 @@ vite.config.ts.timestamp-*
 # Turbo Repo
 .turbo
 reels/draft-audio/
+reels/public/lec/*.mp3
+reels/release/lec*-reel.mp4
