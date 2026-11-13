@@ -20,17 +20,17 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Ixlos surasida ixlos so'zi umuman yo'q. Nega uni Ixlos deb atashadi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Ixlos surasida ixlos so'zi umuman yo'q. Shunday bo'lsa, nega bu nom? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "IXLOS?"
     },
     {
       "n": 2,
-      "vo": "Avval sura nega nozil bo'lganini bilib olaylik. Mushriklar Payg'ambarimizga dedilar, Rabbingning nasabini ayt. Ya'ni kimdan tug'ilgan? Imom Ahmad buni Ubay ibn Ka'bdan rivoyat qiladi. Endi javob nima bo'ladi?",
+      "vo": "Mushriklar Payg'ambarimizga bir savol berdilar. Rabbingning nasabini ayt, dedilar. Ya'ni kimdan tug'ilgan, kimning o'g'li? Imom Ahmad buni Ubay ibn Ka'bdan rivoyat qiladi. Alloh bu savolga qanday javob berdi?",
       "on_screen": "UCHDAN BIR"
     },
     {
       "n": 3,
-      "vo": "Alloh to'rtta oyat tushirdi. Ayt, Alloh yagonadir. Alloh behojatdir. U tug'magan va tug'ilmagan. Va Unga hech kim teng bo'lmagan. Savolga javob shu.",
+      "vo": "Alloh to'rtta oyat tushirdi. Ayt, Alloh yagonadir. Alloh behojatdir. U tug'magan va tug'ilmagan. Va Unga hech kim teng bo'lmagan. Savolga javob tayyor. Lekin nom qayerdan chiqdi?",
       "on_screen": "NASABINI AYT"
     },
     {

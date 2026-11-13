@@ -20,27 +20,27 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Sahobalar davrida bu sura boshqa nom bilan mashhur edi. Qaysi nom? Va nega bugun uni Isro deymiz? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Sahobalar bu surani bir nom bilan chaqirishgan, biz esa boshqa nom bilan. Qaysi nom? Va nega bugun boshqacha? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "BOSHQA NOM?"
     },
     {
       "n": 2,
-      "vo": "Oisha roziyallohu anho rivoyat qiladi, Payg'ambarimiz sollallohu alayhi vasallam Zumar va Bani Isroil suralarini o'qimay uxlamas edilar. Ibn Mas'ud roziyallohu anhu ham shu surani Bani Isroil deb atagan.",
+      "vo": "Oisha roziyallohu anho rivoyat qiladi, Payg'ambarimiz sollallohu alayhi vasallam uxlashdan oldin Zumar va Bani Isroil suralarini o'qirdilar. Ibn Mas'ud roziyallohu anhu ham shu surani Bani Isroil deb atagan. Demak, eski nom shu. Nega Isroil o'g'illari?",
       "on_screen": "BANI ISROIL"
     },
     {
       "n": 3,
-      "vo": "Nega Bani Isroil? Ibn Ashur yozadi, unda Isroil o'g'illari haqida boshqa suralarda aytilmagan ma'lumotlar bor. Ularni avval bir qavm bosib oldi, keyin yana boshqa qavm. Xo'sh, Isro nomi qayerdan kelgan?",
+      "vo": "Ibn Ashur yozadi, unda Isroil o'g'illari haqida boshqa suralarda aytilmagan ma'lumotlar bor. Ularni avval bir qavm bosib oldi, keyin yana boshqa qavm. Lekin g'alati joyi bor. Sura bu hikoyadan boshlanmaydi. Nimadan boshlanadi?",
       "on_screen": "ISROIL O'G'ILLARI"
     },
     {
       "n": 4,
-      "vo": "Birinchi oyatga e'tibor bering. Bandasini bir kechada Masjidul Haromdan Masjidul Aqsoga sayr qildirgan Zot pokdir. Mana Isro, ya'ni tungi sayr.",
+      "vo": "Birinchi oyat. Bandasini bir kechada Masjidul Haromdan Masjidul Aqsoga sayr qildirgan Zot pokdir. Tungi sayr, ya'ni Isro, Isroil o'g'illari haqidagi so'zlardan oldin keladi.",
       "on_screen": "17:1 ISRO"
     },
     {
       "n": 5,
-      "vo": "Mana javob. Yuz o'n bir oyatli sura birinchi oyatdagi tungi sayr bilan nomlandi. Ibn Ashur shunday yozadi. Keyingi navbat Ixlos surasida.",
+      "vo": "Mana javob. Sahobalar uni Isroil o'g'illari haqidagi hikoya bilan atashgan. Keyin boshidagi tungi sayr bilan Isro deyilgan. Ibn Ashur shunday yozadi. Keyingi navbat Ixlos surasida.",
       "on_screen": "ISRO · BANI ISROIL · SUBHAN"
     }
   ]
