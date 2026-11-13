@@ -19,12 +19,6 @@ const T0 = 3.4, CYC = 6.4, TF = T0 + 4 * CYC;
 const TAPS = [1.8, 10.0, 18.5, 27.0, 33.3];
 type QA = {q: string; o: [string, string, string]; a: 0 | 1 | 2; ar?: string};
 export type QData = {qs: QA[]; plate: string; c1: string; c2: string; sub: string; intro?: string; fin?: [string, string, string]; end?: [string, string]};
-export const QUIZAR: QData = {plate: 'ARAB TILI TESTI', c1: 'ARABCHA', c2: "O'QIY OLASIZMI?", sub: 'Bepul PDF dars izohda', intro: 'Arab tilini bilasizmi?',
-  fin: ['Nechtasini topdingiz?', 'Izohga «dars» deb yozing', 'PDF darsni shaxsiy xabarga yuboramiz'], end: ["Obuna bo'ling", 'va izohga «dars» deb yozing'], qs: [
-  {q: 'Arab alifbosida nechta harf bor?', o: ['26 ta', '28 ta', '32 ta'], a: 1},
-  {q: "Arab yozuvi qaysi tomondan o'qiladi?", o: ["O'ngdan chapga", "Chapdan o'ngga", 'Tepadan pastga'], a: 0},
-  {q: "Bu so'z nima degani?", ar: 'كِتَابٌ', o: ['Qalam', 'Eshik', 'Kitob'], a: 2},
-  {q: "Bu bo'g'in qanday o'qiladi?", ar: 'بَ', o: ['bi', 'ba', 'bu'], a: 1}]};
 export const QUIZ2: QData = {plate: '4 SAVOL · 30 SEKUND', c1: 'BIRINCHI VA', c2: 'OXIRGI SURA?', sub: 'Suralarni bilasizmi?', qs: [
   {q: "Qur'onning birinchi surasi qaysi?", o: ['Baqara', 'Fotiha', 'Ixlos'], a: 1},
   {q: "Qur'onning oxirgi surasi qaysi?", o: ['Nas', 'Falaq', 'Nasr'], a: 0},

@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {loadFonts, rnd} from './Juma';
 import {clamp} from './cinema/kit';
-import {QData, QP_FRAMES, QUIZ2, QUIZ3, QUIZ4, QUIZAR} from './QuizPack';
+import {QData, QP_FRAMES, QUIZ2, QUIZ3, QUIZ4} from './QuizPack';
 
 /** Стиль «бумага»: вырезанные листы с рваными краями, тени, скотч, покадровая «стоп-моушн» дрожь (8 к/с), бумажное конфетти, звёзды-прогресс. */
 const FPS = 30, W = 1080, H = 1920;
@@ -200,6 +200,5 @@ export const QuizPaperCover: React.FC<{data: QData}> = ({data}) => {
   );
 };
 export const QuizP2 = () => <QuizPaperPlayer data={QUIZ2} />; export const QuizP3 = () => <QuizPaperPlayer data={QUIZ3} />; export const QuizP4 = () => <QuizPaperPlayer data={QUIZ4} />;
-export const QuizAr = () => <QuizPaperPlayer data={QUIZAR} />; export const QuizArCover = () => <QuizPaperCover data={QUIZAR} />;
 export const QuizP2Cover = () => <QuizPaperCover data={QUIZ2} />; export const QuizP3Cover = () => <QuizPaperCover data={QUIZ3} />; export const QuizP4Cover = () => <QuizPaperCover data={QUIZ4} />;
 export {QP_FRAMES};
