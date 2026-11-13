@@ -28,7 +28,7 @@
 | Ikki bog' (Kahf 18:32-44) | script-44 | vo-44 | IkkiBog (+IkkiCover) | опубликован 11.11 (DfmPdpBkuNl), стиль турецкого ролика |
 | Nega sura o'rgimchak? (Ankabut 29) | script-45 | vo-45 | Ankabut (+AnkabutCover) | опубликован 11.11 (DfmPuMdiaHq), паутина как мир |
 | Yunus: qorong'ulikdagi duo (21:87-88, 37:139-148) | script-49 | vo-49 | ShadowYunus (+YunusCover), стиль «театр теней» | опубликован 12.11 11:00 (пост 0172bb32-6104-46b7-a7f9-5b0105260ad1) |
-| Nega sura Juma deb ataladi? (62:9-11) | script-57 | vo-57 | Juma (+JumaCover) | запланирован 13.11 11:00 (пост a53bd15a-2ff5-4951-801f-d19285f52918), mp4 в release/ до выхода |
+| Nega sura Juma deb ataladi? (62:9-11) | script-57 | vo-57 | Juma (+JumaCover) | опубликован 13.11 (пост a53bd15a-2ff5-4951-801f-d19285f52918), mp4 удалён |
 | Zakariyo duosi: Alloh kech beradi (19:2-11), вне плана по трендовым Reels | script-59 | vo-59 | Zakariyo (+ZakariyoCover) | готов (zakariyo-cover.mp4), опубликован 12.11 (Dfo_jj1gdIP) |
 | Kullun fi falak: oldidan ham orqasidan ham bir xil (21:33, 36:40), вне плана по вирусному TikTok 6,3 млн | script-60 | vo-60 | Falak (+FalakCover) | готов (falak-cover.mp4), не опубликован, mp4 в release/ |
 | Astag'firulloh 30 с (окно, 100 раз), без озвучки | - | - | Istigfar (+IstigfarCover) | опубликован 12.11 (DfpOj4zEuj5) |
@@ -53,7 +53,19 @@
 | Alham40 / Alham100 (молот, 100 «Alhamdulillah») | `Alham40`, `Alham100`, `release/alham*` | сделаны для пользователя, статус публикации не подтверждён |
 | Карусель 1 «5 sura, 5 jonivor» (7 слайдов) | `Carousel`, `release/carousel1-s1..s7.png` | опубликована 12.11 (https://www.instagram.com/p/Dfpp-n-FFfk/), в слайде 7 опечатка «sirri» (исправлено в коде) |
 | Карусель 2 «Qur'on raqamlarda» (10 слайдов) | `Carousel2`, `release/carousel2-s1..s10.png` | запланирована 13.11 06:00 (пост 190e5f03-d75d-419a-a9e9-f4cc6d931111) |
-| Kahf (script-58, ~66 с, призыв подписки в начале) | script-58 | сценарий готов, ждёт «ок» на озвучку (~730 кредитов) |
+| Nega sura G'or (Kahf) deb ataladi? (18:23-24) | script-58 | vo-58 | Kahf (+KahfCover), старый стиль, без арабского | готов `release/kahf-cover.mp4` (72 с), выкладывает пользователь |
 | Рубрика «5 ta tanlangan» (условие: подписка + комментарий, Kavsar 3 oyat; 26 с, бумажный стиль) | композиция `Rubrika`, `release/rubrika-reel.mp4`, обложка, описание | готова, не опубликована; обещание: выбрать 5 комментаторов и подписаться, итог в следующем видео |
 | Zanjir «Bitta odamga yuboring» (script-61, vo-61 озвучка пользователя, композиция `Zanjir`; 58 с; хадисы Muslim 1893, Bukhari 6406 / Muslim 2694; формат по образцу пользователя) | `release/zanjir-cover.mp4`, `zanjir-cover.png`, `zanjir-caption.txt` | готов, не опубликован |
 | Zanjir (бумажная версия, тот же голос vo-61, другое оформление и описание; 58 с) | композиция `ZanjirP`, `release/zanjir-qogoz-cover.mp4`, `zanjir-qogoz-cover.png`, `zanjir-qogoz-caption.txt` | готова, не опубликована (пользователь мог выложить первую версию Zanjir) |
+
+## Сессия 11 (14.11): стиль v2, выкладывает пользователь сам
+| Выпуск | Сценарий | Озвучка | Композиция | Статус |
+|---|---|---|---|---|
+| Nega sura Isro deb ataladi? (17:1) | script-62 | vo-62 | Isro (+IsroCover), v2 | готов `release/isro-cover.mp4` (74,6 с), описание `isro-caption.txt` |
+| Nega sura Ixlos deb ataladi? (112:1-4) | script-63 | vo-63 | Ixlos (+IxlosCover), v2 | готов `release/ixlos-cover.mp4` (78 с), описание `ixlos-caption.txt` |
+| Qalb (Ra'd 13:28, формат «оят + сцена») | - | - | Qalb (+QalbCover) | готов `release/qalb-reel.mp4`, не опубликован |
+| QuizArab (приманка к уроку арабского) | - | - | QuizArab | готов `release/quizar-reel.mp4`, не опубликован |
+| Juma-оять 62:1, 8, 9, 10, 11 | - | - | JumaOyat-j1..j11 (+JumaOyatCover) | готовы `release/juma-jN-reel.mp4`, не опубликованы |
+| Урок арабского №1 | - | - | ArabDars | картинки и PDF в `release/arab-dars-1/`, PDF на Google Drive; урока №2 не будет (стр. 7 обещает «2-dars»: заменить) |
+
+Готовые mp4 в `release/`, не опубликованные (на 14.11): kahf, isro, ixlos, qalb, quizar, juma-j1/j8/j9/j10/j11, zanjir (ночной) и zanjir-qogoz (бумажный), rubrika, falak, yaxshilik, quiz, quiz2-4, alham40, alham100, kavsar-* (5 вариантов), bankrot. После публикации mp4 удалять (`git rm`), png и txt оставлять.

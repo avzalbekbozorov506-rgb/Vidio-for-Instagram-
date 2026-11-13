@@ -6,10 +6,10 @@
 |---|---|---|---|---|---|
 | 1 | чт 12.11 | 11:00 | Yunus: qorong'ulikdagi duo (21:87-88) |  | вышел |
 | 2 | чт 12.11 | 16:00 | Видео от пользователя (нарезка) |  | ждём файл |
-| 3 | пт 13.11 | 11:00 | Nega sura Juma deb ataladi? | 80 | идея |
-| 4 | пт 13.11 | 16:00 | Nega sura G'or (Kahf) deb ataladi? | 92 | идея |
-| 5 | сб 14.11 | 11:00 | Nega sura Isro deb ataladi? | 91 | идея |
-| 6 | сб 14.11 | 16:00 | Nega sura Ixlos deb ataladi? | 93 | идея |
+| 3 | пт 13.11 | 11:00 | Nega sura Juma deb ataladi? | 80 | вышел 13.11 |
+| 4 | пт 13.11 | 16:00 | Nega sura G'or (Kahf) deb ataladi? | 92 | готов (kahf-cover.mp4), выкладывает пользователь |
+| 5 | сб 14.11 | 11:00 | Nega sura Isro deb ataladi? | 91 | готов (isro-cover.mp4, v2), выкладывает пользователь |
+| 6 | сб 14.11 | 16:00 | Nega sura Ixlos deb ataladi? | 93 | готов (ixlos-cover.mp4, v2), выкладывает пользователь |
 | 7 | вс 15.11 | 11:00 | Nega sura Oli Imron deb ataladi? | 86 | идея |
 | 8 | вс 15.11 | 16:00 | Nega sura Dasturxon (Moida) deb ataladi? | 87 | идея |
 | 9 | пн 16.11 | 11:00 | Nega sura Fotiha deb ataladi? | 85 | идея |

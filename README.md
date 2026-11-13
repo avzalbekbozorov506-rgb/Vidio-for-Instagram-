@@ -11,9 +11,9 @@ npx remotion render <Id> out/x.mp4
 
 ## Структура
 - `CLAUDE.md` правила, решения пользователя, состояние сессии (читать первым).
-- `reels/src/` композиции Remotion: по одной на ролик, регистрируются в `Root.tsx`; `blocks/` общие блоки (субтитры, кинослои); подпапки с графикой (`bee/`, `diorama/`, `paper/` и др.). Квизы: `Quiz*.tsx`, карусели: `Carousel*.tsx`, зикр: `Dhikr.tsx`.
+- `reels/src/` композиции Remotion: по одной на ролик, регистрируются в `Root.tsx`; `blocks/` общие блоки (субтитры, кинослои, `V2.tsx` стиль v2: параллакс, люди, мечети, звук); подпапки с графикой (`bee/`, `diorama/`, `paper/` и др.). Квизы: `Quiz*.tsx`, карусели: `Carousel*.tsx`, зикр: `Dhikr.tsx`.
 - `reels/scripts/` сценарии `script-NN.json` и инструменты (список и описания: `reels/scripts/README.md`).
-- `reels/public/vo-NN/` озвучка роликов: `words.json`, `durations.json` (wav/mp3 вышедших удалены); `fonts`, `music`, `sfx`, `img`.
+- `reels/public/vo-NN/` озвучка роликов: `words.json`, `durations.json` (wav/mp3 вышедших удалены); `fonts`, `music`, `sfx`, `sfx2` (звуки стиля v2, `scripts/sfx2.py`), `img`.
 - `reels/release/` обложки (png), описания (txt), готовые mp4 невышедших роликов; mp4 вышедших не хранятся.
 - `reels/docs/` правила и заметки: `INDEX.md` (все ролики и статусы), `PLAN_AYAT.md` (план слотов), `STYLE_PASSPORT.md`, `COVER_GUIDE.md`, `CAPTION_FORMAT.md`; `docs/archive/` устаревшие планы; `docs/report/` отчёт по темам.
 - `reels/storyboards/` раскадровки; `.claude/agents/` сценарист `avzalbot2` и раскадровщик `avzalbot3`; `.claude/hooks/` стартовая сводка сессии.
