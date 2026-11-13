@@ -144,7 +144,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
       return {keys: [bir, ixl, at(ws, 'termiziy'), nega], body: (<g>
         <Sky t={t} moon={{x: 800, y: 300, o: 0}} tint="#07202b" />{bg(0.2, 800, 560)}
         <rect x={-300} y={GY} width={1700} height={700} fill="#0a1218" />
-        <Plate x={540} y={990} text="AYT: U ALLOH YAGONADIR" glow={g1} w={900} size={40} sub="BIRINCHI SO'ZLARI" />
+        <Plate x={540} y={990} text="AYT: U ALLOH YAGONADIR" glow={g1} w={900} size={40} sub={t < ixl - 0.3 ? "BIRINCHI SO'ZLARI" : undefined} />
         <g opacity={tm(t, ixl - 0.3, ixl + 0.4)}><Book x={540} y={1560} w={420} c="#3b2a52" /><Book x={560} y={1526} w={380} c="#2a4650" rot={-2} /><Book x={530} y={1492} w={340} c="#4a3a1e" rot={2} /><ellipse cx={540} cy={1470} rx={320} ry={160} fill="url(#v2glow)" opacity={0.5 * g2} /></g>
         <Plate x={540} y={1290} text="IXLOS" glow={g2} w={360} size={64} sub="MUSHAFLAR · TERMIZIY" />
         <g opacity={q}><text x={900} y={1150} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={190} fill={GOLD} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>?</text></g>
