@@ -20,7 +20,7 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Sahobalar bu surani bir nom bilan chaqirishgan, biz esa boshqa nom bilan. Qaysi nom? Va nega bugun boshqacha? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Sahobalar bu surani bir nom bilan chaqirishgan, biz boshqa nom bilan. Qaysi nom? Nega bugun boshqacha? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "BOSHQA NOM?"
     },
     {
@@ -30,12 +30,12 @@
     },
     {
       "n": 3,
-      "vo": "Ibn Ashur yozadi, unda Isroil o'g'illari haqida boshqa suralarda yo'q ma'lumotlar bor. Ularni avval bir qavm, keyin yana boshqasi bosib oldi. Lekin g'alati joyi bor. Sura bu hikoyadan boshlanmaydi. Nimadan boshlanadi?",
+      "vo": "Ibn Ashur yozadi, unda Isroil o'g'illari haqida boshqa suralarda yo'q ma'lumotlar bor. Ularni avval bir qavm, keyin yana boshqasi bosib oldi. Lekin sura bu hikoyadan boshlanmaydi. Nimadan boshlanadi?",
       "on_screen": "ISROIL O'G'ILLARI"
     },
     {
       "n": 4,
-      "vo": "Birinchi oyat. Bandasini bir kechada Masjidul Haromdan Masjidul Aqsoga sayr qildirgan Zot pokdir. Tungi sayr, ya'ni Isro, Isroil o'g'illari haqidagi so'zlardan oldin keladi.",
+      "vo": "Birinchi oyat. Bandasini bir kechada Masjidul Haromdan Masjidul Aqsoga sayr qildirgan Zot pokdir. Tungi sayr, ya'ni Isro, Isroil o'g'illaridan oldin keladi.",
       "on_screen": "17:1 ISRO"
     },
     {
