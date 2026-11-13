@@ -183,7 +183,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
 const BEDS: Record<number, [string, number][]> = {1: [['drone', 0.14], ['wind', 0.08]], 2: [['drone', 0.14], ['wind', 0.1]], 3: [['drone', 0.16]], 4: [['drone', 0.14], ['wind', 0.06]], 5: [['drone', 0.16], ['wind', 0.05]]};
 const EVENTS: Record<number, [number, string, number][]> = {
   1: [[0.2, 'boom', 0.4], [2.5, 'boom', 0.5], [3.9, 'riser', 0.3]],
-  2: [[3.2, 'bell', 0.3], [8.3, 'tick', 0.3], [10.8, 'tick', 0.3], [18.2, 'riser', 0.35]],
+  2: [[3.2, 'bell', 0.3], [8.3, 'sfx/tick.wav', 0.2], [10.8, 'sfx/tick.wav', 0.2], [18.2, 'riser', 0.35]],
   3: [[0.6, 'shimmer', 0.35], [3.7, 'bell', 0.45], [6.1, 'bell', 0.45], [7.4, 'boom', 0.4], [8.6, 'boom', 0.4], [10.7, 'riser', 0.3], [13.2, 'riser', 0.3]],
   4: [[1.9, 'bell', 0.4], [4.5, 'bell', 0.4], [9.6, 'riser', 0.3]],
   5: [[0.1, 'bell', 0.3], [3.0, 'shimmer', 0.45], [9.3, 'shimmer', 0.45], [12.7, 'bell', 0.4], [16.2, 'riser', 0.35]],
