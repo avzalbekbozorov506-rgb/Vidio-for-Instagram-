@@ -14,7 +14,7 @@ const L: [string, string, string][] = [
   ['ك', 'kof', 'k'], ['ل', 'lom', 'l'], ['م', 'mim', 'm'], ['ن', 'nun', 'n'], ['و', 'vov', 'v, u'], ['ه', 'ho', 'h (yengil)'], ['ي', 'yo', 'y, i'],
 ];
 const HAR: [string, string, string, string][] = [['بَ', 'Fatha', 'ustida chiziqcha', 'ba'], ['بِ', 'Kasra', 'ostida chiziqcha', 'bi'], ['بُ', 'Damma', 'ustida vergulcha', 'bu'], ['بْ', 'Sukun', 'ustida doiracha', 'b (unlisiz)']];
-const WORDS: [string, string, string][] = [['بَابٌ', 'bobun', 'eshik'], ['كِتَابٌ', 'kitobun', 'kitob'], ['قَلَمٌ', 'qolamun', 'qalam'], ['بَيْتٌ', 'baytun', 'uy'], ['وَلَدٌ', 'valadun', 'bola'], ['مَاءٌ', 'mo\'un', 'suv']];
+const WORDS: [string, string, string][] = [['بَابٌ', 'bobun', 'eshik'], ['كِتَابٌ', 'kitobun', 'kitob'], ['قَلَمٌ', 'qalamun', 'qalam'], ['بَيْتٌ', 'baytun', 'uy'], ['وَلَدٌ', 'valadun', 'bola'], ['مَاءٌ', 'mo\'un', 'suv']];
 
 const Page: React.FC<{n: number; title: string; children: React.ReactNode}> = ({n, title, children}) => (
   <AbsoluteFill style={{background: PAPER}}>
@@ -50,13 +50,13 @@ export const ArabDars: React.FC<{page: number}> = ({page}) => {
     </AbsoluteFill>);
   if (page === 2) return <Page n={2} title="Harflar: 1 dan 10 gacha"><div style={{...M, fontWeight: 600, fontSize: 30, color: INK, marginBottom: 18}}>Arab yozuvi o'ngdan chapga o'qiladi. Jami 28 ta harf bor.</div><Letters from={0} to={10} /></Page>;
   if (page === 3) return <Page n={3} title="Harflar: 11 dan 20 gacha"><div style={{...M, fontWeight: 600, fontSize: 30, color: INK, marginBottom: 18}}>«Yo'g'on» harflarda til orqaga tortiladi, ovoz qalin chiqadi.</div><Letters from={10} to={20} /></Page>;
-  if (page === 4) return <Page n={4} title="Harflar: 21 dan 28 gacha"><div style={{...M, fontWeight: 600, fontSize: 30, color: INK, marginBottom: 18}}>Har kuni 7 ta harfni yozib, ovoz chiqarib takrorlang.</div><Letters from={20} to={28} /></Page>;
+  if (page === 4) return <Page n={4} title="Harflar: 21 dan 28 gacha"><div style={{...M, fontWeight: 600, fontSize: 30, color: INK, marginBottom: 18}}>Har kuni 7 ta harfni yozib, ovoz chiqarib takrorlang.</div><Letters from={20} to={28} /><div style={{marginTop: 16, background: INK, borderRadius: 20, padding: '14px 24px 6px'}}><div style={{...M, fontSize: 30, color: '#ffe39a'}}>Eslatma: o'xshash harflarni juftlab yodlang</div><div style={{...AR, fontSize: 44, lineHeight: 1.75, color: '#fff', textAlign: 'center', wordSpacing: 14}}>ب ت ث · ج ح خ · د ذ · ر ز · س ش · ص ض · ط ظ · ع غ</div></div></Page>;
   if (page === 5) return (
     <Page n={5} title="Harakatlar: unli tovushlar">
       <div style={{...M, fontWeight: 600, fontSize: 32, lineHeight: 1.3, color: INK, marginBottom: 22}}>Arab harflari undosh. Unlini harf ustidagi yoki ostidagi belgi ko'rsatadi. Misol: «bo» harfi.</div>
       {HAR.map(([a, name, how, read], i) => (
-        <div key={i} style={{display: 'flex', alignItems: 'center', gap: 30, background: '#fffaf0', border: `2px solid rgba(184,134,43,.5)`, borderRadius: 18, padding: '4px 30px', height: 176, marginBottom: 16}}>
-          <div style={{...AR, fontSize: 120, lineHeight: 1.3, color: INK, width: 150, textAlign: 'center'}}>{a}</div>
+        <div key={i} style={{display: 'flex', alignItems: 'center', gap: 30, background: '#fffaf0', border: `2px solid rgba(184,134,43,.5)`, borderRadius: 18, padding: '0 30px', height: 196, marginBottom: 14}}>
+          <div style={{...AR, fontSize: 96, lineHeight: 2.0, color: INK, width: 150, textAlign: 'center'}}>{a}</div>
           <div style={{flex: 1}}><div style={{...M, fontSize: 44, color: INK}}>{name}</div><div style={{...M, fontWeight: 600, fontSize: 28, color: GOLD}}>{how}</div></div>
           <div style={{...M, fontSize: 50, color: RED}}>{read}</div>
         </div>))}
@@ -66,8 +66,8 @@ export const ArabDars: React.FC<{page: number}> = ({page}) => {
       <div style={{...M, fontWeight: 600, fontSize: 30, lineHeight: 1.3, color: INK, marginBottom: 20}}>So'z oxiridagi qo'sh belgi «un» deb o'qiladi (tanvin).</div>
       <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18}}>
         {WORDS.map(([a, tr, uz], i) => (
-          <div key={i} style={{background: '#fffaf0', border: `2px solid rgba(184,134,43,.5)`, borderRadius: 18, padding: '6px 20px 16px', textAlign: 'center'}}>
-            <div style={{...AR, fontSize: 100, lineHeight: 1.5, color: INK}}>{a}</div>
+          <div key={i} style={{background: '#fffaf0', border: `2px solid rgba(184,134,43,.5)`, borderRadius: 18, padding: '0 20px 14px', textAlign: 'center'}}>
+            <div style={{...AR, fontSize: 86, lineHeight: 2.0, color: INK}}>{a}</div>
             <div style={{...M, fontSize: 36, color: RED}}>{tr}</div><div style={{...M, fontWeight: 600, fontSize: 32, color: INK}}>{uz}</div>
           </div>))}
       </div>
@@ -75,10 +75,10 @@ export const ArabDars: React.FC<{page: number}> = ({page}) => {
   return (
     <Page n={7} title="Mashq: o'zingizni tekshiring">
       <div style={{...M, fontWeight: 600, fontSize: 34, lineHeight: 1.3, color: INK}}>1. Quyidagi bo'g'inlarni o'qing:</div>
-      <div style={{...AR, fontSize: 110, lineHeight: 1.5, color: INK, textAlign: 'center', wordSpacing: 40}}>بَ   تِ   دُ   مَ   نِ   لُ</div>
+      <div style={{...AR, fontSize: 92, lineHeight: 2.0, color: INK, textAlign: 'center', wordSpacing: 40}}>بَ   تِ   دُ   مَ   نِ   لُ</div>
       <div style={{...M, fontWeight: 600, fontSize: 28, color: GOLD, textAlign: 'center', marginBottom: 26}}>Javob (o'ngdan chapga): ba, ti, du, ma, ni, lu</div>
       <div style={{...M, fontWeight: 600, fontSize: 34, lineHeight: 1.3, color: INK}}>2. Bu so'z nima degani?</div>
-      <div style={{...AR, fontSize: 120, lineHeight: 1.5, color: INK, textAlign: 'center'}}>كِتَابٌ</div>
+      <div style={{...AR, fontSize: 96, lineHeight: 2.0, color: INK, textAlign: 'center'}}>كِتَابٌ</div>
       <div style={{...M, fontWeight: 600, fontSize: 28, color: GOLD, textAlign: 'center', marginBottom: 30}}>Javob: kitobun, kitob</div>
       <div style={{background: INK, borderRadius: 20, padding: '26px 30px', textAlign: 'center'}}>
         <div style={{...M, fontSize: 40, color: '#ffe39a'}}>2-dars: harflarni qo'shib yozish</div>
