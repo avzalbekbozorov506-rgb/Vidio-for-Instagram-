@@ -275,8 +275,12 @@ export const LecStoryCover: React.FC<StoryProps & {scene: string; at: number}> =
     <AbsoluteFill style={{background: '#e8d6b2'}}>
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0}}><g transform="translate(-65 -156) scale(1.12)">{SCENES[p.scene](p.at, 0)}</g></svg>
       <Overlay />
-      <div style={{position: 'absolute', left: 60, right: 60, top: 300, textAlign: 'center'}}>
-        <span style={{display: 'inline-block', background: '#c0392b', color: '#fff', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 96, lineHeight: 1.1, padding: '14px 34px', borderRadius: 18, boxShadow: '0 8px 24px rgba(0,0,0,.3)'}}>{p.title}</span>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 290, textAlign: 'center'}}>
+        <span style={{display: 'inline-block', background: '#c0392b', color: '#fff', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 40, letterSpacing: 2, padding: '12px 28px', borderRadius: 12}}>ABDULLOH DOMLA MA'RUZASIDAN</span>
+      </div>
+      <div style={{position: 'absolute', left: 50, right: 50, top: 400, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 132, lineHeight: 1.04, color: '#fff', textShadow: '0 6px 0 #33403a, 0 0 28px rgba(51,64,58,.9), 4px 4px 0 #33403a, -4px 4px 0 #33403a'}}>{p.title}</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1420, textAlign: 'center'}}>
+        <span style={{display: 'inline-block', transform: 'rotate(-2deg)', background: '#ffc21a', color: '#2a1408', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 54, padding: '14px 34px', borderRadius: 6}}>{(p as any).tag}</span>
       </div>
     </AbsoluteFill>
   );
