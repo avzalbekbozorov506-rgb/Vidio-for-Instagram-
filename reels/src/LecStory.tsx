@@ -9,21 +9,43 @@ export type StoryProps = {id: string; dur: number; title: string; scenes: {a: nu
 const FPS = 30, INK = '#33403a', SIL = '#3f4a45', GLOW = '#ffd27a', GOLDC = '#e6a93a', CREAMC = '#f6ecd8';
 const R = (t: number, a: number, b: number) => ease(tm(t, a, b));
 
-/* ---------- фон ---------- */
-const Paper: React.FC<{v?: 'day' | 'dusk' | 'night'; children?: React.ReactNode}> = ({v = 'day', children}) => {
-  const top = v === 'day' ? '#e9b48c' : v === 'dusk' ? '#c98f7c' : '#7d6f86', mid = v === 'night' ? '#d9b08e' : '#f3dfc2';
+/* ---------- фон: двор, как в референсе ---------- */
+const Vine: React.FC<{x: number; len: number; seed: number}> = ({x, len, seed}) => {
+  const rr = (k: number) => { const v = Math.sin((seed + 1) * 91.7 + k * 12.9) * 4375.85; return v - Math.floor(v); };
+  return (<g>
+    <path d={`M${x} -20 Q${x + (rr(1) - 0.5) * 50} ${len * 0.5} ${x + (rr(2) - 0.5) * 30} ${len}`} stroke="#4c5a38" strokeWidth={4} fill="none" />
+    {Array.from({length: 7}, (_, k) => { const yy = 20 + (k / 7) * len, xx = x + (rr(k) - 0.5) * 44; return <ellipse key={k} cx={xx} cy={yy} rx={26} ry={13} transform={`rotate(${(rr(k + 5) - 0.5) * 120} ${xx} ${yy})`} fill={['#7d9a5a', '#6a8a4c', '#93ad6c'][k % 3]} opacity={0.92} />; })}
+    {[0, 1, 2, 3, 4].map((k) => <circle key={`g${k}`} cx={x + ((k % 2) - 0.5) * 18} cy={len + 4 + k * 11} r={9} fill="#b8c68a" stroke="#7d8a56" strokeWidth={2} />)}
+  </g>);
+};
+const Bush: React.FC<{x: number; y: number; s?: number; flowers?: boolean}> = ({x, y, s = 1, flowers = true}) => (<g transform={`translate(${x} ${y}) scale(${s})`}>
+  {Array.from({length: 38}, (_, k) => { const a = (k * 2.399) % 6.283, r = 20 + (k * 11) % 120; return <circle key={k} cx={Math.cos(a) * r * 1.15} cy={-70 + Math.sin(a) * r * 0.75} r={26 + (k % 4) * 6} fill={['#8aa56a', '#7a9a5a', '#a3ba7c', '#6f8f52'][k % 4]} opacity={0.9} />; })}
+  {flowers && Array.from({length: 26}, (_, k) => { const a = (k * 1.9) % 6.283, r = 10 + (k * 17) % 130; return <circle key={`f${k}`} cx={Math.cos(a) * r * 1.1} cy={-70 + Math.sin(a) * r * 0.7} r={7} fill={['#e89a3c', '#e8604a', '#f1c15a'][k % 3]} />; })}
+</g>);
+const Paper: React.FC<{v?: 'day' | 'dusk' | 'night'; yard?: boolean; children?: React.ReactNode}> = ({v = 'day', yard = true, children}) => {
+  const top = v === 'day' ? '#e6a17a' : v === 'dusk' ? '#c47f6e' : '#6f6283', mid = v === 'night' ? '#cfa585' : '#f1d9b8', wall = v === 'night' ? '#b7a387' : '#e2cfa6', step = v === 'night' ? '#b9a98c' : '#e4d3ac';
   return (<g>
     <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={top} /><stop offset="0.55" stopColor={mid} /><stop offset="1" stopColor="#e8d6b2" /></linearGradient>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={top} /><stop offset="0.5" stopColor={mid} /><stop offset="1" stopColor="#e8d6b2" /></linearGradient>
       <radialGradient id="gl"><stop offset="0" stopColor="#fff3c4" stopOpacity="0.95" /><stop offset="0.35" stopColor={GLOW} stopOpacity="0.55" /><stop offset="1" stopColor={GLOW} stopOpacity="0" /></radialGradient>
-      <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence baseFrequency="0.018" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="7" /></filter>
+      <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence baseFrequency="0.02" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="6" /></filter>
+      <filter id="blot" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence baseFrequency="0.012" numOctaves="3" seed="9" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="90" result="d" /><feGaussianBlur in="d" stdDeviation="26" /></filter>
       <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2" /><feColorMatrix values="0 0 0 0 0.35  0 0 0 0 0.27  0 0 0 0 0.18  0 0 0 0.55 0" /></filter>
     </defs>
     <rect width={1080} height={1920} fill="url(#sky)" />
-    <g filter="url(#wob)">
-      <path d="M0 1180 Q300 1150 540 1170 T1080 1160 L1080 1920 L0 1920Z" fill="#dcc9a2" />
-      {[0, 1, 2, 3, 4, 5].map((i) => <path key={i} d={`M${-20} ${1220 + i * 90} Q540 ${1205 + i * 90} 1100 ${1225 + i * 90}`} stroke="#bba67c" strokeWidth={3} fill="none" opacity={0.55} />)}
-    </g>
+    <g filter="url(#blot)" opacity={0.5}>{[[160, 180, 220, '#d9774e'], [760, 120, 260, '#e9a46c'], [520, 420, 240, '#f0c791'], [900, 520, 200, '#c76a4a']].map(([cx, cy, r, c], i) => <circle key={i} cx={cx as number} cy={cy as number} r={r as number} fill={c as string} />)}</g>
+    {yard && (<g filter="url(#wob)">
+      <rect x={-20} y={700} width={1120} height={490} fill={wall} />
+      <rect x={-20} y={690} width={1120} height={22} fill="#cdb98c" />
+      {[0, 1, 2, 3].map((k) => <path key={k} d={`M-20 ${770 + k * 105} L1100 ${770 + k * 105}`} stroke="#bba67c" strokeWidth={3} opacity={0.5} />)}
+      <rect x={90} y={620} width={340} height={30} fill="#7fa3a1" /><rect x={110} y={650} width={300} height={50} fill="#8a7458" />
+      <rect x={140} y={700} width={36} height={490} fill="#9a7f5c" /><rect x={344} y={700} width={36} height={490} fill="#8a7050" /><rect x={176} y={706} width={168} height={484} fill={v === 'night' ? '#d8bd92' : '#f3d7a8'} />
+      <path d="M140 700 L100 1180 L140 1190Z" fill="#a98e66" /><path d="M380 700 L420 1180 L380 1190Z" fill="#8a7050" />
+      <Bush x={60} y={1190} s={0.8} /><Bush x={960} y={1190} s={1.15} />
+      <rect x={-20} y={1180} width={1120} height={760} fill={step} />
+      {Array.from({length: 11}, (_, k) => { const yy = 1186 + k * (46 + k * 9); return <g key={k}><rect x={-20} y={yy} width={1120} height={k % 2 ? 40 + k * 8 : 42 + k * 9} fill={k % 2 ? '#e9dab4' : '#dccaa0'} opacity={0.55} /><path d={`M-20 ${yy} L1100 ${yy}`} stroke="#a8926a" strokeWidth={4} /></g>; })}
+    </g>)}
+    {[40, 170, 300, 440, 590, 730, 860, 990].map((vx, i) => <Vine key={i} x={vx} len={260 + (i % 3) * 110} seed={i} />)}
     {children}
   </g>);
 };
@@ -32,23 +54,28 @@ const Overlay: React.FC = () => (<>
   <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(60,35,20,.28) 100%)'}} />
 </>);
 
-/* ---------- фигуры ---------- */
-const Person: React.FC<{x: number; y: number; s?: number; kind?: 'man' | 'woman' | 'boy'; sit?: boolean; walk?: number; c?: string; flip?: boolean}> = ({x, y, s = 1, kind = 'man', sit, walk = 0, c = SIL, flip}) => {
-  const h = kind === 'boy' ? 0.7 : 1, sw = Math.sin(walk * 9) * 14;
-  return (<g transform={`translate(${x} ${y}) scale(${(flip ? -1 : 1) * s} ${s})`} fill={c}>
-    {kind === 'woman' ? (<g>
-      <path d={`M-42 0 Q-30 ${-190} 0 ${-230} Q30 ${-190} 42 0Z`} />
-      <path d={`M-34 -235 Q0 ${-300} 34 -235 Q40 -190 0 -175 Q-40 -190 -34 -235Z`} fill="#2f3b4a" />
-    </g>) : sit ? (<g>
-      <rect x={-34} y={-120 * h} width={68} height={110 * h} rx={26} />
-      <rect x={-56} y={-26} width={112} height={26} rx={13} />
-      <circle cx={0} cy={-150 * h} r={26 * h} />
-    </g>) : (<g>
-      <rect x={-22 + sw * 0.4} y={-84 * h} width={18} height={84 * h} rx={8} transform={`rotate(${sw * 0.6} -13 ${-84 * h})`} />
-      <rect x={4 - sw * 0.4} y={-84 * h} width={18} height={84 * h} rx={8} transform={`rotate(${-sw * 0.6} 13 ${-84 * h})`} />
-      <rect x={-34} y={-190 * h} width={68} height={116 * h} rx={28} />
-      <circle cx={0} cy={-218 * h} r={26 * h} />
-    </g>)}
+/* ---------- фигуры: одетые, без лиц, с тенью ---------- */
+const Person: React.FC<{x: number; y: number; s?: number; kind?: 'man' | 'woman' | 'boy'; sit?: boolean; walk?: number; c?: string; flip?: boolean; robe?: string}> = ({x, y, s = 1, kind = 'man', sit, walk = 0, flip, robe}) => {
+  const sw = Math.sin(walk * 8) * 12, bob = Math.abs(Math.sin(walk * 8)) * 5, skin = '#d8b08a';
+  const rb = robe ?? (kind === 'woman' ? '#4f6d8a' : kind === 'boy' ? '#5f8a86' : '#6f8a62');
+  return (<g transform={`translate(${x} ${y}) scale(${(flip ? -1 : 1) * s} ${s})`}>
+    <path d={`M-40 6 L${150 + (sit ? 40 : 0)} 34 L${120 + (sit ? 40 : 0)} 52 L-60 18Z`} fill="rgba(70,45,25,.2)" />
+    <g transform={`translate(0 ${-bob})`}>
+      {kind === 'woman' ? (<g>
+        <path d={`M-48 0 Q-46 -150 -22 -214 L22 -214 Q46 -150 48 0Z`} fill={rb} /><path d="M-48 0 Q-46 -150 -22 -214 L-4 -214 Q-14 -120 -10 0Z" fill="rgba(0,0,0,.1)" />
+        <path d="M-44 -190 Q-50 -296 0 -300 Q50 -296 44 -190 Q40 -150 0 -146 Q-40 -150 -44 -190Z" fill="#f2ede0" /><path d="M-44 -190 Q-50 -296 0 -300 L0 -146 Q-40 -150 -44 -190Z" fill="rgba(0,0,0,.06)" /><ellipse cx={0} cy={-222} rx={21} ry={26} fill={skin} />
+        <rect x={-62} y={-150} width={24} height={86} rx={12} fill={rb} transform={`rotate(${sw * 0.6} -50 -150)`} /><circle cx={-52} cy={-62} r={10} fill={skin} />
+      </g>) : sit ? (<g>
+        <path d="M-70 0 Q-60 -80 -34 -120 L34 -120 Q60 -80 70 0Z" fill={rb} /><rect x={-34} y={-196} width={68} height={86} rx={30} fill={rb} />
+        <ellipse cx={0} cy={-216} rx={26} ry={30} fill={skin} />{kind === 'man' && <ellipse cx={0} cy={-244} rx={36} ry={20} fill="#efe6d2" />}
+      </g>) : (<g>
+        <path d={`M-40 0 L-34 -150 Q0 -170 34 -150 L40 0Z`} fill={rb} /><path d="M-40 0 L-34 -150 L-10 -156 L-14 0Z" fill="rgba(0,0,0,.1)" />
+        <rect x={-62} y={-150} width={22} height={92} rx={11} fill={rb} transform={`rotate(${sw * 0.7} -51 -150)`} /><rect x={40} y={-150} width={22} height={92} rx={11} fill={rb} transform={`rotate(${-sw * 0.7} 51 -150)`} />
+        <ellipse cx={-22 + sw * 0.3} cy={4} rx={20} ry={9} fill="#3a2a1c" /><ellipse cx={22 - sw * 0.3} cy={4} rx={20} ry={9} fill="#3a2a1c" />
+        <rect x={-14} y={-196} width={28} height={44} fill={skin} /><ellipse cx={0} cy={-216} rx={27} ry={31} fill={skin} />
+        {kind === 'man' ? <ellipse cx={0} cy={-246} rx={38} ry={22} fill="#efe6d2" /> : <path d="M-27 -222 Q0 -262 27 -222 Q0 -240 -27 -222Z" fill="#3a2a22" />}
+      </g>)}
+    </g>
   </g>);
 };
 const Glow: React.FC<{x: number; y: number; r: number; a?: number}> = ({x, y, r, a = 1}) => <circle cx={x} cy={y} r={r} fill="url(#gl)" opacity={a} />;
@@ -233,7 +260,7 @@ export const LecStory: React.FC<StoryProps> = (p) => {
     <AbsoluteFill style={{background: '#e8d6b2'}}>
       {cur.map((s, i) => {
         const fin = i === 0 && t < s.a ? 0 : tm(t, s.a - 0.35, s.a + 0.05), z = 1 + 0.045 * ((t - s.a) / (s.b - s.a));
-        return (<svg key={s.k + s.a} width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0, opacity: fin, transformOrigin: '540px 1400px', transform: `scale(${1.3 * Math.max(1, z)})`}}>{SCENES[s.k](t, t - s.a)}</svg>);
+        return (<svg key={s.k + s.a} width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0, opacity: fin, transformOrigin: '540px 1300px', transform: `scale(${1.12 * Math.max(1, z)})`}}>{SCENES[s.k](t, t - s.a)}</svg>);
       })}
       <Overlay />
       <div style={{position: 'absolute', right: 70, top: 262, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 30, color: INK, opacity: 0.8}}>@mohiyat___</div>
@@ -246,7 +273,7 @@ export const LecStoryCover: React.FC<StoryProps & {scene: string; at: number}> =
   loadFonts();
   return (
     <AbsoluteFill style={{background: '#e8d6b2'}}>
-      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0}}><g transform="translate(-162 -420) scale(1.3)">{SCENES[p.scene](p.at, 0)}</g></svg>
+      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0}}><g transform="translate(-65 -156) scale(1.12)">{SCENES[p.scene](p.at, 0)}</g></svg>
       <Overlay />
       <div style={{position: 'absolute', left: 60, right: 60, top: 300, textAlign: 'center'}}>
         <span style={{display: 'inline-block', background: '#c0392b', color: '#fff', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 96, lineHeight: 1.1, padding: '14px 34px', borderRadius: 18, boxShadow: '0 8px 24px rgba(0,0,0,.3)'}}>{p.title}</span>
