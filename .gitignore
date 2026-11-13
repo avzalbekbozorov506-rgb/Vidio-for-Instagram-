@@ -150,3 +150,5 @@ vite.config.ts.timestamp-*
 reels/draft-audio/
 reels/public/lec/*.mp3
 reels/release/lec*-reel.mp4
+reels/release/st*-reel.mp4
+reels/public/lec/st*.mp3

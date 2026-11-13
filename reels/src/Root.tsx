@@ -33,6 +33,7 @@ import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Carousel} from './Carousel';
 import {Lecture, LectureCover} from './Lecture';
+import {LecStory, LecStoryCover} from './LecStory';
 import {Zanjir, ZanjirCover, ZAN_FRAMES} from './Zanjir';
 import {ZanjirP, ZanjirPCover} from './ZanjirPaper';
 import {Rubrika, RubrikaCover, RUB_FRAMES} from './Rubrika';
@@ -99,6 +100,8 @@ export const Root: React.FC = () => {
     <Composition id="QuizP3Cover" component={QuizP3Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizP4" component={QuizP4} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizP4Cover" component={QuizP4Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="LecStory" component={LecStory as any} durationInFrames={1800} fps={30} width={1080} height={1920} defaultProps={{id: 'stA', dur: 60, title: '', scenes: [], subs: []} as any} calculateMetadata={async ({props}: any) => ({durationInFrames: Math.round(props.dur * 30)})} />
+    <Composition id="LecStoryCover" component={LecStoryCover as any} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{id: 'stA', dur: 60, title: '', scenes: [], subs: [], scene: 'capital', at: 21} as any} />
     <Composition id="Lecture" component={Lecture as any} durationInFrames={1800} fps={30} width={1080} height={1920} defaultProps={{id: 'lecA', dur: 60, title: '', sub: '', lines: [], env: []} as any} calculateMetadata={async ({props}: any) => ({durationInFrames: Math.round(props.dur * 30)})} />
     <Composition id="LectureCover" component={LectureCover as any} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{id: 'lecA', dur: 60, title: '', sub: '', lines: [{a: 0, b: 1, ar: '', uz: ''}], env: []} as any} />
     <Composition id="Zanjir" component={Zanjir} durationInFrames={ZAN_FRAMES} fps={30} width={1080} height={1920} />
