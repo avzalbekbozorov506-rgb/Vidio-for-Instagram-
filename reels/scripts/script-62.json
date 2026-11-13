@@ -20,17 +20,17 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Sahobalar bu surani bir nom bilan atashgan, biz esa boshqa nom bilan ataymiz. Qaysi nom bilan atashgan? Nega bugun boshqacha ataymiz? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Sahobalar bu surani bir nom bilan atashgan, biz esa boshqa nom bilan ataymiz. Qaysi nom? Nega bugun boshqacha? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "BOSHQA NOM?"
     },
     {
       "n": 2,
-      "vo": "Oisha roziyallohu anho rivoyat qiladi. Payg'ambarimiz sollallohu alayhi vasallam uxlashdan oldin Zumar va Bani Isroil suralarini o'qirdilar. Eski nomi Bani Isroil. Nega unga Isroil o'g'illari nomi berilgan?",
+      "vo": "Oisha roziyallohu anho rivoyat qiladi. Payg'ambarimiz sollallohu alayhi vasallam uxlashdan oldin Zumar va Bani Isroil suralarini o'qirdilar. Eski nomi Bani Isroil. Nega shunday nom berilgan?",
       "on_screen": "BANI ISROIL"
     },
     {
       "n": 3,
-      "vo": "Ibn Ashur yozadi, unda Isroil o'g'illari haqida boshqa suralarda aytilmagan ma'lumotlar bor. Ularni avval bir qavm, keyin yana bir qavm bosib olgani aytiladi. Lekin sura bu hikoyadan boshlanmaydi. Nimadan boshlanadi?",
+      "vo": "Ibn Ashur yozadi, unda boshqa suralarda yo'q ma'lumotlar bor. Isroil o'g'illarini avval bir qavm, keyin yana bir qavm bosib olgani aytiladi. Lekin sura bundan boshlanmaydi. Nimadan boshlanadi?",
       "on_screen": "ISROIL O'G'ILLARI"
     },
     {
