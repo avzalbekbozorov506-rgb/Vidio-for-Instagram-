@@ -1,0 +1,47 @@
+{
+ "id": "script-64",
+ "title": "Nega Tavba surasida Bismillah yo'q? (9:1)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Nega",
+ "status": "сценарий готов (14.11), без озвучки, ждёт ок; идея из английских outlier-роликов vidIQ (Why every surah begins with mercy, 11,8 млн)",
+ "hook": "Qur'onda yuz o'n to'rtta sura bor. Yuz o'n uchtasi Bismillah bilan boshlanadi. Bittasi esa yo'q. Nega?",
+ "cover_text": "BISMILLAH YO'Q?!",
+ "facts": [
+  "113 сур из 114 начинаются с Бисмиллях (Фатиха: это её первый аят); в суре 9 её нет. Бисмиллях внутри Намль 27:30 (письмо Сулеймана) в тексте проверено кодом (alquran.cloud).",
+  "Ibn Kathir 9:1 (quran.com tafsir 169): сура ниспослана в числе последних (Бухари от аль-Бара); Бисмиллях не записан, т.к. сподвижники не записали его в мусхафе при Усмане; начало суры ниспослано по возвращении из Табука, объявление расторжения договоров с многобожниками; Абу Бакр руководил хаджем, Али прочёл оповещение.",
+  "Qurtubi 9:1 (tafsir 90), мас'ала 2, пять мнений: (1) арабы при расторжении договора писали письмо без Бисмиллях, Али читал суру в сезон без неё; (2) Тирмизи (хасан) от Ибн Аббаса: Усман сказал, что Анфаль и Бара'а похожи по истории, Пророк умер, не разъяснив, что Бара'а часть Анфаль, потому их поставили рядом и строку Бисмиллях не писали; (3) Малик: часть суры была утрачена; (4) сподвижники расходились, одна сура или две, оставили пробел; (5) Али: Бисмиллях это безопасность, а Бара'а ниспослана с мечом.",
+  "Религиозная проверка на пользователе. В ролике подано как «bir izohga ko'ra», окончательного вывода нет."
+ ],
+ "caption": "Nega Tavba surasida Bismillah yo'q? Ibn Kasir va Qurtubiy izohlari.",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Qur'onda yuz o'n to'rtta sura bor. Yuz o'n uchtasi Bismillah bilan boshlanadi. Bittasi esa yo'q. Nega Tavba surasida Bismillah yo'q? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "on_screen": "BISMILLAH YO'Q?!"
+  },
+  {
+   "n": 2,
+   "vo": "Tavba surasi Payg'ambarimiz hayotining oxirida nozil bo'ldi. Uning boshida mushriklar bilan tuzilgan shartnomalar bekor qilinadi.",
+   "on_screen": "SHARTNOMA"
+  },
+  {
+   "n": 3,
+   "vo": "Qurtubiy yozadi. Johiliyatda arablar shartnomani buzganda, maktubni Bismillahsiz yozishgan. Lekin mushafda nega yozilmagan?",
+   "on_screen": "MAKTUB"
+  },
+  {
+   "n": 4,
+   "vo": "Termiziy keltirgan rivoyatda Usmon roziyallohu anhu aytadi. Anfol va Tavba suralarining qissasi o'xshash edi. Payg'ambarimiz ular bir sura ekanini aytmay vafot etdilar. Shuning uchun orasiga Bismillah yozmadik.",
+   "on_screen": "USMON"
+  },
+  {
+   "n": 5,
+   "vo": "Mana javob. Ibn Kasir yozadi, sahobalar mushafni yig'ganda, Tavba boshiga Bismillah yozmadilar. Sababini olimlar turlicha izohlaydi. Ertaga yangi sura.",
+   "on_screen": "JAVOB"
+  }
+ ]
+}

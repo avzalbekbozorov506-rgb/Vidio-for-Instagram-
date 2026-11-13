@@ -1,0 +1,47 @@
+{
+ "id": "script-65",
+ "title": "Nega Rahmon surasi bir savolni qayta-qayta so'raydi? (55:13)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "ayat",
+ "series": "Nega",
+ "status": "сценарий готов (14.11), без озвучки, ждёт ок; идея из английского ролика @drawntothedeen (Ar-Rahman is a conversation)",
+ "hook": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Nega?",
+ "cover_text": "31 MARTA BIR SAVOL",
+ "facts": [
+  "Аят 55:13 «Фа би аййи алаи Роббикума туказзибан» повторяется 31 раз в суре из 78 аятов (счёт кодом по alquran.cloud, текст одинаков в аятах 13, 16, 18, 21 ... 77).",
+  "Перевод 55:13 (uz.sodik, в латиницу): Bas, Robbingizning qaysi ne'matlarini yolg'on deya olursiz?!",
+  "Ibn Kathir 55 (tafsir 169): Тирмизи от Джабира (по оценке Тирмизи «гариб»); также аль-Баззар; Ибн Джарир от Ибн Умара: Пророк читал суру сподвижникам, они молчали; он сказал, что читал её джиннам, и они отвечали лучше: на каждый аят «Фа би аййи…» говорили «Ла би шай'ин мин ни'амика Роббана нуказзибу фа-лакаль хамд».",
+  "Религиозная проверка на пользователе. Вывод в конце только пересказ хадиса, без собственных толкований."
+ ],
+ "caption": "Nega Rahmon surasi bir savolni o'ttiz bir marta so'raydi? Termiziy rivoyati.",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Nega Alloh bir savolni shuncha qaytaradi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "on_screen": "31 MARTA?!"
+  },
+  {
+   "n": 2,
+   "vo": "Savol shunday. Bas, Robbingizning qaysi ne'matlarini yolg'on deya olursiz? Sura Allohning ne'matlarini tartib bilan sanaydi, har safar shu savol qaytadi.",
+   "on_screen": "SAVOL"
+  },
+  {
+   "n": 3,
+   "vo": "Jobir roziyallohu anhu rivoyat qiladi. Payg'ambarimiz sahobalarga Rahmon surasini boshidan oxirigacha o'qidilar. Ular jim turishdi. Payg'ambarimiz shunda nima dedilar?",
+   "on_screen": "JIM"
+  },
+  {
+   "n": 4,
+   "vo": "Men buni jinlarga o'qiganman, ular sizlardan yaxshiroq javob berishdi, dedilar. Har safar shu oyatga kelsam, ular aytishardi, Ey Rabbimiz, ne'matlaringdan hech birini yolg'on demaymiz, hamd Senga.",
+   "on_screen": "JINLAR"
+  },
+  {
+   "n": 5,
+   "vo": "Mana javob. Ibn Kasir keltirgan hadisga ko'ra, bu savolga jinlar har gal javob qaytarishgan. Payg'ambarimiz buni odamlarga misol qilib ko'rsatdilar. Ertaga yangi sura.",
+   "on_screen": "JAVOB"
+  }
+ ]
+}
