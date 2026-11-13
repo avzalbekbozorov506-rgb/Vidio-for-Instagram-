@@ -98,11 +98,11 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
       </g>),
         overlay: (<>
           <Label2 text="SAHOBALAR" a={tm(t, 0.1, 0.7) * (1 - tm(t, 3.5, 4.0))} top={300} size={84} />
-          <Label2 text="BIZ: ISRO" a={tm(t, biz - 0.1, biz + 0.5) * (1 - tm(t, 6.0, 6.4))} top={300} size={84} color={GOLD} />
+          <Label2 text="BIZ: ISRO" a={tm(t, biz - 0.1, biz + 0.5) * (1 - tm(t, 5.6, 5.95))} top={300} size={84} color={GOLD} />
           <Label2 text="QAYSI NOM?" a={tm(t, q - 0.1, q + 0.5) * (1 - tm(t, 7.4, 7.8))} top={310} size={92} color={GOLD2} />
           <Label2 text="NEGA?" a={tm(t, nega, nega + 0.5) * (1 - tm(t, 9.0, 9.4))} top={310} size={130} color={GOLD} />
-          <Label2 text="OBUNA BO'LING" a={tm(t, 9.2, 9.8) * (1 - tm(t, 12.5, 12.9))} top={1190} size={60} color={GOLD} />
-          <Label2 text="JAVOB OXIRIDA" a={tm(t, 12.7, 13.3)} top={1190} size={66} color={GOLD2} /></>)};
+          <Label2 text="OBUNA BO'LING" a={tm(t, 9.2, 9.8) * (1 - tm(t, 12.5, 12.9))} top={330} size={70} color={GOLD} />
+          <Label2 text="JAVOB OXIRIDA" a={tm(t, 12.7, 13.3)} top={330} size={76} color={GOLD2} /></>)};
     }
     case 2: {
       const zum = at(ws, 'zumar'), bani = at(ws, 'bani'), eski = at(ws, 'eski'), bani2 = at(ws, 'bani', 1), nega = at(ws, 'nega');
