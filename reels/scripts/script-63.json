@@ -20,27 +20,27 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Ixlos surasida ixlos so'zi umuman yo'q. Shunday bo'lsa, nega bu nom? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Ixlos surasida ixlos so'zi umuman yo'q. Shunday bo'lsa, nega uni Ixlos deb atashadi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
       "on_screen": "IXLOS?"
     },
     {
       "n": 2,
-      "vo": "Mushriklar Payg'ambarimizga bir savol berdilar. Rabbingning nasabini ayt, dedilar. Ya'ni kimdan tug'ilgan, kimning o'g'li? Imom Ahmad buni Ubay ibn Ka'bdan rivoyat qiladi. Alloh bu savolga qanday javob berdi?",
+      "vo": "Mushriklar Payg'ambarimizga bir savol berishdi. Bizga Rabbingning nasabini ayt, deyishdi. Ya'ni kimdan tug'ilgan, kimning o'g'li? Imom Ahmad buni Ubay ibn Ka'bdan rivoyat qiladi. Alloh bu savolga qanday javob berdi?",
       "on_screen": "UCHDAN BIR"
     },
     {
       "n": 3,
-      "vo": "Alloh to'rtta oyat tushirdi. Ayt, Alloh yagonadir. Alloh behojatdir. U tug'magan va tug'ilmagan. Va Unga hech kim teng bo'lmagan. Lekin nom qayerdan chiqdi?",
+      "vo": "Alloh to'rtta oyat tushirdi. Ayt, Alloh yagonadir. Alloh behojatdir. U tug'magan va tug'ilmagan. Va Unga hech kim teng bo'lmagan. Lekin Ixlos nomi qayerdan paydo bo'ldi?",
       "on_screen": "NASABINI AYT"
     },
     {
       "n": 4,
-      "vo": "Payg'ambarimiz zamonida bu sura o'zining birinchi so'zlari bilan atalgan. Ixlos nomi esa ko'p mushaflarda va Termiziyda keladi. Nega aynan Ixlos?",
+      "vo": "Payg'ambarimiz zamonida bu sura birinchi so'zlari bilan atalgan. Ixlos nomi esa ko'pchilik mushaflarda va Termiziy kitobida uchraydi. Nega aynan Ixlos?",
       "on_screen": "IXLOS NEGA?"
     },
     {
       "n": 5,
-      "vo": "Mana javob. Ibn Ashur yozadi, ixlos degani ibodatni faqat Allohga xos qilish, ya'ni Allohga hech kimni sherik qilmaslik. Sura shuni o'rgatadi, shuning uchun shu nom mashhur bo'ldi. Ertaga navbat Oli Imron surasida.",
+      "vo": "Mana javob. Ibn Ashur yozadi, ixlos ibodatni faqat Allohga bag'ishlash, ya'ni Allohga hech kimni sherik qilmaslikdir. Sura shuni o'rgatadi, shu sababli shu nom mashhur bo'ldi. Ertaga navbat Oli Imron surasida.",
       "on_screen": "IXLOS"
     }
   ]
