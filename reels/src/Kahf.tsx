@@ -149,7 +149,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
           <Label text="ALLOH XOHLASA" a={xoh} top={660} size={80} color={GOLD} /></>)};
     }
     default: {
-      const nm = tm(t, W_('sura').s - 0.2, W_('sura').s + 0.6) * (1 - tm(t, 10.0, 10.6)), bk = ease(tm(t, W_('Ibn').s - 0.3, W_('Ibn').s + 0.7)) * (1 - tm(t, 12.6, 13.2));
+      const nm = tm(t, W_('sura').s - 0.2, W_('sura').s + 0.6) * (1 - tm(t, 9.4, 9.9)), bk = ease(tm(t, W_('Ibn').s - 0.3, W_('Ibn').s + 0.7)) * (1 - tm(t, 12.2, 12.7));
       const har = tm(t, W_('Har').s, W_('Har').s + 0.5) * (1 - tm(t, 15.8, 16.3)), isro = tm(t, W_('Ertaga').s, W_('Ertaga').s + 0.6);
       const gl = 0.5 + 0.4 * tm(t, W_("g'or").s - 0.2, W_("g'or").s + 0.8);
       return {body: (<g><Night t={t} warm={1.1} />
