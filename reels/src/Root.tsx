@@ -29,6 +29,7 @@ import {Sirius, SiriusCover, SIRIUS_FRAMES} from './Sirius';
 import {Gold, GoldCover, GOLD_FRAMES} from './Gold';
 import {Alham100, AlhamCover, ALHAM_FRAMES} from './Alham100';
 import {Juma, JumaCover, JUMA_FRAMES} from './Juma';
+import {Kahf, KahfCover, KAHF_FRAMES} from './Kahf';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Carousel} from './Carousel';
@@ -92,6 +93,8 @@ export const Root: React.FC = () => {
     <Composition id="AlhamCover" component={AlhamCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Juma" component={Juma} durationInFrames={JUMA_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="JumaCover" component={JumaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Kahf" component={Kahf} durationInFrames={KAHF_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
+    <Composition id="KahfCover" component={KahfCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Zakariyo" component={Zakariyo} durationInFrames={ZAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
