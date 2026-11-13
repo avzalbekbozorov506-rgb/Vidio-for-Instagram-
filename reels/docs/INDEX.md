@@ -68,4 +68,4 @@
 | Juma-оять 62:1, 8, 9, 10, 11 | - | - | JumaOyat-j1..j11 (+JumaOyatCover) | готовы `release/juma-jN-reel.mp4`, не опубликованы |
 | Урок арабского №1 | - | - | ArabDars | картинки и PDF в `release/arab-dars-1/`, PDF на Google Drive; урока №2 не будет (стр. 7 обещает «2-dars»: заменить) |
 
-Готовые mp4 в `release/`, не опубликованные (на 14.11): kahf, isro, ixlos, qalb, quizar, juma-j1/j8/j9/j10/j11, zanjir (ночной) и zanjir-qogoz (бумажный), rubrika, falak, yaxshilik, quiz, quiz2-4, alham40, alham100, kavsar-* (5 вариантов), bankrot. После публикации mp4 удалять (`git rm`), png и txt оставлять.
+**14.11: все mp4 удалены из репозитория по просьбе пользователя (выкладывает сам; восстановление: `git checkout eee0300 -- reels/release/<имя>.mp4`). Готовые к выкладке ролики (не опубликованные на 14.11), сами файлы у пользователя:** kahf, isro, ixlos, qalb, quizar, juma-j1/j8/j9/j10/j11, zanjir (ночной) и zanjir-qogoz (бумажный), rubrika, falak, yaxshilik, quiz, quiz2-4, alham40, alham100, kavsar-* (5 вариантов), bankrot. После публикации mp4 удалять (`git rm`), png и txt оставлять.
