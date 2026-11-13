@@ -54,3 +54,6 @@
 | Карусель 1 «5 sura, 5 jonivor» (7 слайдов) | `Carousel`, `release/carousel1-s1..s7.png` | опубликована 12.11 (https://www.instagram.com/p/Dfpp-n-FFfk/), в слайде 7 опечатка «sirri» (исправлено в коде) |
 | Карусель 2 «Qur'on raqamlarda» (10 слайдов) | `Carousel2`, `release/carousel2-s1..s10.png` | запланирована 13.11 06:00 (пост 190e5f03-d75d-419a-a9e9-f4cc6d931111) |
 | Kahf (script-58, ~66 с, призыв подписки в начале) | script-58 | сценарий готов, ждёт «ок» на озвучку (~730 кредитов) |
+| Рубрика «5 ta tanlangan» (условие: подписка + комментарий, Kavsar 3 oyat; 26 с, бумажный стиль) | композиция `Rubrika`, `release/rubrika-reel.mp4`, обложка, описание | готова, не опубликована; обещание: выбрать 5 комментаторов и подписаться, итог в следующем видео |
+| Zanjir «Bitta odamga yuboring» (script-61, vo-61 озвучка пользователя, композиция `Zanjir`; 58 с; хадисы Muslim 1893, Bukhari 6406 / Muslim 2694; формат по образцу пользователя) | `release/zanjir-cover.mp4`, `zanjir-cover.png`, `zanjir-caption.txt` | готов, не опубликован |
+| Zanjir (бумажная версия, тот же голос vo-61, другое оформление и описание; 58 с) | композиция `ZanjirP`, `release/zanjir-qogoz-cover.mp4`, `zanjir-qogoz-cover.png`, `zanjir-qogoz-caption.txt` | готова, не опубликована (пользователь мог выложить первую версию Zanjir) |
