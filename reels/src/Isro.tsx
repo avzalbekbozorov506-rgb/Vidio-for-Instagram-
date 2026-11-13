@@ -257,10 +257,10 @@ export const IsroCover: React.FC = () => {
   return (
     <AbsoluteFill style={{background: '#07060b'}}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
-        <Sky t={t} moon={{x: 540, y: 1050, o: 0.9}} />
+        <Sky t={t} moon={{x: 540, y: 980, o: 0.9}} />
         <Hills base={1300} amp={150} seed={6} fill="#14183a" /><Hills base={1460} amp={100} seed={2} fill="#0e0f26" edge="rgba(255,214,140,.25)" />
         <path d="M250 1480 Q540 840 830 1480" fill="none" stroke="rgba(255,226,150,.9)" strokeWidth={9} strokeLinecap="round" style={{filter: 'blur(2px)'}} />
-        <circle cx={690} cy={1010} r={120} fill="url(#v2glow)" /><circle cx={690} cy={1010} r={26} fill="#fff6d8" />
+        <circle cx={540} cy={1160} r={120} fill="url(#v2glow)" /><circle cx={540} cy={1160} r={26} fill="#fff6d8" />
         <Mosque x={210} y={1620} s={0.72} minarets={4} glow={1} dome="#cfcbbb" /><Mosque x={880} y={1620} s={0.72} minarets={2} glow={1} dome="#c9a64e" />
         <rect x={-300} y={1620} width={1700} height={700} fill="#0b0912" />
       </svg>
@@ -271,7 +271,7 @@ export const IsroCover: React.FC = () => {
         <span style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontSize: 50, letterSpacing: 5, padding: '10px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(224,50,42,.45)'}}>ESKI NOMI BOSHQA</span>
       </div>
       <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1}}>
-        <div style={{fontSize: 150, color: GOLD, textShadow: '0 0 70px rgba(255,194,74,.65), 0 10px 40px rgba(0,0,0,.7)'}}>BANI ISROIL?</div>
+        <div style={{fontSize: 122, color: GOLD, textShadow: '0 0 70px rgba(255,194,74,.65), 0 10px 40px rgba(0,0,0,.7)'}}>BANI ISROIL?</div>
         <div style={{fontSize: 58, color: GOLD2, marginTop: 40, textShadow: '0 4px 24px rgba(0,0,0,.8)'}}>Nega sura <span style={{color: '#fff'}}>ISRO</span> deb ataladi?</div>
       </div>
     </AbsoluteFill>
