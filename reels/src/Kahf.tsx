@@ -157,6 +157,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
         <g opacity={bk}><Book y={1050} open={1} glow={1} t={t} /></g></g>),
         overlay: (<>
           <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', opacity: nm, fontFamily: 'AmiriAr, serif', fontWeight: 700, fontSize: 180, color: CREAM, textShadow: '0 0 40px rgba(255,194,74,.5), 0 4px 24px rgba(0,0,0,.8)'}}>{NAME_AR}</div>
+          <Label text="SAVOL: YIGITLAR" a={tm(t, W_('Yigitlar').s - 0.1, W_('Yigitlar').s + 0.4) * (1 - tm(t, 4.4, 4.8))} top={330} size={80} color={GOLD2} />
           <Label text="MANA JAVOB" a={tm(t, 0.1, 0.7) * (1 - tm(t, 1.0, 1.4))} top={330} size={110} color={GOLD2} />
           <Label text="IBN ASHUR" a={bk} top={300} size={100} color={GOLD2} />
           <Label text="HAR KUNI BITTA SURA" a={har} top={330} size={64} />
