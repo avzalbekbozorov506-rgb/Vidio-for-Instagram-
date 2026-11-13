@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {loadFonts, rnd} from './Juma';
 import {clamp} from './cinema/kit';
-import {QData, QP_FRAMES, QUIZ2, QUIZ3, QUIZ4} from './QuizPack';
+import {QData, QP_FRAMES, QUIZ2, QUIZ3, QUIZ4, QUIZAR} from './QuizPack';
 
 /** Стиль «бумага»: вырезанные листы с рваными краями, тени, скотч, покадровая «стоп-моушн» дрожь (8 к/с), бумажное конфетти, звёзды-прогресс. */
 const FPS = 30, W = 1080, H = 1920;
@@ -89,7 +89,7 @@ const Question: React.FC<{i: number; t: number; q: QData['qs'][0]}> = ({i, t, q}
         <Sheet t={t} x={90} y={350} w={900} h={290} rot={-0.8} seed={8}>
           <div style={{position: 'absolute', top: -14, left: 80, width: 150, height: 46, background: 'rgba(233,180,76,.8)', transform: 'rotate(-8deg)'}} />
           <div style={{position: 'absolute', top: -14, right: 80, width: 150, height: 46, background: 'rgba(233,180,76,.8)', transform: 'rotate(7deg)'}} />
-          <div style={{fontSize: 58, fontWeight: 800, color: INK, textAlign: 'center', lineHeight: 1.15, padding: '0 50px'}}>{q.q}</div>
+          <div style={{textAlign: 'center', padding: '0 50px'}}>{q.ar && <div style={{fontFamily: 'AmiriAr, serif', fontWeight: 700, direction: 'rtl', fontSize: 110, lineHeight: 1.45, color: TERRA, marginTop: -30}}>{q.ar}</div>}<div style={{fontSize: q.ar ? 50 : 58, fontWeight: 800, color: INK, lineHeight: 1.15}}>{q.q}</div></div>
         </Sheet>
       </div>
       {q.o.map((txt, k) => <Strip key={k} t={t} u={u} k={k} txt={txt} ok={k === q.a} />)}
@@ -155,7 +155,7 @@ export const QuizPaperPlayer: React.FC<{data: QData}> = ({data}) => {
       <Background />
       <Progress t={t} />
       <div style={{position: 'absolute', inset: 0, opacity: intro}}>
-        <Sheet t={t} x={90} y={430} w={900} h={250} rot={-1.2} seed={3}><div style={{fontSize: 88, fontWeight: 800, color: INK, textAlign: 'center', lineHeight: 1.05, padding: '0 40px'}}>Bilimingizni sinang!</div></Sheet>
+        <Sheet t={t} x={90} y={430} w={900} h={250} rot={-1.2} seed={3}><div style={{fontSize: 88, fontWeight: 800, color: INK, textAlign: 'center', lineHeight: 1.05, padding: '0 40px'}}>{data.intro ?? 'Bilimingizni sinang!'}</div></Sheet>
         <Sheet t={t} x={150} y={730} w={780} h={150} rot={1.2} seed={4} color={MUST}><div style={{fontSize: 46, fontWeight: 800, color: INK, textAlign: 'center', lineHeight: 1.15, padding: '0 30px'}}>Boshlashdan oldin<br />obuna bo'ling</div></Sheet>
         <Sheet t={t} x={300} y={930} w={480} h={80} rot={-1} seed={6} color={GREEN}><div style={{fontSize: 36, fontWeight: 800, color: CREAM}}>4 ta savol · 3 ta javob</div></Sheet>
         <svg width={120} height={140} viewBox="0 0 120 140" style={{position: 'absolute', left: 480, top: 1180 + 20 * Math.abs(Math.sin(t * 5))}}><path d="M40 0h40v70h30L60 130 10 70h30z" fill={RED} stroke={INK} strokeWidth={5} strokeLinejoin="round" /></svg>
@@ -164,15 +164,15 @@ export const QuizPaperPlayer: React.FC<{data: QData}> = ({data}) => {
       <div style={{position: 'absolute', inset: 0, opacity: fin}}>
         <Sheet t={t} x={90} y={400} w={900} h={430} rot={-0.8} seed={9}>
           <div style={{textAlign: 'center', padding: '0 40px'}}>
-            <div style={{fontSize: 66, fontWeight: 800, color: INK, lineHeight: 1.1}}>Nechtasini topdingiz?</div>
-            <div style={{fontSize: 52, fontWeight: 800, color: TERRA, marginTop: 24}}>Izohda yozing: 4/4, 3/4...</div>
-            <div style={{fontSize: 40, fontWeight: 800, color: INK, marginTop: 28, lineHeight: 1.2, opacity: sm(t, TF + 1.6, TF + 2.2)}}>Qaysi surani navbatdagi videoda ko'rmoqchisiz?</div>
+            <div style={{fontSize: 66, fontWeight: 800, color: INK, lineHeight: 1.1}}>{data.fin?.[0] ?? 'Nechtasini topdingiz?'}</div>
+            <div style={{fontSize: 52, fontWeight: 800, color: TERRA, marginTop: 24}}>{data.fin?.[1] ?? 'Izohda yozing: 4/4, 3/4...'}</div>
+            <div style={{fontSize: data.fin ? 46 : 40, fontWeight: 800, color: data.fin ? GREEN : INK, marginTop: 28, lineHeight: 1.2, opacity: sm(t, TF + (data.fin ? 0.8 : 1.6), TF + (data.fin ? 1.3 : 2.2))}}>{data.fin?.[2] ?? "Qaysi surani navbatdagi videoda ko'rmoqchisiz?"}</div>
           </div>
         </Sheet>
       </div>
       <div style={{position: 'absolute', inset: 0, opacity: end}}>
         <Sheet t={t} x={90} y={440} w={900} h={300} rot={1} seed={12} color={MUST}>
-          <div style={{textAlign: 'center'}}><div style={{fontSize: 92, fontWeight: 800, color: INK}}>Obuna bo'ling.</div><div style={{fontSize: 48, fontWeight: 800, color: INK, marginTop: 16}}>Har kuni bitta sura siri</div></div>
+          <div style={{textAlign: 'center'}}><div style={{fontSize: 92, fontWeight: 800, color: INK}}>{data.end?.[0] ?? "Obuna bo'ling."}</div><div style={{fontSize: 48, fontWeight: 800, color: INK, marginTop: 16}}>{data.end?.[1] ?? 'Har kuni bitta sura siri'}</div></div>
         </Sheet>
       </div>
       <FollowPaper t={t} />
@@ -200,5 +200,6 @@ export const QuizPaperCover: React.FC<{data: QData}> = ({data}) => {
   );
 };
 export const QuizP2 = () => <QuizPaperPlayer data={QUIZ2} />; export const QuizP3 = () => <QuizPaperPlayer data={QUIZ3} />; export const QuizP4 = () => <QuizPaperPlayer data={QUIZ4} />;
+export const QuizAr = () => <QuizPaperPlayer data={QUIZAR} />; export const QuizArCover = () => <QuizPaperCover data={QUIZAR} />;
 export const QuizP2Cover = () => <QuizPaperCover data={QUIZ2} />; export const QuizP3Cover = () => <QuizPaperCover data={QUIZ3} />; export const QuizP4Cover = () => <QuizPaperCover data={QUIZ4} />;
 export {QP_FRAMES};

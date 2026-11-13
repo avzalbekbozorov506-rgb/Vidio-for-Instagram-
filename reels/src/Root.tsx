@@ -37,7 +37,7 @@ import {Zanjir, ZanjirCover, ZAN_FRAMES} from './Zanjir';
 import {ZanjirP, ZanjirPCover} from './ZanjirPaper';
 import {Rubrika, RubrikaCover, RUB_FRAMES} from './Rubrika';
 import {Carousel2} from './Carousel2';
-import {QuizP2, QuizP3, QuizP4, QuizP2Cover, QuizP3Cover, QuizP4Cover} from './QuizPaper';
+import {QuizP2, QuizP3, QuizP4, QuizP2Cover, QuizP3Cover, QuizP4Cover, QuizAr, QuizArCover} from './QuizPaper';
 import {Quiz2, Quiz3, Quiz4, Quiz2Cover, Quiz3Cover, Quiz4Cover, QP_FRAMES} from './QuizPack';
 import {Quiz, QuizCover, QUIZ_FRAMES} from './Quiz';
 import {Yaxshilik, YaxshilikCover, YAX_FRAMES} from './Yaxshilik';
@@ -93,6 +93,8 @@ export const Root: React.FC = () => {
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Falak" component={Falak} durationInFrames={FALAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="FalakCover" component={FalakCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="QuizAr" component={QuizAr} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizArCover" component={QuizArCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizP2" component={QuizP2} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizP2Cover" component={QuizP2Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizP3" component={QuizP3} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
