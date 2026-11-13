@@ -235,20 +235,23 @@ export const IxlosCover: React.FC = () => {
     <AbsoluteFill style={{background: '#06141c'}}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
         <Sky t={t} moon={{x: 800, y: 300, o: 0}} tint="#07202b" />
-        <Star8 x={540} y={1250} r={460} rot={12} o={0.4} /><Star8 x={540} y={1250} r={300} rot={30} o={0.3} />
-        <Orb x={540} y={1250} r={44} />
-        <rect x={-300} y={1700} width={1700} height={700} fill="#0a1218" />
+        <Star8 x={540} y={1330} r={470} rot={12} o={0.35} /><Star8 x={540} y={1330} r={300} rot={30} o={0.3} />
+        <Orb x={540} y={1330} r={40} />
+        <g transform="translate(540 1330)"><circle r={160} fill="rgba(255,243,208,.06)" stroke="#ff3b30" strokeWidth={14} /><line x1={-80} y1={-80} x2={80} y2={80} stroke="#ff3b30" strokeWidth={16} strokeLinecap="round" /><line x1={80} y1={-80} x2={-80} y2={80} stroke="#ff3b30" strokeWidth={16} strokeLinecap="round" /><line x1={112} y1={112} x2={210} y2={210} stroke="#ff3b30" strokeWidth={22} strokeLinecap="round" /></g>
+        <rect x={-300} y={1750} width={1700} height={700} fill="#0a1218" />
       </svg>
-      <Bloom x={540} y={1250} r={700} o={0.25} />
-      <Vignette strength={0.5} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 380, height: 760, background: 'linear-gradient(to bottom, rgba(6,20,28,0), rgba(6,20,28,.72) 18%, rgba(6,20,28,.72) 82%, rgba(6,20,28,0))'}} />
+      <Vignette strength={0.55} />
       <Grain opacity={0.05} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800}}>
-        <span style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontSize: 50, letterSpacing: 5, padding: '10px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(224,50,42,.45)'}}>IXLOS SURASI</span>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 440, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800}}>
+        <span style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontSize: 52, letterSpacing: 4, padding: '12px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(224,50,42,.55)'}}>IXLOS SURASIDA</span>
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 440, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1}}>
-        <div style={{fontSize: 330, color: '#ff6a5a', textShadow: '0 0 70px rgba(255,100,80,.55), 0 10px 40px rgba(0,0,0,.7)'}}>0 TA</div>
-        <div style={{fontSize: 96, color: GOLD, marginTop: 6, textShadow: '0 0 50px rgba(255,194,74,.6)'}}>IXLOS SO'ZI</div>
-        <div style={{fontSize: 54, color: GOLD2, marginTop: 30, textShadow: '0 4px 24px rgba(0,0,0,.8)'}}>Nega sura <span style={{color: '#fff'}}>IXLOS</span> deb ataladi?</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 590, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1}}>
+        <div style={{position: 'relative', display: 'inline-block', fontSize: 210, color: '#fff', textShadow: '0 8px 36px rgba(0,0,0,.8)'}}>IXLOS
+          <div style={{position: 'absolute', left: -24, right: -24, top: '50%', height: 20, background: '#ff3b30', borderRadius: 10, transform: 'rotate(-5deg)', boxShadow: '0 0 36px rgba(255,59,48,.85)'}} />
+        </div>
+        <div style={{fontSize: 150, color: '#ff6a5a', marginTop: 16, textShadow: '0 0 60px rgba(255,100,80,.6), 0 10px 40px rgba(0,0,0,.8)'}}>SO'ZI YO'Q!</div>
+        <div style={{fontSize: 56, color: GOLD2, marginTop: 26, textShadow: '0 4px 24px rgba(0,0,0,.9)'}}>Nega unday ataladi?</div>
       </div>
     </AbsoluteFill>
   );
