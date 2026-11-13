@@ -7,7 +7,7 @@
   "speed": 1.0,
   "genre": "ayat",
   "series": "Nega",
-  "status": "версия ~60 с, ждёт ок на озвучку",
+  "status": "озвучка запущена, карточка 5 переписана (13.11)",
   "hook": "Alloh bir necha yigitni g'orda uch yuz to'qqiz yil uxlatib qo'ydi. Butun bir sura shu g'orning nomi bilan ataladi, garchi unda yana uchta hikoya bor. Nega aynan g'or? Javob oxirida.",
   "cover_text": "309 YIL UXLADI",
   "facts": [
@@ -44,7 +44,7 @@
     },
     {
       "n": 5,
-      "vo": "Mana javob. Ibn Ashur yozadi, savol yigitlar haqida edi, sura esa g'or hikoyasi bilan nomlangan. Har kuni bitta surani o'rganamiz. Ertaga navbat Isro surasida.",
+      "vo": "Mana javob. Yigitlar haqida savol bergan edilar, sura shu g'or hikoyasi bilan boshlandi va shu nom bilan ataldi. Ibn Ashur shunday yozadi. Har kuni bitta surani o'rganamiz. Ertaga navbat Isro surasida.",
       "on_screen": "IBN ASHUR",
       "visual_hint": "три вопроса по очереди: молодые люди, путник на восток и запад, ruh (светящийся шар)"
     }
