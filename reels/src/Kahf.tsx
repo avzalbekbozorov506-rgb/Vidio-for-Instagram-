@@ -87,7 +87,8 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
         <g opacity={sky * (1 - tm(t, 3.6, 4.5))}><SunMoon p={count * 5} /></g>
         <Cave x={540} s={1.2} glow={0.55 + 0.35 * tm(t, 4.4, 6.5)} t={t} /></g>),
         overlay: (<>
-          <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', opacity: tm(t, 1.4, 1.9) * (1 - tm(t, 4.2, 4.7)), fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1, color: GOLD, fontSize: 330, textShadow: '0 0 60px rgba(255,194,74,.6)'}}>{num}<div style={{fontSize: 90, color: CREAM}}>YIL</div></div>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', opacity: tm(t, 1.4, 1.9) * (1 - tm(t, 3.9, 4.3)), fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, lineHeight: 1, color: GOLD, fontSize: 330, textShadow: '0 0 60px rgba(255,194,74,.6)'}}>{num}<div style={{fontSize: 90, color: CREAM}}>YIL</div></div>
+          <Label text="YIGITLAR · G'OR" a={tm(t, 0.15, 0.6) * (1 - tm(t, 1.3, 1.7))} top={330} size={78} color={GOLD2} />
           <Label text="G'OR NEGA?" a={nega} top={330} size={120} color={GOLD2} />
           <Label text="OBUNA BO'LING" a={tm(t, 8.4, 9.0) * (1 - tm(t, 11, 11.4))} top={1180} size={58} color={GOLD} />
           <Label text="JAVOB OXIRIDA" a={tm(t, 11.2, 11.9)} top={1180} size={64} color={GOLD2} /></>)};
@@ -116,12 +117,14 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
       const gossip = tm(t, W_('Makkada').s, W_('Makkada').s + 0.5), q = tm(t, W_('Endi').s, W_('Endi').s + 0.6);
       return {body: (<g><Night t={t} warm={0.8} />
         <g opacity={sun}><SunMoon p={0.2 + 0.1 * Math.sin(t)} /></g>
+        <ellipse cx={540} cy={1000} rx={360} ry={300} fill="url(#jglow)" opacity={0.5 * tm(t, 0, 0.5) * (1 - tm(t, 4.8, 5.4))} />
         {Array.from({length: 15}, (_, i) => { const r = Math.floor(i / 5), c = i % 5, a = ease(tiles(i)); return a > 0 ? (<g key={i} opacity={a} transform={`translate(${200 + c * 140} ${760 + r * 140}) scale(${0.7 + 0.3 * a})`}>
           <rect width={120} height={120} rx={22} fill="rgba(255,194,74,.22)" stroke={GOLD} strokeWidth={3} />
           <text x={60} y={80} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={54} fill={CREAM}>{i + 1}</text></g>) : null; })}
         <g opacity={gossip * (1 - q * 0.0)}>{[0, 1, 2, 3].map((i) => <g key={i} transform={`translate(${220 + i * 190} ${900 + (i % 2) * 140})`} opacity={0.5 + 0.5 * Math.sin(t * 3 + i)}><ellipse cx={0} cy={0} rx={60} ry={42} fill="rgba(255,243,208,.2)" stroke="rgba(255,214,140,.5)" strokeWidth={2} /><text x={0} y={14} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={44} fill={CREAM}>...</text></g>)}</g>
       </g>),
         overlay: (<>
+          <Label text="SAVOLGA JAVOB" a={tm(t, 0.1, 0.6) * (1 - tm(t, 2.3, 2.7))} top={560} size={84} color={GOLD2} />
           <Label text="ERTAGA" a={tm(t, W_('ertaga').s - 0.1, W_('ertaga').s + 0.5) * (1 - tm(t, 5.2, 5.7))} top={560} size={140} color={GOLD2} />
           <div style={{position: 'absolute', left: 0, right: 0, top: 640, textAlign: 'center', opacity: ins * (1 - tm(t, 7.2, 7.8)), fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 94, letterSpacing: 3, color: CREAM, textShadow: '0 4px 24px rgba(0,0,0,.8)'}}>INSHAALLOH<div style={{height: 10, width: `${cross * 100}%`, margin: '-50px auto 0', background: '#e0322a', borderRadius: 5, maxWidth: 760}} /></div>
           <Label text="15 KUN" a={tm(t, day0 + 0.1, day0 + 0.7) * (1 - tm(t, 9.9, 10.5))} top={330} size={150} color={GOLD} />
@@ -130,7 +133,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
           <div style={{position: 'absolute', left: 0, right: 0, top: 520, textAlign: 'center', opacity: q, transform: `scale(${0.7 + 0.3 * q})`, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 300, lineHeight: 1, color: GOLD, textShadow: '0 0 60px rgba(255,194,74,.6)'}}>?</div></>)};
     }
     case 4: {
-      const beam = ease(tm(t, 0.1, 1.2)), open = ease(tm(t, 0.8, 2.0)), cv = tm(t, W_("g'or").s - 0.1, W_("g'or").s + 0.6) * (1 - tm(t, 4.4, 5));
+      const beam = ease(tm(t, 0, 0.6)), open = ease(tm(t, 0.2, 1.2)), cv = tm(t, W_("g'or").s - 0.1, W_("g'or").s + 0.6) * (1 - tm(t, 4.4, 5));
       const a1 = tm(t, W_('Unda').s, W_('Unda').s + 0.5) * (1 - tm(t, 9.0, 9.5)), a2 = tm(t, W_('Magar,').s - 0.2, W_('Magar,').s + 0.5);
       const ert = tm(t, W_('ertaga').s - 0.1, W_('ertaga').s + 0.4) * (1 - tm(t, 9.0, 9.5)), xoh = tm(t, W_('xohlasa,').s - 0.1, W_('xohlasa,').s + 0.5);
       return {body: (<g><Night t={t} warm={1.1} />
@@ -139,6 +142,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[]): Out => {
         <g opacity={cv}><g transform="translate(540 1000) scale(0.45)"><Cave x={0} glow={1} t={t} sleepers={false} /></g></g>
       </g>),
         overlay: (<>
+          <Label text="JABROIL" a={tm(t, 0.1, 0.6) * (1 - tm(t, 3.2, 3.8))} top={330} size={110} color={GOLD2} />
           <Arabic text={AY23} a={a1} label="Kahf 18:23" />
           <Arabic text={AY24} a={a2} label="Kahf 18:24" />
           <Label text="ERTAGA QILAMAN" a={ert} top={660} size={72} color={CREAM} />
