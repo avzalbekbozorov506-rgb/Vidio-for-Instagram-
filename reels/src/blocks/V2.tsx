@@ -32,8 +32,8 @@ export const Sky: React.FC<{t: number; moon?: {x: number; y: number; o?: number}
     <g opacity={0.14}><polygon points="-300,200 1400,-100 1400,260 -300,520" fill="#cfd8ff" style={{filter: 'blur(40px)'}} /></g>
     {Array.from({length: 150}, (_, i) => <circle key={i} cx={-250 + rnd(i) * 1600} cy={-150 + rnd(i + 2) * 1100} r={0.8 + rnd(i + 5) * 2.2} fill={`rgba(255,244,214,${0.2 + 0.7 * rnd(i + 8) * (0.65 + 0.35 * Math.sin(t * 1.5 + i))})`} />)}
     <circle cx={moon.x} cy={moon.y} r={230} fill="url(#v2moon)" opacity={moon.o ?? 1} />
-    <circle cx={moon.x} cy={moon.y} r={62} fill="#f4efd9" opacity={moon.o ?? 1} />
-    <circle cx={moon.x + 24} cy={moon.y - 10} r={54} fill="#1a1a38" opacity={moon.o ?? 1} />
+    <mask id="v2mm"><rect x={moon.x - 100} y={moon.y - 100} width={200} height={200} fill="white" /><circle cx={moon.x + 26} cy={moon.y - 12} r={54} fill="black" /></mask>
+    <circle cx={moon.x} cy={moon.y} r={62} fill="#f4efd9" opacity={moon.o ?? 1} mask="url(#v2mm)" />
   </g>
 );
 

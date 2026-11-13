@@ -27,7 +27,7 @@ const SHOTS: Record<number, Shot[]> = {
   2: [{from: 0, keys: [[0, 1.0, 540, 1140, 0], [1, 1.1, 580, 1180, 0]]}, {from: 0.2, keys: [[0, 1.8, 330, 1280, 0], [1, 1.95, 330, 1290, 0]]}, {from: 0.42, keys: [[0, 1.55, 540, 1240, 0], [1, 1.7, 540, 1230, 0]]}, {from: 0.7, keys: [[0, 1.2, 540, 1200, 0], [1, 1.3, 540, 1180, 0]]}],
   3: [{from: 0, keys: [[0, 1.15, 540, 1320, 0], [1, 1.1, 540, 1310, 0]]}, {from: 0.3, keys: [[0, 1.0, 300, 1300, 0], [1, 1.0, 780, 1300, 0]]}, {from: 0.7, keys: [[0, 1.25, 540, 1200, 0], [1, 1.45, 540, 1140, 0]]}],
   4: [{from: 0, keys: [[0, 1.0, 540, 1000, 0], [1, 1.0, 540, 1000, 0]]}, {from: 0.1, keys: [[0, 1.3, 340, 1160, 0], [1, 1.3, 760, 1160, 0]]}, {from: 0.55, keys: [[0, 1.05, 540, 1000, 0], [1, 1.12, 540, 1060, 0]]}],
-  5: [{from: 0, keys: [[0, 1.35, 540, 1280, 0], [1, 1.2, 540, 1220, 0]]}, {from: 0.34, keys: [[0, 1.0, 540, 1000, 0], [1, 1.1, 540, 1060, 0]]}, {from: 0.72, keys: [[0, 1.1, 540, 1250, 0], [1, 1.0, 540, 1000, 0]]}],
+  5: [{from: 0, keys: [[0, 1.1, 540, 1180, 0], [1, 1.05, 540, 1120, 0]]}, {from: 0.34, keys: [[0, 1.0, 540, 1000, 0], [1, 1.1, 540, 1060, 0]]}, {from: 0.72, keys: [[0, 1.1, 540, 1250, 0], [1, 1.0, 540, 1000, 0]]}],
 };
 
 const Plate: React.FC<{x: number; y: number; text: string; glow: number; w?: number; size?: number}> = ({x, y, text, glow, w = 420, size = 50}) => (
@@ -70,8 +70,8 @@ const Spearmen: React.FC<{x: number; y: number; dir: 1 | -1; t: number; n?: numb
   <g transform={`translate(${x} ${y})`} opacity={o}>
     {Array.from({length: n}, (_, i) => { const px = -dir * i * 38 + (rnd(i) - 0.5) * 12, py = (i % 3) * 14 + Math.abs(Math.sin(t * 7 + i)) * 3;
       return (<g key={i} transform={`translate(${px} ${py}) scale(${dir} 1)`}>
-        <rect x={-10} y={-120} width={20} height={118} rx={9} fill="#0b0a12" /><circle cx={0} cy={-132} r={14} fill="#0b0a12" />
-        <line x1={14} y1={-4} x2={14} y2={-210} stroke="#0b0a12" strokeWidth={5} /><polygon points="8,-210 14,-246 20,-210" fill="#2a2433" /></g>); })}
+        <rect x={-10} y={-120} width={20} height={118} rx={9} fill="#1a1626" stroke="rgba(255,120,80,.55)" strokeWidth={2} /><circle cx={0} cy={-132} r={14} fill="#1a1626" stroke="rgba(255,120,80,.55)" strokeWidth={2} />
+        <line x1={14} y1={-4} x2={14} y2={-210} stroke="#2a2236" strokeWidth={5} /><polygon points="8,-210 14,-246 20,-210" fill="#d9d2c0" /></g>); })}
   </g>
 );
 
@@ -89,10 +89,12 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
           {Array.from({length: 6}, (_, i) => <Person key={i} x={caravanX + i * 78} y={1300 - (i % 2) * 8} s={0.34} t={t} seed={i + 1} pose="walk" />)}</Par>
         <Par cam={cam} d={0.85}><Hills base={1500} amp={110} seed={4} fill="#0b0912" edge="rgba(255,214,140,.25)" /></Par>
         <rect x={-300} y={1500} width={1700} height={700} fill="#0b0912" />
-        <g transform="translate(540 1500)"><rect x={-120} y={-150} width={240} height={150} fill="#2a2234" stroke="rgba(255,214,140,.4)" strokeWidth={2} /><rect x={-140} y={-170} width={280} height={26} rx={6} fill="#3a2e48" />
-          <ellipse cx={0} cy={-260} rx={300} ry={200} fill="url(#v2glow)" opacity={0.3 + 0.6 * hot} />
-          <path d="M-120 -176 L0 -214 L120 -176 L120 -150 L-120 -150 Z" fill="#4a3a1e" stroke={GOLD} strokeOpacity={0.6} strokeWidth={3} />
-          <text x={0} y={-186} textAnchor="middle" fontFamily="AmiriAr, serif" fontWeight={700} fontSize={96} fill={GOLD} opacity={hot}>؟</text></g>
+        <g transform="translate(540 1500)">
+          <ellipse cx={0} cy={-210} rx={320} ry={220} fill="url(#v2glow)" opacity={0.3 + 0.6 * hot} />
+          <g stroke="#4a2f18" strokeWidth={16} strokeLinecap="round"><line x1={-100} y1={0} x2={60} y2={-150} /><line x1={100} y1={0} x2={-60} y2={-150} /></g>
+          <g transform="translate(0 -170) rotate(-6)"><path d="M-130 0 Q-65 -22 0 -4 L0 90 Q-65 70 -130 92 Z" fill="#efe3c4" stroke="#8a6a3a" strokeWidth={3} /><path d="M130 0 Q65 -22 0 -4 L0 90 Q65 70 130 92 Z" fill="#e8dab6" stroke="#8a6a3a" strokeWidth={3} />
+            {[0, 1, 2, 3].map((i) => <React.Fragment key={i}><rect x={-110} y={14 + i * 18} width={80} height={5} rx={2} fill="#5a4630" opacity={0.7} /><rect x={32} y={14 + i * 18} width={80} height={5} rx={2} fill="#5a4630" opacity={0.7} /></React.Fragment>)}</g>
+          <text x={0} y={-330} textAnchor="middle" fontFamily="AmiriAr, serif" fontWeight={700} fontSize={190} fill={GOLD} opacity={hot} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>؟</text></g>
       </g>),
         overlay: (<>
           <Label2 text="SAHOBALAR" a={tm(t, 0.1, 0.7) * (1 - tm(t, 3.5, 4.0))} top={300} size={84} />
@@ -136,15 +138,16 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <g opacity={1 - bk * 0.9}>
           <Mosque x={540} y={1480} s={0.9} minarets={1} glow={1 - dark} dome="#6f6a78" />
           {[-380, -250, 260, 380].map((hx, i) => <g key={i} transform={`translate(${540 + hx} 1480)`}><rect x={-60} y={-110} width={120} height={110} fill="#12101c" stroke="rgba(255,214,140,.3)" strokeWidth={2} /><rect x={-14} y={-74} width={28} height={40} rx={14} fill={`rgba(255,206,110,${0.7 * (1 - dark)})`} /></g>)}
-          <Spearmen x={-700 + w1 * 1250} y={1500} dir={1} t={t} o={w1 > 0 && w1 < 1 ? 1 : 0.15 * (1 - tm(t, lekin - 0.2, lekin))} />
-          <Spearmen x={1800 - w2 * 1300} y={1520} dir={-1} t={t} o={w2 > 0 && w2 < 1 ? 1 : 0.15 * (1 - tm(t, lekin - 0.2, lekin))} />
           <rect x={-300} y={-300} width={1700} height={2400} fill="#06050c" opacity={dark} />
+          <Spearmen x={-700 + w1 * 1250} y={1500} dir={1} t={t} o={w1 > 0 && w1 < 1 ? 1 : 0.2 * (1 - tm(t, lekin - 0.2, lekin))} />
+          <Spearmen x={1800 - w2 * 1300} y={1520} dir={-1} t={t} o={w2 > 0 && w2 < 1 ? 1 : 0.2 * (1 - tm(t, lekin - 0.2, lekin))} />
         </g>
         <g opacity={bk}><OpenBook x={540} y={1180} s={1.05} glow={1} hot={tm(t, lekin + 0.4, lekin + 1.1)} head={['', '17']} /></g>
       </g>),
         overlay: (<>
           <Label2 text="IBN ASHUR" a={tm(t, 0.1, 0.7) * (1 - tm(t, 1.4, 1.9))} top={310} size={92} color={GOLD2} />
-          <Label2 text="BOSHQA SURALARDA YO'Q" a={tm(t, 1.5, 2.2) * (1 - tm(t, 4.2, 4.6))} top={310} size={58} />
+          <Label2 text="BOSHQA SURALARDA YO'Q" a={tm(t, 1.5, 2.2) * (1 - tm(t, 3.9, 4.3))} top={310} size={58} />
+          <Label2 text="ISROIL O'G'ILLARI" a={tm(t, 4.3, 4.8) * (1 - tm(t, avval - 0.1, avval + 0.2))} top={310} size={76} color={GOLD2} />
           <Label2 text="AVVAL" a={tm(t, avval, avval + 0.5) * (1 - tm(t, yana - 0.2, yana))} top={310} size={110} color={GOLD} />
           <Label2 text="KEYIN" a={tm(t, yana, yana + 0.5) * (1 - tm(t, 9.6, 9.9))} top={310} size={110} color={GOLD} />
           <Label2 text="LEKIN..." a={tm(t, lekin, lekin + 0.5) * (1 - tm(t, 11.4, 11.8))} top={310} size={110} color={GOLD2} />
@@ -165,14 +168,13 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <Mosque x={210} y={1490} s={0.7} minarets={4} glow={hk} dome="#cfcbbb" />
         <Mosque x={880} y={1490} s={0.7} minarets={2} glow={aq} dome="#c9a64e" />
         <rect x={-300} y={1490} width={1700} height={700} fill="#0b0912" />
-        <g opacity={tm(t, tun - 0.2, tun + 0.6)}><line x1={120} y1={1700} x2={960} y2={1700} stroke={GOLD} strokeWidth={5} /><polygon points="970,1700 940,1685 940,1715" fill={GOLD} /></g>
       </g>),
         overlay: (<>
           <Calligraphy words={AY} t={t} t0={o0 + 0.3} t1={7.6} a={tm(t, 0.9, 1.5) * (1 - tm(t, tun - 0.3, tun + 0.2))} top={300} size={92} />
           <Label2 text="17:1" a={tm(t, 0.2, 0.8) * (1 - tm(t, 1.8, 2.2))} top={330} size={120} color={GOLD2} />
           <Label2 text="TUNGI SAYR" a={tm(t, tun, tun + 0.5) * (1 - tm(t, isro - 0.2, isro))} top={330} size={110} />
           <Label2 text="ISRO" a={tm(t, isro, isro + 0.5)} top={330} size={180} color={GOLD} />
-          <div style={{position: 'absolute', left: 0, right: 0, top: 1480, textAlign: 'center', opacity: tm(t, tun, tun + 0.6), fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 38, letterSpacing: 3, color: CREAM}}><span style={{opacity: 1}}>ISRO</span> <span style={{color: GOLD}}>→</span> <span style={{opacity: tm(t, is2, is2 + 0.5)}}>ISROIL O'G'ILLARI</span></div></>)};
+          <div style={{position: 'absolute', left: 0, right: 0, top: 540, textAlign: 'center', opacity: tm(t, tun + 0.2, tun + 0.8) * tm(t, 9.4, 9.9), fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 50, letterSpacing: 3, color: CREAM}}><span>ISRO</span> <span style={{color: GOLD}}> → </span> <span style={{opacity: tm(t, is2, is2 + 0.5)}}>ISROIL O'G'ILLARI</span></div></>)};
     }
     default: {
       const sah = at(ws, 'sahobalar'), bani = at(ws, 'bani'), isro = at(ws, 'isro'), ibn = at(ws, 'ibn'), nav = at(ws, 'keyingi'), ix = at(ws, 'ixlos');
@@ -184,19 +186,19 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
           <Mosque x={170} y={1440} s={0.45} minarets={4} glow={0.3} dome="#cfcbbb" windows={false} /><Mosque x={930} y={1440} s={0.45} minarets={2} glow={0.3} dome="#c9a64e" windows={false} /></Par>
         <rect x={-300} y={1480} width={1700} height={700} fill="#0b0912" />
         <path d="M200 1100 Q540 380 880 1100" fill="none" stroke={`rgba(255,226,150,${0.15 + 0.5 * g2})`} strokeWidth={6} strokeDasharray="10 14" />
-        <Plate x={290} y={1000} text="BANI ISROIL" glow={g1} w={430} size={46} /><Plate x={800} y={1000} text="ISRO" glow={g2} w={300} size={62} />
+        <g opacity={1 - orb}><Plate x={290} y={1000} text="BANI ISROIL" glow={g1} w={430} size={46} /><Plate x={800} y={1000} text="ISRO" glow={g2} w={300} size={62} /></g>
         <OpenBook x={540} y={1260} s={0.85} glow={0.5 + 0.4 * g2} />
-        <g opacity={orb}><circle cx={540} cy={1200 - 520 * orb} r={220 * orb + 20} fill="url(#v2glow)" opacity={0.9} /><circle cx={540} cy={1200 - 520 * orb} r={30 + 40 * ixg} fill="#fffaf0" />
-          {Array.from({length: 16}, (_, i) => { const a = i * Math.PI / 8 + t * 0.2, r0 = 70 + 40 * ixg, r1 = r0 + 90 * ixg; return <line key={i} x1={540 + Math.cos(a) * r0} y1={1200 - 520 * orb + Math.sin(a) * r0} x2={540 + Math.cos(a) * r1} y2={1200 - 520 * orb + Math.sin(a) * r1} stroke="rgba(255,236,170,.8)" strokeWidth={3} opacity={ixg} />; })}</g>
+        <g opacity={orb}><circle cx={540} cy={1200 - 640 * orb} r={220 * orb + 20} fill="url(#v2glow)" opacity={0.9} /><circle cx={540} cy={1200 - 640 * orb} r={30 + 40 * ixg} fill="#fffaf0" />
+          {Array.from({length: 16}, (_, i) => { const a = i * Math.PI / 8 + t * 0.2, r0 = 70 + 40 * ixg, r1 = r0 + 90 * ixg; return <line key={i} x1={540 + Math.cos(a) * r0} y1={1200 - 640 * orb + Math.sin(a) * r0} x2={540 + Math.cos(a) * r1} y2={1200 - 640 * orb + Math.sin(a) * r1} stroke="rgba(255,236,170,.8)" strokeWidth={3} opacity={ixg} />; })}</g>
       </g>),
         overlay: (<>
-          <Label2 text="MANA JAVOB" a={tm(t, 0.0, 0.5) * (1 - tm(t, 1.3, 1.7))} top={310} size={100} color={GOLD2} />
+          <Label2 text="MANA JAVOB" a={tm(t, 0.0, 0.5) * (1 - tm(t, 1.3, 1.7))} top={330} size={100} color={GOLD2} />
           <Label2 text="SAHOBALAR" a={tm(t, sah, sah + 0.5) * (1 - tm(t, isro - 3.0, isro - 2.5))} top={310} size={80} />
           <Label2 text="HIKOYAGA KO'RA" a={tm(t, 4.5, 5.0) * (1 - tm(t, 8.0, 8.4))} top={430} size={56} color={GOLD2} />
           <Label2 text="TUNGI SAYRGA KO'RA" a={tm(t, 8.1, 8.7) * (1 - tm(t, 12.0, 12.4))} top={310} size={68} />
           <Label2 text="IBN ASHUR" a={tm(t, ibn - 0.1, ibn + 0.5) * (1 - tm(t, nav - 0.3, nav))} top={310} size={90} color={GOLD2} />
-          <Label2 text="KEYINGI" a={tm(t, nav, nav + 0.5)} top={310} size={80} />
-          <Label2 text="IXLOS" a={tm(t, ix - 0.1, ix + 0.6)} top={420} size={190} color={GOLD} /></>)};
+          <Label2 text="KEYINGI" a={tm(t, nav, nav + 0.5)} top={640} size={70} />
+          <Label2 text="IXLOS" a={tm(t, ix - 0.1, ix + 0.6)} top={710} size={170} color={GOLD} /></>)};
     }
   }
 };
