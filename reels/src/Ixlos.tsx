@@ -97,7 +97,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <ellipse cx={860} cy={1420} rx={260} ry={110} fill="url(#v2glow)" opacity={beam} />
         {[0, 1, 2, 3, 4].map((i) => <Person key={i} x={130 + i * 110 + rnd(i) * 20} y={GY - 6 + (i % 2) * 8} s={1.05} t={t} seed={i + 2} pose={i === 2 ? 'raise' : 'stand'} />)}
         <g opacity={tm(t, sav - 0.1, sav + 0.5)}>{[0, 1, 2].map((i) => <text key={i} x={140 + i * 150} y={1130 - (i % 2) * 50 + Math.sin(t * 2 + i) * 8} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={90} fill={GOLD} opacity={0.9}>?</text>)}</g>
-        <g>
+        <g opacity={1 - tm(t, 11.6, 12.2)}>
           <Box x={540} y={620} text="KIMDAN?" a={tm(t, kim - 0.1, kim + 0.5)} />
           <line x1={540} y1={664} x2={540} y2={756} stroke={GOLD} strokeWidth={5} opacity={tm(t, kim, kim + 0.6)} />
           <Box x={540} y={800} text="RABBING" a={tm(t, nas - 0.1, nas + 0.5)} w={380} />
@@ -113,8 +113,8 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
           <Label2 text="JAVOB?" a={tm(t, jav, jav + 0.5)} top={330} size={150} color={GOLD} /></>)};
     }
     case 3: {
-      const ayt = at(ws, 'ayt,'), yag = at(ws, 'yagonadir.'), beh = at(ws, 'behojatdir.'), tug = at(ws, "tug'magan"), tig = at(ws, "tug'ilmagan."), hech = at(ws, 'hech'), lek = at(ws, 'lekin');
-      const dots = (i: number) => tm(t, 0.5 + i * 0.35, 0.9 + i * 0.35) * (1 - tm(t, 2.4, 2.8));
+      const ayt = at(ws, 'ayt'), yag = at(ws, 'yagonadir'), beh = at(ws, 'behojatdir'), tug = at(ws, "tug'magan"), tig = at(ws, "tug'ilmagan"), hech = at(ws, 'hech'), lek = at(ws, 'lekin');
+      const dots = (i: number) => tm(t, 0.05 + i * 0.4, 0.4 + i * 0.4) * (1 - tm(t, 2.4, 2.8));
       const orbA = tm(t, ayt - 0.2, ayt + 0.6), ring = tm(t, beh - 0.1, beh + 1.0);
       const cutU = tm(t, tug, tug + 0.5), cutD = tm(t, tig - 0.2, tig + 0.5);
       const comp = tm(t, hech, hech + 0.4) * (1 - tm(t, lek - 0.3, lek));
@@ -130,7 +130,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <g opacity={comp}>{Array.from({length: 10}, (_, i) => { const a = i * Math.PI * 2 / 10 + t * 0.15, rr = 470 - 170 * Math.min(1, (t - hech) * 0.6) * (0.4 + 0.6 * ((Math.sin(t * 3 + i) + 1) / 2)); return <circle key={i} cx={540 + Math.cos(a) * rr} cy={940 + Math.sin(a) * rr * 0.9} r={16 + rnd(i) * 10} fill="rgba(200,215,230,.55)" />; })}</g>
       </g>),
         overlay: (<>
-          <Label2 text="TO'RTTA OYAT" a={tm(t, 0.5, 1.1) * (1 - tm(t, 2.4, 2.8))} top={330} size={92} color={GOLD2} />
+          <Label2 text="TO'RTTA OYAT" a={tm(t, 0.05, 0.6) * (1 - tm(t, 2.4, 2.8))} top={330} size={92} color={GOLD2} />
           <Label2 text="YAGONA" a={tm(t, yag - 0.5, yag + 0.1) * (1 - tm(t, beh - 0.3, beh))} top={330} size={140} color={GOLD} />
           <Label2 text="BEHOJAT" a={tm(t, beh, beh + 0.5) * (1 - tm(t, tug - 0.2, tug))} top={330} size={130} color={GOLD} />
           <Label2 text="TUG'MAGAN" a={tm(t, tug, tug + 0.4) * (1 - tm(t, tig - 0.2, tig))} top={330} size={110} color={GOLD2} />
@@ -144,10 +144,10 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
       return {keys: [bir, ixl, at(ws, 'termiziy'), nega], body: (<g>
         <Sky t={t} moon={{x: 800, y: 300, o: 0}} tint="#07202b" />{bg(0.2, 800, 560)}
         <rect x={-300} y={GY} width={1700} height={700} fill="#0a1218" />
-        <Plate x={540} y={760} text="AYT: U ALLOH YAGONADIR" glow={g1} w={900} size={40} sub="BIRINCHI SO'ZLARI" />
-        <g opacity={tm(t, ixl - 0.3, ixl + 0.4)}><Book x={540} y={1470} w={420} c="#3b2a52" /><Book x={560} y={1436} w={380} c="#2a4650" rot={-2} /><Book x={530} y={1402} w={340} c="#4a3a1e" rot={2} /><ellipse cx={540} cy={1380} rx={320} ry={160} fill="url(#v2glow)" opacity={0.5 * g2} /></g>
-        <Plate x={540} y={1140} text="IXLOS" glow={g2} w={360} size={64} sub="MUSHAFLAR · TERMIZIY" />
-        <g opacity={q}><text x={870} y={1000} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={190} fill={GOLD} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>?</text></g>
+        <Plate x={540} y={990} text="AYT: U ALLOH YAGONADIR" glow={g1} w={900} size={40} sub="BIRINCHI SO'ZLARI" />
+        <g opacity={tm(t, ixl - 0.3, ixl + 0.4)}><Book x={540} y={1560} w={420} c="#3b2a52" /><Book x={560} y={1526} w={380} c="#2a4650" rot={-2} /><Book x={530} y={1492} w={340} c="#4a3a1e" rot={2} /><ellipse cx={540} cy={1470} rx={320} ry={160} fill="url(#v2glow)" opacity={0.5 * g2} /></g>
+        <Plate x={540} y={1290} text="IXLOS" glow={g2} w={360} size={64} sub="MUSHAFLAR · TERMIZIY" />
+        <g opacity={q}><text x={900} y={1150} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={190} fill={GOLD} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>?</text></g>
       </g>),
         overlay: (<>
           <Label2 text="PAYG'AMBAR ZAMONIDA" a={tm(t, 0.0, 0.5) * (1 - tm(t, 3.6, 4.0))} top={330} size={62} />
@@ -162,8 +162,8 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <Sky t={t} moon={{x: 800, y: 300, o: 0}} tint="#07202b" />{bg(0.25 + 0.3 * pure, 900, 560)}
         <rect x={-300} y={GY} width={1700} height={700} fill="#0a1218" />
         <g opacity={1 - tz}>
-          <Orb x={540} y={900} r={30 + 22 * pure + 10 * fin} />
-          {Array.from({length: 12}, (_, i) => { const a = i * Math.PI / 6 + t * 0.12, rr = 360 - 190 * dis * 0 + 90 * dis, op = tm(t, fq, fq + 1.0) * (1 - dis); return <circle key={i} cx={540 + Math.cos(a) * rr} cy={900 + Math.sin(a) * rr * 0.92} r={18 + rnd(i) * 10} fill="rgba(200,215,230,.55)" opacity={op} />; })}
+          <Orb x={540} y={1000} r={30 + 22 * pure + 10 * fin} />
+          {Array.from({length: 12}, (_, i) => { const a = i * Math.PI / 6 + t * 0.12, rr = 360 - 190 * dis * 0 + 90 * dis, op = tm(t, fq, fq + 1.0) * (1 - dis); return <circle key={i} cx={540 + Math.cos(a) * rr} cy={1000 + Math.sin(a) * rr * 0.92} r={18 + rnd(i) * 10} fill="rgba(200,215,230,.55)" opacity={op} />; })}
         </g>
         <g opacity={tz}>{[0, 1, 2].map((i) => <Person key={i} x={330 + i * 210} y={GY - 6} s={1.15} t={t} seed={i + 1} pose="stand" glow={0.5} />)}<ellipse cx={540} cy={1380} rx={520} ry={260} fill="url(#v2glow)" opacity={0.55 * tz} /></g>
       </g>),
