@@ -23,7 +23,7 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Kech tushganda o'g'illari Yaqubning oldiga yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ularga ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Kech tushganda o'g'illari Yaqubning oldiga yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": ""
   },
   {
@@ -33,22 +33,22 @@
   },
   {
    "n": 3,
-   "vo": "Ular otasidan Yusufni o'zlari bilan yuborishini so'rashdi, uni albatta asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Shunday bo'lsa ham, Yusufni olib ketishdi. Keyin nima bo'ldi?",
+   "vo": "Ular Yusufni o'zlari bilan yuborishini so'rab, uni asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir Yusufni olib ketishdi.",
    "on_screen": ""
   },
   {
    "n": 4,
-   "vo": "Akalar niyatini amalga oshirdi va Yusufni quduq tubiga tashladi. Kechqurun esa yig'lab qaytishdi. Biz quvlashib ketgan edik, Yusufni bo'ri yeb qo'ydi, deyishdi. So'zlariga dalil ham keltirishdi. Qanday dalil?",
+   "vo": "Akalar uni quduq tubiga tashladi, kechqurun esa yig'lab qaytdi. Yusufni bo'ri yeb qo'ydi, deyishdi va dalil ham keltirishdi. Qanday dalil?",
    "on_screen": ""
   },
   {
    "n": 5,
-   "vo": "Bu Yusufning qonga belangan ko'ylagi edi. Ibn Kasirning yozishicha, ular bir qo'yni so'yib, ko'ylakni o'sha qonga bo'yashgan. Biroq bir narsani unutishgan edi. Nimani?",
+   "vo": "Bu qonga belangan ko'ylak edi. Ibn Kasirning yozishicha, ular qo'y so'yib, ko'ylakni o'sha qonga bo'yashgan. Biroq bir narsani unutishgan edi. Nimani?",
    "on_screen": ""
   },
   {
    "n": 6,
-   "vo": "Ko'ylakni yirtishni. U qonga belangan, ammo butun edi. Shu bois Yaqub ularga ishonmadi va endi menga chiroyli sabr qoldi, dedi. Quduq tubidagi Yusufni esa nima kutardi? Ertaga uchinchi qism.",
+   "vo": "Ko'ylakni yirtishni. U qonga belangan, ammo butun edi. Shu bois Yaqub ishonmadi va menga chiroyli sabr qoldi, dedi. Quduqdagi Yusufni esa nima kutardi? Ertaga uchinchi qism.",
    "on_screen": ""
   }
  ]
