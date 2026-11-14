@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Устойчивая сборка ролика, ПРОДОЛЖАЕТСЯ после обрыва (перезапуск сессии, падение браузера):
+#   (3D-карточки: GL_CARDS="2 3" перед командой, рендер с --gl=swangle)
 #   nohup ./scripts/make-reel.sh <CompositionId> <vo-NN> <имя-в-release> [scale=1] [cover.png] > out/make.log 2>&1 &
 # Видео рендерится по карточкам в out/parts/<Id>[-sN]/cNN.mp4 (атомарно, 3 попытки на карточку), готовые карточки НЕ перерисовываются.
 # Если процесс убит, просто запустить ту же команду: он продолжит с первой неготовой карточки.
@@ -28,7 +29,7 @@ for r in $ranges; do
   ok=0
   for try in 1 2 3; do
     say "карточка $k/$n кадры $rng (попытка $try)"
-    if npx remotion render "$id" "$f.tmp.mp4" --frames="$rng" --muted --scale="$scale" --concurrency=4 >"out/$id.last.log" 2>&1 && [ -s "$f.tmp.mp4" ]; then mv "$f.tmp.mp4" "$f"; ok=1; break; fi
+    if npx remotion render "$id" "$f.tmp.mp4" --frames="$rng" --muted --scale="$scale" --concurrency=4 $([[ " ${GL_CARDS:-} " == *" $k "* ]] && echo --gl=swangle) >"out/$id.last.log" 2>&1 && [ -s "$f.tmp.mp4" ]; then mv "$f.tmp.mp4" "$f"; ok=1; break; fi
     rm -f "$f.tmp.mp4"; sleep 3
   done
   [ $ok = 1 ] || { say "ОШИБКА: карточка $k не отрендерилась, см. out/$id.last.log. Запустите снова."; exit 1; }

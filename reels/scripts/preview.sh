@@ -19,7 +19,7 @@ P
 )
 for kf in $frames; do
   k=${kf%%:*}; fr=${kf##*:}
-  npx remotion still "$id" "$out/c$(printf %02d $k)-$(printf %05d $fr).png" --frame="$fr" --scale=0.35 --props='{"guide":true}' >/dev/null 2>&1 &
+  npx remotion still "$id" "$out/c$(printf %02d $k)-$(printf %05d $fr).png" --frame="$fr" --scale=0.35 ${GL:+--gl=$GL} --props='{"guide":true}' >/dev/null 2>&1 &
   while [ "$(jobs -r | wc -l)" -ge 4 ]; do sleep 0.5; done
 done
 wait
