@@ -67,14 +67,14 @@ const Brothers: React.FC<{n: number; t: number; x0: number; dx: number; y: numbe
 const STAR_POS: [number, number][] = [[-5.4, 3.6], [-3.2, 5.0], [-0.6, 5.6], [2.2, 5.2], [4.6, 4.0], [-6.2, 1.4], [-4.0, 2.4], [4.2, 1.2], [6.2, 2.2], [-1.8, 3.2], [1.4, 3.0]];
 const Rig: React.FC<{t: number; L: number}> = ({t, L}) => {
   const {camera} = useThree();
-  camera.position.set(Math.sin(t * 0.25) * 0.7, 0.3 + 0.2 * Math.sin(t * 0.4), 3 - 2.2 * (t / L));
+  camera.position.set(Math.sin(t * 0.25) * 0.5, 0.3 + 0.2 * Math.sin(t * 0.4), 3 - 1.1 * (t / L));
   camera.lookAt(0, 2.2, -16);
   return null;
 };
 const Sky3D: React.FC<{n: number; t: number; L: number; ws: TimedWord[]}> = ({n, t, L, ws}) => {
   const bg = useMemo(() => { const a = new Float32Array(900 * 3); for (let i = 0; i < 900; i++) { a[i * 3] = (rnd(i) - 0.5) * 70; a[i * 3 + 1] = rnd(i + 3) * 36 - 4; a[i * 3 + 2] = -22 - rnd(i + 7) * 30; } return a; }, []);
   const o1 = at(ws, "o'n", 0), yul = at(ws, 'yulduz'), qu = at(ws, 'quyosh'), oy = n === 2 ? at(ws, 'oyni') : at(ws, 'oy'), saj = at(ws, 'sajda');
-  const appear = (i: number) => (n === 2 ? tm(t, o1 + i * 0.08, o1 + 0.5 + i * 0.1) : 1);
+  const appear = (i: number) => (n === 2 ? 0.28 + 0.72 * tm(t, o1 + i * 0.08, o1 + 0.5 + i * 0.1) : 1);
   const bow = n === 2 ? ease(tm(t, saj - 0.3, saj + 1.5)) : 0;
   const pulse = (a: number) => (n === 3 ? 1 + 0.5 * Math.exp(-Math.max(0, t - a) * 3) * (t >= a ? 1 : 0) : 1);
   const sunA = n === 2 ? tm(t, qu - 0.2, qu + 0.7) : 1, moonA = n === 2 ? tm(t, oy - 0.2, oy + 0.7) : 1;
@@ -84,18 +84,18 @@ const Sky3D: React.FC<{n: number; t: number; L: number; ws: TimedWord[]}> = ({n,
       <color attach="background" args={['#070b1c']} />
       <Rig t={t} L={L} />
       <points><bufferGeometry><bufferAttribute attach="attributes-position" args={[bg, 3]} /></bufferGeometry><pointsMaterial size={0.14} color="#fff3d0" sizeAttenuation transparent opacity={0.85} /></points>
-      {STAR_POS.map(([x, y], i) => { const a = appear(i), yy = y - bow * (1.8 + (i % 3) * 0.3), sc = a * (0.9 + 0.1 * Math.sin(t * 2 + i)) * starPulse; return (
+      {STAR_POS.map(([sx, sy], i) => { const x = sx * 0.6, y = 2.4 + (sy - 2.4) * 0.8; const a = appear(i), yy = y - bow * (1.8 + (i % 3) * 0.3), sc = a * (0.9 + 0.1 * Math.sin(t * 2 + i)) * starPulse; return (
         <group key={i} position={[x * (1 - bow * 0.35), yy, -14 + bow * 3.5]} scale={[sc, sc, sc]} rotation={[0, 0, bow * (x > 0 ? 0.7 : -0.7)]}>
-          <mesh><sphereGeometry args={[0.34, 20, 20]} /><meshBasicMaterial color="#fff3c0" /></mesh>
-          <mesh><sphereGeometry args={[0.95, 20, 20]} /><meshBasicMaterial color="#ffc24a" transparent opacity={0.22} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
+          <mesh><sphereGeometry args={[0.24, 20, 20]} /><meshBasicMaterial color="#fff3c0" /></mesh>
+          <mesh><sphereGeometry args={[0.62, 20, 20]} /><meshBasicMaterial color="#ffc24a" transparent opacity={0.16} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
         </group>); })}
-      <group position={[-3.4 * (1 - bow * 0.3), 0.6 - bow * 1.0, -15 + bow * 3]} scale={[sunA * sunPulse, sunA * sunPulse, sunA * sunPulse]}>
-        <mesh><sphereGeometry args={[1.5, 32, 32]} /><meshBasicMaterial color="#ffb347" /></mesh>
-        <mesh><sphereGeometry args={[3.2, 32, 32]} /><meshBasicMaterial color="#ff9a2e" transparent opacity={0.22} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
+      <group position={[-2.5 * (1 - bow * 0.3), 0.9 - bow * 1.0, -15 + bow * 3]} scale={[sunA * sunPulse, sunA * sunPulse, sunA * sunPulse]}>
+        <mesh><sphereGeometry args={[0.95, 32, 32]} /><meshBasicMaterial color="#ffb347" /></mesh>
+        <mesh><sphereGeometry args={[1.9, 32, 32]} /><meshBasicMaterial color="#ff9a2e" transparent opacity={0.18} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
       </group>
-      <group position={[3.6 * (1 - bow * 0.3), 0.8 - bow * 1.0, -15 + bow * 3]} scale={[moonA * moonPulse, moonA * moonPulse, moonA * moonPulse]}>
-        <mesh><sphereGeometry args={[1.05, 32, 32]} /><meshBasicMaterial color="#f4efd9" /></mesh>
-        <mesh><sphereGeometry args={[2.3, 32, 32]} /><meshBasicMaterial color="#dfe8ff" transparent opacity={0.2} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
+      <group position={[2.6 * (1 - bow * 0.3), 1.1 - bow * 1.0, -15 + bow * 3]} scale={[moonA * moonPulse, moonA * moonPulse, moonA * moonPulse]}>
+        <mesh><sphereGeometry args={[0.68, 32, 32]} /><meshBasicMaterial color="#f4efd9" /></mesh>
+        <mesh><sphereGeometry args={[1.5, 32, 32]} /><meshBasicMaterial color="#dfe8ff" transparent opacity={0.16} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
       </group>
     </ThreeCanvas>
   );
@@ -106,18 +106,17 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
   switch (n) {
     case 1: {
       const qis = at(ws, 'qissa'), eng = at(ws, 'eng'), tush = at(ws, 'tush'), tni = at(ws, 'tushni'), ayt = at(ws, 'aytma'), nega = at(ws, 'nega'), ob = at(ws, 'obuna'), jav = at(ws, 'javob');
-      const dream = ease(tm(t, tush - 0.1, tush + 0.9)), stop = tm(t, ayt - 0.1, ayt + 0.4);
+      const dream = ease(tm(t, tush - 0.1, tush + 0.9)), hide = ease(tm(t, ayt - 0.2, ayt + 0.9));
       return {keys: [qis, eng, tush, ayt, nega], body: (<g>
         <Sky t={t} moon={{x: 840, y: 300, o: 0.9}} tint="#0a1230" />
         <Par cam={cam} d={0.45}><Dunes seed={1} /></Par>
         <Tent x={440} y={GY - 20} s={1.2} glow={0.9 + 0.1 * Math.sin(t * 3)} />
-        <g opacity={dream}>
-          <ellipse cx={540} cy={640} rx={330} ry={250} fill="rgba(200,215,255,.10)" stroke="rgba(255,226,150,.5)" strokeWidth={3} />
-          <circle cx={430} cy={1020} r={26} fill="rgba(200,215,255,.10)" /><circle cx={470} cy={930} r={40} fill="rgba(200,215,255,.10)" />
-          {STAR_POS.slice(0, 11).map(([x, y], i) => <Star5 key={i} x={540 + x * 40} y={640 - (y - 3) * 40} r={16} o={tm(t, tush + i * 0.05, tush + 0.6 + i * 0.05)} rot={t * 20 + i * 15} />)}
-          <Orb x={430} y={640} r={34} color="#ffb347" o={tm(t, tush + 0.3, tush + 1.0)} /><Orb x={650} y={600} r={26} color="#f4efd9" o={tm(t, tush + 0.4, tush + 1.1)} />
+        <g opacity={dream * (1 - 0.8 * hide)} transform={`translate(${-60 * hide} ${420 * hide}) translate(540 900) scale(${1 - 0.7 * hide}) translate(-540 -900)`}>
+          <ellipse cx={540} cy={900} rx={340} ry={260} fill="rgba(200,215,255,.10)" stroke="rgba(255,226,150,.5)" strokeWidth={3} />
+          <circle cx={470} cy={1230} r={26} fill="rgba(200,215,255,.10)" /><circle cx={500} cy={1160} r={40} fill="rgba(200,215,255,.10)" />
+          {STAR_POS.slice(0, 11).map(([x, y], i) => <Star5 key={i} x={540 + x * 40} y={900 - (y - 3) * 42} r={20} o={tm(t, tush + i * 0.05, tush + 0.6 + i * 0.05)} rot={t * 20 + i * 15} />)}
+          <Orb x={430} y={900} r={34} color="#ffb347" o={tm(t, tush + 0.3, tush + 1.0)} /><Orb x={650} y={860} r={26} color="#f4efd9" o={tm(t, tush + 0.4, tush + 1.1)} />
         </g>
-        <g opacity={stop}><circle cx={540} cy={640} r={300} fill="rgba(255,106,90,.10)" stroke={RED} strokeWidth={14} /><line x1={330} y1={430} x2={750} y2={850} stroke={RED} strokeWidth={16} strokeLinecap="round" /></g>
       </g>),
         overlay: (<>
           <Label2 text="BIR QISSA" a={tm(t, qis - 0.2, qis + 0.4) * (1 - tm(t, eng - 0.2, eng))} top={320} size={110} color={GOLD} />
@@ -159,8 +158,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <Tent x={330} y={GY - 20} s={1.3} />
         <Lamp x={330} y={GY - 360} r={46} t={t} />
         <ellipse cx={330} cy={GY - 150} rx={300} ry={420} fill="url(#v2glow)" opacity={0.28 + 0.1 * Math.sin(t * 2)} />
-        <Orb x={520} y={GY - 120} r={20} color="#cfe0ff" o={tm(t, bol - 0.2, bol + 0.5)} />
-        <g opacity={sh}><circle cx={520} cy={GY - 120} r={90} fill="rgba(255,106,90,.08)" stroke={RED} strokeWidth={9} /><line x1={450} y1={GY - 190} x2={590} y2={GY - 50} stroke={RED} strokeWidth={10} strokeLinecap="round" /></g>
+        <Orb x={520 - 110 * sh} y={GY - 120} r={20} color="#cfe0ff" o={tm(t, bol - 0.2, bol + 0.5)} />
         <g opacity={br * 0.9}><Brothers n={6} t={t} x0={640} dx={70} y={GY - 4} s={0.8} /><ellipse cx={850} cy={GY - 80} rx={300} ry={140} fill="rgba(180,30,30,.22)" /></g>
       </g>),
         overlay: (<>
@@ -177,8 +175,7 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <Sky t={t} moon={{x: 200, y: 300, o: 0.7}} tint="#0a1230" />
         <Par cam={cam} d={0.45}><Dunes seed={4} /></Par>
         <g opacity={lit}><ellipse cx={840} cy={GY - 90} rx={300} ry={190} fill="url(#v2glow)" opacity={0.7} /><Lamp x={840} y={GY - 230} r={34} t={t} /><Orb x={780} y={GY - 100} r={22} color="#cfe0ff" /><Orb x={900} y={GY - 100} r={16} color="#cfe0ff" /></g>
-        <g opacity={0.35 + 0.65 * many}><Brothers n={7} t={t} x0={110} dx={72} y={GY - 4} s={0.85} /></g>
-        <g opacity={bd}><path d={`M${160} ${GY - 330} Q${480} ${GY - 520} ${760} ${GY - 250}`} fill="none" stroke={RED} strokeWidth={8} strokeDasharray="22 14" strokeLinecap="round" /><polygon points={`${760},${GY - 250} ${726},${GY - 296} ${790},${GY - 292}`} fill={RED} /></g>
+        <ellipse cx={360} cy={GY - 90} rx={360} ry={160} fill="rgba(180,30,30,.28)" opacity={bd} /><g opacity={0.35 + 0.65 * many}><Brothers n={7} t={t} x0={110} dx={72} y={GY - 4} s={0.85} /></g>
       </g>),
         overlay: (<>
           <Label2 text="CHUNKI..." a={tm(t, chu - 0.05, chu + 0.35) * (1 - tm(t, ota - 0.3, ota - 0.05))} top={320} size={130} color={GOLD2} />
@@ -196,9 +193,8 @@ const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out 
         <Lamp x={190} y={GY - 300} r={26} t={t} />
         <ellipse cx={540} cy={GY - 90} rx={500} ry={200} fill="rgba(255,90,40,.30)" opacity={ember} />
         <g opacity={0.55 + 0.45 * ember}><Brothers n={8} t={t} x0={300 - 120 * (1 - gather)} dx={64 * gather + 18} y={GY - 6} s={0.95} raiseIdx={hand > 0.3 ? 7 : -1} /></g>
-        <g opacity={hand}><circle cx={880} cy={GY - 330} r={60} fill="rgba(255,243,208,.08)" stroke={GOLD} strokeWidth={6} /></g>
-        <g opacity={q}><text x={880} y={GY - 360} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={200} fill={GOLD} style={{filter: 'drop-shadow(0 0 30px rgba(255,194,74,.7))'}}>?</text></g>
-        <g opacity={nx}><rect x={-300} y={GY + 40} width={1700} height={700} fill="rgba(0,0,0,.45)" /></g>
+        
+        <ellipse cx={850} cy={GY - 130} rx={130} ry={230} fill="url(#v2glow)" opacity={0.7 * hand} /><g opacity={nx}><rect x={-300} y={GY + 40} width={1700} height={700} fill="rgba(0,0,0,.45)" /></g>
       </g>),
         overlay: (<>
           <Label2 text="AYNAN SHUNDAN" a={tm(t, yaq - 0.1, yaq + 0.4) * (1 - tm(t, aka - 0.3, aka - 0.05))} top={320} size={96} color={GOLD2} />
@@ -234,7 +230,7 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       {o.three ? (
         <>
           <Sky3D n={n} t={t} L={L} ws={ws} />
-          <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}><Dunes seed={n} /></svg>
+          <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}><defs><radialGradient id="v2glow" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="rgba(255,196,90,.75)" /><stop offset=".55" stopColor="rgba(255,176,60,.2)" /><stop offset="1" stopColor="rgba(255,176,60,0)" /></radialGradient><radialGradient id="v2moon" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="rgba(255,244,214,.55)" /><stop offset="1" stopColor="rgba(255,244,214,0)" /></radialGradient></defs><Dunes seed={n} />{n === 3 && <Brothers n={11} t={t} x0={130} dx={80} y={GY - 10} s={0.72} show={tm(t, at(ws, 'akasi') - 0.8, at(ws, 'akasi') + 0.3)} />}<Orb x={470} y={GY - 60} r={16 + 2 * Math.sin(t * 3)} color="#cfe0ff" o={n === 2 ? tm(t, 0.2, 0.8) : 0} /><Orb x={640} y={GY - 75} r={26} color="#ffe9b0" o={(n === 2 ? 1 : 0) * tm(t, n === 2 ? at(ws, 'otasiga') - 0.1 : 0.2, n === 2 ? at(ws, 'otasiga') + 0.6 : 0.8)} /></svg>
         </>
       ) : (
         <div style={{position: 'absolute', inset: 0, overflow: 'hidden'}}>
@@ -249,8 +245,6 @@ const Scene: React.FC<{n: number}> = ({n}) => {
       <Grade warm={0.4} cool={0.5} />
       <Vignette strength={0.5} />
       <Grain opacity={0.05} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 262, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800, fontSize: 30, letterSpacing: 6, color: GOLD2, opacity: 0.75}}>YUSUF · 1-QISM</div>
-      {o.overlay}
       <SerifSubs ws={ws} t={t} />
     </AbsoluteFill>
   );
