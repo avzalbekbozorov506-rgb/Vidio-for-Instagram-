@@ -86,14 +86,14 @@ const shot = (n: number, t: number): Shot => {
   }
 };
 
-const BEDS: Record<number, [string, number][]> = {1: [['wind', 0.08], ['crickets', 0.05]], 2: [['drone', 0.1], ['wind', 0.06], ['crickets', 0.04]], 3: [['drone', 0.12], ['wind', 0.05]], 4: [['wind', 0.07], ['flame', 0.05]], 5: [['flame', 0.1], ['drone', 0.1]], 6: [['flame', 0.1], ['drone', 0.16]]};
+const BEDS: Record<number, [string, number][]> = {1: [['wind', 0.08], ['crickets', 0.05]], 2: [['drone', 0.1], ['wind', 0.06], ['crickets', 0.04]], 3: [['drone', 0.12], ['wind', 0.05]], 4: [['wind', 0.07], ['crickets', 0.04]], 5: [['flame', 0.1], ['crackle', 0.16], ['drone', 0.1]], 6: [['flame', 0.1], ['crackle', 0.16], ['drone', 0.16]]};
 const EVENTS: Record<number, [number, string, number][]> = {
-  1: [[0.3, 'page', 0.5], [6.1, 'boom', 0.35], [9.5, 'riser', 0.3]],
+  1: [[0.3, 'page', 0.5], [2.5, 'scratch', 0.35], [4.4, 'scratch', 0.3], [6.1, 'boom', 0.35], [9.5, 'riser', 0.3]],
   2: [[5.6, 'shimmer', 0.4], [6.9, 'bell', 0.3], [8.1, 'bell', 0.3], [9.4, 'boom', 0.35], [12.1, 'riser', 0.3]],
-  3: [[0.1, 'page', 0.4], [2.2, 'shimmer', 0.4], [6.0, 'bell', 0.3], [6.8, 'bell', 0.3], [9.4, 'riser', 0.3]],
-  4: [[4.9, 'boom', 0.35], [5.4, 'riser', 0.3], [8.8, 'riser', 0.3]],
+  3: [[0.2, 'scratch', 0.35], [2.2, 'shimmer', 0.4], [6.0, 'bell', 0.3], [6.8, 'bell', 0.3], [9.4, 'riser', 0.3]],
+  4: [[4.9, 'boom', 0.35], [5.4, 'crackle', 0.3], [5.4, 'flame', 0.12], [8.8, 'crackle', 0.3], [8.8, 'riser', 0.3]],
   5: [[2.2, 'boom', 0.3], [5.9, 'boom', 0.35], [7.3, 'riser', 0.3]],
-  6: [[2.3, 'steps', 0.3], [5.5, 'boom', 0.45], [10.4, 'bell', 0.3], [13.0, 'riser', 0.35]],
+  6: [[0.2, 'wind', 0.1], [2.3, 'steps', 0.3], [5.5, 'boom', 0.45], [10.4, 'steps', 0.3], [10.4, 'bell', 0.3], [13.0, 'riser', 0.35]],
 };
 
 const Scene: React.FC<{n: number}> = ({n}) => {
