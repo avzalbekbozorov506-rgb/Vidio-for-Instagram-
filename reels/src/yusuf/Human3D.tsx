@@ -70,7 +70,7 @@ export const Human: React.FC<HumanP> = ({p, ry = 0, s = 1, seed = 0, sit = 0, wa
         <group position={[0, headY, 0.005]} rotation={[head[1], head[0], 0]}>
           <mesh scale={[0.098, 0.125, 0.108]} castShadow><sphereGeometry args={[1, 18, 14]} /><meshStandardMaterial color={skin} roughness={0.78} /></mesh>
           {[-1, 1].map((sd) => <mesh key={sd} position={[sd * 0.097, -0.005, -0.005]} scale={[0.35, 1, 0.8]}><sphereGeometry args={[0.03, 8, 8]} /><meshStandardMaterial color={skin} roughness={0.8} /></mesh>)}
-          {beard && <mesh position={[0, -0.075, 0.032]} scale={[0.1, 0.1, 0.082]} castShadow><sphereGeometry args={[1, 14, 12, 0, Math.PI * 2, Math.PI * 0.35, Math.PI * 0.65]} /><meshStandardMaterial color="#c9c4b8" roughness={1} /></mesh>}
+          {beard && <mesh position={[0, -0.075, 0.032]} scale={[0.088, 0.1, 0.08]} castShadow><sphereGeometry args={[1, 14, 12, 0, Math.PI * 2, Math.PI * 0.35, Math.PI * 0.65]} /><meshStandardMaterial color="#c9c4b8" roughness={1} /></mesh>}
           {[0, 1, 2].map((i) => <mesh key={i} position={[0, 0.08 + i * 0.022, -0.004]} rotation={[Math.PI / 2 + (i - 1) * 0.16, 0, (i - 1) * 0.08]}><torusGeometry args={[0.108 - i * 0.004, 0.034, 8, 22]} /><meshStandardMaterial color={wr} roughness={0.95} /></mesh>)}
           <mesh position={[0, 0.125, -0.004]} scale={[0.105, 0.065, 0.108]} castShadow><sphereGeometry args={[1, 14, 10]} /><meshStandardMaterial color={wr} roughness={0.95} /></mesh>
         </group>

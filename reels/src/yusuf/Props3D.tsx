@@ -6,7 +6,7 @@ const rnd = (i: number) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453;
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 
 /** Колодец с воротом, ведром и верёвкой; смотреть можно и сверху в тёмную воду */
-export const Well3D: React.FC<{p: [number, number, number]; rope: number; ripple: number; t: number}> = ({p, rope, ripple, t}) => {
+export const Well3D: React.FC<{p: [number, number, number]; rope: number; ripple: number; t: number; bar?: boolean}> = ({p, rope, ripple, t, bar = true}) => {
   const glow = useMemo(glowTex, []);
   const stone = useMemo(() => { const c = mk(256, 256), g = c.getContext('2d')!; g.fillStyle = '#7d7566'; g.fillRect(0, 0, 256, 256); for (let r = 0; r < 6; r++) for (let k = 0; k < 8; k++) { const x = k * 32 + (r % 2) * 16, y = r * 42; g.fillStyle = `rgb(${96 + rnd(r * 8 + k) * 50},${88 + rnd(r * 8 + k + 3) * 44},${74 + rnd(r * 8 + k + 5) * 36})`; g.fillRect(x + 2, y + 2, 28, 38); } const tx = new THREE.CanvasTexture(c); tx.wrapS = tx.wrapT = THREE.RepeatWrapping; tx.repeat.set(4, 1); tx.colorSpace = THREE.SRGBColorSpace; return tx; }, []);
   const topY = 1.75, ropeY = topY - rope;
@@ -15,9 +15,10 @@ export const Well3D: React.FC<{p: [number, number, number]; rope: number; ripple
       <mesh position={[0, 0.38, 0]} castShadow receiveShadow><cylinderGeometry args={[0.95, 1.05, 0.76, 28, 1, true]} /><meshStandardMaterial map={stone} roughness={1} side={THREE.DoubleSide} /></mesh>
       <mesh position={[0, 0.76, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow><torusGeometry args={[0.97, 0.09, 8, 28]} /><meshStandardMaterial map={stone} roughness={1} /></mesh>
       <mesh position={[0, -2.4, 0]}><cylinderGeometry args={[0.93, 0.93, 5.6, 24, 1, true]} /><meshBasicMaterial color="#05070a" side={THREE.BackSide} /></mesh>
-      <mesh position={[0, -4.9, 0]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.93, 24]} /><meshBasicMaterial color="#0b1a2a" /></mesh>
-      {[0, 1, 2].map((i) => <mesh key={i} position={[0, -4.88, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[1 + ripple * (1.2 + i * 0.8), 1 + ripple * (1.2 + i * 0.8), 1]}><ringGeometry args={[0.08 + i * 0.1, 0.1 + i * 0.1, 28]} /><meshBasicMaterial color="#9fb8d8" transparent opacity={Math.max(0, 0.7 * (1 - ripple)) * (ripple > 0.001 ? 1 : 0)} depthWrite={false} /></mesh>)}
-      {[[-0.3, 0.2], [0.35, -0.25], [0.1, 0.4]].map(([x, z], i) => <sprite key={i} position={[x, -4.86, z]} scale={[0.35, 0.35, 1]}><spriteMaterial map={glow} color="#cfe0ff" transparent opacity={0.65 + 0.2 * Math.sin(t * 2 + i)} depthWrite={false} blending={THREE.AdditiveBlending} /></sprite>)}
+      <mesh position={[0, 0.13, 0]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[0.92, 28]} /><meshBasicMaterial color="#040a12" /></mesh>
+      {[0, 1, 2].map((i) => <mesh key={i} position={[0, 0.15, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[1 + ripple * (0.6 + i * 0.5), 1 + ripple * (0.6 + i * 0.5), 1]}><ringGeometry args={[0.08 + i * 0.1, 0.11 + i * 0.1, 28]} /><meshBasicMaterial color="#9fb8d8" transparent opacity={Math.max(0, 0.75 * (1 - ripple)) * (ripple > 0.001 ? 1 : 0)} depthWrite={false} /></mesh>)}
+      {[[-0.3, 0.2], [0.35, -0.25], [0.1, 0.4], [-0.1, -0.35]].map(([x, z], i) => <sprite key={i} position={[x, 0.17, z]} scale={[0.3, 0.3, 1]}><spriteMaterial map={glow} color="#cfe0ff" transparent opacity={0.6 + 0.2 * Math.sin(t * 2 + i)} depthWrite={false} blending={THREE.AdditiveBlending} /></sprite>)}
+      {bar && (<>
       {[-1.15, 1.15].map((x) => <mesh key={x} position={[x, 0.9, 0]} castShadow><boxGeometry args={[0.13, 1.8, 0.13]} /><meshStandardMaterial color="#3a2616" roughness={0.9} /></mesh>)}
       <mesh position={[0, topY, 0]} rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[0.1, 0.1, 2.4, 12]} /><meshStandardMaterial color="#4a3320" roughness={0.9} /></mesh>
       <mesh position={[0, topY - rope / 2, 0]}><cylinderGeometry args={[0.012, 0.012, Math.max(0.05, rope), 6]} /><meshStandardMaterial color="#8a7550" roughness={1} /></mesh>
@@ -25,6 +26,7 @@ export const Well3D: React.FC<{p: [number, number, number]; rope: number; ripple
         <mesh position={[0, -0.14, 0]} castShadow><cylinderGeometry args={[0.18, 0.13, 0.28, 14, 1, true]} /><meshStandardMaterial color="#5a3e22" roughness={0.9} side={THREE.DoubleSide} /></mesh>
         <mesh position={[0, 0.02, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.18, 0.012, 6, 16, Math.PI]} /><meshStandardMaterial color="#2a2a2a" metalness={0.6} roughness={0.5} /></mesh>
       </group>
+      </>)}
     </group>
   );
 };
@@ -39,9 +41,17 @@ export const Shirt3D: React.FC<{p: [number, number, number]; ry?: number; pose: 
     shape(); g.fillStyle = '#e8dcc0'; g.fill(); g.save(); shape(); g.clip();
     for (let i = 0; i < 2600; i++) { g.fillStyle = `rgba(${130 + rnd(i) * 60},${110 + rnd(i + 1) * 50},${80 + rnd(i + 2) * 40},${0.05 + rnd(i + 3) * 0.08})`; g.fillRect(rnd(i + 4) * 512, rnd(i + 5) * 640, 1 + rnd(i + 6) * 3, 1 + rnd(i + 7) * 3); }
     for (let y = 0; y < 640; y += 9) { g.strokeStyle = 'rgba(120,98,66,.07)'; g.beginPath(); g.moveTo(0, y); g.lineTo(512, y); g.stroke(); }
-    const n = Math.floor(sq * 16);
-    for (let i = 0; i < n; i++) { const cx = 190 + rnd(i * 3) * 150, cy = 160 + rnd(i * 3 + 1) * 380, r = 28 + rnd(i * 3 + 2) * 62 * (0.4 + sq); const gr = g.createRadialGradient(cx, cy, 0, cx, cy, r); gr.addColorStop(0, 'rgba(70,6,8,.95)'); gr.addColorStop(0.65, 'rgba(92,10,12,.8)'); gr.addColorStop(1, 'rgba(92,10,12,0)'); g.fillStyle = gr; g.fillRect(cx - r, cy - r, r * 2, r * 2); }
-    for (let i = 0; i < Math.floor(sq * 10); i++) { const x = 160 + rnd(i + 90) * 200; g.fillStyle = 'rgba(66,6,8,.85)'; g.fillRect(x, 330 + rnd(i + 91) * 80, 5 + rnd(i + 92) * 6, 40 + rnd(i + 93) * 150 * sq); }
+    const n = Math.floor(sq * 26);
+    for (let i = 0; i < n; i++) {
+      const cx = 175 + rnd(i * 5) * 170, cy = 190 + rnd(i * 5 + 1) * 340, r = 12 + rnd(i * 5 + 2) * 40 * (0.5 + sq * 0.5), nv = 11;
+      const pts: [number, number][] = []; for (let v = 0; v < nv; v++) { const an = (v / nv) * Math.PI * 2, rr = r * (0.55 + 0.75 * rnd(i * 31 + v)); pts.push([cx + Math.cos(an) * rr, cy + Math.sin(an) * rr * 0.9]); }
+      const mid = (p1: [number, number], p2: [number, number]): [number, number] => [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
+      g.beginPath(); const m0 = mid(pts[nv - 1], pts[0]); g.moveTo(m0[0], m0[1]);
+      for (let v = 0; v < nv; v++) { const m = mid(pts[v], pts[(v + 1) % nv]); g.quadraticCurveTo(pts[v][0], pts[v][1], m[0], m[1]); }
+      g.closePath(); g.shadowColor = 'rgba(40,2,4,.9)'; g.shadowBlur = 7; g.fillStyle = `rgba(${52 + rnd(i) * 22},4,7,${0.8 + rnd(i + 9) * 0.15})`; g.fill(); g.shadowBlur = 0;
+    }
+    g.lineCap = 'round';
+    for (let i = 0; i < Math.floor(sq * 9); i++) { const x = 175 + rnd(i + 90) * 170, y0 = 300 + rnd(i + 91) * 150; g.strokeStyle = 'rgba(48,4,6,.9)'; g.lineWidth = 3 + rnd(i + 92) * 4; g.beginPath(); g.moveTo(x, y0); g.lineTo(x + (rnd(i + 94) - 0.5) * 6, y0 + 25 + rnd(i + 93) * 110 * sq); g.stroke(); }
     g.restore();
     g.strokeStyle = 'rgba(94,76,50,.85)'; g.lineWidth = 4; g.beginPath(); g.moveTo(190, 34); g.lineTo(12, 124); g.moveTo(322, 34); g.lineTo(500, 124); g.stroke();
     g.strokeStyle = 'rgba(110,90,60,.5)'; g.lineWidth = 3; g.beginPath(); g.moveTo(132, 232); g.lineTo(132, 606); g.moveTo(380, 232); g.lineTo(380, 606); g.stroke();

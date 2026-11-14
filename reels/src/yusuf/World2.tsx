@@ -23,11 +23,12 @@ export type Actor =
   | ({k: 'h'} & HumanP)
   | {k: 'shirt'; p: V3; ry?: number; pose: ShirtPose; stain: number; open?: number; s?: number; seam?: number}
   | {k: 'sheep'; p: V3; ry?: number}
-  | {k: 'well'; rope: number; ripple: number}
+  | {k: 'well'; rope: number; ripple: number; noBar?: boolean}
   | {k: 'fire'; red?: number; flare?: number; dim?: number}
   | {k: 'eyes'; p: V3; a: number}
   | {k: 'light'; p: V3; color: string; i: number; d?: number}
-  | {k: 'puddle'; p: V3; r: number};
+  | {k: 'puddle'; p: V3; r: number}
+  | {k: 'shadow'; p: V3; ry: number; len: number; arm: number};
 export type World2 = {pos: V3; look: V3; fov?: number; time: number; actors: Actor[]; tent?: boolean; wellLight?: number};
 
 const lerpC = (a: string, b: string, k: number) => new THREE.Color(a).lerp(new THREE.Color(b), k);
@@ -61,7 +62,9 @@ const Scene: React.FC<{w: World2; t: number}> = ({w, t}) => {
       <color attach="background" args={['#05060c']} />
       <fog attach="fog" args={[fogC.getStyle(), 26, 120]} />
       <Rig w={w} />
-      <ambientLight intensity={mix(0.55, 0.42, night)} color={lerpC('#7a6a8a', '#33427a', night).getStyle()} />
+      <ambientLight intensity={mix(0.8, 0.65, night)} color={lerpC('#8a7a9a', '#4a5a96', night).getStyle()} />
+      <hemisphereLight args={[lerpC('#9a8aaa', '#4a5a96', night).getStyle(), '#2a1e16', 0.55]} />
+      <pointLight position={w.pos} intensity={mix(7, 5, night)} color={lerpC('#ffc890', '#a8b8e8', night).getStyle()} distance={9} decay={2} />
       <directionalLight position={[-30, 40, -14]} intensity={mix(0.5, 1.2, night)} color={lerpC('#ffb27a', '#93a8e0', night).getStyle()} />
       {w.wellLight ? <pointLight position={[W[0] + 3, 6, W[2] + 4]} intensity={90 * w.wellLight} color="#9fb8ff" distance={34} decay={2} /> : null}
       <mesh geometry={dome}><meshBasicMaterial vertexColors side={THREE.BackSide} fog={false} /></mesh>
@@ -74,11 +77,15 @@ const Scene: React.FC<{w: World2; t: number}> = ({w, t}) => {
           case 'h': { const { k, ...hp } = a; return <Human key={i} {...hp} />; }
           case 'shirt': return <Shirt3D key={i} p={a.p} ry={a.ry} pose={a.pose} stain={a.stain} open={a.open} s={a.s} seamLight={a.seam} t={t} />;
           case 'sheep': return <Sheep3D key={i} p={a.p} ry={a.ry} t={t} />;
-          case 'well': return <Well3D key={i} p={[W[0], gh(W[0], W[2]), W[2]]} rope={a.rope} ripple={a.ripple} t={t} />;
+          case 'well': return <Well3D key={i} p={[W[0], gh(W[0], W[2]), W[2]]} rope={a.rope} ripple={a.ripple} t={t} bar={!a.noBar} />;
           case 'fire': return <group key={i} scale={[1, 1, 1]}><Fire t={t} red={a.red ?? 0} flare={(a.flare ?? 0) - (a.dim ?? 0)} /></group>;
           case 'eyes': return a.a > 0 ? <group key={i}><Glow p={[a.p[0] - 0.16, a.p[1], a.p[2]]} r={0.05} color="#ffd24a" core="#fff0a0" a={a.a} map={glow} /><Glow p={[a.p[0] + 0.16, a.p[1], a.p[2]]} r={0.05} color="#ffd24a" core="#fff0a0" a={a.a} map={glow} /></group> : null;
           case 'light': return <pointLight key={i} position={a.p} intensity={a.i} color={a.color} distance={a.d ?? 14} decay={2} />;
           case 'puddle': return <mesh key={i} position={[a.p[0], gh(a.p[0], a.p[2]) + 0.015, a.p[2]]} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[a.r, 20]} /><meshStandardMaterial color="#120406" roughness={0.25} metalness={0.2} /></mesh>;
+          case 'shadow': { const L = a.len; return <group key={i} position={[a.p[0], gh(a.p[0], a.p[2]) + 0.02, a.p[2]]} rotation={[0, a.ry, 0]}>
+            {[1.25, 1].map((sc, j) => <group key={j} scale={[sc, 1, sc]}><mesh rotation={[Math.PI / 2, 0, 0]}><shapeGeometry args={[(() => { const s = new THREE.Shape(); s.moveTo(-0.36, 0); s.lineTo(0.36, 0); s.lineTo(0.2, L * 0.62); s.lineTo(0.3, L * 0.8); s.lineTo(0.07, L * 0.84); s.lineTo(0.09, L * 0.88); s.absellipse(0, L * 0.97, 0.15, L * 0.1, 0, Math.PI * 2, false, 0); s.lineTo(-0.09, L * 0.88); s.lineTo(-0.07, L * 0.84); s.lineTo(-0.3, L * 0.8); s.lineTo(-0.2, L * 0.62); s.closePath(); return s; })()]} /><meshBasicMaterial color="#000" transparent opacity={j ? 0.35 : 0.85} depthWrite={false} side={THREE.DoubleSide} /></mesh></group>)}
+            <group position={[0.28, 0.02, L * 0.78]} rotation={[0, a.arm, 0]}><mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0.7]}><planeGeometry args={[0.13, 1.4]} /><meshBasicMaterial color="#000" transparent opacity={0.85} depthWrite={false} /></mesh></group>
+          </group>; }
           default: return null;
         }
       })}
