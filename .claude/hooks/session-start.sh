@@ -24,6 +24,18 @@ if [ -d reels ]; then
   fi
 fi
 
+# Автовозобновление рендера: перезапуск сессии убивает фоновые процессы, а задания лежат в reels/out/jobs/*.cmd
+if [ -d reels/out/jobs ]; then
+  for cmdf in reels/out/jobs/*.cmd; do
+    [ -e "$cmdf" ] || continue
+    id=$(basename "$cmdf" .cmd)
+    if grep -q "ГОТОВО" "reels/out/$id.status" 2>/dev/null; then rm -f "$cmdf"; continue; fi
+    if pgrep -f "make-reel.sh $id " >/dev/null 2>&1; then continue; fi
+    setsid bash "$cmdf" >/dev/null 2>&1 < /dev/null || true
+    echo "РЕНДЕР ВОЗОБНОВЛЁН автоматически: $id (прогресс: reels/out/$id.status)"
+  done
+fi
+
 # Сводка для новой сессии
 python3 - <<'PY'
 import datetime, os, re, subprocess, json, glob
