@@ -26,7 +26,7 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda bir qissa bor, Alloh uni eng go'zal qissa deydi. Boshlanishi oddiy edi, bir bola tush ko'rdi. Otasi esa tushni akalariga aytma, dedi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Qur'onda bir qissa bor, Alloh uni eng go'zal qissa deydi. U bir tush bilan boshlandi. Otasi esa tushni akalariga aytma, dedi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": "TUSHNI AYTMA!"
   },
   {
@@ -41,17 +41,17 @@
   },
   {
    "n": 4,
-   "vo": "Yaqub o'g'liga dedi, bolam, bu tushni akalaringga aytma. Ular senga hiyla o'ylab topishi mumkin. Nega akalari hiyla o'ylashi mumkin edi?",
+   "vo": "Yaqub o'g'liga dedi, bolam, bu tushni akalaringga aytma. Ular senga hiyla o'ylab topishi mumkin. Nega ular hiyla o'ylashi mumkin edi?",
    "on_screen": "AKALARI?"
   },
   {
    "n": 5,
-   "vo": "Chunki ularning o'zi shunday deyishardi. Yusuf bilan ukasini otamiz bizdan ko'proq yaxshi ko'radi, holbuki biz ko'pmiz. Shu gap ularni nimaga olib bordi?",
+   "vo": "Chunki ular shunday deyishardi. Otamiz Yusuf bilan ukasini bizdan ko'proq yaxshi ko'radi, biz esa ko'pmiz. Shu gap ularni nimaga olib bordi?",
    "on_screen": "HASAD"
   },
   {
    "n": 6,
-   "vo": "Yaqub aynan shundan qo'rqqan edi. Akalari maslahatlashdi, Yusufni o'ldiramiz yoki uzoq yerga tashlab yuboramiz, deyishdi. Shunda ularning biri boshqa gap aytdi. Nima dedi? Ertaga ikkinchi qismda.",
+   "vo": "Yaqub aynan shundan qo'rqqan edi. Akalari maslahatlashdi, Yusufni o'ldiramiz yoki uzoq yerga tashlaymiz, deyishdi. Ularning biri boshqa gap aytdi. Nima dedi? Ertaga davomi.",
    "on_screen": "2-QISM"
   }
  ]
