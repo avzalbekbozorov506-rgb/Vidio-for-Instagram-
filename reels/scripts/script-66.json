@@ -7,8 +7,8 @@
  "speed": 1.0,
  "genre": "serial",
  "series": "Qur'on qissalari / Yusuf",
- "status": "сценарий готов (14.11), серия 1 из 5 арки Yusuf, слот 15.11 16:00, без озвучки, ждёт ок",
- "hook": "Qur'onda bir qissa bor, Alloh uni eng go'zal qissa deydi. Boshlanishi oddiy edi, bola tush ko'rdi. Otasi tushni akalariga aytma, dedi. Nega?",
+ "status": "сценарий переписан 14.11 (avzalbot2 + правки оркестратора), серия 1 из 5, старая версия удалена пользователем с канала; ждёт ок на озвучку",
+ "hook": "Yusuf alayhissalom bola edi, bir tush ko'rdi. Otasi Yaqub alayhissalom esa bu tushni akalariga aytishdan ogohlantirdilar. Nega?",
  "cover_text": "TUSHNI AYTMA!",
  "facts": [
   "12:3 (uz.sodik): «энг гўзал қисса» (ахсан аль-касас).",
@@ -20,39 +20,35 @@
   "Ключ к хуку: причина в том, что зависть у братьев уже была (12:8); в сценарии подано как пересказ аятов, без собственных толкований.",
   "Пророков и Якуба не рисуем: свет, силуэты. Религиозная проверка на пользователе.",
   "Самопроверка 14.11: 'uni' в хуке было двусмысленно (бола или туш), заменено; убрана фраза про 'улуг' туш' (это комментарий переводчика в uz.sodik, не Ibn Kathir); ответ смягчён: Якуб боится хитрости (12:5), зависть видна из слов братьев (12:8).",
-  "Стиль 14.11: разговорный, короткие фразы, без канцелярита ('Mana javob', 'Xo'sh' убраны из ответа), без выдуманных деталей сцены; факты те же."
+  "Стиль 14.11: разговорный, короткие фразы, без канцелярита ('Mana javob', 'Xo'sh' убраны из ответа), без выдуманных деталей сцены; факты те же.",
+  "Редакция 14.11 (avzalbot2): пять карточек, уважительные формы (alayhissalom, dedilar), убрана выдуманная причина «shuning uchun» (в 12:5 назван только риск хитрости и шайтан); слова Якуба один раз, в карточке 3; сон исполнился спустя годы (Ibn Kathir) в текст не вошло из-за длины."
  ],
- "caption": "Yusuf, 1-qism: nega ota tushni akalariga aytmaslikni buyurdi? (12-sura)",
+ "caption": "Yusuf alayhissalom qissasi, 1-qism: nega ota tushni akalariga aytishdan ogohlantirdilar?",
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'onda bir qissa bor, Alloh uni eng go'zal qissa deydi. U bir tush bilan boshlandi. Otasi esa tushni akalariga aytma, dedi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
-   "on_screen": "TUSHNI AYTMA!"
+   "vo": "Yusuf alayhissalom bola edi, bir tush ko'rdi. Otasi Yaqub alayhissalom esa bu tushni akalariga aytishdan ogohlantirdilar. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "on_screen": ""
   },
   {
    "n": 2,
-   "vo": "Bu bola Yusuf edi. U otasiga aytdi, ota, tushimda o'n bitta yulduzni, Quyosh bilan Oyni ko'rdim. Hammasi menga sajda qilardi. Bu nimani bildirardi?",
-   "on_screen": "TUSH"
+   "vo": "Yusuf alayhissalom otasiga, ey ota, o'n bitta yulduzni, Quyosh va Oyni ko'rdim, ularning menga sajda qilayotganini ko'rdim, dedilar. Ibn Kasirning yozishicha, yulduzlar o'n bir akasi, Quyosh bilan Oy esa ota va ona. Otasi nima dedilar?",
+   "on_screen": ""
   },
   {
    "n": 3,
-   "vo": "Ibn Kasir yozadi, o'n bir yulduz Yusufning o'n bir akasi, Quyosh bilan Oy esa ota va ona. Xo'sh, Yaqub bunga nima dedi?",
-   "on_screen": "MA'NOSI"
+   "vo": "Yaqub alayhissalom o'g'liga dedilar, ey o'g'ilcham, tushingni akalaringga aytma. Ular senga biron hiyla qilmasinlar. Shayton insonning ochiq dushmani. Akalari esa nima deyishgan edi?",
+   "on_screen": ""
   },
   {
    "n": 4,
-   "vo": "Yaqub o'g'liga dedi, bolam, bu tushni akalaringga aytma. Ular senga hiyla o'ylab topishi mumkin. Nega ular hiyla o'ylashi mumkin edi?",
-   "on_screen": "AKALARI?"
+   "vo": "Ular o'zaro, Yusuf bilan ukasi otamizga bizdan suyukliroq, biz esa ko'pchilikmiz, deyishgan edi. Yaqub alayhissalom nimadan qo'rqqan edilar?",
+   "on_screen": ""
   },
   {
    "n": 5,
-   "vo": "Chunki ular shunday deyishardi. Otamiz Yusuf bilan ukasini bizdan ko'proq yaxshi ko'radi, biz esa ko'pmiz. Shu gap ularni nimaga olib bordi?",
-   "on_screen": "HASAD"
-  },
-  {
-   "n": 6,
-   "vo": "Yaqub aynan shundan qo'rqqan edi. Akalari maslahatlashdi, Yusufni o'ldiramiz yoki uzoq yerga tashlaymiz, deyishdi. Ularning biri boshqa gap aytdi. Nima dedi? Ertaga davomi.",
-   "on_screen": "2-QISM"
+   "vo": "Mana javob. Yaqub alayhissalom akalarining hiylasidan ogohlantirgan edilar. Ular esa Yusuf alayhissalomni o'ldirishni yoki uzoq yerga tashlashni maslahatlashdi. Biroq bir aka boshqacha dedi. Nima dedi? Ertaga ikkinchi qismda.",
+   "on_screen": ""
   }
  ]
 }
