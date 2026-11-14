@@ -8,7 +8,7 @@
  "genre": "serial",
  "series": "Qur'on qissalari / Yusuf",
  "status": "сценарий готов (14.11), серия 1 из 5 арки Yusuf, слот 15.11 16:00, без озвучки, ждёт ок",
- "hook": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolaga shu tushni akalariga aytmaslikni buyurdi. Nega?",
+ "hook": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolani shu tushni akalariga aytishdan ogohlantirdi. Nega?",
  "cover_text": "TUSHNI AYTMA!",
  "facts": [
   "12:3 (uz.sodik): «энг гўзал қисса» (ахсан аль-касас).",
@@ -18,23 +18,24 @@
   "12:8: братья: Юсуф и его брат (Бинъямин) дороже отцу, а нас много. Ibn Kathir: «усба» = группа; отец, по их мнению, в явном заблуждении.",
   "12:9: «убейте Юсуфа или бросьте на чужбине». Ibn Kathir 12:8: один из них (имя спорят: Рубиль, Иуда, Шам'ун) предложил колодец (12:10, серия 2).",
   "Ключ к хуку: причина в том, что зависть у братьев уже была (12:8); в сценарии подано как пересказ аятов, без собственных толкований.",
-  "Пророков и Якуба не рисуем: свет, силуэты. Религиозная проверка на пользователе."
+  "Пророков и Якуба не рисуем: свет, силуэты. Религиозная проверка на пользователе.",
+  "Самопроверка 14.11: 'uni' в хуке было двусмысленно (бола или туш), заменено; убрана фраза про 'улуг' туш' (это комментарий переводчика в uz.sodik, не Ibn Kathir); ответ смягчён: Якуб боится хитрости (12:5), зависть видна из слов братьев (12:8)."
  ],
  "caption": "Yusuf, 1-qism: nega ota tushni akalariga aytmaslikni buyurdi? (12-sura)",
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolaga uni akalariga aytmaslikni buyurdi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolani shu tushni akalariga aytishdan ogohlantirdi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": "TUSHNI AYTMA!"
   },
   {
    "n": 2,
-   "vo": "Bola Yusuf edi. U otasiga dedi, men o'n bitta yulduzni, Quyosh va Oyni ko'rdim. Ularning menga sajda qilayotganini ko'rdim.",
+   "vo": "Bola Yusuf edi. U otasiga dedi, men o'n bitta yulduzni, Quyosh va Oyni ko'rdim. Ularning menga sajda qilayotganini ko'rdim. Bu tush nimani bildiradi?",
    "on_screen": "TUSH"
   },
   {
    "n": 3,
-   "vo": "Ibn Kasir yozadi, o'n bir yulduz o'n bir akani, Quyosh va Oy ota bilan onani bildiradi. Yaqub alayhissalom tushning ulug' ekanini tushundi.",
+   "vo": "Ibn Kasir yozadi, o'n bir yulduz o'n bir akani, Quyosh va Oy ota bilan onani bildiradi. Xo'sh, otasi bunga nima dedi?",
    "on_screen": "MA'NOSI"
   },
   {
@@ -44,12 +45,12 @@
   },
   {
    "n": 5,
-   "vo": "Chunki ular shunday deyishardi. Yusuf va ukasi otamizga bizdan suyukliroq, holbuki biz ko'pchilikmiz.",
+   "vo": "Chunki ular shunday deyishardi. Yusuf va ukasi otamizga bizdan suyukliroq, holbuki biz ko'pchilikmiz. Bu gap ularni qayerga olib bordi?",
    "on_screen": "HASAD"
   },
   {
    "n": 6,
-   "vo": "Mana javob. Yaqub akalarining hasadidan qo'rqdi. Ular Yusufni o'ldirish yoki uzoq yerga tashlashni maslahatlashdi. Ulardan biri boshqa gapni aytdi. Nima dedi? Ertaga ikkinchi qism.",
+   "vo": "Mana javob. Yaqub akalarining hiylasidan qo'rqdi, ularning gapida esa hasad sezilib turardi. Ular Yusufni o'ldirishni yoki uzoq yerga tashlashni maslahatlashdi. Ulardan biri boshqa gapni aytdi. Nima dedi? Ertaga ikkinchi qism.",
    "on_screen": "2-QISM"
   }
  ]
