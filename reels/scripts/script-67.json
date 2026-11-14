@@ -9,7 +9,7 @@
  "series": "Qur'on qissalari / Yusuf",
  "status": "сценарий готов (14.11), серия 2 из 5, без озвучки, ждёт ок",
  "hook": "Yaqubning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega?",
- "cover_text": "QONLI KO'YLAK",
+ "cover_text": "BO'RI YEDI?! OTA ISHONMADI",
  "facts": [
   "12:10 (uz.sodik): один из них: не убивайте Юсуфа, бросьте на дно колодца, путники подберут.",
   "12:11-12: братья отцу: отпусти его завтра с нами, поиграет, мы его сбережём. 12:13: Якуб: боюсь, что его съест волк.",
@@ -17,8 +17,9 @@
   "12:18: принесли рубаху с ложной кровью; Якуб: нет, ваши души приукрасили вам дело, прекрасное терпение.",
   "Ibn Kathir 12:18 (quran.com tafsir 169): зарезали овцу (от Муджахида, ас-Судди и др.) и испачкали рубаху её кровью; но забыли порвать рубаху, поэтому Якуб им не поверил.",
   "Откровение Юсуфу в колодце (12:15) и караван (12:19-20) оставлены на серию 3. Пророков не рисуем лицом. Религиозная проверка на пользователе.",
-  "Стиль 14.11: литературный, связный рассказ (косвенная речь, связки Hammasi... / Ammo / Shunday bo'lsa ham / Biroq / Shu bois). «Butun edi» следует из Ibn Kathir «забыли порвать»; «Shu bois ishonmadi» тоже по Ibn Kathir 12:18.",
-  "Редакция 14.11: литературная правка агентом avzalbot2 (порядок слов, согласование числа, убраны кальки), проверена оркестратором по фактам."
+  "Редакция 14.11: литературная правка агентом avzalbot2 (порядок слов, согласование числа, убраны кальки), проверена оркестратором по фактам.",
+  "12:18 uz.sodik: «Энди чиройли сабр (дан бошқа чорам йўқ)» -> «chiroyli sabrdan boshqa choram yo'q» (слова «lozim» в переводе нет, убрано). 12:15: «qaror qilganlarida»; бросок в колодец подтверждается 12:19 (водонос нашёл мальчика в колодце). Мотив братьев (12:8-9) в серии 1, здесь не повторён из-за длины.",
+  "Редакция 14.11 (avzalbot2, 2 прохода): акаларидан би, ota вместо Yaqub в ответе (как в хуке), qonini ko'ylakka surtishgan, Baribir akalari Yusufni; проверено оркестратором."
  ],
  "caption": "Yusuf, 2-qism: nega ota qonli ko'ylakka ishonmadi?",
  "cards": [
@@ -29,27 +30,27 @@
   },
   {
    "n": 2,
-   "vo": "Voqea bunday bo'lgan edi. Akalardan biri, Yusufni o'ldirmanglar, quduqqa tashlanglar, dedi. Endi otani ko'ndirish kerak edi. Qanday qilib?",
+   "vo": "Voqea bunday bo'lgan edi. Akalaridan biri, Yusufni o'ldirmanglar, quduqqa tashlanglar, dedi. Ammo otasini qanday ko'ndirishadi?",
    "on_screen": ""
   },
   {
    "n": 3,
-   "vo": "Ular otasiga, Yusufni bizga qo'shib yuboring, o'zimiz asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir Yusufni olib ketishdi.",
+   "vo": "Ular otasiga, Yusufni bizga qo'shib yuboring, o'zimiz asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir akalari Yusufni olib ketishdi.",
    "on_screen": ""
   },
   {
    "n": 4,
-   "vo": "Uni quduq tubiga tashlashdi. Kechqurun yig'lab qaytib, Yusufni bo'ri yeb qo'ydi, deyishdi. Dalil ham keltirishdi. Qanday dalil?",
+   "vo": "Ular Yusufni quduq tubiga tashlashdi. Kechqurun yig'lab qaytib, uni bo'ri yeb ketibdi, deyishdi. Dalil ham keltirishdi. Qanday dalil?",
    "on_screen": ""
   },
   {
    "n": 5,
-   "vo": "Bu o'sha qonli ko'ylak edi. Ibn Kasirning yozishicha, qo'y so'yib, ko'ylakni qoniga bo'yashgan. Biroq bir narsani unutishgan. Nimani?",
+   "vo": "Bu o'sha qonli ko'ylak edi. Ibn Kasirning yozishicha, qo'y so'yib, qonini ko'ylakka surtishgan. Biroq bir narsani unutishgan. Nimani?",
    "on_screen": ""
   },
   {
    "n": 6,
-   "vo": "Ko'ylakni yirtishni. Ko'ylak butun edi. Shuning uchun Yaqub ishonmadi. Endi chiroyli sabr lozim, dedi. Quduqdagi Yusufni nima kutmoqda? Ertaga uchinchi qismda.",
+   "vo": "Ko'ylakni yirtishni. Ko'ylak butun edi. Shuning uchun ota ishonmadi. Endi chiroyli sabrdan boshqa choram yo'q, dedi. Quduqdagi Yusuf nima bo'ladi? Ertaga uchinchi qismda.",
    "on_screen": ""
   }
  ]
