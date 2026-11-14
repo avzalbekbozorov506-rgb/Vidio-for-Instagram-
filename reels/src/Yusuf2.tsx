@@ -118,10 +118,10 @@ const shot = (n: number, t: number): Out => {
 const BEDS: Record<number, [string, number][]> = {1: [['wind', 0.08], ['crickets', 0.05]], 2: [['drone', 0.1], ['flame', 0.06], ['wind', 0.05]], 3: [['drone', 0.1], ['crickets', 0.04], ['wind', 0.05]], 4: [['wind', 0.07], ['crickets', 0.04]], 5: [['flame', 0.1], ['drone', 0.1]], 6: [['drone', 0.14], ['wind', 0.06]]};
 const EVENTS: Record<number, [number, string, number][]> = {
   1: [[0, 'steps', 0.25], [1.78, 'steps', 0.25], [5.6, 'cloth', 0.3], [7.0, 'boom', 0.25], [10.9, 'boom', 0.3], [13.25, 'riser', 0.25], [17.63, 'bell', 0.2]],
-  2: [[3.94, 'crackle', 0.3], [5.17, 'whoosh', 0.25], [8.15, 'riser', 0.3]],
+  2: [[3.94, 'crackle', 0.3], [5.17, 'sfx/whoosh.wav', 0.25], [8.15, 'riser', 0.3]],
   3: [[0, 'steps', 0.2], [4.2, 'cloth', 0.2], [7.0, 'steps', 0.2], [8.6, 'wolf', 0.35], [9.68, 'riser', 0.25], [11.86, 'steps', 0.3], [14.14, 'boom', 0.25]],
   4: [[0, 'creak', 0.3], [2.6, 'splash', 0.45], [3.37, 'steps', 0.3], [10.5, 'cloth', 0.3], [10.77, 'riser', 0.3]],
-  5: [[1.5, 'cloth', 0.35], [1.6, 'boom', 0.3], [3.5, 'sheep', 0.35], [5.49, 'thud', 0.35], [6.0, 'cloth', 0.3], [12.14, 'shimmer', 0.3]],
+  5: [[1.5, 'cloth', 0.35], [1.6, 'boom', 0.3], [3.5, 'sheep', 0.35], [5.49, 'sfx/thud.wav', 0.35], [6.0, 'cloth', 0.3], [12.14, 'shimmer', 0.3]],
   6: [[0, 'cloth', 0.2], [2.44, 'boom', 0.3], [4.93, 'cloth', 0.25], [9.7, 'bell', 0.2], [10.64, 'creak', 0.2], [14.0, 'drip', 0.4]],
 };
 
