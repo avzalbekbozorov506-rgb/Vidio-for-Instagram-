@@ -24,32 +24,32 @@
  "cards": [
   {
    "n": 1,
-   "vo": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolaga shu tushni akalariga aytmaslikni buyurdi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Qur'on bu qissani eng go'zal qissa deydi. Hammasi bitta tush bilan boshlandi. Otasi bolaga uni akalariga aytmaslikni buyurdi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": "TUSHNI AYTMA!"
   },
   {
    "n": 2,
-   "vo": "Bola Yusuf edi. U otasiga dedi, ey otajon, men o'n bitta yulduzni, Quyosh va Oyni ko'rdim. Ularning menga sajda qilayotganini ko'rdim.",
+   "vo": "Bola Yusuf edi. U otasiga dedi, men o'n bitta yulduzni, Quyosh va Oyni ko'rdim. Ularning menga sajda qilayotganini ko'rdim.",
    "on_screen": "TUSH"
   },
   {
    "n": 3,
-   "vo": "Ibn Kasir yozadi, tafsirchilar tushni shunday izohlagan. O'n bir yulduz o'n bir akani, Quyosh va Oy ota bilan onani bildiradi. Otasi Yaqub alayhissalom tushning ulug' ekanini tushundi.",
+   "vo": "Ibn Kasir yozadi, o'n bir yulduz o'n bir akani, Quyosh va Oy ota bilan onani bildiradi. Yaqub alayhissalom tushning ulug' ekanini tushundi.",
    "on_screen": "MA'NOSI"
   },
   {
    "n": 4,
-   "vo": "Yaqub dedi, ey o'g'ilcham, tushingni akalaringga aytma. Ular senga hiyla qilishmasin. Shayton insonning ochiq dushmanidir. Akalari nega hiyla qilishi mumkin edi?",
+   "vo": "Yaqub dedi, ey o'g'ilcham, tushingni akalaringga aytma. Ular senga hiyla qilishmasin. Akalari nega hiyla qilishi mumkin edi?",
    "on_screen": "AKALARI?"
   },
   {
    "n": 5,
-   "vo": "Chunki ular allaqachon shunday deyishardi. Yusuf va ukasi otamizga bizdan suyukliroq, holbuki biz ko'pchilikmiz. Otamiz ochiq adashuvda.",
+   "vo": "Chunki ular shunday deyishardi. Yusuf va ukasi otamizga bizdan suyukliroq, holbuki biz ko'pchilikmiz.",
    "on_screen": "HASAD"
   },
   {
    "n": 6,
-   "vo": "Mana javob. Yaqub akalarining hasadidan qo'rqdi. Keyin ular maslahatlashdi. Yusufni o'ldiringlar yoki uzoq yerga tashlanglar, dedilar. Lekin ulardan biri boshqa gapni aytdi. Nima dedi? Ertaga ikkinchi qism.",
+   "vo": "Mana javob. Yaqub akalarining hasadidan qo'rqdi. Ular Yusufni o'ldirish yoki uzoq yerga tashlashni maslahatlashdi. Ulardan biri boshqa gapni aytdi. Nima dedi? Ertaga ikkinchi qism.",
    "on_screen": "2-QISM"
   }
  ]
