@@ -77,7 +77,6 @@ const Tent: React.FC<{t: number}> = ({t}) => {
     <group position={[T[0], gh(T[0], T[2]), T[2]]}>
       <mesh geometry={geo} castShadow><meshStandardMaterial color="#54432e" roughness={0.95} side={THREE.DoubleSide} /></mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}><planeGeometry args={[3.6, 4]} /><meshStandardMaterial color="#6a2a22" roughness={0.9} /></mesh>
-      {[-1, 1].map((sd) => <mesh key={sd} position={[sd * 0.02, 1.1, 2.0]} rotation={[0, 0, 0]}><cylinderGeometry args={[0.04, 0.04, 2.2, 6]} /><meshStandardMaterial color="#2a1c10" /></mesh>)}
       <pointLight position={[0, 1.1, 0.4]} intensity={16 * fl} color="#ffa64a" distance={16} decay={2} />
       <mesh position={[0.9, 0.5, -0.6]}><sphereGeometry args={[0.07, 10, 10]} /><meshBasicMaterial color="#ffe2a0" /></mesh>
       <mesh position={[0.9, 0.3, -0.6]}><cylinderGeometry args={[0.08, 0.1, 0.3, 10]} /><meshStandardMaterial color="#6a4a1a" metalness={0.6} roughness={0.4} /></mesh>
@@ -136,7 +135,7 @@ const Scene: React.FC<{w: World; t: number}> = ({w, t}) => {
         {w.tent.mother && <Figure p={[0.75, ty, 2.7]} ry={Math.PI} seed={7} s={0.98} />}
         {w.tent.boy && <Figure p={[0.7, ty, 2.5]} ry={-Math.PI / 2 + 0.25} sit={0.55} arm={w.tent.boyArm ?? 0} seed={2} s={0.62} />}
       </>)}
-      {w.ridge !== undefined && Array.from({length: 11}, (_, i) => <Figure key={i} p={[ridgeX(i), ry - 1.6 * (1 - ss(0, 1, w.ridge! * 1.4 - i * 0.03)), RG[2] + (i % 2) * 0.25]} ry={Math.PI} seed={i} s={i === 10 ? 0.7 : 0.95 + rnd(i) * 0.12} />)}
+      {w.ridge !== undefined && Array.from({length: 11}, (_, i) => <Figure key={i} p={[ridgeX(i), ry, RG[2] + (i % 2) * 0.25]} ry={Math.PI} seed={i} s={i === 10 ? 0.7 : 0.95 + rnd(i) * 0.12} />)}
       {w.ridge !== undefined && <pointLight position={[RG[0], ry + 3.4, RG[2] + 1.5]} intensity={18 * w.ridge} color="#ffd9a0" distance={14} decay={2} />}
       {b && (<>
         <Fire t={t} red={b.red ?? 0} flare={b.flare ?? 0} />

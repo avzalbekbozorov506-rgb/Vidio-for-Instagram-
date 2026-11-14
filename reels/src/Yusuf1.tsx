@@ -81,7 +81,7 @@ const shot = (n: number, t: number): Shot => {
       if (t < 10.3) { const a = 0.6 + 0.09 * (t - 5.4); return {w: {pos: add(F, [5.2 * Math.sin(a), 0.85, 5.2 * Math.cos(a)]), look: add(F, [0, 1.0, 0]), bro: {ring, red, flare: 0.5}, fov: 40}}; }
       const a7 = (7 / 10) * Math.PI * 2 + 0.3, d: V3 = [Math.cos(a7), 0, Math.sin(a7)], rise = k(t, 10.4, 11.8);
       const head = add(F, [d[0] * 1.42, 0.9 + 0.7 * rise, d[2] * 1.42]);
-      return {w: {pos: mv(add(F, [-d[0] * 4.6, 1.3, -d[2] * 4.6]), add(F, [-d[0] * 2.9, 1.45, -d[2] * 2.9]), k(t, 10.3, 15.9)), look: head, bro: {ring, red: 1 - 0.5 * rise, rise, flare: 0.3}, fov: 38}, dark: k(t, 15.2, 16.1)};
+      return {w: {pos: mv(add(F, [-d[0] * 5.2, 2.3, -d[2] * 5.2]), add(F, [-d[0] * 3.6, 2.2, -d[2] * 3.6]), k(t, 10.3, 15.9)), look: head, bro: {ring, red: 1 - 0.5 * rise, rise, flare: 0.3}, fov: 38}, dark: k(t, 15.2, 16.1)};
     }
   }
 };
