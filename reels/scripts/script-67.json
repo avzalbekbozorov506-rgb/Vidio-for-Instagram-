@@ -1,0 +1,54 @@
+{
+ "id": "script-67",
+ "title": "Yusuf 2/5: Quduq (12:10-18)",
+ "lang": "uz",
+ "voice": "Jasur Noir",
+ "model": "lison-v2",
+ "speed": 1.0,
+ "genre": "serial",
+ "series": "Qur'on qissalari / Yusuf",
+ "status": "сценарий готов (14.11), серия 2 из 5, без озвучки, ждёт ок",
+ "hook": "Akalari otasiga qonga bo'yalgan ko'ylakni olib kelishdi. Yusufni bo'ri yedi, deyishdi. Ota esa ishonmadi. Nega?",
+ "cover_text": "QONLI KO'YLAK",
+ "facts": [
+  "12:10 (uz.sodik): один из них: не убивайте Юсуфа, бросьте на дно колодца, путники подберут.",
+  "12:11-12: братья отцу: отпусти его завтра с нами, поиграет, мы его сбережём. 12:13: Якуб: боюсь, что его съест волк.",
+  "12:15: решили бросить на дно колодца. 12:16-17: вечером пришли к отцу плача: мы бегали наперегонки, Юсуфа съел волк.",
+  "12:18: принесли рубаху с ложной кровью; Якуб: нет, ваши души приукрасили вам дело, прекрасное терпение.",
+  "Ibn Kathir 12:18 (quran.com tafsir 169): зарезали овцу (от Муджахида, ас-Судди и др.) и испачкали рубаху её кровью; но забыли порвать рубаху, поэтому Якуб им не поверил.",
+  "Откровение Юсуфу в колодце (12:15) и караван (12:19-20) оставлены на серию 3. Пророков не рисуем лицом. Религиозная проверка на пользователе."
+ ],
+ "caption": "Yusuf, 2-qism: nega ota qonli ko'ylakka ishonmadi?",
+ "cards": [
+  {
+   "n": 1,
+   "vo": "Akalari otasiga qonga bo'yalgan ko'ylakni olib kelishdi. Yusufni bo'ri yedi, deyishdi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "on_screen": ""
+  },
+  {
+   "n": 2,
+   "vo": "Akalardan biri shunday degan edi. Yusufni o'ldirmanglar, uni quduq tubiga tashlanglar, yo'lovchilar olib ketadi. Lekin otasini qanday ko'ndirishdi?",
+   "on_screen": ""
+  },
+  {
+   "n": 3,
+   "vo": "Ular aytishdi, ota, ertaga Yusufni biz bilan yubor, o'ynab keladi, biz uni asraymiz. Yaqub dedi, uni bo'ri yeb ketishidan qo'rqaman. Keyin nima bo'ldi?",
+   "on_screen": ""
+  },
+  {
+   "n": 4,
+   "vo": "Ular Yusufni olib ketib, quduq tubiga tashlashdi. Kechqurun esa otasiga yig'lab kelishdi. Ota, Yusufni bo'ri yeb qo'ydi, deyishdi. Dalil ham olib kelishdi. Qanday dalil?",
+   "on_screen": ""
+  },
+  {
+   "n": 5,
+   "vo": "Qonga bo'yalgan ko'ylak. Ibn Kasir yozadi, ular bir qo'yni so'yib, ko'ylakni uning qoniga bo'yashgan. Lekin bitta narsani unutishgan. Nimani?",
+   "on_screen": ""
+  },
+  {
+   "n": 6,
+   "vo": "Ko'ylakni yirtishni unutishgan. Ibn Kasir yozadi, Yaqub shu sababli ishonmadi. U dedi, endi chiroyli sabr qilaman. Quduqdagi Yusufga esa nima bo'ldi? Ertaga uchinchi qism.",
+   "on_screen": ""
+  }
+ ]
+}
