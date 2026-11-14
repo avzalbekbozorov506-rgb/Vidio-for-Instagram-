@@ -29,7 +29,7 @@ for r in $ranges; do
   ok=0
   for try in 1 2 3; do
     say "карточка $k/$n кадры $rng (попытка $try)"
-    if npx remotion render "$id" "$f.tmp.mp4" --frames="$rng" --muted --scale="$scale" --concurrency=4 $([[ " ${GL_CARDS:-} " == *" $k "* ]] && echo --gl=swangle) >"out/$id.last.log" 2>&1 && [ -s "$f.tmp.mp4" ]; then mv "$f.tmp.mp4" "$f"; ok=1; break; fi
+    if npx remotion render "$id" "$f.tmp.mp4" --frames="$rng" --muted --scale="$scale" --concurrency="${CONC:-4}" $([[ " ${GL_CARDS:-} " == *" $k "* ]] && echo --gl=swangle) >"out/$id.last.log" 2>&1 && [ -s "$f.tmp.mp4" ]; then mv "$f.tmp.mp4" "$f"; ok=1; break; fi
     rm -f "$f.tmp.mp4"; sleep 3
   done
   [ $ok = 1 ] || { say "ОШИБКА: карточка $k не отрендерилась, см. out/$id.last.log. Запустите снова."; exit 1; }
