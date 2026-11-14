@@ -1,6 +1,6 @@
 {
  "id": "script-65",
- "title": "Nega Rahmon surasi bir savolni qayta-qayta so'raydi? (55:13)",
+ "title": "Rahmon surasi: o'ttiz bir marta bir savol, kimga? (55:13)",
  "lang": "uz",
  "voice": "Jasur Noir",
  "model": "lison-v2",
@@ -8,19 +8,20 @@
  "genre": "ayat",
  "series": "Nega",
  "status": "сценарий готов (14.11), без озвучки, ждёт ок; идея из английского ролика @drawntothedeen (Ar-Rahman is a conversation)",
- "hook": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Nega?",
+ "hook": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Lekin u bir kishiga emas, ikki mavjudotga qaratilgan. Kimlarga?",
  "cover_text": "31 MARTA BIR SAVOL",
  "facts": [
   "Аят 55:13 «Фа би аййи алаи Роббикума туказзибан» повторяется 31 раз в суре из 78 аятов (счёт кодом по alquran.cloud, текст одинаков в аятах 13, 16, 18, 21 ... 77).",
   "Перевод 55:13 (uz.sodik, в латиницу): Bas, Robbingizning qaysi ne'matlarini yolg'on deya olursiz?!",
   "Ibn Kathir 55 (tafsir 169): Тирмизи от Джабира (по оценке Тирмизи «гариб»); также аль-Баззар; Ибн Джарир от Ибн Умара: Пророк читал суру сподвижникам, они молчали; он сказал, что читал её джиннам, и они отвечали лучше: на каждый аят «Фа би аййи…» говорили «Ла би шай'ин мин ни'амика Роббана нуказзибу фа-лакаль хамд».",
-  "Религиозная проверка на пользователе. Вывод в конце только пересказ хадиса, без собственных толкований."
+  "Религиозная проверка на пользователе. Вывод в конце только пересказ хадиса, без собственных толкований.",
+  "Ma'arif al-Qur'an 55:13 (quran.com tafsir 168): обращение к двум видам, джиннам и людям; прямого объяснения причины повтора в Ibn Kathir и Ma'arif нет, поэтому хук построен на вопросе «кому», а не «почему»."
  ],
- "caption": "Nega Rahmon surasi bir savolni o'ttiz bir marta so'raydi? Termiziy rivoyati.",
+ "caption": "Rahmon surasida bir savol o'ttiz bir marta takrorlanadi. U kimlarga qaratilgan?",
  "cards": [
   {
    "n": 1,
-   "vo": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Nega Alloh bir savolni shuncha qaytaradi? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Rahmon surasida bitta savol o'ttiz bir marta takrorlanadi. Lekin u bir kishiga emas, ikki mavjudotga qaratilgan. Kimlarga? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": "31 MARTA?!"
   },
   {
@@ -40,7 +41,7 @@
   },
   {
    "n": 5,
-   "vo": "Mana javob. Ibn Kasir keltirgan hadisga ko'ra, bu savolga jinlar har gal javob qaytarishgan. Payg'ambarimiz buni odamlarga misol qilib ko'rsatdilar. Ertaga yangi sura.",
+   "vo": "Mana javob. Ma'orif ul-Qur'on yozadi, savol insonlarga ham, jinlarga ham qaratilgan. Hadisda jinlar har savoldan keyin javob berganlari aytiladi. Ertaga yangi sura.",
    "on_screen": "JAVOB"
   }
  ]
