@@ -8,7 +8,7 @@
  "genre": "serial",
  "series": "Qur'on qissalari / Yusuf",
  "status": "сценарий готов (14.11), серия 2 из 5, без озвучки, ждёт ок",
- "hook": "Kech tushganda o'g'illari Yaqubning oldiga yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ularga ishonmadi. Nega?",
+ "hook": "Yaqubning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega?",
  "cover_text": "QONLI KO'YLAK",
  "facts": [
   "12:10 (uz.sodik): один из них: не убивайте Юсуфа, бросьте на дно колодца, путники подберут.",
@@ -17,38 +17,39 @@
   "12:18: принесли рубаху с ложной кровью; Якуб: нет, ваши души приукрасили вам дело, прекрасное терпение.",
   "Ibn Kathir 12:18 (quran.com tafsir 169): зарезали овцу (от Муджахида, ас-Судди и др.) и испачкали рубаху её кровью; но забыли порвать рубаху, поэтому Якуб им не поверил.",
   "Откровение Юсуфу в колодце (12:15) и караван (12:19-20) оставлены на серию 3. Пророков не рисуем лицом. Религиозная проверка на пользователе.",
-  "Стиль 14.11: литературный, связный рассказ (косвенная речь, связки Hammasi... / Ammo / Shunday bo'lsa ham / Biroq / Shu bois). «Butun edi» следует из Ibn Kathir «забыли порвать»; «Shu bois ishonmadi» тоже по Ibn Kathir 12:18."
+  "Стиль 14.11: литературный, связный рассказ (косвенная речь, связки Hammasi... / Ammo / Shunday bo'lsa ham / Biroq / Shu bois). «Butun edi» следует из Ibn Kathir «забыли порвать»; «Shu bois ishonmadi» тоже по Ibn Kathir 12:18.",
+  "Редакция 14.11: литературная правка агентом avzalbot2 (порядок слов, согласование числа, убраны кальки), проверена оркестратором по фактам."
  ],
  "caption": "Yusuf, 2-qism: nega ota qonli ko'ylakka ishonmadi?",
  "cards": [
   {
    "n": 1,
-   "vo": "Kech tushganda o'g'illari Yaqubning oldiga yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Yaqubning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": ""
   },
   {
    "n": 2,
-   "vo": "Hammasi bir maslahatdan boshlangan edi. Akalardan biri Yusufni o'ldirmay, quduqqa tashlashni taklif qildi. Ammo avval otani ko'ndirish kerak edi. Qanday qilib?",
+   "vo": "Voqea bunday bo'lgan edi. Akalardan biri, Yusufni o'ldirmanglar, quduqqa tashlanglar, dedi. Endi otani ko'ndirish kerak edi. Qanday qilib?",
    "on_screen": ""
   },
   {
    "n": 3,
-   "vo": "Ular Yusufni o'zlari bilan yuborishini so'rab, uni asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir Yusufni olib ketishdi.",
+   "vo": "Ular otasiga, Yusufni bizga qo'shib yuboring, o'zimiz asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir Yusufni olib ketishdi.",
    "on_screen": ""
   },
   {
    "n": 4,
-   "vo": "Akalar uni quduq tubiga tashladi, kechqurun esa yig'lab qaytdi. Yusufni bo'ri yeb qo'ydi, deyishdi va dalil ham keltirishdi. Qanday dalil?",
+   "vo": "Uni quduq tubiga tashlashdi. Kechqurun yig'lab qaytib, Yusufni bo'ri yeb qo'ydi, deyishdi. Dalil ham keltirishdi. Qanday dalil?",
    "on_screen": ""
   },
   {
    "n": 5,
-   "vo": "Bu qonga belangan ko'ylak edi. Ibn Kasirning yozishicha, ular qo'y so'yib, ko'ylakni o'sha qonga bo'yashgan. Biroq bir narsani unutishgan edi. Nimani?",
+   "vo": "Bu o'sha qonli ko'ylak edi. Ibn Kasirning yozishicha, qo'y so'yib, ko'ylakni qoniga bo'yashgan. Biroq bir narsani unutishgan. Nimani?",
    "on_screen": ""
   },
   {
    "n": 6,
-   "vo": "Ko'ylakni yirtishni. U qonga belangan, ammo butun edi. Shu bois Yaqub ishonmadi va menga chiroyli sabr qoldi, dedi. Quduqdagi Yusufni esa nima kutardi? Ertaga uchinchi qism.",
+   "vo": "Ko'ylakni yirtishni. Ko'ylak butun edi. Shuning uchun Yaqub ishonmadi. Endi chiroyli sabr lozim, dedi. Quduqdagi Yusufni nima kutmoqda? Ertaga uchinchi qismda.",
    "on_screen": ""
   }
  ]
