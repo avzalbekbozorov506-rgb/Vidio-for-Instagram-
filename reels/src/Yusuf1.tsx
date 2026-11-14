@@ -1,24 +1,22 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame} from 'remotion';
-import {ThreeCanvas} from '@remotion/three';
-import {useThree} from '@react-three/fiber';
-import * as THREE from 'three';
 import {Grain, Vignette} from './blocks/Cinematic';
-import {Bloom, Dust, GodRays, Grade} from './blocks/Cinema2';
 import {SerifSubs} from './IkkiBog';
-import {Shot, TimedWord, camNow, ease, tm} from './bog/anim';
+import {TimedWord} from './bog/anim';
 import {loadFonts} from './Juma';
-import {CREAM, GOLD, GOLD2, Hills, Label2, Par, Person, SoundBed, Sky, at, punch, rnd, Cam} from './blocks/V2';
+import {GOLD2, SoundBed} from './blocks/V2';
+import {Book3D} from './yusuf/Book3D';
+import {Desert3D, F, RG, T, V3, World} from './yusuf/Desert3D';
 import durations from '../public/vo-66/durations.json';
 import words from '../public/vo-66/words.json';
 
 /**
- * Yusuf 1/5: Tush (12:3-9). Стиль v2 + 3D-небо в карточках 2-3 (11 звёзд, Солнце, Луна).
- * Пророков (Yusuf, Yaqub) не рисуем: только свет (шары). Арабского на экране нет.
- * Источники: Qur'on 12:3-9 (uz.sodik), Ibn Kathir 12:4 (11 звёзд = 11 братьев; Солнце и Луна = отец и мать).
+ * Yusuf 1/5: Tush (12:3-9). Полностью 3D, как кино: книга и перо, ночная пустыня, шатёр, небо, костёр братьев.
+ * На экране из текста только субтитры (и строки, которые пишет перо). Кадры сменяются по времени слов озвучки.
+ * Пророки не изображаются лицом: тёмные силуэты издалека и со спины.
+ * Источники: Qur'on 12:3-9 (uz.sodik), Ibn Kathir 12:4.
  */
-const FPS = 30, W = 1080, H = 1920, PAD = 0.25, GY = 1500;
-const RED = '#ff6a5a';
+const FPS = 30, PAD = 0.25;
 const dur = (n: number) => (durations as Record<string, number>)[String(n)];
 const segLen = (n: number) => dur(n) + PAD;
 const TL = [1, 2, 3, 4, 5, 6];
@@ -26,225 +24,90 @@ const START: number[] = []; let acc = 0; TL.forEach((n) => { START.push(acc); ac
 export const YUSUF1_FRAMES = Math.round(acc * FPS);
 const useT = () => useCurrentFrame() / FPS;
 
-const SHOTS: Record<number, Shot[]> = {
-  1: [{from: 0, keys: [[0, 1.0, 540, 1000, 0], [1, 1.1, 540, 1040, 0]]}, {from: 0.32, keys: [[0, 1.3, 540, 760, 0], [1, 1.5, 540, 700, 0]]}, {from: 0.62, keys: [[0, 1.1, 540, 900, 0], [1, 1.0, 540, 960, 0]]}],
-  2: [{from: 0, keys: [[0, 1.0, 540, 960, 0], [1, 1.0, 540, 960, 0]]}],
-  3: [{from: 0, keys: [[0, 1.0, 540, 960, 0], [1, 1.0, 540, 960, 0]]}],
-  4: [{from: 0, keys: [[0, 1.1, 480, 1160, 0], [1, 1.25, 460, 1140, 0]]}, {from: 0.4, keys: [[0, 1.25, 540, 1260, 0], [1, 1.1, 600, 1220, 0]]}, {from: 0.78, keys: [[0, 1.0, 560, 1100, 0], [1, 1.1, 560, 1080, 0]]}],
-  5: [{from: 0, keys: [[0, 1.05, 540, 1100, 0], [1, 1.15, 540, 1120, 0]]}, {from: 0.34, keys: [[0, 1.3, 760, 1260, 0], [1, 1.4, 780, 1240, 0]]}, {from: 0.72, keys: [[0, 1.0, 540, 1100, 0], [1, 1.1, 540, 1100, 0]]}],
-  6: [{from: 0, keys: [[0, 1.2, 440, 1180, 0], [1, 1.3, 440, 1160, 0]]}, {from: 0.18, keys: [[0, 1.0, 540, 1160, 0], [1, 1.15, 540, 1180, 0]]}, {from: 0.62, keys: [[0, 1.3, 760, 1240, 0], [1, 1.4, 780, 1220, 0]]}, {from: 0.84, keys: [[0, 1.1, 540, 1100, 0], [1, 1.0, 540, 1000, 0]]}],
-};
+const k = (t: number, a: number, b: number) => { const c = Math.max(0, Math.min(1, (t - a) / (b - a))); return c * c * (3 - 2 * c); };
+const lin = (t: number, a: number, b: number) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+const mv = (p: V3, q: V3, u: number): V3 => [p[0] + (q[0] - p[0]) * u, p[1] + (q[1] - p[1]) * u, p[2] + (q[2] - p[2]) * u];
+const add = (p: V3, q: V3): V3 => [p[0] + q[0], p[1] + q[1], p[2] + q[2]];
 
-/** звезда-шар света (SVG) */
-const Orb: React.FC<{x: number; y: number; r: number; o?: number; color?: string}> = ({x, y, r, o = 1, color = '#fffaf0'}) => (
-  <g opacity={o}><circle cx={x} cy={y} r={r * 4.5} fill="url(#v2glow)" opacity={0.9} /><circle cx={x} cy={y} r={r * 1.7} fill="url(#v2moon)" opacity={0.7} /><circle cx={x} cy={y} r={r} fill={color} /></g>
-);
-const Star5: React.FC<{x: number; y: number; r: number; o?: number; rot?: number}> = ({x, y, r, o = 1, rot = 0}) => (
-  <g transform={`translate(${x} ${y}) rotate(${rot})`} opacity={o}>
-    <circle r={r * 3.2} fill="url(#v2glow)" opacity={0.8} />
-    <polygon points={Array.from({length: 10}, (_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; return `${Math.cos(a) * rr},${Math.sin(a) * rr}`; }).join(' ')} fill="#fff3c0" />
-  </g>
-);
-/** палатка с тёплым окном */
-const Tent: React.FC<{x: number; y: number; s?: number; glow?: number}> = ({x, y, s = 1, glow = 1}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`}>
-    <ellipse cx={0} cy={-40} rx={260} ry={150} fill="url(#v2glow)" opacity={0.45 * glow} />
-    <polygon points="-170,0 0,-190 170,0" fill="#1d2230" stroke="rgba(255,214,140,.35)" strokeWidth={3} />
-    <polygon points="-52,0 0,-96 52,0" fill={`rgba(255,196,90,${0.55 + 0.3 * glow})`} />
-  </g>
-);
-const Lamp: React.FC<{x: number; y: number; r?: number; t: number}> = ({x, y, r = 40, t}) => (
-  <g><Orb x={x} y={y + Math.sin(t * 1.4) * 4} r={r * (1 + 0.04 * Math.sin(t * 5))} color="#ffe9b0" /></g>
-);
-const Dunes: React.FC<{seed?: number}> = ({seed = 1}) => (
-  <g><Hills base={GY - 70} amp={140} seed={seed} fill="#10172a" edge="rgba(255,214,140,.14)" /><Hills base={GY + 30} amp={100} seed={seed + 3} fill="#0a1020" /><rect x={-400} y={GY + 90} width={1900} height={800} fill="#070b16" /></g>
-);
-const Brothers: React.FC<{n: number; t: number; x0: number; dx: number; y: number; s?: number; show?: number; pose?: 'stand' | 'raise'; raiseIdx?: number}> = ({n, t, x0, dx, y, s = 0.9, show = 1, raiseIdx = -1}) => (
-  <g opacity={show}>{Array.from({length: n}, (_, i) => <Person key={i} x={x0 + i * dx + rnd(i + 4) * 14} y={y + (i % 2) * 14} s={s * (0.92 + rnd(i) * 0.14)} t={t} seed={i + 3} pose={i === raiseIdx ? 'raise' : 'stand'} />)}</g>
-);
-
-/* ---------- 3D небо (карточки 2 и 3) ---------- */
-const STAR_POS: [number, number][] = [[-5.4, 3.6], [-3.2, 5.0], [-0.6, 5.6], [2.2, 5.2], [4.6, 4.0], [-6.2, 1.4], [-4.0, 2.4], [4.2, 1.2], [6.2, 2.2], [-1.8, 3.2], [1.4, 3.0]];
-const Rig: React.FC<{t: number; L: number}> = ({t, L}) => {
-  const {camera} = useThree();
-  camera.position.set(Math.sin(t * 0.25) * 0.5, 0.3 + 0.2 * Math.sin(t * 0.4), 3 - 1.1 * (t / L));
-  camera.lookAt(0, 2.2, -16);
-  return null;
-};
-const Sky3D: React.FC<{n: number; t: number; L: number; ws: TimedWord[]}> = ({n, t, L, ws}) => {
-  const bg = useMemo(() => { const a = new Float32Array(900 * 3); for (let i = 0; i < 900; i++) { a[i * 3] = (rnd(i) - 0.5) * 70; a[i * 3 + 1] = rnd(i + 3) * 36 - 4; a[i * 3 + 2] = -22 - rnd(i + 7) * 30; } return a; }, []);
-  const o1 = at(ws, "o'n", 0), yul = at(ws, 'yulduz'), qu = at(ws, 'quyosh'), oy = n === 2 ? at(ws, 'oyni') : at(ws, 'oy'), saj = at(ws, 'sajda');
-  const appear = (i: number) => (n === 2 ? 0.28 + 0.72 * tm(t, o1 + i * 0.08, o1 + 0.5 + i * 0.1) : 1);
-  const bow = n === 2 ? ease(tm(t, saj - 0.3, saj + 1.5)) : 0;
-  const pulse = (a: number) => (n === 3 ? 1 + 0.5 * Math.exp(-Math.max(0, t - a) * 3) * (t >= a ? 1 : 0) : 1);
-  const sunA = n === 2 ? tm(t, qu - 0.2, qu + 0.7) : 1, moonA = n === 2 ? tm(t, oy - 0.2, oy + 0.7) : 1;
-  const sunPulse = n === 3 ? pulse(qu) : 1, moonPulse = n === 3 ? pulse(at(ws, 'oy')) : 1, starPulse = n === 3 ? pulse(at(ws, "o'n", 0)) : 1;
-  return (
-    <ThreeCanvas width={W} height={H} camera={{position: [0, 0.3, 3], fov: 52, near: 0.1, far: 200}} style={{position: 'absolute', left: 0, top: 0}}>
-      <color attach="background" args={['#070b1c']} />
-      <Rig t={t} L={L} />
-      <points><bufferGeometry><bufferAttribute attach="attributes-position" args={[bg, 3]} /></bufferGeometry><pointsMaterial size={0.14} color="#fff3d0" sizeAttenuation transparent opacity={0.85} /></points>
-      {STAR_POS.map(([sx, sy], i) => { const x = sx * 0.6, y = 2.4 + (sy - 2.4) * 0.8; const a = appear(i), yy = y - bow * (1.8 + (i % 3) * 0.3), sc = a * (0.9 + 0.1 * Math.sin(t * 2 + i)) * starPulse; return (
-        <group key={i} position={[x * (1 - bow * 0.35), yy, -14 + bow * 3.5]} scale={[sc, sc, sc]} rotation={[0, 0, bow * (x > 0 ? 0.7 : -0.7)]}>
-          <mesh><sphereGeometry args={[0.24, 20, 20]} /><meshBasicMaterial color="#fff3c0" /></mesh>
-          <mesh><sphereGeometry args={[0.62, 20, 20]} /><meshBasicMaterial color="#ffc24a" transparent opacity={0.16} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
-        </group>); })}
-      <group position={[-2.5 * (1 - bow * 0.3), 0.9 - bow * 1.0, -15 + bow * 3]} scale={[sunA * sunPulse, sunA * sunPulse, sunA * sunPulse]}>
-        <mesh><sphereGeometry args={[0.95, 32, 32]} /><meshBasicMaterial color="#ffb347" /></mesh>
-        <mesh><sphereGeometry args={[1.9, 32, 32]} /><meshBasicMaterial color="#ff9a2e" transparent opacity={0.18} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
-      </group>
-      <group position={[2.6 * (1 - bow * 0.3), 1.1 - bow * 1.0, -15 + bow * 3]} scale={[moonA * moonPulse, moonA * moonPulse, moonA * moonPulse]}>
-        <mesh><sphereGeometry args={[0.68, 32, 32]} /><meshBasicMaterial color="#f4efd9" /></mesh>
-        <mesh><sphereGeometry args={[1.5, 32, 32]} /><meshBasicMaterial color="#dfe8ff" transparent opacity={0.16} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
-      </group>
-    </ThreeCanvas>
-  );
-};
-
-type Out = {body?: React.ReactNode; overlay?: React.ReactNode; keys?: number[]; three?: boolean};
-const scene = (n: number, t: number, L: number, ws: TimedWord[], cam: Cam): Out => {
+type Shot = {book?: {open: number; write: number}; w?: World; dark?: number};
+/** раскадровка: карточка n, секунда t -> кадр. Времена взяты из words.json (озвучка vo-66). */
+const shot = (n: number, t: number): Shot => {
   switch (n) {
     case 1: {
-      const qis = at(ws, 'qissa'), eng = at(ws, 'eng'), tush = at(ws, 'tush'), tni = at(ws, 'tushni'), ayt = at(ws, 'aytma'), nega = at(ws, 'nega'), ob = at(ws, 'obuna'), jav = at(ws, 'javob');
-      const dream = ease(tm(t, tush - 0.1, tush + 0.9)), hide = ease(tm(t, ayt - 0.2, ayt + 0.9));
-      return {keys: [qis, eng, tush, ayt, nega], body: (<g>
-        <Sky t={t} moon={{x: 840, y: 300, o: 0.9}} tint="#0a1230" />
-        <Par cam={cam} d={0.45}><Dunes seed={1} /></Par>
-        <Tent x={440} y={GY - 20} s={1.2} glow={0.9 + 0.1 * Math.sin(t * 3)} />
-        <g opacity={dream * (1 - 0.8 * hide)} transform={`translate(${-60 * hide} ${420 * hide}) translate(540 900) scale(${1 - 0.7 * hide}) translate(-540 -900)`}>
-          <ellipse cx={540} cy={900} rx={340} ry={260} fill="rgba(200,215,255,.10)" stroke="rgba(255,226,150,.5)" strokeWidth={3} />
-          <circle cx={470} cy={1230} r={26} fill="rgba(200,215,255,.10)" /><circle cx={500} cy={1160} r={40} fill="rgba(200,215,255,.10)" />
-          {STAR_POS.slice(0, 11).map(([x, y], i) => <Star5 key={i} x={540 + x * 40} y={900 - (y - 3) * 42} r={20} o={tm(t, tush + i * 0.05, tush + 0.6 + i * 0.05)} rot={t * 20 + i * 15} />)}
-          <Orb x={430} y={900} r={34} color="#ffb347" o={tm(t, tush + 0.3, tush + 1.0)} /><Orb x={650} y={860} r={26} color="#f4efd9" o={tm(t, tush + 0.4, tush + 1.1)} />
-        </g>
-      </g>),
-        overlay: (<>
-          <Label2 text="BIR QISSA" a={tm(t, qis - 0.2, qis + 0.4) * (1 - tm(t, eng - 0.2, eng))} top={320} size={110} color={GOLD} />
-          <Label2 text="ENG GO'ZAL" a={tm(t, eng - 0.1, eng + 0.4) * (1 - tm(t, tush - 0.4, tush - 0.1))} top={320} size={120} color={GOLD2} />
-          <Label2 text="BIR TUSH" a={tm(t, tush - 0.1, tush + 0.5) * (1 - tm(t, tni - 0.2, tni))} top={320} size={140} color={GOLD} />
-          <Label2 text="AKALARIGA" a={tm(t, tni, tni + 0.4) * (1 - tm(t, ayt - 0.2, ayt))} top={320} size={100} />
-          <Label2 text="AYTMA!" a={tm(t, ayt, ayt + 0.35) * (1 - tm(t, nega - 0.15, nega))} top={320} size={170} color={RED} />
-          <Label2 text="NEGA?" a={tm(t, nega, nega + 0.4) * (1 - tm(t, ob - 0.3, ob - 0.05))} top={330} size={170} color={GOLD} />
-          <Label2 text="OBUNA BO'LING" a={tm(t, ob - 0.1, ob + 0.4) * (1 - tm(t, jav - 0.2, jav))} top={330} size={80} color={GOLD} />
-          <Label2 text="JAVOB OXIRIDA" a={tm(t, jav, jav + 0.5)} top={330} size={86} color={GOLD2} /></>)};
+      // 0-6.0 книга открывается, перо пишет; 6.2 «Otasi esa...» шатёр; 9.5 «Nega?» наезд; 10.4+ подъём к небу
+      if (t < 6.05) return {book: {open: lin(t, 0.2, 2.3), write: 0.25 * lin(t, 2.5, 4.2) + 0.25 * lin(t, 4.4, 5.9)}, dark: 1 - k(t, 0, 0.5) + k(t, 5.75, 6.05)};
+      const tent = {father: 'sit' as const, boy: true};
+      if (t < 9.4) return {w: {pos: mv([0, 1.7, 17], [0, 1.5, 11.5], k(t, 6.05, 9.4)), look: [0, 1.3, 0], tent}, dark: 1 - k(t, 6.05, 6.4)};
+      if (t < 10.4) return {w: {pos: mv([0.4, 1.2, 7.4], [0.3, 1.15, 6.6], lin(t, 9.4, 10.4)), look: [0, 1.0, 2.2], tent, fov: 40}};
+      return {w: {pos: mv([0, 1.5, 11], [0, 1.3, 9], k(t, 10.4, 14.3)), look: mv([0, 1.6, 0], [0, 15, -30], k(t, 10.6, 14.3)), tent}};
     }
     case 2: {
-      const yus = at(ws, 'yusuf'), ota = at(ws, 'otasiga'), yul = at(ws, 'yulduzni'), qu = at(ws, 'quyosh'), oy = at(ws, 'oyni'), saj = at(ws, 'sajda'), nim = at(ws, 'nimani');
-      return {three: true, keys: [yus, yul, qu, oy, saj, nim], overlay: (<>
-        <Label2 text="YUSUF" a={tm(t, yus - 0.2, yus + 0.4) * (1 - tm(t, ota - 0.4, ota - 0.1))} top={320} size={150} color={GOLD} />
-        <Label2 text="OTASIGA AYTDI" a={tm(t, ota - 0.1, ota + 0.4) * (1 - tm(t, 4.4, 4.7))} top={330} size={84} />
-        <Label2 text="11 YULDUZ" a={tm(t, at(ws, "o'n") - 0.1, at(ws, "o'n") + 0.4) * (1 - tm(t, qu - 0.15, qu))} top={320} size={130} color={GOLD2} />
-        <Label2 text="QUYOSH" a={tm(t, qu, qu + 0.35) * (1 - tm(t, oy - 0.1, oy))} top={320} size={140} color="#ffb347" />
-        <Label2 text="OY" a={tm(t, oy, oy + 0.35) * (1 - tm(t, 9.2, 9.5))} top={320} size={160} color={CREAM} />
-        <Label2 text="SAJDA QILARDI" a={tm(t, saj - 0.3, saj + 0.4) * (1 - tm(t, nim - 0.3, nim - 0.05))} top={320} size={100} color={GOLD} />
-        <Label2 text="BU NIMANI BILDIRADI?" a={tm(t, nim, nim + 0.5)} top={330} size={74} color={GOLD2} /></>)};
+      // 0 «Bu bola Yusuf edi» со спины; 2.5 «otasiga aytdi»; 5.0 небо: 5.6 звёзды, 6.9 Солнце, 8.1 Луна; 9.4 «sajda» склоняются
+      if (t < 2.45) return {w: {pos: mv([2.6, 1.0, 5.6], [2.2, 1.0, 5.0], lin(t, 0, 2.45)), look: [0.6, 0.75, 2.5], tent: {father: 'sit', boy: true}, fov: 38}};
+      if (t < 5.0) return {w: {pos: mv([0, 1.15, 7.2], [0, 1.1, 6.2], lin(t, 2.45, 5.0)), look: [0, 0.9, 2.4], tent: {father: 'sit', boy: true, boyArm: k(t, 4.4, 5.0)}, fov: 40}};
+      const bow = k(t, 9.4, 12.0);
+      return {w: {pos: mv([0, 1.4, 10], [0, 1.4, 8], k(t, 5.0, 14.3)), look: mv(mv([0, 4, 0], [0, 20, -34], k(t, 5.0, 6.2)), [0, 8.5, -34], bow), tent: {father: 'sit', boy: true, boyArm: 1},
+        dream: {mode: 'sky', stars: lin(t, 5.5, 6.9) * 1.2, sun: k(t, 6.8, 7.6), moon: k(t, 8.0, 8.8), bow}}};
     }
     case 3: {
-      const ibn = at(ws, 'ibn'), on = at(ws, "o'n"), aka = at(ws, 'akasi'), qu = at(ws, 'quyosh'), ota = at(ws, 'ota'), yaq = at(ws, 'yaqub');
-      return {three: true, keys: [on, aka, qu, ota, yaq], overlay: (<>
-        <Label2 text="IBN KASIR" sub="tafsir" a={tm(t, ibn, ibn + 0.4) * (1 - tm(t, on - 0.3, on - 0.05))} top={310} size={110} color={GOLD2} />
-        <Label2 text="11 YULDUZ" a={tm(t, on - 0.1, on + 0.4) * (1 - tm(t, aka - 0.35, aka - 0.05))} top={320} size={130} color={GOLD} />
-        <Label2 text="11 AKA" a={tm(t, aka - 0.1, aka + 0.4) * (1 - tm(t, qu - 0.3, qu - 0.05))} top={320} size={160} color={GOLD2} />
-        <Label2 text="QUYOSH VA OY" a={tm(t, qu, qu + 0.4) * (1 - tm(t, ota - 0.2, ota))} top={320} size={90} color="#ffb347" />
-        <Label2 text="OTA VA ONA" a={tm(t, ota, ota + 0.4) * (1 - tm(t, yaq - 0.4, yaq - 0.1))} top={320} size={120} color={GOLD} />
-        <Label2 text="YAQUB?" a={tm(t, yaq, yaq + 0.45)} top={320} size={160} color={GOLD2} /></>)};
+      // 0-1.9 «Ibn Kasir yozadi» книга; 1.9-5.9 звёзды = 11 братьев; 6.0-9.3 Солнце и Луна = отец и мать; 9.4 «Yaqub nima dedi?»
+      if (t < 1.9) return {book: {open: 1, write: 0.5 + 0.25 * lin(t, 0.2, 1.8)}, dark: 1 - k(t, 0, 0.3) + k(t, 1.65, 1.9)};
+      if (t < 5.9) return {w: {pos: mv(add(RG, [0, 2.0, 15.5]), add(RG, [0, 1.8, 13]), k(t, 1.9, 5.9)), look: mv(add(RG, [0, 6.5, 0]), add(RG, [0, 2.2, 0]), k(t, 2.2, 4.4)), ridge: k(t, 2.9, 4.6),
+        dream: {mode: 'ridge', stars: 2, sun: 0, moon: 0, bow: 0, desc: k(t, 2.2, 4.4)}}, dark: 1 - k(t, 1.9, 2.2)};
+      if (t < 9.35) return {w: {pos: mv([0, 1.9, 10.5], [0, 1.8, 9], k(t, 5.9, 9.35)), look: [0, 2.2, 2.7], tent: {father: 'stand', mother: true},
+        dream: {mode: 'parents', stars: 0, sun: k(t, 6.0, 6.7), moon: k(t, 6.7, 7.3), bow: 0}}};
+      return {w: {pos: mv([-0.6, 1.3, 8], [-0.5, 1.2, 6.2], lin(t, 9.35, 11.8)), look: [-0.4, 1.0, 2.4], tent: {father: 'sit'}, fov: 40}};
     }
     case 4: {
-      const yaq = at(ws, 'yaqub'), bol = at(ws, 'bolam'), ayt = at(ws, 'aytma'), hi = at(ws, 'hiyla'), nega = at(ws, 'nega');
-      const sh = tm(t, ayt - 0.3, ayt + 0.5), br = tm(t, hi - 0.2, hi + 0.8);
-      return {keys: [yaq, ayt, hi, nega], body: (<g>
-        <Sky t={t} moon={{x: 860, y: 320, o: 0.8}} tint="#0a1230" />
-        <Par cam={cam} d={0.45}><Dunes seed={2} /></Par>
-        <Tent x={330} y={GY - 20} s={1.3} />
-        <Lamp x={330} y={GY - 360} r={46} t={t} />
-        <ellipse cx={330} cy={GY - 150} rx={300} ry={420} fill="url(#v2glow)" opacity={0.28 + 0.1 * Math.sin(t * 2)} />
-        <Orb x={520 - 110 * sh} y={GY - 120} r={20} color="#cfe0ff" o={tm(t, bol - 0.2, bol + 0.5)} />
-        <g opacity={br * 0.9}><Brothers n={6} t={t} x0={640} dx={70} y={GY - 4} s={0.8} /><ellipse cx={850} cy={GY - 80} rx={300} ry={140} fill="rgba(180,30,30,.22)" /></g>
-      </g>),
-        overlay: (<>
-          <Label2 text="YAQUB" a={tm(t, yaq - 0.1, yaq + 0.4) * (1 - tm(t, bol - 0.2, bol))} top={320} size={140} color={GOLD} />
-          <Label2 text="BOLAM!" a={tm(t, bol, bol + 0.35) * (1 - tm(t, ayt - 0.7, ayt - 0.4))} top={320} size={140} color={GOLD2} />
-          <Label2 text="AYTMA!" a={tm(t, ayt - 0.05, ayt + 0.3) * (1 - tm(t, hi - 0.3, hi - 0.05))} top={320} size={180} color={RED} />
-          <Label2 text="HIYLA" a={tm(t, hi, hi + 0.4) * (1 - tm(t, nega - 0.2, nega))} top={320} size={150} color={GOLD2} />
-          <Label2 text="NEGA HIYLA?" a={tm(t, nega, nega + 0.45)} top={330} size={110} color={GOLD} /></>)};
+      // 0 «Yaqub o'g'liga dedi»; 2.4 «bolam ... aytma» рука отца; 5.4 «Ular senga hiyla...» братья у костра вдали; 8.8 «Nega ular...»
+      if (t < 2.35) return {w: {pos: mv([-2.2, 1.15, 6.4], [-1.8, 1.1, 5.8], lin(t, 0, 2.35)), look: [0, 0.9, 2.5], tent: {father: 'sit', boy: true}, fov: 40}};
+      if (t < 5.35) return {w: {pos: mv([1.9, 1.2, 5.6], [1.6, 1.15, 5.1], lin(t, 2.35, 5.35)), look: [-0.2, 0.85, 2.5], tent: {father: 'sit', boy: true, fatherArm: 0.55 * k(t, 2.5, 3.6)}, fov: 36}};
+      const bro = {ring: 1.75};
+      if (t < 8.7) return {w: {pos: mv(add(F, [8.2, 3.0, 3.9]), add(F, [7.2, 2.6, 3.4]), k(t, 5.35, 8.7)), look: [3, 1.0, 1.4], bro, tent: {father: 'sit', boy: true}}};
+      return {w: {pos: mv(add(F, [0.6, 1.5, 6.6]), add(F, [0.4, 1.3, 5.2]), lin(t, 8.7, 12.5)), look: add(F, [0, 0.9, 0]), bro, fov: 40}};
     }
     case 5: {
-      const chu = at(ws, 'chunki'), ota = at(ws, 'otamiz'), biz = at(ws, 'bizdan'), kop = at(ws, "ko'pmiz"), nim = at(ws, 'nimaga');
-      const lit = tm(t, ota - 0.1, ota + 0.7), bd = tm(t, biz - 0.1, biz + 0.6), many = tm(t, kop - 0.3, kop + 0.8);
-      return {keys: [chu, ota, biz, kop, nim], body: (<g>
-        <Sky t={t} moon={{x: 200, y: 300, o: 0.7}} tint="#0a1230" />
-        <Par cam={cam} d={0.45}><Dunes seed={4} /></Par>
-        <g opacity={lit}><ellipse cx={840} cy={GY - 90} rx={300} ry={190} fill="url(#v2glow)" opacity={0.7} /><Lamp x={840} y={GY - 230} r={34} t={t} /><Orb x={780} y={GY - 100} r={22} color="#cfe0ff" /><Orb x={900} y={GY - 100} r={16} color="#cfe0ff" /></g>
-        <ellipse cx={360} cy={GY - 90} rx={360} ry={160} fill="rgba(180,30,30,.28)" opacity={bd} /><g opacity={0.35 + 0.65 * many}><Brothers n={7} t={t} x0={110} dx={72} y={GY - 4} s={0.85} /></g>
-      </g>),
-        overlay: (<>
-          <Label2 text="CHUNKI..." a={tm(t, chu - 0.05, chu + 0.35) * (1 - tm(t, ota - 0.3, ota - 0.05))} top={320} size={130} color={GOLD2} />
-          <Label2 text="OTAMIZ" a={tm(t, ota, ota + 0.35) * (1 - tm(t, biz - 0.2, biz))} top={320} size={130} color={GOLD} />
-          <Label2 text="BIZDAN KO'PROQ?" a={tm(t, biz, biz + 0.4) * (1 - tm(t, kop - 0.35, kop - 0.05))} top={320} size={96} color={RED} />
-          <Label2 text="BIZ KO'PMIZ" a={tm(t, kop - 0.05, kop + 0.4) * (1 - tm(t, nim - 0.35, nim - 0.05))} top={320} size={120} color={GOLD2} />
-          <Label2 text="HASAD?" a={tm(t, nim, nim + 0.4)} top={320} size={170} color={RED} /></>)};
+      // 0 «Chunki ular shunday deyishardi»; 2.2 «Otamiz Yusuf bilan ukasini...» один показывает на шатёр; 5.9 «biz esa ko'pmiz» общий план; 7.3 «Shu gap...»
+      if (t < 2.15) return {w: {pos: mv(add(F, [-5, 1.4, 3.8]), add(F, [-4.4, 1.3, 3.4]), lin(t, 0, 2.15)), look: add(F, [0, 0.9, 0]), bro: {ring: 1.75}, fov: 40}};
+      if (t < 5.85) return {w: {pos: mv(add(F, [7.6, 2.5, 3.6]), add(F, [6.6, 2.2, 3.1]), k(t, 2.15, 5.85)), look: [4, 1.0, 1.9], bro: {ring: 1.75, point: k(t, 2.3, 3.2)}, tent: {father: 'sit', boy: true}}};
+      if (t < 7.25) return {w: {pos: mv(add(F, [0, 7.5, 7.5]), add(F, [0, 6.6, 6.6]), lin(t, 5.85, 7.25)), look: add(F, [0, 0.4, 0]), bro: {ring: 1.75}}};
+      return {w: {pos: mv(add(F, [1.2, 0.9, 5.4]), add(F, [0.9, 0.85, 4.0]), lin(t, 7.25, 9.9)), look: add(F, [0, 0.95, 0]), bro: {ring: 1.75, flare: k(t, 7.3, 8.6), red: 0.4 * k(t, 7.3, 9.6)}, fov: 40}};
     }
     default: {
-      const yaq = at(ws, 'yaqub'), aka = at(ws, 'akalari'), mas = at(ws, 'maslahatlashdi'), yus = at(ws, 'yusufni'), tash = at(ws, 'tashlaymiz'), ul = at(ws, 'ularning'), bosh = at(ws, 'boshqa'), nim = at(ws, 'nima'), ert = at(ws, 'ertaga');
-      const gather = ease(tm(t, aka, aka + 1.6)), ember = tm(t, mas - 0.2, mas + 1.0), hand = tm(t, ul, ul + 0.8), q = tm(t, nim - 0.1, nim + 0.6), nx = tm(t, ert - 0.2, ert + 0.8);
-      return {keys: [yaq, mas, yus, ul, nim, ert], body: (<g>
-        <Sky t={t} moon={{x: 860, y: 300, o: 0.4}} tint="#10101e" />
-        <Par cam={cam} d={0.45}><Dunes seed={6} /></Par>
-        <Lamp x={190} y={GY - 300} r={26} t={t} />
-        <ellipse cx={540} cy={GY - 90} rx={500} ry={200} fill="rgba(255,90,40,.30)" opacity={ember} />
-        <g opacity={0.55 + 0.45 * ember}><Brothers n={8} t={t} x0={300 - 120 * (1 - gather)} dx={64 * gather + 18} y={GY - 6} s={0.95} raiseIdx={hand > 0.3 ? 7 : -1} /></g>
-        
-        <ellipse cx={850} cy={GY - 130} rx={130} ry={230} fill="url(#v2glow)" opacity={0.7 * hand} /><g opacity={nx}><rect x={-300} y={GY + 40} width={1700} height={700} fill="rgba(0,0,0,.45)" /></g>
-      </g>),
-        overlay: (<>
-          <Label2 text="AYNAN SHUNDAN" a={tm(t, yaq - 0.1, yaq + 0.4) * (1 - tm(t, aka - 0.3, aka - 0.05))} top={320} size={96} color={GOLD2} />
-          <Label2 text="AKALARI" a={tm(t, aka, aka + 0.4) * (1 - tm(t, mas - 0.4, mas - 0.05))} top={320} size={140} color={RED} />
-          <Label2 text="MASLAHAT" a={tm(t, mas, mas + 0.4) * (1 - tm(t, yus - 0.35, yus - 0.05))} top={320} size={130} color={GOLD2} />
-          <Label2 text="O'LDIRAMIZ?" a={tm(t, yus, yus + 0.4) * (1 - tm(t, tash - 0.9, tash - 0.5))} top={320} size={120} color={RED} />
-          <Label2 text="UZOQ YERGA" a={tm(t, tash - 0.9, tash - 0.4) * (1 - tm(t, ul - 0.3, ul))} top={320} size={120} color={GOLD2} />
-          <Label2 text="BIRI BOSHQA" sub="gap aytdi" a={tm(t, bosh - 0.1, bosh + 0.4) * (1 - tm(t, nim - 0.3, nim - 0.05))} top={320} size={100} color={GOLD} />
-          <Label2 text="NIMA DEDI?" a={tm(t, nim, nim + 0.45) * (1 - tm(t, ert - 0.4, ert - 0.1))} top={320} size={150} color={GOLD2} />
-          <Label2 text="ERTAGA" sub="2-QISM" a={tm(t, ert, ert + 0.5)} top={320} size={140} color={GOLD} /></>)};
+      // 0 «Yaqub aynan shundan qo'rqqan edi» отец у входа; 2.3 «Akalari maslahatlashdi» сдвигаются; 5.5 «o'ldiramiz...» красный огонь; 10.4 «biri boshqa gap aytdi» один встаёт; 15.0 «Ertaga davomi»
+      if (t < 2.25) return {w: {pos: mv([-3.2, 1.5, 8], [-2.8, 1.45, 7.2], lin(t, 0, 2.25)), look: [0.2, 1.2, 2.0], tent: {father: 'door'}, fov: 40}};
+      const ring = 1.75 - 0.45 * k(t, 2.4, 5.2), red = 0.4 + 0.6 * k(t, 5.4, 7.0);
+      if (t < 5.4) return {w: {pos: mv(add(F, [0, 3.6, 7.2]), add(F, [0, 2.8, 6.0]), k(t, 2.25, 5.4)), look: add(F, [0, 0.7, 0]), bro: {ring, red: 0.4}}};
+      if (t < 10.3) { const a = 0.6 + 0.09 * (t - 5.4); return {w: {pos: add(F, [5.2 * Math.sin(a), 0.85, 5.2 * Math.cos(a)]), look: add(F, [0, 1.0, 0]), bro: {ring, red, flare: 0.5}, fov: 40}}; }
+      const a7 = (7 / 10) * Math.PI * 2 + 0.3, d: V3 = [Math.cos(a7), 0, Math.sin(a7)], rise = k(t, 10.4, 11.8);
+      const head = add(F, [d[0] * 1.42, 0.9 + 0.7 * rise, d[2] * 1.42]);
+      return {w: {pos: mv(add(F, [-d[0] * 4.6, 1.3, -d[2] * 4.6]), add(F, [-d[0] * 2.9, 1.45, -d[2] * 2.9]), k(t, 10.3, 15.9)), look: head, bro: {ring, red: 1 - 0.5 * rise, rise, flare: 0.3}, fov: 38}, dark: k(t, 15.2, 16.1)};
     }
   }
 };
 
-const BEDS: Record<number, [string, number][]> = {1: [['wind', 0.08], ['crickets', 0.06]], 2: [['drone', 0.12], ['wind', 0.05]], 3: [['drone', 0.12]], 4: [['wind', 0.06], ['drone', 0.1]], 5: [['drone', 0.14]], 6: [['drone', 0.16], ['flame', 0.07]]};
+const BEDS: Record<number, [string, number][]> = {1: [['wind', 0.08], ['crickets', 0.05]], 2: [['drone', 0.1], ['wind', 0.06], ['crickets', 0.04]], 3: [['drone', 0.12], ['wind', 0.05]], 4: [['wind', 0.07], ['flame', 0.05]], 5: [['flame', 0.1], ['drone', 0.1]], 6: [['flame', 0.1], ['drone', 0.16]]};
 const EVENTS: Record<number, [number, string, number][]> = {
-  1: [[4.7, 'shimmer', 0.4], [8.4, 'boom', 0.45], [9.5, 'riser', 0.3]],
-  2: [[5.6, 'shimmer', 0.35], [6.9, 'bell', 0.3], [8.1, 'bell', 0.3], [10.8, 'boom', 0.35], [12.3, 'riser', 0.3]],
-  3: [[1.9, 'shimmer', 0.35], [6.0, 'bell', 0.3], [9.6, 'riser', 0.3]],
-  4: [[4.9, 'boom', 0.45], [6.5, 'riser', 0.3], [8.8, 'riser', 0.3]],
-  5: [[4.2, 'boom', 0.35], [7.3, 'riser', 0.3]],
-  6: [[3.5, 'riser', 0.3], [5.5, 'boom', 0.4], [10.4, 'boom', 0.35], [13.0, 'riser', 0.35]],
+  1: [[0.3, 'page', 0.5], [6.1, 'boom', 0.35], [9.5, 'riser', 0.3]],
+  2: [[5.6, 'shimmer', 0.4], [6.9, 'bell', 0.3], [8.1, 'bell', 0.3], [9.4, 'boom', 0.35], [12.1, 'riser', 0.3]],
+  3: [[0.1, 'page', 0.4], [2.2, 'shimmer', 0.4], [6.0, 'bell', 0.3], [6.8, 'bell', 0.3], [9.4, 'riser', 0.3]],
+  4: [[4.9, 'boom', 0.35], [5.4, 'riser', 0.3], [8.8, 'riser', 0.3]],
+  5: [[2.2, 'boom', 0.3], [5.9, 'boom', 0.35], [7.3, 'riser', 0.3]],
+  6: [[2.3, 'steps', 0.3], [5.5, 'boom', 0.45], [10.4, 'bell', 0.3], [13.0, 'riser', 0.35]],
 };
 
 const Scene: React.FC<{n: number}> = ({n}) => {
   loadFonts();
-  const t = useT(), L = dur(n), ws = (words as any)[String(n)] as TimedWord[];
-  const cam0 = camNow(SHOTS[n], t, L) as Cam;
-  const o = scene(n, t, L, ws, cam0), cam = {...cam0, s: cam0.s + punch(t, o.keys ?? [])};
-  const k = Math.min(1.6, cam.s * 0.8), hx = (4 * Math.sin(t * 0.9 + n) + 3 * Math.sin(t * 2.3 + 2 * n)) * k, hyy = (3 * Math.sin(t * 0.7 + 3 * n) + 2.5 * Math.sin(t * 2.9 + n)) * k;
+  const t = useT(), ws = (words as any)[String(n)] as TimedWord[];
+  const s = shot(n, t);
   return (
-    <AbsoluteFill style={{background: '#070b1c'}}>
-      {o.three ? (
-        <>
-          <Sky3D n={n} t={t} L={L} ws={ws} />
-          <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}><defs><radialGradient id="v2glow" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="rgba(255,196,90,.75)" /><stop offset=".55" stopColor="rgba(255,176,60,.2)" /><stop offset="1" stopColor="rgba(255,176,60,0)" /></radialGradient><radialGradient id="v2moon" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="rgba(255,244,214,.55)" /><stop offset="1" stopColor="rgba(255,244,214,0)" /></radialGradient></defs><Dunes seed={n} />{n === 3 && <Brothers n={11} t={t} x0={130} dx={80} y={GY - 10} s={0.72} show={tm(t, at(ws, 'akasi') - 0.8, at(ws, 'akasi') + 0.3)} />}<Orb x={470} y={GY - 60} r={16 + 2 * Math.sin(t * 3)} color="#cfe0ff" o={n === 2 ? tm(t, 0.2, 0.8) : 0} /><Orb x={640} y={GY - 75} r={26} color="#ffe9b0" o={(n === 2 ? 1 : 0) * tm(t, n === 2 ? at(ws, 'otasiga') - 0.1 : 0.2, n === 2 ? at(ws, 'otasiga') + 0.6 : 0.8)} /></svg>
-        </>
-      ) : (
-        <div style={{position: 'absolute', inset: 0, overflow: 'hidden'}}>
-          <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', transformOrigin: '0 0', transform: `translate(${540 + hx}px, ${860 + hyy}px) scale(${cam.s * (1 + 0.004 * Math.sin(t * 1.4))}) rotate(${cam.r}deg) translate(${-cam.x}px, ${-cam.y}px)`}}>
-            {o.body}
-          </svg>
-        </div>
-      )}
-      <GodRays x={820} y={-80} t={t} o={0.06} n={6} />
-      <Bloom x={540} y={1000} r={600} o={0.16} />
-      <Dust t={t} o={0.5} />
-      <Grade warm={0.4} cool={0.5} />
+    <AbsoluteFill style={{background: '#000'}}>
+      {s.book && <Book3D open={s.book.open} write={s.book.write} t={t} />}
+      {s.w && <Desert3D w={s.w} t={t} />}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(20,30,70,.10), rgba(0,0,0,0) 40%, rgba(60,25,5,.10))', mixBlendMode: 'soft-light'}} />
       <Vignette strength={0.5} />
-      <Grain opacity={0.05} />
+      <Grain opacity={0.045} />
+      {(s.dark ?? 0) > 0.001 && <AbsoluteFill style={{background: '#000', opacity: Math.min(1, s.dark!)}} />}
       <SerifSubs ws={ws} t={t} />
     </AbsoluteFill>
   );
@@ -266,19 +129,12 @@ export const Yusuf1: React.FC<{guide?: boolean}> = ({guide = false}) => (
 
 export const Yusuf1Cover: React.FC = () => {
   loadFonts();
-  const t = 6;
+  const s = shot(2, 12.5);
   return (
-    <AbsoluteFill style={{background: '#070b1c'}}>
-      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
-        <Sky t={t} moon={{x: 860, y: 300, o: 0.7}} tint="#0a1230" />
-        {STAR_POS.map(([x, y], i) => <Star5 key={i} x={540 + x * 70} y={1180 - (y - 3) * 60} r={20} rot={i * 17} />)}
-        <Orb x={300} y={1260} r={60} color="#ffb347" /><Orb x={780} y={1280} r={44} color="#f4efd9" />
-        <g transform="translate(540 1260)"><circle r={300} fill="rgba(255,59,48,.05)" stroke="#ff3b30" strokeWidth={16} /><line x1={-212} y1={-212} x2={212} y2={212} stroke="#ff3b30" strokeWidth={18} strokeLinecap="round" /></g>
-        <Dunes seed={1} />
-      </svg>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 380, height: 760, background: 'linear-gradient(to bottom, rgba(7,11,28,0), rgba(7,11,28,.72) 18%, rgba(7,11,28,.72) 82%, rgba(7,11,28,0))'}} />
+    <AbsoluteFill style={{background: '#05060c'}}>
+      {s.w && <Desert3D w={s.w} t={3} />}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 380, height: 800, background: 'linear-gradient(to bottom, rgba(5,6,12,0), rgba(5,6,12,.7) 18%, rgba(5,6,12,.7) 82%, rgba(5,6,12,0))'}} />
       <Vignette strength={0.55} />
-      <Grain opacity={0.05} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 440, textAlign: 'center', fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800}}>
         <span style={{display: 'inline-block', background: '#e0322a', color: '#fff', fontSize: 52, letterSpacing: 4, padding: '12px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(224,50,42,.55)'}}>YUSUF · 1-QISM</span>
       </div>

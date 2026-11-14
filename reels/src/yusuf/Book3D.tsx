@@ -59,9 +59,8 @@ const paperDraw = (c: HTMLCanvasElement, write: number, withText: boolean, seed:
 const Rig: React.FC<{open: number; write: number; t: number}> = ({open, write, t}) => {
   const {camera} = useThree();
   const o = ease(open), wz = ease(write * 1.4);
-  const px = 0.2 + 0.7 * o + 0.15 * wz + Math.sin(t * 0.3) * 0.05, py = 4.6 - 1.3 * o - 0.5 * wz, pz = 4.4 - 1.5 * o - 0.5 * wz;
-  camera.position.set(px, py, pz);
-  camera.lookAt(0.55 * o + 0.35 * wz, 0.2, 0.1 - 0.25 * wz);
+  camera.position.set(1.0 + Math.sin(t * 0.3) * 0.06, 7.4 - 1.0 * o - 0.5 * wz, 3.4 - 0.5 * wz);
+  camera.lookAt(1.0, 0.2, -0.15);
   return null;
 };
 
@@ -82,12 +81,12 @@ const Scene: React.FC<{open: number; write: number; t: number; ready: boolean}> 
       <fog attach="fog" args={['#050302', 6, 16]} />
       <Rig open={open} write={write} t={t} />
       <ambientLight intensity={0.16} color="#6f7fb0" />
-      <pointLight position={[-1.7, 1.75, -1.5]} intensity={34 * flick} color="#ff9a3c" distance={14} decay={2} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} shadow-bias={-0.002} />
-      <pointLight position={[3.5, 3, 3]} intensity={5} color="#5b6ea8" distance={14} decay={2} />
+      <pointLight position={[-0.1, 1.75, -2.35]} intensity={34 * flick} color="#ff9a3c" distance={14} decay={2} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} shadow-bias={-0.002} />
+      <pointLight position={[2.5, 5, 4]} intensity={16} color="#c9a070" distance={16} decay={2} />
       {/* стол */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.06, 0]} receiveShadow><planeGeometry args={[24, 24]} /><meshStandardMaterial map={wood} roughness={0.62} metalness={0.05} /></mesh>
       {/* свеча */}
-      <group position={[-1.7, 0, -1.5]}>
+      <group position={[-0.1, 0, -2.35]}>
         <mesh position={[0, 0.02, 0]} castShadow receiveShadow><cylinderGeometry args={[0.42, 0.5, 0.08, 32]} /><meshStandardMaterial color="#8a6a2a" roughness={0.35} metalness={0.8} /></mesh>
         <mesh position={[0, 0.62, 0]} castShadow><cylinderGeometry args={[0.16, 0.18, 1.15, 24]} /><meshStandardMaterial color="#efe3c4" roughness={0.5} emissive="#ff9a3c" emissiveIntensity={0.25} /></mesh>
         <mesh position={[0, 1.24, 0]}><cylinderGeometry args={[0.012, 0.012, 0.1, 6]} /><meshBasicMaterial color="#1a1208" /></mesh>
@@ -96,7 +95,7 @@ const Scene: React.FC<{open: number; write: number; t: number; ready: boolean}> 
         <mesh position={[0, 1.44, 0]}><sphereGeometry args={[0.6, 16, 16]} /><meshBasicMaterial color="#ff8a1e" transparent opacity={0.07 * flick} blending={THREE.AdditiveBlending} depthWrite={false} /></mesh>
       </group>
       {/* чернильница */}
-      <group position={[2.75, 0, -1.0]}>
+      <group position={[1.75, 0, -2.2]}>
         <mesh position={[0, 0.16, 0]} castShadow><cylinderGeometry args={[0.2, 0.26, 0.34, 24]} /><meshStandardMaterial color="#2a2f3a" roughness={0.25} metalness={0.6} /></mesh>
         <mesh position={[0, 0.335, 0]}><cylinderGeometry args={[0.15, 0.15, 0.01, 24]} /><meshStandardMaterial color="#05060a" roughness={0.1} /></mesh>
       </group>
