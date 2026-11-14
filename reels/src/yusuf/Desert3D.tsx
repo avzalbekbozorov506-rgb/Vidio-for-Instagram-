@@ -28,20 +28,20 @@ const gh = (x: number, z: number) => {
 };
 export const STARS: [number, number][] = [[-5.6, 22], [-3.6, 25], [-1.2, 26.5], [1.4, 26], [3.8, 24.5], [5.8, 21.5], [-4.4, 19], [-1.8, 21], [0.8, 21.5], [3.2, 19.5], [-0.4, 17.5]];
 
-const mk = (w: number, h: number) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
-const sandTex = () => {
+export const mk = (w: number, h: number) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
+export const sandTex = () => {
   const c = mk(512, 512), g = c.getContext('2d')!;
   g.fillStyle = '#b89462'; g.fillRect(0, 0, 512, 512);
   for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(${rnd(i) > 0.5 ? '235,205,150' : '90,62,30'},${0.05 + rnd(i + 1) * 0.12})`; g.fillRect(rnd(i + 2) * 512, rnd(i + 3) * 512, 1 + rnd(i + 4) * 2, 1 + rnd(i + 5) * 2); }
   for (let k = 0; k < 26; k++) { g.strokeStyle = `rgba(70,46,20,${0.06 + rnd(k) * 0.08})`; g.lineWidth = 2 + rnd(k + 1) * 3; g.beginPath(); for (let x = 0; x <= 512; x += 16) { const y = k * 20 + 6 * Math.sin(x * 0.03 + k) + 3 * Math.sin(x * 0.09 + k * 2); if (x) g.lineTo(x, y); else g.moveTo(x, y); } g.stroke(); }
   const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(36, 36); t.colorSpace = THREE.SRGBColorSpace; return t;
 };
-const skyTex = () => {
+export const skyTex = () => {
   const c = mk(16, 512), g = c.getContext('2d')!; const gr = g.createLinearGradient(0, 0, 0, 512);
   gr.addColorStop(0, '#02030a'); gr.addColorStop(0.38, '#070b1c'); gr.addColorStop(0.5, '#1a1c3a'); gr.addColorStop(0.56, '#3a2a3a'); gr.addColorStop(1, '#05060c');
   g.fillStyle = gr; g.fillRect(0, 0, 16, 512); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 };
-const glowTex = () => {
+export const glowTex = () => {
   const c = mk(128, 128), g = c.getContext('2d')!; const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
   gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.25, 'rgba(255,255,255,.45)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
   return new THREE.CanvasTexture(c);
@@ -66,7 +66,7 @@ const Figure: React.FC<{p: V3; ry?: number; s?: number; sit?: number; arm?: numb
   );
 };
 
-const Tent: React.FC<{t: number}> = ({t}) => {
+export const Tent: React.FC<{t: number}> = ({t}) => {
   const geo = useMemo(() => {
     const w = 2.0, h = 2.2, z0 = -2.2, z1 = 2.0; const g = new THREE.BufferGeometry();
     const v = [-w, 0, z0, 0, h, z0, 0, h, z1, -w, 0, z0, 0, h, z1, -w, 0, z1, w, 0, z0, 0, h, z1, 0, h, z0, w, 0, z0, w, 0, z1, 0, h, z1, -w, 0, z0, w, 0, z0, 0, h, z0];
@@ -84,7 +84,7 @@ const Tent: React.FC<{t: number}> = ({t}) => {
   );
 };
 
-const Fire: React.FC<{t: number; red: number; flare: number}> = ({t, red, flare}) => {
+export const Fire: React.FC<{t: number; red: number; flare: number}> = ({t, red, flare}) => {
   const fl = 1 + 0.12 * Math.sin(t * 10) + 0.08 * Math.sin(t * 23 + 1) + 0.05 * Math.sin(t * 41 + 2);
   const col = new THREE.Color('#ff9238').lerp(new THREE.Color('#ff3a18'), red);
   return (
@@ -96,7 +96,7 @@ const Fire: React.FC<{t: number; red: number; flare: number}> = ({t, red, flare}
   );
 };
 
-const Glow: React.FC<{p: V3; r: number; color: string; core?: string; a?: number; map: THREE.Texture}> = ({p, r, color, core = '#fffbe8', a = 1, map}) => (
+export const Glow: React.FC<{p: V3; r: number; color: string; core?: string; a?: number; map: THREE.Texture}> = ({p, r, color, core = '#fffbe8', a = 1, map}) => (
   a <= 0.001 ? null : <group position={p}>
     <mesh scale={[a, a, a]}><sphereGeometry args={[r, 20, 20]} /><meshBasicMaterial color={core} fog={false} /></mesh>
     <sprite scale={[r * 9 * a, r * 9 * a, 1]}><spriteMaterial map={map} color={color} transparent opacity={0.75 * a} blending={THREE.AdditiveBlending} depthWrite={false} fog={false} /></sprite>
