@@ -7,7 +7,7 @@
  "speed": 1.0,
  "genre": "serial",
  "series": "Qur'on qissalari / Yusuf",
- "status": "сценарий переписан 14.11 (avzalbot2 + правки оркестратора), серия 1 из 5, старая версия удалена пользователем с канала; ждёт ок на озвучку",
+ "status": "14.11: озвучка ЧАСТИЧНАЯ: карточки 1-3 озвучены новым текстом (600 кр.), на карточках 4-5 VoiceLab ответил 402 (не хватает кредитов: доступно 95, нужно 210 на карточку 4). Нужно пополнить баланс и повторить ту же команду tts-cards.mjs (озвученные карточки пропускаются, повторно не списываются). Старая озвучка в out/vo66-old (не в git).",
  "hook": "Yusuf alayhissalom bola edi, bir tush ko'rdi. Otasi Yaqub alayhissalom esa bu tushni akalariga aytishdan ogohlantirdilar. Nega?",
  "cover_text": "TUSHNI AYTMA!",
  "facts": [
