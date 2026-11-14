@@ -8,7 +8,7 @@
  "genre": "serial",
  "series": "Qur'on qissalari / Yusuf",
  "status": "сценарий готов (14.11), серия 2 из 5, без озвучки, ждёт ок",
- "hook": "Yaqubning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega?",
+ "hook": "Yaqub alayhissalomning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusuf alayhissalomning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega?",
  "cover_text": "BO'RI YEDI?! OTA ISHONMADI",
  "facts": [
   "12:10 (uz.sodik): один из них: не убивайте Юсуфа, бросьте на дно колодца, путники подберут.",
@@ -19,13 +19,14 @@
   "Откровение Юсуфу в колодце (12:15) и караван (12:19-20) оставлены на серию 3. Пророков не рисуем лицом. Религиозная проверка на пользователе.",
   "Редакция 14.11: литературная правка агентом avzalbot2 (порядок слов, согласование числа, убраны кальки), проверена оркестратором по фактам.",
   "12:18 uz.sodik: «Энди чиройли сабр (дан бошқа чорам йўқ)» -> «chiroyli sabrdan boshqa choram yo'q» (слова «lozim» в переводе нет, убрано). 12:15: «qaror qilganlarida»; бросок в колодец подтверждается 12:19 (водонос нашёл мальчика в колодце). Мотив братьев (12:8-9) в серии 1, здесь не повторён из-за длины.",
-  "Редакция 14.11 (avzalbot2, 2 прохода): акаларидан би, ota вместо Yaqub в ответе (как в хуке), qonini ko'ylakka surtishgan, Baribir akalari Yusufni; проверено оркестратором."
+  "Редакция 14.11 (avzalbot2, 2 прохода): акаларидан би, ota вместо Yaqub в ответе (как в хуке), qonini ko'ylakka surtishgan, Baribir akalari Yusufni; проверено оркестратором.",
+  "14.11 по просьбе пользователя: пророки (Yaqub, Yusuf) в речи рассказчика называются «alayhissalom», глагол о Якубе «dedilar». В прямой речи братьев имена без добавки. Серия 1 пока не менялась."
  ],
  "caption": "Yusuf, 2-qism: nega ota qonli ko'ylakka ishonmadi?",
  "cards": [
   {
    "n": 1,
-   "vo": "Yaqubning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusufning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+   "vo": "Yaqub alayhissalomning o'g'illari kechqurun yig'lab kelishdi. Qo'llarida Yusuf alayhissalomning qonga belangan ko'ylagi bor edi. Ota esa ishonmadi. Nega? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
    "on_screen": ""
   },
   {
@@ -35,12 +36,12 @@
   },
   {
    "n": 3,
-   "vo": "Ular otasiga, Yusufni bizga qo'shib yuboring, o'zimiz asraymiz, deyishdi. Yaqub esa, uni bo'ri yeb ketishidan qo'rqaman, dedi. Baribir akalari Yusufni olib ketishdi.",
+   "vo": "Ular otasiga, Yusufni bizga qo'shib yuboring, o'zimiz asraymiz, deyishdi. Yaqub alayhissalom esa, uni bo'ri yeb ketishidan qo'rqaman, dedilar. Baribir akalari Yusufni olib ketishdi.",
    "on_screen": ""
   },
   {
    "n": 4,
-   "vo": "Ular Yusufni quduq tubiga tashlashdi. Kechqurun yig'lab qaytib, uni bo'ri yeb ketibdi, deyishdi. Dalil ham keltirishdi. Qanday dalil?",
+   "vo": "Ular Yusuf alayhissalomni quduq tubiga tashlashdi. Kechqurun yig'lab qaytib, uni bo'ri yeb ketibdi, deyishdi. Dalil ham keltirishdi. Qanday dalil?",
    "on_screen": ""
   },
   {
@@ -50,7 +51,7 @@
   },
   {
    "n": 6,
-   "vo": "Ko'ylakni yirtishni. Ko'ylak butun edi. Shuning uchun ota ishonmadi. Endi chiroyli sabrdan boshqa choram yo'q, dedi. Quduqdagi Yusuf nima bo'ladi? Ertaga uchinchi qismda.",
+   "vo": "Ko'ylakni yirtishni. Ko'ylak butun edi. Shuning uchun ota ishonmadi. Endi chiroyli sabrdan boshqa choram yo'q, dedilar. Quduqdagi Yusuf alayhissalom nima bo'ladi? Ertaga uchinchi qismda.",
    "on_screen": ""
   }
  ]
