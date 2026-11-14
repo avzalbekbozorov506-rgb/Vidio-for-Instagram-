@@ -105,6 +105,7 @@ export const Root: React.FC = () => {
     <Composition id="IxlosCover" component={IxlosCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Yusuf1" component={Yusuf1} durationInFrames={YUSUF1_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="BookTest" component={BookTest} durationInFrames={300} fps={30} width={1080} height={1920} />
+    <Composition id="Yusuf1Audio" component={Yusuf1} durationInFrames={YUSUF1_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false, audioOnly: true}} />
     <Composition id="Yusuf1Cover" component={Yusuf1Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Zakariyo" component={Zakariyo} durationInFrames={ZAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />

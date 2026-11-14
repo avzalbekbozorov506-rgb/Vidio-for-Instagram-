@@ -113,12 +113,12 @@ const Scene: React.FC<{n: number}> = ({n}) => {
   );
 };
 
-export const Yusuf1: React.FC<{guide?: boolean}> = ({guide = false}) => (
+export const Yusuf1: React.FC<{guide?: boolean; audioOnly?: boolean}> = ({guide = false, audioOnly = false}) => (
   <AbsoluteFill style={{background: '#000'}}>
     <Audio src={staticFile('music/ambient.wav')} volume={0.07} />
     {TL.map((n, i) => (
       <Sequence key={n} from={Math.round(START[i] * FPS)} durationInFrames={Math.round(segLen(n) * FPS)}>
-        <Scene n={n} />
+        {!audioOnly && <Scene n={n} />}
         <Audio src={staticFile(`vo-66/card-${String(n).padStart(2, '0')}.wav`)} />
         <SoundBed beds={BEDS[n]} events={EVENTS[n]} />
       </Sequence>
