@@ -22,30 +22,23 @@ const CARDS: Card[] = [
   {text: "Birodarlar, Alloh taolo aytadi. *Voy bo'lsin* o'lchovdan urib qoluvchilarga. Ular odamlardan narsa o'lchab olsalar, to'liq olarlar. Odamlarga o'lchab yoki tortib bersalar, *kamaytirarlar.*", scenes: [{C: Book, w: 4, cam: 'in', snd: ['sfx2/page', 0.5]}, {C: LevelPans, w: 3.6, cam: 'panR'}, {C: PourShort, w: 4, cam: 'down'}, {C: HandBag, w: 3.4, cam: 'in'}]},
   {text: "Aldasam, hech kim bilmaydi, deb o'ylaysiz. Oyat esa *so'raydi.* Bular qayta tirilishlarini o'ylamaydilarmi?", scenes: [{C: NightSeller, w: 3.2, cam: 'in', tone: NIGHT}, {C: ShadowScale, w: 2.8, cam: 'panL', tone: NIGHT}, {C: NightWide, w: 3.4, cam: 'out', snd: ['sfx2/crickets', 0.3]}]},
 ];
-const CPS = 11, GAP = 0.25;
+import VOICE from './tarozi-voice.json';
 const plain = (s: string) => s.replace(/\*/g, '');
-type Timed = {from: number; to: number; card: number};
-const starts: number[] = []; const durs: number[] = [];
-CARDS.forEach((c, i) => { const d = plain(c.text).length / CPS + GAP; starts.push(i ? starts[i - 1] + durs[i - 1] : 0.4); durs.push(d); });
-export const TAROZI_TOTAL = starts[CARDS.length - 1] + durs[CARDS.length - 1] + 0.8;
+const TAIL = 0.9;
+const cs = VOICE.cards as [number, number][];
+const spanOf = (i: number): [number, number] => [i === 0 ? 0 : (cs[i - 1][1] + cs[i][0]) / 2, i === cs.length - 1 ? VOICE.dur + TAIL : (cs[i][1] + cs[i + 1][0]) / 2];
+export const TAROZI_TOTAL = VOICE.dur + TAIL;
 export const TAROZI_FRAMES = Math.round(TAROZI_TOTAL * FPS);
 
 type Scene = {from: number; to: number; C: Sc['C']; props: Record<string, any>; snd?: [string, number]; cam: Cam; tone?: string};
 const SCENES: Scene[] = [];
 CARDS.forEach((c, i) => {
-  const tot = c.scenes.reduce((a, s) => a + s.w, 0); let t = i === 0 ? 0 : starts[i];
-  c.scenes.forEach((s, j) => { const d = (s.w / tot) * (durs[i] + (i === 0 ? starts[0] : 0) + (i === CARDS.length - 1 ? 0.8 : 0)); SCENES.push({from: t, to: t + d, C: s.C, props: s.props ?? {}, snd: s.snd, cam: s.cam ?? 'in', tone: s.tone}); t += d; });
+  const [s0, e0] = spanOf(i), tot = c.scenes.reduce((a, s) => a + s.w, 0); let t = s0;
+  c.scenes.forEach((s) => { const d = (s.w / tot) * (e0 - s0); SCENES.push({from: t, to: t + d, C: s.C, props: s.props ?? {}, snd: s.snd, cam: s.cam ?? 'in', tone: s.tone}); t += d; });
 });
 
 /** субтитры: куски по 3-5 слов, время пропорционально знакам */
-const chunks = (text: string) => {
-  const words = text.split(' '), out: string[] = []; let cur: string[] = [];
-  words.forEach((w) => { cur.push(w); if (cur.join(' ').length >= 24 || /[.?!,]\*?$/.test(w) && cur.length >= 2) { out.push(cur.join(' ')); cur = []; } });
-  if (cur.length) out.push(cur.join(' '));
-  return out;
-};
-const SUBS: {from: number; to: number; text: string}[] = [];
-CARDS.forEach((c, i) => { const cs = chunks(c.text), tot = cs.reduce((a, s) => a + plain(s).length, 0), span = durs[i] - GAP; let t = starts[i]; cs.forEach((s) => { const d = (plain(s).length / tot) * span; SUBS.push({from: t, to: t + d, text: s}); t += d; }); });
+const SUBS: {from: number; to: number; text: string}[] = VOICE.subs;
 
 const Capsule: React.FC<{text: string; a: number}> = ({text, a}) => {
   const parts = text.split('*');
@@ -89,8 +82,9 @@ export const Tarozi: React.FC = () => {
       <Grain opacity={0.05} />
       {sub && <Capsule text={sub.text} a={subA} />}
       <div style={{position: 'absolute', inset: 0, background: '#000', opacity: night}} />
-      <Audio src={staticFile('music/ambient.wav')} volume={0.12} />
-      {SCENES.map((s, i) => s.snd && <Sequence key={i} from={Math.round(s.from * FPS)} durationInFrames={Math.round((s.to - s.from) * FPS)}><Audio src={staticFile(`${s.snd[0]}.wav`)} volume={s.snd[1]} /></Sequence>)}
+      <Audio src={staticFile('vo-68/full.wav')} volume={1} />
+      <Audio src={staticFile('music/ambient.wav')} volume={0.06} />
+      {SCENES.map((s, i) => s.snd && <Sequence key={i} from={Math.round(s.from * FPS)} durationInFrames={Math.round((s.to - s.from) * FPS)}><Audio src={staticFile(`${s.snd[0]}.wav`)} volume={s.snd[1] * 0.5} /></Sequence>)}
       {SCENES.map((s, i) => i > 0 && <Sequence key={`w${i}`} from={Math.round(s.from * FPS) - 2} durationInFrames={20}><Audio src={staticFile('sfx/whoosh.wav')} volume={0.12} /></Sequence>)}
     </AbsoluteFill>
   );
