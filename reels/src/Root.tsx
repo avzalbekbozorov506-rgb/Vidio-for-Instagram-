@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {Tarozi, TAROZI_FRAMES, TaroziCover} from './Tarozi';
 import {ShadowSoya, SOYA_FRAMES, SoyaCover} from './ShadowSoya';
 import {QuizP5, QuizP5Cover, QP_FRAMES} from './QuizPaper';
+import {QuizP6, QuizP6Cover, QP2_FRAMES} from './QuizPaper2';
 import {Daftar, DAFTAR_FRAMES, DaftarCover} from './Daftar';
 import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
 
@@ -18,5 +19,7 @@ export const Root: React.FC = () => (
     <Composition id="SoyaCover" component={SoyaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizP5" component={QuizP5} durationInFrames={QP_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizP5Cover" component={QuizP5Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP6" component={QuizP6} durationInFrames={QP2_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="QuizP6Cover" component={QuizP6Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
   </>
 );
