@@ -166,7 +166,7 @@ export const NarratorMeSheet: React.FC = () => {
 };
 
 /** Красивый вымышленный рассказчик: мягкий свет, ухоженная борода, дóппи с узором, зелёный чапан с золотой каймой. */
-const PS = '#e0b08a', PS_D = '#b9855e', PS_L = '#f2cba6', PH = '#1b130f', PH_L = '#3a2a20', PLIP = '#b4635a';
+const PS = '#d3a077', PS_D = '#a8744d', PS_L = '#e8bb92', PH = '#120d0b', PH_L = '#2e211a', PLIP = '#b4635a';
 
 const ProMouth: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
   const y = 70, lift = smile * 10, LU = '#c9766b', LL = '#d98678', IN = '#3a1210';
@@ -186,7 +186,7 @@ const ProMouth: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
   </g>;
 };
 export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = true, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
-  const eyeH = 11.5 * (1 - 0.92 * blink) * (1 - 0.45 * squint), by = -40 - brow * 14;
+  const eyeH = 8.6 * (1 - 0.92 * blink) * (1 - 0.45 * squint), by = -37 - brow * 13;
   return (
     <g transform={`translate(${x} ${y}) scale(${s})`}>
       <defs>
@@ -197,33 +197,37 @@ export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; 
         <linearGradient id="probe" x1="0" x2="1"><stop offset="0" stopColor="#0f4a3c" /><stop offset="0.5" stopColor="#1a6b55" /><stop offset="1" stopColor="#0c3a2f" /></linearGradient>
       </defs>
       {bust && <g>
-        <path d="M-190 190 Q-190 128 -100 112 L100 112 Q190 128 190 190 L190 280 L-190 280 Z" fill="url(#probe)" />
-        <path d="M-52 110 Q0 168 52 110 L40 108 Q0 148 -40 108 Z" fill="#f1ead8" />
-        <path d="M-52 110 Q0 168 52 110" stroke="#d9b45a" strokeWidth={6} fill="none" strokeLinecap="round" />
-        <path d="M-56 114 L-120 280 M56 114 L120 280" stroke="#d9b45a" strokeWidth={5} opacity={0.8} />
-        {[-1, 1].map((sd) => <g key={sd}>{[0, 1, 2, 3].map((i) => <circle key={i} cx={sd * (84 + i * 8)} cy={190 + i * 22} r={3.2} fill="#d9b45a" />)}</g>)}
+        <clipPath id="prc"><path d="M-190 190 Q-190 128 -100 112 L100 112 Q190 128 190 190 L190 280 L-190 280 Z" /></clipPath>
+        <g clipPath="url(#prc)"><rect x={-200} y={100} width={40} height={190} fill="#b3262e" /><rect x={-160} y={100} width={40} height={190} fill="#e8b230" /><rect x={-120} y={100} width={40} height={190} fill="#1d4f9a" /><rect x={-80} y={100} width={40} height={190} fill="#f4efe2" /><rect x={-40} y={100} width={40} height={190} fill="#1f7a4d" /><rect x={0} y={100} width={40} height={190} fill="#b3262e" /><rect x={40} y={100} width={40} height={190} fill="#e8b230" /><rect x={80} y={100} width={40} height={190} fill="#1d4f9a" /><rect x={120} y={100} width={40} height={190} fill="#f4efe2" /><rect x={160} y={100} width={40} height={190} fill="#1f7a4d" /><rect x={-200} y={100} width={400} height={190} fill="#0d0f12" opacity={0.42} /></g>
+        <path d="M-52 112 Q0 150 52 112 L60 112 Q0 168 -60 112 Z" fill="#14161a" />
+        <path d="M-60 112 Q0 168 60 112" stroke="#14161a" strokeWidth={10} fill="none" />
+        <path d="M0 150 L0 280" stroke="#14161a" strokeWidth={5} opacity={0.7} />
+                {[-1, 1].map((sd) => <g key={sd}>{[0, 1, 2, 3].map((i) => <circle key={i} cx={sd * (84 + i * 8)} cy={190 + i * 22} r={3.2} fill="#d9b45a" />)}</g>)}
         <rect x={-32} y={70} width={64} height={52} rx={22} fill={PS_D} />
       </g>}
       <g transform={`rotate(${tilt})`}>
         {[-1, 1].map((sd) => <g key={sd}><ellipse cx={sd * 72} cy={2} rx={12} ry={22} fill={PS} /><ellipse cx={sd * 73} cy={4} rx={5} ry={12} fill={PS_D} opacity={0.55} /></g>)}
-        <path d="M-70 -30 Q-72 -92 0 -104 Q72 -92 70 -30 Q70 30 58 64 Q42 100 0 112 Q-42 100 -58 64 Q-70 30 -70 -30 Z" fill="url(#pfs)" />
+        <path d="M-75 -28 Q-77 -92 0 -104 Q77 -92 75 -28 Q77 14 66 48 Q48 98 0 110 Q-48 98 -66 48 Q-77 14 -75 -28 Z" fill="url(#pfs)" />
+        {[-1, 1].map((sd) => <ellipse key={sd} cx={sd * 52} cy={10} rx={20} ry={14} fill={PS_L} opacity={0.35} />)}
         {/* борода: ухоженная, с чёткой линией щёк */}
-        <path d="M-68 4 Q-70 60 -48 96 Q-26 124 0 126 Q26 124 48 96 Q70 60 68 4 Q62 36 46 46 Q30 40 14 44 Q0 40 -14 44 Q-30 40 -46 46 Q-62 36 -68 4 Z" fill="url(#pbd)" />
-        <path d="M-40 70 Q0 96 40 70" stroke={PH_L} strokeWidth={4} fill="none" opacity={0.5} />
+        <path d="M-72 14 Q-72 58 -50 92 Q-26 116 0 118 Q26 116 50 92 Q72 58 72 14 Q64 38 46 46 Q30 40 14 44 Q0 40 -14 44 Q-30 40 -46 46 Q-64 38 -72 14 Z" fill="url(#pbd)" opacity={0.93} />
+        <path d="M-40 70 Q0 92 40 70" stroke={PH_L} strokeWidth={4} fill="none" opacity={0.5} />
         <path d="M-26 52 Q-12 40 0 46 Q12 40 26 52 Q12 56 0 52 Q-12 56 -26 52 Z" fill={PH} />
-        {!doppi && <path d="M-72 -34 Q-80 -108 0 -114 Q80 -108 72 -34 Q68 -62 40 -78 Q0 -86 -40 -78 Q-68 -62 -72 -34 Z" fill="url(#pbd)" />}
+        {!doppi && <path d="M-77 -30 Q-86 -108 0 -114 Q86 -108 77 -30 Q72 -62 44 -76 Q0 -84 -44 -76 Q-72 -62 -77 -30 Z" fill="url(#pbd)" />}
         {doppi && <g>
-          <path d="M-74 -52 Q-80 -124 0 -130 Q80 -124 74 -52 L70 -42 Q0 -66 -70 -42 Z" fill="#101418" />
-          <path d="M-72 -48 Q0 -70 72 -48" stroke="#f1ead8" strokeWidth={4} fill="none" />
-          <path d="M-70 -62 Q0 -84 70 -62" stroke="#d9b45a" strokeWidth={2.5} fill="none" />
-          {[-52, -26, 0, 26, 52].map((px, i) => <polygon key={i} points={`${px},${-112 + Math.abs(px) * 0.25} ${px + 8},-96 ${px},-80 ${px - 8},-96`} fill={i === 2 ? '#d9b45a' : '#f1ead8'} opacity={0.92} />)}
+          <path d="M-78 -46 L-72 -112 Q0 -138 72 -112 L78 -46 Q0 -70 -78 -46 Z" fill="#0d0f12" />
+          <path d="M-78 -46 Q0 -70 78 -46 L77 -58 Q0 -82 -77 -58 Z" fill="#f4efe2" />
+          {Array.from({length: 13}, (_, i) => <path key={i} d={`M${-66 + i * 11} ${-57 + Math.sin((i - 6) / 6) * 0} l5 -6 l5 6 z`} fill="#0d0f12" transform={`translate(0 ${-4 + Math.abs(i - 6) * 0.9})`} />)}
+          {[-52, -17, 17, 52].map((px, i) => <path key={i} d={`M${px} -66 Q${px + 13} -84 ${px} -108 Q${px - 13} -84 ${px} -66 Z`} fill="#f4efe2" opacity={0.95} transform={`rotate(${px * 0.28} ${px} -66)`} />)}
+          {[-52, -17, 17, 52].map((px, i) => <path key={i} d={`M${px} -76 Q${px + 5} -86 ${px} -98 Q${px - 5} -86 ${px} -76 Z`} fill="#0d0f12" transform={`rotate(${px * 0.28} ${px} -66)`} />)}
+          <path d="M-72 -112 Q0 -138 72 -112" stroke="#f4efe2" strokeWidth={3} fill="none" />
         </g>}
-        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 10} ${by + 6 - 9 * worry} Q${sd * 34} ${by - 9 - brow * 4} ${sd * 62} ${by + 3 + 8 * worry}`} stroke={PH} strokeWidth={9} strokeLinecap="round" fill="none" />)}
-        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 32} -12)`}>
-          <ellipse cx={0} cy={0} rx={17} ry={Math.max(eyeH, 0.6)} fill="#f7f1e6" />
-          <clipPath id={`pe${sd}`}><ellipse cx={0} cy={0} rx={17} ry={Math.max(eyeH, 0.1)} /></clipPath>
-          <g clipPath={`url(#pe${sd})`}><circle cx={lookX * 5} cy={lookY * 3} r={10} fill="url(#pir)" /><circle cx={lookX * 5} cy={lookY * 3} r={4.6} fill="#0e0907" /><circle cx={lookX * 5 + 3.4} cy={lookY * 3 - 3.4} r={2.6} fill="#fff" /><circle cx={lookX * 5 - 3} cy={lookY * 3 + 3.5} r={1.3} fill="#fff" opacity={0.7} /></g>
-          <path d={`M-19 ${-eyeH * 0.1} Q0 ${-eyeH - 7} 19 ${-eyeH * 0.1 - 2}`} stroke={PH} strokeWidth={5} strokeLinecap="round" fill="none" />
+        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 10} ${by + 6 - 9 * worry} Q${sd * 34} ${by - 9 - brow * 4} ${sd * 62} ${by + 3 + 8 * worry}`} stroke={PH} strokeWidth={11} strokeLinecap="round" fill="none" />)}
+        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 33} -10) rotate(${-sd * 5})`}>
+          <ellipse cx={0} cy={0} rx={16.5} ry={Math.max(eyeH, 0.6)} fill="#efe6d6" />
+          <clipPath id={`pe${sd}`}><ellipse cx={0} cy={0} rx={16.5} ry={Math.max(eyeH, 0.1)} /></clipPath>
+          <g clipPath={`url(#pe${sd})`}><circle cx={lookX * 5} cy={lookY * 3} r={9} fill="url(#pir)" /><circle cx={lookX * 5} cy={lookY * 3} r={4.6} fill="#0e0907" /><circle cx={lookX * 5 + 3.4} cy={lookY * 3 - 3.4} r={2.6} fill="#fff" /><circle cx={lookX * 5 - 3} cy={lookY * 3 + 3.5} r={1.3} fill="#fff" opacity={0.7} /></g>
+          <path d={`M-19 ${-eyeH * 0.1} Q0 ${-eyeH - 8} 19 ${-eyeH * 0.1 - 2}`} stroke={PH} strokeWidth={6.5} strokeLinecap="round" fill="none" />
           <path d={`M-14 ${-eyeH - 8} Q0 ${-eyeH - 14} 14 ${-eyeH - 8}`} stroke={PS_D} strokeWidth={2.5} fill="none" opacity={0.55} />
         </g>)}
         <path d="M-4 -6 Q-8 22 -15 34 Q0 42 15 34 Q8 22 4 -6" fill={PS_D} opacity={0.22} />
