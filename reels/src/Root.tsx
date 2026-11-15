@@ -39,7 +39,7 @@ import {QuizBook, QuizBookCover, QUIZBOOK_FRAMES} from './QuizBook';
 import {Tasbeh, TasbehCover, TASBEH_FRAMES} from './Tasbeh';
 import {RainDua, RainDuaCover, RAINDUA_FRAMES} from './RainDua';
 import {PeopleSheet} from './rig/PeopleSheet';
-import {NarratorSheet, NarratorMeSheet} from './rig/Narrator';
+import {NarratorSheet, NarratorMeSheet, NarratorProSheet} from './rig/Narrator';
 import {PeopleDemo, PEOPLEDEMO_FRAMES} from './rig/PeopleDemo';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
@@ -124,6 +124,7 @@ export const Root: React.FC = () => {
     <Composition id="RainDuaCover" component={RainDuaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="PeopleDemo" component={PeopleDemo} durationInFrames={PEOPLEDEMO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="NarratorMeSheet" component={NarratorMeSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="NarratorProSheet" component={NarratorProSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="NarratorSheet" component={NarratorSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="PeopleSheet" component={PeopleSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Yusuf1Cover" component={Yusuf1Cover} durationInFrames={1} fps={30} width={1080} height={1920} />

@@ -164,3 +164,74 @@ export const NarratorMeSheet: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/** Красивый вымышленный рассказчик: мягкий свет, ухоженная борода, дóппи с узором, зелёный чапан с золотой каймой. */
+const PS = '#e0b08a', PS_D = '#b9855e', PS_L = '#f2cba6', PH = '#1b130f', PH_L = '#3a2a20', PLIP = '#b4635a';
+export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = true, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
+  const eyeH = 11.5 * (1 - 0.92 * blink) * (1 - 0.45 * squint), by = -40 - brow * 14;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <defs>
+        <radialGradient id="pfs" cx="0.42" cy="0.32" r="0.8"><stop offset="0" stopColor={PS_L} /><stop offset="0.55" stopColor={PS} /><stop offset="1" stopColor={PS_D} /></radialGradient>
+        <linearGradient id="pbd" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={PH_L} /><stop offset="1" stopColor={PH} /></linearGradient>
+        <radialGradient id="pir" cx="0.4" cy="0.35" r="0.8"><stop offset="0" stopColor="#9a6a3c" /><stop offset="0.6" stopColor="#5a3a1e" /><stop offset="1" stopColor="#2a180c" /></radialGradient>
+        <linearGradient id="probe" x1="0" x2="1"><stop offset="0" stopColor="#0f4a3c" /><stop offset="0.5" stopColor="#1a6b55" /><stop offset="1" stopColor="#0c3a2f" /></linearGradient>
+      </defs>
+      {bust && <g>
+        <path d="M-190 190 Q-190 128 -100 112 L100 112 Q190 128 190 190 L190 280 L-190 280 Z" fill="url(#probe)" />
+        <path d="M-52 110 Q0 168 52 110 L40 108 Q0 148 -40 108 Z" fill="#f1ead8" />
+        <path d="M-52 110 Q0 168 52 110" stroke="#d9b45a" strokeWidth={6} fill="none" strokeLinecap="round" />
+        <path d="M-56 114 L-120 280 M56 114 L120 280" stroke="#d9b45a" strokeWidth={5} opacity={0.8} />
+        {[-1, 1].map((sd) => <g key={sd}>{[0, 1, 2, 3].map((i) => <circle key={i} cx={sd * (84 + i * 8)} cy={190 + i * 22} r={3.2} fill="#d9b45a" />)}</g>)}
+        <rect x={-32} y={70} width={64} height={52} rx={22} fill={PS_D} />
+      </g>}
+      <g transform={`rotate(${tilt})`}>
+        {[-1, 1].map((sd) => <g key={sd}><ellipse cx={sd * 72} cy={2} rx={12} ry={22} fill={PS} /><ellipse cx={sd * 73} cy={4} rx={5} ry={12} fill={PS_D} opacity={0.55} /></g>)}
+        <path d="M-70 -30 Q-72 -92 0 -104 Q72 -92 70 -30 Q70 30 58 64 Q42 100 0 112 Q-42 100 -58 64 Q-70 30 -70 -30 Z" fill="url(#pfs)" />
+        {/* борода: ухоженная, с чёткой линией щёк */}
+        <path d="M-68 4 Q-70 60 -48 96 Q-26 124 0 126 Q26 124 48 96 Q70 60 68 4 Q62 36 46 46 Q30 40 14 44 Q0 40 -14 44 Q-30 40 -46 46 Q-62 36 -68 4 Z" fill="url(#pbd)" />
+        <path d="M-40 70 Q0 96 40 70" stroke={PH_L} strokeWidth={4} fill="none" opacity={0.5} />
+        <path d="M-26 52 Q-12 40 0 46 Q12 40 26 52 Q12 56 0 52 Q-12 56 -26 52 Z" fill={PH} />
+        {!doppi && <path d="M-72 -34 Q-80 -108 0 -114 Q80 -108 72 -34 Q68 -62 40 -78 Q0 -86 -40 -78 Q-68 -62 -72 -34 Z" fill="url(#pbd)" />}
+        {doppi && <g>
+          <path d="M-74 -52 Q-80 -124 0 -130 Q80 -124 74 -52 L70 -42 Q0 -66 -70 -42 Z" fill="#101418" />
+          <path d="M-72 -48 Q0 -70 72 -48" stroke="#f1ead8" strokeWidth={4} fill="none" />
+          <path d="M-70 -62 Q0 -84 70 -62" stroke="#d9b45a" strokeWidth={2.5} fill="none" />
+          {[-52, -26, 0, 26, 52].map((px, i) => <polygon key={i} points={`${px},${-112 + Math.abs(px) * 0.25} ${px + 8},-96 ${px},-80 ${px - 8},-96`} fill={i === 2 ? '#d9b45a' : '#f1ead8'} opacity={0.92} />)}
+        </g>}
+        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 10} ${by + 6 - 9 * worry} Q${sd * 34} ${by - 9 - brow * 4} ${sd * 62} ${by + 3 + 8 * worry}`} stroke={PH} strokeWidth={9} strokeLinecap="round" fill="none" />)}
+        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 32} -12)`}>
+          <ellipse cx={0} cy={0} rx={17} ry={Math.max(eyeH, 0.6)} fill="#f7f1e6" />
+          <clipPath id={`pe${sd}`}><ellipse cx={0} cy={0} rx={17} ry={Math.max(eyeH, 0.1)} /></clipPath>
+          <g clipPath={`url(#pe${sd})`}><circle cx={lookX * 5} cy={lookY * 3} r={10} fill="url(#pir)" /><circle cx={lookX * 5} cy={lookY * 3} r={4.6} fill="#0e0907" /><circle cx={lookX * 5 + 3.4} cy={lookY * 3 - 3.4} r={2.6} fill="#fff" /><circle cx={lookX * 5 - 3} cy={lookY * 3 + 3.5} r={1.3} fill="#fff" opacity={0.7} /></g>
+          <path d={`M-19 ${-eyeH * 0.1} Q0 ${-eyeH - 7} 19 ${-eyeH * 0.1 - 2}`} stroke={PH} strokeWidth={5} strokeLinecap="round" fill="none" />
+          <path d={`M-14 ${-eyeH - 8} Q0 ${-eyeH - 14} 14 ${-eyeH - 8}`} stroke={PS_D} strokeWidth={2.5} fill="none" opacity={0.55} />
+        </g>)}
+        <path d="M-4 -6 Q-8 22 -15 34 Q0 42 15 34 Q8 22 4 -6" fill={PS_D} opacity={0.22} />
+        <path d="M-15 34 Q0 43 15 34" stroke="#9a6a48" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <ellipse cx={-8} cy={36} rx={3.2} ry={2} fill="#7a5036" /><ellipse cx={8} cy={36} rx={3.2} ry={2} fill="#7a5036" />
+        {smile > 0.3 && [-1, 1].map((sd) => <ellipse key={sd} cx={sd * 46} cy={24} rx={14} ry={8} fill="#e48a6a" opacity={0.3 * smile} />)}
+        <g transform="translate(0 2)"><MouthShape m={mouth} smile={smile} lip={PLIP} /></g>
+        <path d="M-30 56 Q-14 46 0 52 Q14 46 30 56 Q14 59 0 56 Q-14 59 -30 56 Z" fill={PH} />
+      </g>
+    </g>
+  );
+};
+export const NarratorProSheet: React.FC = () => {
+  loadFonts();
+  const lab = (x: number, y: number, t: string) => <text x={x} y={y} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={26} fill="#ffe39a" stroke="#0a111c" strokeWidth={6} paintOrder="stroke" letterSpacing={3}>{t}</text>;
+  const mouths: Mouth[] = ['closed', 'small', 'wide', 'o', 'ee'];
+  return (
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, #0d1626, #15233a 55%, #0a111c)'}}>
+      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0}}>
+        <text x={540} y={90} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={44} fill="#fff3d0" letterSpacing={4}>RIVOYATCHI</text>
+        <rect x={20} y={150} width={500} height={760} rx={30} fill="rgba(255,255,255,.05)" /><rect x={560} y={150} width={500} height={760} rx={30} fill="rgba(255,255,255,.05)" />
+        <NarratorPro x={270} y={520} s={2.0} smile={0.35} />
+        <NarratorPro x={810} y={520} s={2.0} doppi={false} smile={0.5} brow={0.15} />
+        {lab(270, 880, "DO'PPI BILAN")}{lab(810, 880, "DO'PPISIZ")}
+        {FRAME.map((k, i) => <g key={k}><NarratorPro x={108 + i * 216} y={1250} s={1.15} bust={false} {...EMOTIONS[k]} />{lab(108 + i * 216, 1410, k.toUpperCase())}</g>)}
+        {mouths.map((m, i) => <g key={m}><NarratorPro x={108 + i * 216} y={1650} s={1.15} bust={false} mouth={m} smile={0.1} />{lab(108 + i * 216, 1810, m.toUpperCase())}</g>)}
+      </svg>
+    </AbsoluteFill>
+  );
+};
