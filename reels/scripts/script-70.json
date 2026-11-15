@@ -7,8 +7,8 @@
   "speed": 1.0,
   "genre": "serial",
   "series": "Shaxsiy",
-  "status": "сценарий-предложение (манера: первое лицо, конкретная деталь, открытая петля, финал-эхо хука), без озвучки",
-  "hook": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Faqat bitta konvert bor, uni hali ham saqlayman. Ichida nima bor edi?",
+  "status": "проверен агентом avzalbot2, доработан оркестратором; без озвучки",
+  "hook": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Lekin menda uning bitta konverti bor. Ichida nima bor edi?",
   "cover_text": "DADAM QUCHOQLAMAGAN",
   "facts": [
     "Художественная история от первого лица, не источник; в описании пометить «hikoya xayoliy»"
@@ -17,27 +17,27 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Faqat bitta konvert bor, uni hali ham saqlayman. Ichida nima bor edi?",
+      "vo": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Lekin menda uning bitta konverti bor. Ichida nima bor edi?",
       "on_screen": ""
     },
     {
       "n": 2,
-      "vo": "O'n sakkiz yoshda Toshkentga o'qishga ketdim. Bekatda dadam yonimda turdi. Qo'lini cho'ntagiga tiqib, bir og'iz gapirmadi. Konvertni uzatdi, yo'lingda ehtiyot bo'l, dedi va yuzini burdi.",
+      "vo": "O'n sakkiz yoshimda Toshkentga o'qishga ketdim. Bekatda dadam avtobus kelguncha bir og'iz gapirmadi. Keyin konvertni uzatdi. Yo'lingda ehtiyot bo'l, dedi. Yuzini burdi.",
       "on_screen": ""
     },
     {
       "n": 3,
-      "vo": "Avtobusda ochdim. Ichida pul. Hammasi eski, g'ijimlangan. Ko'p yil yig'ilgan pul. Bir so'mini ortiqcha sarflamagan odamning puli.",
+      "vo": "Avtobusda ochdim. Ichida g'ijimlangan pullar edi. Bir so'mini ortiqcha sarflamagan odamning puli. Tagida yana nimadir bor edi.",
       "on_screen": ""
     },
     {
       "n": 4,
-      "vo": "Pulning orasida qog'oz bor edi. Dadam yozishni yoqtirmasdi. Harflar qiyshiq edi. Qiyin bo'lsa, qaytib kel. Eshigim doim ochiq.",
+      "vo": "Bukilgan bir qog'oz. Dadam umrida menga xat yozmagan edi. Harflari qiyshiq edi. Qog'ozda ikki gap bor edi. Qiyin bo'lsa, qaytib kel. Eshigim doim ochiq.",
       "on_screen": ""
     },
     {
       "n": 5,
-      "vo": "Shunda tushundim. Ba'zi odamlar quchoqlamaydi. Ular konvertga yozadi. Dadam meni hech qachon quchoqlamagan. Lekin hech qachon qo'yib ham yubormagan.",
+      "vo": "Derazadan qaradim. Dadam hamon o'sha yerda turardi. Aytolmagan gapini konvertga yozgan ekan. Dadam meni hech qachon quchoqlamagan. Lekin eshigini hech qachon yopmagan.",
       "on_screen": ""
     }
   ]
