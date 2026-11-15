@@ -1,0 +1,11 @@
+[curious] Asalari uyasini kim boshqaradi?
+[break]
+Asrlar davomida uni shoh deb atashgan.
+[break]
+[calm] Keyin o'n yettinchi asrda mikroskop paydo bo'ldi. Gollandiyalik olim Yan Swammerdam asalarining ichini ochib ko'rdi. Shoh emas, malika chiqdi.
+[break]
+[soft tone] Nahl surasi, oltmish sakkizinchi oyatda asalariga buyruqlar urg'ochi shaklida keladi. Uy tut. Egin. Yur.
+[break]
+[emphasis] Va asal yig'adigan ishchi asalarilarning hammasi urg'ochi.
+[long-break]
+[curious] Sizningcha, bu tasodifmi?
