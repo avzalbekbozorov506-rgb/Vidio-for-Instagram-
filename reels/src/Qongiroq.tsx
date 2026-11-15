@@ -92,3 +92,28 @@ export const Qongiroq: React.FC = () => {
   );
 };
 
+
+/** Обложка: звонящий телефон «Ona», перечёркнутое «KEYIN QILAMAN», красное «QILDINGIZMI?!» */
+export const QongiroqCover: React.FC = () => {
+  loadFonts();
+  const F = {fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800} as const;
+  return (
+    <AbsoluteFill style={{background: PAPER}}>
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
+        <defs><filter id="wcq" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.018" numOctaves={2} seed={3} result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale={4} xChannelSelector="R" yChannelSelector="G" /></filter></defs>
+        <g filter="url(#wcq)"><TimeCtx.Provider value={0.3}><g transform="translate(0 420)"><PhoneRing t={0.3} d={3} /></g></TimeCtx.Provider></g>
+      </svg>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 250, height: 700, background: 'linear-gradient(to bottom, rgba(24,18,12,0), rgba(24,18,12,.74) 14%, rgba(24,18,12,.74) 86%, rgba(24,18,12,0))'}} />
+      <Vignette strength={0.5} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 320, textAlign: 'center', ...F}}>
+        <span style={{display: 'inline-block', background: '#D9302A', color: '#fff', fontSize: 48, letterSpacing: 3, padding: '12px 28px', borderRadius: 8, boxShadow: '0 8px 30px rgba(217,48,42,.55)'}}>ONANGIZ QO'NG'IROQ QILDI</span>
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 450, textAlign: 'center', lineHeight: 1, ...F}}>
+        <div style={{position: 'relative', display: 'inline-block', fontSize: 118, color: '#F4EBD6', textShadow: '0 8px 36px rgba(0,0,0,.8)'}}>KEYIN QILAMAN
+          <div style={{position: 'absolute', left: -24, right: -24, top: '52%', height: 16, background: '#ff3b30', borderRadius: 9, transform: 'rotate(-4deg)', boxShadow: '0 0 36px rgba(255,59,48,.85)'}} />
+        </div>
+        <div style={{fontSize: 132, color: '#ff6a5a', marginTop: 14, textShadow: '0 0 60px rgba(255,100,80,.6), 0 10px 40px rgba(0,0,0,.8)'}}>QILDINGIZMI?!</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
