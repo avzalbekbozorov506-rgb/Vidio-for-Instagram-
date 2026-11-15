@@ -1,0 +1,50 @@
+{
+  "id": "script-69",
+  "title": "Onaning qo'ng'irog'i (Isro 17:23-24)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "serial",
+  "series": "Shaxsiy",
+  "status": "сценарий в манере sapar29798/nskeahamiyr/inside_trace (обращение на «siz», конкретные детали, параллельный ритм, мягкий финал), без озвучки",
+  "hook": "Onangiz qo'ng'iroq qildi. Siz esa band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+  "cover_text": "ONANGIZ QO'NG'IROQ QILDI",
+  "facts": [
+    "Qur'on 17:23-24, M. Sodiq M. Yusuf (alquran.cloud uz.sodik, кириллица, переведено в латиницу); в vo цитата 17:23 без скобочного пояснения",
+    "Ibn Kasir 17:23: ota-onaga yaxshilik, 'uff' degan so'zni aytmaslik"
+  ],
+  "caption": "",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Onangiz qo'ng'iroq qildi. Siz esa band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+      "on_screen": ""
+    },
+    {
+      "n": 2,
+      "vo": "Ona esa kutadi. Telefonni yonidan qo'ymaydi. Nima gap, deb so'rasangiz, hech, shunchaki, deydi. Shunchaki ovozingizni eshitgisi kelgan.",
+      "on_screen": ""
+    },
+    {
+      "n": 3,
+      "vo": "Ishdan charchadingiz. Kechqurun yotib qoldingiz. Dam olish kuni boshqa ish chiqdi. Kun o'tdi, hafta o'tdi. U esa hali ham telefonni yonida qo'yib uxlaydi.",
+      "on_screen": ""
+    },
+    {
+      "n": 4,
+      "vo": "Bir kun kelib o'sha qo'ng'iroqni juda xohlaysiz. Hozir esa shunchaki, keyin, deysiz.",
+      "on_screen": ""
+    },
+    {
+      "n": 5,
+      "vo": "Qur'onda Alloh taolo ota-onaga yaxshilik qilishni buyuradi. Ular qarigan paytda, ularga uff dema, ularga ozor berma va ularga yaxshi so'z ayt. Isro surasi, yigirma uchinchi oyat.",
+      "on_screen": ""
+    },
+    {
+      "n": 6,
+      "vo": "Hozir telefonni oling. Ko'p gapirish shart emas. Ona, sog'indim, deng. Qolganini u o'zi biladi.",
+      "on_screen": ""
+    }
+  ]
+}
