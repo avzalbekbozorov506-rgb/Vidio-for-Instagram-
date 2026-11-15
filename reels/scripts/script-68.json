@@ -1,0 +1,55 @@
+{
+  "id": "script-68",
+  "title": "Tarozi (Mutaffifin 83:1-6)",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "serial",
+  "series": "Bozor",
+  "status": "сценарий написан и самопроверен, без озвучки",
+  "hook": "Tarozi. Bozordagi eng jim sotuvchi. U gapirmaydi, lekin aldashi mumkin. Qur'onda aynan shunday sotuvchilar uchun og'ir bir ogohlantirish bor. U qanday?",
+  "cover_text": "TAROZI ALDAYDIMI?",
+  "facts": [
+    "Qur'on 83:1-6, M. Sodiq M. Yusuf (alquran.cloud uz.sodik, кириллица, переведено в латиницу)",
+    "Ibn Kasir (id 169) 83:1: Ibn Abbos rivoyati, Nasoiy va Ibn Moja"
+  ],
+  "caption": "",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Tarozi. Bozordagi eng jim sotuvchi. U gapirmaydi, lekin aldashi mumkin. Qur'onda aynan shunday sotuvchilar uchun og'ir bir ogohlantirish bor. U qanday? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "on_screen": ""
+    },
+    {
+      "n": 2,
+      "vo": "Bir kilo deb o'lchab beradi, uyga borib tortsangiz to'qqiz yuz gramm chiqadi. Tarozi ostiga kichkina bir narsa yopishtirib qo'yilgan bo'ladi. Yoki bosh barmoq pallani sekin ko'tarib turadi. Sotuvchi esa jilmayib turadi.",
+      "on_screen": ""
+    },
+    {
+      "n": 3,
+      "vo": "Qo'shni do'konda esa boshqacha. Tarozi rostini ko'rsatadi, sotuvchi ustiga bir hovuch ham qo'shib beradi. Odamlar kechqurun qaysi do'konga navbatga turishadi? Albatta, ikkinchisiga.",
+      "on_screen": ""
+    },
+    {
+      "n": 4,
+      "vo": "Qur'onda shu ish haqida alohida bir sura bor. Uning nomi Mutaffifin, ya'ni o'lchovdan urib qoluvchilar. Nega aynan shu sura tushgan?",
+      "on_screen": ""
+    },
+    {
+      "n": 5,
+      "vo": "Ibn Kasir yozadi, Ibn Abbos shunday aytganlar. Payg'ambarimiz sollallohu alayhi vasallam Madinaga kelganlarida, Madina ahli o'lchovda eng ko'p aldaydigan odamlardan edi. Shunda bu oyat tushdi. Shundan keyin ular o'lchovni to'g'ri qila boshladilar. Bu rivoyatni Nasoiy va Ibn Moja keltirgan.",
+      "on_screen": ""
+    },
+    {
+      "n": 6,
+      "vo": "Mana o'sha ogohlantirish. Muhammad Sodiq Muhammad Yusuf tarjimasida. Voy bo'lsin o'lchovdan urib qoluvchilarga. Ular odamlardan narsa o'lchab olsalar, to'liq olarlar. Odamlarga o'lchab yoki tortib bersalar, kamaytirarlar.",
+      "on_screen": ""
+    },
+    {
+      "n": 7,
+      "vo": "Keyingi oyat esa so'raydi. Bular qayta tirilishlarini o'ylamaydilarmi? Tarozi jim turadi. Lekin oyat jim emas.",
+      "on_screen": ""
+    }
+  ]
+}
