@@ -18,15 +18,15 @@ export const EMOTIONS: Record<string, FaceP> = {
 };
 const SKIN = '#c49a74', SKIN_D = '#a47a58', HAIR = '#17110d', LIP = '#a45a46';
 
-const MouthShape: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
+const MouthShape: React.FC<{m: Mouth; smile: number; lip?: string}> = ({m, smile, lip = LIP}) => {
   const y = 66, lift = smile * 15;
-  const lips = (rx: number, ry: number) => <ellipse cx={0} cy={y} rx={rx + 5} ry={ry + 4} fill={LIP} />;
+  const lips = (rx: number, ry: number) => <ellipse cx={0} cy={y} rx={rx + 5} ry={ry + 4} fill={lip} />;
   switch (m) {
     case 'small': return <g>{lips(13, 7)}<ellipse cx={0} cy={y} rx={13} ry={7} fill="#3a1410" /></g>;
     case 'wide': return <g>{lips(22, 15)}<ellipse cx={0} cy={y} rx={22} ry={15} fill="#3a1410" /><path d={`M-18 ${y - 9} Q0 ${y - 4} 18 ${y - 9} L16 ${y - 3} Q0 ${y} -16 ${y - 3} Z`} fill="#f4efe4" /><ellipse cx={0} cy={y + 9} rx={11} ry={5} fill="#c4586a" /></g>;
     case 'o': return <g>{lips(11, 13)}<ellipse cx={0} cy={y} rx={11} ry={13} fill="#3a1410" /></g>;
     case 'ee': return <g>{lips(27, 8)}<ellipse cx={0} cy={y} rx={27} ry={8} fill="#3a1410" /><path d={`M-23 ${y - 4} Q0 ${y - 1} 23 ${y - 4} L22 ${y + 1} Q0 ${y + 3} -22 ${y + 1} Z`} fill="#f4efe4" /></g>;
-    default: return <g><path d={`M-24 ${y - lift * 0.3} Q0 ${y + 8 + lift} 24 ${y - lift * 0.3}`} stroke={LIP} strokeWidth={9} strokeLinecap="round" fill="none" /><path d={`M-24 ${y - lift * 0.3} Q0 ${y + 8 + lift} 24 ${y - lift * 0.3}`} stroke="#6a2e24" strokeWidth={2.5} strokeLinecap="round" fill="none" /></g>;
+    default: return <g><path d={`M-24 ${y - lift * 0.3} Q0 ${y + 8 + lift} 24 ${y - lift * 0.3}`} stroke={lip} strokeWidth={8} strokeLinecap="round" fill="none" /><path d={`M-24 ${y - lift * 0.3} Q0 ${y + 8 + lift} 24 ${y - lift * 0.3}`} stroke="#6a2e24" strokeWidth={2.5} strokeLinecap="round" fill="none" /></g>;
   }
 };
 
@@ -94,50 +94,53 @@ export const NarratorSheet: React.FC = () => {
   );
 };
 
-/** Вариант «по фото владельца канала»: короткая стрижка, щетина, прямые брови, чёрная футболка. */
-const SKIN2 = '#cf9f7a', SKIN2_D = '#b07f5c', HAIR2 = '#1a1411';
+/** Вариант «по фото владельца канала»: ёжик, щетина, тяжёлые прямые брови, глубоко посаженные глаза, узкое длинное лицо. */
+const SKIN2 = '#d6aa88', SKIN2_D = '#b68762', HAIR2 = '#1a1411', LIP2 = '#a96a58';
+const STIP = Array.from({length: 170}, (_, i) => { const r1 = Math.abs(Math.sin(i * 127.1 + 3.7) * 43758.5453) % 1, r2 = Math.abs(Math.sin(i * 311.7 + 1.3) * 12345.678) % 1; return [(r1 - 0.5) * 128, 26 + r2 * 96] as [number, number]; }).filter(([x, y]) => (x / 66) ** 2 + ((y - 70) / 58) ** 2 < 1 && !(y < 56 && Math.abs(x) < 40 && y > 48));
 export const NarratorMe: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = false, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
-  const eyeH = 11 * (1 - 0.9 * blink) * (1 - 0.5 * squint), by = -43 - brow * 14;
+  const eyeH = 8.5 * (1 - 0.92 * blink) * (1 - 0.45 * squint), by = -30 - brow * 15;
   return (
     <g transform={`translate(${x} ${y}) scale(${s})`}>
       <defs>
-        <linearGradient id="stub" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={HAIR2} stopOpacity={0.0} /><stop offset="0.5" stopColor={HAIR2} stopOpacity={0.08} /><stop offset="0.75" stopColor={HAIR2} stopOpacity={0.3} /><stop offset="1" stopColor={HAIR2} stopOpacity={0.5} /></linearGradient>
+        <linearGradient id="stub" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={HAIR2} stopOpacity={0.0} /><stop offset="0.55" stopColor={HAIR2} stopOpacity={0.14} /><stop offset="1" stopColor={HAIR2} stopOpacity={0.34} /></linearGradient>
       </defs>
       {bust && <g>
         <path d="M-170 176 Q-170 128 -92 112 L92 112 Q170 128 170 176 L170 270 L-170 270 Z" fill="#141416" />
-        <path d="M-40 112 Q0 152 40 112 L30 112 Q0 138 -30 112 Z" fill="#0d0d0f" />
+        <path d="M-42 110 Q0 152 42 110 L32 110 Q0 138 -32 110 Z" fill="#0d0d0f" />
         <path d="M30 112 L92 112 Q170 128 170 176 L170 270 L74 270 Q86 180 30 112 Z" fill="#232328" opacity={0.7} />
-        <rect x={-32} y={70} width={64} height={52} rx={20} fill={SKIN2_D} />
+        <rect x={-34} y={66} width={68} height={56} rx={22} fill={SKIN2_D} />
+        <path d="M-10 96 Q0 104 10 96" stroke="#9a6f4e" strokeWidth={3} fill="none" opacity={0.6} />
       </g>}
       <g transform={`rotate(${tilt})`}>
-        {[-1, 1].map((sd) => <g key={sd}><ellipse cx={sd * 82} cy={8} rx={14} ry={26} fill={SKIN2} /><ellipse cx={sd * 83} cy={10} rx={6} ry={14} fill={SKIN2_D} opacity={0.6} /></g>)}
-        <path d="M-80 -14 Q-86 -84 0 -102 Q86 -84 80 -14 Q82 60 56 96 Q30 122 0 124 Q-30 122 -56 96 Q-82 60 -80 -14 Z" fill={SKIN2} />
-        <path d="M28 -96 Q84 -76 80 -14 Q82 60 56 96 Q40 114 22 122 Q62 62 52 -30 Q50 -72 28 -96 Z" fill={SKIN2_D} opacity={0.26} />
-        <path d="M-78 24 Q-80 70 -54 98 Q-30 122 0 124 Q30 122 54 98 Q80 70 78 24 Q70 44 52 52 Q28 44 0 47 Q-28 44 -52 52 Q-70 44 -78 24 Z" fill="url(#stub)" />
-        <path d="M-36 51 Q-20 43 0 48 Q20 43 36 51 Q22 56 0 53 Q-22 56 -36 51 Z" fill={HAIR2} opacity={0.32} />
+        {[-1, 1].map((sd) => <g key={sd}><ellipse cx={sd * 77} cy={6} rx={13} ry={25} fill={SKIN2} /><ellipse cx={sd * 78} cy={8} rx={5.5} ry={14} fill={SKIN2_D} opacity={0.6} /></g>)}
+        <path d="M-74 -18 Q-78 -86 0 -100 Q78 -86 74 -18 Q74 38 62 72 Q46 106 16 119 Q0 124 -16 119 Q-46 106 -62 72 Q-74 38 -74 -18 Z" fill={SKIN2} />
+        <path d="M26 -96 Q76 -80 74 -18 Q74 38 62 72 Q46 106 16 119 Q56 66 48 -24 Q46 -70 26 -96 Z" fill={SKIN2_D} opacity={0.24} />
+        <path d="M-70 24 Q-72 56 -60 76 Q-42 108 -14 119 Q0 123 14 119 Q42 108 60 76 Q72 56 70 24 Q62 48 46 54 Q24 46 0 49 Q-24 46 -46 54 Q-62 48 -70 24 Z" fill="url(#stub)" />
+        {STIP.map(([sx, sy], i) => <circle key={i} cx={sx} cy={sy} r={0.9} fill={HAIR2} opacity={0.26} />)}
+        <path d="M-34 52 Q-18 45 0 49 Q18 45 34 52 Q20 56 0 54 Q-20 56 -34 52 Z" fill={HAIR2} opacity={0.3} />
         {!doppi && <g>
-          <path d="M-84 -22 Q-92 -104 0 -112 Q92 -104 84 -22 Q82 -50 70 -62 Q38 -84 0 -84 Q-38 -84 -70 -62 Q-82 -50 -84 -22 Z" fill={HAIR2} />
-          <path d="M-66 -62 Q-44 -82 0 -84 Q44 -82 66 -62 Q52 -70 0 -72 Q-52 -70 -66 -62 Z" fill="#2a201b" opacity={0.6} />
+          <path d="M-79 -24 Q-87 -100 0 -108 Q87 -100 79 -24 Q79 -44 69 -56 Q56 -70 36 -74 Q0 -77 -36 -74 Q-56 -70 -69 -56 Q-79 -44 -79 -24 Z" fill={HAIR2} />
+          <path d="M-62 -60 Q-40 -76 0 -77 Q40 -76 62 -60 Q48 -68 0 -70 Q-48 -68 -62 -60 Z" fill="#2a201b" opacity={0.55} />
         </g>}
         {doppi && <g>
-          <path d="M-84 -58 Q-86 -122 0 -128 Q86 -122 84 -58 L78 -48 Q0 -72 -78 -48 Z" fill="#141010" />
-          <path d="M-80 -54 Q0 -76 80 -54" stroke="#ebe5d6" strokeWidth={3} fill="none" />
-          <polygon points="0,-118 11,-96 0,-76 -11,-96" fill="#ebe5d6" opacity={0.9} /><polygon points="0,-110 5,-96 0,-84 -5,-96" fill="#141010" />
-          {[-1, 1].map((sd) => <polygon key={sd} points={`${sd * 44},-98 ${sd * 52},-86 ${sd * 44},-74 ${sd * 36},-86`} fill="#ebe5d6" opacity={0.7} />)}
+          <path d="M-76 -58 Q-78 -120 0 -126 Q78 -120 76 -58 L70 -48 Q0 -72 -70 -48 Z" fill="#141010" />
+          <path d="M-72 -54 Q0 -76 72 -54" stroke="#ebe5d6" strokeWidth={3} fill="none" />
+          <polygon points="0,-116 11,-94 0,-74 -11,-94" fill="#ebe5d6" opacity={0.9} /><polygon points="0,-108 5,-94 0,-82 -5,-94" fill="#141010" />
+          {[-1, 1].map((sd) => <polygon key={sd} points={`${sd * 42},-96 ${sd * 50},-84 ${sd * 42},-72 ${sd * 34},-84`} fill="#ebe5d6" opacity={0.7} />)}
         </g>}
-        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 12} ${by + 6 - 11 * worry} Q${sd * 38} ${by - 4 - brow * 5} ${sd * 66} ${by + 5 + 9 * worry}`} stroke={HAIR2} strokeWidth={11} strokeLinecap="round" fill="none" />)}
-        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 36} -14)`}>
-          <ellipse cx={0} cy={0} rx={18} ry={eyeH} fill="#efe8dc" />
-          <clipPath id={`me${sd}`}><ellipse cx={0} cy={0} rx={18} ry={Math.max(eyeH, 0.1)} /></clipPath>
-          <g clipPath={`url(#me${sd})`}><circle cx={lookX * 6} cy={lookY * 4} r={9.5} fill="#4a3222" /><circle cx={lookX * 6} cy={lookY * 4} r={4.8} fill="#0e0907" /><circle cx={lookX * 6 + 3} cy={lookY * 4 - 3} r={2.2} fill="#fff" /></g>
-          <path d={`M-20 ${-eyeH * 0.1} Q0 ${-eyeH - 6} 20 ${-eyeH * 0.1}`} stroke={HAIR2} strokeWidth={5} strokeLinecap="round" fill="none" />
-          <path d={`M-17 ${eyeH * 0.5 + 5} Q0 ${eyeH + 7} 17 ${eyeH * 0.5 + 5}`} stroke={SKIN2_D} strokeWidth={3} fill="none" opacity={0.6} />
+        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 8} ${by + 8 - 11 * worry} Q${sd * 34} ${by - 8 - brow * 5} ${sd * 64} ${by + 4 + 9 * worry}`} stroke={HAIR2} strokeWidth={10} strokeLinecap="round" fill="none" />)}
+        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 33} -8) rotate(${sd * 4})`}>
+          <ellipse cx={0} cy={0} rx={14.5} ry={eyeH} fill="#e4d9c8" />
+          <clipPath id={`me${sd}`}><ellipse cx={0} cy={0} rx={14.5} ry={Math.max(eyeH, 0.1)} /></clipPath>
+          <g clipPath={`url(#me${sd})`}><circle cx={lookX * 5} cy={lookY * 3} r={8.4} fill="#4a3222" /><circle cx={lookX * 5} cy={lookY * 3} r={4.2} fill="#0e0907" /><circle cx={lookX * 5 + 2.6} cy={lookY * 3 - 2.6} r={1.9} fill="#fff" /></g>
+          <path d={`M-18 ${-eyeH * 0.15} Q0 ${-eyeH - 5.5} 18 ${-eyeH * 0.15 + 1}`} stroke={HAIR2} strokeWidth={5.5} strokeLinecap="round" fill="none" />
+          <path d={`M-14 ${eyeH * 0.55 + 4} Q0 ${eyeH + 6} 14 ${eyeH * 0.55 + 4}`} stroke={SKIN2_D} strokeWidth={3} fill="none" opacity={0.7} />
         </g>)}
-        <path d="M-3 -4 Q-9 26 -17 38 Q0 46 17 38 Q9 26 3 -4" fill={SKIN2_D} opacity={0.45} />
-        <path d="M-16 38 Q0 46 16 38" stroke="#8b6244" strokeWidth={3} fill="none" strokeLinecap="round" />
-        <ellipse cx={-8} cy={40} rx={3} ry={2.3} fill="#6a4630" /><ellipse cx={8} cy={40} rx={3} ry={2.3} fill="#6a4630" />
-        {smile > 0.3 && [-1, 1].map((sd) => <ellipse key={sd} cx={sd * 54} cy={40} rx={17} ry={10} fill="#d9936b" opacity={0.28 * smile} />)}
-        <MouthShape m={mouth} smile={smile} />
+        <path d="M-5 -4 Q-9 30 -21 46 Q0 56 21 46 Q9 30 5 -4" fill={SKIN2_D} opacity={0.16} />
+        <path d="M-20 46 Q0 55 20 46" stroke="#8b6244" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <ellipse cx={-10} cy={47} rx={4} ry={2.6} fill="#6a4630" /><ellipse cx={10} cy={47} rx={4} ry={2.6} fill="#6a4630" />
+        {smile > 0.3 && [-1, 1].map((sd) => <ellipse key={sd} cx={sd * 50} cy={42} rx={15} ry={9} fill="#d9936b" opacity={0.26 * smile} />)}
+        <g transform="translate(0 4)"><MouthShape m={mouth} smile={smile - 0.05} lip={LIP2} /></g>
       </g>
     </g>
   );
