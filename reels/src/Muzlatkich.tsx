@@ -127,7 +127,7 @@ const Movers: React.FC<{t: number}> = ({t}) => {
 };
 
 /** график температуры с пиком при открытии двери (9.3-11.7) */
-const Chart: React.FC<{t: number}> = ({t}) => {
+export const Chart: React.FC<{t: number}> = ({t}) => {
   const a = tm(t, 8.6, 9.2) * (1 - tm(t, 12.6, 13.2)); if (a <= 0) return null;
   const X0 = 130, X1 = 950, Y0 = 1840, Y1 = 1660, n = 60, draw = tm(t, 9.0, 12.4);
   const f = (u: number) => { const tt = 9.0 + u * 3.4; return Y0 - (Y0 - Y1) * 0.18 - (Y0 - Y1) * 0.62 * Math.max(0, Math.exp(-Math.pow((tt - 9.9) / 0.9, 2) * (tt < 9.9 ? 6 : 0.9))) * (tt >= 9.3 ? 1 : 0); };
@@ -160,7 +160,7 @@ const KW = ({children}: {children: React.ReactNode}) => (
     {[[-7, -7], [-7, 'calc(100% - 7px)'], ['calc(100% - 7px)', -7], ['calc(100% - 7px)', 'calc(100% - 7px)']].map(([l, tp], i) => <span key={i} style={{position: 'absolute', left: l as any, top: tp as any, width: 12, height: 12, background: '#4a8cff', borderRadius: 3}} />)}
   </span>
 );
-const Subs: React.FC<{t: number}> = ({t}) => {
+export const Subs: React.FC<{t: number}> = ({t}) => {
   const sub = (VOICE.subs as {from: number; to: number; text: string}[]).find((s) => t >= s.from && t < s.to); if (!sub) return null;
   const a = tm(t, sub.from, sub.from + 0.08) * (1 - tm(t, sub.to - 0.05, sub.to));
   return (
@@ -170,7 +170,7 @@ const Subs: React.FC<{t: number}> = ({t}) => {
   );
 };
 
-const SND: [string, number, number][] = [
+export const SND: [string, number, number][] = [
   ['sfx/thud', 3.3, 0.3], ['sfx2/cloth', 4.5, 0.2], ['sfx/pop', 5.5, 0.3], ['sfx2/shimmer', 6.0, 0.2],
   ['sfx2/creak', 9.2, 0.3], ['sfx/tick', 9.9, 0.3], ['sfx2/cloth', 14.2, 0.2], ['sfx/pop', 15.2, 0.3], ['sfx2/cloth', 16.3, 0.2],
   ['sfx/pop', 19.4, 0.3], ['sfx2/shimmer', 22.9, 0.2], ['sfx2/creak', 25.6, 0.3], ['sfx/ding', 27.9, 0.35],
