@@ -7,8 +7,8 @@
   "speed": 1.0,
   "genre": "serial",
   "series": "Shaxsiy",
-  "status": "сценарий в манере sapar29798/nskeahamiyr/inside_trace (обращение на «siz», конкретные детали, параллельный ритм, мягкий финал), без озвучки",
-  "hook": "Onangiz qo'ng'iroq qildi. Siz esa band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+  "status": "сценарий проверен агентом avzalbot2 и доработан; без призыва подписки (манера референсов); без озвучки",
+  "hook": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
   "cover_text": "ONANGIZ QO'NG'IROQ QILDI",
   "facts": [
     "Qur'on 17:23-24, M. Sodiq M. Yusuf (alquran.cloud uz.sodik, кириллица, переведено в латиницу); в vo цитата 17:23 без скобочного пояснения",
@@ -18,32 +18,32 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Onangiz qo'ng'iroq qildi. Siz esa band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+      "vo": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
       "on_screen": ""
     },
     {
       "n": 2,
-      "vo": "Ona esa kutadi. Telefonni yonidan qo'ymaydi. Nima gap, deb so'rasangiz, hech, shunchaki, deydi. Shunchaki ovozingizni eshitgisi kelgan.",
+      "vo": "Ona telefonni yonidan qo'ymaydi. Nima gap, deb so'rasangiz, hech, shunchaki, deydi. Aslida u faqat ovozingizni eshitmoqchi. Nega buni aytmaydi?",
       "on_screen": ""
     },
     {
       "n": 3,
-      "vo": "Ishdan charchadingiz. Kechqurun yotib qoldingiz. Dam olish kuni boshqa ish chiqdi. Kun o'tdi, hafta o'tdi. U esa hali ham telefonni yonida qo'yib uxlaydi.",
+      "vo": "Chunki ona sizni band deb biladi. Ishdan charchadingiz. Kun o'tdi, hafta o'tdi. Ona telefonni yoniga qo'yib uxlaydi. Siz esa, keyin, deysiz.",
       "on_screen": ""
     },
     {
       "n": 4,
-      "vo": "Bir kun kelib o'sha qo'ng'iroqni juda xohlaysiz. Hozir esa shunchaki, keyin, deysiz.",
+      "vo": "Bir kun kelib o'sha qo'ng'iroqni juda xohlab qolasiz. Qur'on bu haqda nima deydi?",
       "on_screen": ""
     },
     {
       "n": 5,
-      "vo": "Qur'onda Alloh taolo ota-onaga yaxshilik qilishni buyuradi. Ular qarigan paytda, ularga uff dema, ularga ozor berma va ularga yaxshi so'z ayt. Isro surasi, yigirma uchinchi oyat.",
+      "vo": "Isro surasi, yigirma uchinchi oyatda Alloh taolo shunday deydi. Agar huzuringda ularning biri yoki ikkovi ham keksalikka yetsa, ularga uff dema, ularga ozor berma va ularga yaxshi so'z ayt. Yaxshi so'z qanday?",
       "on_screen": ""
     },
     {
       "n": 6,
-      "vo": "Hozir telefonni oling. Ko'p gapirish shart emas. Ona, sog'indim, deng. Qolganini u o'zi biladi.",
+      "vo": "Hozir telefonni oling. Ona, sog'indim, deng. Qolganini onangiz o'zi biladi. Qaytaring. Hoziroq.",
       "on_screen": ""
     }
   ]
