@@ -2,6 +2,7 @@ import {Composition} from 'remotion';
 import {Bazaar, BAZAAR_FRAMES} from './Bazaar';
 import {Tarozi, TAROZI_FRAMES, TaroziCover} from './Tarozi';
 import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
+import {StyleIpak} from './StyleIpak';
 import {Reel, ReelProps} from './Reel';
 import {Turkic, TOTAL_FRAMES} from './Turkic';
 import {Cover} from './Cover';
@@ -127,6 +128,7 @@ export const Root: React.FC = () => {
     <Composition id="Bazaar" component={Bazaar} durationInFrames={BAZAAR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Tarozi" component={Tarozi} durationInFrames={TAROZI_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Qongiroq" component={Qongiroq} durationInFrames={QONG_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="StyleIpak" component={StyleIpak} durationInFrames={240} fps={30} width={1080} height={1920} />
     <Composition id="QongiroqCover" component={QongiroqCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="TaroziCover" component={TaroziCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="RainDuaCover" component={RainDuaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
