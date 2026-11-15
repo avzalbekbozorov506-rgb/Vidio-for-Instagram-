@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {Grain, Vignette} from './blocks/Cinematic';
-import {loadFonts} from './Juma';
+import {loadFonts} from './fonts';
 import {W, H, PAPER, sm, TimeCtx} from './bashar/kit';
 import {Aerial, StreetSeller, WeightScrape, LeadUnder, ThumbPan, SellerBuyer, HonestAdd, QueueStreet, HandBag, MadinaPan, MadinaMarket, Book, LevelPans, PourShort, NightSeller, ShadowScale, NightWide, Steam, Dawn, SP} from './bashar/scenes';
 
