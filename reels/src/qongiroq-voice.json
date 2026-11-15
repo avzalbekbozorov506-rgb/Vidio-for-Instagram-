@@ -1,0 +1,236 @@
+{
+ "dur": 57.52,
+ "cards": [
+  [
+   0.2,
+   6.22
+  ],
+  [
+   7.36,
+   15.38
+  ],
+  [
+   16.1,
+   27.02
+  ],
+  [
+   28.02,
+   34.52
+  ],
+  [
+   35.44,
+   47.84
+  ],
+  [
+   48.86,
+   57.5
+  ]
+ ],
+ "subs": [
+  {
+   "from": 0.16,
+   "to": 1.53,
+   "text": "Onangiz qo'ng'iroq qildi."
+  },
+  {
+   "from": 1.9,
+   "to": 2.97,
+   "text": "Siz *band* edingiz."
+  },
+  {
+   "from": 3.38,
+   "to": 4.4,
+   "text": "Keyin qo'ng'iroq qilaman,"
+  },
+  {
+   "from": 4.4,
+   "to": 5.19,
+   "text": "dedingiz."
+  },
+  {
+   "from": 5.42,
+   "to": 6.57,
+   "text": "Qo'ng'iroq qildingizmi?"
+  },
+  {
+   "from": 7.32,
+   "to": 8.76,
+   "text": "Ona ikkinchi marta qo'ng'iroq"
+  },
+  {
+   "from": 8.76,
+   "to": 9.45,
+   "text": "qilmaydi."
+  },
+  {
+   "from": 9.8,
+   "to": 10.44,
+   "text": "Xalaqit bermay,"
+  },
+  {
+   "from": 10.44,
+   "to": 10.99,
+   "text": "deydi."
+  },
+  {
+   "from": 11.12,
+   "to": 12.98,
+   "text": "Telefonining ovozini oxirigacha"
+  },
+  {
+   "from": 12.98,
+   "to": 13.54,
+   "text": "baland qilib,"
+  },
+  {
+   "from": 13.54,
+   "to": 14.73,
+   "text": "yoniga qo'yib yotadi."
+  },
+  {
+   "from": 15.14,
+   "to": 15.73,
+   "text": "*Nega?*"
+  },
+  {
+   "from": 16.06,
+   "to": 17.04,
+   "text": "Chunki bolasi qo'ng'iroq"
+  },
+  {
+   "from": 17.04,
+   "to": 18.63,
+   "text": "qilsa, eshitishi kerak."
+  },
+  {
+   "from": 19.14,
+   "to": 20.38,
+   "text": "Telefonida sizning ismingiz"
+  },
+  {
+   "from": 20.38,
+   "to": 20.91,
+   "text": "yo'q."
+  },
+  {
+   "from": 21.06,
+   "to": 22.83,
+   "text": "Faqat bitta so'z yozilgan."
+  },
+  {
+   "from": 23.16,
+   "to": 23.79,
+   "text": "*Bolam.*"
+  },
+  {
+   "from": 24.5,
+   "to": 26.31,
+   "text": "Ekranda o'sha so'z yonmaguncha,"
+  },
+  {
+   "from": 26.44,
+   "to": 27.37,
+   "text": "u tinchimaydi."
+  },
+  {
+   "from": 27.98,
+   "to": 29.72,
+   "text": "Ona uchun *keyin* degan so'z"
+  },
+  {
+   "from": 29.72,
+   "to": 30.23,
+   "text": "yo'q."
+  },
+  {
+   "from": 30.64,
+   "to": 32.12,
+   "text": "Biz uchun esa hamma narsa"
+  },
+  {
+   "from": 32.12,
+   "to": 32.71,
+   "text": "*keyin.*"
+  },
+  {
+   "from": 33.22,
+   "to": 34.3,
+   "text": "Qur'on ona haqida nima"
+  },
+  {
+   "from": 34.3,
+   "to": 34.87,
+   "text": "deydi?"
+  },
+  {
+   "from": 35.4,
+   "to": 36.34,
+   "text": "Isro surasi,"
+  },
+  {
+   "from": 36.34,
+   "to": 37.44,
+   "text": "yigirma uchinchi oyatda"
+  },
+  {
+   "from": 37.44,
+   "to": 38.97,
+   "text": "Alloh taolo shunday deydi."
+  },
+  {
+   "from": 39.56,
+   "to": 40.78,
+   "text": "Agar huzuringda ularning"
+  },
+  {
+   "from": 40.78,
+   "to": 42.82,
+   "text": "biri yoki ikkovi ham keksalikka"
+  },
+  {
+   "from": 42.82,
+   "to": 44.79,
+   "text": "yetsa, ularga *uff* dema,"
+  },
+  {
+   "from": 45.18,
+   "to": 47.12,
+   "text": "ularga ozor berma va ularga"
+  },
+  {
+   "from": 47.12,
+   "to": 48.19,
+   "text": "yaxshi so'z ayt."
+  },
+  {
+   "from": 48.82,
+   "to": 50.31,
+   "text": "Telefon hozir qo'lingizda."
+  },
+  {
+   "from": 50.9,
+   "to": 52.34,
+   "text": "Ona, sizni sog'indim,"
+  },
+  {
+   "from": 52.34,
+   "to": 53.35,
+   "text": "desangiz bo'ldi."
+  },
+  {
+   "from": 53.7,
+   "to": 54.8,
+   "text": "Qolganini onangizning o'zi"
+  },
+  {
+   "from": 54.8,
+   "to": 55.51,
+   "text": "tushunadi."
+  },
+  {
+   "from": 56.02,
+   "to": 57.85,
+   "text": "U sizni hali ham *kutyapti.*"
+  }
+ ]
+}
