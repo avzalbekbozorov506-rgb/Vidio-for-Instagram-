@@ -8,6 +8,7 @@ Reels для Instagram @mohiyat___ («Oddiy mohiyat»): эмоциональны
 - `reels/docs/CAPTION_FORMAT.md`, `reels/docs/COVER_GUIDE.md`: описание и обложка.
 - `reels/docs/STYLE_BASHAR.md`: разбор референса.
 - `reels/src/`: `Qongiroq.tsx` (эталон) и `Tarozi.tsx`; `bashar/` общие блоки (`kit.tsx`) и сцены.
+- `.claude/agents/`: `avzalbot2` (сценарист-редактор) и `avzalbot3` (режиссёр 2D-раскадровки).
 - `reels/scripts/`: `align-words.py`, `make-voice-json.py`, `render-chunks.sh`, `master.sh`, сценарии `script-68/69`.
 - `reels/release/`: обложки и описания готовых роликов (mp4 не храним в git).
 
