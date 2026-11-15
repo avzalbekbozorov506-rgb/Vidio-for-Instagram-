@@ -33,7 +33,9 @@ const leatherTex = () => {
 };
 /** бумага со строками; write 0..1 — доля написанного, возвращает и точку пера (u,v 0..1) */
 const LINES = ['Yusuf qissasi', "Bir bola tush ko'rdi.", "O'n bitta yulduz,", 'Quyosh va Oy...'];
-const paperDraw = (c: HTMLCanvasElement, write: number, withText: boolean, seed: number) => {
+export type BookLine = {t: string; s: number; c?: boolean};
+const DEFAULT_LINES: BookLine[] = LINES.map((t, i) => ({t, s: i === 0 ? 118 : 84, c: i === 0}));
+const paperDraw = (c: HTMLCanvasElement, write: number, withText: boolean, seed: number, lines: BookLine[] = DEFAULT_LINES) => {
   const g = c.getContext('2d')!, w = c.width, h = c.height;
   const grd = g.createLinearGradient(0, 0, w, 0); grd.addColorStop(0, seed ? '#d9c79c' : '#b9a57a'); grd.addColorStop(0.12, '#e9dab2'); grd.addColorStop(1, '#e2d2a6');
   if (seed) { g.save(); g.translate(w, 0); g.scale(-1, 1); }
@@ -44,32 +46,37 @@ const paperDraw = (c: HTMLCanvasElement, write: number, withText: boolean, seed:
   let pen = {u: 0.2, v: 0.2};
   if (!withText) return pen;
   g.fillStyle = '#1c1208'; g.textBaseline = 'alphabetic';
-  const total = LINES.length; const prog = write * total;
-  LINES.forEach((ln, i) => {
-    const size = i === 0 ? 118 : 84; g.font = `italic 600 ${size}px Cormorant, Georgia, serif`;
-    const y = 300 + i * 190 + (i ? 40 : 0), x0 = i === 0 ? (w - g.measureText(ln).width) / 2 : 110, tw = g.measureText(ln).width;
+  const total = lines.length; const prog = write * total;
+  lines.forEach((L1, i) => {
+    const ln = L1.t, size = L1.s; g.font = `italic 600 ${size}px Cormorant, Georgia, serif`;
+    const y = 300 + i * 190 + (i ? 40 : 0), x0 = L1.c ? (w - g.measureText(ln).width) / 2 : 110, tw = g.measureText(ln).width;
     const p = Math.max(0, Math.min(1, prog - i)); if (p <= 0) return;
     g.save(); g.beginPath(); g.rect(x0 - 10, y - size, tw * p + 10, size * 1.4); g.clip(); g.fillText(ln, x0, y); g.restore();
     if (p < 1 || i === total - 1) pen = {u: (x0 + tw * p) / w, v: (y - size * 0.25 + Math.sin(prog * 46) * 12) / h};
-    if (i === 0 && p >= 1) { g.strokeStyle = 'rgba(28,18,8,.8)'; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, y + 34); g.lineTo(x0 + tw, y + 34); g.stroke(); }
+    if (L1.c && p >= 1) { g.strokeStyle = 'rgba(28,18,8,.8)'; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, y + 34); g.lineTo(x0 + tw, y + 34); g.stroke(); }
   });
   return pen;
 };
 
-const Rig: React.FC<{open: number; write: number; t: number}> = ({open, write, t}) => {
+const Rig: React.FC<{open: number; write: number; t: number; wide?: boolean}> = ({open, write, t, wide}) => {
   const {camera} = useThree();
   const o = ease(open), wz = ease(write * 1.4);
-  camera.position.set(1.0 + Math.sin(t * 0.3) * 0.06, 7.4 - 1.0 * o - 0.5 * wz, 3.4 - 0.5 * wz);
-  camera.lookAt(1.0, 0.2, -0.15);
+  if (wide) {
+    const c = camera as THREE.PerspectiveCamera; if (c.fov !== 42) { c.fov = 42; c.updateProjectionMatrix(); }
+    camera.position.set(1.0 + Math.sin(t * 0.3) * 0.07, 8.6 - 0.5 * o - 0.5 * wz, 4.7 - 0.3 * wz); camera.lookAt(1.0, 0.7, -0.75 + 0.3 * wz);
+  } else {
+    camera.position.set(1.0 + Math.sin(t * 0.3) * 0.06, 7.4 - 1.0 * o - 0.5 * wz, 3.4 - 0.5 * wz);
+    camera.lookAt(1.0, 0.2, -0.15);
+  }
   return null;
 };
 
-const Scene: React.FC<{open: number; write: number; t: number; ready: boolean}> = ({open, write, t, ready}) => {
+const Scene: React.FC<{open: number; write: number; t: number; ready: boolean; lines?: BookLine[]; wide?: boolean}> = ({open, write, t, ready, lines, wide}) => {
   const wood = useMemo(woodTex, []), leather = useMemo(leatherTex, []);
   const leftC = useMemo(() => mkCanvas(1024, 1434), []), rightC = useMemo(() => mkCanvas(1024, 1434), []);
   const leftT = useMemo(() => { paperDraw(leftC, 0, false, 1); const x = new THREE.CanvasTexture(leftC); x.colorSpace = THREE.SRGBColorSpace; return x; }, [leftC]);
   const rightT = useMemo(() => { const x = new THREE.CanvasTexture(rightC); x.colorSpace = THREE.SRGBColorSpace; return x; }, [rightC]);
-  const pen = useMemo(() => { const p = paperDraw(rightC, write, true, 0); rightT.needsUpdate = true; return p; }, [write, ready, rightC, rightT]);
+  const pen = useMemo(() => { const p = paperDraw(rightC, write, true, 0, lines); rightT.needsUpdate = true; return p; }, [write, ready, rightC, rightT, lines]);
   const o = ease(open), ang = -Math.PI * (1 - o);
   const flick = 1 + 0.08 * Math.sin(t * 11) + 0.05 * Math.sin(t * 23 + 1) + 0.04 * Math.sin(t * 37 + 2);
   const penX = pen.u * PW, penZ = -PD / 2 + pen.v * PD, penOn = write > 0.001 && write < 0.999 ? 1 : 0;
@@ -79,7 +86,7 @@ const Scene: React.FC<{open: number; write: number; t: number; ready: boolean}> 
     <>
       <color attach="background" args={['#050302']} />
       <fog attach="fog" args={['#050302', 6, 16]} />
-      <Rig open={open} write={write} t={t} />
+      <Rig open={open} write={write} t={t} wide={wide} />
       <ambientLight intensity={0.16} color="#6f7fb0" />
       <pointLight position={[-0.1, 1.75, -2.35]} intensity={34 * flick} color="#ff9a3c" distance={14} decay={2} castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} shadow-bias={-0.002} />
       <pointLight position={[2.5, 5, 4]} intensity={16} color="#c9a070" distance={16} decay={2} />
@@ -122,7 +129,7 @@ const Scene: React.FC<{open: number; write: number; t: number; ready: boolean}> 
   );
 };
 
-export const Book3D: React.FC<{open: number; write: number; t: number; width?: number; height?: number}> = ({open, write, t, width = 1080, height = 1920}) => {
+export const Book3D: React.FC<{open: number; write: number; t: number; width?: number; height?: number; lines?: BookLine[]; wide?: boolean}> = ({open, write, t, width = 1080, height = 1920, lines, wide}) => {
   const [ready, setReady] = useState(false);
   const [h] = useState(() => delayRender('book-font'));
   useEffect(() => {
@@ -131,7 +138,7 @@ export const Book3D: React.FC<{open: number; write: number; t: number; width?: n
   }, [h]);
   return (
     <ThreeCanvas width={width} height={height} shadows camera={{position: [0.2, 4.6, 4.4], fov: 38, near: 0.1, far: 60}} style={{position: 'absolute', left: 0, top: 0}} gl={{antialias: true}}>
-      <Scene open={open} write={write} t={t} ready={ready} />
+      <Scene open={open} write={write} t={t} ready={ready} lines={lines} wide={wide} />
     </ThreeCanvas>
   );
 };
