@@ -23,7 +23,7 @@ export const Phone: React.FC<{x: number; y: number; s?: number; rot?: number; mo
   );
 };
 
-const Room: React.FC<{tone?: string; lamp?: boolean; seed?: number; floorY?: number}> = ({tone = '#D9D0B8', lamp = false, seed = 5, floorY = 1450}) => (
+export const Room: React.FC<{tone?: string; lamp?: boolean; seed?: number; floorY?: number}> = ({tone = '#D9D0B8', lamp = false, seed = 5, floorY = 1450}) => (
   <g>
     <rect width={W} height={H} fill={tone} /><Blots seed={seed} colors={['#C2B79A', '#B5AA8A', '#E5DECA']} n={8} o={0.45} />
     <rect y={floorY} width={W} height={H - floorY} fill="#9C616A" stroke={INK} strokeWidth={1.8} />
@@ -32,7 +32,7 @@ const Room: React.FC<{tone?: string; lamp?: boolean; seed?: number; floorY?: num
     {lamp && <><circle cx={900} cy={560} r={620} fill="#F6C878" opacity={0.18} /><circle cx={900} cy={560} r={300} fill="#F6D898" opacity={0.25} /></>}
   </g>
 );
-const Window: React.FC<{x: number; y: number; w?: number; h?: number; sky?: string; night?: number}> = ({x, y, w = 340, h = 520, sky = '#C9DCE2', night = 0}) => (
+export const Window: React.FC<{x: number; y: number; w?: number; h?: number; sky?: string; night?: number}> = ({x, y, w = 340, h = 520, sky = '#C9DCE2', night = 0}) => (
   <g>
     <rect x={x} y={y} width={w} height={h} fill={sky} stroke={INK} strokeWidth={2.2} />
     <rect x={x} y={y} width={w} height={h} fill="#1B2438" opacity={night} />
