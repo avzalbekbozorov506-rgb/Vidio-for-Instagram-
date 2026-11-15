@@ -7,8 +7,8 @@
   "speed": 1.0,
   "genre": "serial",
   "series": "Bozor",
-  "status": "сценарий написан и самопроверен, без озвучки",
-  "hook": "Qur'onda tarozi aldovchilariga qarshi og'ir ogohlantirish bor. U qanday?",
+  "status": "сценарий в манере bashar.uz (без призыва, разговорный, цепочка бытовых сцен, мораль в конце), без озвучки",
+  "hook": "Tarozichilar. Bular ham o'z ishining ayyorligini yaxshi bilishadi.",
   "cover_text": "TAROZI ALDAYDIMI?",
   "facts": [
     "Qur'on 83:1-6, M. Sodiq M. Yusuf (alquran.cloud uz.sodik, кириллица, переведено в латиницу)",
@@ -19,27 +19,37 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Tarozi. Bozordagi eng jim sotuvchi. Gapirmaydi, lekin aldashi mumkin. Qur'onda unga qarshi og'ir ogohlantirish bor. U qanday? Boshlashimizdan oldin obuna bo'ling. Javob esa oxirida.",
+      "vo": "Tarozichilar. Bular ham o'z ishining ayyorligini yaxshi bilishadi. Tarozi tosh bilan o'lchanadi-ku. Ana o'sha toshning o'zi yengil bo'lib chiqadi.",
       "on_screen": ""
     },
     {
       "n": 2,
-      "vo": "Bir kilo deb beradi, uyga borib tortsangiz to'qqiz yuz gramm. Qo'shni do'konda esa ustiga bir hovuch ham qo'shiladi. Kechqurun navbat qaysi do'konda? Ikkinchisida.",
+      "vo": "Toshning tagini qirib qo'yishadi. Pallaning ostiga qo'rg'oshin yopishtirishadi. Yo bo'lmasa barmog'ini pallaning tagiga sekin tiraydi.",
       "on_screen": ""
     },
     {
       "n": 3,
-      "vo": "Madinada ham shunday bo'lgan. Ibn Kasir yozadi, Ibn Abbos aytganlar, Payg'ambarimiz sollallohu alayhi vasallam Madinaga kelganlarida, ahli o'lchovda eng ko'p aldaydiganlardan edi. Shunda oyat tushdi, ular to'g'ri o'lchay boshladilar.",
+      "vo": "Mol olganda bir tarozi, mol berganda boshqa tarozi. Sotuvchining o'zi yaxshi biladi. Tarozi esa jim turadi, nima desin.",
       "on_screen": ""
     },
     {
       "n": 4,
-      "vo": "Mana o'sha ogohlantirish, Mutaffifin surasi. Voy bo'lsin o'lchovdan urib qoluvchilarga. Ular odamlardan narsa o'lchab olsalar, to'liq olarlar. Odamlarga o'lchab yoki tortib bersalar, kamaytirarlar.",
+      "vo": "Qo'shni do'konda tarozi to'g'ri. Ustiga bir hovuch ham qo'shib beradi. Kechqurun odam shu do'konga navbatga turadi. O'zlari yaxshi biladi.",
       "on_screen": ""
     },
     {
       "n": 5,
-      "vo": "Keyingi oyat so'raydi. Bular qayta tirilishlarini o'ylamaydilarmi? Tarozi jim turadi, oyat esa jim emas.",
+      "vo": "Madinada ham shunday bo'lgan. Ibn Abbos aytadilar, Payg'ambarimiz sollallohu alayhi vasallam Madinaga kelganlarida, ahli o'lchovda eng ko'p aldaydiganlardan edi. Shunda Mutaffifin surasi tushdi.",
+      "on_screen": ""
+    },
+    {
+      "n": 6,
+      "vo": "Birodarlar, Alloh taolo aytadi. Voy bo'lsin o'lchovdan urib qoluvchilarga. Ular odamlardan narsa o'lchab olsalar, to'liq olarlar. Odamlarga o'lchab yoki tortib bersalar, kamaytirarlar.",
+      "on_screen": ""
+    },
+    {
+      "n": 7,
+      "vo": "Aldasam, hech kim bilmaydi, deb o'ylaysiz. Oyat esa so'raydi. Bular qayta tirilishlarini o'ylamaydilarmi?",
       "on_screen": ""
     }
   ]
