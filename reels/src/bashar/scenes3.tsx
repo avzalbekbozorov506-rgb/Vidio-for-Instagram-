@@ -1,4 +1,5 @@
 import React from 'react';
+import {staticFile} from 'remotion';
 import {useT, Man, Blots, W, H, INK, rnd, sm, lin, q12} from './kit';
 import {Arm, SP} from './scenes';
 
@@ -239,3 +240,13 @@ export const KvDoorEnd: React.FC<SP> = ({t, d}) => {
     </g>
   );
 };
+
+/** гибрид: фон из Blender (свет, мягкие тени) + наш SVG-конверт, свечение и пыль */
+export const KvTableHybrid: React.FC<SP> = ({t}) => (
+  <g>
+    <image href={staticFile('bl/kv-table.png')} x={0} y={0} width={W} height={H} style={{filter: 'saturate(0.92) contrast(1.04)'}} />
+    <ellipse cx={520} cy={1120} rx={250} ry={26} fill="#2A1A10" opacity={0.28} />
+    <Envelope x={520} y={1080} s={1.15} rot={-5} glow={1 + 0.1 * Math.sin(t * 2)} />
+    {Array.from({length: 18}, (_, i) => <circle key={i} cx={200 + rnd(i) * 700 + Math.sin(t * 0.5 + i) * 14} cy={300 + ((rnd(i + 5) * 900 + t * 16) % 900)} r={2 + rnd(i + 3) * 2.4} fill="#FFF7D8" opacity={0.55} />)}
+  </g>
+);
