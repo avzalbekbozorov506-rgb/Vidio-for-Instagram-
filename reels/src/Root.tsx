@@ -5,6 +5,7 @@ import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
 import {StyleIpak} from './StyleIpak';
 import {Konvert, KV_FRAMES} from './Konvert';
 import {KvHybridTest} from './KvHybridTest';
+import {ShadowSurat, SURAT_FRAMES} from './ShadowSurat';
 import {Reel, ReelProps} from './Reel';
 import {Turkic, TOTAL_FRAMES} from './Turkic';
 import {Cover} from './Cover';
@@ -131,6 +132,7 @@ export const Root: React.FC = () => {
     <Composition id="Tarozi" component={Tarozi} durationInFrames={TAROZI_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Qongiroq" component={Qongiroq} durationInFrames={QONG_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Konvert" component={Konvert} durationInFrames={KV_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="ShadowSurat" component={ShadowSurat} durationInFrames={SURAT_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="KvHybridTest" component={KvHybridTest} durationInFrames={2} fps={30} width={1080} height={1920} />
     <Composition id="StyleIpak" component={StyleIpak} durationInFrames={240} fps={30} width={1080} height={1920} />
     <Composition id="QongiroqCover" component={QongiroqCover} durationInFrames={1} fps={30} width={1080} height={1920} />
