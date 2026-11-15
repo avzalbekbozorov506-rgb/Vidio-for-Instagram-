@@ -1,0 +1,44 @@
+{
+  "id": "script-70",
+  "title": "Dadamning konverti",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "serial",
+  "series": "Shaxsiy",
+  "status": "сценарий-предложение (манера: первое лицо, конкретная деталь, открытая петля, финал-эхо хука), без озвучки",
+  "hook": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Faqat bitta konvert bor, uni hali ham saqlayman. Ichida nima bor edi?",
+  "cover_text": "DADAM QUCHOQLAMAGAN",
+  "facts": [
+    "Художественная история от первого лица, не источник; в описании пометить «hikoya xayoliy»"
+  ],
+  "caption": "",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Dadam meni hech qachon quchoqlamagan. Bir marta ham. Faqat bitta konvert bor, uni hali ham saqlayman. Ichida nima bor edi?",
+      "on_screen": ""
+    },
+    {
+      "n": 2,
+      "vo": "O'n sakkiz yoshda Toshkentga o'qishga ketdim. Bekatda dadam yonimda turdi. Qo'lini cho'ntagiga tiqib, bir og'iz gapirmadi. Konvertni uzatdi, yo'lingda ehtiyot bo'l, dedi va yuzini burdi.",
+      "on_screen": ""
+    },
+    {
+      "n": 3,
+      "vo": "Avtobusda ochdim. Ichida pul. Hammasi eski, g'ijimlangan. Ko'p yil yig'ilgan pul. Bir so'mini ortiqcha sarflamagan odamning puli.",
+      "on_screen": ""
+    },
+    {
+      "n": 4,
+      "vo": "Pulning orasida qog'oz bor edi. Dadam yozishni yoqtirmasdi. Harflar qiyshiq edi. Qiyin bo'lsa, qaytib kel. Eshigim doim ochiq.",
+      "on_screen": ""
+    },
+    {
+      "n": 5,
+      "vo": "Shunda tushundim. Ba'zi odamlar quchoqlamaydi. Ular konvertga yozadi. Dadam meni hech qachon quchoqlamagan. Lekin hech qachon qo'yib ham yubormagan.",
+      "on_screen": ""
+    }
+  ]
+}
