@@ -169,20 +169,19 @@ export const NarratorMeSheet: React.FC = () => {
 const PS = '#d3a077', PS_D = '#a8744d', PS_L = '#e8bb92', PH = '#120d0b', PH_L = '#2e211a', PLIP = '#b4635a';
 
 const ProMouth: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
-  const y = 70, lift = smile * 10, LU = '#a5645a', LL = '#b87669', IN = '#3a1210';
+  const y = 70, lift = smile * 10, LU = '#7e4c40', LL = '#93604f', IN = '#2e0f0c';
   if (m === 'closed') return <g>
-    <path d={`M-20 ${y - lift * 0.4} Q-10 ${y - 8} 0 ${y - 4} Q10 ${y - 8} 20 ${y - lift * 0.4} Q10 ${y + 1 + lift * 0.3} 0 ${y + 1} Q-10 ${y + 1 + lift * 0.3} -20 ${y - lift * 0.4} Z`} fill={LU} />
-    <path d={`M-18 ${y - lift * 0.4 + 1} Q0 ${y + 4 + lift} 18 ${y - lift * 0.4 + 1} Q10 ${y + 12 + lift * 0.4} 0 ${y + 12} Q-10 ${y + 12 + lift * 0.4} -18 ${y - lift * 0.4 + 1} Z`} fill={LL} />
-    <path d={`M-20 ${y - lift * 0.4} Q0 ${y + 3 + lift * 0.6} 20 ${y - lift * 0.4}`} stroke="#6a2a24" strokeWidth={2.4} fill="none" strokeLinecap="round" />
-    <ellipse cx={0} cy={y + 8} rx={6} ry={1.8} fill="#d89a8c" opacity={0.35} /></g>;
+    <path d={`M-23 ${y - lift * 0.4} Q-11 ${y - 4} 0 ${y - 2.5} Q11 ${y - 4} 23 ${y - lift * 0.4} Q11 ${y + 1} 0 ${y + 1} Q-11 ${y + 1} -23 ${y - lift * 0.4} Z`} fill={LU} />
+    <path d={`M-20 ${y - lift * 0.4 + 0.5} Q0 ${y + 2 + lift} 20 ${y - lift * 0.4 + 0.5} Q10 ${y + 8 + lift * 0.3} 0 ${y + 8} Q-10 ${y + 8 + lift * 0.3} -20 ${y - lift * 0.4 + 0.5} Z`} fill={LL} />
+    <path d={`M-23 ${y - lift * 0.4} Q0 ${y + 2 + lift * 0.6} 23 ${y - lift * 0.4}`} stroke="#3a1a14" strokeWidth={2.2} fill="none" strokeLinecap="round" /></g>;
   const dims: Record<string, [number, number]> = {small: [14, 8], wide: [24, 17], o: [11, 14], ee: [28, 8]};
   const [rx, ry] = dims[m];
   return <g>
-    <ellipse cx={0} cy={y + 2} rx={rx + 6} ry={ry + 5} fill={LL} />
-    <path d={`M${-rx - 6} ${y + 2} Q0 ${y - ry - 9} ${rx + 6} ${y + 2} Q0 ${y - ry + 1} ${-rx - 6} ${y + 2} Z`} fill={LU} />
+    <ellipse cx={0} cy={y + 2} rx={rx + 3.5} ry={ry + 3.5} fill={LL} />
+    <path d={`M${-rx - 3.5} ${y + 2} Q0 ${y - ry - 5} ${rx + 3.5} ${y + 2} Q0 ${y - ry + 1} ${-rx - 3.5} ${y + 2} Z`} fill={LU} />
     <ellipse cx={0} cy={y + 2} rx={rx} ry={ry} fill={IN} />
     {(m === 'wide' || m === 'ee') && <path d={`M${-rx + 3} ${y + 2 - ry + 1} Q0 ${y + 2 - ry + 6} ${rx - 3} ${y + 2 - ry + 1} L${rx - 5} ${y + 2 - ry + 8} Q0 ${y + 2 - ry + 11} ${-rx + 5} ${y + 2 - ry + 8} Z`} fill="#f6f0e4" />}
-    {(m === 'wide' || m === 'o') && <ellipse cx={0} cy={y + 2 + ry * 0.55} rx={rx * 0.5} ry={ry * 0.32} fill="#c4586a" />}
+    {(m === 'wide' || m === 'o') && <ellipse cx={0} cy={y + 2 + ry * 0.55} rx={rx * 0.5} ry={ry * 0.32} fill="#b0505c" />}
   </g>;
 };
 export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = true, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
