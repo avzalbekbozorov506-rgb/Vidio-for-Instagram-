@@ -89,3 +89,29 @@ export const Tarozi: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/** Обложка Tarozi: весы и палец под чашей, перечёркнутый «1 KILO», красный «900 GRAMM?!» */
+export const TaroziCover: React.FC = () => {
+  loadFonts();
+  const F = {fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 800} as const;
+  return (
+    <AbsoluteFill style={{background: PAPER}}>
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{position: 'absolute', left: 0, top: 0}}>
+        <g filter="url(#wcc)"><TimeCtx.Provider value={1.9}><ThumbPan t={1.9} d={4} /></TimeCtx.Provider></g>
+        <defs><filter id="wcc" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.018" numOctaves={2} seed={2} result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale={4} xChannelSelector="R" yChannelSelector="G" /></filter></defs>
+      </svg>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 250, height: 760, background: 'linear-gradient(to bottom, rgba(24,18,12,0), rgba(24,18,12,.72) 14%, rgba(24,18,12,.72) 86%, rgba(24,18,12,0))'}} />
+      <Vignette strength={0.5} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', ...F}}>
+        <span style={{display: 'inline-block', background: '#D9302A', color: '#fff', fontSize: 50, letterSpacing: 4, padding: '12px 30px', borderRadius: 8, boxShadow: '0 8px 30px rgba(217,48,42,.55)'}}>BOZOR · TAROZI</span>
+      </div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 460, textAlign: 'center', lineHeight: 1, ...F}}>
+        <div style={{position: 'relative', display: 'inline-block', fontSize: 150, color: '#F4EBD6', textShadow: '0 8px 36px rgba(0,0,0,.8)'}}>1 KILO
+          <div style={{position: 'absolute', left: -24, right: -24, top: '50%', height: 18, background: '#ff3b30', borderRadius: 9, transform: 'rotate(-5deg)', boxShadow: '0 0 36px rgba(255,59,48,.85)'}} />
+        </div>
+        <div style={{fontSize: 128, color: '#ff6a5a', marginTop: 8, textShadow: '0 0 60px rgba(255,100,80,.6), 0 10px 40px rgba(0,0,0,.8)'}}>900 GRAMM?!</div>
+        <div style={{fontSize: 54, color: '#FFE39A', marginTop: 24, textShadow: '0 4px 24px rgba(0,0,0,.9)'}}>Qur'on bu haqida nima deydi?</div>
+      </div>
+    </AbsoluteFill>
+  );
+};

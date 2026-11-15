@@ -1,6 +1,6 @@
 import {Composition} from 'remotion';
 import {Bazaar, BAZAAR_FRAMES} from './Bazaar';
-import {Tarozi, TAROZI_FRAMES} from './Tarozi';
+import {Tarozi, TAROZI_FRAMES, TaroziCover} from './Tarozi';
 import {Reel, ReelProps} from './Reel';
 import {Turkic, TOTAL_FRAMES} from './Turkic';
 import {Cover} from './Cover';
@@ -125,6 +125,7 @@ export const Root: React.FC = () => {
     <Composition id="RainDua" component={RainDua} durationInFrames={RAINDUA_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Bazaar" component={Bazaar} durationInFrames={BAZAAR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Tarozi" component={Tarozi} durationInFrames={TAROZI_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="TaroziCover" component={TaroziCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="RainDuaCover" component={RainDuaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="PeopleDemo" component={PeopleDemo} durationInFrames={PEOPLEDEMO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="NarratorMeSheet" component={NarratorMeSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
