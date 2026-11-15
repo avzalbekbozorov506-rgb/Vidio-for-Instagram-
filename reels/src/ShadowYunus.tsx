@@ -147,4 +147,3 @@ export const ShadowYunus: React.FC<{guide?: boolean}> = ({guide = false}) => (
     {guide && <div style={{position: 'absolute', left: 80, top: 250, width: 880, height: 1310, border: '3px dashed #ff00aa'}} />}
   </AbsoluteFill>
 );
-export const loadShadowFonts = loadFonts;
