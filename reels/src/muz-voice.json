@@ -1,0 +1,131 @@
+{
+ "dur": 28.78,
+ "cards": [
+  [
+   0.3,
+   5.54
+  ],
+  [
+   6.08,
+   11.34
+  ],
+  [
+   12.16,
+   15.24
+  ],
+  [
+   15.82,
+   22.26
+  ],
+  [
+   22.88,
+   24.98
+  ],
+  [
+   25.64,
+   28.58
+  ]
+ ],
+ "subs": [
+  {
+   "from": 0.26,
+   "to": 1.96,
+   "text": "Tuxumni muzlatkich *eshigiga*"
+  },
+  {
+   "from": 1.96,
+   "to": 2.85,
+   "text": "qo'yasizmi?"
+  },
+  {
+   "from": 3.26,
+   "to": 4.11,
+   "text": "Bu *xato*."
+  },
+  {
+   "from": 4.4,
+   "to": 5.89,
+   "text": "Tuxumni *tokchaga* qo'ying."
+  },
+  {
+   "from": 6.04,
+   "to": 7.66,
+   "text": "Chunki eshik muzlatkichning"
+  },
+  {
+   "from": 7.66,
+   "to": 8.93,
+   "text": "eng *iliq* joyi."
+  },
+  {
+   "from": 9.06,
+   "to": 10.04,
+   "text": "Eshik ochilsa,"
+  },
+  {
+   "from": 10.04,
+   "to": 11.69,
+   "text": "harorat *tez* o'zgaradi."
+  },
+  {
+   "from": 12.12,
+   "to": 13.15,
+   "text": "*Sut* ham shunday."
+  },
+  {
+   "from": 13.18,
+   "to": 14.48,
+   "text": "Uni ham eshikka emas,"
+  },
+  {
+   "from": 14.48,
+   "to": 15.59,
+   "text": "*tokchaga* qo'ying."
+  },
+  {
+   "from": 15.78,
+   "to": 17.28,
+   "text": "Xom *go'sht* esa eng *pastki*"
+  },
+  {
+   "from": 17.28,
+   "to": 18.41,
+   "text": "*tokchaga* tegishli."
+  },
+  {
+   "from": 18.64,
+   "to": 19.97,
+   "text": "Uni *idishga* solib qo'ying."
+  },
+  {
+   "from": 19.98,
+   "to": 21.46,
+   "text": "Shunda suvi boshqa narsalarga"
+  },
+  {
+   "from": 21.46,
+   "to": 22.61,
+   "text": "tomib ketmaydi."
+  },
+  {
+   "from": 22.84,
+   "to": 24.22,
+   "text": "Eshikka *tez* *buzilmaydigan*"
+  },
+  {
+   "from": 24.22,
+   "to": 25.33,
+   "text": "narsalarni qo'ying."
+  },
+  {
+   "from": 25.6,
+   "to": 27.19,
+   "text": "Endi muzlatkichni oching."
+  },
+  {
+   "from": 27.22,
+   "to": 28.93,
+   "text": "Tuxum *qayerda* turibdi?"
+  }
+ ]
+}
