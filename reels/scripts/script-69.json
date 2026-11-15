@@ -8,7 +8,7 @@
   "genre": "serial",
   "series": "Shaxsiy",
   "status": "сценарий проверен агентом avzalbot2 и доработан; без призыва подписки (манера референсов); без озвучки",
-  "hook": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+  "hook": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qo'ng'iroq qilaman, dedingiz. Qo'ng'iroq qildingizmi?",
   "cover_text": "ONANGIZ QO'NG'IROQ QILDI",
   "facts": [
     "Qur'on 17:23-24, M. Sodiq M. Yusuf (alquran.cloud uz.sodik, кириллица, переведено в латиницу); в vo цитата 17:23 без скобочного пояснения",
@@ -18,7 +18,7 @@
   "cards": [
     {
       "n": 1,
-      "vo": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qaytaraman, dedingiz. Qaytardingizmi?",
+      "vo": "Onangiz qo'ng'iroq qildi. Siz band edingiz. Keyin qo'ng'iroq qilaman, dedingiz. Qo'ng'iroq qildingizmi?",
       "on_screen": ""
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "n": 6,
-      "vo": "Hozir telefonni oling. Ona, sog'indim, deng. Qolganini onangiz o'zi biladi. Qaytaring. Hoziroq.",
+      "vo": "Hozir telefonni oling. Ona, sog'indim, deng. Qolganini onangiz o'zi biladi. Qo'ng'iroq qiling. Hoziroq.",
       "on_screen": ""
     }
   ]
