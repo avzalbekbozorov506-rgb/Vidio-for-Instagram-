@@ -1,4 +1,5 @@
 import {Composition} from 'remotion';
+import {Bazaar, BAZAAR_FRAMES} from './Bazaar';
 import {Reel, ReelProps} from './Reel';
 import {Turkic, TOTAL_FRAMES} from './Turkic';
 import {Cover} from './Cover';
@@ -121,6 +122,7 @@ export const Root: React.FC = () => {
     <Composition id="Tasbeh" component={Tasbeh} durationInFrames={TASBEH_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="TasbehCover" component={TasbehCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="RainDua" component={RainDua} durationInFrames={RAINDUA_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Bazaar" component={Bazaar} durationInFrames={BAZAAR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="RainDuaCover" component={RainDuaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="PeopleDemo" component={PeopleDemo} durationInFrames={PEOPLEDEMO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="NarratorMeSheet" component={NarratorMeSheet} durationInFrames={1} fps={30} width={1080} height={1920} />
