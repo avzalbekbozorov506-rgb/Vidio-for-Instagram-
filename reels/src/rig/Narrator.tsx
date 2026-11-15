@@ -169,12 +169,12 @@ export const NarratorMeSheet: React.FC = () => {
 const PS = '#d3a077', PS_D = '#a8744d', PS_L = '#e8bb92', PH = '#120d0b', PH_L = '#2e211a', PLIP = '#b4635a';
 
 const ProMouth: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
-  const y = 70, lift = smile * 10, LU = '#c9766b', LL = '#d98678', IN = '#3a1210';
+  const y = 70, lift = smile * 10, LU = '#a5645a', LL = '#b87669', IN = '#3a1210';
   if (m === 'closed') return <g>
-    <path d={`M-23 ${y - lift * 0.4} Q-11 ${y - 9} 0 ${y - 5} Q11 ${y - 9} 23 ${y - lift * 0.4} Q12 ${y + 1 + lift * 0.3} 0 ${y + 1} Q-12 ${y + 1 + lift * 0.3} -23 ${y - lift * 0.4} Z`} fill={LU} />
-    <path d={`M-21 ${y - lift * 0.4 + 1} Q0 ${y + 4 + lift} 21 ${y - lift * 0.4 + 1} Q12 ${y + 14 + lift * 0.4} 0 ${y + 14} Q-12 ${y + 14 + lift * 0.4} -21 ${y - lift * 0.4 + 1} Z`} fill={LL} />
-    <path d={`M-23 ${y - lift * 0.4} Q0 ${y + 3 + lift * 0.6} 23 ${y - lift * 0.4}`} stroke="#6a2a24" strokeWidth={2.4} fill="none" strokeLinecap="round" />
-    <ellipse cx={0} cy={y + 8} rx={7} ry={2.2} fill="#f0b0a2" opacity={0.7} /></g>;
+    <path d={`M-20 ${y - lift * 0.4} Q-10 ${y - 8} 0 ${y - 4} Q10 ${y - 8} 20 ${y - lift * 0.4} Q10 ${y + 1 + lift * 0.3} 0 ${y + 1} Q-10 ${y + 1 + lift * 0.3} -20 ${y - lift * 0.4} Z`} fill={LU} />
+    <path d={`M-18 ${y - lift * 0.4 + 1} Q0 ${y + 4 + lift} 18 ${y - lift * 0.4 + 1} Q10 ${y + 12 + lift * 0.4} 0 ${y + 12} Q-10 ${y + 12 + lift * 0.4} -18 ${y - lift * 0.4 + 1} Z`} fill={LL} />
+    <path d={`M-20 ${y - lift * 0.4} Q0 ${y + 3 + lift * 0.6} 20 ${y - lift * 0.4}`} stroke="#6a2a24" strokeWidth={2.4} fill="none" strokeLinecap="round" />
+    <ellipse cx={0} cy={y + 8} rx={6} ry={1.8} fill="#d89a8c" opacity={0.35} /></g>;
   const dims: Record<string, [number, number]> = {small: [14, 8], wide: [24, 17], o: [11, 14], ee: [28, 8]};
   const [rx, ry] = dims[m];
   return <g>
@@ -193,15 +193,19 @@ export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; 
         <radialGradient id="pfs" cx="0.42" cy="0.32" r="0.8"><stop offset="0" stopColor={PS_L} /><stop offset="0.55" stopColor={PS} /><stop offset="1" stopColor={PS_D} /></radialGradient>
         <linearGradient id="pbd" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={PH_L} /><stop offset="1" stopColor={PH} /></linearGradient>
         <radialGradient id="pir" cx="0.4" cy="0.35" r="0.8"><stop offset="0" stopColor="#9a6a3c" /><stop offset="0.6" stopColor="#5a3a1e" /><stop offset="1" stopColor="#2a180c" /></radialGradient>
-        <radialGradient id="pmp"><stop offset="0" stopColor="#7a5440" /><stop offset="0.65" stopColor="#5a3d2e" stopOpacity={0.9} /><stop offset="1" stopColor="#3a2a20" stopOpacity={0} /></radialGradient>
-        <linearGradient id="probe" x1="0" x2="1"><stop offset="0" stopColor="#0f4a3c" /><stop offset="0.5" stopColor="#1a6b55" /><stop offset="1" stopColor="#0c3a2f" /></linearGradient>
+        <radialGradient id="pmp"><stop offset="0" stopColor="#5a3d2e" /><stop offset="0.65" stopColor="#47301f" stopOpacity={0.9} /><stop offset="1" stopColor="#3a2a20" stopOpacity={0} /></radialGradient>
+        <linearGradient id="probe" x1="0" x2="1"><stop offset="0" stopColor="#101a33" /><stop offset="0.5" stopColor="#1d2f57" /><stop offset="1" stopColor="#0d1529" /></linearGradient>
       </defs>
       {bust && <g>
-        <clipPath id="prc"><path d="M-190 190 Q-190 128 -100 112 L100 112 Q190 128 190 190 L190 280 L-190 280 Z" /></clipPath>
-        <g clipPath="url(#prc)"><rect x={-200} y={100} width={40} height={190} fill="#b3262e" /><rect x={-160} y={100} width={40} height={190} fill="#e8b230" /><rect x={-120} y={100} width={40} height={190} fill="#1d4f9a" /><rect x={-80} y={100} width={40} height={190} fill="#f4efe2" /><rect x={-40} y={100} width={40} height={190} fill="#1f7a4d" /><rect x={0} y={100} width={40} height={190} fill="#b3262e" /><rect x={40} y={100} width={40} height={190} fill="#e8b230" /><rect x={80} y={100} width={40} height={190} fill="#1d4f9a" /><rect x={120} y={100} width={40} height={190} fill="#f4efe2" /><rect x={160} y={100} width={40} height={190} fill="#1f7a4d" /><rect x={-200} y={100} width={400} height={190} fill="#0d0f12" opacity={0.42} /></g>
-        <path d="M-52 112 Q0 150 52 112 L60 112 Q0 168 -60 112 Z" fill="#14161a" />
-        <path d="M-60 112 Q0 168 60 112" stroke="#14161a" strokeWidth={10} fill="none" />
-        <path d="M0 150 L0 280" stroke="#14161a" strokeWidth={5} opacity={0.7} />
+        {/* белая рубашка со стойкой и тёмно-синий чапан с золотой каймой */}
+        <path d="M-190 190 Q-190 128 -100 112 L100 112 Q190 128 190 190 L190 280 L-190 280 Z" fill="url(#probe)" />
+        <path d="M-62 112 Q0 176 62 112 L40 280 L-40 280 Z" fill="#f1ebdd" />
+        <path d="M-34 108 Q0 126 34 108 L34 126 Q0 144 -34 126 Z" fill="#e4dcc8" />
+        <path d="M-62 112 Q0 176 62 112 L50 112 Q0 152 -50 112 Z" fill="#e4dcc8" />
+        <path d="M-62 112 Q-28 200 -40 280 M62 112 Q28 200 40 280" stroke="#d9b45a" strokeWidth={6} fill="none" strokeLinecap="round" />
+        <path d="M-64 112 Q-100 120 -118 150 M64 112 Q100 120 118 150" stroke="#d9b45a" strokeWidth={4} fill="none" opacity={0.7} />
+        <path d="M0 160 L0 280" stroke="#d4cbb6" strokeWidth={3} />
+        {[0, 1, 2].map((i) => <circle key={i} cx={0} cy={176 + i * 34} r={3.5} fill="#cfc5ad" />)}
                 {[-1, 1].map((sd) => <g key={sd}>{[0, 1, 2, 3].map((i) => <circle key={i} cx={sd * (84 + i * 8)} cy={190 + i * 22} r={3.2} fill="#d9b45a" />)}</g>)}
         <rect x={-32} y={70} width={64} height={52} rx={22} fill={PS_D} />
       </g>}
