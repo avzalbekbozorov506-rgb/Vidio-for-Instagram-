@@ -13,9 +13,9 @@ const lerp = (a: number, b: number, u: number) => a + (b - a) * u;
 const ease = (x: number) => x * x * (3 - 2 * x);
 
 // геометрия: корпус слева, дверная полка справа
-const BX = 110, BY = 430, BW = 610, BH = 1020, DX = 750, DW = 220;
-const SHELF = [690, 940, 1190];       // полки корпуса
-const DSHELF = [760, 1000, 1240];    // полки двери
+const BX = 100, BY = 410, BW = 640, BH = 1100, DX = 770, DW = 210;
+const SHELF = [720, 960, 1200];       // полки корпуса
+const DSHELF = [780, 1020, 1260];    // полки двери
 
 const Egg: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => <ellipse cx={x} cy={y} rx={22 * s} ry={28 * s} fill={EGG} stroke="#8a7c63" strokeWidth={2} />;
 const Eggs: React.FC<{x: number; y: number; s?: number; glow?: number}> = ({x, y, s = 1, glow = 0}) => (
@@ -46,25 +46,49 @@ const Meat: React.FC<{x: number; y: number}> = ({x, y}) => (
 const Fridge: React.FC<{t: number}> = ({t}) => {
   const warm = tm(t, 6.0, 6.8) * (1 - tm(t, 9.0, 9.6)) + 0.35 * tm(t, 9.3, 9.8) * (1 - tm(t, 11.5, 12.0));
   const arrows = tm(t, 9.3, 9.7) * (1 - tm(t, 11.2, 11.8));
+  const cold = tm(t, 6.0, 7.0) * (1 - tm(t, 9.0, 9.6));
+  const CX = BX + 26, CY = BY + 26, CW = BW - 52, CH = BH - 52; // внутренняя полость
+  const doorPts = `${DX},${BY} ${DX + DW},${BY + 70} ${DX + DW},${BY + BH - 70} ${DX},${BY + BH}`;
+  const dY = (y: number, x: number) => y + (x - DX) / DW * 70 * (1 - 2 * (y - BY) / BH); // наклон полки двери
   return (
     <g>
+      <defs>
+        <linearGradient id="cav" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#f7fbfd" /><stop offset="1" stopColor="#dbe6ed" /></linearGradient>
+        <linearGradient id="shell" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#c9d1d8" /><stop offset="0.5" stopColor="#e9eef2" /><stop offset="1" stopColor="#b9c3cc" /></linearGradient>
+        <linearGradient id="doorin" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#e4ebf0" /><stop offset="1" stopColor="#f4f8fa" /></linearGradient>
+      </defs>
+      {/* ножки и тень */}
+      <ellipse cx={BX + BW / 2} cy={BY + BH + 36} rx={BW * 0.55} ry={22} fill="#000" opacity={0.5} />
+      <rect x={BX + 40} y={BY + BH} width={60} height={26} rx={6} fill="#5a6672" /><rect x={BX + BW - 100} y={BY + BH} width={60} height={26} rx={6} fill="#5a6672" />
       {/* корпус */}
-      <rect x={BX} y={BY} width={BW} height={BH} rx={26} fill="#10151b" stroke={LINE} strokeWidth={4} />
-      <rect x={BX} y={BY} width={BW} height={BH} rx={26} fill={TEAL} opacity={0.07 + 0.1 * tm(t, 6.0, 7.0) * (1 - tm(t, 9.0, 9.6))} />
-      {SHELF.map((y, i) => <rect key={i} x={BX + 6} y={y} width={BW - 12} height={10} fill="#25303a" stroke={LINE} strokeWidth={2} />)}
-      <rect x={BX + 6} y={BY + BH - 130} width={BW - 12} height={10} fill="#25303a" stroke={LINE} strokeWidth={2} />
-      {/* дверь */}
-      <rect x={DX} y={BY + 20} width={DW} height={BH - 40} rx={22} fill="#10151b" stroke={LINE} strokeWidth={4} />
-      <rect x={DX} y={BY + 20} width={DW} height={BH - 40} rx={22} fill={ORANGE} opacity={warm * 0.34} />
-      {DSHELF.map((y, i) => <rect key={i} x={DX + 6} y={y} width={DW - 12} height={9} fill="#25303a" stroke={LINE} strokeWidth={2} />)}
+      <rect x={BX} y={BY} width={BW} height={BH} rx={34} fill="url(#shell)" stroke="#8d99a6" strokeWidth={4} />
+      <rect x={CX} y={CY} width={CW} height={CH} rx={18} fill="url(#cav)" stroke="#9aa6b2" strokeWidth={3} />
+      <rect x={CX} y={CY} width={CW} height={CH} rx={18} fill="#4aa8d8" opacity={0.08 + 0.2 * cold} />
+      {/* морозилка сверху */}
+      <rect x={CX} y={CY} width={CW} height={190} rx={18} fill="#cfe6f3" stroke="#9aa6b2" strokeWidth={3} />
+      {[0, 1, 2, 3, 4].map((i) => <path key={i} d={`M${CX + 40 + i * 110} ${CY + 40} l16 26 l16 -26 M${CX + 60 + i * 110} ${CY + 120} l12 20 l12 -20`} stroke="#8fb9d3" strokeWidth={4} fill="none" strokeLinecap="round" />)}
+      <rect x={CX} y={CY + 190} width={CW} height={14} fill="#b9c8d3" stroke="#9aa6b2" strokeWidth={2} />
+      {/* лампа */}
+      <ellipse cx={CX + CW / 2} cy={CY + 214} rx={70} ry={10} fill="#fffbe8" opacity={0.9} />
+      {/* стеклянные полки */}
+      {SHELF.map((y, i) => <g key={i}><rect x={CX + 4} y={y} width={CW - 8} height={14} rx={3} fill="#bfe3ea" stroke="#7fa9b6" strokeWidth={2.5} opacity={0.95} /><rect x={CX + 4} y={y + 14} width={CW - 8} height={6} fill="#7fa9b6" opacity={0.3} /></g>)}
+      {/* ящики для овощей внизу */}
+      {[0, 1].map((i) => <g key={i}><rect x={CX + 14 + i * (CW / 2)} y={CY + CH - 150} width={CW / 2 - 28} height={130} rx={14} fill="#e8f1f6" stroke="#7fa9b6" strokeWidth={3} /><rect x={CX + 14 + i * (CW / 2) + (CW / 2 - 28) / 2 - 50} y={CY + CH - 150 + 20} width={100} height={14} rx={7} fill="#8d99a6" /></g>)}
+      {/* дверь открыта */}
+      <polygon points={doorPts} fill="url(#doorin)" stroke="#8d99a6" strokeWidth={4} strokeLinejoin="round" />
+      <polygon points={doorPts} fill={ORANGE} opacity={warm * 0.4} />
+      {DSHELF.map((y, i) => <g key={i}><line x1={DX + 14} y1={dY(y, DX + 14)} x2={DX + DW - 10} y2={dY(y, DX + DW - 10)} stroke="#7fa9b6" strokeWidth={9} strokeLinecap="round" /><line x1={DX + 14} y1={dY(y, DX + 14) + 20} x2={DX + DW - 10} y2={dY(y, DX + DW - 10) + 20} stroke="#a6b5c0" strokeWidth={4} strokeLinecap="round" /></g>)}
+      {/* петли */}
+      <rect x={DX - 14} y={BY + 130} width={20} height={70} rx={6} fill="#6b7783" /><rect x={DX - 14} y={BY + BH - 200} width={20} height={70} rx={6} fill="#6b7783" />
       {/* постоянные продукты */}
-      <Veg x={230} y={SHELF[0] - 36} /><Veg x={575} y={SHELF[1] - 36} />
+      <Veg x={220} y={SHELF[0] - 36} />
       <rect x={430} y={SHELF[0] - 54} width={120} height={46} rx={8} fill="#e0b84a" stroke="#6b5518" strokeWidth={2.5} />
+      <Veg x={575} y={SHELF[1] - 36} />
       <rect x={160} y={SHELF[2] - 56} width={170} height={48} rx={10} fill="#5a6672" stroke="#2a313a" strokeWidth={2.5} /><rect x={160} y={SHELF[2] - 74} width={170} height={20} rx={8} fill="#7a8794" />
       <Jar x={DX + 56} y={DSHELF[2] - 48} c="#c9553d" /><Bottle x={DX + 138} y={DSHELF[2] - 52} c="#e9b44c" />
-      <Jar x={DX + 56} y={DSHELF[0] + 300} c="#3f8f4f" h={70} /><Jar x={DX + 140} y={DSHELF[0] + 306} c="#b57f1f" h={64} />
+      <Jar x={DX + 56} y={DSHELF[1] - 44} c="#3f8f4f" h={70} /><Jar x={DX + 140} y={DSHELF[1] - 40} c="#b57f1f" h={64} />
       {/* стрелки тёплого воздуха */}
-      {arrows > 0.01 && [0, 1, 2].map((i) => { const u = ((t * 0.9 + i / 3) % 1), x = lerp(DX - 10, BX + 300, u), y = 800 + i * 200 + Math.sin(u * 6 + i) * 18; return <g key={i} opacity={arrows * (1 - u * 0.6)}><path d={`M${x} ${y} l-46 -16 l0 32 Z`} fill={ORANGE} /><line x1={x} y1={y} x2={x + 60} y2={y} stroke={ORANGE} strokeWidth={8} strokeLinecap="round" /></g>; })}
+      {arrows > 0.01 && [0, 1, 2].map((i) => { const u = ((t * 0.9 + i / 3) % 1), x = lerp(DX - 10, BX + 300, u), y = 820 + i * 200 + Math.sin(u * 6 + i) * 18; return <g key={i} opacity={arrows * (1 - u * 0.6)}><path d={`M${x} ${y} l-46 -16 l0 32 Z`} fill={ORANGE} /><line x1={x} y1={y} x2={x + 60} y2={y} stroke={ORANGE} strokeWidth={8} strokeLinecap="round" /></g>; })}
     </g>
   );
 };
@@ -86,7 +110,7 @@ const Movers: React.FC<{t: number}> = ({t}) => {
   return (
     <g>
       {/* яйца в двери (плохо) или на полке (хорошо) */}
-      {t < 4.5 && <g><Eggs x={wx} y={DSHELF[0] - 36} s={0.82} />{eggBad > 0 && <g opacity={eggBad}><rect x={DX - 4} y={DSHELF[0] - 110} width={DW + 8} height={104} rx={14} fill="none" stroke={RED} strokeWidth={6} /><path d={`M${DX + DW - 24} ${DSHELF[0] - 134} l36 36 M${DX + DW + 12} ${DSHELF[0] - 134} l-36 36`} stroke={RED} strokeWidth={9} strokeLinecap="round" /></g>}</g>}
+      {t < 4.5 && <g><Eggs x={wx} y={DSHELF[0] - 40} s={0.82} />{eggBad > 0 && <g opacity={eggBad}><rect x={DX - 4} y={DSHELF[0] - 110} width={DW + 8} height={104} rx={14} fill="none" stroke={RED} strokeWidth={6} /><path d={`M${DX + DW - 24} ${DSHELF[0] - 134} l36 36 M${DX + DW + 12} ${DSHELF[0] - 134} l-36 36`} stroke={RED} strokeWidth={9} strokeLinecap="round" /></g>}</g>}
       {t >= 4.5 && t < 5.5 && <Eggs x={ex} y={ey} s={0.9} />}
       {t >= 5.5 && <Eggs x={230} y={SHELF[1] - 36} s={0.9} glow={eggGood * (1 - tm(t, 8.4, 9.0)) + (t > 26 ? tm(t, 26.0, 26.6) : 0)} />}
       {/* молоко */}
@@ -105,7 +129,7 @@ const Movers: React.FC<{t: number}> = ({t}) => {
 /** график температуры с пиком при открытии двери (9.3-11.7) */
 const Chart: React.FC<{t: number}> = ({t}) => {
   const a = tm(t, 8.6, 9.2) * (1 - tm(t, 12.6, 13.2)); if (a <= 0) return null;
-  const X0 = 130, X1 = 950, Y0 = 1750, Y1 = 1560, n = 60, draw = tm(t, 9.0, 12.4);
+  const X0 = 130, X1 = 950, Y0 = 1840, Y1 = 1660, n = 60, draw = tm(t, 9.0, 12.4);
   const f = (u: number) => { const tt = 9.0 + u * 3.4; return Y0 - (Y0 - Y1) * 0.18 - (Y0 - Y1) * 0.62 * Math.max(0, Math.exp(-Math.pow((tt - 9.9) / 0.9, 2) * (tt < 9.9 ? 6 : 0.9))) * (tt >= 9.3 ? 1 : 0); };
   let d = ''; for (let i = 0; i <= Math.floor(n * draw); i++) { const u = i / n; d += `${i ? 'L' : 'M'}${X0 + (X1 - X0) * u} ${f(u)} `; }
   return (
@@ -187,7 +211,7 @@ export const MuzCover: React.FC = () => {
         <defs><pattern id="gr2" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#161c23" strokeWidth={2} /></pattern></defs>
         <rect width={W} height={H} fill="url(#gr2)" />
         <g transform="translate(0 200)"><Fridge t={0} />
-          <g><Eggs x={DX + 110} y={DSHELF[0] - 36} s={0.82} /><rect x={DX - 4} y={DSHELF[0] - 110} width={DW + 8} height={104} rx={14} fill="none" stroke={RED} strokeWidth={7} /><path d={`M${DX + DW - 30} ${DSHELF[0] - 140} l44 44 M${DX + DW + 14} ${DSHELF[0] - 140} l-44 44`} stroke={RED} strokeWidth={11} strokeLinecap="round" /></g>
+          <g><Eggs x={DX + 110} y={DSHELF[0] - 40} s={0.82} /><rect x={DX - 4} y={DSHELF[0] - 110} width={DW + 8} height={104} rx={14} fill="none" stroke={RED} strokeWidth={7} /><path d={`M${DX + DW - 30} ${DSHELF[0] - 140} l44 44 M${DX + DW + 14} ${DSHELF[0] - 140} l-44 44`} stroke={RED} strokeWidth={11} strokeLinecap="round" /></g>
         </g>
       </svg>
       <Vignette strength={0.5} />
