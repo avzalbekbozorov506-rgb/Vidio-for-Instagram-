@@ -167,6 +167,24 @@ export const NarratorMeSheet: React.FC = () => {
 
 /** Красивый вымышленный рассказчик: мягкий свет, ухоженная борода, дóппи с узором, зелёный чапан с золотой каймой. */
 const PS = '#e0b08a', PS_D = '#b9855e', PS_L = '#f2cba6', PH = '#1b130f', PH_L = '#3a2a20', PLIP = '#b4635a';
+
+const ProMouth: React.FC<{m: Mouth; smile: number}> = ({m, smile}) => {
+  const y = 70, lift = smile * 10, LU = '#c9766b', LL = '#d98678', IN = '#3a1210';
+  if (m === 'closed') return <g>
+    <path d={`M-23 ${y - lift * 0.4} Q-11 ${y - 9} 0 ${y - 5} Q11 ${y - 9} 23 ${y - lift * 0.4} Q12 ${y + 1 + lift * 0.3} 0 ${y + 1} Q-12 ${y + 1 + lift * 0.3} -23 ${y - lift * 0.4} Z`} fill={LU} />
+    <path d={`M-21 ${y - lift * 0.4 + 1} Q0 ${y + 4 + lift} 21 ${y - lift * 0.4 + 1} Q12 ${y + 14 + lift * 0.4} 0 ${y + 14} Q-12 ${y + 14 + lift * 0.4} -21 ${y - lift * 0.4 + 1} Z`} fill={LL} />
+    <path d={`M-23 ${y - lift * 0.4} Q0 ${y + 3 + lift * 0.6} 23 ${y - lift * 0.4}`} stroke="#6a2a24" strokeWidth={2.4} fill="none" strokeLinecap="round" />
+    <ellipse cx={0} cy={y + 8} rx={7} ry={2.2} fill="#f0b0a2" opacity={0.7} /></g>;
+  const dims: Record<string, [number, number]> = {small: [14, 8], wide: [24, 17], o: [11, 14], ee: [28, 8]};
+  const [rx, ry] = dims[m];
+  return <g>
+    <ellipse cx={0} cy={y + 2} rx={rx + 6} ry={ry + 5} fill={LL} />
+    <path d={`M${-rx - 6} ${y + 2} Q0 ${y - ry - 9} ${rx + 6} ${y + 2} Q0 ${y - ry + 1} ${-rx - 6} ${y + 2} Z`} fill={LU} />
+    <ellipse cx={0} cy={y + 2} rx={rx} ry={ry} fill={IN} />
+    {(m === 'wide' || m === 'ee') && <path d={`M${-rx + 3} ${y + 2 - ry + 1} Q0 ${y + 2 - ry + 6} ${rx - 3} ${y + 2 - ry + 1} L${rx - 5} ${y + 2 - ry + 8} Q0 ${y + 2 - ry + 11} ${-rx + 5} ${y + 2 - ry + 8} Z`} fill="#f6f0e4" />}
+    {(m === 'wide' || m === 'o') && <ellipse cx={0} cy={y + 2 + ry * 0.55} rx={rx * 0.5} ry={ry * 0.32} fill="#c4586a" />}
+  </g>;
+};
 export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = true, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
   const eyeH = 11.5 * (1 - 0.92 * blink) * (1 - 0.45 * squint), by = -40 - brow * 14;
   return (
@@ -175,6 +193,7 @@ export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; 
         <radialGradient id="pfs" cx="0.42" cy="0.32" r="0.8"><stop offset="0" stopColor={PS_L} /><stop offset="0.55" stopColor={PS} /><stop offset="1" stopColor={PS_D} /></radialGradient>
         <linearGradient id="pbd" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={PH_L} /><stop offset="1" stopColor={PH} /></linearGradient>
         <radialGradient id="pir" cx="0.4" cy="0.35" r="0.8"><stop offset="0" stopColor="#9a6a3c" /><stop offset="0.6" stopColor="#5a3a1e" /><stop offset="1" stopColor="#2a180c" /></radialGradient>
+        <radialGradient id="pmp"><stop offset="0" stopColor="#7a5440" /><stop offset="0.65" stopColor="#5a3d2e" stopOpacity={0.9} /><stop offset="1" stopColor="#3a2a20" stopOpacity={0} /></radialGradient>
         <linearGradient id="probe" x1="0" x2="1"><stop offset="0" stopColor="#0f4a3c" /><stop offset="0.5" stopColor="#1a6b55" /><stop offset="1" stopColor="#0c3a2f" /></linearGradient>
       </defs>
       {bust && <g>
@@ -211,7 +230,7 @@ export const NarratorPro: React.FC<FaceP & {x?: number; y?: number; s?: number; 
         <path d="M-15 34 Q0 43 15 34" stroke="#9a6a48" strokeWidth={3} fill="none" strokeLinecap="round" />
         <ellipse cx={-8} cy={36} rx={3.2} ry={2} fill="#7a5036" /><ellipse cx={8} cy={36} rx={3.2} ry={2} fill="#7a5036" />
         {smile > 0.3 && [-1, 1].map((sd) => <ellipse key={sd} cx={sd * 46} cy={24} rx={14} ry={8} fill="#e48a6a" opacity={0.3 * smile} />)}
-        <g transform="translate(0 2)"><MouthShape m={mouth} smile={smile} lip={PLIP} /></g>
+        <ellipse cx={0} cy={70} rx={38} ry={21} fill="url(#pmp)" /><ProMouth m={mouth} smile={smile} />
         <path d="M-30 56 Q-14 46 0 52 Q14 46 30 56 Q14 59 0 56 Q-14 59 -30 56 Z" fill={PH} />
       </g>
     </g>
