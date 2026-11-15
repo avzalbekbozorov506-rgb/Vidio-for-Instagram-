@@ -23,5 +23,6 @@
 
 ## Состояние (15.11.2026)
 Удалено по просьбе пользователя: все композиции `reels/src`, голоса, звуки, музыка, скрипты конвейера, обложки/описания `reels/release`, старые документы стиля и агенты `avzalbot2/3`. Всё в истории git (до коммита очистки). Остались: каркас Remotion (`reels/package.json`, `remotion.config.ts`, `tsconfig.json`), шрифты `reels/public/fonts`, `reels/docs/FORMAT_TOP3.md`, 4 скила.
+HyperFrames от HeyGen (HTML в видео, Apache-2.0) установлен 15.11.2026: пакет `hyperframes` 0.9.53 в `reels/package.json` (`cd reels && npx hyperframes doctor|preview|render`), скилы `hyperframes`, `hyperframes-cli`, `hyperframes-registry` и др. в `.claude/skills` (файлы в `.agents/skills`). Для новых роликов можно собирать видео в нём вместо Remotion; выбор за пользователем. Нет whisper-cpp и Docker (не критично).
 Инструмент выравнивания слов не хранит модель: `python3 -m venv /tmp/cfa-venv && /tmp/cfa-venv/bin/pip install ctc-forced-aligner unidecode`.
 Не проверено: структура роликов 2 и 3 (пользователь не прислал ссылки), звук и узбекский (по правилам, не как носитель). Доступ vidIQ к Instagram истёк (нужно переподключить, если нужна статистика).
