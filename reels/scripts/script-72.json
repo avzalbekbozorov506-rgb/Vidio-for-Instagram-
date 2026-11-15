@@ -1,0 +1,44 @@
+{
+  "id": "script-72",
+  "title": "Bitta ortiqcha",
+  "lang": "uz",
+  "voice": "Jasur Noir",
+  "model": "lison-v2",
+  "speed": 1.0,
+  "genre": "serial",
+  "series": "Qo'rqinchli",
+  "status": "черновик страшилки (первое лицо, правило трёх, финал-петля), без озвучки",
+  "hook": "Bu suratni men olganman. Oilamiz besh kishi: ota, ona, opam, ukam va buvim. Suratda esa olti kishi bor. Oltinchisi kim?",
+  "cover_text": "SURATDA BITTA ORTIQCHA",
+  "facts": [
+    "Художественная страшилка, не источник; в описании «hikoya xayoliy»; без религиозных утверждений о духах"
+  ],
+  "caption": "",
+  "cards": [
+    {
+      "n": 1,
+      "vo": "Bu suratni men olganman. Oilamiz besh kishi: ota, ona, opam, ukam va buvim. Suratda esa olti kishi bor. Oltinchisi kim?",
+      "on_screen": ""
+    },
+    {
+      "n": 2,
+      "vo": "Birinchi kecha uni buvimning orqasidagi qorong'i burchakdan topdim. Yuzi ko'rinmaydi. Faqat kimdir turibdi.",
+      "on_screen": ""
+    },
+    {
+      "n": 3,
+      "vo": "Ikkinchi kecha u burchakda emas edi. Ota bilan ona orasida turardi. Uchinchi kecha ukamning yonida, kameraga qarab.",
+      "on_screen": ""
+    },
+    {
+      "n": 4,
+      "vo": "Har safar u sal yaqinroq. Ertalab buvim suratga qaradi va jim qoldi. Keyin sekin dedi: ko'rma, bolam. U senga yaqinlashyapti.",
+      "on_screen": ""
+    },
+    {
+      "n": 5,
+      "vo": "Bugun oxirgi marta ochdim. Suratda besh kishi. Oltinchisi yo'q. Men xotirjam nafas oldim. Telefon qorayganda, undagi aksda o'zimni ko'rdim. Va mening orqamda kimdir turardi.",
+      "on_screen": ""
+    }
+  ]
+}
