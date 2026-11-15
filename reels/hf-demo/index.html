@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #0b0b0f;
+        --ink: #ffffff;
+        --amber: #ffb400;
+        --dim: #9a9aa5;
+        --font-display: "Archivo Black", "Montserrat", sans-serif;
+        --font-body: "Montserrat", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: absolute; inset: 0; background: var(--ground); font-family: var(--font-body); color: var(--ink); }
+      #bg { position: absolute; inset: 0;
+        background: radial-gradient(ellipse 80% 45% at 50% 42%, rgba(255,180,0,0.22), rgba(11,11,15,0) 70%); }
+      #hex { position: absolute; inset: 0; opacity: 0.16; }
+      .scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      #pill { position: absolute; left: 50%; top: 300px; transform: translateX(-50%);
+        padding: 16px 38px; border-radius: 999px; background: var(--amber); color: #111;
+        font: 800 30px var(--font-body); letter-spacing: 0.12em; white-space: nowrap; }
+      .center { position: absolute; left: 0; width: 1080px; text-align: center; }
+      .h1 { font: 400 108px/1.04 var(--font-display); text-transform: uppercase; padding: 0 120px; }
+      .amber { color: var(--amber); }
+      .small { font: 800 40px var(--font-body); letter-spacing: 0.1em; color: var(--dim); text-transform: uppercase; }
+      .huge { font: 400 185px/1 var(--font-display); text-transform: uppercase; }
+      #strike { position: absolute; left: 190px; top: 868px; width: 700px; height: 22px; border-radius: 11px;
+        background: var(--amber); transform-origin: left center; }
+      #bee { position: absolute; left: 380px; top: 1080px; width: 320px; height: 240px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="10" data-width="1080" data-height="1920">
+      <div id="bg"></div>
+      <svg id="hex" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="hp" width="104" height="180" patternUnits="userSpaceOnUse">
+            <path d="M52 0 L104 30 L104 90 L52 120 L0 90 L0 30 Z M52 120 L52 150 M0 90 L-52 120 M104 90 L156 120" fill="none" stroke="#ffb400" stroke-width="3" />
+            <path d="M52 180 L104 150 L104 90 M52 180 L0 150 L0 90" fill="none" stroke="#ffb400" stroke-width="3" />
+          </pattern>
+        </defs>
+        <rect width="1080" height="1920" fill="url(#hp)" />
+      </svg>
+
+      <div id="pill" class="clip" data-start="0" data-duration="10" data-track-index="1">QUR'ON VA FAN</div>
+
+      <!-- A: hook -->
+      <div id="sceneA" class="scene clip" data-start="0" data-duration="3.0" data-track-index="2">
+        <div id="a-title" class="center h1" style="top: 560px">Asalari uyasini <span class="amber">kim</span> boshqaradi?</div>
+        <svg id="bee" viewBox="0 0 320 240" aria-hidden="true">
+          <ellipse id="wingL" cx="105" cy="70" rx="70" ry="42" fill="#cfe9ff" opacity="0.55" transform="rotate(-25 105 70)" />
+          <ellipse id="wingR" cx="215" cy="70" rx="70" ry="42" fill="#cfe9ff" opacity="0.55" transform="rotate(25 215 70)" />
+          <ellipse cx="160" cy="145" rx="105" ry="70" fill="#ffb400" />
+          <rect x="120" y="76" width="30" height="140" fill="#111" opacity="0.92" transform="rotate(8 135 146)" />
+          <rect x="175" y="76" width="30" height="140" fill="#111" opacity="0.92" transform="rotate(8 190 146)" />
+          <circle cx="242" cy="125" r="42" fill="#111" />
+          <circle cx="256" cy="116" r="9" fill="#fff" />
+          <path d="M240 90 Q250 55 275 48 M252 94 Q272 66 298 66" stroke="#111" stroke-width="6" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- B: asrlar davomida shoh -->
+      <div id="sceneB" class="scene clip" data-start="3.0" data-duration="2.6" data-track-index="2">
+        <div id="b-small" class="center small" style="top: 700px">Asrlar davomida</div>
+        <div id="b-big" class="center huge" style="top: 780px">Shoh</div>
+        <div id="strike"></div>
+      </div>
+
+      <!-- C: mikroskop, malika -->
+      <div id="sceneC" class="scene clip" data-start="5.6" data-duration="2.4" data-track-index="2">
+        <div id="c-small" class="center small" style="top: 700px">XVII asr, mikroskop</div>
+        <div id="c-big" class="center huge amber" style="top: 780px">Malika</div>
+      </div>
+
+      <!-- D: oyat va savol -->
+      <div id="sceneD" class="scene clip" data-start="8.0" data-duration="2.0" data-track-index="2">
+        <div id="d-small" class="center small" style="top: 720px">Nahl surasi, 16:68</div>
+        <div id="d-big" class="center h1 amber" style="top: 820px">Bu tasodifmi?</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // A
+      tl.fromTo("#a-title", { scale: 1.06 }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo("#bee", { opacity: 0, x: -260 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 0.5);
+      tl.to("#bee", { y: -26, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.2);
+      tl.to("#wingL", { rotation: -8, svgOrigin: "105 70", duration: 0.12, yoyo: true, repeat: 15, ease: "none" }, 0.5);
+      tl.to("#wingR", { rotation: 8, svgOrigin: "215 70", duration: 0.12, yoyo: true, repeat: 15, ease: "none" }, 0.5);
+      tl.to("#sceneA", { opacity: 0, duration: 0.2, ease: "power2.in" }, 2.78);
+
+      // B
+      tl.fromTo("#b-small", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.1);
+      tl.fromTo("#b-big", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 3.3);
+      tl.fromTo("#strike", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.inOut" }, 4.5);
+      tl.to("#sceneB", { opacity: 0, duration: 0.2, ease: "power2.in" }, 5.38);
+
+      // C
+      tl.fromTo("#c-small", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.7);
+      tl.fromTo("#c-big", { opacity: 0, y: 70, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 5.8);
+      tl.to("#sceneC", { opacity: 0, duration: 0.2, ease: "power2.in" }, 7.78);
+
+      // D
+      tl.fromTo("#d-small", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 8.05);
+      tl.fromTo("#d-big", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 8.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
