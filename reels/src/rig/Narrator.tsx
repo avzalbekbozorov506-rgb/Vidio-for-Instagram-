@@ -93,3 +93,71 @@ export const NarratorSheet: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/** Вариант «по фото владельца канала»: короткая стрижка, щетина, прямые брови, чёрная футболка. */
+const SKIN2 = '#cf9f7a', SKIN2_D = '#b07f5c', HAIR2 = '#1a1411';
+export const NarratorMe: React.FC<FaceP & {x?: number; y?: number; s?: number; bust?: boolean; doppi?: boolean}> = ({x = 0, y = 0, s = 1, bust = true, doppi = false, mouth = 'closed', smile = 0, brow = 0, worry = 0, blink = 0, squint = 0, lookX = 0, lookY = 0, tilt = 0}) => {
+  const eyeH = 11 * (1 - 0.9 * blink) * (1 - 0.5 * squint), by = -43 - brow * 14;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <defs>
+        <linearGradient id="stub" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={HAIR2} stopOpacity={0.0} /><stop offset="0.5" stopColor={HAIR2} stopOpacity={0.08} /><stop offset="0.75" stopColor={HAIR2} stopOpacity={0.3} /><stop offset="1" stopColor={HAIR2} stopOpacity={0.5} /></linearGradient>
+      </defs>
+      {bust && <g>
+        <path d="M-170 176 Q-170 128 -92 112 L92 112 Q170 128 170 176 L170 270 L-170 270 Z" fill="#141416" />
+        <path d="M-40 112 Q0 152 40 112 L30 112 Q0 138 -30 112 Z" fill="#0d0d0f" />
+        <path d="M30 112 L92 112 Q170 128 170 176 L170 270 L74 270 Q86 180 30 112 Z" fill="#232328" opacity={0.7} />
+        <rect x={-32} y={70} width={64} height={52} rx={20} fill={SKIN2_D} />
+      </g>}
+      <g transform={`rotate(${tilt})`}>
+        {[-1, 1].map((sd) => <g key={sd}><ellipse cx={sd * 82} cy={8} rx={14} ry={26} fill={SKIN2} /><ellipse cx={sd * 83} cy={10} rx={6} ry={14} fill={SKIN2_D} opacity={0.6} /></g>)}
+        <path d="M-80 -14 Q-86 -84 0 -102 Q86 -84 80 -14 Q82 60 56 96 Q30 122 0 124 Q-30 122 -56 96 Q-82 60 -80 -14 Z" fill={SKIN2} />
+        <path d="M28 -96 Q84 -76 80 -14 Q82 60 56 96 Q40 114 22 122 Q62 62 52 -30 Q50 -72 28 -96 Z" fill={SKIN2_D} opacity={0.26} />
+        <path d="M-78 24 Q-80 70 -54 98 Q-30 122 0 124 Q30 122 54 98 Q80 70 78 24 Q70 44 52 52 Q28 44 0 47 Q-28 44 -52 52 Q-70 44 -78 24 Z" fill="url(#stub)" />
+        <path d="M-36 51 Q-20 43 0 48 Q20 43 36 51 Q22 56 0 53 Q-22 56 -36 51 Z" fill={HAIR2} opacity={0.32} />
+        {!doppi && <g>
+          <path d="M-84 -22 Q-92 -104 0 -112 Q92 -104 84 -22 Q82 -50 70 -62 Q38 -84 0 -84 Q-38 -84 -70 -62 Q-82 -50 -84 -22 Z" fill={HAIR2} />
+          <path d="M-66 -62 Q-44 -82 0 -84 Q44 -82 66 -62 Q52 -70 0 -72 Q-52 -70 -66 -62 Z" fill="#2a201b" opacity={0.6} />
+        </g>}
+        {doppi && <g>
+          <path d="M-84 -58 Q-86 -122 0 -128 Q86 -122 84 -58 L78 -48 Q0 -72 -78 -48 Z" fill="#141010" />
+          <path d="M-80 -54 Q0 -76 80 -54" stroke="#ebe5d6" strokeWidth={3} fill="none" />
+          <polygon points="0,-118 11,-96 0,-76 -11,-96" fill="#ebe5d6" opacity={0.9} /><polygon points="0,-110 5,-96 0,-84 -5,-96" fill="#141010" />
+          {[-1, 1].map((sd) => <polygon key={sd} points={`${sd * 44},-98 ${sd * 52},-86 ${sd * 44},-74 ${sd * 36},-86`} fill="#ebe5d6" opacity={0.7} />)}
+        </g>}
+        {[-1, 1].map((sd) => <path key={sd} d={`M${sd * 12} ${by + 6 - 11 * worry} Q${sd * 38} ${by - 4 - brow * 5} ${sd * 66} ${by + 5 + 9 * worry}`} stroke={HAIR2} strokeWidth={11} strokeLinecap="round" fill="none" />)}
+        {[-1, 1].map((sd) => <g key={sd} transform={`translate(${sd * 36} -14)`}>
+          <ellipse cx={0} cy={0} rx={18} ry={eyeH} fill="#efe8dc" />
+          <clipPath id={`me${sd}`}><ellipse cx={0} cy={0} rx={18} ry={Math.max(eyeH, 0.1)} /></clipPath>
+          <g clipPath={`url(#me${sd})`}><circle cx={lookX * 6} cy={lookY * 4} r={9.5} fill="#4a3222" /><circle cx={lookX * 6} cy={lookY * 4} r={4.8} fill="#0e0907" /><circle cx={lookX * 6 + 3} cy={lookY * 4 - 3} r={2.2} fill="#fff" /></g>
+          <path d={`M-20 ${-eyeH * 0.1} Q0 ${-eyeH - 6} 20 ${-eyeH * 0.1}`} stroke={HAIR2} strokeWidth={5} strokeLinecap="round" fill="none" />
+          <path d={`M-17 ${eyeH * 0.5 + 5} Q0 ${eyeH + 7} 17 ${eyeH * 0.5 + 5}`} stroke={SKIN2_D} strokeWidth={3} fill="none" opacity={0.6} />
+        </g>)}
+        <path d="M-3 -4 Q-9 26 -17 38 Q0 46 17 38 Q9 26 3 -4" fill={SKIN2_D} opacity={0.45} />
+        <path d="M-16 38 Q0 46 16 38" stroke="#8b6244" strokeWidth={3} fill="none" strokeLinecap="round" />
+        <ellipse cx={-8} cy={40} rx={3} ry={2.3} fill="#6a4630" /><ellipse cx={8} cy={40} rx={3} ry={2.3} fill="#6a4630" />
+        {smile > 0.3 && [-1, 1].map((sd) => <ellipse key={sd} cx={sd * 54} cy={40} rx={17} ry={10} fill="#d9936b" opacity={0.28 * smile} />)}
+        <MouthShape m={mouth} smile={smile} />
+      </g>
+    </g>
+  );
+};
+
+export const NarratorMeSheet: React.FC = () => {
+  loadFonts();
+  const lab = (x: number, y: number, t: string) => <text x={x} y={y} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={26} fill="#ffe39a" stroke="#0a111c" strokeWidth={6} paintOrder="stroke" letterSpacing={3}>{t}</text>;
+  const mouths: Mouth[] = ['closed', 'small', 'wide', 'o', 'ee'];
+  return (
+    <AbsoluteFill style={{background: 'linear-gradient(180deg, #0d1626, #15233a 55%, #0a111c)'}}>
+      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{position: 'absolute', left: 0, top: 0}}>
+        <text x={540} y={90} textAnchor="middle" fontFamily="Montserrat, Arial, sans-serif" fontWeight={800} fontSize={44} fill="#fff3d0" letterSpacing={4}>RIVOYATCHI · SIZNING FOTO ASOSIDA</text>
+        <rect x={20} y={150} width={500} height={760} rx={30} fill="rgba(255,255,255,.05)" /><rect x={560} y={150} width={500} height={760} rx={30} fill="rgba(255,255,255,.05)" />
+        <NarratorMe x={270} y={520} s={2.0} />
+        <NarratorMe x={810} y={520} s={2.0} doppi smile={0.5} brow={0.15} />
+        {lab(270, 880, "DO'PPISIZ")}{lab(810, 880, "DO'PPI BILAN")}
+        {FRAME.map((k, i) => <g key={k}><NarratorMe x={108 + i * 216} y={1250} s={1.15} bust={false} {...EMOTIONS[k]} />{lab(108 + i * 216, 1410, k.toUpperCase())}</g>)}
+        {mouths.map((m, i) => <g key={m}><NarratorMe x={108 + i * 216} y={1650} s={1.15} bust={false} mouth={m} smile={0.1} />{lab(108 + i * 216, 1810, m.toUpperCase())}</g>)}
+      </svg>
+    </AbsoluteFill>
+  );
+};
