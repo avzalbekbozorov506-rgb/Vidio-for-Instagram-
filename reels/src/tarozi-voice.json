@@ -2,219 +2,209 @@
  "dur": 64.36,
  "cards": [
   [
-   1.55,
-   12.34
+   0.12,
+   10.16
   ],
   [
-   13.23,
-   19.49
+   10.96,
+   19.42
   ],
   [
-   20.81,
-   28.9
+   20.8,
+   28.86
   ],
   [
-   29.97,
-   41.95
+   29.96,
+   41.88
   ],
   [
    43.08,
-   55.95
+   55.9
   ],
   [
-   57.05,
-   64.1
+   57.08,
+   64.34
   ]
  ],
  "subs": [
   {
-   "from": 1.55,
-   "to": 4.714,
-   "text": "*Tarozichilar.*"
+   "from": 0.08,
+   "to": 2.46,
+   "text": "*Tarozichilar.* Bular ham o'z"
   },
   {
-   "from": 4.714,
-   "to": 6.307,
-   "text": "Bular ham o'z ishining ayyorligini"
+   "from": 2.46,
+   "to": 3.84,
+   "text": "ishining ayyorligini yaxshi"
   },
   {
-   "from": 6.307,
-   "to": 7.104,
-   "text": "yaxshi bilishadi."
+   "from": 3.84,
+   "to": 6.2,
+   "text": "bilishadi. Tarozi tosh bilan"
   },
   {
-   "from": 7.104,
-   "to": 10.569,
-   "text": "Tarozi tosh bilan o'lchanadi-ku."
+   "from": 6.2,
+   "to": 8.28,
+   "text": "o'lchanadi-ku. Ana o'sha"
   },
   {
-   "from": 10.569,
-   "to": 11.474,
-   "text": "Ana o'sha *toshning* o'zi"
+   "from": 8.28,
+   "to": 9.86,
+   "text": "*toshning* o'zi yengil bo'lib"
   },
   {
-   "from": 11.474,
-   "to": 12.34,
-   "text": "yengil bo'lib chiqadi."
+   "from": 9.86,
+   "to": 10.46,
+   "text": "chiqadi."
   },
   {
-   "from": 13.23,
-   "to": 14.795,
+   "from": 10.92,
+   "to": 12.58,
    "text": "Toshning tagini qirib qo'yishadi."
   },
   {
-   "from": 14.795,
-   "to": 15.544,
+   "from": 13.18,
+   "to": 15.06,
    "text": "Pallaning ostiga *qo'rg'oshin*"
   },
   {
-   "from": 15.544,
-   "to": 15.973,
-   "text": "yopishtirishadi."
+   "from": 15.06,
+   "to": 17.0,
+   "text": "yopishtirishadi. Yo bo'lmasa"
   },
   {
-   "from": 15.973,
-   "to": 18.096,
-   "text": "Yo bo'lmasa barmog'ini pallaning"
+   "from": 17.08,
+   "to": 18.64,
+   "text": "barmog'ini pallaning tagiga"
   },
   {
-   "from": 18.096,
-   "to": 19.49,
-   "text": "tagiga sekin tiraydi."
+   "from": 18.64,
+   "to": 19.72,
+   "text": "sekin tiraydi."
   },
   {
-   "from": 20.81,
-   "to": 22.691,
+   "from": 20.76,
+   "to": 22.52,
    "text": "Qo'shni do'konda tarozi *to'g'ri.*"
   },
   {
-   "from": 22.691,
-   "to": 24.461,
+   "from": 22.88,
+   "to": 24.16,
    "text": "Ustiga bir hovuch ham qo'shib"
   },
   {
-   "from": 24.461,
-   "to": 24.888,
-   "text": "beradi."
+   "from": 24.16,
+   "to": 26.28,
+   "text": "beradi. Kechqurun odam shu"
   },
   {
-   "from": 24.888,
-   "to": 26.627,
-   "text": "Kechqurun odam shu do'konga"
+   "from": 26.28,
+   "to": 27.64,
+   "text": "do'konga navbatga turadi."
   },
   {
-   "from": 26.627,
-   "to": 27.658,
-   "text": "navbatga turadi."
-  },
-  {
-   "from": 27.658,
-   "to": 28.9,
+   "from": 27.96,
+   "to": 29.16,
    "text": "O'zlari yaxshi biladi."
   },
   {
-   "from": 29.97,
-   "to": 31.278,
+   "from": 29.92,
+   "to": 31.36,
    "text": "Madinada ham shunday bo'lgan."
   },
   {
-   "from": 31.278,
-   "to": 32.581,
+   "from": 31.9,
+   "to": 33.04,
    "text": "Ibn Abbos aytadilar,"
   },
   {
-   "from": 32.581,
-   "to": 34.209,
+   "from": 33.04,
+   "to": 34.06,
    "text": "Payg'ambarimiz sollallohu"
   },
   {
-   "from": 34.209,
-   "to": 35.772,
+   "from": 34.06,
+   "to": 35.42,
    "text": "alayhi vasallam Madinaga"
   },
   {
-   "from": 35.772,
-   "to": 37.596,
+   "from": 35.42,
+   "to": 37.42,
    "text": "kelganlarida, ahli o'lchovda"
   },
   {
-   "from": 37.596,
-   "to": 39.224,
+   "from": 37.42,
+   "to": 38.88,
    "text": "eng ko'p *aldaydiganlardan*"
   },
   {
-   "from": 39.224,
-   "to": 39.484,
-   "text": "edi."
+   "from": 38.88,
+   "to": 41.6,
+   "text": "edi. Shunda *Mutaffifin* surasi"
   },
   {
-   "from": 39.484,
-   "to": 41.393,
-   "text": "Shunda *Mutaffifin* surasi"
-  },
-  {
-   "from": 41.393,
-   "to": 41.95,
+   "from": 41.6,
+   "to": 42.18,
    "text": "tushdi."
   },
   {
-   "from": 43.08,
-   "to": 45.39,
+   "from": 43.04,
+   "to": 45.12,
    "text": "Birodarlar, Alloh taolo aytadi."
   },
   {
-   "from": 45.39,
-   "to": 47.21,
-   "text": "*Voy bo'lsin* o'lchovdan"
+   "from": 45.98,
+   "to": 47.66,
+   "text": "*Voy bo'lsin* o'lchovdan urib"
   },
   {
-   "from": 47.21,
-   "to": 48.782,
-   "text": "urib qoluvchilarga."
+   "from": 47.66,
+   "to": 50.02,
+   "text": "qoluvchilarga. Ular odamlardan"
   },
   {
-   "from": 48.782,
-   "to": 50.778,
-   "text": "Ular odamlardan narsa o'lchab"
+   "from": 50.02,
+   "to": 51.3,
+   "text": "narsa o'lchab olsalar,"
   },
   {
-   "from": 50.778,
-   "to": 52.43,
-   "text": "olsalar, to'liq olarlar."
+   "from": 51.3,
+   "to": 52.38,
+   "text": "to'liq olarlar."
   },
   {
-   "from": 52.43,
-   "to": 54.356,
+   "from": 52.74,
+   "to": 54.28,
    "text": "Odamlarga o'lchab yoki tortib"
   },
   {
-   "from": 54.356,
-   "to": 55.95,
+   "from": 54.28,
+   "to": 56.2,
    "text": "bersalar, *kamaytirarlar.*"
   },
   {
-   "from": 57.05,
-   "to": 58.434,
+   "from": 57.04,
+   "to": 58.14,
    "text": "Aldasam, hech kim bilmaydi,"
   },
   {
-   "from": 58.434,
-   "to": 59.151,
+   "from": 58.14,
+   "to": 59.04,
    "text": "deb o'ylaysiz."
   },
   {
-   "from": 59.151,
-   "to": 60.934,
+   "from": 59.48,
+   "to": 60.66,
    "text": "Oyat esa *so'raydi.*"
   },
   {
-   "from": 60.934,
-   "to": 62.894,
+   "from": 61.42,
+   "to": 63.1,
    "text": "Bular qayta tirilishlarini"
   },
   {
-   "from": 62.894,
-   "to": 64.1,
+   "from": 63.32,
+   "to": 64.64,
    "text": "o'ylamaydilarmi?"
   }
  ]
