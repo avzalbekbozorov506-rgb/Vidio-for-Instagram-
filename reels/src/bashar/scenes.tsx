@@ -1,5 +1,5 @@
 import React from 'react';
-import {Man, Facade, Ground, Tree, Palm, Awn, Blots, Sky, Shadow, PP, OnStreet, V2, W, H, INK, rnd, sm, lin, q12, ol} from './kit';
+import {useT, Man, Facade, Ground, Tree, Palm, Awn, Blots, Sky, Shadow, PP, OnStreet, V2, W, H, INK, rnd, sm, lin, q12, ol} from './kit';
 
 export type SP = {t: number; d: number};
 const Pal = {wall: '#D9D0B8', wall2: '#CFC6AA', wood: '#A98767', woodD: '#8F6E4E', brass: '#B99C58', sack: '#D8C08A', grain: '#D9B96A'};
@@ -7,7 +7,7 @@ const Pal = {wall: '#D9D0B8', wall2: '#CFC6AA', wood: '#A98767', woodD: '#8F6E4E
 /** ---------- общие предметы ---------- */
 export const Arm: React.FC<{a: V2; b: V2; w?: number; sleeve?: string; skin?: string}> = ({a, b, w = 70, sleeve = '#6A806E', skin = '#D5B59C'}) => {
   const ang = (Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI;
-  return <g><line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={INK} strokeWidth={w + 3.5} strokeLinecap="round" /><line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={sleeve} strokeWidth={w} strokeLinecap="round" />
+  return <g><line x1={a[0] + 26} y1={a[1] + 34} x2={b[0] + 26} y2={b[1] + 34} stroke="#3A342B" strokeWidth={w} strokeLinecap="round" opacity={0.16} /><line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={INK} strokeWidth={w + 3.5} strokeLinecap="round" /><line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={sleeve} strokeWidth={w} strokeLinecap="round" />
     <g transform={`translate(${b[0]} ${b[1]}) rotate(${ang})`}><ellipse cx={w * 0.55} cy={0} rx={w * 0.62} ry={w * 0.46} fill={skin} stroke={INK} strokeWidth={1.8} /><ellipse cx={w * 0.7} cy={-w * 0.36} rx={w * 0.3} ry={w * 0.16} fill={skin} stroke={INK} strokeWidth={1.4} /></g></g>;
 };
 const Pan: React.FC<{x: number; y: number; children?: React.ReactNode}> = ({x, y, children}) => (
@@ -18,6 +18,7 @@ export const Scale: React.FC<{x: number; y: number; s?: number; ang?: number; go
   const lx = -ex, ly = top - ey, rx = ex, ry = top + ey;
   return (
     <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <ellipse cx={30} cy={6} rx={110} ry={12} fill="#3A342B" opacity={0.22} />
       <path d="M-72 0 L72 0 L50 -30 L-50 -30 Z" fill="#8C7350" stroke={INK} strokeWidth={1.8} strokeLinejoin="round" />
       <rect x={-12} y={top} width={24} height={-top - 30} rx={8} fill="#A5895A" stroke={INK} strokeWidth={1.8} />
       <circle cx={0} cy={top} r={16} fill="#C9AE6A" stroke={INK} strokeWidth={1.8} />
@@ -40,10 +41,20 @@ const Counter: React.FC<{y: number; x0?: number; x1?: number; wood?: string}> = 
     {Array.from({length: 7}, (_, i) => <line key={i} x1={x0 + 40 + i * 150} y1={y + 50} x2={x0 + 40 + i * 150} y2={H} stroke={Pal.woodD} strokeWidth={2} opacity={0.5} />)}
     <rect x={x0 - 10} y={y} width={x1 - x0 + 20} height={40} rx={6} fill={wood} stroke={INK} strokeWidth={1.8} /></g>
 );
-const Wall: React.FC<{tone?: string; seed?: number}> = ({tone = Pal.wall, seed = 3}) => (
-  <g><rect width={W} height={H} fill={tone} /><Blots seed={seed} colors={['#C2B79A', '#B5AA8A', '#E5DECA']} n={8} o={0.45} />
-  </g>
-);
+const Wall: React.FC<{tone?: string; seed?: number}> = ({tone = Pal.wall, seed = 3}) => {
+  const tt = useT();
+  return (
+    <g>
+      <rect width={W} height={H} fill={tone} /><Blots seed={seed} colors={['#C2B79A', '#B5AA8A', '#E5DECA']} n={8} o={0.45} />
+      <rect x={90} y={150} width={330} height={470} fill="#C9DCE2" stroke={INK} strokeWidth={2} /><line x1={255} y1={150} x2={255} y2={620} stroke={INK} strokeWidth={2} /><line x1={90} y1={380} x2={420} y2={380} stroke={INK} strokeWidth={2} />
+      <polygon points="90,620 420,620 1000,1500 340,1500" fill="#FFF3C8" opacity={0.16} />
+      {Array.from({length: 18}, (_, i) => <circle key={i} cx={260 + rnd(i + seed) * 520 + Math.sin(tt * 0.6 + i) * 18} cy={700 + ((rnd(i + 9) * 800 + tt * 14) % 800)} r={2 + rnd(i + 4) * 2.4} fill="#FFF7D8" opacity={0.55} />)}
+      <rect x={640} y={420} width={420} height={14} fill={Pal.woodD} stroke={INK} strokeWidth={1.4} /><rect x={640} y={720} width={420} height={14} fill={Pal.woodD} stroke={INK} strokeWidth={1.4} />
+      {[0, 1, 2].map((i) => <ellipse key={i} cx={700 + i * 110} cy={392} rx={36} ry={30} fill={['#B9795B', '#C89E4E', '#7F98A6'][i]} stroke={INK} strokeWidth={1.4} />)}
+      <path d="M660 718 q-8 -70 40 -80 q48 10 40 80 Z" fill={Pal.sack} stroke={INK} strokeWidth={1.4} /><path d="M800 718 q-8 -90 50 -96 q58 6 50 96 Z" fill="#C9A979" stroke={INK} strokeWidth={1.4} />
+    </g>
+  );
+};
 
 /** ---------- сцены ---------- */
 export const Aerial: React.FC<SP> = ({t}) => {
@@ -72,8 +83,9 @@ export const StreetSeller: React.FC<SP> = ({t}) => {
     <g>
       <Sky top="#D8D7C5" bot="#EADFC8" h={820} id="s1" />
       <Ground vp={vp} a="#CBBFA9" b="#B8AC94" id="g1" />
-      <Facade vp={vp} nTop={[-90, 120]} nBot={[-90, 1700]} k0={1} k1={0.1} wall="#D9D0B8" win="#97A2A4" rows={5} awn={['#B9795B', '#EADFC8']} />
-      <Facade vp={vp} nTop={[1170, 120]} nBot={[1170, 1700]} k0={1} k1={0.1} wall="#CDBFA1" win="#97A2A4" rows={5} awn={['#7F98A6', '#EADFC8']} />
+      <Tree x={500} y={800} s={0.55} seed={3} /><Tree x={600} y={800} s={0.45} seed={8} col="#A4B87C" />
+      <Facade vp={vp} nTop={[-90, 120]} nBot={[-90, 1700]} k0={1} k1={0.1} wall="#D9D0B8" win="#97A2A4" rows={4} awn={['#B9795B', '#EADFC8']} seed={2} />
+      <Facade vp={vp} nTop={[1170, 120]} nBot={[1170, 1700]} k0={1} k1={0.1} wall="#CDBFA1" win="#97A2A4" rows={4} awn={['#7F98A6', '#EADFC8']} seed={5} />
       {folk.map(({k, side, i}) => { const o = OnStreet(vp, [540 + side, 1850], k, 880); return <Man key={i} x={o.x} y={o.y} h={o.h} walk={tq * 5 + i} flip={i % 2 === 0} shirt={['#6A806E', '#5E6C79', '#8A7A62', '#73797A'][i % 4]} pants={['#55595C', '#44474A', '#5A5D55'][i % 3]} hat={i % 3 === 0 ? 'doppi' : 'none'} />; })}
       <g transform="translate(0 0)">
         <Man x={860} y={1470} h={860} shirt="#5E6C79" hat="doppi" armL={[10, 10]} armR={[28 + 20 * hand, 62]} />
@@ -166,8 +178,9 @@ export const QueueStreet: React.FC<SP> = ({t}) => {
     <g>
       <Sky top="#E2A97E" bot="#EADBC4" h={880} id="s2" blots={['#E8B58C', '#D98E68', '#F0D6AE']} seed={9} />
       <Ground vp={vp} a="#C9AE92" b="#A8917A" id="g2" lines="#B79A82" />
-      <Facade vp={vp} nTop={[-90, 140]} nBot={[-90, 1700]} k0={1} k1={0.1} wall="#D8BFA3" win="#8F8F98" rows={5} awn={['#B9795B', '#EADFC8']} dark={0.08} />
-      <Facade vp={vp} nTop={[1170, 140]} nBot={[1170, 1700]} k0={1} k1={0.1} wall="#CDB394" win="#8F8F98" rows={5} awn={['#8FA27A', '#EADFC8']} dark={0.1} />
+      <Tree x={480} y={850} s={0.5} seed={4} col="#8A9A60" /><Tree x={610} y={850} s={0.4} seed={9} col="#A4B87C" />
+      <Facade vp={vp} nTop={[-90, 140]} nBot={[-90, 1700]} k0={1} k1={0.1} wall="#D8BFA3" win="#8F8F98" rows={4} awn={['#B9795B', '#EADFC8']} dark={0.08} seed={7} haze="#EBC9A4" />
+      <Facade vp={vp} nTop={[1170, 140]} nBot={[1170, 1700]} k0={1} k1={0.1} wall="#CDB394" win="#8F8F98" rows={4} awn={['#8FA27A', '#EADFC8']} dark={0.1} seed={11} haze="#EBC9A4" />
       {[0, 1, 2, 3, 4, 5, 6].map((i) => { const o = OnStreet(vp, [770, 1860], 0.78 - i * 0.085 + (sm(t, 0, 6) * 0.03), 880); return <Man key={i} x={o.x - i * 8} y={o.y} h={o.h} walk={tq * 4 + i} flip shirt={['#6A806E', '#7A5A3D', '#5E6C79', '#8D7AA0', '#73797A', '#A8604F', '#4A5F4B'][i]} hat={i % 2 ? 'doppi' : 'none'} />; })}
       {[0, 1, 2].map((i) => { const o = OnStreet(vp, [250, 1860], 0.55 - i * 0.12, 880); return <Man key={i + 10} x={o.x} y={o.y} h={o.h} walk={tq * 4 + i + 3} shirt="#5E6C79" hat="doppi" />; })}
       <rect width={W} height={H} fill="#E9A66C" opacity={0.12} />
@@ -213,8 +226,8 @@ export const MadinaMarket: React.FC<SP & {light?: number; honest?: boolean}> = (
     <g>
       <Sky top="#D8D2B8" bot="#EBD7B2" h={850} id="s4" blots={['#E3C79E', '#D9C9A6', '#C9CDBB']} seed={22} />
       <Ground vp={vp} a="#D2BF9A" b="#B6A07C" id="g4" lines="#B8A482" />
-      <Facade vp={vp} nTop={[-90, 300]} nBot={[-90, 1700]} k0={1} k1={0.12} wall="#C9B48E" win="#6F5A40" rows={3} awn={['#E2D6BC', '#C9A979']} />
-      <Facade vp={vp} nTop={[1170, 300]} nBot={[1170, 1700]} k0={1} k1={0.12} wall="#BFA982" win="#6F5A40" rows={3} awn={['#E2D6BC', '#B9795B']} />
+      <Facade vp={vp} nTop={[-90, 300]} nBot={[-90, 1700]} k0={1} k1={0.12} wall="#C9B48E" win="#6F5A40" rows={3} awn={['#E2D6BC', '#C9A979']} seed={4} mud haze="#EBD7B2" />
+      <Facade vp={vp} nTop={[1170, 300]} nBot={[1170, 1700]} k0={1} k1={0.12} wall="#BFA982" win="#6F5A40" rows={3} awn={['#E2D6BC', '#B9795B']} seed={9} mud haze="#EBD7B2" />
       <Palm x={540} y={780} s={0.45} /><Palm x={450} y={790} s={0.35} />
       {[0, 1, 2, 3, 4].map((i) => { const k = 0.28 + i * 0.16, o = OnStreet(vp, [i % 2 ? 700 : 340, 1850], k, 900); return <Man key={i} x={o.x} y={o.y} h={o.h} robe hat="turban" shirt={['#E2DDD1', '#D9CDB4', '#CBBFA2', '#E0D6C0', '#BFAE8E'][i]} pants="#E2DDD1" beard={i % 2 === 0} hair="#8A8374" flip={i % 2 === 0} walk={i === 1 ? tq * 4 : undefined} bow={light ? -4 : 0} armR={light ? [150, 20] : honest ? [40, 50] : [10, 10]} />; })}
       {light > 0 && <g>
@@ -312,6 +325,36 @@ export const NightWide: React.FC<SP> = ({t, d}) => {
       {Array.from({length: 6}, (_, i) => <g key={i}><rect x={40 + i * 170} y={1240} width={150} height={150} fill="#4A4448" stroke={INK} strokeWidth={1.6} /><rect x={40 + i * 170} y={1220} width={150} height={40} fill={['#6B4A3E', '#4E5E58', '#6A5A3A'][i % 3]} stroke={INK} strokeWidth={1.6} /></g>)}
       <circle cx={540} cy={1500} r={420} fill="#F0B968" opacity={0.15} />
       <Man x={540} y={1700} h={620} shirt="#4F5A68" hat="doppi" armL={[10, 10]} armR={[10, 10]} />
+    </g>
+  );
+};
+
+/** чай: пар поднимается, рука ставит пиалу */
+export const Steam: React.FC<SP> = ({t}) => {
+  const tq = q12(t), put = sm(t, 0.2, 1.2);
+  return (
+    <g>
+      <Wall tone="#E1D2B4" seed={120} />
+      <Counter y={1400} />
+      <g transform={`translate(380 ${1400 - 34})`}><ellipse cx={20} cy={14} rx={100} ry={14} fill="#3A342B" opacity={0.2} /><path d="M-70 -120 L70 -120 L50 0 L-50 0 Z" fill="#F0E8D4" stroke={INK} strokeWidth={1.8} /><path d="M-62 -90 L62 -90" stroke="#2F6F76" strokeWidth={8} /><path d="M-70 -120 Q0 -100 70 -120" stroke={INK} strokeWidth={1.6} fill="none" /></g>
+      {[0, 1, 2].map((i) => <path key={i} d={`M${350 + i * 30} 1260 q${-22 + Math.sin(tq * 2 + i) * 18} -70 ${Math.sin(tq * 2 + i + 1) * 20} -140 t${Math.sin(tq * 2 + i) * 20} -140`} stroke="#FFFFFF" strokeWidth={10} fill="none" strokeLinecap="round" opacity={0.45} />)}
+      <Arm a={[1300, 1020]} b={[640 + 10 * (1 - put), 1250 + 30 * (1 - put)]} w={104} sleeve="#6A806E" />
+      <Man x={900} y={1560} h={1000} shirt="#5E6C79" hat="doppi" noShadow armL={[8, 10]} armR={[8, 10]} />
+    </g>
+  );
+};
+
+/** рассвет: небо, птицы, пальмы */
+export const Dawn: React.FC<SP> = ({t}) => {
+  const tq = q12(t);
+  return (
+    <g>
+      <Sky top="#B7C0C8" bot="#EDC49A" h={1300} id="s7" blots={['#E8B58C', '#D9C9A6', '#C9CDBB']} seed={30} cloud="#F6DDBA" />
+      <circle cx={540} cy={1020 - 120 * sm(t, 0, 3)} r={130} fill="#F2C878" opacity={0.9} /><circle cx={540} cy={1020 - 120 * sm(t, 0, 3)} r={250} fill="#F2C878" opacity={0.2} />
+      {Array.from({length: 7}, (_, i) => { const x = ((rnd(i) * 1200 + tq * (40 + i * 6)) % 1300) - 100, y = 300 + rnd(i + 5) * 380 + Math.sin(tq * 3 + i) * 12, f = Math.sin(tq * 9 + i) * 8; return <path key={i} d={`M${x - 22} ${y - f} Q${x - 10} ${y - 12} ${x} ${y} Q${x + 10} ${y - 12} ${x + 22} ${y - f}`} stroke={INK} strokeWidth={3} fill="none" strokeLinecap="round" />; })}
+      <path d="M-100 1300 L180 1120 L420 1230 L720 1080 L1100 1260 L1300 1150 L1300 1400 L-100 1400 Z" fill="#9A9488" stroke={INK} strokeWidth={1.6} opacity={0.7} />
+      <rect y={1300} width={W} height={H - 1300} fill="#C9B48E" />
+      {[160, 880].map((x, i) => <Palm key={i} x={x} y={1500} s={2.0} sway={Math.sin(t * 1.2 + i) * 6} />)}
     </g>
   );
 };
