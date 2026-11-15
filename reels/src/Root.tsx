@@ -36,6 +36,7 @@ import {Yusuf1, Yusuf1Cover, YUSUF1_FRAMES} from './Yusuf1';
 import {BookTest} from './yusuf/BookTest';
 import {Yusuf2, Yusuf2Cover, YUSUF2_FRAMES} from './Yusuf2';
 import {QuizBook, QuizBookCover, QUIZBOOK_FRAMES} from './QuizBook';
+import {Tasbeh, TasbehCover, TASBEH_FRAMES} from './Tasbeh';
 import {Zakariyo, ZakariyoCover, ZAK_FRAMES} from './Zakariyo';
 import {Falak, FalakCover, FALAK_FRAMES} from './Falak';
 import {Carousel} from './Carousel';
@@ -113,6 +114,8 @@ export const Root: React.FC = () => {
     <Composition id="Yusuf2Cover" component={Yusuf2Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="QuizBook" component={QuizBook} durationInFrames={QUIZBOOK_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QuizBookCover" component={QuizBookCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Tasbeh" component={Tasbeh} durationInFrames={TASBEH_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="TasbehCover" component={TasbehCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Yusuf1Cover" component={Yusuf1Cover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Zakariyo" component={Zakariyo} durationInFrames={ZAK_FRAMES} fps={30} width={1080} height={1920} defaultProps={{guide: false}} />
     <Composition id="ZakariyoCover" component={ZakariyoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
