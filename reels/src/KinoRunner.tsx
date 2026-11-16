@@ -213,3 +213,35 @@ export const KinoCover: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// Kanal avatari (1080x1080, doira ichida ko'rinadi)
+export const KinoAvatar: React.FC = () => {
+  loadFonts();
+  return (
+    <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 40%, #2a2a4a, #0b0b12 70%)', alignItems: 'center', justifyContent: 'center'}}>
+      <svg width={1080} height={1080} viewBox="0 0 1080 1080" style={{position: 'absolute', inset: 0}}>
+        {/* kinolenta */}
+        <g transform="rotate(-8 540 540)">
+          <rect x={170} y={280} width={740} height={290} rx={26} fill="#16162a" stroke="#ffd23f" strokeWidth={10} />
+          {Array.from({length: 10}).map((_, i) => (
+            <React.Fragment key={i}>
+              <rect x={200 + i * 72} y={298} width={36} height={30} rx={6} fill="#ffd23f" />
+              <rect x={200 + i * 72} y={532} width={36} height={30} rx={6} fill="#ffd23f" />
+            </React.Fragment>
+          ))}
+          <rect x={195} y={345} width={690} height={170} rx={10} fill="#0b0b12" />
+        </g>
+        {/* klapperboard */}
+        <g transform="translate(540 700)">
+          <rect x={-290} y={-60} width={580} height={250} rx={20} fill="#ffd23f" />
+          <rect x={-290} y={-60} width={580} height={70} fill="#111" />
+          {Array.from({length: 6}).map((_, i) => (
+            <polygon key={i} points={`${-290 + i * 100},-60 ${-240 + i * 100},-60 ${-250 + i * 100},10 ${-300 + i * 100},10`} fill="#fff" />
+          ))}
+        </g>
+      </svg>
+      <div style={{position: 'absolute', top: 395, left: 0, right: 0, textAlign: 'center', color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 100, letterSpacing: 2}}>KINO</div>
+      <div style={{position: 'absolute', top: 748, left: 0, right: 0, textAlign: 'center', color: '#111', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 84}}>MASLAHAT</div>
+    </AbsoluteFill>
+  );
+};

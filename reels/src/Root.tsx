@@ -8,11 +8,12 @@ import {UyUch3D, UY_FRAMES, UyCover} from './UyUch3D';
 import {Daftar, DAFTAR_FRAMES, DaftarCover} from './Daftar';
 import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
 
-import {KinoRunner, KINO_FRAMES, KinoCover} from './KinoRunner';
+import {KinoRunner, KINO_FRAMES, KinoCover, KinoAvatar} from './KinoRunner';
 
 export const Root: React.FC = () => (
   <>
     <Composition id="KinoRunner" component={KinoRunner} durationInFrames={KINO_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="KinoAvatar" component={KinoAvatar} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="KinoCover" component={KinoCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Qongiroq" component={Qongiroq} durationInFrames={QONG_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="QongiroqCover" component={QongiroqCover} durationInFrames={1} fps={30} width={1080} height={1920} />
