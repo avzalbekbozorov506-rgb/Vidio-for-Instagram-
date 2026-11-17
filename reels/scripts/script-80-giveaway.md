@@ -2,12 +2,12 @@
 Формат: призыв «комментарий + подписка» разрешён по просьбе пользователя (розыгрыш). Озвучка: пользователь в OvozAI или без голоса (субтитры + звуки).
 
 ## Текст по карточкам
-1. **To'xta!** 100 000 so'm kerakmi?
-2. Hozir bitta odamga 100 000 so'm yuboraman.
-3. Shartlar oddiy. Birinchi: sahifaga obuna bo'ling. Ikkinchi: izohga «Pul» deb yozing.
-4. Barcha izohlarni o'qib chiqaman. Bitta g'olibni tanlayman.
+1. To'xta! 100 000 so'm kerakmi?
+2. Hozir bitta odamga 100 000 so'm sovg'a qilaman.
+3. Shart oddiy. Birinchi: sahifaga obuna bo'ling. Ikkinchi: izohga «Pul» deb yozing.
+4. Barcha izohlarni o'qib chiqaman. G'olibni videoda tanlayman.
 5. G'olibni [SANA]da shu sahifada e'lon qilaman. Pulni kartaga o'tkazaman va chekni ko'rsataman.
-6. Xo'sh, 100 000 so'm kimga nasib qiladi? Izohga «Pul» deb yozing!
+6. Xo'sh, 100 000 so'm kimga sovg'a bo'ladi? Izohga «Pul» deb yozing!
 
 ## Раскадровка (идея 2D, без лиц)
 1. Красная вспышка и стоп-знак «STOP», на экране рука-перчатка/монеты падают (звук: стоп-удар).
