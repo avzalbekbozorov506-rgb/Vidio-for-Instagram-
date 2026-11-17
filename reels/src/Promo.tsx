@@ -110,3 +110,29 @@ const Promo: React.FC<{v: string}> = ({v}) => {
 export const PromoA: React.FC = () => <Promo v="A" />;
 export const PromoB: React.FC = () => <Promo v="B" />;
 export const PromoC: React.FC = () => <Promo v="C" />;
+
+// ---- обложки (Remotion вместо Canva: квота Canva исчерпана) ----
+const Cover: React.FC<{head: string; hl: string; sub: string; vis: React.ReactNode}> = ({head, hl, sub, vis}) => {
+  loadFonts();
+  return (
+    <AbsoluteFill style={{background: NAVY}}>
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}><Bg t={4} /><g transform="translate(0 280)">{vis}</g></svg>
+      <div style={{position: 'absolute', left: 0, right: 0, top: 1160, textAlign: 'center', fontFamily: 'Montserrat, Arial', fontWeight: 800, lineHeight: 1.0, textShadow: '0 6px 30px rgba(0,0,0,0.6)'}}>
+        <div style={{fontSize: 150, color: '#fff'}}>{head}</div>
+        <div style={{fontSize: 150, color: GOLD}}>{hl}</div>
+        <div style={{fontSize: 60, color: '#fff', marginTop: 40, opacity: 0.92}}>{sub}</div>
+      </div>
+      <Vignette strength={0.45} />
+    </AbsoluteFill>
+  );
+};
+const Coins: React.FC = () => (<g>{[[150, 250, 60], [930, 330, 45], [880, 120, 36], [210, 560, 40]].map(([x, y, r], i) => <g key={i}><circle cx={x} cy={y} r={r} fill={GOLD} /><circle cx={x} cy={y} r={r * 0.68} fill="none" stroke="#C58B2B" strokeWidth={4} /></g>)}</g>);
+export const PromoCoverA: React.FC = () => (
+  <Cover head="PUL" hl="YUTING!" sub="Qadalgan postni oching" vis={<g><Coins /><g transform="translate(540 480) scale(1.55)"><rect x={-130} y={-120} width={260} height={240} rx={26} fill="#3B3270" stroke={GOLD} strokeWidth={9} /><Note x={0} y={20} s={0.55} r={-6} /><g transform="translate(95 -85)"><circle r={30} fill={GOLD} /><path d="M-9 -14 l18 0 l-5 16 l9 9 l-27 0 l9 -9z M0 11 l0 16" stroke="#6B3F00" strokeWidth={5} fill="#6B3F00" strokeLinecap="round" /></g></g></g>} />
+);
+export const PromoCoverB: React.FC = () => (
+  <Cover head="TO'XTA!" hl="100 000 SO'M" sub="Profilda qadalgan post" vis={<g><Coins /><g transform="translate(540 470) scale(0.78)"><polygon points="-150,-362 150,-362 362,-150 362,150 150,362 -150,362 -362,150 -362,-150" fill={RED} stroke="#fff" strokeWidth={16} /><text x={0} y={46} textAnchor="middle" fontFamily="Montserrat" fontWeight={800} fontSize={190} fill="#fff">STOP</text></g></g>} />
+);
+export const PromoCoverC: React.FC = () => (
+  <Cover head="KIM" hl="YUTADI?" sub="Obuna bo'ling + izoh yozing" vis={<g><Coins />{Array.from({length: 9}).map((_, i) => <Avatar key={i} x={250 + (i % 3) * 290} y={170 + Math.floor(i / 3) * 230} r={78} c={i === 4 ? GOLD : '#8EA4D8'} />)}</g>} />
+);
