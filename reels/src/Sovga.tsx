@@ -12,7 +12,7 @@ export const SOVGA_FRAMES = Math.round(SOVGA_DUR * FPS);
 const GOLD = '#FFD25A', RED = '#EF3B4E', GREEN = '#2FB67C', NAVY = '#12183A', BLUE = '#4E8CFF';
 const e3 = (t: number, a: number, b: number) => sm(t, a, b);
 
-const Note: React.FC<{x: number; y: number; s?: number; r?: number; o?: number}> = ({x, y, s = 1, r = 0, o = 1}) => (
+export const Note: React.FC<{x: number; y: number; s?: number; r?: number; o?: number}> = ({x, y, s = 1, r = 0, o = 1}) => (
   <g transform={`translate(${x} ${y}) rotate(${r}) scale(${s})`} opacity={o}>
     <rect x={-190} y={-100} width={380} height={200} rx={22} fill="#2CA66F" stroke="#14583B" strokeWidth={8} />
     <rect x={-168} y={-78} width={336} height={156} rx={14} fill="none" stroke="#9BE7BF" strokeWidth={3} strokeDasharray="10 8" />
@@ -20,10 +20,10 @@ const Note: React.FC<{x: number; y: number; s?: number; r?: number; o?: number}>
     <text x={40} y={22} textAnchor="middle" fontFamily="Montserrat" fontWeight={800} fontSize={64} fill="#EAFFF3">100 000</text>
   </g>
 );
-const Avatar: React.FC<{x: number; y: number; r: number; c?: string}> = ({x, y, r, c = '#8EA4D8'}) => (
+export const Avatar: React.FC<{x: number; y: number; r: number; c?: string}> = ({x, y, r, c = '#8EA4D8'}) => (
   <g><circle cx={x} cy={y} r={r} fill={c} /><circle cx={x} cy={y - r * 0.18} r={r * 0.3} fill={NAVY} /><path d={`M${x - r * 0.6} ${y + r * 0.72} Q${x} ${y + r * 0.05} ${x + r * 0.6} ${y + r * 0.72}`} fill={NAVY} /></g>
 );
-const Bg: React.FC<{t: number}> = ({t}) => (
+export const Bg: React.FC<{t: number}> = ({t}) => (
   <g>
     <defs><radialGradient id="bg" cx="50%" cy="38%" r="85%"><stop offset="0" stopColor="#3B2A8A" /><stop offset="0.55" stopColor="#1A1F55" /><stop offset="1" stopColor="#0B0F2C" /></radialGradient></defs>
     <rect width={W} height={H} fill="url(#bg)" />

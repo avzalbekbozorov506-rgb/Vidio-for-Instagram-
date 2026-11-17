@@ -6,6 +6,7 @@ import {Muzlatkich, MUZ_FRAMES, MuzCover} from './Muzlatkich';
 import {Muzlatkich3D, MUZ3D_FRAMES, Muz3DCover} from './Muzlatkich3D';
 import {UyUch3D, UY_FRAMES, UyCover} from './UyUch3D';
 import {Daftar, DAFTAR_FRAMES, DaftarCover} from './Daftar';
+import {PromoA, PromoB, PromoC, PROMO_FRAMES} from './Promo';
 import {Sovga, SOVGA_FRAMES, SovgaCover} from './Sovga';
 import {Olis, OLIS_FRAMES, OlisCover} from './Olis';
 import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
@@ -30,5 +31,8 @@ export const Root: React.FC = () => (
     <Composition id="OlisCover" component={OlisCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="Sovga" component={Sovga} durationInFrames={SOVGA_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="SovgaCover" component={SovgaCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="PromoA" component={PromoA} durationInFrames={PROMO_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="PromoB" component={PromoB} durationInFrames={PROMO_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="PromoC" component={PromoC} durationInFrames={PROMO_FRAMES} fps={30} width={1080} height={1920} />
   </>
 );
