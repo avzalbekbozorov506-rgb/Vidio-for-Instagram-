@@ -34,3 +34,5 @@
 «Uydagi uchta sir» (3D, `UyUch3D`): код и голос готовы, рендер был остановлен пользователем; обложка Canva в `release/uy-canva-cover.png`. Тексты сценариев: в истории git (`reels/scripts/script-76-ovozai.txt`).
 Инструмент выравнивания слов не хранит модель: `python3 -m venv /tmp/cfa-venv && /tmp/cfa-venv/bin/pip install ctc-forced-aligner unidecode`, запуск `/tmp/cfa-venv/bin/python reels/scripts/align-words.py <wav> <txt> <out.json>`.
 Баланс vidIQ 5 кредитов; ShapelessAI ~$4 (резерв $0,9 за зависший разбор, проверить). Не проверено: звук роликов на слух, узбекский (по правилам, не как носитель), факты лайфхаков.
+
+Рэп на Suno (19.11.2026): `reels/scripts/rap-check.py` считает слоги и рифмы узбекского текста. Стиль White Gallows не изучен: тексты не найдены, нужен куплет от пользователя. Три черновика пользователь отклонил.
