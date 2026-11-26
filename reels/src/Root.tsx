@@ -6,6 +6,7 @@ import {Muzlatkich, MUZ_FRAMES, MuzCover} from './Muzlatkich';
 import {Muzlatkich3D, MUZ3D_FRAMES, Muz3DCover} from './Muzlatkich3D';
 import {UyUch3D, UY_FRAMES, UyCover} from './UyUch3D';
 import {Daftar, DAFTAR_FRAMES, DaftarCover} from './Daftar';
+import {Lesson2, LESSON2_FRAMES} from './Lesson2';
 import {Qongiroq, QONG_FRAMES, QongiroqCover} from './Qongiroq';
 
 export const Root: React.FC = () => (
@@ -24,5 +25,6 @@ export const Root: React.FC = () => (
     <Composition id="Muz3DCover" component={Muz3DCover} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="UyUch3D" component={UyUch3D} durationInFrames={UY_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="UyCover" component={UyCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="Lesson2" component={Lesson2} durationInFrames={LESSON2_FRAMES} fps={30} width={1920} height={1080} />
   </>
 );

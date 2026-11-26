@@ -34,3 +34,6 @@
 «Uydagi uchta sir» (3D, `UyUch3D`): код и голос готовы, рендер был остановлен пользователем; обложка Canva в `release/uy-canva-cover.png`. Тексты сценариев: в истории git (`reels/scripts/script-76-ovozai.txt`).
 Инструмент выравнивания слов не хранит модель: `python3 -m venv /tmp/cfa-venv && /tmp/cfa-venv/bin/pip install ctc-forced-aligner unidecode`, запуск `/tmp/cfa-venv/bin/python reels/scripts/align-words.py <wav> <txt> <out.json>`.
 Баланс vidIQ 5 кредитов; ShapelessAI ~$4 (резерв $0,9 за зависший разбор, проверить). Не проверено: звук роликов на слух, узбекский (по правилам, не как носитель), факты лайфхаков.
+
+## Урок 2 RU (26.11.2026, вне рубрик канала)
+Учебный ролик «Контаминация в фармпроизводстве»: 16:9, 3:29, русская озвучка FreeTTS (ru-RU-DmitryNeural, 10 файлов `reels/public/lesson2/s01..s10.mp3`), композиция `reels/src/Lesson2.tsx` (id `Lesson2`, 6271 кадр), рендер `render-chunks.sh Lesson2 6271 ...`, mp4 в `reels/out/lesson2-final.mp4` (не в git). Факты не сверены с первоисточником (EU GMP Annex 1, Chapter 3/5): проверить перед публикацией.
